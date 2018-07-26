@@ -1,0 +1,24 @@
+/**
+* @file:   proto/task_online_time_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message TASK_ONLINE_TIME{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 冷却时间 */
+    optional int32 cd_time = 2 [default = 0];
+    /** 次数限制 */
+    optional int32 qty_limit = 3 [default = 0];
+    /** 星尘数 */
+    optional int32 star_dust = 4 [default = 0];
+    /** 科技点数 */
+    optional int32 tech_point = 5 [default = 0];
+}
+
+message TASK_ONLINE_TIME_ARRAY {
+    repeated TASK_ONLINE_TIME items = 1;
+}

@@ -1,0 +1,25 @@
+/**
+* @file:   proto/bldg_surf_col_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message BLDG_SURF_COL{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 采集速度系数
+(百分比) */
+    optional int32 mining_spd_coeff = 2 [default = 0];
+    /** 最小领取时间
+(秒) */
+    optional int32 min_col_intvl = 3 [default = 0];
+    /** 最大容量
+(立方米) */
+    optional int32 max_cap = 4 [default = 0];
+}
+
+message BLDG_SURF_COL_ARRAY {
+    repeated BLDG_SURF_COL items = 1;
+}

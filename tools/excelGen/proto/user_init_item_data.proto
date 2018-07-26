@@ -1,0 +1,18 @@
+/**
+* @file:   proto/user_init_item_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message USER_INIT_ITEM{
+    /** 物品ID */
+    required int32 id = 1 [default = 0];
+    /** 物品数量 */
+    optional int32 item_qty = 2 [default = 0];
+}
+
+message USER_INIT_ITEM_ARRAY {
+    repeated USER_INIT_ITEM items = 1;
+}

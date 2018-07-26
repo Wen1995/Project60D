@@ -1,0 +1,25 @@
+/**
+* @file:   proto/bldg_power_plant_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message BLDG_POWER_PLANT{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 电力回复速率
+(法拉/小时) */
+    optional int32 ele_regen_rate = 2 [default = 0];
+    /** 提供电力上限
+(法拉) */
+    optional int32 max_ele_cap = 3 [default = 0];
+    /** 范围限定
+(rng=range) */
+    optional int32 affact_rng = 4 [default = 0];
+}
+
+message BLDG_POWER_PLANT_ARRAY {
+    repeated BLDG_POWER_PLANT items = 1;
+}

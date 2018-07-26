@@ -1,0 +1,72 @@
+/**
+* @file:   proto/ship_cpnt_tech_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message SHIP_CPNT_TECH{
+    /** 配件ID */
+    required int32 id = 1 [default = 0];
+    /** 配件类型
+        攻击配件=1
+        防御配件=2
+        子系统配件=3
+    */
+    optional int32 cpnt_type = 2 [default = 0];
+    /** 配件等级 */
+    optional int32 cpnt_lvl = 3 [default = 0];
+    /** 翻译表名 */
+    optional string transl_table_name = 4 [default = ""];
+    /** 配件名
+(cpnt=component) */
+    optional string cpnt_name = 5 [default = ""];
+    /** 可用
+        1表示是
+        0表示否
+    */
+    optional int32 in_use = 6 [default = 0];
+    /** 配件最大等级 */
+    optional int32 max_cpnt_lvl = 7 [default = 0];
+    /** 图标名称 */
+    optional string icon_name = 8 [default = ""];
+    /** 描述 */
+    optional string desc = 9 [default = ""];
+    /** 界面排序 */
+    optional int32 ui_order = 10 [default = 0];
+    /** 建筑等级要求 */
+    optional int32 bldg_lvl_req = 11 [default = 0];
+    /** 槽位能量消耗 */
+    optional int32 slot_nrg_cost = 12 [default = 0];
+    /** 配件特性1 */
+    optional int32 cpnt_trait_1 = 13 [default = 0];
+    /** 配件特性2 */
+    optional int32 cpnt_trait_2 = 14 [default = 0];
+    /** 配件特性3 */
+    optional int32 cpnt_trait_3 = 15 [default = 0];
+    /** 消耗时间
+（秒） */
+    optional int32 time_cost = 16 [default = 0];
+    /** 消耗电力 */
+    optional int32 ele_cost = 17 [default = 0];
+
+    message CostStruct{
+        /** 消耗ID */
+        optional int32 cost_id = 1 [default = 0];
+        /** 消耗数量
+(qty=quantity) */
+        optional int32 cost_qty = 2 [default = 0];
+    }
+
+    repeated CostStruct cost_table = 18;
+    /** 储存体积
+        占用
+        (立方米)
+    */
+    optional int32 stor_unit = 19 [default = 0];
+}
+
+message SHIP_CPNT_TECH_ARRAY {
+    repeated SHIP_CPNT_TECH items = 1;
+}

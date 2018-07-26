@@ -1,0 +1,8 @@
+安装python-2.7.14.amd64.msi
+环境变量Path后加入"C:\Python27"
+安装pip：cd到pip\pip-10.0.0b2路径下，执行命令python setup.py install
+
+python命令下执行
+import pip
+pip.main(['install', 'xlrd'])
+pip.main(['install', 'protobuf<=2.6.1'])

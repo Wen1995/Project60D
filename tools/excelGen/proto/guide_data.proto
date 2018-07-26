@@ -1,0 +1,36 @@
+/**
+* @file:   proto/guide_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message GUIDE{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 条件点 */
+    optional int32 intro_point = 2 [default = 0];
+    /** 条件 */
+    optional string condition = 3 [default = ""];
+    /** 前置引导ID */
+    optional int32 prev_id = 4 [default = 0];
+    /** 完成引导ID */
+    optional string complete_ids = 5 [default = ""];
+    /** 显示类型 */
+    optional int32 show_type = 6 [default = 0];
+    /** 角色等级 */
+    optional int32 player_rank = 7 [default = 0];
+    /** 页面名称 */
+    optional string page_name = 8 [default = ""];
+    /** 参数 */
+    optional string hand_param = 9 [default = ""];
+    /** 文本Key */
+    optional string text_key = 10 [default = ""];
+    /** 图片名称 */
+    optional string picture_name = 11 [default = ""];
+}
+
+message GUIDE_ARRAY {
+    repeated GUIDE items = 1;
+}

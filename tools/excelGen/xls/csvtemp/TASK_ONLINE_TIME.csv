@@ -1,0 +1,9 @@
+﻿"required","optional",,,,,"optional","optional","optional"
+"int32","int32",,,,,"int32","int32","int32"
+"id","cd_time",,,,,"qty_limit","star_dust","tech_point"
+"索引","冷却时间","天","时","分","秒","次数限制","星尘数","科技点数"
+1,180,,,3,,80,300,20
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,

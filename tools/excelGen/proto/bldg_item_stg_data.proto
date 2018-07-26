@@ -1,0 +1,19 @@
+/**
+* @file:   proto/bldg_item_stg_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message BLDG_ITEM_STG{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 物品容量上限
+(立方米) */
+    optional int32 max_item_cap = 2 [default = 0];
+}
+
+message BLDG_ITEM_STG_ARRAY {
+    repeated BLDG_ITEM_STG items = 1;
+}

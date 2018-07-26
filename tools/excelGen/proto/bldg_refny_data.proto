@@ -1,0 +1,21 @@
+/**
+* @file:   proto/bldg_refny_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message BLDG_REFNY{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 提炼速度系数
+(百分比) */
+    optional int32 refine_spd_coeff = 2 [default = 0];
+    /** 最大提炼量 */
+    optional int32 max_refine_qty = 3 [default = 0];
+}
+
+message BLDG_REFNY_ARRAY {
+    repeated BLDG_REFNY items = 1;
+}

@@ -1,0 +1,22 @@
+/**
+* @file:   proto/bldg_cpnt_fact_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message BLDG_CPNT_FACT{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 生产速度系数
+(百分比) */
+    optional int32 prod_spd_coeff = 2 [default = 0];
+    /** 领取容量
+(个) */
+    optional int32 temp_cap = 3 [default = 0];
+}
+
+message BLDG_CPNT_FACT_ARRAY {
+    repeated BLDG_CPNT_FACT items = 1;
+}

@@ -1,0 +1,23 @@
+/**
+* @file:   proto/ship_trait_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message SHIP_TRAIT{
+    /** 特性ID */
+    required int32 id = 1 [default = 0];
+    /** 特性类型
+        核心特性=1
+        武器特性=2
+        防御特性=3
+        配件特性=4
+    */
+    optional int32 trait_type = 2 [default = 0];
+}
+
+message SHIP_TRAIT_ARRAY {
+    repeated SHIP_TRAIT items = 1;
+}

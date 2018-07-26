@@ -1,0 +1,5 @@
+﻿"required","optional"
+"int32","string"
+"id","table_name"
+"索引","建筑参数加成表名"
+1,"TECH_PROD"

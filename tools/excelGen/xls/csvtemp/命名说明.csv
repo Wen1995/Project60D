@@ -1,0 +1,83 @@
+﻿"命名说明",,,,,,,,
+
+,"中文",,"英文",,,"简写",,
+,"舰船",,"ship",,,"ship",,
+,"组装技术",,"modification techonology",,,"mod_tech",,
+,"材料",,"material",,,"mat",,
+,"特性",,"trait",,,"trait",,
+,"舰体",,"hull",,,"hull",,
+,"配件",,"component",,,"cpnt",,
+,"舰船空间",,"ship space",,,"ssp",,
+,"数量",,"quantity",,,"qty",,
+,"能量",,"energy",,,"nrg",,
+,"攻击",,"offensive",,,"off",,"  "
+,"防御",,"defensive",,,"def",,
+,"武器",,"weapon",,,"wpn",,
+,"子系统",,"subsystem",,,"subsys",,
+,"可使用的",,"available",,,"avail",,
+,"功能",,"functionality",,,"func",,
+
+,"结构",,"structure",,,"strut",,
+,"护盾",,"shield",,,"shld",,
+,"修复",,"repair",,,"repr",,
+,"抗性",,"resistance",,,"res",,
+,"电磁",,"electromagnet",,,"em",,
+,"热能",,"thermal",,,"therm",,
+,"动能",,"kinetic",,,"kin",,
+,"爆炸",,"explosive",,,"exp",,
+,"瞄准",,"targeting",,,"tgt",,
+,"回避",,"evasion",,,"eva",,
+,"移速",,"cruising velocity",,,"cruz_vel",,
+,"转速",,"revolving velocity",,,"rev_vel",,
+,"加速度",,"acceleration",,,"acc",,
+,"异常状态",,"anomaly",,,"ano",,
+,"减益状态",,"debuff",,,"deb",,
+,"耐性",,"resistance",,,"res",,
+,"对护盾伤害",,"damage to shield",,,"dmg_to_shld",,
+,"单发",,"one shot",,,"os",,
+,"距离",,"range",,,"rng",,
+,"命中率",,"accuracy",,,"ac",,
+,"延迟",,"delay",,,"dalay",,
+,"连发",,"burst",,,"burst",,
+,"间隔",,"interval",,,"intvl",,
+,"装弹",,"reload",,,"reload",,
+,"推力",,"thrust",,,"thrust",,
+,"容量",,"volume",,,"vol",,
+,"消耗",,"consumption",,,"cons",,
+,"探索",,"exploration",,,"expl",,
+,"采矿",,"mining",,,"mining",,
+,"装载量",,"payload",,,"payload",,
+,"殖民",,"colony",,,"col",,
+
+,"建筑",,"building",,,"bldg",,
+,"文明度",,"culture point",,,"cult_pt",,
+,"返还",,"refund",,,"refund",,
+,"提炼厂",,"refinery",,,"refny",,
+,"工厂",,"factory",,,"fact",,
+,"采集器",,"collector",,,"col",,
+,"空间站",,"space station",,,"ss",,
+,"仓库",,"storage",,,"stg",,
+,"研究",,"research",,,"resch",,
+,"维持",,"upkeep",,,"uk",,
+,"电力",,"electricity",,,"ele",,
+,"劳力",,"labor",,,"labor",,
+,"资源",,"resource",,,"res",,
+,"单质",,"element",,,"elt",,
+,"解锁",,"unlock",,,"uock",,
+,"前置",,"prerequisite",,,"pre",,
+,"容量",,"capacity",,,"cap",,
+,"纯度",,"fineness",,,"fin",,
+,"系数",,"coefficient",,,"coeff",,
+
+,"描述",,"description",,,"desc",,
+
+
+
+
+
+
+
+
+
+
+

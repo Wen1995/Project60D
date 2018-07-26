@@ -1,0 +1,16 @@
+/**
+* @file:   proto/user_init_tech_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.server.data;
+
+message USER_INIT_TECH{
+    /** 科技ID */
+    required int32 id = 1 [default = 0];
+}
+
+message USER_INIT_TECH_ARRAY {
+    repeated USER_INIT_TECH items = 1;
+}

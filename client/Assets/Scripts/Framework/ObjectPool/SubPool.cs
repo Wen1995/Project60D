@@ -2,48 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SubPool{
+public abstract class SubPool<UnitType> 
+    where UnitType : UnityEngine.Component, IPoolReuseble {
 
-    string mResName = null;
-    string mResPath = null;
-    System.Type mType = null;
-    Transform mContainer = null;
-    List<GameObject> objectList = new List<GameObject>();
+    List<UnitType> workList = new List<UnitType>();
+    List<UnitType> idleList = new List<UnitType>();
 
-    public SubPool(string resName, string resPath, Transform container)
+    public virtual UnitType Take<UltraType>() where UltraType : UnitType
     {
-        mResName = resName;
-        mResPath = resPath;
-        GameObject go = new GameObject();
-        go.name = string.Format("{0}Pool", mResName);
-        mContainer = go.transform;
-    }
-
-    public Object Spwan()
-    {
-        IPoolReuseble iPool = null;
-        foreach (var obj in objectList)
+        UnitType res = null;
+        if (idleList.Count > 0)
         {
-            if (obj.activeSelf)
-            {
-                obj.SetActive(true);
-                iPool = obj.GetComponent<IPoolReuseble>();
-                if(iPool != null)
-                    iPool.OnSpwan();
-                return obj;
-            }
+            res = idleList[0];
+            idleList.RemoveAt(0);
         }
-        // Create new instance
-        GameObject go = Resources.Load(mResPath) as GameObject;
-        objectList.Add(go);
-        iPool = go.GetComponent<IPoolReuseble>();
-        if (iPool != null)
-            iPool.OnSpwan();
-        return go;
+        else
+        {
+            res = CreateNewInst();
+            
+        }
+
+        workList.Add(res);
+        return res;
     }
 
-    public void UnSpwan(Object obj)
-    {
-
-    }
+    protected abstract UnitType CreateNewInst();
 }

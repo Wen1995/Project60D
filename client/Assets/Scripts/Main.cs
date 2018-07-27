@@ -14,6 +14,10 @@ public class Main : MonoBehaviour {
     private bool isConnected = false;
     ManagerNet managerNet;
 
+    ManagerObjectPool objectPool = null;
+    Cube cube = null;
+    SubPoolCom<Cube> subPool;
+
     private void OnValidate()
     {
         if (Connect && !isConnected)
@@ -33,5 +37,30 @@ public class Main : MonoBehaviour {
         TCSLogin login = builder.Build();
         byte[] data = login.ToByteArray();
         managerNet.SendNetMsg(NetType.Netty, (short)Cmd.LOGIN, data);
+    }
+
+    private void Start()
+    {
+        //objectPool = ManagerObjectPool.Instance;
+        //objectPool.RegisterComPool<Cube>(prefab);
+        //cube = objectPool.Take<Cube>() as Cube;
+        GameObject prefab = Resources.Load<GameObject>("Cube");
+        subPool = new SubPoolCom<Cube>();
+        subPool.SetTemplate(prefab);
+        cube = subPool.Take<Cube>();
+        cube.transform.position = new Vector3(0, 0, 0);
+    }
+
+    private void Update()
+    {
+        if (cube)
+        {
+            cube.transform.Translate(Vector3.forward * Time.deltaTime);
+            if (cube.transform.position.z >= 5)
+            {
+                subPool.Restore(cube);
+                cube = null;
+            }
+        }
     }
 }

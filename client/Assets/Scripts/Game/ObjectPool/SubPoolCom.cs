@@ -1,11 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SubPoolCom<UnitType> : SubPoolBase<UnitType> where UnitType : Component, IPoolUnit
 {
-
-
     protected override UnitType CreateNewInst()
     {
         GameObject go = null;
@@ -20,10 +19,12 @@ public class SubPoolCom<UnitType> : SubPoolBase<UnitType> where UnitType : Compo
     {
         if (unit.State().State == PoolUnitState.Idle)
         {
+            unit.gameObject.transform.parent = mContainer;
             unit.gameObject.SetActive(false);
         }
         else
         {
+            unit.gameObject.SetActive(true);
         }
     }
 }

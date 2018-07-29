@@ -14,7 +14,7 @@ public class Main : MonoBehaviour {
     private bool isConnected = false;
     ManagerNet managerNet;
 
-    ManagerObjectPool objectPool = null;
+    ObjectPoolSingleton objectPool = null;
     Cube cube = null;
     SubPoolCom<Cube> subPool;
 
@@ -41,13 +41,11 @@ public class Main : MonoBehaviour {
 
     private void Start()
     {
-        //objectPool = ManagerObjectPool.Instance;
-        //objectPool.RegisterComPool<Cube>(prefab);
-        //cube = objectPool.Take<Cube>() as Cube;
+        objectPool = ObjectPoolSingleton.Instance;
         GameObject prefab = Resources.Load<GameObject>("Cube");
-        subPool = new SubPoolCom<Cube>();
-        subPool.SetTemplate(prefab);
-        cube = subPool.Take<Cube>();
+        objectPool.RegisterComPool<Cube>(prefab);
+        ISubPool pool = objectPool.GetPool<Cube>();
+        cube = pool.Take() as Cube;
         cube.transform.position = new Vector3(0, 0, 0);
     }
 
@@ -56,9 +54,10 @@ public class Main : MonoBehaviour {
         if (cube)
         {
             cube.transform.Translate(Vector3.forward * Time.deltaTime);
-            if (cube.transform.position.z >= 5)
+            if (cube.transform.position.z >= 2)
             {
-                subPool.Restore(cube);
+                ISubPool pool = objectPool.GetPool<Cube>();
+                pool.Restore(cube);
                 cube = null;
             }
         }

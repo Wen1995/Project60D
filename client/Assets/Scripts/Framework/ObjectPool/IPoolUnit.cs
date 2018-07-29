@@ -5,9 +5,9 @@ using System.Collections.Generic;
 /// <summary>
 /// A single pool unit, be managed by objectpool 
 /// </summary>
-public interface IPoolUnit {
+public interface IPoolUnit{
     UnitState State();
-    void Restore();
+    void Release();
     void OnTake();
     void OnRestore();
 }

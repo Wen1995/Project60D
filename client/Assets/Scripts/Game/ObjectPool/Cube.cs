@@ -16,9 +16,9 @@ public class Cube : MonoBehaviour , IPoolUnit{
 
     }
 
-    public void Restore()
+    public void Release()
     {
-        
+        Destroy(gameObject);
     }
 
     public UnitState State()

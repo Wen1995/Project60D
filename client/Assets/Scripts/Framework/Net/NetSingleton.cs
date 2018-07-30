@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using com.nkm.common.proto.client;
 
-
-public class ManagerNet : Singleton<ManagerNet> {
+public class NetSingleton : Singleton<NetSingleton> {
     //--reference-------------------------------------------------------
     private Dictionary<NetType, RPCNetwork> networkMap = new Dictionary<NetType, RPCNetwork>();
     private Dictionary<NetType, List<NetMsgDef>> msgBufferMap = new Dictionary<NetType, List<NetMsgDef>>();

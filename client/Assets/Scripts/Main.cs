@@ -12,17 +12,18 @@ public class Main : MonoBehaviour {
     public bool SendMsg = false;
     public bool Connect = false;
     private bool isConnected = false;
-    ManagerNet managerNet;
+    NetSingleton managerNet;
 
     ObjectPoolSingleton objectPool = null;
     Cube cube = null;
     SubPoolCom<Cube> subPool;
+    UIContainerBase container;
 
     private void OnValidate()
     {
         if (Connect && !isConnected)
         {
-            managerNet = ManagerNet.Instance;
+            managerNet = NetSingleton.Instance;
             managerNet.BeginConnect(NetType.Netty, HOST, PORT);
             isConnected = true;
         }
@@ -41,25 +42,12 @@ public class Main : MonoBehaviour {
 
     private void Start()
     {
-        objectPool = ObjectPoolSingleton.Instance;
-        GameObject prefab = Resources.Load<GameObject>("Cube");
-        objectPool.RegisterComPool<Cube>(prefab);
-        ISubPool pool = objectPool.GetPool<Cube>();
-        cube = pool.Take() as Cube;
-        cube.transform.position = new Vector3(0, 0, 0);
+        container = GameObject.Find("UI Root").GetComponent<UIContainerBase>();
+        container.RegisterPanel("test", "UITest", 0, PanelAnchor.Center);
+        container.OverlayerPanel("test");
     }
 
     private void Update()
     {
-        if (cube)
-        {
-            cube.transform.Translate(Vector3.forward * Time.deltaTime);
-            if (cube.transform.position.z >= 2)
-            {
-                ISubPool pool = objectPool.GetPool<Cube>();
-                pool.Restore(cube);
-                cube = null;
-            }
-        }
     }
 }

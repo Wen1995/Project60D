@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public interface IPoolUnit{
     UnitState State();
     void Release();
+    void Restore();
     void OnTake();
     void OnRestore();
 }

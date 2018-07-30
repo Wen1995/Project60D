@@ -2,27 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : MonoBehaviour , IPoolUnit{
+public class Cube : PoolUnitCom{
 
-    UnitState mState = new UnitState();
-
-    public void OnTake()
+    public override void OnRestore()
     {
-
+        base.OnRestore();
     }
 
-    public void OnRestore()
+    public override void OnTake()
     {
-
-    }
-
-    public void Release()
-    {
-        Destroy(gameObject);
-    }
-
-    public UnitState State()
-    {
-        return mState;
+        base.OnTake();
     }
 }

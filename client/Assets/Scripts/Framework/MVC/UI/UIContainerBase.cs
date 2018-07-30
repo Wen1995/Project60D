@@ -56,6 +56,8 @@ public class UIContainerBase : MonoBehaviour {
     public Transform mAnchorBottomLeft;
     public Transform mAnchorBottomRight;
 
+    #region Interface
+
     /// <summary>
     /// Register a panel and save as PanelInfo
     /// </summary>
@@ -89,8 +91,9 @@ public class UIContainerBase : MonoBehaviour {
         RunPanel(PanelRunMode.Back);
     }
 
-    //------------------------------------------------------------------
+    #endregion
 
+    #region UI Management
     protected void RunPanel(PanelRunMode mode, string name = null)
     {
         switch (mode)
@@ -249,6 +252,9 @@ public class UIContainerBase : MonoBehaviour {
         }
     }
 
+    #endregion
+
+    #region UIData Stack
     //Manage UI in a stack
     protected Stack<PanelBase> mUIData = new Stack<PanelBase>();
 
@@ -266,4 +272,5 @@ public class UIContainerBase : MonoBehaviour {
     {
         mUIData.Pop();
     }
+    #endregion
 }

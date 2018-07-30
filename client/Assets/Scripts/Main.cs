@@ -42,12 +42,21 @@ public class Main : MonoBehaviour {
 
     private void Start()
     {
-        container = GameObject.Find("UI Root").GetComponent<UIContainerBase>();
-        container.RegisterPanel("test", "UITest", 0, PanelAnchor.Center);
-        container.OverlayerPanel("test");
+        FacadeSingleton.Instance.RegisterEvent("foo", foo);
+        Invoke("InvokeEvent", 2);
     }
 
     private void Update()
     {
+    }
+
+    void InvokeEvent()
+    {
+        FacadeSingleton.Instance.SendEvent("foo");
+    }
+
+    void foo(NDictionary data = null)
+    {
+        print("foo!!!!!!!!!!!!!!");
     }
 }

@@ -9,7 +9,8 @@ public static class ConstVal{
     #region Data
     #endregion
 
-    //Panel
+    #region Panel
+    #endregion
 
     //View
 

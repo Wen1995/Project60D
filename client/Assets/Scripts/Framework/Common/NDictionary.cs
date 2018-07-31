@@ -30,4 +30,9 @@ public class NDictionary : MonoBehaviour {
         UnityEngine.Debug.Log(string.Format("key{0} has no value", key));
         return default(T);
     }
+
+    public void Clear()
+    {
+        mData.Clear();
+    }
 }

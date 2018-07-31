@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour {
 
-    protected void RegisterEvent()
+    protected void RegisterEvent(string name, NEventHandler handler)
     {
-        //TODO
+        FacadeSingleton.Instance.RegisterEvent(name, handler);
     }
 
-    protected void RemoveEvent()
+    protected void RemoveEvent(string name, NEventHandler handler)
     {
-        //TODO
+        FacadeSingleton.Instance.RemoveEvent(name, handler);
     }
 
-    protected void SendEvent()
+    protected void SendEvent(string name)
     {
-        //TODO
+        FacadeSingleton.Instance.SendEvent(name);
     }
 }

@@ -42,21 +42,10 @@ public class Main : MonoBehaviour {
 
     private void Start()
     {
-        FacadeSingleton.Instance.RegisterEvent("foo", foo);
-        Invoke("InvokeEvent", 2);
     }
 
     private void Update()
     {
     }
 
-    void InvokeEvent()
-    {
-        FacadeSingleton.Instance.SendEvent("foo");
-    }
-
-    void foo(NDictionary data = null)
-    {
-        print("foo!!!!!!!!!!!!!!");
-    }
 }

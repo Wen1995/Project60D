@@ -78,7 +78,7 @@ public class UIContainerBase : MonoBehaviour {
     /// <summary>
     /// Open a panel and close current one
     /// </summary>
-    public void ReplacePanel()
+    public void ReplacePanel(string name)
     {
         RunPanel(PanelRunMode.Replace, name);
     }

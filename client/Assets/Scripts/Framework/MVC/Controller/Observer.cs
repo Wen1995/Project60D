@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System;
 
 public delegate void NEventHandler(NDictionary data = null);
+public delegate void NRPCResponce(NetMsgDef msg);
 
+/// <summary>
+/// This class aim to provide a event - callback system
+/// </summary>
 public class Observer {
 
-    public Dictionary<string, NEventHandler> mEventHandlerMap = new Dictionary<string, NEventHandler>();
+    private Dictionary<string, NEventHandler> mEventHandlerMap = new Dictionary<string, NEventHandler>();
+    private Dictionary<short, NRPCResponce> mRPCResponceMap = new Dictionary<short, NRPCResponce>();
+    
 
     public void RegisterEventHandler(string name, NEventHandler handler)
     {
@@ -32,5 +38,19 @@ public class Observer {
     {
         if (mEventHandlerMap.ContainsKey(name))
             mEventHandlerMap[name](data);
+    }
+
+    public void RegisterRPCResponce(short cmdID, NRPCResponce handler)
+    {
+        if (!mRPCResponceMap.ContainsKey(cmdID))
+            mRPCResponceMap[cmdID] = new NRPCResponce(handler);
+        mRPCResponceMap[cmdID] += handler;
+    }
+
+    public void InvokeRPCResponce(short cmdID, NetMsgDef msg)
+    {
+        if (!mRPCResponceMap.ContainsKey(cmdID))
+            return;
+        mRPCResponceMap[cmdID](msg);
     }
 }

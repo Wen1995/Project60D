@@ -4,7 +4,6 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
-using com.nkm.common.proto.client;
 using Google.ProtocolBuffers;
 
 public class TCPServer : MonoBehaviour {

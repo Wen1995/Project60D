@@ -28,10 +28,10 @@ public struct PanelInfo
     public string mResPath;
     public int mDepth;
     public PanelAnchor mAnchor;
-    public PanelInfo(string name, string resPath, int depth, PanelAnchor anchor)
+    public PanelInfo(string name, string resDir, int depth, PanelAnchor anchor)
     {
         mPanelName = name;
-        mResPath = resPath;
+        mResPath = resDir + "/" + name;
         mDepth = depth;
         mAnchor = anchor;
     }

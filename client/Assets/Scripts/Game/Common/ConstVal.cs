@@ -7,12 +7,15 @@ using System.Collections.Generic;
 public static class ConstVal{
 
     #region Data
+    const string Data_User = "UserData";
     #endregion
 
     #region Panel
+    const string Panel_Login = "LoginPanel";
     #endregion
 
-    //View
+    //Service
+    const string Service_Common = "CommonService";
 
     //Controller
 

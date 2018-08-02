@@ -18,4 +18,14 @@ public class Controller : MonoBehaviour {
     {
         FacadeSingleton.Instance.SendEvent(name);
     }
+
+    protected void RegisterRPCResponce(short cmdID, NRPCResponce handler)
+    {
+        FacadeSingleton.Instance.RegisterRPCResponce(cmdID, handler);
+    }
+
+    protected void InvokeRPCResponce(short cmdID, NetMsgDef msg)
+    {
+        FacadeSingleton.Instance.InvokeRPCResponce(cmdID, msg);
+    }
 }

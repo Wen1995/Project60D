@@ -8,8 +8,9 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
     private Observer mObserver = new Observer();
     private View mView = new View();
     private Model mModel = new Model();
+    private Service mService = new Service();
 
-    #region Event
+    #region Event & Service
     public void RegisterEvent(string name, NEventHandler handler)
     {
         mObserver.RegisterEventHandler(name, handler);
@@ -29,9 +30,34 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
     {
         mObserver.InvokeEvent(name, data);
     }
+
+    public void RegisterService<T>(string module) where T : ServiceBase, new()
+    {
+        mService.RegisterService<T>(module);
+    }
+
+    public void RemoveService(string module)
+    {
+        mService.RemoveService(module);
+    }
+
+    public void InvokeService(string method, string module, NDictionary data = null)
+    {
+        mService.InvokeService(method, module, data);
+    }
+
+    public void RegisterRPCResponce(short cmdID, NRPCResponce handler)
+    {
+        mObserver.RegisterRPCResponce(cmdID, handler);
+    }
+
+    public void InvokeRPCResponce(short cmdID, NetMsgDef msg)
+    {
+        mObserver.InvokeRPCResponce(cmdID, msg);
+    }
     #endregion
 
-    #region Model
+    #region Model & xls
 
     public void RegisterData(string name, System.Type type)
     {
@@ -48,6 +74,10 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
         mModel.RetrieveModel(name);
     }
 
+
+    public void RetrieveXLSData(string name)
+    {
+    }
     #endregion
 
     #region  View
@@ -57,9 +87,9 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
         mView.SetContainer(container);
     }
 
-    public void RegisterUIPanel(string name, string path, int depth, PanelAnchor anchor)
+    public void RegisterUIPanel(string name, string dir, int depth, PanelAnchor anchor)
     {
-        mView.RegisterPanel(name, path, depth, anchor);
+        mView.RegisterPanel(name, dir, depth, anchor);
     }
 
     public void OverlayerPanel(string name)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PanelBase : MonoBehaviour {
+public class PanelBase : Controller {
 
     protected UIPanel mViewPanel = null;
     protected string mPanelName = null;

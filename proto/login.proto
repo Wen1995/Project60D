@@ -1,0 +1,20 @@
+package com.game.framework.protocol;
+
+option optimize_for = SPEED;
+
+message TCSLogin {
+	// 帐号
+	optional string account = 1;
+}
+message TSCLogin {
+	optional int64 uid = 1;
+	// 服务器当前时间
+	optional int64 systemCurrentTime = 2;
+}
+
+message TCSLogout {
+
+}
+message TSCLogout {
+	
+}

@@ -4,7 +4,6 @@ using System.Net;
 using System;
 using System.Net.Sockets;
 using UnityEngine;
-using com.nkm.common.proto.client;
 
 
 public class RPCNetwork{
@@ -67,7 +66,7 @@ public class RPCNetwork{
     }
 
     //Clear Data And Buffer
-    void DisConnect()
+    void Disconnect()
     {
         //TODO
         //Clear Data
@@ -93,6 +92,7 @@ public class RPCNetwork{
         catch (Exception e)
         {
             //TODO
+            Disconnect();
         }
     }
 
@@ -105,7 +105,7 @@ public class RPCNetwork{
             byteSize = mOutStream.EndRead(ar);
             if (byteSize < 1)   //might be losing connection
             {
-                //TODO callback disconnet
+                Disconnect();
             }
             else
             {
@@ -114,6 +114,7 @@ public class RPCNetwork{
         }
         catch (Exception e)
         {
+            Disconnect();
         }
         finally
         {
@@ -164,7 +165,7 @@ public class RPCNetwork{
     {
         if (!mRecieveStream.Write(data, size))
         {
-            DisConnect();
+            Disconnect();
             return;
         }
             

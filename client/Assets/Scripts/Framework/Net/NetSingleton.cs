@@ -71,11 +71,11 @@ public class NetSingleton : Singleton<NetSingleton> {
     {
 
         print(string.Format("NetMsg Recieved cmdID:{0:D}, size:{1:D}", (int)msg.mMsgHead.mCmdID, (int)msg.mMsgHead.mSize));
-        // Send Event
+        FacadeSingleton.Instance.InvokeRPCResponce(msg.mMsgHead.mCmdID, msg);
     }
 
     public void OnNetException(NetType nType, NetExceptionType e)
     {
-        //TODO
+        print(string.Format("Error{0} occured!!", e.ToString()));
     }
 }

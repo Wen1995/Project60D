@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using com.nkm.common.proto.client;
 using UnityEngine;
+using com.game.framework.protocol;
 
 public class Main : MonoBehaviour {
 
@@ -42,6 +42,7 @@ public class Main : MonoBehaviour {
 
     private void Start()
     {
+        ConfigDataSingleton.Instance.LoadAllConfigData();
     }
 
     private void Update()

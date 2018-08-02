@@ -176,14 +176,14 @@ public class RPCNetwork{
             
             if (!mRecieveStream.Read(ref head))                         //Cant read msg head
                 break;
-            if (mRecieveStream.RemainReadCap < (uint)head.mSize)        //Package is not completed, wait to next frame
+            if (mRecieveStream.RemainReadCap < (uint)head.mSize - sizeof(short))        //Package is not completed, wait to next frame
             {
                 //Restore ReadPos
                 mRecieveStream.ShiftReadPos(-4);
                 break;
             }
-            byte[] btsData = new byte[head.mSize];
-            if (!mRecieveStream.Read(btsData, head.mSize))
+            byte[] btsData = new byte[head.mSize - sizeof(short)];
+            if (!mRecieveStream.Read(btsData, head.mSize - sizeof(short)))
                 break;
             msg = new NetMsgDef(head, btsData);
             lock (mRecieveMsgQueue)

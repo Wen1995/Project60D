@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Provide interface related to view
 /// </summary>
-public class View : MonoBehaviour {
+public class View {
 
     private UIContainerBase mUIContainer = null;
 

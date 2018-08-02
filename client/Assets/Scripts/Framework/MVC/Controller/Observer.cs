@@ -49,6 +49,8 @@ public class Observer {
 
     public void InvokeRPCResponce(short cmdID, NetMsgDef msg)
     {
+        if (cmdID < 1000) return;
+        cmdID -= 1000;
         if (!mRPCResponceMap.ContainsKey(cmdID))
             return;
         mRPCResponceMap[cmdID](msg);

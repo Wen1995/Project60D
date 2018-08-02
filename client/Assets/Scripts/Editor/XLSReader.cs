@@ -14,7 +14,7 @@ public class XLSReader{
     static string xlsDir;
     static string binaryDir;
 
-    [MenuItem("CustomTools/xls/Import XLS")]
+    [MenuItem("ProjectTools/DesignTools/Import XLS")]
     public static void Importxls()
     {
         projectDir = Directory.GetParent(Directory.GetParent(Application.dataPath).ToString()).ToString();
@@ -41,7 +41,7 @@ public class XLSReader{
             stream.Close();
             stream.Dispose();
         }
-        Debug.Log("export XLS finished");
+        Debug.Log("Export XLS finished");
     }
 
     public static ConfigData SaveData(DataTable data)

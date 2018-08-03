@@ -19,7 +19,7 @@ public class XLSReader{
     {
         projectDir = Directory.GetParent(Directory.GetParent(Application.dataPath).ToString()).ToString();
         xlsDir = projectDir + "/tools/xls";
-        binaryDir = Application.dataPath + "/Resources/StaticData/";
+        binaryDir = Application.dataPath + "/Resources/ConfigData/";
         //XmlSerializer serializer = new XmlSerializer(typeof(ConfigData));
         BinaryFormatter formatter = new BinaryFormatter();
         //  FileStream stream = new FileStream(Application.dataPath + "/")

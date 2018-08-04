@@ -18,14 +18,14 @@ public class ConfigData
     }
 }
 
-public class ConfigDataSingleton : Singleton<ConfigDataSingleton>{
+public class ConfigDataSingleton{
 
-    Dictionary<string, ConfigData> mConfigMap = new Dictionary<string, ConfigData>();
+    static Dictionary<string, ConfigData> mConfigMap = new Dictionary<string, ConfigData>();
     /// <summary>
     /// Deserilize all config data ,load to memory 
     /// You should do this once when loading the game
     /// </summary>
-    public void LoadAllConfigData()
+    public static void LoadAllConfigData()
     {
         TextAsset[] assets = Resources.LoadAll<TextAsset>("StaticData/");
         BinaryFormatter formatter = new BinaryFormatter();
@@ -42,7 +42,7 @@ public class ConfigDataSingleton : Singleton<ConfigDataSingleton>{
         }
     }
 
-    public ConfigData RetrieveConfigData(string name)
+    public static ConfigData RetrieveConfigData(string name)
     {
         if (!mConfigMap.ContainsKey(name)) return null;
         return mConfigMap[name];

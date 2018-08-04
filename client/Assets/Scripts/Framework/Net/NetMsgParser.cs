@@ -16,7 +16,6 @@ public class NetMsgParser {
         {
             //TODO
         }
-
         return obj;
     }
 }

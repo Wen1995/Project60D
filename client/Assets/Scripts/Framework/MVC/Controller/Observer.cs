@@ -55,4 +55,10 @@ public class Observer {
             return;
         mRPCResponceMap[cmdID](msg);
     }
+
+    public void Clear()
+    {
+        mEventHandlerMap.Clear();
+        mRPCResponceMap.Clear();
+    }
 }

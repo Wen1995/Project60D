@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour {
 
+    protected ClickEventListener clickListenr = null;
+
     protected void RegisterEvent(string name, NEventHandler handler)
     {
         FacadeSingleton.Instance.RegisterEvent(name, handler);
@@ -27,5 +29,10 @@ public class Controller : MonoBehaviour {
     protected void InvokeRPCResponce(short cmdID, NetMsgDef msg)
     {
         FacadeSingleton.Instance.InvokeRPCResponce(cmdID, msg);
+    }
+
+    protected void AddClickEventListenr()
+    {
+        clickListenr = gameObject.AddComponent<ClickEventListener>();
     }
 }

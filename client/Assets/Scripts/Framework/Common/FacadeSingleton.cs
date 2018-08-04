@@ -10,6 +10,17 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
     private Model mModel = new Model();
     private Service mService = new Service();
 
+    /// <summary>
+    /// Called when changing scene
+    /// </summary>
+    public void ClearBeforeLoadingScene()
+    {
+        mObserver.Clear();
+        mView.Clear();
+        mService.Clear();
+        ObjectPoolSingleton.Instance.Clear();
+    }
+
     #region Event & Service
     public void RegisterEvent(string name, NEventHandler handler)
     {
@@ -105,6 +116,19 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
     public void BackPanel(string name)
     {
         mView.BackPanel();
+    }
+    #endregion
+
+    #region Scene
+    public void LoadScene(string name)
+    {
+        ClearBeforeLoadingScene();
+        SceneLoader.LoadScene(name);
+    }
+
+    public void LoadSceneAsync(string name)
+    {
+        //TODO
     }
     #endregion
 }

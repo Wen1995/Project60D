@@ -38,4 +38,9 @@ public class ObjectPoolSingleton : Singleton<ObjectPoolSingleton> {
         }
         return mSubPoolMap[type];
     }
+
+    public void Clear()
+    {
+        mSubPoolMap.Clear();
+    }
 }

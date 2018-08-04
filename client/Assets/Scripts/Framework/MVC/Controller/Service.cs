@@ -34,4 +34,9 @@ public class Service{
         MethodInfo info = type.GetMethod(method);
         return info.Invoke(service, new object[] { args });
     }
+
+    public void Clear()
+    {
+        mServiceMap.Clear();
+    }
 }

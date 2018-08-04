@@ -30,7 +30,6 @@ public class UILoginPanel : PanelBase {
 
     void OnLogin()
     {
-        print("begin login");
         NetSingleton.Instance.BeginConnect(NetType.Netty, HOST, PORT);
         var builder = TCSLogin.CreateBuilder();
         builder.Account = "wen";

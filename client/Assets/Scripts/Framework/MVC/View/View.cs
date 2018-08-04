@@ -34,4 +34,9 @@ public class View {
     {
         mUIContainer.BackPanel();
     }
+
+    public void Clear()
+    {
+        mUIContainer = null;
+    }
 }

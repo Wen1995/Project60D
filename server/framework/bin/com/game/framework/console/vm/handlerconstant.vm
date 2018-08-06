@@ -1,0 +1,19 @@
+package com.game.framework.console.constant;
+
+/**
+ * @author auto
+ * date: ${time}
+ */
+public class HandlerConstant {
+
+	/************* HandlerGroup *************/
+#foreach ($attr in ${HandlerGroup})
+	public static final String HandlerGroup_$attr = "$attr";
+#end
+	
+	/************* Model *************/
+#foreach ($attr in ${Model})
+	public static final String Model_$attr = "$attr";
+#end
+
+}

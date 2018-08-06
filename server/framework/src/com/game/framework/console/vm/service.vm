@@ -1,0 +1,11 @@
+package com.game.${litHandlerGroup}.${litModel}.service;
+
+import com.game.framework.console.disruptor.TPacket;
+
+public interface ${model}Service {
+#foreach ($attr in ${methods})
+
+	/** ${attr[0]} */
+	TPacket ${attr[2]}(Long uid${attr[3]}) throws Exception;
+#end
+}

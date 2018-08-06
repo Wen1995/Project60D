@@ -18,7 +18,7 @@ public class ConfigData
     }
 }
 
-public class ConfigDataSingleton{
+public class ConfigDataStatic{
 
     static Dictionary<string, ConfigData> mConfigMap = new Dictionary<string, ConfigData>();
     /// <summary>

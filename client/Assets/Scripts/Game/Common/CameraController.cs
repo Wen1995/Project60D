@@ -85,7 +85,8 @@ public class CameraController : MonoBehaviour {
 
     public void CameraDragging(Vector3 diff)
     {
-        transform.Translate(-diff * dragSpeed);
+        Vector3 movement = new Vector3(diff.x, diff.y, diff.y);
+        transform.Translate(-movement * dragSpeed);
         mouseOrigin = Input.mousePosition;
     }
 

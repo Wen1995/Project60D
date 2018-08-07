@@ -46,15 +46,15 @@
 	<classpathentry kind="lib" path="lib/shiftone-jrat.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.5.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.8.0-beta1.jar"/>
-	<classpathentry kind="lib" path="lib/spring-aop-4.0.0.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-beans-4.0.0.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-beans-4.3.14.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-context-4.0.0.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-core-4.0.0.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-core-4.3.14.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-expression-4.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/velocity-1.7-dep.jar"/>
 	<classpathentry kind="lib" path="lib/velocity-1.7.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pojo2proto"/>
+	<classpathentry kind="lib" path="lib/spring-aop-5.0.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-aspects-5.0.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-beans-5.0.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-5.0.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-support-5.0.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-core-5.0.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-expression-5.0.8.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

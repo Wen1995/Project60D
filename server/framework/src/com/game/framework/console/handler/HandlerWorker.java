@@ -69,7 +69,7 @@ public class HandlerWorker implements EventHandler<ObjectEvent> {
 
             try {
                 HandlerInvoker invoker = handlerMappingManager.getInvoker(p.getCmd());
-
+                
                 invoker.getM().invoke(invoker.getTarget(), p);
             } catch (InvocationTargetException e) {
                 logger.error("[TPacket CMD] {}", Cmd.valueOf(p.getCmd()));

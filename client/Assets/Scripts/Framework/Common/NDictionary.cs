@@ -18,17 +18,21 @@ public class NDictionary : MonoBehaviour {
     public object Value(object key)
     {
         if (!mData.ContainsKey(key))
-            return mData[key];
-        UnityEngine.Debug.Log(string.Format("key{0} has no value", key));
-        return null;
+        {
+            UnityEngine.Debug.Log(string.Format("key{0} has no value", key));
+            return null;
+        }    
+        return mData[key];
     }
 
     public T Value<T>(object key)
     {
         if (!mData.ContainsKey(key))
-            return (T)mData[key];
-        UnityEngine.Debug.Log(string.Format("key{0} has no value", key));
-        return default(T);
+        {
+            UnityEngine.Debug.Log(string.Format("key{0} has no value", key));
+            return default(T);
+        }
+        return mData[key] is T ? (T)mData[key] : default(T);
     }
 
     public void Clear()

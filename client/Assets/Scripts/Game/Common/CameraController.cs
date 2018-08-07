@@ -28,10 +28,12 @@ public class CameraController : MonoBehaviour {
     //click event related
     private RaycastHit hit;
     private GameObject hitGo;
+    private int layerMask;
 
     private void Awake()
     {
         cameraOrigin = transform.position;
+        layerMask = LayerMask.GetMask("Building");
     }
 
     private void Update()
@@ -116,7 +118,7 @@ public class CameraController : MonoBehaviour {
     private void OnClickDown()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, 200, layerMask))
         {
             hitGo = hit.collider.gameObject;
             hitGo.SendMessage("OnPress", SendMessageOptions.DontRequireReceiver);
@@ -127,10 +129,13 @@ public class CameraController : MonoBehaviour {
     {
         if (isDragging) return;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, 200, layerMask))
         {
             if (hitGo == hit.collider.gameObject)
+            {
                 hitGo.SendMessage("OnClick", SendMessageOptions.DontRequireReceiver);
+                print(hit.collider.gameObject.name);
+            }
         }
     }
     #endregion

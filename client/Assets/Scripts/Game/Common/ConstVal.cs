@@ -6,16 +6,16 @@ using System.Collections.Generic;
 /// </summary>
 public static class ConstVal{
 
-    #region Data
-    const string Data_User = "UserData";
+    #region Package
+    public static string Package_User = "UserData";
+    public static string Package_Sanctuary = "SanctuaryData";
     #endregion
 
     #region Panel
-    const string Panel_Login = "LoginPanel";
     #endregion
 
     //Service
-    const string Service_Common = "CommonService";
+    public static string Service_Common = "CommonService";
 
     //Controller
 

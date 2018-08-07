@@ -80,9 +80,9 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
         mModel.ReleaseModel(name);
     }
 
-    public void RetrieveData(string name)
+    public ModelBase RetrieveData(string name)
     {
-        mModel.RetrieveModel(name);
+        return mModel.RetrieveModel(name);
     }
 
 

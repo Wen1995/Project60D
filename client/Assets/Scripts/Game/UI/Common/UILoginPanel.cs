@@ -19,6 +19,7 @@ public class UILoginPanel : PanelBase {
         GameObject.Find("inbox/loginbutton").GetComponent<UIButton>().onClick.Add(new EventDelegate(OnLogin));
         //bind event
         RegisterRPCResponce((short)Cmd.LOGIN, OnLoginSuccussed);
+        //RegisterRPCResponce((short)Cmd.LOGIN, OnGetUserData);
 
         InitView();
     }
@@ -41,5 +42,14 @@ public class UILoginPanel : PanelBase {
     {
         TSCLogin login = TSCLogin.ParseFrom(msg.mBtsData);
         print("userid: " + login.Uid);
+
+        
+    }
+
+    void OnGetUserData(NetMsgDef msg)
+    {
+        UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+        //TODO
+        FacadeSingleton.Instance.LoadScene("SLoading");
     }
 }

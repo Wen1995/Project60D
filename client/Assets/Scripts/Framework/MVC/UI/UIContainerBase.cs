@@ -91,6 +91,21 @@ public class UIContainerBase : MonoBehaviour {
         RunPanel(PanelRunMode.Back);
     }
 
+    /// <summary>
+    /// Utility Panel will not be pushed to stack
+    /// </summary>
+    public void OpenUtilityPanel(string name)
+    {
+        if (string.IsNullOrEmpty(name)) return;
+        PanelBase panel = OpenPanelByName(name);
+    }
+
+    public void CloseUtilityPanel(string name)
+    {
+        PanelBase panel = GetPanelByName(name);
+        ClosePanelByName(panel.PanelName);
+    }
+
     #endregion
 
     #region UI Management
@@ -141,7 +156,7 @@ public class UIContainerBase : MonoBehaviour {
             PanelInfo info = GetPanelInfoByName(name);
             panel.gameObject.SetActive(true);
             
-            if (info.mDepth == 0)
+            if (info.mDepth != 0)
                 panel.SetRenderQ(info.mDepth);
             else
             {
@@ -159,7 +174,7 @@ public class UIContainerBase : MonoBehaviour {
         {
             PanelInfo info = GetPanelInfoByName(name);
             panel.gameObject.SetActive(false);
-            if (info.mDepth != 0)
+            if (info.mDepth == 0)
             {
                 mCurDepth -= mDepthInterval;
                 //panel.SetRenderQ(mCurDepth);

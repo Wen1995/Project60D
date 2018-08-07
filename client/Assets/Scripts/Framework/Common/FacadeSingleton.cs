@@ -91,7 +91,7 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
     }
     #endregion
 
-    #region  View
+    #region  View & UI
 
     public void SetContainer(UIContainerBase container)
     {
@@ -116,6 +116,16 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
     public void BackPanel(string name)
     {
         mView.BackPanel();
+    }
+
+    public void OpenUtilityPanel(string name)
+    {
+        mView.OpenUtilityPanel(name);
+    }
+
+    public void CloseUtilityPanel(string name)
+    {
+        mView.CloseUtilityPanel(name);
     }
     #endregion
 

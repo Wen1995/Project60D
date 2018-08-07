@@ -35,6 +35,16 @@ public class View {
         mUIContainer.BackPanel();
     }
 
+    public void OpenUtilityPanel(string name)
+    {
+        mUIContainer.OpenUtilityPanel(name);
+    }
+
+    public void CloseUtilityPanel(string name)
+    {
+        mUIContainer.CloseUtilityPanel(name);
+    }
+
     public void Clear()
     {
         mUIContainer = null;

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SLogin.unity
     guid: 6c9bb9ad3c3214649902ca1a19ff1a55
   - enabled: 1
+    path: Assets/Scenes/SLoading.unity
+    guid: c648c9233f53dad489adf1eda78f0405
+  - enabled: 1
     path: Assets/Scenes/SSanctuary.unity
     guid: 94ddbd53fdc714d4db5f70dbba8072c2
   m_configObjects: {}

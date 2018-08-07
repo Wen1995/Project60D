@@ -14,6 +14,8 @@ public class SceneLoader{
 
     public static void LoadScene(string name)
     {
+        UnityEngine.Debug.Log(string.Format("Leaving scene{0}", CurrentScene));
+        FacadeSingleton.Instance.ClearBeforeLoadingScene();
         SceneManager.LoadScene(name);
     }
 

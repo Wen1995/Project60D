@@ -14,12 +14,12 @@ public class Client {
     }
 
     public void testLogin(ClientConnector cc) {
-        String account = "wew";
+        String account = "wew2";
         TCSLogin data = TCSLogin.newBuilder().setAccount(account).build();
         TPacket p = new TPacket();
         p.setCmd(Cmd.LOGIN_VALUE);
         p.setBuffer(data.toByteArray());
         cc.send(p);
     }
-
+    
 }

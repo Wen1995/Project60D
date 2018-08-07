@@ -29,6 +29,8 @@ namespace com.game.framework.protocol {
     ERROR = 0,
     LOGIN = 1,
     LOGOUT = 2,
+    GETUSERINFO = 3,
+    GETSCENEINFO = 11,
   }
   
   public enum Error {

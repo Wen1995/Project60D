@@ -9,7 +9,11 @@ enum Cmd {
 	LOGIN = 1;
 	// 玩家登出
 	LOGOUT = 2;
-	
+	// 玩家信息
+	GETUSERINFO = 3;
+
+	//////////////////场景模块 11-50///////////////////
+	GETSCENEINFO = 11;
 }
 
 enum Error {

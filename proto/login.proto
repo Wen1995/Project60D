@@ -16,5 +16,12 @@ message TCSLogout {
 
 }
 message TSCLogout {
-	
+
+}
+
+message TCSGetUserInfo {
+
+}
+message TSCGetUserInfo {
+	optional int64 groupId = 1;
 }

@@ -34,6 +34,22 @@ public final class Common {
      * </pre>
      */
     LOGOUT(2, 2),
+    /**
+     * <code>GETUSERINFO = 3;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    GETUSERINFO(3, 3),
+    /**
+     * <code>GETSCENEINFO = 11;</code>
+     *
+     * <pre>
+     *&#47;///////////////场景模块 11-50///////////////////
+     * </pre>
+     */
+    GETSCENEINFO(4, 11),
     ;
 
     /**
@@ -57,6 +73,22 @@ public final class Common {
      * </pre>
      */
     public static final int LOGOUT_VALUE = 2;
+    /**
+     * <code>GETUSERINFO = 3;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    public static final int GETUSERINFO_VALUE = 3;
+    /**
+     * <code>GETSCENEINFO = 11;</code>
+     *
+     * <pre>
+     *&#47;///////////////场景模块 11-50///////////////////
+     * </pre>
+     */
+    public static final int GETSCENEINFO_VALUE = 11;
 
 
     public final int getNumber() { return value; }
@@ -66,6 +98,8 @@ public final class Common {
         case 0: return ERROR;
         case 1: return LOGIN;
         case 2: return LOGOUT;
+        case 3: return GETUSERINFO;
+        case 11: return GETSCENEINFO;
         default: return null;
       }
     }
@@ -208,8 +242,9 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\'\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGO" +
-      "UT\020\002*\027\n\005Error\022\016\n\nSERVER_ERR\020\001B\002H\001"
+      "col*J\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGO" +
+      "UT\020\002\022\017\n\013GETUSERINFO\020\003\022\020\n\014GETSCENEINFO\020\013*" +
+      "\027\n\005Error\022\016\n\nSERVER_ERR\020\001B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

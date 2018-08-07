@@ -11,6 +11,11 @@
 		<!--//////////////// 登录模块 ////////////////-->
 		<Handler model="Login" method="login" description="登录" />
 		<Handler model="Login" method="logout" description="登出"/>
+		<Handler model="Login" method="getUserInfo" description="玩家信息"/>
 	</HandlerGroup>
 	
+	<HandlerGroup name="Bus" thread="4" clean="60">
+		<!--//////////////// 场景模块 ////////////////-->
+		<Handler model="Scene" method="getSceneInfo" description="场景信息" />
+	</HandlerGroup>
 </HandlerGroups>

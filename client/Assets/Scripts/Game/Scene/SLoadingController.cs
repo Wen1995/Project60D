@@ -10,7 +10,10 @@ public class SLoadingController : Controller {
 	void Start () {
         //xls
         LoadStaticData();
-
+        //RPC get user data
+        //TODO
+        //RPC get building data
+        //TODO
         FacadeSingleton.Instance.LoadScene("SSanctuary");
     }
 

@@ -23,5 +23,6 @@ message TCSGetUserInfo {
 
 }
 message TSCGetUserInfo {
+	// 房间ID
 	optional int64 groupId = 1;
 }

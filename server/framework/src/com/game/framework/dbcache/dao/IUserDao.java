@@ -7,10 +7,8 @@ import com.game.framework.dbcache.model.UserExample;
 import com.game.framework.dbcache.model.UserMapper;
 
 public interface IUserDao extends IBaseDao<User, UserMapper, UserExample> {
-    
-    long getId();
-    
     int getPageCount();
 
     List<User> getPageList(int currentPage);
+    
 }

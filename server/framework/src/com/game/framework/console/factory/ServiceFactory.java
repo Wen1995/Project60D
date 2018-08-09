@@ -8,8 +8,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.game.framework.console.thread.Sync;
-import com.game.framework.console.thread.SyncAspectManager;
 
 public class ServiceFactory {
     private static final Logger logger = LoggerFactory.getLogger(ServiceFactory.class);
@@ -39,12 +37,6 @@ public class ServiceFactory {
 				Object proxy = Proxy.newProxyInstance(ServiceFactory.class.getClassLoader(), clazz.getInterfaces(),
 						new InvocationHandler() {
 							public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-								Sync sync = method.getAnnotation(Sync.class);
-
-								if (sync != null) {
-									return SyncAspectManager.GetInstance().sync(sync, method, instance, args);
-								}
-
 								return method.invoke(instance, args);
 							}
 

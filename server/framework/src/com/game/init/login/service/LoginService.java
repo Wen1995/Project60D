@@ -9,4 +9,7 @@ public interface LoginService {
 
 	/** 登出 */
 	TPacket logout(Long uid) throws Exception;
+
+	/** 玩家信息 */
+	TPacket getUserInfo(Long uid) throws Exception;
 }

@@ -43,13 +43,31 @@ public final class Common {
      */
     GETUSERINFO(3, 3),
     /**
-     * <code>GETSCENEINFO = 11;</code>
+     * <code>CREATEGROUP = 11;</code>
      *
      * <pre>
-     *&#47;///////////////场景模块 11-50///////////////////
+     *&#47;///////////////房间模块 11-30//////////////////
+     * 创建房间
      * </pre>
      */
-    GETSCENEINFO(4, 11),
+    CREATEGROUP(4, 11),
+    /**
+     * <code>APPLYGROUP = 4;</code>
+     *
+     * <pre>
+     * 申请加入
+     * </pre>
+     */
+    APPLYGROUP(5, 4),
+    /**
+     * <code>GETSCENEINFO = 31;</code>
+     *
+     * <pre>
+     *&#47;///////////////场景模块 31-60//////////////////
+     * 场景信息
+     * </pre>
+     */
+    GETSCENEINFO(6, 31),
     ;
 
     /**
@@ -82,13 +100,31 @@ public final class Common {
      */
     public static final int GETUSERINFO_VALUE = 3;
     /**
-     * <code>GETSCENEINFO = 11;</code>
+     * <code>CREATEGROUP = 11;</code>
      *
      * <pre>
-     *&#47;///////////////场景模块 11-50///////////////////
+     *&#47;///////////////房间模块 11-30//////////////////
+     * 创建房间
      * </pre>
      */
-    public static final int GETSCENEINFO_VALUE = 11;
+    public static final int CREATEGROUP_VALUE = 11;
+    /**
+     * <code>APPLYGROUP = 4;</code>
+     *
+     * <pre>
+     * 申请加入
+     * </pre>
+     */
+    public static final int APPLYGROUP_VALUE = 4;
+    /**
+     * <code>GETSCENEINFO = 31;</code>
+     *
+     * <pre>
+     *&#47;///////////////场景模块 31-60//////////////////
+     * 场景信息
+     * </pre>
+     */
+    public static final int GETSCENEINFO_VALUE = 31;
 
 
     public final int getNumber() { return value; }
@@ -99,7 +135,9 @@ public final class Common {
         case 1: return LOGIN;
         case 2: return LOGOUT;
         case 3: return GETUSERINFO;
-        case 11: return GETSCENEINFO;
+        case 11: return CREATEGROUP;
+        case 4: return APPLYGROUP;
+        case 31: return GETSCENEINFO;
         default: return null;
       }
     }
@@ -242,9 +280,10 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*J\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGO" +
-      "UT\020\002\022\017\n\013GETUSERINFO\020\003\022\020\n\014GETSCENEINFO\020\013*" +
-      "\027\n\005Error\022\016\n\nSERVER_ERR\020\001B\002H\001"
+      "col*k\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGO" +
+      "UT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREATEGROUP\020\013\022\016" +
+      "\n\nAPPLYGROUP\020\004\022\020\n\014GETSCENEINFO\020\037*\027\n\005Erro" +
+      "r\022\016\n\nSERVER_ERR\020\001B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

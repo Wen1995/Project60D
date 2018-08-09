@@ -8,7 +8,9 @@ public enum IdType {
     /** 通用的 */
     COMMON(0),
     /** 玩家 */
-    USER(1);
+    USER(1),
+    /** 工会 */
+    GROUP(2);
 
     private byte val;
 

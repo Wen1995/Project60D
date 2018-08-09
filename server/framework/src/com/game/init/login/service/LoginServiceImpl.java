@@ -1,5 +1,6 @@
 package com.game.init.login.service;
 
+import java.util.Date;
 import java.util.Map;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import com.game.framework.dbcache.id.IdManager;
 import com.game.framework.dbcache.id.IdType;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.Common.Error;
+import com.game.framework.protocol.Login.TSCGetUserInfo;
 import com.game.framework.protocol.Login.TSCLogin;
 import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.utils.StringUtil;
@@ -24,7 +26,6 @@ public class LoginServiceImpl implements LoginService {
         if (StringUtil.isNullOrEmpty(account)) {
             throw new BaseException(Error.SERVER_ERR_VALUE);
         }
-        
         Long id;
         Map<String, Long> account2Id = DynamicDataManager.GetInstance().account2Uid;
         if (account2Id.containsKey(account)) {
@@ -34,17 +35,17 @@ public class LoginServiceImpl implements LoginService {
             id = IdManager.GetInstance().genId(IdType.USER);
             user.setId(id);
             user.setAccount(account);
+            user.setCreateTime(new Date());
             userDao.insert(user);
             account2Id.put(account, id);
         }
-        
-        TPacket resp = new TPacket();
-        resp.setUid(id);
         
         TSCLogin p = TSCLogin.newBuilder()
                 .setUid(id)
                 .setSystemCurrentTime(System.currentTimeMillis())
                 .build();
+        TPacket resp = new TPacket();
+        resp.setUid(id);
         resp.setBuffer(p.toByteArray());
         return resp;
     }
@@ -52,6 +53,18 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public TPacket logout(Long uid) throws Exception {
         return null;
+    }
+
+    @Override
+    public TPacket getUserInfo(Long uid) throws Exception {
+        User user = userDao.get(uid);
+        TSCGetUserInfo p = TSCGetUserInfo.newBuilder()
+                .setGroupId(user.getGroupId())
+                .build();
+        TPacket resp = new TPacket();
+        resp.setUid(uid);
+        resp.setBuffer(p.toByteArray());
+        return resp;
     }
 
 }

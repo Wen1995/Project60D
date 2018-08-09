@@ -1,6 +1,7 @@
 package com.game.framework.dbcache.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class UserExample {
@@ -231,6 +232,316 @@ public class UserExample {
 
         public Criteria andAccountNotBetween(String value1, String value2) {
             addCriterion("account not between", value1, value2, "account");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordIsNull() {
+            addCriterion("password is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordIsNotNull() {
+            addCriterion("password is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordEqualTo(String value) {
+            addCriterion("password =", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordNotEqualTo(String value) {
+            addCriterion("password <>", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordGreaterThan(String value) {
+            addCriterion("password >", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordGreaterThanOrEqualTo(String value) {
+            addCriterion("password >=", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordLessThan(String value) {
+            addCriterion("password <", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordLessThanOrEqualTo(String value) {
+            addCriterion("password <=", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordLike(String value) {
+            addCriterion("password like", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordNotLike(String value) {
+            addCriterion("password not like", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordIn(List<String> values) {
+            addCriterion("password in", values, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordNotIn(List<String> values) {
+            addCriterion("password not in", values, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordBetween(String value1, String value2) {
+            addCriterion("password between", value1, value2, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordNotBetween(String value1, String value2) {
+            addCriterion("password not between", value1, value2, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIsNull() {
+            addCriterion("group_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIsNotNull() {
+            addCriterion("group_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdEqualTo(Long value) {
+            addCriterion("group_id =", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotEqualTo(Long value) {
+            addCriterion("group_id <>", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdGreaterThan(Long value) {
+            addCriterion("group_id >", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("group_id >=", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdLessThan(Long value) {
+            addCriterion("group_id <", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdLessThanOrEqualTo(Long value) {
+            addCriterion("group_id <=", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIn(List<Long> values) {
+            addCriterion("group_id in", values, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotIn(List<Long> values) {
+            addCriterion("group_id not in", values, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdBetween(Long value1, Long value2) {
+            addCriterion("group_id between", value1, value2, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotBetween(Long value1, Long value2) {
+            addCriterion("group_id not between", value1, value2, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionIsNull() {
+            addCriterion("contribution is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionIsNotNull() {
+            addCriterion("contribution is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionEqualTo(Integer value) {
+            addCriterion("contribution =", value, "contribution");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionNotEqualTo(Integer value) {
+            addCriterion("contribution <>", value, "contribution");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionGreaterThan(Integer value) {
+            addCriterion("contribution >", value, "contribution");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionGreaterThanOrEqualTo(Integer value) {
+            addCriterion("contribution >=", value, "contribution");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionLessThan(Integer value) {
+            addCriterion("contribution <", value, "contribution");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionLessThanOrEqualTo(Integer value) {
+            addCriterion("contribution <=", value, "contribution");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionIn(List<Integer> values) {
+            addCriterion("contribution in", values, "contribution");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionNotIn(List<Integer> values) {
+            addCriterion("contribution not in", values, "contribution");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionBetween(Integer value1, Integer value2) {
+            addCriterion("contribution between", value1, value2, "contribution");
+            return (Criteria) this;
+        }
+
+        public Criteria andContributionNotBetween(Integer value1, Integer value2) {
+            addCriterion("contribution not between", value1, value2, "contribution");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldIsNull() {
+            addCriterion("gold is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldIsNotNull() {
+            addCriterion("gold is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldEqualTo(Integer value) {
+            addCriterion("gold =", value, "gold");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldNotEqualTo(Integer value) {
+            addCriterion("gold <>", value, "gold");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldGreaterThan(Integer value) {
+            addCriterion("gold >", value, "gold");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldGreaterThanOrEqualTo(Integer value) {
+            addCriterion("gold >=", value, "gold");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldLessThan(Integer value) {
+            addCriterion("gold <", value, "gold");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldLessThanOrEqualTo(Integer value) {
+            addCriterion("gold <=", value, "gold");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldIn(List<Integer> values) {
+            addCriterion("gold in", values, "gold");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldNotIn(List<Integer> values) {
+            addCriterion("gold not in", values, "gold");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldBetween(Integer value1, Integer value2) {
+            addCriterion("gold between", value1, value2, "gold");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoldNotBetween(Integer value1, Integer value2) {
+            addCriterion("gold not between", value1, value2, "gold");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNull() {
+            addCriterion("create_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNotNull() {
+            addCriterion("create_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterion("create_time =", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterion("create_time <>", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterion("create_time >", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_time >=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterion("create_time <", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("create_time <=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterion("create_time in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterion("create_time not in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterion("create_time between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("create_time not between", value1, value2, "createTime");
             return (Criteria) this;
         }
     }

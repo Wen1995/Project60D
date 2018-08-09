@@ -12,8 +12,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.game.framework.utils.StringUtil;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.Pipeline;
 
 public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, Mapper, Example> {
 
@@ -72,7 +70,7 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
     @Override
     public void insert(Pojo pojo) {
         sqlInsert(pojo);
-        Long id = getId(pojo);
+        long id = getId(pojo);
         String redisKey = getCacheKey(pojoClazz.getSimpleName(), id);
         redisUtil.set(redisKey, pojo);
     }
@@ -189,6 +187,7 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
         return null;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<Pojo> sqlSelectByExample(Example example) {
         SqlSession session = db.getSession();
@@ -211,6 +210,7 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
         return null;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Pojo sqlSelectFirstByExample(Example example) {
         SqlSession session = db.getSession();
@@ -235,6 +235,7 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
         return null;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Pojo sqlSelectByPrimaryKey(Long id) {
         SqlSession session = db.getSession();

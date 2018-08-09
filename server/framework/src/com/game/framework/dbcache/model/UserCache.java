@@ -35,6 +35,61 @@ public final class UserCache {
      */
     com.google.protobuf.ByteString
         getAccountBytes();
+
+    // optional string password = 3;
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    boolean hasPassword();
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+
+    // optional int64 groupId = 4;
+    /**
+     * <code>optional int64 groupId = 4;</code>
+     */
+    boolean hasGroupId();
+    /**
+     * <code>optional int64 groupId = 4;</code>
+     */
+    long getGroupId();
+
+    // optional int32 contribution = 5;
+    /**
+     * <code>optional int32 contribution = 5;</code>
+     */
+    boolean hasContribution();
+    /**
+     * <code>optional int32 contribution = 5;</code>
+     */
+    int getContribution();
+
+    // optional int32 gold = 6;
+    /**
+     * <code>optional int32 gold = 6;</code>
+     */
+    boolean hasGold();
+    /**
+     * <code>optional int32 gold = 6;</code>
+     */
+    int getGold();
+
+    // optional sint64 createTime = 7;
+    /**
+     * <code>optional sint64 createTime = 7;</code>
+     */
+    boolean hasCreateTime();
+    /**
+     * <code>optional sint64 createTime = 7;</code>
+     */
+    long getCreateTime();
   }
   /**
    * Protobuf type {@code com.game.framework.dbcache.model.ProtoUser}
@@ -95,6 +150,31 @@ public final class UserCache {
             case 18: {
               bitField0_ |= 0x00000002;
               account_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              password_ = input.readBytes();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              groupId_ = input.readInt64();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              contribution_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              gold_ = input.readInt32();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              createTime_ = input.readSInt64();
               break;
             }
           }
@@ -196,9 +276,121 @@ public final class UserCache {
       }
     }
 
+    // optional string password = 3;
+    public static final int PASSWORD_FIELD_NUMBER = 3;
+    private java.lang.Object password_;
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    public boolean hasPassword() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          password_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional int64 groupId = 4;
+    public static final int GROUPID_FIELD_NUMBER = 4;
+    private long groupId_;
+    /**
+     * <code>optional int64 groupId = 4;</code>
+     */
+    public boolean hasGroupId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int64 groupId = 4;</code>
+     */
+    public long getGroupId() {
+      return groupId_;
+    }
+
+    // optional int32 contribution = 5;
+    public static final int CONTRIBUTION_FIELD_NUMBER = 5;
+    private int contribution_;
+    /**
+     * <code>optional int32 contribution = 5;</code>
+     */
+    public boolean hasContribution() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int32 contribution = 5;</code>
+     */
+    public int getContribution() {
+      return contribution_;
+    }
+
+    // optional int32 gold = 6;
+    public static final int GOLD_FIELD_NUMBER = 6;
+    private int gold_;
+    /**
+     * <code>optional int32 gold = 6;</code>
+     */
+    public boolean hasGold() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional int32 gold = 6;</code>
+     */
+    public int getGold() {
+      return gold_;
+    }
+
+    // optional sint64 createTime = 7;
+    public static final int CREATETIME_FIELD_NUMBER = 7;
+    private long createTime_;
+    /**
+     * <code>optional sint64 createTime = 7;</code>
+     */
+    public boolean hasCreateTime() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional sint64 createTime = 7;</code>
+     */
+    public long getCreateTime() {
+      return createTime_;
+    }
+
     private void initFields() {
       id_ = 0L;
       account_ = "";
+      password_ = "";
+      groupId_ = 0L;
+      contribution_ = 0;
+      gold_ = 0;
+      createTime_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -218,6 +410,21 @@ public final class UserCache {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, getAccountBytes());
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt64(4, groupId_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, contribution_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt32(6, gold_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeSInt64(7, createTime_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -234,6 +441,26 @@ public final class UserCache {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, getAccountBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, groupId_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, contribution_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, gold_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt64Size(7, createTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -355,6 +582,16 @@ public final class UserCache {
         bitField0_ = (bitField0_ & ~0x00000001);
         account_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        password_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        groupId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        contribution_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        gold_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        createTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -391,6 +628,26 @@ public final class UserCache {
           to_bitField0_ |= 0x00000002;
         }
         result.account_ = account_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.password_ = password_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.groupId_ = groupId_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.contribution_ = contribution_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.gold_ = gold_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.createTime_ = createTime_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -414,6 +671,23 @@ public final class UserCache {
           bitField0_ |= 0x00000002;
           account_ = other.account_;
           onChanged();
+        }
+        if (other.hasPassword()) {
+          bitField0_ |= 0x00000004;
+          password_ = other.password_;
+          onChanged();
+        }
+        if (other.hasGroupId()) {
+          setGroupId(other.getGroupId());
+        }
+        if (other.hasContribution()) {
+          setContribution(other.getContribution());
+        }
+        if (other.hasGold()) {
+          setGold(other.getGold());
+        }
+        if (other.hasCreateTime()) {
+          setCreateTime(other.getCreateTime());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -549,6 +823,212 @@ public final class UserCache {
         return this;
       }
 
+      // optional string password = 3;
+      private java.lang.Object password_ = "";
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public boolean hasPassword() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public Builder clearPassword() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 groupId = 4;
+      private long groupId_ ;
+      /**
+       * <code>optional int64 groupId = 4;</code>
+       */
+      public boolean hasGroupId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int64 groupId = 4;</code>
+       */
+      public long getGroupId() {
+        return groupId_;
+      }
+      /**
+       * <code>optional int64 groupId = 4;</code>
+       */
+      public Builder setGroupId(long value) {
+        bitField0_ |= 0x00000008;
+        groupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 groupId = 4;</code>
+       */
+      public Builder clearGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        groupId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 contribution = 5;
+      private int contribution_ ;
+      /**
+       * <code>optional int32 contribution = 5;</code>
+       */
+      public boolean hasContribution() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 contribution = 5;</code>
+       */
+      public int getContribution() {
+        return contribution_;
+      }
+      /**
+       * <code>optional int32 contribution = 5;</code>
+       */
+      public Builder setContribution(int value) {
+        bitField0_ |= 0x00000010;
+        contribution_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 contribution = 5;</code>
+       */
+      public Builder clearContribution() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        contribution_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 gold = 6;
+      private int gold_ ;
+      /**
+       * <code>optional int32 gold = 6;</code>
+       */
+      public boolean hasGold() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional int32 gold = 6;</code>
+       */
+      public int getGold() {
+        return gold_;
+      }
+      /**
+       * <code>optional int32 gold = 6;</code>
+       */
+      public Builder setGold(int value) {
+        bitField0_ |= 0x00000020;
+        gold_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 gold = 6;</code>
+       */
+      public Builder clearGold() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        gold_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional sint64 createTime = 7;
+      private long createTime_ ;
+      /**
+       * <code>optional sint64 createTime = 7;</code>
+       */
+      public boolean hasCreateTime() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional sint64 createTime = 7;</code>
+       */
+      public long getCreateTime() {
+        return createTime_;
+      }
+      /**
+       * <code>optional sint64 createTime = 7;</code>
+       */
+      public Builder setCreateTime(long value) {
+        bitField0_ |= 0x00000040;
+        createTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional sint64 createTime = 7;</code>
+       */
+      public Builder clearCreateTime() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        createTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:com.game.framework.dbcache.model.ProtoUser)
     }
 
@@ -575,8 +1055,10 @@ public final class UserCache {
   static {
     java.lang.String[] descriptorData = {
       "\n\017UserCache.proto\022 com.game.framework.db" +
-      "cache.model\"(\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n\007" +
-      "account\030\002 \001(\tB\002H\001"
+      "cache.model\"\203\001\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n" +
+      "\007account\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\017\n\007grou" +
+      "pId\030\004 \001(\003\022\024\n\014contribution\030\005 \001(\005\022\014\n\004gold\030" +
+      "\006 \001(\005\022\022\n\ncreateTime\030\007 \001(\022B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -588,7 +1070,7 @@ public final class UserCache {
           internal_static_com_game_framework_dbcache_model_ProtoUser_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_dbcache_model_ProtoUser_descriptor,
-              new java.lang.String[] { "Id", "Account", });
+              new java.lang.String[] { "Id", "Account", "Password", "GroupId", "Contribution", "Gold", "CreateTime", });
           return null;
         }
       };

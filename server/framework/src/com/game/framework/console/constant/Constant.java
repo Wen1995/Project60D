@@ -1,8 +1,12 @@
 package com.game.framework.console.constant;
 
 import java.io.File;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Constant {
+    
+    public static final ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
     
     public static final String PACKAGE = "com.game";
 

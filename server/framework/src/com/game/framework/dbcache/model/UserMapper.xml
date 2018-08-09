@@ -4,6 +4,14 @@
   <resultMap id="BaseResultMap" type="com.game.framework.dbcache.model.User" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="group_id" property="groupId" jdbcType="BIGINT" />
+    <result column="contribution" property="contribution" jdbcType="INTEGER" />
+    <result column="gold" property="gold" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.game.framework.dbcache.model.User" extends="BaseResultMap" >
+    <result column="resource" property="resource" jdbcType="LONGVARBINARY" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -64,8 +72,27 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, account
+    id, account, password, group_id, contribution, gold, create_time
   </sql>
+  <sql id="Blob_Column_List" >
+    resource
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.game.framework.dbcache.model.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.game.framework.dbcache.model.UserExample" >
     select
     <if test="distinct" >
@@ -80,9 +107,11 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from t_user
     where id = #{id,jdbcType=BIGINT}
   </select>
@@ -97,8 +126,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.game.framework.dbcache.model.User" >
-    insert into t_user (id, account)
-    values (#{id,jdbcType=BIGINT}, #{account,jdbcType=VARCHAR})
+    insert into t_user (id, account, password, 
+      group_id, contribution, gold, 
+      create_time, resource)
+    values (#{id,jdbcType=BIGINT}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{groupId,jdbcType=BIGINT}, #{contribution,jdbcType=INTEGER}, #{gold,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{resource,jdbcType=LONGVARBINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.game.framework.dbcache.model.User" >
     insert into t_user
@@ -109,6 +142,24 @@
       <if test="account != null" >
         account,
       </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="contribution != null" >
+        contribution,
+      </if>
+      <if test="gold != null" >
+        gold,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="resource != null" >
+        resource,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -116,6 +167,24 @@
       </if>
       <if test="account != null" >
         #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="contribution != null" >
+        #{contribution,jdbcType=INTEGER},
+      </if>
+      <if test="gold != null" >
+        #{gold,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resource != null" >
+        #{resource,jdbcType=LONGVARBINARY},
       </if>
     </trim>
   </insert>
@@ -134,7 +203,39 @@
       <if test="record.account != null" >
         account = #{record.account,jdbcType=VARCHAR},
       </if>
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupId != null" >
+        group_id = #{record.groupId,jdbcType=BIGINT},
+      </if>
+      <if test="record.contribution != null" >
+        contribution = #{record.contribution,jdbcType=INTEGER},
+      </if>
+      <if test="record.gold != null" >
+        gold = #{record.gold,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.resource != null" >
+        resource = #{record.resource,jdbcType=LONGVARBINARY},
+      </if>
     </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_user
+    set id = #{record.id,jdbcType=BIGINT},
+      account = #{record.account,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      group_id = #{record.groupId,jdbcType=BIGINT},
+      contribution = #{record.contribution,jdbcType=INTEGER},
+      gold = #{record.gold,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      resource = #{record.resource,jdbcType=LONGVARBINARY}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -142,7 +243,12 @@
   <update id="updateByExample" parameterType="map" >
     update t_user
     set id = #{record.id,jdbcType=BIGINT},
-      account = #{record.account,jdbcType=VARCHAR}
+      account = #{record.account,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      group_id = #{record.groupId,jdbcType=BIGINT},
+      contribution = #{record.contribution,jdbcType=INTEGER},
+      gold = #{record.gold,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -153,12 +259,46 @@
       <if test="account != null" >
         account = #{account,jdbcType=VARCHAR},
       </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="contribution != null" >
+        contribution = #{contribution,jdbcType=INTEGER},
+      </if>
+      <if test="gold != null" >
+        gold = #{gold,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resource != null" >
+        resource = #{resource,jdbcType=LONGVARBINARY},
+      </if>
     </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.game.framework.dbcache.model.User" >
+    update t_user
+    set account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=BIGINT},
+      contribution = #{contribution,jdbcType=INTEGER},
+      gold = #{gold,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      resource = #{resource,jdbcType=LONGVARBINARY}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.game.framework.dbcache.model.User" >
     update t_user
-    set account = #{account,jdbcType=VARCHAR}
+    set account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=BIGINT},
+      contribution = #{contribution,jdbcType=INTEGER},
+      gold = #{gold,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

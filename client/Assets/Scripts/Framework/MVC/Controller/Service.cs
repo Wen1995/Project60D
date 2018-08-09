@@ -4,8 +4,8 @@ using System;
 using System.Reflection;
 
 /// <summary>
-/// Service is meant to hold complacated logical operation 
-/// instead of putting all these into Controller
+/// Service is designed to hold complacated logical operation 
+/// instead of putting them all in Controller
 /// </summary>
 public class Service{
 
@@ -15,7 +15,9 @@ public class Service{
     {
         if (mServiceMap.ContainsKey(module))
             return;
-        mServiceMap.Add(module, new T());
+        T service = new T();
+        service.InitService();
+        mServiceMap.Add(module, service);
     }
 
     public void RemoveService(string module)
@@ -25,14 +27,18 @@ public class Service{
         mServiceMap.Remove(module);
     }
 
-    public object InvokeService(string method, string module, NDictionary args)
+    public object InvokeService(string method, string module, NDictionary args = null)
     {
         if (!mServiceMap.ContainsKey(module))
             return null;
         ServiceBase service = mServiceMap[module];
         var type = service.GetType();
         MethodInfo info = type.GetMethod(method);
-        return info.Invoke(service, new object[] { args });
+        if(args == null)
+            return info.Invoke(service, null);
+        else
+            return info.Invoke(service, new object[] { args });
+
     }
 
     public void Clear()

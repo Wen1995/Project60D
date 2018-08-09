@@ -9,6 +9,7 @@ public static class ConstVal{
     #region Package
     public static string Package_User = "UserData";
     public static string Package_Sanctuary = "SanctuaryData";
+    public static string Package_Item = "ItemPackage";
     #endregion
 
     #region Panel

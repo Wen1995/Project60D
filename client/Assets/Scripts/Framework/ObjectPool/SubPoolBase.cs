@@ -9,7 +9,7 @@ public interface ISubPool
     void Release();
 }
 
-public abstract class SubPoolBase <UnitType> : MonoBehaviour, ISubPool
+public abstract class SubPoolBase <UnitType> : ISubPool
     where UnitType : class, IPoolUnit {
 
     protected System.Type mType = null;

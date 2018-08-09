@@ -13,7 +13,6 @@ public class ObjectPoolSingleton : Singleton<ObjectPoolSingleton> {
         subPool.SetTemplate(prefab);
         subPool.SetContainer(container.transform);
         mSubPoolMap.Add(type, subPool);
-        ISubPool test = mSubPoolMap[type];
     }
 
     public void ReleaseComPool<UnitType>() where UnitType : Component, IPoolUnit

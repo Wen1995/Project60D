@@ -134,7 +134,6 @@ public class CameraController : MonoBehaviour {
             if (hitGo == hit.collider.gameObject)
             {
                 hitGo.SendMessage("OnClick", SendMessageOptions.DontRequireReceiver);
-                print(hit.collider.gameObject.name);
             }
         }
     }

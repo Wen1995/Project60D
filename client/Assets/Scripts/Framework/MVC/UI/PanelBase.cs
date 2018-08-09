@@ -10,7 +10,7 @@ public class PanelBase : Controller {
     protected List<UIPanel> mChildPanelList = new List<UIPanel>();
     protected List<int> mChildPanelDepthList = new List<int>();
 
-    private void Awake()
+    protected virtual void Awake()
     {
         mViewPanel = GetComponent<UIPanel>();
         //Get all UIPanel of child, record their depth, cause when you change Panel's depth,

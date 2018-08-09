@@ -11,9 +11,13 @@ public class SLoadingController : Controller {
         //xls
         LoadStaticData();
         //RPC get user data
+        FacadeSingleton.Instance.RegisterData(ConstVal.Package_User, typeof(UserPackage));
         //TODO
         //RPC get building data
+        FacadeSingleton.Instance.RegisterData(ConstVal.Package_Sanctuary, typeof(SanctuaryPackage));
         //TODO
+
+
         FacadeSingleton.Instance.LoadScene("SSanctuary");
     }
 
@@ -21,4 +25,10 @@ public class SLoadingController : Controller {
     {
         ConfigDataStatic.LoadAllConfigData();
     }
+
+    void RPCGetUserData()
+    { }
+
+    void RPCGetBuildingData()
+    { }
 }

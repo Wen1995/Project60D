@@ -44,7 +44,7 @@ public class ColliderToFit : MonoBehaviour
         }
     }
 
-    [MenuItem("ProjectTools/Building/Remove Collider")]
+    [MenuItem("ProjectTools/Building/AddFloatingIconPos")]
     static void AddFloatingIconPos()
     {
         foreach (GameObject go in Selection.gameObjects)
@@ -55,6 +55,14 @@ public class ColliderToFit : MonoBehaviour
                 print("pls add box collider first");
                 continue;
             }
+            GameObject hudGo = new GameObject("FloatingPos");
+            hudGo.transform.parent = go.transform;
+            //hudGo.transform.localPosition = new Vector3(0, 0, 0);
+            hudGo.transform.localPosition = new Vector3(
+                0,
+                Mathf.Ceil(collider.bounds.size.y * 1.2f),
+                0
+                );
         }
     }
 

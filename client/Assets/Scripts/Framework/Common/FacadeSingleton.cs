@@ -52,9 +52,9 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
         mService.RemoveService(module);
     }
 
-    public void InvokeService(string method, string module, NDictionary data = null)
+    public object InvokeService(string method, string module, NDictionary data = null)
     {
-        mService.InvokeService(method, module, data);
+        return mService.InvokeService(method, module, data);
     }
 
     public void RegisterRPCResponce(short cmdID, NRPCResponce handler)
@@ -113,7 +113,7 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
         mView.ReplacePanel(name);
     }
 
-    public void BackPanel(string name)
+    public void BackPanel()
     {
         mView.BackPanel();
     }

@@ -163,6 +163,7 @@ public class UIContainerBase : MonoBehaviour {
                 mCurDepth += mDepthInterval;
                 panel.SetRenderQ(mCurDepth);
             }
+            panel.OpenPanel();
         }
         return panel;
     }
@@ -179,6 +180,7 @@ public class UIContainerBase : MonoBehaviour {
                 mCurDepth -= mDepthInterval;
                 //panel.SetRenderQ(mCurDepth);
             }
+            panel.ClosePanel();
         }
     }
 

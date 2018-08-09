@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ServiceBase : MonoBehaviour {
+public class ServiceBase{
 
+
+    public virtual void InitService()
+    {
+        
+    }
 }

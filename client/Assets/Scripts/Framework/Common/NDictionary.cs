@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class NDictionary : MonoBehaviour {
+public class NDictionary{
 
     private Dictionary<object, object> mData = new Dictionary<object, object>();
 

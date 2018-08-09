@@ -15,7 +15,12 @@
 	</HandlerGroup>
 	
 	<HandlerGroup name="Bus" thread="4" clean="60">
+		<!--//////////////// 房间模块 ////////////////-->
+		<Handler model="Room" method="createGroup" description="创建房间"/>
+		<Handler model="Room" method="applyGroup" description="申请加入"/>
+		
 		<!--//////////////// 场景模块 ////////////////-->
-		<Handler model="Scene" method="getSceneInfo" description="场景信息" />
+		<Handler model="Scene" method="getSceneInfo" description="场景信息"/>
 	</HandlerGroup>
+	
 </HandlerGroups>

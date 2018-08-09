@@ -10,7 +10,7 @@ import com.game.framework.resource.DynamicDataManager;
 
 public class StartApp {
     private static Logger logger = LoggerFactory.getLogger(StartApp.class);
-
+    
     public static void main(String[] args) {
         HandlersConfig.GetInstance().init();
         HandlerMappingManager.GetInstance().init();

@@ -3,9 +3,13 @@ package com.game.framework.console.config;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.game.framework.console.constant.Constant;
+import com.game.framework.dbcache.dao.IServerDao;
+import com.game.framework.dbcache.model.Server;
 
 public class ServerConfig {
     private static Logger logger = LoggerFactory.getLogger(ServerConfig.class);
@@ -16,6 +20,7 @@ public class ServerConfig {
     static {
         init();
     }
+
     public static void init() {
         InputStream in = null;
         try {
@@ -26,6 +31,7 @@ public class ServerConfig {
             // 直接输出prop对象
             System.out.println("Server Config : " + prop);
 
+            initServerSql();
         } catch (IOException e) {
             logger.error("", e);
         } finally {
@@ -37,6 +43,27 @@ public class ServerConfig {
                 logger.error("", e);
             }
         }
+    }
+
+    private static void initServerSql() {
+        long serverId = getServerId() * 1L;
+        IServerDao ud = (IServerDao) Constant.context.getBean("serverDao");
+        Server serverVo = ud.sqlSelectByPrimaryKey(serverId);
+        if (serverVo == null) {
+            serverVo = new Server();
+            serverVo.setId(serverId);
+            serverVo.setStartTime(new Date());
+            serverVo.setRestartTimes(0);
+            ud.sqlInsert(serverVo);
+            return;
+        }
+        serverVo.setStartTime(new Date());
+        restartTimes = serverVo.getRestartTimes() + 1;
+        if (restartTimes >= 1024) {
+            restartTimes = 0;
+        }
+        serverVo.setRestartTimes(restartTimes);
+        ud.sqlUpdateByPrimaryKey(serverVo);
     }
 
     public static int getServerId() {

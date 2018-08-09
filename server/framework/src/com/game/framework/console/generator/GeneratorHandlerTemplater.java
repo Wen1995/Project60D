@@ -76,12 +76,12 @@ public class GeneratorHandlerTemplater {
     @SuppressWarnings("unchecked")
     private void createHandlerClass(Map<String, HandlerGroup> handlerGroups, Map<Short, Handler> handlers) {
         Map<String, ModelClass> models = new HashMap<>();
-        
         Iterator<HandlerGroup> handlerGroupItr = handlerGroups.values().iterator();
-        Iterator<Handler> handlerItr = handlers.values().iterator();
         
         while (handlerGroupItr.hasNext()) {
             HandlerGroup handlerGroup = handlerGroupItr.next();
+            Iterator<Handler> handlerItr = handlers.values().iterator();
+            
             while (handlerItr.hasNext()) {
                 Handler handler = handlerItr.next();
                 if (handler.getHandlerGroup().equals(handlerGroup.getName())) {
@@ -160,12 +160,12 @@ public class GeneratorHandlerTemplater {
     @SuppressWarnings("unchecked")
     private void createServiceClass(Map<String, HandlerGroup> handlerGroups, Map<Short, Handler> handlers) {
         Map<String, ModelClass> models = new HashMap<>();
-
         Iterator<HandlerGroup> handlerGroupItr = handlerGroups.values().iterator();
-        Iterator<Handler> handlerItr = handlers.values().iterator();
         
         while (handlerGroupItr.hasNext()) {
             HandlerGroup handlerGroup = handlerGroupItr.next();
+            Iterator<Handler> handlerItr = handlers.values().iterator();
+            
             while (handlerItr.hasNext()) {
                 Handler handler = handlerItr.next();
                 if (handler.getHandlerGroup().equals(handlerGroup.getName())) {

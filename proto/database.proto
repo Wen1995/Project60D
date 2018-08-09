@@ -1,0 +1,49 @@
+package com.game.framework.protocol;
+
+option optimize_for = SPEED;
+
+/** 这里存放mysql表中blob字段的二进制序列 */
+
+message UserResourceProto {
+	// 大米
+	optional int32 rice = 1;
+	// 蔬菜
+	optional int32 vegetables = 2;
+	// 水果
+	optional int32 fruit = 3;
+	// 草
+	optional int32 grass = 4;
+	// 猪饲料
+	optional int32 pigFood = 5;
+	// 猪肉
+	optional int32 pork = 6;
+	// 原油
+	optional int32 crude = 7;
+	// 汽油
+	optional int32 gasoline = 8;
+	// 铁
+	optional int32 iron = 9;
+	// 钢
+	optional int32 steel = 10;
+	// 松木
+	optional int32 pine = 11;
+	// 白桦木
+	optional int32 whiteBirch = 12;
+	// 铁桦木
+	optional int32 ironBirch = 13;
+	// 松木板
+	optional int32 pineBoard = 14;
+	// 白桦木板
+	optional int32 whiteBirchBoard = 15;
+	// 铁桦木板
+	optional int32 ironBirchBoard = 16;
+	// 纯净水
+	optional int32 pureWater = 17;
+	// 矿物质水
+	optional int32 mineralWater = 18;
+	// 电力
+	optional int32 electricity = 19;
+	// 子弹
+	optional int32 bullet = 20;
+}
+

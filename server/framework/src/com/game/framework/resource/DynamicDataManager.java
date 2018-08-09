@@ -5,9 +5,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.game.framework.console.factory.ServiceFactory;
+import com.game.framework.console.constant.Constant;
 import com.game.framework.dbcache.dao.IUserDao;
-import com.game.framework.dbcache.dao.UserDao;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.utils.StringUtil;
 
@@ -27,10 +26,10 @@ public class DynamicDataManager {
         return instance;
     }
 
-    private IUserDao userDao = ServiceFactory.getProxy(UserDao.class);
     public Map<String, Long> account2Uid = new ConcurrentHashMap<>();
 
     public void init() {
+        IUserDao userDao = (IUserDao) Constant.context.getBean("userDao");
         long startTime = System.currentTimeMillis();
         int pageCount = userDao.getPageCount();
         for (int currentPage = 1; currentPage <= pageCount; currentPage++) {

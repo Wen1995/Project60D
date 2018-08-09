@@ -14,7 +14,7 @@ public class Client {
     }
 
     public void testLogin(ClientConnector cc) {
-        String account = "wew2";
+        String account = "wew1";
         TCSLogin data = TCSLogin.newBuilder().setAccount(account).build();
         TPacket p = new TPacket();
         p.setCmd(Cmd.LOGIN_VALUE);

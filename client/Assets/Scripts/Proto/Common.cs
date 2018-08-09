@@ -30,7 +30,9 @@ namespace com.game.framework.protocol {
     LOGIN = 1,
     LOGOUT = 2,
     GETUSERINFO = 3,
-    GETSCENEINFO = 11,
+    CREATEGROUP = 11,
+    APPLYGROUP = 4,
+    GETSCENEINFO = 31,
   }
   
   public enum Error {

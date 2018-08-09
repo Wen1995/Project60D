@@ -1,9 +1,10 @@
-package com.game.framework.dbcache.dao;
+package com.game.framework.dbcache.dao.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Component;
 import com.game.framework.console.constant.Constant;
 import com.game.framework.dbcache.base.BaseDao;
+import com.game.framework.dbcache.dao.IUserDao;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.dbcache.model.UserExample;
 import com.game.framework.dbcache.model.UserMapper;
@@ -24,11 +25,6 @@ public class UserDao extends BaseDao<User, UserMapper, UserExample> implements I
         PageHelper.startPage(currentPage, Constant.RECORD_COUNT);
         UserExample example = new UserExample();
         return sqlSelectByExample(example);
-    }
-
-    @Override
-    public long getId() {
-        return 12L;
     }
 
 }

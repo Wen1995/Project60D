@@ -1969,10 +1969,18 @@ public final class Login {
     // optional int64 groupId = 1;
     /**
      * <code>optional int64 groupId = 1;</code>
+     *
+     * <pre>
+     * 房间ID
+     * </pre>
      */
     boolean hasGroupId();
     /**
      * <code>optional int64 groupId = 1;</code>
+     *
+     * <pre>
+     * 房间ID
+     * </pre>
      */
     long getGroupId();
   }
@@ -2077,12 +2085,20 @@ public final class Login {
     private long groupId_;
     /**
      * <code>optional int64 groupId = 1;</code>
+     *
+     * <pre>
+     * 房间ID
+     * </pre>
      */
     public boolean hasGroupId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional int64 groupId = 1;</code>
+     *
+     * <pre>
+     * 房间ID
+     * </pre>
      */
     public long getGroupId() {
       return groupId_;
@@ -2319,18 +2335,30 @@ public final class Login {
       private long groupId_ ;
       /**
        * <code>optional int64 groupId = 1;</code>
+       *
+       * <pre>
+       * 房间ID
+       * </pre>
        */
       public boolean hasGroupId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional int64 groupId = 1;</code>
+       *
+       * <pre>
+       * 房间ID
+       * </pre>
        */
       public long getGroupId() {
         return groupId_;
       }
       /**
        * <code>optional int64 groupId = 1;</code>
+       *
+       * <pre>
+       * 房间ID
+       * </pre>
        */
       public Builder setGroupId(long value) {
         bitField0_ |= 0x00000001;
@@ -2340,6 +2368,10 @@ public final class Login {
       }
       /**
        * <code>optional int64 groupId = 1;</code>
+       *
+       * <pre>
+       * 房间ID
+       * </pre>
        */
       public Builder clearGroupId() {
         bitField0_ = (bitField0_ & ~0x00000001);

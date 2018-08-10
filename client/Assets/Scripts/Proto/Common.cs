@@ -31,12 +31,15 @@ namespace com.game.framework.protocol {
     LOGOUT = 2,
     GETUSERINFO = 3,
     CREATEGROUP = 11,
-    APPLYGROUP = 4,
+    APPLYGROUP = 12,
     GETSCENEINFO = 31,
+    UPGRADE = 32,
   }
   
   public enum Error {
     SERVER_ERR = 1,
+    RIGHT_HANDLE = 2,
+    NO_BUILDING = 3,
   }
   
   #endregion

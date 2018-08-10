@@ -8,7 +8,7 @@ public final class Database {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface UserResourceProtoOrBuilder
+  public interface UserResourceOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // optional int32 rice = 1;
@@ -372,24 +372,24 @@ public final class Database {
     int getBullet();
   }
   /**
-   * Protobuf type {@code com.game.framework.protocol.UserResourceProto}
+   * Protobuf type {@code com.game.framework.protocol.UserResource}
    */
-  public static final class UserResourceProto extends
+  public static final class UserResource extends
       com.google.protobuf.GeneratedMessage
-      implements UserResourceProtoOrBuilder {
-    // Use UserResourceProto.newBuilder() to construct.
-    private UserResourceProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements UserResourceOrBuilder {
+    // Use UserResource.newBuilder() to construct.
+    private UserResource(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private UserResourceProto(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private UserResource(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final UserResourceProto defaultInstance;
-    public static UserResourceProto getDefaultInstance() {
+    private static final UserResource defaultInstance;
+    public static UserResource getDefaultInstance() {
       return defaultInstance;
     }
 
-    public UserResourceProto getDefaultInstanceForType() {
+    public UserResource getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -399,7 +399,7 @@ public final class Database {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private UserResourceProto(
+    private UserResource(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -536,28 +536,28 @@ public final class Database {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UserResourceProto_descriptor;
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UserResource_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UserResourceProto_fieldAccessorTable
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UserResource_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.game.framework.protocol.Database.UserResourceProto.class, com.game.framework.protocol.Database.UserResourceProto.Builder.class);
+              com.game.framework.protocol.Database.UserResource.class, com.game.framework.protocol.Database.UserResource.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<UserResourceProto> PARSER =
-        new com.google.protobuf.AbstractParser<UserResourceProto>() {
-      public UserResourceProto parsePartialFrom(
+    public static com.google.protobuf.Parser<UserResource> PARSER =
+        new com.google.protobuf.AbstractParser<UserResource>() {
+      public UserResource parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UserResourceProto(input, extensionRegistry);
+        return new UserResource(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<UserResourceProto> getParserForType() {
+    public com.google.protobuf.Parser<UserResource> getParserForType() {
       return PARSER;
     }
 
@@ -1237,53 +1237,53 @@ public final class Database {
       return super.writeReplace();
     }
 
-    public static com.game.framework.protocol.Database.UserResourceProto parseFrom(
+    public static com.game.framework.protocol.Database.UserResource parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.framework.protocol.Database.UserResourceProto parseFrom(
+    public static com.game.framework.protocol.Database.UserResource parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.framework.protocol.Database.UserResourceProto parseFrom(byte[] data)
+    public static com.game.framework.protocol.Database.UserResource parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.framework.protocol.Database.UserResourceProto parseFrom(
+    public static com.game.framework.protocol.Database.UserResource parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.framework.protocol.Database.UserResourceProto parseFrom(java.io.InputStream input)
+    public static com.game.framework.protocol.Database.UserResource parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.framework.protocol.Database.UserResourceProto parseFrom(
+    public static com.game.framework.protocol.Database.UserResource parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.game.framework.protocol.Database.UserResourceProto parseDelimitedFrom(java.io.InputStream input)
+    public static com.game.framework.protocol.Database.UserResource parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.game.framework.protocol.Database.UserResourceProto parseDelimitedFrom(
+    public static com.game.framework.protocol.Database.UserResource parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.game.framework.protocol.Database.UserResourceProto parseFrom(
+    public static com.game.framework.protocol.Database.UserResource parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.framework.protocol.Database.UserResourceProto parseFrom(
+    public static com.game.framework.protocol.Database.UserResource parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1292,7 +1292,7 @@ public final class Database {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.game.framework.protocol.Database.UserResourceProto prototype) {
+    public static Builder newBuilder(com.game.framework.protocol.Database.UserResource prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1304,24 +1304,24 @@ public final class Database {
       return builder;
     }
     /**
-     * Protobuf type {@code com.game.framework.protocol.UserResourceProto}
+     * Protobuf type {@code com.game.framework.protocol.UserResource}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.game.framework.protocol.Database.UserResourceProtoOrBuilder {
+       implements com.game.framework.protocol.Database.UserResourceOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UserResourceProto_descriptor;
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UserResource_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UserResourceProto_fieldAccessorTable
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UserResource_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.game.framework.protocol.Database.UserResourceProto.class, com.game.framework.protocol.Database.UserResourceProto.Builder.class);
+                com.game.framework.protocol.Database.UserResource.class, com.game.framework.protocol.Database.UserResource.Builder.class);
       }
 
-      // Construct using com.game.framework.protocol.Database.UserResourceProto.newBuilder()
+      // Construct using com.game.framework.protocol.Database.UserResource.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1390,23 +1390,23 @@ public final class Database {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UserResourceProto_descriptor;
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UserResource_descriptor;
       }
 
-      public com.game.framework.protocol.Database.UserResourceProto getDefaultInstanceForType() {
-        return com.game.framework.protocol.Database.UserResourceProto.getDefaultInstance();
+      public com.game.framework.protocol.Database.UserResource getDefaultInstanceForType() {
+        return com.game.framework.protocol.Database.UserResource.getDefaultInstance();
       }
 
-      public com.game.framework.protocol.Database.UserResourceProto build() {
-        com.game.framework.protocol.Database.UserResourceProto result = buildPartial();
+      public com.game.framework.protocol.Database.UserResource build() {
+        com.game.framework.protocol.Database.UserResource result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.game.framework.protocol.Database.UserResourceProto buildPartial() {
-        com.game.framework.protocol.Database.UserResourceProto result = new com.game.framework.protocol.Database.UserResourceProto(this);
+      public com.game.framework.protocol.Database.UserResource buildPartial() {
+        com.game.framework.protocol.Database.UserResource result = new com.game.framework.protocol.Database.UserResource(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1495,16 +1495,16 @@ public final class Database {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.framework.protocol.Database.UserResourceProto) {
-          return mergeFrom((com.game.framework.protocol.Database.UserResourceProto)other);
+        if (other instanceof com.game.framework.protocol.Database.UserResource) {
+          return mergeFrom((com.game.framework.protocol.Database.UserResource)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.game.framework.protocol.Database.UserResourceProto other) {
-        if (other == com.game.framework.protocol.Database.UserResourceProto.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.game.framework.protocol.Database.UserResource other) {
+        if (other == com.game.framework.protocol.Database.UserResource.getDefaultInstance()) return this;
         if (other.hasRice()) {
           setRice(other.getRice());
         }
@@ -1577,11 +1577,11 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.game.framework.protocol.Database.UserResourceProto parsedMessage = null;
+        com.game.framework.protocol.Database.UserResource parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.framework.protocol.Database.UserResourceProto) e.getUnfinishedMessage();
+          parsedMessage = (com.game.framework.protocol.Database.UserResource) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2572,22 +2572,1080 @@ public final class Database {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.UserResourceProto)
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.UserResource)
     }
 
     static {
-      defaultInstance = new UserResourceProto(true);
+      defaultInstance = new UserResource(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.UserResourceProto)
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.UserResource)
+  }
+
+  public interface BuildingStateOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional .com.game.framework.protocol.Upgrade upgrade = 1;
+    /**
+     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     */
+    boolean hasUpgrade();
+    /**
+     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     */
+    com.game.framework.protocol.Database.Upgrade getUpgrade();
+    /**
+     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     */
+    com.game.framework.protocol.Database.UpgradeOrBuilder getUpgradeOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.BuildingState}
+   */
+  public static final class BuildingState extends
+      com.google.protobuf.GeneratedMessage
+      implements BuildingStateOrBuilder {
+    // Use BuildingState.newBuilder() to construct.
+    private BuildingState(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private BuildingState(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final BuildingState defaultInstance;
+    public static BuildingState getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public BuildingState getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BuildingState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.game.framework.protocol.Database.Upgrade.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = upgrade_.toBuilder();
+              }
+              upgrade_ = input.readMessage(com.game.framework.protocol.Database.Upgrade.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(upgrade_);
+                upgrade_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_BuildingState_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_BuildingState_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Database.BuildingState.class, com.game.framework.protocol.Database.BuildingState.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<BuildingState> PARSER =
+        new com.google.protobuf.AbstractParser<BuildingState>() {
+      public BuildingState parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BuildingState(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BuildingState> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional .com.game.framework.protocol.Upgrade upgrade = 1;
+    public static final int UPGRADE_FIELD_NUMBER = 1;
+    private com.game.framework.protocol.Database.Upgrade upgrade_;
+    /**
+     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     */
+    public boolean hasUpgrade() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     */
+    public com.game.framework.protocol.Database.Upgrade getUpgrade() {
+      return upgrade_;
+    }
+    /**
+     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     */
+    public com.game.framework.protocol.Database.UpgradeOrBuilder getUpgradeOrBuilder() {
+      return upgrade_;
+    }
+
+    private void initFields() {
+      upgrade_ = com.game.framework.protocol.Database.Upgrade.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, upgrade_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, upgrade_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Database.BuildingState parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Database.BuildingState parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.BuildingState parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Database.BuildingState parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.BuildingState parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Database.BuildingState parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.BuildingState parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Database.BuildingState parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.BuildingState parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Database.BuildingState parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Database.BuildingState prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.BuildingState}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Database.BuildingStateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_BuildingState_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_BuildingState_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Database.BuildingState.class, com.game.framework.protocol.Database.BuildingState.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Database.BuildingState.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getUpgradeFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (upgradeBuilder_ == null) {
+          upgrade_ = com.game.framework.protocol.Database.Upgrade.getDefaultInstance();
+        } else {
+          upgradeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_BuildingState_descriptor;
+      }
+
+      public com.game.framework.protocol.Database.BuildingState getDefaultInstanceForType() {
+        return com.game.framework.protocol.Database.BuildingState.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Database.BuildingState build() {
+        com.game.framework.protocol.Database.BuildingState result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Database.BuildingState buildPartial() {
+        com.game.framework.protocol.Database.BuildingState result = new com.game.framework.protocol.Database.BuildingState(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (upgradeBuilder_ == null) {
+          result.upgrade_ = upgrade_;
+        } else {
+          result.upgrade_ = upgradeBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Database.BuildingState) {
+          return mergeFrom((com.game.framework.protocol.Database.BuildingState)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Database.BuildingState other) {
+        if (other == com.game.framework.protocol.Database.BuildingState.getDefaultInstance()) return this;
+        if (other.hasUpgrade()) {
+          mergeUpgrade(other.getUpgrade());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Database.BuildingState parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Database.BuildingState) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional .com.game.framework.protocol.Upgrade upgrade = 1;
+      private com.game.framework.protocol.Database.Upgrade upgrade_ = com.game.framework.protocol.Database.Upgrade.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.framework.protocol.Database.Upgrade, com.game.framework.protocol.Database.Upgrade.Builder, com.game.framework.protocol.Database.UpgradeOrBuilder> upgradeBuilder_;
+      /**
+       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       */
+      public boolean hasUpgrade() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       */
+      public com.game.framework.protocol.Database.Upgrade getUpgrade() {
+        if (upgradeBuilder_ == null) {
+          return upgrade_;
+        } else {
+          return upgradeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       */
+      public Builder setUpgrade(com.game.framework.protocol.Database.Upgrade value) {
+        if (upgradeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          upgrade_ = value;
+          onChanged();
+        } else {
+          upgradeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       */
+      public Builder setUpgrade(
+          com.game.framework.protocol.Database.Upgrade.Builder builderForValue) {
+        if (upgradeBuilder_ == null) {
+          upgrade_ = builderForValue.build();
+          onChanged();
+        } else {
+          upgradeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       */
+      public Builder mergeUpgrade(com.game.framework.protocol.Database.Upgrade value) {
+        if (upgradeBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              upgrade_ != com.game.framework.protocol.Database.Upgrade.getDefaultInstance()) {
+            upgrade_ =
+              com.game.framework.protocol.Database.Upgrade.newBuilder(upgrade_).mergeFrom(value).buildPartial();
+          } else {
+            upgrade_ = value;
+          }
+          onChanged();
+        } else {
+          upgradeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       */
+      public Builder clearUpgrade() {
+        if (upgradeBuilder_ == null) {
+          upgrade_ = com.game.framework.protocol.Database.Upgrade.getDefaultInstance();
+          onChanged();
+        } else {
+          upgradeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       */
+      public com.game.framework.protocol.Database.Upgrade.Builder getUpgradeBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getUpgradeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       */
+      public com.game.framework.protocol.Database.UpgradeOrBuilder getUpgradeOrBuilder() {
+        if (upgradeBuilder_ != null) {
+          return upgradeBuilder_.getMessageOrBuilder();
+        } else {
+          return upgrade_;
+        }
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.framework.protocol.Database.Upgrade, com.game.framework.protocol.Database.Upgrade.Builder, com.game.framework.protocol.Database.UpgradeOrBuilder> 
+          getUpgradeFieldBuilder() {
+        if (upgradeBuilder_ == null) {
+          upgradeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.framework.protocol.Database.Upgrade, com.game.framework.protocol.Database.Upgrade.Builder, com.game.framework.protocol.Database.UpgradeOrBuilder>(
+                  upgrade_,
+                  getParentForChildren(),
+                  isClean());
+          upgrade_ = null;
+        }
+        return upgradeBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.BuildingState)
+    }
+
+    static {
+      defaultInstance = new BuildingState(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.BuildingState)
+  }
+
+  public interface UpgradeOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional bool upgrading = 1;
+    /**
+     * <code>optional bool upgrading = 1;</code>
+     *
+     * <pre>
+     * 是否在升级中
+     * </pre>
+     */
+    boolean hasUpgrading();
+    /**
+     * <code>optional bool upgrading = 1;</code>
+     *
+     * <pre>
+     * 是否在升级中
+     * </pre>
+     */
+    boolean getUpgrading();
+
+    // optional int64 uid = 2;
+    /**
+     * <code>optional int64 uid = 2;</code>
+     *
+     * <pre>
+     * 升级人
+     * </pre>
+     */
+    boolean hasUid();
+    /**
+     * <code>optional int64 uid = 2;</code>
+     *
+     * <pre>
+     * 升级人
+     * </pre>
+     */
+    long getUid();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.Upgrade}
+   */
+  public static final class Upgrade extends
+      com.google.protobuf.GeneratedMessage
+      implements UpgradeOrBuilder {
+    // Use Upgrade.newBuilder() to construct.
+    private Upgrade(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Upgrade(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Upgrade defaultInstance;
+    public static Upgrade getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Upgrade getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Upgrade(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              upgrading_ = input.readBool();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              uid_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_Upgrade_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_Upgrade_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Database.Upgrade.class, com.game.framework.protocol.Database.Upgrade.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Upgrade> PARSER =
+        new com.google.protobuf.AbstractParser<Upgrade>() {
+      public Upgrade parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Upgrade(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Upgrade> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional bool upgrading = 1;
+    public static final int UPGRADING_FIELD_NUMBER = 1;
+    private boolean upgrading_;
+    /**
+     * <code>optional bool upgrading = 1;</code>
+     *
+     * <pre>
+     * 是否在升级中
+     * </pre>
+     */
+    public boolean hasUpgrading() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional bool upgrading = 1;</code>
+     *
+     * <pre>
+     * 是否在升级中
+     * </pre>
+     */
+    public boolean getUpgrading() {
+      return upgrading_;
+    }
+
+    // optional int64 uid = 2;
+    public static final int UID_FIELD_NUMBER = 2;
+    private long uid_;
+    /**
+     * <code>optional int64 uid = 2;</code>
+     *
+     * <pre>
+     * 升级人
+     * </pre>
+     */
+    public boolean hasUid() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int64 uid = 2;</code>
+     *
+     * <pre>
+     * 升级人
+     * </pre>
+     */
+    public long getUid() {
+      return uid_;
+    }
+
+    private void initFields() {
+      upgrading_ = false;
+      uid_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, upgrading_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, uid_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, upgrading_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, uid_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.Upgrade parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.Upgrade parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.Upgrade parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Database.Upgrade parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Database.Upgrade prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.Upgrade}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Database.UpgradeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_Upgrade_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_Upgrade_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Database.Upgrade.class, com.game.framework.protocol.Database.Upgrade.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Database.Upgrade.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        upgrading_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        uid_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_Upgrade_descriptor;
+      }
+
+      public com.game.framework.protocol.Database.Upgrade getDefaultInstanceForType() {
+        return com.game.framework.protocol.Database.Upgrade.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Database.Upgrade build() {
+        com.game.framework.protocol.Database.Upgrade result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Database.Upgrade buildPartial() {
+        com.game.framework.protocol.Database.Upgrade result = new com.game.framework.protocol.Database.Upgrade(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.upgrading_ = upgrading_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.uid_ = uid_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Database.Upgrade) {
+          return mergeFrom((com.game.framework.protocol.Database.Upgrade)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Database.Upgrade other) {
+        if (other == com.game.framework.protocol.Database.Upgrade.getDefaultInstance()) return this;
+        if (other.hasUpgrading()) {
+          setUpgrading(other.getUpgrading());
+        }
+        if (other.hasUid()) {
+          setUid(other.getUid());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Database.Upgrade parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Database.Upgrade) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional bool upgrading = 1;
+      private boolean upgrading_ ;
+      /**
+       * <code>optional bool upgrading = 1;</code>
+       *
+       * <pre>
+       * 是否在升级中
+       * </pre>
+       */
+      public boolean hasUpgrading() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional bool upgrading = 1;</code>
+       *
+       * <pre>
+       * 是否在升级中
+       * </pre>
+       */
+      public boolean getUpgrading() {
+        return upgrading_;
+      }
+      /**
+       * <code>optional bool upgrading = 1;</code>
+       *
+       * <pre>
+       * 是否在升级中
+       * </pre>
+       */
+      public Builder setUpgrading(boolean value) {
+        bitField0_ |= 0x00000001;
+        upgrading_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool upgrading = 1;</code>
+       *
+       * <pre>
+       * 是否在升级中
+       * </pre>
+       */
+      public Builder clearUpgrading() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        upgrading_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 uid = 2;
+      private long uid_ ;
+      /**
+       * <code>optional int64 uid = 2;</code>
+       *
+       * <pre>
+       * 升级人
+       * </pre>
+       */
+      public boolean hasUid() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int64 uid = 2;</code>
+       *
+       * <pre>
+       * 升级人
+       * </pre>
+       */
+      public long getUid() {
+        return uid_;
+      }
+      /**
+       * <code>optional int64 uid = 2;</code>
+       *
+       * <pre>
+       * 升级人
+       * </pre>
+       */
+      public Builder setUid(long value) {
+        bitField0_ |= 0x00000002;
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 uid = 2;</code>
+       *
+       * <pre>
+       * 升级人
+       * </pre>
+       */
+      public Builder clearUid() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        uid_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.Upgrade)
+    }
+
+    static {
+      defaultInstance = new Upgrade(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.Upgrade)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_game_framework_protocol_UserResourceProto_descriptor;
+    internal_static_com_game_framework_protocol_UserResource_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_game_framework_protocol_UserResourceProto_fieldAccessorTable;
+      internal_static_com_game_framework_protocol_UserResource_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_BuildingState_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_BuildingState_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_Upgrade_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_Upgrade_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2598,28 +3656,43 @@ public final class Database {
   static {
     java.lang.String[] descriptorData = {
       "\n\016database.proto\022\033com.game.framework.pro" +
-      "tocol\"\367\002\n\021UserResourceProto\022\014\n\004rice\030\001 \001(" +
-      "\005\022\022\n\nvegetables\030\002 \001(\005\022\r\n\005fruit\030\003 \001(\005\022\r\n\005" +
-      "grass\030\004 \001(\005\022\017\n\007pigFood\030\005 \001(\005\022\014\n\004pork\030\006 \001" +
-      "(\005\022\r\n\005crude\030\007 \001(\005\022\020\n\010gasoline\030\010 \001(\005\022\014\n\004i" +
-      "ron\030\t \001(\005\022\r\n\005steel\030\n \001(\005\022\014\n\004pine\030\013 \001(\005\022\022" +
-      "\n\nwhiteBirch\030\014 \001(\005\022\021\n\tironBirch\030\r \001(\005\022\021\n" +
-      "\tpineBoard\030\016 \001(\005\022\027\n\017whiteBirchBoard\030\017 \001(" +
-      "\005\022\026\n\016ironBirchBoard\030\020 \001(\005\022\021\n\tpureWater\030\021" +
-      " \001(\005\022\024\n\014mineralWater\030\022 \001(\005\022\023\n\013electricit",
-      "y\030\023 \001(\005\022\016\n\006bullet\030\024 \001(\005B\002H\001"
+      "tocol\"\362\002\n\014UserResource\022\014\n\004rice\030\001 \001(\005\022\022\n\n" +
+      "vegetables\030\002 \001(\005\022\r\n\005fruit\030\003 \001(\005\022\r\n\005grass" +
+      "\030\004 \001(\005\022\017\n\007pigFood\030\005 \001(\005\022\014\n\004pork\030\006 \001(\005\022\r\n" +
+      "\005crude\030\007 \001(\005\022\020\n\010gasoline\030\010 \001(\005\022\014\n\004iron\030\t" +
+      " \001(\005\022\r\n\005steel\030\n \001(\005\022\014\n\004pine\030\013 \001(\005\022\022\n\nwhi" +
+      "teBirch\030\014 \001(\005\022\021\n\tironBirch\030\r \001(\005\022\021\n\tpine" +
+      "Board\030\016 \001(\005\022\027\n\017whiteBirchBoard\030\017 \001(\005\022\026\n\016" +
+      "ironBirchBoard\030\020 \001(\005\022\021\n\tpureWater\030\021 \001(\005\022" +
+      "\024\n\014mineralWater\030\022 \001(\005\022\023\n\013electricity\030\023 \001",
+      "(\005\022\016\n\006bullet\030\024 \001(\005\"F\n\rBuildingState\0225\n\007u" +
+      "pgrade\030\001 \001(\0132$.com.game.framework.protoc" +
+      "ol.Upgrade\")\n\007Upgrade\022\021\n\tupgrading\030\001 \001(\010" +
+      "\022\013\n\003uid\030\002 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
         public com.google.protobuf.ExtensionRegistry assignDescriptors(
             com.google.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
-          internal_static_com_game_framework_protocol_UserResourceProto_descriptor =
+          internal_static_com_game_framework_protocol_UserResource_descriptor =
             getDescriptor().getMessageTypes().get(0);
-          internal_static_com_game_framework_protocol_UserResourceProto_fieldAccessorTable = new
+          internal_static_com_game_framework_protocol_UserResource_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_game_framework_protocol_UserResourceProto_descriptor,
+              internal_static_com_game_framework_protocol_UserResource_descriptor,
               new java.lang.String[] { "Rice", "Vegetables", "Fruit", "Grass", "PigFood", "Pork", "Crude", "Gasoline", "Iron", "Steel", "Pine", "WhiteBirch", "IronBirch", "PineBoard", "WhiteBirchBoard", "IronBirchBoard", "PureWater", "MineralWater", "Electricity", "Bullet", });
+          internal_static_com_game_framework_protocol_BuildingState_descriptor =
+            getDescriptor().getMessageTypes().get(1);
+          internal_static_com_game_framework_protocol_BuildingState_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_BuildingState_descriptor,
+              new java.lang.String[] { "Upgrade", });
+          internal_static_com_game_framework_protocol_Upgrade_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_com_game_framework_protocol_Upgrade_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_Upgrade_descriptor,
+              new java.lang.String[] { "Upgrading", "Uid", });
           return null;
         }
       };

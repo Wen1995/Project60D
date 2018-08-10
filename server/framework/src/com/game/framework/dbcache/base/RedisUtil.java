@@ -176,11 +176,11 @@ public class RedisUtil {
         return result;
     }
 
-    public void hashSet(String key, String field) {
+    public void hashSet(String key, String field, String value) {
         Jedis jedis = null;
         try {
             jedis = pool.getResource();
-            jedis.hset(key, field, "");
+            jedis.hset(key, field, value);
         } catch (Exception e) {
             logger.error("", e);
         } finally {

@@ -81,15 +81,35 @@ public final class UserCache {
      */
     int getGold();
 
-    // optional sint64 createTime = 7;
+    // optional int32 production = 7;
     /**
-     * <code>optional sint64 createTime = 7;</code>
+     * <code>optional int32 production = 7;</code>
+     */
+    boolean hasProduction();
+    /**
+     * <code>optional int32 production = 7;</code>
+     */
+    int getProduction();
+
+    // optional sint64 createTime = 8;
+    /**
+     * <code>optional sint64 createTime = 8;</code>
      */
     boolean hasCreateTime();
     /**
-     * <code>optional sint64 createTime = 7;</code>
+     * <code>optional sint64 createTime = 8;</code>
      */
     long getCreateTime();
+
+    // optional bytes resource = 9;
+    /**
+     * <code>optional bytes resource = 9;</code>
+     */
+    boolean hasResource();
+    /**
+     * <code>optional bytes resource = 9;</code>
+     */
+    com.google.protobuf.ByteString getResource();
   }
   /**
    * Protobuf type {@code com.game.framework.dbcache.model.ProtoUser}
@@ -174,7 +194,17 @@ public final class UserCache {
             }
             case 56: {
               bitField0_ |= 0x00000040;
+              production_ = input.readInt32();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
               createTime_ = input.readSInt64();
+              break;
+            }
+            case 74: {
+              bitField0_ |= 0x00000100;
+              resource_ = input.readBytes();
               break;
             }
           }
@@ -367,20 +397,52 @@ public final class UserCache {
       return gold_;
     }
 
-    // optional sint64 createTime = 7;
-    public static final int CREATETIME_FIELD_NUMBER = 7;
-    private long createTime_;
+    // optional int32 production = 7;
+    public static final int PRODUCTION_FIELD_NUMBER = 7;
+    private int production_;
     /**
-     * <code>optional sint64 createTime = 7;</code>
+     * <code>optional int32 production = 7;</code>
      */
-    public boolean hasCreateTime() {
+    public boolean hasProduction() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional sint64 createTime = 7;</code>
+     * <code>optional int32 production = 7;</code>
+     */
+    public int getProduction() {
+      return production_;
+    }
+
+    // optional sint64 createTime = 8;
+    public static final int CREATETIME_FIELD_NUMBER = 8;
+    private long createTime_;
+    /**
+     * <code>optional sint64 createTime = 8;</code>
+     */
+    public boolean hasCreateTime() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional sint64 createTime = 8;</code>
      */
     public long getCreateTime() {
       return createTime_;
+    }
+
+    // optional bytes resource = 9;
+    public static final int RESOURCE_FIELD_NUMBER = 9;
+    private com.google.protobuf.ByteString resource_;
+    /**
+     * <code>optional bytes resource = 9;</code>
+     */
+    public boolean hasResource() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional bytes resource = 9;</code>
+     */
+    public com.google.protobuf.ByteString getResource() {
+      return resource_;
     }
 
     private void initFields() {
@@ -390,7 +452,9 @@ public final class UserCache {
       groupId_ = 0L;
       contribution_ = 0;
       gold_ = 0;
+      production_ = 0;
       createTime_ = 0L;
+      resource_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -423,7 +487,13 @@ public final class UserCache {
         output.writeInt32(6, gold_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeSInt64(7, createTime_);
+        output.writeInt32(7, production_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeSInt64(8, createTime_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeBytes(9, resource_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -460,7 +530,15 @@ public final class UserCache {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt64Size(7, createTime_);
+          .computeInt32Size(7, production_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt64Size(8, createTime_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(9, resource_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -590,8 +668,12 @@ public final class UserCache {
         bitField0_ = (bitField0_ & ~0x00000010);
         gold_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
-        createTime_ = 0L;
+        production_ = 0;
         bitField0_ = (bitField0_ & ~0x00000040);
+        createTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        resource_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -647,7 +729,15 @@ public final class UserCache {
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
+        result.production_ = production_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
         result.createTime_ = createTime_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.resource_ = resource_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -686,8 +776,14 @@ public final class UserCache {
         if (other.hasGold()) {
           setGold(other.getGold());
         }
+        if (other.hasProduction()) {
+          setProduction(other.getProduction());
+        }
         if (other.hasCreateTime()) {
           setCreateTime(other.getCreateTime());
+        }
+        if (other.hasResource()) {
+          setResource(other.getResource());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -996,35 +1092,104 @@ public final class UserCache {
         return this;
       }
 
-      // optional sint64 createTime = 7;
-      private long createTime_ ;
+      // optional int32 production = 7;
+      private int production_ ;
       /**
-       * <code>optional sint64 createTime = 7;</code>
+       * <code>optional int32 production = 7;</code>
        */
-      public boolean hasCreateTime() {
+      public boolean hasProduction() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional sint64 createTime = 7;</code>
+       * <code>optional int32 production = 7;</code>
+       */
+      public int getProduction() {
+        return production_;
+      }
+      /**
+       * <code>optional int32 production = 7;</code>
+       */
+      public Builder setProduction(int value) {
+        bitField0_ |= 0x00000040;
+        production_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 production = 7;</code>
+       */
+      public Builder clearProduction() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        production_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional sint64 createTime = 8;
+      private long createTime_ ;
+      /**
+       * <code>optional sint64 createTime = 8;</code>
+       */
+      public boolean hasCreateTime() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional sint64 createTime = 8;</code>
        */
       public long getCreateTime() {
         return createTime_;
       }
       /**
-       * <code>optional sint64 createTime = 7;</code>
+       * <code>optional sint64 createTime = 8;</code>
        */
       public Builder setCreateTime(long value) {
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         createTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional sint64 createTime = 7;</code>
+       * <code>optional sint64 createTime = 8;</code>
        */
       public Builder clearCreateTime() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         createTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional bytes resource = 9;
+      private com.google.protobuf.ByteString resource_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes resource = 9;</code>
+       */
+      public boolean hasResource() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional bytes resource = 9;</code>
+       */
+      public com.google.protobuf.ByteString getResource() {
+        return resource_;
+      }
+      /**
+       * <code>optional bytes resource = 9;</code>
+       */
+      public Builder setResource(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        resource_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes resource = 9;</code>
+       */
+      public Builder clearResource() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        resource_ = getDefaultInstance().getResource();
         onChanged();
         return this;
       }
@@ -1055,10 +1220,11 @@ public final class UserCache {
   static {
     java.lang.String[] descriptorData = {
       "\n\017UserCache.proto\022 com.game.framework.db" +
-      "cache.model\"\203\001\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n" +
+      "cache.model\"\251\001\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n" +
       "\007account\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\017\n\007grou" +
       "pId\030\004 \001(\003\022\024\n\014contribution\030\005 \001(\005\022\014\n\004gold\030" +
-      "\006 \001(\005\022\022\n\ncreateTime\030\007 \001(\022B\002H\001"
+      "\006 \001(\005\022\022\n\nproduction\030\007 \001(\005\022\022\n\ncreateTime\030" +
+      "\010 \001(\022\022\020\n\010resource\030\t \001(\014B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1070,7 +1236,7 @@ public final class UserCache {
           internal_static_com_game_framework_dbcache_model_ProtoUser_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_dbcache_model_ProtoUser_descriptor,
-              new java.lang.String[] { "Id", "Account", "Password", "GroupId", "Contribution", "Gold", "CreateTime", });
+              new java.lang.String[] { "Id", "Account", "Password", "GroupId", "Contribution", "Gold", "Production", "CreateTime", "Resource", });
           return null;
         }
       };

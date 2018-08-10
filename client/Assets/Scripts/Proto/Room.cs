@@ -8,7 +8,7 @@ using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
 namespace com.game.framework.protocol {
   
-  public static partial class Scene {
+  public static partial class Room {
   
     #region Extension registration
     public static void RegisterAllExtensions(pb::ExtensionRegistry registry) {
@@ -18,33 +18,33 @@ namespace com.game.framework.protocol {
     #endregion
     #region Extensions
     internal static readonly object Descriptor;
-    static Scene() {
+    static Room() {
       Descriptor = null;
     }
     #endregion
     
   }
   #region Messages
-  public sealed partial class TCSGetSceneInfo : pb::GeneratedMessageLite<TCSGetSceneInfo, TCSGetSceneInfo.Builder> {
-    private TCSGetSceneInfo() { }
-    private static readonly TCSGetSceneInfo defaultInstance = new TCSGetSceneInfo().MakeReadOnly();
-    private static readonly string[] _tCSGetSceneInfoFieldNames = new string[] {  };
-    private static readonly uint[] _tCSGetSceneInfoFieldTags = new uint[] {  };
+  public sealed partial class TCSCreateGroup : pb::GeneratedMessageLite<TCSCreateGroup, TCSCreateGroup.Builder> {
+    private TCSCreateGroup() { }
+    private static readonly TCSCreateGroup defaultInstance = new TCSCreateGroup().MakeReadOnly();
+    private static readonly string[] _tCSCreateGroupFieldNames = new string[] {  };
+    private static readonly uint[] _tCSCreateGroupFieldTags = new uint[] {  };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo DefaultInstance {
+    public static TCSCreateGroup DefaultInstance {
       get { return defaultInstance; }
     }
     
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public override TCSGetSceneInfo DefaultInstanceForType {
+    public override TCSCreateGroup DefaultInstanceForType {
       get { return DefaultInstance; }
     }
     
-    protected override TCSGetSceneInfo ThisMessage {
+    protected override TCSCreateGroup ThisMessage {
       get { return this; }
     }
     
@@ -62,7 +62,7 @@ namespace com.game.framework.protocol {
      #endif//
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
-      string[] field_names = _tCSGetSceneInfoFieldNames;
+      string[] field_names = _tCSCreateGroupFieldNames;
     }
     
     private int memoizedSerializedSize = -1;
@@ -87,7 +87,7 @@ namespace com.game.framework.protocol {
     }
     
     public override bool Equals(object obj) {
-      TCSGetSceneInfo other = obj as TCSGetSceneInfo;
+      TCSCreateGroup other = obj as TCSCreateGroup;
       if (other == null) return false;
       return true;
     }
@@ -97,64 +97,64 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo ParseFrom(pb::ByteString data) {
+    public static TCSCreateGroup ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSCreateGroup ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo ParseFrom(byte[] data) {
+    public static TCSCreateGroup ParseFrom(byte[] data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSCreateGroup ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo ParseFrom(global::System.IO.Stream input) {
+    public static TCSCreateGroup ParseFrom(global::System.IO.Stream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSCreateGroup ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+    public static TCSCreateGroup ParseDelimitedFrom(global::System.IO.Stream input) {
       return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSCreateGroup ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo ParseFrom(pb::ICodedInputStream input) {
+    public static TCSCreateGroup ParseFrom(pb::ICodedInputStream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSGetSceneInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSCreateGroup ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    private TCSGetSceneInfo MakeReadOnly() {
+    private TCSCreateGroup MakeReadOnly() {
       return this;
     }
     
@@ -173,11 +173,11 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Builder CreateBuilder(TCSGetSceneInfo prototype) {
+    public static Builder CreateBuilder(TCSCreateGroup prototype) {
       return new Builder(prototype);
     }
     
-    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSGetSceneInfo, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSCreateGroup, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -185,18 +185,18 @@ namespace com.game.framework.protocol {
         result = DefaultInstance;
         resultIsReadOnly = true;
       }
-      internal Builder(TCSGetSceneInfo cloneFrom) {
+      internal Builder(TCSCreateGroup cloneFrom) {
         result = cloneFrom;
         resultIsReadOnly = true;
       }
       
       private bool resultIsReadOnly;
-      private TCSGetSceneInfo result;
+      private TCSCreateGroup result;
       
-      private TCSGetSceneInfo PrepareBuilder() {
+      private TCSCreateGroup PrepareBuilder() {
         if (resultIsReadOnly) {
-          TCSGetSceneInfo original = result;
-          result = new TCSGetSceneInfo();
+          TCSCreateGroup original = result;
+          result = new TCSCreateGroup();
           resultIsReadOnly = false;
           MergeFrom(original);
         }
@@ -207,7 +207,7 @@ namespace com.game.framework.protocol {
         get { return result.IsInitialized; }
       }
       
-      protected override TCSGetSceneInfo MessageBeingBuilt {
+      protected override TCSCreateGroup MessageBeingBuilt {
         get { return PrepareBuilder(); }
       }
       
@@ -225,11 +225,11 @@ namespace com.game.framework.protocol {
         }
       }
       
-      public override TCSGetSceneInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetSceneInfo.DefaultInstance; }
+      public override TCSCreateGroup DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TCSCreateGroup.DefaultInstance; }
       }
       
-      public override TCSGetSceneInfo BuildPartial() {
+      public override TCSCreateGroup BuildPartial() {
         if (resultIsReadOnly) {
           return result;
         }
@@ -238,16 +238,16 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is TCSGetSceneInfo) {
-          return MergeFrom((TCSGetSceneInfo) other);
+        if (other is TCSCreateGroup) {
+          return MergeFrom((TCSCreateGroup) other);
         } else {
           base.MergeFrom(other);
           return this;
         }
       }
       
-      public override Builder MergeFrom(TCSGetSceneInfo other) {
-        if (other == global::com.game.framework.protocol.TCSGetSceneInfo.DefaultInstance) return this;
+      public override Builder MergeFrom(TCSCreateGroup other) {
+        if (other == global::com.game.framework.protocol.TCSCreateGroup.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -262,9 +262,9 @@ namespace com.game.framework.protocol {
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
           if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_tCSGetSceneInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            int field_ordinal = global::System.Array.BinarySearch(_tCSCreateGroupFieldNames, field_name, global::System.StringComparer.Ordinal);
             if(field_ordinal >= 0)
-              tag = _tCSGetSceneInfoFieldTags[field_ordinal];
+              tag = _tCSCreateGroupFieldTags[field_ordinal];
             else {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
@@ -288,313 +288,45 @@ namespace com.game.framework.protocol {
       }
       
     }
-    static TCSGetSceneInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+    static TCSCreateGroup() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
     }
   }
   
-  public sealed partial class TSCGetSceneInfo : pb::GeneratedMessageLite<TSCGetSceneInfo, TSCGetSceneInfo.Builder> {
-    private TSCGetSceneInfo() { }
-    private static readonly TSCGetSceneInfo defaultInstance = new TSCGetSceneInfo().MakeReadOnly();
-    private static readonly string[] _tSCGetSceneInfoFieldNames = new string[] {  };
-    private static readonly uint[] _tSCGetSceneInfoFieldTags = new uint[] {  };
+  public sealed partial class TSCCreateGroup : pb::GeneratedMessageLite<TSCCreateGroup, TSCCreateGroup.Builder> {
+    private TSCCreateGroup() { }
+    private static readonly TSCCreateGroup defaultInstance = new TSCCreateGroup().MakeReadOnly();
+    private static readonly string[] _tSCCreateGroupFieldNames = new string[] { "groupId" };
+    private static readonly uint[] _tSCCreateGroupFieldTags = new uint[] { 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCGetSceneInfo DefaultInstance {
+    public static TSCCreateGroup DefaultInstance {
       get { return defaultInstance; }
     }
     
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public override TSCGetSceneInfo DefaultInstanceForType {
+    public override TSCCreateGroup DefaultInstanceForType {
       get { return DefaultInstance; }
     }
     
-    protected override TSCGetSceneInfo ThisMessage {
-      get { return this; }
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override bool IsInitialized {
-      get {
-        return true;
-      }
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override void WriteTo(pb::ICodedOutputStream output) {
-      int size = SerializedSize;
-      string[] field_names = _tSCGetSceneInfoFieldNames;
-    }
-    
-    private int memoizedSerializedSize = -1;
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override int SerializedSize {
-      get {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-        
-        size = 0;
-        memoizedSerializedSize = size;
-        return size;
-      }
-    }
-    
-    #region Lite runtime methods
-    public override int GetHashCode() {
-      int hash = GetType().GetHashCode();
-      return hash;
-    }
-    
-    public override bool Equals(object obj) {
-      TSCGetSceneInfo other = obj as TSCGetSceneInfo;
-      if (other == null) return false;
-      return true;
-    }
-    
-    #endregion
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetSceneInfo ParseFrom(pb::ByteString data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetSceneInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetSceneInfo ParseFrom(byte[] data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetSceneInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetSceneInfo ParseFrom(global::System.IO.Stream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetSceneInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetSceneInfo ParseDelimitedFrom(global::System.IO.Stream input) {
-      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetSceneInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetSceneInfo ParseFrom(pb::ICodedInputStream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetSceneInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    private TSCGetSceneInfo MakeReadOnly() {
-      return this;
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static Builder CreateBuilder() { return new Builder(); }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override Builder ToBuilder() { return CreateBuilder(this); }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override Builder CreateBuilderForType() { return new Builder(); }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static Builder CreateBuilder(TSCGetSceneInfo prototype) {
-      return new Builder(prototype);
-    }
-    
-    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCGetSceneInfo, Builder> {
-      protected override Builder ThisBuilder {
-        get { return this; }
-      }
-      public Builder() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-      }
-      internal Builder(TSCGetSceneInfo cloneFrom) {
-        result = cloneFrom;
-        resultIsReadOnly = true;
-      }
-      
-      private bool resultIsReadOnly;
-      private TSCGetSceneInfo result;
-      
-      private TSCGetSceneInfo PrepareBuilder() {
-        if (resultIsReadOnly) {
-          TSCGetSceneInfo original = result;
-          result = new TSCGetSceneInfo();
-          resultIsReadOnly = false;
-          MergeFrom(original);
-        }
-        return result;
-      }
-      
-      public override bool IsInitialized {
-        get { return result.IsInitialized; }
-      }
-      
-      protected override TSCGetSceneInfo MessageBeingBuilt {
-        get { return PrepareBuilder(); }
-      }
-      
-      public override Builder Clear() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-        return this;
-      }
-      
-      public override Builder Clone() {
-        if (resultIsReadOnly) {
-          return new Builder(result);
-        } else {
-          return new Builder().MergeFrom(result);
-        }
-      }
-      
-      public override TSCGetSceneInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetSceneInfo.DefaultInstance; }
-      }
-      
-      public override TSCGetSceneInfo BuildPartial() {
-        if (resultIsReadOnly) {
-          return result;
-        }
-        resultIsReadOnly = true;
-        return result.MakeReadOnly();
-      }
-      
-      public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is TSCGetSceneInfo) {
-          return MergeFrom((TSCGetSceneInfo) other);
-        } else {
-          base.MergeFrom(other);
-          return this;
-        }
-      }
-      
-      public override Builder MergeFrom(TSCGetSceneInfo other) {
-        if (other == global::com.game.framework.protocol.TSCGetSceneInfo.DefaultInstance) return this;
-        PrepareBuilder();
-        return this;
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input) {
-        return MergeFrom(input, pb::ExtensionRegistry.Empty);
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-        PrepareBuilder();
-        uint tag;
-        string field_name;
-        while (input.ReadTag(out tag, out field_name)) {
-          if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_tSCGetSceneInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
-            if(field_ordinal >= 0)
-              tag = _tSCGetSceneInfoFieldTags[field_ordinal];
-            else {
-              ParseUnknownField(input, extensionRegistry, tag, field_name);
-              continue;
-            }
-          }
-          switch (tag) {
-            case 0: {
-              throw pb::InvalidProtocolBufferException.InvalidTag();
-            }
-            default: {
-              if (pb::WireFormat.IsEndGroupTag(tag)) {
-                return this;
-              }
-              ParseUnknownField(input, extensionRegistry, tag, field_name);
-              break;
-            }
-          }
-        }
-        
-        return this;
-      }
-      
-    }
-    static TSCGetSceneInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
-    }
-  }
-  
-  public sealed partial class TCSUpgrade : pb::GeneratedMessageLite<TCSUpgrade, TCSUpgrade.Builder> {
-    private TCSUpgrade() { }
-    private static readonly TCSUpgrade defaultInstance = new TCSUpgrade().MakeReadOnly();
-    private static readonly string[] _tCSUpgradeFieldNames = new string[] { "buildingId" };
-    private static readonly uint[] _tCSUpgradeFieldTags = new uint[] { 8 };
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSUpgrade DefaultInstance {
-      get { return defaultInstance; }
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override TCSUpgrade DefaultInstanceForType {
-      get { return DefaultInstance; }
-    }
-    
-    protected override TCSUpgrade ThisMessage {
+    protected override TSCCreateGroup ThisMessage {
       get { return this; }
     }
     
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int BuildingIdFieldNumber = 1;
-    private bool hasBuildingId;
-    private long buildingId_;
-    public bool HasBuildingId {
-      get { return hasBuildingId; }
+    public const int GroupIdFieldNumber = 1;
+    private bool hasGroupId;
+    private long groupId_;
+    public bool HasGroupId {
+      get { return hasGroupId; }
     }
-    public long BuildingId {
-      get { return buildingId_; }
+    public long GroupId {
+      get { return groupId_; }
     }
     
     #if UNITY_EDITOR
@@ -611,9 +343,9 @@ namespace com.game.framework.protocol {
      #endif//
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
-      string[] field_names = _tCSUpgradeFieldNames;
-      if (hasBuildingId) {
-        output.WriteInt64(1, field_names[0], BuildingId);
+      string[] field_names = _tSCCreateGroupFieldNames;
+      if (hasGroupId) {
+        output.WriteInt64(1, field_names[0], GroupId);
       }
     }
     
@@ -627,8 +359,8 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasBuildingId) {
-          size += pb::CodedOutputStream.ComputeInt64Size(1, BuildingId);
+        if (hasGroupId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, GroupId);
         }
         memoizedSerializedSize = size;
         return size;
@@ -638,14 +370,14 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasBuildingId) hash ^= buildingId_.GetHashCode();
+      if (hasGroupId) hash ^= groupId_.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
-      TCSUpgrade other = obj as TCSUpgrade;
+      TSCCreateGroup other = obj as TSCCreateGroup;
       if (other == null) return false;
-      if (hasBuildingId != other.hasBuildingId || (hasBuildingId && !buildingId_.Equals(other.buildingId_))) return false;
+      if (hasGroupId != other.hasGroupId || (hasGroupId && !groupId_.Equals(other.groupId_))) return false;
       return true;
     }
     
@@ -654,64 +386,64 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSUpgrade ParseFrom(pb::ByteString data) {
+    public static TSCCreateGroup ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSUpgrade ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+    public static TSCCreateGroup ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSUpgrade ParseFrom(byte[] data) {
+    public static TSCCreateGroup ParseFrom(byte[] data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSUpgrade ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+    public static TSCCreateGroup ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSUpgrade ParseFrom(global::System.IO.Stream input) {
+    public static TSCCreateGroup ParseFrom(global::System.IO.Stream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSUpgrade ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TSCCreateGroup ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSUpgrade ParseDelimitedFrom(global::System.IO.Stream input) {
+    public static TSCCreateGroup ParseDelimitedFrom(global::System.IO.Stream input) {
       return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSUpgrade ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TSCCreateGroup ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSUpgrade ParseFrom(pb::ICodedInputStream input) {
+    public static TSCCreateGroup ParseFrom(pb::ICodedInputStream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TCSUpgrade ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TSCCreateGroup ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    private TCSUpgrade MakeReadOnly() {
+    private TSCCreateGroup MakeReadOnly() {
       return this;
     }
     
@@ -730,11 +462,11 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Builder CreateBuilder(TCSUpgrade prototype) {
+    public static Builder CreateBuilder(TSCCreateGroup prototype) {
       return new Builder(prototype);
     }
     
-    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSUpgrade, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCCreateGroup, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -742,18 +474,18 @@ namespace com.game.framework.protocol {
         result = DefaultInstance;
         resultIsReadOnly = true;
       }
-      internal Builder(TCSUpgrade cloneFrom) {
+      internal Builder(TSCCreateGroup cloneFrom) {
         result = cloneFrom;
         resultIsReadOnly = true;
       }
       
       private bool resultIsReadOnly;
-      private TCSUpgrade result;
+      private TSCCreateGroup result;
       
-      private TCSUpgrade PrepareBuilder() {
+      private TSCCreateGroup PrepareBuilder() {
         if (resultIsReadOnly) {
-          TCSUpgrade original = result;
-          result = new TCSUpgrade();
+          TSCCreateGroup original = result;
+          result = new TSCCreateGroup();
           resultIsReadOnly = false;
           MergeFrom(original);
         }
@@ -764,7 +496,7 @@ namespace com.game.framework.protocol {
         get { return result.IsInitialized; }
       }
       
-      protected override TCSUpgrade MessageBeingBuilt {
+      protected override TSCCreateGroup MessageBeingBuilt {
         get { return PrepareBuilder(); }
       }
       
@@ -782,11 +514,11 @@ namespace com.game.framework.protocol {
         }
       }
       
-      public override TCSUpgrade DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSUpgrade.DefaultInstance; }
+      public override TSCCreateGroup DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TSCCreateGroup.DefaultInstance; }
       }
       
-      public override TCSUpgrade BuildPartial() {
+      public override TSCCreateGroup BuildPartial() {
         if (resultIsReadOnly) {
           return result;
         }
@@ -795,19 +527,19 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is TCSUpgrade) {
-          return MergeFrom((TCSUpgrade) other);
+        if (other is TSCCreateGroup) {
+          return MergeFrom((TSCCreateGroup) other);
         } else {
           base.MergeFrom(other);
           return this;
         }
       }
       
-      public override Builder MergeFrom(TCSUpgrade other) {
-        if (other == global::com.game.framework.protocol.TCSUpgrade.DefaultInstance) return this;
+      public override Builder MergeFrom(TSCCreateGroup other) {
+        if (other == global::com.game.framework.protocol.TSCCreateGroup.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasBuildingId) {
-          BuildingId = other.BuildingId;
+        if (other.HasGroupId) {
+          GroupId = other.GroupId;
         }
         return this;
       }
@@ -822,9 +554,9 @@ namespace com.game.framework.protocol {
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
           if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_tCSUpgradeFieldNames, field_name, global::System.StringComparer.Ordinal);
+            int field_ordinal = global::System.Array.BinarySearch(_tSCCreateGroupFieldNames, field_name, global::System.StringComparer.Ordinal);
             if(field_ordinal >= 0)
-              tag = _tCSUpgradeFieldTags[field_ordinal];
+              tag = _tSCCreateGroupFieldTags[field_ordinal];
             else {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
@@ -842,7 +574,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 8: {
-              result.hasBuildingId = input.ReadInt64(ref result.buildingId_);
+              result.hasGroupId = input.ReadInt64(ref result.groupId_);
               break;
             }
           }
@@ -852,130 +584,65 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasBuildingId {
-        get { return result.hasBuildingId; }
+      public bool HasGroupId {
+        get { return result.hasGroupId; }
       }
-      public long BuildingId {
-        get { return result.BuildingId; }
-        set { SetBuildingId(value); }
+      public long GroupId {
+        get { return result.GroupId; }
+        set { SetGroupId(value); }
       }
-      public Builder SetBuildingId(long value) {
+      public Builder SetGroupId(long value) {
         PrepareBuilder();
-        result.hasBuildingId = true;
-        result.buildingId_ = value;
+        result.hasGroupId = true;
+        result.groupId_ = value;
         return this;
       }
-      public Builder ClearBuildingId() {
+      public Builder ClearGroupId() {
         PrepareBuilder();
-        result.hasBuildingId = false;
-        result.buildingId_ = 0L;
+        result.hasGroupId = false;
+        result.groupId_ = 0L;
         return this;
       }
     }
-    static TCSUpgrade() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+    static TSCCreateGroup() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
     }
   }
   
-  public sealed partial class TSCUpgrade : pb::GeneratedMessageLite<TSCUpgrade, TSCUpgrade.Builder> {
-    private TSCUpgrade() { }
-    private static readonly TSCUpgrade defaultInstance = new TSCUpgrade().MakeReadOnly();
-    private static readonly string[] _tSCUpgradeFieldNames = new string[] { "finishTime", "group", "production", "resource", "state", "tool" };
-    private static readonly uint[] _tSCUpgradeFieldTags = new uint[] { 48, 16, 40, 24, 8, 32 };
+  public sealed partial class TCSApplyGroup : pb::GeneratedMessageLite<TCSApplyGroup, TCSApplyGroup.Builder> {
+    private TCSApplyGroup() { }
+    private static readonly TCSApplyGroup defaultInstance = new TCSApplyGroup().MakeReadOnly();
+    private static readonly string[] _tCSApplyGroupFieldNames = new string[] { "groupId" };
+    private static readonly uint[] _tCSApplyGroupFieldTags = new uint[] { 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade DefaultInstance {
+    public static TCSApplyGroup DefaultInstance {
       get { return defaultInstance; }
     }
     
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public override TSCUpgrade DefaultInstanceForType {
+    public override TCSApplyGroup DefaultInstanceForType {
       get { return DefaultInstance; }
     }
     
-    protected override TSCUpgrade ThisMessage {
+    protected override TCSApplyGroup ThisMessage {
       get { return this; }
     }
     
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int StateFieldNumber = 1;
-    private bool hasState;
-    private bool state_;
-    public bool HasState {
-      get { return hasState; }
+    public const int GroupIdFieldNumber = 1;
+    private bool hasGroupId;
+    private long groupId_;
+    public bool HasGroupId {
+      get { return hasGroupId; }
     }
-    public bool State {
-      get { return state_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int GroupFieldNumber = 2;
-    private bool hasGroup;
-    private bool group_;
-    public bool HasGroup {
-      get { return hasGroup; }
-    }
-    public bool Group {
-      get { return group_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ResourceFieldNumber = 3;
-    private bool hasResource;
-    private bool resource_;
-    public bool HasResource {
-      get { return hasResource; }
-    }
-    public bool Resource {
-      get { return resource_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ToolFieldNumber = 4;
-    private bool hasTool;
-    private bool tool_;
-    public bool HasTool {
-      get { return hasTool; }
-    }
-    public bool Tool {
-      get { return tool_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ProductionFieldNumber = 5;
-    private bool hasProduction;
-    private bool production_;
-    public bool HasProduction {
-      get { return hasProduction; }
-    }
-    public bool Production {
-      get { return production_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int FinishTimeFieldNumber = 6;
-    private bool hasFinishTime;
-    private long finishTime_;
-    public bool HasFinishTime {
-      get { return hasFinishTime; }
-    }
-    public long FinishTime {
-      get { return finishTime_; }
+    public long GroupId {
+      get { return groupId_; }
     }
     
     #if UNITY_EDITOR
@@ -992,24 +659,9 @@ namespace com.game.framework.protocol {
      #endif//
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
-      string[] field_names = _tSCUpgradeFieldNames;
-      if (hasState) {
-        output.WriteBool(1, field_names[4], State);
-      }
-      if (hasGroup) {
-        output.WriteBool(2, field_names[1], Group);
-      }
-      if (hasResource) {
-        output.WriteBool(3, field_names[3], Resource);
-      }
-      if (hasTool) {
-        output.WriteBool(4, field_names[5], Tool);
-      }
-      if (hasProduction) {
-        output.WriteBool(5, field_names[2], Production);
-      }
-      if (hasFinishTime) {
-        output.WriteInt64(6, field_names[0], FinishTime);
+      string[] field_names = _tCSApplyGroupFieldNames;
+      if (hasGroupId) {
+        output.WriteInt64(1, field_names[0], GroupId);
       }
     }
     
@@ -1023,23 +675,8 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasState) {
-          size += pb::CodedOutputStream.ComputeBoolSize(1, State);
-        }
-        if (hasGroup) {
-          size += pb::CodedOutputStream.ComputeBoolSize(2, Group);
-        }
-        if (hasResource) {
-          size += pb::CodedOutputStream.ComputeBoolSize(3, Resource);
-        }
-        if (hasTool) {
-          size += pb::CodedOutputStream.ComputeBoolSize(4, Tool);
-        }
-        if (hasProduction) {
-          size += pb::CodedOutputStream.ComputeBoolSize(5, Production);
-        }
-        if (hasFinishTime) {
-          size += pb::CodedOutputStream.ComputeInt64Size(6, FinishTime);
+        if (hasGroupId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, GroupId);
         }
         memoizedSerializedSize = size;
         return size;
@@ -1049,24 +686,14 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasState) hash ^= state_.GetHashCode();
-      if (hasGroup) hash ^= group_.GetHashCode();
-      if (hasResource) hash ^= resource_.GetHashCode();
-      if (hasTool) hash ^= tool_.GetHashCode();
-      if (hasProduction) hash ^= production_.GetHashCode();
-      if (hasFinishTime) hash ^= finishTime_.GetHashCode();
+      if (hasGroupId) hash ^= groupId_.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
-      TSCUpgrade other = obj as TSCUpgrade;
+      TCSApplyGroup other = obj as TCSApplyGroup;
       if (other == null) return false;
-      if (hasState != other.hasState || (hasState && !state_.Equals(other.state_))) return false;
-      if (hasGroup != other.hasGroup || (hasGroup && !group_.Equals(other.group_))) return false;
-      if (hasResource != other.hasResource || (hasResource && !resource_.Equals(other.resource_))) return false;
-      if (hasTool != other.hasTool || (hasTool && !tool_.Equals(other.tool_))) return false;
-      if (hasProduction != other.hasProduction || (hasProduction && !production_.Equals(other.production_))) return false;
-      if (hasFinishTime != other.hasFinishTime || (hasFinishTime && !finishTime_.Equals(other.finishTime_))) return false;
+      if (hasGroupId != other.hasGroupId || (hasGroupId && !groupId_.Equals(other.groupId_))) return false;
       return true;
     }
     
@@ -1075,64 +702,64 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade ParseFrom(pb::ByteString data) {
+    public static TCSApplyGroup ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSApplyGroup ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade ParseFrom(byte[] data) {
+    public static TCSApplyGroup ParseFrom(byte[] data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSApplyGroup ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade ParseFrom(global::System.IO.Stream input) {
+    public static TCSApplyGroup ParseFrom(global::System.IO.Stream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSApplyGroup ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade ParseDelimitedFrom(global::System.IO.Stream input) {
+    public static TCSApplyGroup ParseDelimitedFrom(global::System.IO.Stream input) {
       return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSApplyGroup ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade ParseFrom(pb::ICodedInputStream input) {
+    public static TCSApplyGroup ParseFrom(pb::ICodedInputStream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCUpgrade ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSApplyGroup ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    private TSCUpgrade MakeReadOnly() {
+    private TCSApplyGroup MakeReadOnly() {
       return this;
     }
     
@@ -1151,11 +778,11 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Builder CreateBuilder(TSCUpgrade prototype) {
+    public static Builder CreateBuilder(TCSApplyGroup prototype) {
       return new Builder(prototype);
     }
     
-    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCUpgrade, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSApplyGroup, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -1163,18 +790,18 @@ namespace com.game.framework.protocol {
         result = DefaultInstance;
         resultIsReadOnly = true;
       }
-      internal Builder(TSCUpgrade cloneFrom) {
+      internal Builder(TCSApplyGroup cloneFrom) {
         result = cloneFrom;
         resultIsReadOnly = true;
       }
       
       private bool resultIsReadOnly;
-      private TSCUpgrade result;
+      private TCSApplyGroup result;
       
-      private TSCUpgrade PrepareBuilder() {
+      private TCSApplyGroup PrepareBuilder() {
         if (resultIsReadOnly) {
-          TSCUpgrade original = result;
-          result = new TSCUpgrade();
+          TCSApplyGroup original = result;
+          result = new TCSApplyGroup();
           resultIsReadOnly = false;
           MergeFrom(original);
         }
@@ -1185,7 +812,7 @@ namespace com.game.framework.protocol {
         get { return result.IsInitialized; }
       }
       
-      protected override TSCUpgrade MessageBeingBuilt {
+      protected override TCSApplyGroup MessageBeingBuilt {
         get { return PrepareBuilder(); }
       }
       
@@ -1203,11 +830,11 @@ namespace com.game.framework.protocol {
         }
       }
       
-      public override TSCUpgrade DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCUpgrade.DefaultInstance; }
+      public override TCSApplyGroup DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TCSApplyGroup.DefaultInstance; }
       }
       
-      public override TSCUpgrade BuildPartial() {
+      public override TCSApplyGroup BuildPartial() {
         if (resultIsReadOnly) {
           return result;
         }
@@ -1216,34 +843,19 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is TSCUpgrade) {
-          return MergeFrom((TSCUpgrade) other);
+        if (other is TCSApplyGroup) {
+          return MergeFrom((TCSApplyGroup) other);
         } else {
           base.MergeFrom(other);
           return this;
         }
       }
       
-      public override Builder MergeFrom(TSCUpgrade other) {
-        if (other == global::com.game.framework.protocol.TSCUpgrade.DefaultInstance) return this;
+      public override Builder MergeFrom(TCSApplyGroup other) {
+        if (other == global::com.game.framework.protocol.TCSApplyGroup.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasState) {
-          State = other.State;
-        }
-        if (other.HasGroup) {
-          Group = other.Group;
-        }
-        if (other.HasResource) {
-          Resource = other.Resource;
-        }
-        if (other.HasTool) {
-          Tool = other.Tool;
-        }
-        if (other.HasProduction) {
-          Production = other.Production;
-        }
-        if (other.HasFinishTime) {
-          FinishTime = other.FinishTime;
+        if (other.HasGroupId) {
+          GroupId = other.GroupId;
         }
         return this;
       }
@@ -1258,9 +870,9 @@ namespace com.game.framework.protocol {
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
           if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_tSCUpgradeFieldNames, field_name, global::System.StringComparer.Ordinal);
+            int field_ordinal = global::System.Array.BinarySearch(_tCSApplyGroupFieldNames, field_name, global::System.StringComparer.Ordinal);
             if(field_ordinal >= 0)
-              tag = _tSCUpgradeFieldTags[field_ordinal];
+              tag = _tCSApplyGroupFieldTags[field_ordinal];
             else {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
@@ -1278,27 +890,351 @@ namespace com.game.framework.protocol {
               break;
             }
             case 8: {
-              result.hasState = input.ReadBool(ref result.state_);
+              result.hasGroupId = input.ReadInt64(ref result.groupId_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasGroupId {
+        get { return result.hasGroupId; }
+      }
+      public long GroupId {
+        get { return result.GroupId; }
+        set { SetGroupId(value); }
+      }
+      public Builder SetGroupId(long value) {
+        PrepareBuilder();
+        result.hasGroupId = true;
+        result.groupId_ = value;
+        return this;
+      }
+      public Builder ClearGroupId() {
+        PrepareBuilder();
+        result.hasGroupId = false;
+        result.groupId_ = 0L;
+        return this;
+      }
+    }
+    static TCSApplyGroup() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TSCApplyGroup : pb::GeneratedMessageLite<TSCApplyGroup, TSCApplyGroup.Builder> {
+    private TSCApplyGroup() { }
+    private static readonly TSCApplyGroup defaultInstance = new TSCApplyGroup().MakeReadOnly();
+    private static readonly string[] _tSCApplyGroupFieldNames = new string[] { "exist", "full" };
+    private static readonly uint[] _tSCApplyGroupFieldTags = new uint[] { 8, 16 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TSCApplyGroup DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TSCApplyGroup ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ExistFieldNumber = 1;
+    private bool hasExist;
+    private bool exist_;
+    public bool HasExist {
+      get { return hasExist; }
+    }
+    public bool Exist {
+      get { return exist_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int FullFieldNumber = 2;
+    private bool hasFull;
+    private bool full_;
+    public bool HasFull {
+      get { return hasFull; }
+    }
+    public bool Full {
+      get { return full_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tSCApplyGroupFieldNames;
+      if (hasExist) {
+        output.WriteBool(1, field_names[0], Exist);
+      }
+      if (hasFull) {
+        output.WriteBool(2, field_names[1], Full);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasExist) {
+          size += pb::CodedOutputStream.ComputeBoolSize(1, Exist);
+        }
+        if (hasFull) {
+          size += pb::CodedOutputStream.ComputeBoolSize(2, Full);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasExist) hash ^= exist_.GetHashCode();
+      if (hasFull) hash ^= full_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TSCApplyGroup other = obj as TSCApplyGroup;
+      if (other == null) return false;
+      if (hasExist != other.hasExist || (hasExist && !exist_.Equals(other.exist_))) return false;
+      if (hasFull != other.hasFull || (hasFull && !full_.Equals(other.full_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCApplyGroup ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TSCApplyGroup MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TSCApplyGroup prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCApplyGroup, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TSCApplyGroup cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TSCApplyGroup result;
+      
+      private TSCApplyGroup PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TSCApplyGroup original = result;
+          result = new TSCApplyGroup();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TSCApplyGroup MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TSCApplyGroup DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TSCApplyGroup.DefaultInstance; }
+      }
+      
+      public override TSCApplyGroup BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TSCApplyGroup) {
+          return MergeFrom((TSCApplyGroup) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TSCApplyGroup other) {
+        if (other == global::com.game.framework.protocol.TSCApplyGroup.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasExist) {
+          Exist = other.Exist;
+        }
+        if (other.HasFull) {
+          Full = other.Full;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tSCApplyGroupFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tSCApplyGroupFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasExist = input.ReadBool(ref result.exist_);
               break;
             }
             case 16: {
-              result.hasGroup = input.ReadBool(ref result.group_);
-              break;
-            }
-            case 24: {
-              result.hasResource = input.ReadBool(ref result.resource_);
-              break;
-            }
-            case 32: {
-              result.hasTool = input.ReadBool(ref result.tool_);
-              break;
-            }
-            case 40: {
-              result.hasProduction = input.ReadBool(ref result.production_);
-              break;
-            }
-            case 48: {
-              result.hasFinishTime = input.ReadInt64(ref result.finishTime_);
+              result.hasFull = input.ReadBool(ref result.full_);
               break;
             }
           }
@@ -1308,128 +1244,48 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasState {
-        get { return result.hasState; }
+      public bool HasExist {
+        get { return result.hasExist; }
       }
-      public bool State {
-        get { return result.State; }
-        set { SetState(value); }
+      public bool Exist {
+        get { return result.Exist; }
+        set { SetExist(value); }
       }
-      public Builder SetState(bool value) {
+      public Builder SetExist(bool value) {
         PrepareBuilder();
-        result.hasState = true;
-        result.state_ = value;
+        result.hasExist = true;
+        result.exist_ = value;
         return this;
       }
-      public Builder ClearState() {
+      public Builder ClearExist() {
         PrepareBuilder();
-        result.hasState = false;
-        result.state_ = false;
-        return this;
-      }
-      
-      public bool HasGroup {
-        get { return result.hasGroup; }
-      }
-      public bool Group {
-        get { return result.Group; }
-        set { SetGroup(value); }
-      }
-      public Builder SetGroup(bool value) {
-        PrepareBuilder();
-        result.hasGroup = true;
-        result.group_ = value;
-        return this;
-      }
-      public Builder ClearGroup() {
-        PrepareBuilder();
-        result.hasGroup = false;
-        result.group_ = false;
+        result.hasExist = false;
+        result.exist_ = false;
         return this;
       }
       
-      public bool HasResource {
-        get { return result.hasResource; }
+      public bool HasFull {
+        get { return result.hasFull; }
       }
-      public bool Resource {
-        get { return result.Resource; }
-        set { SetResource(value); }
+      public bool Full {
+        get { return result.Full; }
+        set { SetFull(value); }
       }
-      public Builder SetResource(bool value) {
+      public Builder SetFull(bool value) {
         PrepareBuilder();
-        result.hasResource = true;
-        result.resource_ = value;
+        result.hasFull = true;
+        result.full_ = value;
         return this;
       }
-      public Builder ClearResource() {
+      public Builder ClearFull() {
         PrepareBuilder();
-        result.hasResource = false;
-        result.resource_ = false;
-        return this;
-      }
-      
-      public bool HasTool {
-        get { return result.hasTool; }
-      }
-      public bool Tool {
-        get { return result.Tool; }
-        set { SetTool(value); }
-      }
-      public Builder SetTool(bool value) {
-        PrepareBuilder();
-        result.hasTool = true;
-        result.tool_ = value;
-        return this;
-      }
-      public Builder ClearTool() {
-        PrepareBuilder();
-        result.hasTool = false;
-        result.tool_ = false;
-        return this;
-      }
-      
-      public bool HasProduction {
-        get { return result.hasProduction; }
-      }
-      public bool Production {
-        get { return result.Production; }
-        set { SetProduction(value); }
-      }
-      public Builder SetProduction(bool value) {
-        PrepareBuilder();
-        result.hasProduction = true;
-        result.production_ = value;
-        return this;
-      }
-      public Builder ClearProduction() {
-        PrepareBuilder();
-        result.hasProduction = false;
-        result.production_ = false;
-        return this;
-      }
-      
-      public bool HasFinishTime {
-        get { return result.hasFinishTime; }
-      }
-      public long FinishTime {
-        get { return result.FinishTime; }
-        set { SetFinishTime(value); }
-      }
-      public Builder SetFinishTime(long value) {
-        PrepareBuilder();
-        result.hasFinishTime = true;
-        result.finishTime_ = value;
-        return this;
-      }
-      public Builder ClearFinishTime() {
-        PrepareBuilder();
-        result.hasFinishTime = false;
-        result.finishTime_ = 0L;
+        result.hasFull = false;
+        result.full_ = false;
         return this;
       }
     }
-    static TSCUpgrade() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+    static TSCApplyGroup() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
     }
   }
   

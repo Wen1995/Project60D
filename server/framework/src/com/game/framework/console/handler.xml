@@ -21,6 +21,7 @@
 		
 		<!--//////////////// 场景模块 ////////////////-->
 		<Handler model="Scene" method="getSceneInfo" description="场景信息"/>
+		<Handler model="Scene" method="upgrade" description="解锁升级"/>
 	</HandlerGroup>
 	
 </HandlerGroups>

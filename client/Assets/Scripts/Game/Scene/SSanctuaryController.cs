@@ -21,9 +21,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UIBackpackPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
-        
     }
-
     //actually do something
     public void Start()
     {
@@ -40,7 +38,8 @@ public class SSanctuaryController : SceneController
 
     void BuildBuilding()
     {
-
+        List<BuildingData> list = FacadeSingleton.Instance.InvokeService("GetBuildingDataList", ConstVal.Service_Sanctuary) as List<BuildingData>;
+        // build
     }
 
     /// <summary>

@@ -4,51 +4,40 @@
 * @brief:  这个文件是通过工具自动生成的，建议不要手动修改
 */
 
-package com.game.server.data;
+package com.game.framework.resource.data;
 
 message BUILDING{
     /** 建筑ID */
     required int32 id = 1 [default = 0];
     /** 建筑类型
-        (bldg=building)
-        工业(Industry)=1
-        资源(Resource)=2
-        人类(Human)=3
-        防御(Defense)=4
+        农业领取=1
+        工业领取=2
+        农业加工=3
+        工业加工=4
+        功能建筑=5
+        防御建筑=6
+        武器=7
     */
     optional int32 bldg_type = 2 [default = 0];
     /** 建筑等级 */
     optional int32 bldg_lvl = 3 [default = 0];
-    /** 翻译表名 */
-    optional string transl_table_name = 4 [default = ""];
     /** 建筑名称 */
-    optional string bldg_name = 5 [default = ""];
+    optional string bldg_name = 4 [default = ""];
     /** 可用
         1表示是
         0表示否
     */
-    optional int32 in_use = 6 [default = 0];
+    optional int32 in_use = 5 [default = 0];
     /** 建筑最大等级 */
-    optional int32 max_bldg_lvl = 7 [default = 0];
+    optional int32 max_bldg_lvl = 6 [default = 0];
     /** 模型名 */
-    optional string prefab_name = 8 [default = ""];
+    optional string prefab_name = 7 [default = ""];
     /** 图标名称 */
-    optional string icon_name = 9 [default = ""];
-    /** 描述 */
-    optional string desc = 10 [default = ""];
+    optional string icon_name = 8 [default = ""];
+    /** 建筑描述 */
+    optional string bldg_info = 9 [default = ""];
     /** 界面排序 */
-    optional int32 ui_order = 11 [default = 0];
-    /** 建筑体量
-        小(Small)=1
-        中(Medium)=2
-        大(Big)=3
-        小对应2x2
-        中对应3x3
-        大对应4x4
-    */
-    optional int32 bldg_size = 12 [default = 0];
-    /** 建筑占地边长 */
-    optional int32 bldg_side_length = 13 [default = 0];
+    optional int32 ui_order = 10 [default = 0];
     /** 建筑功能类型
         (func=functional)
         太空基地(SpaceStation)=101
@@ -62,29 +51,37 @@ message BUILDING{
         仓库(ItemStg)=204
         聚居地(Habitat)=301
     */
-    optional int32 bldg_func_type = 14 [default = 0];
-    /** 文明度 */
-    optional int32 cult_pt = 15 [default = 0];
+    optional int32 bldg_func_type = 11 [default = 0];
+    /**  */
+    optional int32 cult_pt = 12 [default = 0];
     /** 人力槽位数
 (个) */
-    optional int32 hr_slot_qty = 16 [default = 0];
+    optional int32 hr_slot_qty = 13 [default = 0];
     /** 加成职业
         工程专家=1
         科学专家=2
         舰船专家=3
         普通公民=4
     */
-    optional int32 buff_pro = 17 [default = 0];
+    optional int32 buff_pro = 14 [default = 0];
     /** 人力储存上限
 (个) */
-    optional int32 max_labor_uk = 18 [default = 0];
+    optional int32 max_labor_uk = 15 [default = 0];
     /** 建筑功能表名 */
-    optional string bldg_func_table_name = 19 [default = ""];
+    optional string bldg_func_table_name = 16 [default = ""];
     /** 建筑功能表索引ID */
-    optional int32 bldg_func_table_id = 20 [default = 0];
+    optional int32 bldg_func_table_id = 17 [default = 0];
+    /** 庄园势力限制 */
+    optional int32 bldg_strength_lim = 18 [default = 0];
+    /** 增加公司实力 */
+    optional int32 bldg_strength_add = 19 [default = 0];
     /** 消耗时间
 (秒) */
-    optional int32 time_cost = 21 [default = 0];
+    optional int32 time_cost = 20 [default = 0];
+    /** 消耗黄金 */
+    optional int32 gold_cost = 21 [default = 0];
+    /** 消耗电力 */
+    optional int32 gold_cost = 22 [default = 0];
 
     message CostStruct{
         /** 消耗ID */
@@ -94,7 +91,7 @@ message BUILDING{
         optional int32 cost_qty = 2 [default = 0];
     }
 
-    repeated CostStruct cost_table = 22;
+    repeated CostStruct cost_table = 23;
 }
 
 message BUILDING_ARRAY {

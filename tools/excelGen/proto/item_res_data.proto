@@ -4,28 +4,26 @@
 * @brief:  这个文件是通过工具自动生成的，建议不要手动修改
 */
 
-package com.game.server.data;
+package com.game.framework.resource.data;
 
 message ITEM_RES{
-    /** 资源ID */
+    /** 矿物ID */
     required int32 id = 1 [default = 0];
     /** 物品等级 */
     optional int32 item_lvl = 2 [default = 0];
-    /** 翻译表名 */
-    optional string transl_table_name = 3 [default = ""];
-    /** 资源名称 */
-    optional string res_name = 4 [default = ""];
-    /** 可用
-        1表示是
-        0表示否
-    */
-    optional int32 in_use = 5 [default = 0];
-    /** 资源最大等级 */
-    optional int32 max_res_lvl = 6 [default = 0];
+    /** 名称 */
+    optional string min_name = 3 [default = ""];
     /** 图标名称 */
-    optional string icon_name = 7 [default = ""];
+    optional string icon_name = 4 [default = ""];
+    /** 小图标名称 */
+    optional string small_icon_name = 5 [default = ""];
     /** 描述 */
-    optional string desc = 8 [default = ""];
+    optional string desc = 6 [default = ""];
+    /** x/黄金
+未来读表 */
+    optional string gold_conv = 7 [default = ""];
+    /** 倍率 */
+    optional int32 multiplier = 8 [default = 0];
     /** 消耗时间
 (秒) */
     optional int32 time_cost = 9 [default = 0];
@@ -35,11 +33,18 @@ message ITEM_RES{
     optional int32 cost_qty = 11 [default = 0];
     /** 结果ID */
     optional int32 result_id = 12 [default = 0];
+    /** 消耗时间
+(秒) */
+    optional int32 time_cost = 13 [default = 0];
+    /** 消耗电力 */
+    optional int32 ele_cost = 14 [default = 0];
+    /** 消耗数量 */
+    optional int32 cost_qty = 15 [default = 0];
+    /** 结果ID2 */
+    optional int32 result_id = 16 [default = 0];
     /** 储存体积
-        占用
-        (立方米)
-    */
-    optional int32 stor_unit = 13 [default = 0];
+占用 */
+    optional int32 stor_unit = 17 [default = 0];
 }
 
 message ITEM_RES_ARRAY {

@@ -1,7 +1,0 @@
-﻿"required",,"optional","optional","optional","optional","optional","optional","optional","optional","optional","optional"
-"int32",,"int32","string","int32","string","int32","int32","string","string","string","string"
-"id",,"intro_point","condition","prev_id","complete_ids","show_type","player_rank","page_name","hand_param","text_key","picture_name"
-"索引","注释","条件点","条件","前置引导ID","完成引导ID","显示类型","角色等级","页面名称","参数","文本Key","图片名称"
-1,"测试1",1,,0,"1",1,1,"BuildingListPanel",,,"a"
-2,"测试2",1,"1#2",1,,3,1,"BuildingListPanel","0#0#1",,"b"
-3,"测试3",1,"1#3",2,"2#3",5,1,"BuildingListPanel",,,

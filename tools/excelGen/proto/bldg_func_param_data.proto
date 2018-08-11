@@ -4,7 +4,7 @@
 * @brief:  这个文件是通过工具自动生成的，建议不要手动修改
 */
 
-package com.game.server.data;
+package com.game.framework.resource.data;
 
 message BLDG_FUNC_PARAM{
     /** 建筑功能

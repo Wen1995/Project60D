@@ -1,16 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class BuildingData
-{
-    public string name;
-}
-
+using com.game.framework.protocol;
 
 public class SanctuaryPackage : ModelBase {
 
-    List<BuildingData> mBuildingDataList = new List<BuildingData>();
+    IList<BuildingInfo> buildingInfoList = null;
 
     public override void Release()
     {
@@ -19,9 +14,9 @@ public class SanctuaryPackage : ModelBase {
 
     #region Acess Data
 
-    public List<BuildingData> GetBuildingDataList()
+    public IList<BuildingInfo> GetBuildingInfoList()
     {
-        return mBuildingDataList;
+        return buildingInfoList;
     }
 
     public void GetSelectionBuildingData()
@@ -31,6 +26,12 @@ public class SanctuaryPackage : ModelBase {
     #endregion
 
     #region Set Data
+
+    public void SetBuildingDataList(TSCGetSceneInfo sceneInfo)
+    {
+        buildingInfoList = sceneInfo.BuildingInfosList;
+    }
+
     public void SetSelectionBuildingData(GameObject go)
     {
         //TODO

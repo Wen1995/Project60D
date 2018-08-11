@@ -8,13 +8,13 @@ public class CommonService : ServiceBase {
     const string HOST = "192.168.90.74";
     const int PORT = 8000;
 
-    public void Login(NDictionary args = null)
+    public void Login(NDictionary args)
     {
         NetSingleton.Instance.BeginConnect(NetType.Netty, HOST, PORT);
         if (args == null) return;
         //Send RPC msg
         var builder = TCSLogin.CreateBuilder();
-        builder.Account = "wen";
+        builder.Account = args.Value<string>("username");
         TCSLogin login = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.LOGIN, login.ToByteArray());
     }

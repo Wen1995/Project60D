@@ -28,8 +28,8 @@ namespace com.game.framework.protocol {
   public sealed partial class UserResource : pb::GeneratedMessageLite<UserResource, UserResource.Builder> {
     private UserResource() { }
     private static readonly UserResource defaultInstance = new UserResource().MakeReadOnly();
-    private static readonly string[] _userResourceFieldNames = new string[] { "bullet", "crude", "electricity", "fruit", "gasoline", "grass", "iron", "ironBirch", "ironBirchBoard", "mineralWater", "pigFood", "pine", "pineBoard", "pork", "pureWater", "rice", "steel", "vegetables", "whiteBirch", "whiteBirchBoard" };
-    private static readonly uint[] _userResourceFieldTags = new uint[] { 160, 56, 152, 24, 64, 32, 72, 104, 128, 144, 40, 88, 112, 48, 136, 8, 80, 16, 96, 120 };
+    private static readonly string[] _userResourceFieldNames = new string[] { "resourceInfos" };
+    private static readonly uint[] _userResourceFieldTags = new uint[] { 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -51,261 +51,16 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int RiceFieldNumber = 1;
-    private bool hasRice;
-    private int rice_;
-    public bool HasRice {
-      get { return hasRice; }
+    public const int ResourceInfosFieldNumber = 1;
+    private pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo> resourceInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo>();
+    public scg::IList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
+      get { return resourceInfos_; }
     }
-    public int Rice {
-      get { return rice_; }
+    public int ResourceInfosCount {
+      get { return resourceInfos_.Count; }
     }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int VegetablesFieldNumber = 2;
-    private bool hasVegetables;
-    private int vegetables_;
-    public bool HasVegetables {
-      get { return hasVegetables; }
-    }
-    public int Vegetables {
-      get { return vegetables_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int FruitFieldNumber = 3;
-    private bool hasFruit;
-    private int fruit_;
-    public bool HasFruit {
-      get { return hasFruit; }
-    }
-    public int Fruit {
-      get { return fruit_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int GrassFieldNumber = 4;
-    private bool hasGrass;
-    private int grass_;
-    public bool HasGrass {
-      get { return hasGrass; }
-    }
-    public int Grass {
-      get { return grass_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int PigFoodFieldNumber = 5;
-    private bool hasPigFood;
-    private int pigFood_;
-    public bool HasPigFood {
-      get { return hasPigFood; }
-    }
-    public int PigFood {
-      get { return pigFood_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int PorkFieldNumber = 6;
-    private bool hasPork;
-    private int pork_;
-    public bool HasPork {
-      get { return hasPork; }
-    }
-    public int Pork {
-      get { return pork_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int CrudeFieldNumber = 7;
-    private bool hasCrude;
-    private int crude_;
-    public bool HasCrude {
-      get { return hasCrude; }
-    }
-    public int Crude {
-      get { return crude_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int GasolineFieldNumber = 8;
-    private bool hasGasoline;
-    private int gasoline_;
-    public bool HasGasoline {
-      get { return hasGasoline; }
-    }
-    public int Gasoline {
-      get { return gasoline_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int IronFieldNumber = 9;
-    private bool hasIron;
-    private int iron_;
-    public bool HasIron {
-      get { return hasIron; }
-    }
-    public int Iron {
-      get { return iron_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int SteelFieldNumber = 10;
-    private bool hasSteel;
-    private int steel_;
-    public bool HasSteel {
-      get { return hasSteel; }
-    }
-    public int Steel {
-      get { return steel_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int PineFieldNumber = 11;
-    private bool hasPine;
-    private int pine_;
-    public bool HasPine {
-      get { return hasPine; }
-    }
-    public int Pine {
-      get { return pine_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int WhiteBirchFieldNumber = 12;
-    private bool hasWhiteBirch;
-    private int whiteBirch_;
-    public bool HasWhiteBirch {
-      get { return hasWhiteBirch; }
-    }
-    public int WhiteBirch {
-      get { return whiteBirch_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int IronBirchFieldNumber = 13;
-    private bool hasIronBirch;
-    private int ironBirch_;
-    public bool HasIronBirch {
-      get { return hasIronBirch; }
-    }
-    public int IronBirch {
-      get { return ironBirch_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int PineBoardFieldNumber = 14;
-    private bool hasPineBoard;
-    private int pineBoard_;
-    public bool HasPineBoard {
-      get { return hasPineBoard; }
-    }
-    public int PineBoard {
-      get { return pineBoard_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int WhiteBirchBoardFieldNumber = 15;
-    private bool hasWhiteBirchBoard;
-    private int whiteBirchBoard_;
-    public bool HasWhiteBirchBoard {
-      get { return hasWhiteBirchBoard; }
-    }
-    public int WhiteBirchBoard {
-      get { return whiteBirchBoard_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int IronBirchBoardFieldNumber = 16;
-    private bool hasIronBirchBoard;
-    private int ironBirchBoard_;
-    public bool HasIronBirchBoard {
-      get { return hasIronBirchBoard; }
-    }
-    public int IronBirchBoard {
-      get { return ironBirchBoard_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int PureWaterFieldNumber = 17;
-    private bool hasPureWater;
-    private int pureWater_;
-    public bool HasPureWater {
-      get { return hasPureWater; }
-    }
-    public int PureWater {
-      get { return pureWater_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int MineralWaterFieldNumber = 18;
-    private bool hasMineralWater;
-    private int mineralWater_;
-    public bool HasMineralWater {
-      get { return hasMineralWater; }
-    }
-    public int MineralWater {
-      get { return mineralWater_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ElectricityFieldNumber = 19;
-    private bool hasElectricity;
-    private int electricity_;
-    public bool HasElectricity {
-      get { return hasElectricity; }
-    }
-    public int Electricity {
-      get { return electricity_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int BulletFieldNumber = 20;
-    private bool hasBullet;
-    private int bullet_;
-    public bool HasBullet {
-      get { return hasBullet; }
-    }
-    public int Bullet {
-      get { return bullet_; }
+    public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
+      return resourceInfos_[index];
     }
     
     #if UNITY_EDITOR
@@ -323,65 +78,8 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _userResourceFieldNames;
-      if (hasRice) {
-        output.WriteInt32(1, field_names[15], Rice);
-      }
-      if (hasVegetables) {
-        output.WriteInt32(2, field_names[17], Vegetables);
-      }
-      if (hasFruit) {
-        output.WriteInt32(3, field_names[3], Fruit);
-      }
-      if (hasGrass) {
-        output.WriteInt32(4, field_names[5], Grass);
-      }
-      if (hasPigFood) {
-        output.WriteInt32(5, field_names[10], PigFood);
-      }
-      if (hasPork) {
-        output.WriteInt32(6, field_names[13], Pork);
-      }
-      if (hasCrude) {
-        output.WriteInt32(7, field_names[1], Crude);
-      }
-      if (hasGasoline) {
-        output.WriteInt32(8, field_names[4], Gasoline);
-      }
-      if (hasIron) {
-        output.WriteInt32(9, field_names[6], Iron);
-      }
-      if (hasSteel) {
-        output.WriteInt32(10, field_names[16], Steel);
-      }
-      if (hasPine) {
-        output.WriteInt32(11, field_names[11], Pine);
-      }
-      if (hasWhiteBirch) {
-        output.WriteInt32(12, field_names[18], WhiteBirch);
-      }
-      if (hasIronBirch) {
-        output.WriteInt32(13, field_names[7], IronBirch);
-      }
-      if (hasPineBoard) {
-        output.WriteInt32(14, field_names[12], PineBoard);
-      }
-      if (hasWhiteBirchBoard) {
-        output.WriteInt32(15, field_names[19], WhiteBirchBoard);
-      }
-      if (hasIronBirchBoard) {
-        output.WriteInt32(16, field_names[8], IronBirchBoard);
-      }
-      if (hasPureWater) {
-        output.WriteInt32(17, field_names[14], PureWater);
-      }
-      if (hasMineralWater) {
-        output.WriteInt32(18, field_names[9], MineralWater);
-      }
-      if (hasElectricity) {
-        output.WriteInt32(19, field_names[2], Electricity);
-      }
-      if (hasBullet) {
-        output.WriteInt32(20, field_names[0], Bullet);
+      if (resourceInfos_.Count > 0) {
+        output.WriteMessageArray(1, field_names[0], resourceInfos_);
       }
     }
     
@@ -395,65 +93,8 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasRice) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, Rice);
-        }
-        if (hasVegetables) {
-          size += pb::CodedOutputStream.ComputeInt32Size(2, Vegetables);
-        }
-        if (hasFruit) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, Fruit);
-        }
-        if (hasGrass) {
-          size += pb::CodedOutputStream.ComputeInt32Size(4, Grass);
-        }
-        if (hasPigFood) {
-          size += pb::CodedOutputStream.ComputeInt32Size(5, PigFood);
-        }
-        if (hasPork) {
-          size += pb::CodedOutputStream.ComputeInt32Size(6, Pork);
-        }
-        if (hasCrude) {
-          size += pb::CodedOutputStream.ComputeInt32Size(7, Crude);
-        }
-        if (hasGasoline) {
-          size += pb::CodedOutputStream.ComputeInt32Size(8, Gasoline);
-        }
-        if (hasIron) {
-          size += pb::CodedOutputStream.ComputeInt32Size(9, Iron);
-        }
-        if (hasSteel) {
-          size += pb::CodedOutputStream.ComputeInt32Size(10, Steel);
-        }
-        if (hasPine) {
-          size += pb::CodedOutputStream.ComputeInt32Size(11, Pine);
-        }
-        if (hasWhiteBirch) {
-          size += pb::CodedOutputStream.ComputeInt32Size(12, WhiteBirch);
-        }
-        if (hasIronBirch) {
-          size += pb::CodedOutputStream.ComputeInt32Size(13, IronBirch);
-        }
-        if (hasPineBoard) {
-          size += pb::CodedOutputStream.ComputeInt32Size(14, PineBoard);
-        }
-        if (hasWhiteBirchBoard) {
-          size += pb::CodedOutputStream.ComputeInt32Size(15, WhiteBirchBoard);
-        }
-        if (hasIronBirchBoard) {
-          size += pb::CodedOutputStream.ComputeInt32Size(16, IronBirchBoard);
-        }
-        if (hasPureWater) {
-          size += pb::CodedOutputStream.ComputeInt32Size(17, PureWater);
-        }
-        if (hasMineralWater) {
-          size += pb::CodedOutputStream.ComputeInt32Size(18, MineralWater);
-        }
-        if (hasElectricity) {
-          size += pb::CodedOutputStream.ComputeInt32Size(19, Electricity);
-        }
-        if (hasBullet) {
-          size += pb::CodedOutputStream.ComputeInt32Size(20, Bullet);
+        foreach (global::com.game.framework.protocol.ResourceInfo element in ResourceInfosList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
         return size;
@@ -463,52 +104,17 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasRice) hash ^= rice_.GetHashCode();
-      if (hasVegetables) hash ^= vegetables_.GetHashCode();
-      if (hasFruit) hash ^= fruit_.GetHashCode();
-      if (hasGrass) hash ^= grass_.GetHashCode();
-      if (hasPigFood) hash ^= pigFood_.GetHashCode();
-      if (hasPork) hash ^= pork_.GetHashCode();
-      if (hasCrude) hash ^= crude_.GetHashCode();
-      if (hasGasoline) hash ^= gasoline_.GetHashCode();
-      if (hasIron) hash ^= iron_.GetHashCode();
-      if (hasSteel) hash ^= steel_.GetHashCode();
-      if (hasPine) hash ^= pine_.GetHashCode();
-      if (hasWhiteBirch) hash ^= whiteBirch_.GetHashCode();
-      if (hasIronBirch) hash ^= ironBirch_.GetHashCode();
-      if (hasPineBoard) hash ^= pineBoard_.GetHashCode();
-      if (hasWhiteBirchBoard) hash ^= whiteBirchBoard_.GetHashCode();
-      if (hasIronBirchBoard) hash ^= ironBirchBoard_.GetHashCode();
-      if (hasPureWater) hash ^= pureWater_.GetHashCode();
-      if (hasMineralWater) hash ^= mineralWater_.GetHashCode();
-      if (hasElectricity) hash ^= electricity_.GetHashCode();
-      if (hasBullet) hash ^= bullet_.GetHashCode();
+      foreach(global::com.game.framework.protocol.ResourceInfo i in resourceInfos_)
+        hash ^= i.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
       UserResource other = obj as UserResource;
       if (other == null) return false;
-      if (hasRice != other.hasRice || (hasRice && !rice_.Equals(other.rice_))) return false;
-      if (hasVegetables != other.hasVegetables || (hasVegetables && !vegetables_.Equals(other.vegetables_))) return false;
-      if (hasFruit != other.hasFruit || (hasFruit && !fruit_.Equals(other.fruit_))) return false;
-      if (hasGrass != other.hasGrass || (hasGrass && !grass_.Equals(other.grass_))) return false;
-      if (hasPigFood != other.hasPigFood || (hasPigFood && !pigFood_.Equals(other.pigFood_))) return false;
-      if (hasPork != other.hasPork || (hasPork && !pork_.Equals(other.pork_))) return false;
-      if (hasCrude != other.hasCrude || (hasCrude && !crude_.Equals(other.crude_))) return false;
-      if (hasGasoline != other.hasGasoline || (hasGasoline && !gasoline_.Equals(other.gasoline_))) return false;
-      if (hasIron != other.hasIron || (hasIron && !iron_.Equals(other.iron_))) return false;
-      if (hasSteel != other.hasSteel || (hasSteel && !steel_.Equals(other.steel_))) return false;
-      if (hasPine != other.hasPine || (hasPine && !pine_.Equals(other.pine_))) return false;
-      if (hasWhiteBirch != other.hasWhiteBirch || (hasWhiteBirch && !whiteBirch_.Equals(other.whiteBirch_))) return false;
-      if (hasIronBirch != other.hasIronBirch || (hasIronBirch && !ironBirch_.Equals(other.ironBirch_))) return false;
-      if (hasPineBoard != other.hasPineBoard || (hasPineBoard && !pineBoard_.Equals(other.pineBoard_))) return false;
-      if (hasWhiteBirchBoard != other.hasWhiteBirchBoard || (hasWhiteBirchBoard && !whiteBirchBoard_.Equals(other.whiteBirchBoard_))) return false;
-      if (hasIronBirchBoard != other.hasIronBirchBoard || (hasIronBirchBoard && !ironBirchBoard_.Equals(other.ironBirchBoard_))) return false;
-      if (hasPureWater != other.hasPureWater || (hasPureWater && !pureWater_.Equals(other.pureWater_))) return false;
-      if (hasMineralWater != other.hasMineralWater || (hasMineralWater && !mineralWater_.Equals(other.mineralWater_))) return false;
-      if (hasElectricity != other.hasElectricity || (hasElectricity && !electricity_.Equals(other.electricity_))) return false;
-      if (hasBullet != other.hasBullet || (hasBullet && !bullet_.Equals(other.bullet_))) return false;
+      if(resourceInfos_.Count != other.resourceInfos_.Count) return false;
+      for(int ix=0; ix < resourceInfos_.Count; ix++)
+        if(!resourceInfos_[ix].Equals(other.resourceInfos_[ix])) return false;
       return true;
     }
     
@@ -575,6 +181,7 @@ namespace com.game.framework.protocol {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private UserResource MakeReadOnly() {
+      resourceInfos_.MakeReadOnly();
       return this;
     }
     
@@ -669,65 +276,8 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(UserResource other) {
         if (other == global::com.game.framework.protocol.UserResource.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasRice) {
-          Rice = other.Rice;
-        }
-        if (other.HasVegetables) {
-          Vegetables = other.Vegetables;
-        }
-        if (other.HasFruit) {
-          Fruit = other.Fruit;
-        }
-        if (other.HasGrass) {
-          Grass = other.Grass;
-        }
-        if (other.HasPigFood) {
-          PigFood = other.PigFood;
-        }
-        if (other.HasPork) {
-          Pork = other.Pork;
-        }
-        if (other.HasCrude) {
-          Crude = other.Crude;
-        }
-        if (other.HasGasoline) {
-          Gasoline = other.Gasoline;
-        }
-        if (other.HasIron) {
-          Iron = other.Iron;
-        }
-        if (other.HasSteel) {
-          Steel = other.Steel;
-        }
-        if (other.HasPine) {
-          Pine = other.Pine;
-        }
-        if (other.HasWhiteBirch) {
-          WhiteBirch = other.WhiteBirch;
-        }
-        if (other.HasIronBirch) {
-          IronBirch = other.IronBirch;
-        }
-        if (other.HasPineBoard) {
-          PineBoard = other.PineBoard;
-        }
-        if (other.HasWhiteBirchBoard) {
-          WhiteBirchBoard = other.WhiteBirchBoard;
-        }
-        if (other.HasIronBirchBoard) {
-          IronBirchBoard = other.IronBirchBoard;
-        }
-        if (other.HasPureWater) {
-          PureWater = other.PureWater;
-        }
-        if (other.HasMineralWater) {
-          MineralWater = other.MineralWater;
-        }
-        if (other.HasElectricity) {
-          Electricity = other.Electricity;
-        }
-        if (other.HasBullet) {
-          Bullet = other.Bullet;
+        if (other.resourceInfos_.Count != 0) {
+          result.resourceInfos_.Add(other.resourceInfos_);
         }
         return this;
       }
@@ -761,84 +311,8 @@ namespace com.game.framework.protocol {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               break;
             }
-            case 8: {
-              result.hasRice = input.ReadInt32(ref result.rice_);
-              break;
-            }
-            case 16: {
-              result.hasVegetables = input.ReadInt32(ref result.vegetables_);
-              break;
-            }
-            case 24: {
-              result.hasFruit = input.ReadInt32(ref result.fruit_);
-              break;
-            }
-            case 32: {
-              result.hasGrass = input.ReadInt32(ref result.grass_);
-              break;
-            }
-            case 40: {
-              result.hasPigFood = input.ReadInt32(ref result.pigFood_);
-              break;
-            }
-            case 48: {
-              result.hasPork = input.ReadInt32(ref result.pork_);
-              break;
-            }
-            case 56: {
-              result.hasCrude = input.ReadInt32(ref result.crude_);
-              break;
-            }
-            case 64: {
-              result.hasGasoline = input.ReadInt32(ref result.gasoline_);
-              break;
-            }
-            case 72: {
-              result.hasIron = input.ReadInt32(ref result.iron_);
-              break;
-            }
-            case 80: {
-              result.hasSteel = input.ReadInt32(ref result.steel_);
-              break;
-            }
-            case 88: {
-              result.hasPine = input.ReadInt32(ref result.pine_);
-              break;
-            }
-            case 96: {
-              result.hasWhiteBirch = input.ReadInt32(ref result.whiteBirch_);
-              break;
-            }
-            case 104: {
-              result.hasIronBirch = input.ReadInt32(ref result.ironBirch_);
-              break;
-            }
-            case 112: {
-              result.hasPineBoard = input.ReadInt32(ref result.pineBoard_);
-              break;
-            }
-            case 120: {
-              result.hasWhiteBirchBoard = input.ReadInt32(ref result.whiteBirchBoard_);
-              break;
-            }
-            case 128: {
-              result.hasIronBirchBoard = input.ReadInt32(ref result.ironBirchBoard_);
-              break;
-            }
-            case 136: {
-              result.hasPureWater = input.ReadInt32(ref result.pureWater_);
-              break;
-            }
-            case 144: {
-              result.hasMineralWater = input.ReadInt32(ref result.mineralWater_);
-              break;
-            }
-            case 152: {
-              result.hasElectricity = input.ReadInt32(ref result.electricity_);
-              break;
-            }
-            case 160: {
-              result.hasBullet = input.ReadInt32(ref result.bullet_);
+            case 10: {
+              input.ReadMessageArray(tag, field_name, result.resourceInfos_, global::com.game.framework.protocol.ResourceInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -848,403 +322,47 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasRice {
-        get { return result.hasRice; }
+      public pbc::IPopsicleList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
+        get { return PrepareBuilder().resourceInfos_; }
       }
-      public int Rice {
-        get { return result.Rice; }
-        set { SetRice(value); }
+      public int ResourceInfosCount {
+        get { return result.ResourceInfosCount; }
       }
-      public Builder SetRice(int value) {
+      public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
+        return result.GetResourceInfos(index);
+      }
+      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.hasRice = true;
-        result.rice_ = value;
+        result.resourceInfos_[index] = value;
         return this;
       }
-      public Builder ClearRice() {
+      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.hasRice = false;
-        result.rice_ = 0;
+        result.resourceInfos_[index] = builderForValue.Build();
         return this;
       }
-      
-      public bool HasVegetables {
-        get { return result.hasVegetables; }
-      }
-      public int Vegetables {
-        get { return result.Vegetables; }
-        set { SetVegetables(value); }
-      }
-      public Builder SetVegetables(int value) {
+      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.hasVegetables = true;
-        result.vegetables_ = value;
+        result.resourceInfos_.Add(value);
         return this;
       }
-      public Builder ClearVegetables() {
+      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.hasVegetables = false;
-        result.vegetables_ = 0;
+        result.resourceInfos_.Add(builderForValue.Build());
         return this;
       }
-      
-      public bool HasFruit {
-        get { return result.hasFruit; }
-      }
-      public int Fruit {
-        get { return result.Fruit; }
-        set { SetFruit(value); }
-      }
-      public Builder SetFruit(int value) {
+      public Builder AddRangeResourceInfos(scg::IEnumerable<global::com.game.framework.protocol.ResourceInfo> values) {
         PrepareBuilder();
-        result.hasFruit = true;
-        result.fruit_ = value;
+        result.resourceInfos_.Add(values);
         return this;
       }
-      public Builder ClearFruit() {
+      public Builder ClearResourceInfos() {
         PrepareBuilder();
-        result.hasFruit = false;
-        result.fruit_ = 0;
-        return this;
-      }
-      
-      public bool HasGrass {
-        get { return result.hasGrass; }
-      }
-      public int Grass {
-        get { return result.Grass; }
-        set { SetGrass(value); }
-      }
-      public Builder SetGrass(int value) {
-        PrepareBuilder();
-        result.hasGrass = true;
-        result.grass_ = value;
-        return this;
-      }
-      public Builder ClearGrass() {
-        PrepareBuilder();
-        result.hasGrass = false;
-        result.grass_ = 0;
-        return this;
-      }
-      
-      public bool HasPigFood {
-        get { return result.hasPigFood; }
-      }
-      public int PigFood {
-        get { return result.PigFood; }
-        set { SetPigFood(value); }
-      }
-      public Builder SetPigFood(int value) {
-        PrepareBuilder();
-        result.hasPigFood = true;
-        result.pigFood_ = value;
-        return this;
-      }
-      public Builder ClearPigFood() {
-        PrepareBuilder();
-        result.hasPigFood = false;
-        result.pigFood_ = 0;
-        return this;
-      }
-      
-      public bool HasPork {
-        get { return result.hasPork; }
-      }
-      public int Pork {
-        get { return result.Pork; }
-        set { SetPork(value); }
-      }
-      public Builder SetPork(int value) {
-        PrepareBuilder();
-        result.hasPork = true;
-        result.pork_ = value;
-        return this;
-      }
-      public Builder ClearPork() {
-        PrepareBuilder();
-        result.hasPork = false;
-        result.pork_ = 0;
-        return this;
-      }
-      
-      public bool HasCrude {
-        get { return result.hasCrude; }
-      }
-      public int Crude {
-        get { return result.Crude; }
-        set { SetCrude(value); }
-      }
-      public Builder SetCrude(int value) {
-        PrepareBuilder();
-        result.hasCrude = true;
-        result.crude_ = value;
-        return this;
-      }
-      public Builder ClearCrude() {
-        PrepareBuilder();
-        result.hasCrude = false;
-        result.crude_ = 0;
-        return this;
-      }
-      
-      public bool HasGasoline {
-        get { return result.hasGasoline; }
-      }
-      public int Gasoline {
-        get { return result.Gasoline; }
-        set { SetGasoline(value); }
-      }
-      public Builder SetGasoline(int value) {
-        PrepareBuilder();
-        result.hasGasoline = true;
-        result.gasoline_ = value;
-        return this;
-      }
-      public Builder ClearGasoline() {
-        PrepareBuilder();
-        result.hasGasoline = false;
-        result.gasoline_ = 0;
-        return this;
-      }
-      
-      public bool HasIron {
-        get { return result.hasIron; }
-      }
-      public int Iron {
-        get { return result.Iron; }
-        set { SetIron(value); }
-      }
-      public Builder SetIron(int value) {
-        PrepareBuilder();
-        result.hasIron = true;
-        result.iron_ = value;
-        return this;
-      }
-      public Builder ClearIron() {
-        PrepareBuilder();
-        result.hasIron = false;
-        result.iron_ = 0;
-        return this;
-      }
-      
-      public bool HasSteel {
-        get { return result.hasSteel; }
-      }
-      public int Steel {
-        get { return result.Steel; }
-        set { SetSteel(value); }
-      }
-      public Builder SetSteel(int value) {
-        PrepareBuilder();
-        result.hasSteel = true;
-        result.steel_ = value;
-        return this;
-      }
-      public Builder ClearSteel() {
-        PrepareBuilder();
-        result.hasSteel = false;
-        result.steel_ = 0;
-        return this;
-      }
-      
-      public bool HasPine {
-        get { return result.hasPine; }
-      }
-      public int Pine {
-        get { return result.Pine; }
-        set { SetPine(value); }
-      }
-      public Builder SetPine(int value) {
-        PrepareBuilder();
-        result.hasPine = true;
-        result.pine_ = value;
-        return this;
-      }
-      public Builder ClearPine() {
-        PrepareBuilder();
-        result.hasPine = false;
-        result.pine_ = 0;
-        return this;
-      }
-      
-      public bool HasWhiteBirch {
-        get { return result.hasWhiteBirch; }
-      }
-      public int WhiteBirch {
-        get { return result.WhiteBirch; }
-        set { SetWhiteBirch(value); }
-      }
-      public Builder SetWhiteBirch(int value) {
-        PrepareBuilder();
-        result.hasWhiteBirch = true;
-        result.whiteBirch_ = value;
-        return this;
-      }
-      public Builder ClearWhiteBirch() {
-        PrepareBuilder();
-        result.hasWhiteBirch = false;
-        result.whiteBirch_ = 0;
-        return this;
-      }
-      
-      public bool HasIronBirch {
-        get { return result.hasIronBirch; }
-      }
-      public int IronBirch {
-        get { return result.IronBirch; }
-        set { SetIronBirch(value); }
-      }
-      public Builder SetIronBirch(int value) {
-        PrepareBuilder();
-        result.hasIronBirch = true;
-        result.ironBirch_ = value;
-        return this;
-      }
-      public Builder ClearIronBirch() {
-        PrepareBuilder();
-        result.hasIronBirch = false;
-        result.ironBirch_ = 0;
-        return this;
-      }
-      
-      public bool HasPineBoard {
-        get { return result.hasPineBoard; }
-      }
-      public int PineBoard {
-        get { return result.PineBoard; }
-        set { SetPineBoard(value); }
-      }
-      public Builder SetPineBoard(int value) {
-        PrepareBuilder();
-        result.hasPineBoard = true;
-        result.pineBoard_ = value;
-        return this;
-      }
-      public Builder ClearPineBoard() {
-        PrepareBuilder();
-        result.hasPineBoard = false;
-        result.pineBoard_ = 0;
-        return this;
-      }
-      
-      public bool HasWhiteBirchBoard {
-        get { return result.hasWhiteBirchBoard; }
-      }
-      public int WhiteBirchBoard {
-        get { return result.WhiteBirchBoard; }
-        set { SetWhiteBirchBoard(value); }
-      }
-      public Builder SetWhiteBirchBoard(int value) {
-        PrepareBuilder();
-        result.hasWhiteBirchBoard = true;
-        result.whiteBirchBoard_ = value;
-        return this;
-      }
-      public Builder ClearWhiteBirchBoard() {
-        PrepareBuilder();
-        result.hasWhiteBirchBoard = false;
-        result.whiteBirchBoard_ = 0;
-        return this;
-      }
-      
-      public bool HasIronBirchBoard {
-        get { return result.hasIronBirchBoard; }
-      }
-      public int IronBirchBoard {
-        get { return result.IronBirchBoard; }
-        set { SetIronBirchBoard(value); }
-      }
-      public Builder SetIronBirchBoard(int value) {
-        PrepareBuilder();
-        result.hasIronBirchBoard = true;
-        result.ironBirchBoard_ = value;
-        return this;
-      }
-      public Builder ClearIronBirchBoard() {
-        PrepareBuilder();
-        result.hasIronBirchBoard = false;
-        result.ironBirchBoard_ = 0;
-        return this;
-      }
-      
-      public bool HasPureWater {
-        get { return result.hasPureWater; }
-      }
-      public int PureWater {
-        get { return result.PureWater; }
-        set { SetPureWater(value); }
-      }
-      public Builder SetPureWater(int value) {
-        PrepareBuilder();
-        result.hasPureWater = true;
-        result.pureWater_ = value;
-        return this;
-      }
-      public Builder ClearPureWater() {
-        PrepareBuilder();
-        result.hasPureWater = false;
-        result.pureWater_ = 0;
-        return this;
-      }
-      
-      public bool HasMineralWater {
-        get { return result.hasMineralWater; }
-      }
-      public int MineralWater {
-        get { return result.MineralWater; }
-        set { SetMineralWater(value); }
-      }
-      public Builder SetMineralWater(int value) {
-        PrepareBuilder();
-        result.hasMineralWater = true;
-        result.mineralWater_ = value;
-        return this;
-      }
-      public Builder ClearMineralWater() {
-        PrepareBuilder();
-        result.hasMineralWater = false;
-        result.mineralWater_ = 0;
-        return this;
-      }
-      
-      public bool HasElectricity {
-        get { return result.hasElectricity; }
-      }
-      public int Electricity {
-        get { return result.Electricity; }
-        set { SetElectricity(value); }
-      }
-      public Builder SetElectricity(int value) {
-        PrepareBuilder();
-        result.hasElectricity = true;
-        result.electricity_ = value;
-        return this;
-      }
-      public Builder ClearElectricity() {
-        PrepareBuilder();
-        result.hasElectricity = false;
-        result.electricity_ = 0;
-        return this;
-      }
-      
-      public bool HasBullet {
-        get { return result.hasBullet; }
-      }
-      public int Bullet {
-        get { return result.Bullet; }
-        set { SetBullet(value); }
-      }
-      public Builder SetBullet(int value) {
-        PrepareBuilder();
-        result.hasBullet = true;
-        result.bullet_ = value;
-        return this;
-      }
-      public Builder ClearBullet() {
-        PrepareBuilder();
-        result.hasBullet = false;
-        result.bullet_ = 0;
+        result.resourceInfos_.Clear();
         return this;
       }
     }
@@ -1253,10 +371,374 @@ namespace com.game.framework.protocol {
     }
   }
   
+  public sealed partial class ResourceInfo : pb::GeneratedMessageLite<ResourceInfo, ResourceInfo.Builder> {
+    private ResourceInfo() { }
+    private static readonly ResourceInfo defaultInstance = new ResourceInfo().MakeReadOnly();
+    private static readonly string[] _resourceInfoFieldNames = new string[] { "number", "resource" };
+    private static readonly uint[] _resourceInfoFieldTags = new uint[] { 16, 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override ResourceInfo DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override ResourceInfo ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ResourceFieldNumber = 1;
+    private bool hasResource;
+    private int resource_;
+    public bool HasResource {
+      get { return hasResource; }
+    }
+    public int Resource {
+      get { return resource_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int NumberFieldNumber = 2;
+    private bool hasNumber;
+    private int number_;
+    public bool HasNumber {
+      get { return hasNumber; }
+    }
+    public int Number {
+      get { return number_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _resourceInfoFieldNames;
+      if (hasResource) {
+        output.WriteInt32(1, field_names[1], Resource);
+      }
+      if (hasNumber) {
+        output.WriteInt32(2, field_names[0], Number);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasResource) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, Resource);
+        }
+        if (hasNumber) {
+          size += pb::CodedOutputStream.ComputeInt32Size(2, Number);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasResource) hash ^= resource_.GetHashCode();
+      if (hasNumber) hash ^= number_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      ResourceInfo other = obj as ResourceInfo;
+      if (other == null) return false;
+      if (hasResource != other.hasResource || (hasResource && !resource_.Equals(other.resource_))) return false;
+      if (hasNumber != other.hasNumber || (hasNumber && !number_.Equals(other.number_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ResourceInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private ResourceInfo MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(ResourceInfo prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<ResourceInfo, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(ResourceInfo cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private ResourceInfo result;
+      
+      private ResourceInfo PrepareBuilder() {
+        if (resultIsReadOnly) {
+          ResourceInfo original = result;
+          result = new ResourceInfo();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override ResourceInfo MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override ResourceInfo DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.ResourceInfo.DefaultInstance; }
+      }
+      
+      public override ResourceInfo BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is ResourceInfo) {
+          return MergeFrom((ResourceInfo) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(ResourceInfo other) {
+        if (other == global::com.game.framework.protocol.ResourceInfo.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasResource) {
+          Resource = other.Resource;
+        }
+        if (other.HasNumber) {
+          Number = other.Number;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_resourceInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _resourceInfoFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasResource = input.ReadInt32(ref result.resource_);
+              break;
+            }
+            case 16: {
+              result.hasNumber = input.ReadInt32(ref result.number_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasResource {
+        get { return result.hasResource; }
+      }
+      public int Resource {
+        get { return result.Resource; }
+        set { SetResource(value); }
+      }
+      public Builder SetResource(int value) {
+        PrepareBuilder();
+        result.hasResource = true;
+        result.resource_ = value;
+        return this;
+      }
+      public Builder ClearResource() {
+        PrepareBuilder();
+        result.hasResource = false;
+        result.resource_ = 0;
+        return this;
+      }
+      
+      public bool HasNumber {
+        get { return result.hasNumber; }
+      }
+      public int Number {
+        get { return result.Number; }
+        set { SetNumber(value); }
+      }
+      public Builder SetNumber(int value) {
+        PrepareBuilder();
+        result.hasNumber = true;
+        result.number_ = value;
+        return this;
+      }
+      public Builder ClearNumber() {
+        PrepareBuilder();
+        result.hasNumber = false;
+        result.number_ = 0;
+        return this;
+      }
+    }
+    static ResourceInfo() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Database.Descriptor, null);
+    }
+  }
+  
   public sealed partial class BuildingState : pb::GeneratedMessageLite<BuildingState, BuildingState.Builder> {
     private BuildingState() { }
     private static readonly BuildingState defaultInstance = new BuildingState().MakeReadOnly();
-    private static readonly string[] _buildingStateFieldNames = new string[] { "upgrade" };
+    private static readonly string[] _buildingStateFieldNames = new string[] { "upgradeInfo" };
     private static readonly uint[] _buildingStateFieldTags = new uint[] { 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -1279,14 +761,14 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int UpgradeFieldNumber = 1;
-    private bool hasUpgrade;
-    private global::com.game.framework.protocol.Upgrade upgrade_;
-    public bool HasUpgrade {
-      get { return hasUpgrade; }
+    public const int UpgradeInfoFieldNumber = 1;
+    private bool hasUpgradeInfo;
+    private global::com.game.framework.protocol.UpgradeInfo upgradeInfo_;
+    public bool HasUpgradeInfo {
+      get { return hasUpgradeInfo; }
     }
-    public global::com.game.framework.protocol.Upgrade Upgrade {
-      get { return upgrade_ ?? global::com.game.framework.protocol.Upgrade.DefaultInstance; }
+    public global::com.game.framework.protocol.UpgradeInfo UpgradeInfo {
+      get { return upgradeInfo_ ?? global::com.game.framework.protocol.UpgradeInfo.DefaultInstance; }
     }
     
     #if UNITY_EDITOR
@@ -1304,8 +786,8 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _buildingStateFieldNames;
-      if (hasUpgrade) {
-        output.WriteMessage(1, field_names[0], Upgrade);
+      if (hasUpgradeInfo) {
+        output.WriteMessage(1, field_names[0], UpgradeInfo);
       }
     }
     
@@ -1319,8 +801,8 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasUpgrade) {
-          size += pb::CodedOutputStream.ComputeMessageSize(1, Upgrade);
+        if (hasUpgradeInfo) {
+          size += pb::CodedOutputStream.ComputeMessageSize(1, UpgradeInfo);
         }
         memoizedSerializedSize = size;
         return size;
@@ -1330,14 +812,14 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasUpgrade) hash ^= upgrade_.GetHashCode();
+      if (hasUpgradeInfo) hash ^= upgradeInfo_.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
       BuildingState other = obj as BuildingState;
       if (other == null) return false;
-      if (hasUpgrade != other.hasUpgrade || (hasUpgrade && !upgrade_.Equals(other.upgrade_))) return false;
+      if (hasUpgradeInfo != other.hasUpgradeInfo || (hasUpgradeInfo && !upgradeInfo_.Equals(other.upgradeInfo_))) return false;
       return true;
     }
     
@@ -1498,8 +980,8 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(BuildingState other) {
         if (other == global::com.game.framework.protocol.BuildingState.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasUpgrade) {
-          MergeUpgrade(other.Upgrade);
+        if (other.HasUpgradeInfo) {
+          MergeUpgradeInfo(other.UpgradeInfo);
         }
         return this;
       }
@@ -1534,12 +1016,12 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              global::com.game.framework.protocol.Upgrade.Builder subBuilder = global::com.game.framework.protocol.Upgrade.CreateBuilder();
-              if (result.hasUpgrade) {
-                subBuilder.MergeFrom(Upgrade);
+              global::com.game.framework.protocol.UpgradeInfo.Builder subBuilder = global::com.game.framework.protocol.UpgradeInfo.CreateBuilder();
+              if (result.hasUpgradeInfo) {
+                subBuilder.MergeFrom(UpgradeInfo);
               }
               input.ReadMessage(subBuilder, extensionRegistry);
-              Upgrade = subBuilder.BuildPartial();
+              UpgradeInfo = subBuilder.BuildPartial();
               break;
             }
           }
@@ -1549,43 +1031,43 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasUpgrade {
-       get { return result.hasUpgrade; }
+      public bool HasUpgradeInfo {
+       get { return result.hasUpgradeInfo; }
       }
-      public global::com.game.framework.protocol.Upgrade Upgrade {
-        get { return result.Upgrade; }
-        set { SetUpgrade(value); }
+      public global::com.game.framework.protocol.UpgradeInfo UpgradeInfo {
+        get { return result.UpgradeInfo; }
+        set { SetUpgradeInfo(value); }
       }
-      public Builder SetUpgrade(global::com.game.framework.protocol.Upgrade value) {
+      public Builder SetUpgradeInfo(global::com.game.framework.protocol.UpgradeInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.hasUpgrade = true;
-        result.upgrade_ = value;
+        result.hasUpgradeInfo = true;
+        result.upgradeInfo_ = value;
         return this;
       }
-      public Builder SetUpgrade(global::com.game.framework.protocol.Upgrade.Builder builderForValue) {
+      public Builder SetUpgradeInfo(global::com.game.framework.protocol.UpgradeInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.hasUpgrade = true;
-        result.upgrade_ = builderForValue.Build();
+        result.hasUpgradeInfo = true;
+        result.upgradeInfo_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeUpgrade(global::com.game.framework.protocol.Upgrade value) {
+      public Builder MergeUpgradeInfo(global::com.game.framework.protocol.UpgradeInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        if (result.hasUpgrade &&
-            result.upgrade_ != global::com.game.framework.protocol.Upgrade.DefaultInstance) {
-            result.upgrade_ = global::com.game.framework.protocol.Upgrade.CreateBuilder(result.upgrade_).MergeFrom(value).BuildPartial();
+        if (result.hasUpgradeInfo &&
+            result.upgradeInfo_ != global::com.game.framework.protocol.UpgradeInfo.DefaultInstance) {
+            result.upgradeInfo_ = global::com.game.framework.protocol.UpgradeInfo.CreateBuilder(result.upgradeInfo_).MergeFrom(value).BuildPartial();
         } else {
-          result.upgrade_ = value;
+          result.upgradeInfo_ = value;
         }
-        result.hasUpgrade = true;
+        result.hasUpgradeInfo = true;
         return this;
       }
-      public Builder ClearUpgrade() {
+      public Builder ClearUpgradeInfo() {
         PrepareBuilder();
-        result.hasUpgrade = false;
-        result.upgrade_ = null;
+        result.hasUpgradeInfo = false;
+        result.upgradeInfo_ = null;
         return this;
       }
     }
@@ -1594,26 +1076,26 @@ namespace com.game.framework.protocol {
     }
   }
   
-  public sealed partial class Upgrade : pb::GeneratedMessageLite<Upgrade, Upgrade.Builder> {
-    private Upgrade() { }
-    private static readonly Upgrade defaultInstance = new Upgrade().MakeReadOnly();
-    private static readonly string[] _upgradeFieldNames = new string[] { "uid", "upgrading" };
-    private static readonly uint[] _upgradeFieldTags = new uint[] { 16, 8 };
+  public sealed partial class UpgradeInfo : pb::GeneratedMessageLite<UpgradeInfo, UpgradeInfo.Builder> {
+    private UpgradeInfo() { }
+    private static readonly UpgradeInfo defaultInstance = new UpgradeInfo().MakeReadOnly();
+    private static readonly string[] _upgradeInfoFieldNames = new string[] { "uid", "upgrading" };
+    private static readonly uint[] _upgradeInfoFieldTags = new uint[] { 16, 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade DefaultInstance {
+    public static UpgradeInfo DefaultInstance {
       get { return defaultInstance; }
     }
     
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public override Upgrade DefaultInstanceForType {
+    public override UpgradeInfo DefaultInstanceForType {
       get { return DefaultInstance; }
     }
     
-    protected override Upgrade ThisMessage {
+    protected override UpgradeInfo ThisMessage {
       get { return this; }
     }
     
@@ -1657,7 +1139,7 @@ namespace com.game.framework.protocol {
      #endif//
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
-      string[] field_names = _upgradeFieldNames;
+      string[] field_names = _upgradeInfoFieldNames;
       if (hasUpgrading) {
         output.WriteBool(1, field_names[1], Upgrading);
       }
@@ -1696,7 +1178,7 @@ namespace com.game.framework.protocol {
     }
     
     public override bool Equals(object obj) {
-      Upgrade other = obj as Upgrade;
+      UpgradeInfo other = obj as UpgradeInfo;
       if (other == null) return false;
       if (hasUpgrading != other.hasUpgrading || (hasUpgrading && !upgrading_.Equals(other.upgrading_))) return false;
       if (hasUid != other.hasUid || (hasUid && !uid_.Equals(other.uid_))) return false;
@@ -1708,64 +1190,64 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade ParseFrom(pb::ByteString data) {
+    public static UpgradeInfo ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+    public static UpgradeInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade ParseFrom(byte[] data) {
+    public static UpgradeInfo ParseFrom(byte[] data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+    public static UpgradeInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade ParseFrom(global::System.IO.Stream input) {
+    public static UpgradeInfo ParseFrom(global::System.IO.Stream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static UpgradeInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade ParseDelimitedFrom(global::System.IO.Stream input) {
+    public static UpgradeInfo ParseDelimitedFrom(global::System.IO.Stream input) {
       return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static UpgradeInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade ParseFrom(pb::ICodedInputStream input) {
+    public static UpgradeInfo ParseFrom(pb::ICodedInputStream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Upgrade ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+    public static UpgradeInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    private Upgrade MakeReadOnly() {
+    private UpgradeInfo MakeReadOnly() {
       return this;
     }
     
@@ -1784,11 +1266,11 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Builder CreateBuilder(Upgrade prototype) {
+    public static Builder CreateBuilder(UpgradeInfo prototype) {
       return new Builder(prototype);
     }
     
-    public sealed partial class Builder : pb::GeneratedBuilderLite<Upgrade, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<UpgradeInfo, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -1796,18 +1278,18 @@ namespace com.game.framework.protocol {
         result = DefaultInstance;
         resultIsReadOnly = true;
       }
-      internal Builder(Upgrade cloneFrom) {
+      internal Builder(UpgradeInfo cloneFrom) {
         result = cloneFrom;
         resultIsReadOnly = true;
       }
       
       private bool resultIsReadOnly;
-      private Upgrade result;
+      private UpgradeInfo result;
       
-      private Upgrade PrepareBuilder() {
+      private UpgradeInfo PrepareBuilder() {
         if (resultIsReadOnly) {
-          Upgrade original = result;
-          result = new Upgrade();
+          UpgradeInfo original = result;
+          result = new UpgradeInfo();
           resultIsReadOnly = false;
           MergeFrom(original);
         }
@@ -1818,7 +1300,7 @@ namespace com.game.framework.protocol {
         get { return result.IsInitialized; }
       }
       
-      protected override Upgrade MessageBeingBuilt {
+      protected override UpgradeInfo MessageBeingBuilt {
         get { return PrepareBuilder(); }
       }
       
@@ -1836,11 +1318,11 @@ namespace com.game.framework.protocol {
         }
       }
       
-      public override Upgrade DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.Upgrade.DefaultInstance; }
+      public override UpgradeInfo DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.UpgradeInfo.DefaultInstance; }
       }
       
-      public override Upgrade BuildPartial() {
+      public override UpgradeInfo BuildPartial() {
         if (resultIsReadOnly) {
           return result;
         }
@@ -1849,16 +1331,16 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is Upgrade) {
-          return MergeFrom((Upgrade) other);
+        if (other is UpgradeInfo) {
+          return MergeFrom((UpgradeInfo) other);
         } else {
           base.MergeFrom(other);
           return this;
         }
       }
       
-      public override Builder MergeFrom(Upgrade other) {
-        if (other == global::com.game.framework.protocol.Upgrade.DefaultInstance) return this;
+      public override Builder MergeFrom(UpgradeInfo other) {
+        if (other == global::com.game.framework.protocol.UpgradeInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasUpgrading) {
           Upgrading = other.Upgrading;
@@ -1879,9 +1361,9 @@ namespace com.game.framework.protocol {
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
           if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_upgradeFieldNames, field_name, global::System.StringComparer.Ordinal);
+            int field_ordinal = global::System.Array.BinarySearch(_upgradeInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
             if(field_ordinal >= 0)
-              tag = _upgradeFieldTags[field_ordinal];
+              tag = _upgradeInfoFieldTags[field_ordinal];
             else {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
@@ -1953,7 +1435,7 @@ namespace com.game.framework.protocol {
         return this;
       }
     }
-    static Upgrade() {
+    static UpgradeInfo() {
       object.ReferenceEquals(global::com.game.framework.protocol.Database.Descriptor, null);
     }
   }

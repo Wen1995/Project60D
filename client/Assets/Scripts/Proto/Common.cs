@@ -42,6 +42,29 @@ namespace com.game.framework.protocol {
     NO_BUILDING = 3,
   }
   
+  public enum Resource {
+    RICE = 1,
+    VEGETABLES = 2,
+    FRUIT = 3,
+    GRASS = 4,
+    PIGFOOD = 5,
+    PORK = 6,
+    CRUDE = 7,
+    GASOLINE = 8,
+    IRON = 9,
+    STEEL = 10,
+    PINE = 11,
+    WHITEBIRCH = 12,
+    IRONBIRCH = 13,
+    PINEBOARD = 14,
+    WHITEBIRCHBOARD = 15,
+    IRONBIRCHBOARD = 16,
+    PUREWATER = 17,
+    MINERALWATER = 18,
+    ELECTRICITY = 19,
+    BULLET = 20,
+  }
+  
   #endregion
   
 }

@@ -5,7 +5,7 @@ option optimize_for = SPEED;
 /** 这里存放mysql表中blob字段的二进制序列 */
 
 message UserResource {
-	optional repeated ResourceInfo resourceInfos = 1;
+	repeated ResourceInfo resourceInfos = 1;
 }
 
 message ResourceInfo {

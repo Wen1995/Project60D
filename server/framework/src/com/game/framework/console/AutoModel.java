@@ -28,7 +28,6 @@ public class AutoModel {
             "src/com/game/framework/console/generator.xml";
     private static final String GENERATOR_PATH = "com/game/framework/console/generator.xml";
 
-
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         List<String> tableNameList = new ArrayList<>();

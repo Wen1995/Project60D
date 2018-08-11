@@ -15,6 +15,8 @@ public class User {
 
     private Integer gold;
 
+    private Integer production;
+
     private Date createTime;
 
     private byte[] resource;
@@ -65,6 +67,14 @@ public class User {
 
     public void setGold(Integer gold) {
         this.gold = gold;
+    }
+
+    public Integer getProduction() {
+        return production;
+    }
+
+    public void setProduction(Integer production) {
+        this.production = production;
     }
 
     public Date getCreateTime() {

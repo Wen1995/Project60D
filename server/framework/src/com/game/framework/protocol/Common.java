@@ -52,13 +52,13 @@ public final class Common {
      */
     CREATEGROUP(4, 11),
     /**
-     * <code>APPLYGROUP = 4;</code>
+     * <code>APPLYGROUP = 12;</code>
      *
      * <pre>
      * 申请加入
      * </pre>
      */
-    APPLYGROUP(5, 4),
+    APPLYGROUP(5, 12),
     /**
      * <code>GETSCENEINFO = 31;</code>
      *
@@ -68,6 +68,14 @@ public final class Common {
      * </pre>
      */
     GETSCENEINFO(6, 31),
+    /**
+     * <code>UPGRADE = 32;</code>
+     *
+     * <pre>
+     * 解锁升级
+     * </pre>
+     */
+    UPGRADE(7, 32),
     ;
 
     /**
@@ -109,13 +117,13 @@ public final class Common {
      */
     public static final int CREATEGROUP_VALUE = 11;
     /**
-     * <code>APPLYGROUP = 4;</code>
+     * <code>APPLYGROUP = 12;</code>
      *
      * <pre>
      * 申请加入
      * </pre>
      */
-    public static final int APPLYGROUP_VALUE = 4;
+    public static final int APPLYGROUP_VALUE = 12;
     /**
      * <code>GETSCENEINFO = 31;</code>
      *
@@ -125,6 +133,14 @@ public final class Common {
      * </pre>
      */
     public static final int GETSCENEINFO_VALUE = 31;
+    /**
+     * <code>UPGRADE = 32;</code>
+     *
+     * <pre>
+     * 解锁升级
+     * </pre>
+     */
+    public static final int UPGRADE_VALUE = 32;
 
 
     public final int getNumber() { return value; }
@@ -136,8 +152,9 @@ public final class Common {
         case 2: return LOGOUT;
         case 3: return GETUSERINFO;
         case 11: return CREATEGROUP;
-        case 4: return APPLYGROUP;
+        case 12: return APPLYGROUP;
         case 31: return GETSCENEINFO;
+        case 32: return UPGRADE;
         default: return null;
       }
     }
@@ -202,6 +219,22 @@ public final class Common {
      * </pre>
      */
     SERVER_ERR(0, 1),
+    /**
+     * <code>RIGHT_HANDLE = 2;</code>
+     *
+     * <pre>
+     * 没有权限操作
+     * </pre>
+     */
+    RIGHT_HANDLE(1, 2),
+    /**
+     * <code>NO_BUILDING = 3;</code>
+     *
+     * <pre>
+     * 建筑不存在
+     * </pre>
+     */
+    NO_BUILDING(2, 3),
     ;
 
     /**
@@ -212,6 +245,22 @@ public final class Common {
      * </pre>
      */
     public static final int SERVER_ERR_VALUE = 1;
+    /**
+     * <code>RIGHT_HANDLE = 2;</code>
+     *
+     * <pre>
+     * 没有权限操作
+     * </pre>
+     */
+    public static final int RIGHT_HANDLE_VALUE = 2;
+    /**
+     * <code>NO_BUILDING = 3;</code>
+     *
+     * <pre>
+     * 建筑不存在
+     * </pre>
+     */
+    public static final int NO_BUILDING_VALUE = 3;
 
 
     public final int getNumber() { return value; }
@@ -219,6 +268,8 @@ public final class Common {
     public static Error valueOf(int value) {
       switch (value) {
         case 1: return SERVER_ERR;
+        case 2: return RIGHT_HANDLE;
+        case 3: return NO_BUILDING;
         default: return null;
       }
     }
@@ -280,10 +331,11 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*k\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGO" +
+      "col*x\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGO" +
       "UT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREATEGROUP\020\013\022\016" +
-      "\n\nAPPLYGROUP\020\004\022\020\n\014GETSCENEINFO\020\037*\027\n\005Erro" +
-      "r\022\016\n\nSERVER_ERR\020\001B\002H\001"
+      "\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO\020\037\022\013\n\007UPGR" +
+      "ADE\020 *:\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_" +
+      "HANDLE\020\002\022\017\n\013NO_BUILDING\020\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

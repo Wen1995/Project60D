@@ -25,8 +25,10 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
 
     private static final String GET_ID_METHOD = "getId";
     private static final String GET_UID_METHOD = "getUid";
+    private static final String GET_GROUPID_METHOD = "getGroupId";
     private static final String SPLIT = "_";
     private static final String UID_SPLIT = "_UID_";
+    private static final String GROUP_SPLIT = "_GROUP_";
     private static final String AND = "and";
     private static final String EQUALTO = "EqualTo";
     private static final String CREATECRITERIA = "createCriteria";
@@ -96,8 +98,7 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
         String redisKey = getUIDCacheKey(pojoClazz.getSimpleName(), uid);
         Map<String, String> map = redisUtil.hashGetAll(redisKey);
         for (Entry<String, String> entry : map.entrySet()) {
-            String key = entry.getValue();
-            Pojo pojo = get(Long.parseLong(key));
+            Pojo pojo = get(Long.parseLong(entry.getKey()));
             return pojo;
         }
         return null;
@@ -109,7 +110,19 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
         Map<String, String> map = redisUtil.hashGetAll(redisKey);
         List<String> keys = new ArrayList<>();
         for (Entry<String, String> entry : map.entrySet()) {
-            String key = getCacheKey(pojoClazz.getSimpleName(), Long.parseLong(entry.getValue()));
+            String key = getCacheKey(pojoClazz.getSimpleName(), Long.parseLong(entry.getKey()));
+            keys.add(key);
+        }
+        return redisUtil.get(keys, pojoClazz);
+    }
+    
+    @Override
+    public List<Pojo> getAllByGroupId(long groupId) {
+        String redisKey = getGroupIdCacheKey(pojoClazz.getSimpleName(), groupId);
+        Map<String, String> map = redisUtil.hashGetAll(redisKey);
+        List<String> keys = new ArrayList<>();
+        for (Entry<String, String> entry : map.entrySet()) {
+            String key = getCacheKey(pojoClazz.getSimpleName(), Long.parseLong(entry.getKey()));
             keys.add(key);
         }
         return redisUtil.get(keys, pojoClazz);
@@ -121,7 +134,16 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
         Long id = getId(pojo);
         String redisKey = getUIDCacheKey(pojoClazz.getSimpleName(), uid);
         insert(pojo);
-        redisUtil.hashSet(redisKey, id.toString());
+        redisUtil.hashSet(redisKey, id.toString(), "");
+    }
+    
+    @Override
+    public void insertByGroupId(Pojo pojo) {
+        Long groupId = getGroupId(pojo);
+        Long id = getId(pojo);
+        String redisKey = getGroupIdCacheKey(pojoClazz.getSimpleName(), groupId);
+        insert(pojo);
+        redisUtil.hashSet(redisKey, id.toString(), "");
     }
 
     @Override
@@ -129,6 +151,15 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
         Long uid = getUid(pojo);
         Long id = getId(pojo);
         String redisKey = getUIDCacheKey(pojoClazz.getSimpleName(), uid);
+        delete(pojo);
+        redisUtil.hashDel(redisKey, id.toString());
+    }
+    
+    @Override
+    public void deleteByGroupId(Pojo pojo) {
+        Long groupId = getGroupId(pojo);
+        Long id = getId(pojo);
+        String redisKey = getGroupIdCacheKey(pojoClazz.getSimpleName(), groupId);
         delete(pojo);
         redisUtil.hashDel(redisKey, id.toString());
     }
@@ -399,8 +430,7 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
         Method method;
         try {
             method = pojo.getClass().getMethod(GET_ID_METHOD);
-            long id = (long) method.invoke(pojo);
-            return id;
+            return (long) method.invoke(pojo);
         } catch (Exception e) {
             logger.error("", e);
         }
@@ -411,8 +441,18 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
         Method method;
         try {
             method = pojo.getClass().getMethod(GET_UID_METHOD);
-            long uid = (long) method.invoke(pojo);
-            return uid;
+            return (long) method.invoke(pojo);
+        } catch (Exception e) {
+            logger.error("", e);
+        }
+        return 0L;
+    }
+    
+    public Long getGroupId(Pojo pojo) {
+        Method method;
+        try {
+            method = pojo.getClass().getMethod(GET_GROUPID_METHOD);
+            return (long) method.invoke(pojo);
         } catch (Exception e) {
             logger.error("", e);
         }
@@ -458,16 +498,14 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
     }
 
     private String getCacheKey(String tb, Long id) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(tb).append(SPLIT);
-        sb.append(id);
-        return sb.toString();
+        return tb + SPLIT + id;
     }
     
     private String getUIDCacheKey(String tb, Long id) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(tb).append(UID_SPLIT);
-        sb.append(id);
-        return sb.toString();
+        return tb + UID_SPLIT + id;
+    }
+    
+    private String getGroupIdCacheKey(String tb, Long id) {
+        return tb + GROUP_SPLIT + id;
     }
 }

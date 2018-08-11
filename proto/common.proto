@@ -16,14 +16,63 @@ enum Cmd {
 	// 创建房间
 	CREATEGROUP = 11;
 	// 申请加入
-	APPLYGROUP = 4;
+	APPLYGROUP = 12;
 
 	//////////////////场景模块 31-60//////////////////
 	// 场景信息
 	GETSCENEINFO = 31;
+	// 解锁升级
+	UPGRADE = 32;
 }
 
 enum Error {
 	// 服务器内部错误
 	SERVER_ERR = 1;
+	// 没有权限操作
+	RIGHT_HANDLE = 2;
+	// 建筑不存在
+	NO_BUILDING = 3;
+}
+
+enum Resource {
+	// 大米
+	RICE = 1;
+	// 蔬菜
+	VEGETABLES = 2;
+	// 水果
+	FRUIT = 3;
+	// 草
+	GRASS = 4;
+	// 猪饲料
+	PIGFOOD = 5;
+	// 猪肉
+	PORK = 6;
+	// 原油
+	CRUDE = 7;
+	// 汽油
+	GASOLINE = 8;
+	// 铁
+	IRON = 9;
+	// 钢
+	STEEL = 10;
+	// 松木
+	PINE = 11;
+	// 白桦木
+	WHITEBIRCH = 12;
+	// 铁桦木
+	IRONBIRCH = 13;
+	// 松木板
+	PINEBOARD = 14;
+	// 白桦木板
+	WHITEBIRCHBOARD = 15;
+	// 铁桦木板
+	IRONBIRCHBOARD = 16;
+	// 纯净水
+	PUREWATER = 17;
+	// 矿物质水
+	MINERALWATER = 18;
+	// 电力
+	ELECTRICITY = 19;
+	// 子弹
+	BULLET = 20;
 }

@@ -32,7 +32,9 @@ public interface IBaseDao <Pojo, Mapper, Example>{
     /** 
      * 根据uid得到用户有关的字段,uid与数据是一对多的关系
      */
-    List<Pojo> getAllByUID(long uid);
+	List<Pojo> getAllByUID(long uid);
+	
+    List<Pojo> getAllByGroupId(long groupId);
     
     /** 
      * 根据uid得到用户有关的字段,uid与数据是一对一的关系
@@ -45,11 +47,15 @@ public interface IBaseDao <Pojo, Mapper, Example>{
      */
     void insertByUID(Pojo pojo);
     
+    void insertByGroupId(Pojo pojo);
+    
     /**
      * 删除数据,根据UID缓存,必须有uid字段
      * 包含delete(Pojo pojo)
      */
     void deleteByUID(Pojo pojo);
+    
+    void deleteByGroupId(Pojo pojo);
 
 	/**
      * 根据条件查询记录数量,只操作mysql数据库

@@ -10,12 +10,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.util.zip.DataFormatException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ExternalStorageUtil {
     private static final Logger logger = LoggerFactory.getLogger(ExternalStorageUtil.class);
 
+    private static final String COMPRESS_NAME = "ZLIB";
+    
     public static String getDir() {
         return System.getProperty("user.dir");
     }
@@ -155,6 +158,58 @@ public class ExternalStorageUtil {
                 file.delete();
             }
         }
+    }
+    
+    public static byte[] loadData(String path) {
+        byte[] data = null;
+
+        int ic;
+        InputStream in = null;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        DataOutputStream dos = new DataOutputStream(baos);
+        byte[] buffer = new byte[1024];
+        try {
+            File file = new File(path);
+            in = new FileInputStream(file);
+            if (in != null) {
+                while ((ic = in.read(buffer)) > 0) {
+                    dos.write(buffer, 0, ic);
+                }
+
+                data = baos.toByteArray();
+                in.close();
+            }
+            dos.close();
+            baos.close();
+        } catch (Exception e) {
+            logger.error("DataManager", e);
+        } finally {
+            in = null;
+            dos = null;
+            baos = null;
+        }
+
+        // 判断是否压缩
+        byte[] compress_buf = new byte[4];
+        System.arraycopy(data, 0, compress_buf, 0, 4);
+        String compress_name = new String(compress_buf);
+        if (COMPRESS_NAME.equals(compress_name)) {
+            int zip_data_size = data.length - 4 - 4;
+            if (zip_data_size > 0) {
+                byte[] zip_data = new byte[zip_data_size];
+                System.arraycopy(data, 8, zip_data, 0, zip_data_size);
+                try {
+                    data = CompressionUtil.decompress(zip_data);
+                } catch (DataFormatException e) {
+                    logger.error("Decompress zip data", e);
+                } catch (IOException e) {
+                    logger.error("Decompress zip data", e);
+                }
+            } else {
+                logger.error("Decompress zip data size <= 0");
+            }
+        }
+        return data;
     }
 
 }

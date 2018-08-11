@@ -7,6 +7,8 @@ import com.game.framework.console.handler.HandlerMappingManager;
 import com.game.framework.console.handler.HandlerRoute;
 import com.game.framework.console.handler.HandlersConfig;
 import com.game.framework.resource.DynamicDataManager;
+import com.game.framework.resource.StaticDataManager;
+import com.game.framework.task.TimerManager;
 
 public class StartApp {
     private static Logger logger = LoggerFactory.getLogger(StartApp.class);
@@ -23,7 +25,9 @@ public class StartApp {
             handlerGroup.init();
         }
         GateServer.GetInstance().start();
+        StaticDataManager.GetInstance().init();
         DynamicDataManager.GetInstance().init();
+        TimerManager.GetInstance().init();
         logger.info("\r\n"+ 
                 "　　　◢██████████◣　　　　　　　 \r\n" + 
                 "　　　 ██████████████████████　　　　　　 \r\n" + 

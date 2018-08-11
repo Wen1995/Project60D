@@ -49,7 +49,6 @@ public class RoomServiceImpl implements RoomService {
             int number = group.getPeopleNumber();
             if (number < 4) {
                 full = false;
-                // TODO 折算 当前身价
                 group.setPeopleNumber(number + 1);
                 groupDao.update(group);
             }

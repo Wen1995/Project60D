@@ -8,6 +8,7 @@
     <result column="group_id" property="groupId" jdbcType="BIGINT" />
     <result column="contribution" property="contribution" jdbcType="INTEGER" />
     <result column="gold" property="gold" jdbcType="INTEGER" />
+    <result column="production" property="production" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.game.framework.dbcache.model.User" extends="BaseResultMap" >
@@ -72,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, account, password, group_id, contribution, gold, create_time
+    id, account, password, group_id, contribution, gold, production, create_time
   </sql>
   <sql id="Blob_Column_List" >
     resource
@@ -128,10 +129,12 @@
   <insert id="insert" parameterType="com.game.framework.dbcache.model.User" >
     insert into t_user (id, account, password, 
       group_id, contribution, gold, 
-      create_time, resource)
+      production, create_time, resource
+      )
     values (#{id,jdbcType=BIGINT}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{groupId,jdbcType=BIGINT}, #{contribution,jdbcType=INTEGER}, #{gold,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{resource,jdbcType=LONGVARBINARY})
+      #{production,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{resource,jdbcType=LONGVARBINARY}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.game.framework.dbcache.model.User" >
     insert into t_user
@@ -153,6 +156,9 @@
       </if>
       <if test="gold != null" >
         gold,
+      </if>
+      <if test="production != null" >
+        production,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -179,6 +185,9 @@
       </if>
       <if test="gold != null" >
         #{gold,jdbcType=INTEGER},
+      </if>
+      <if test="production != null" >
+        #{production,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -215,6 +224,9 @@
       <if test="record.gold != null" >
         gold = #{record.gold,jdbcType=INTEGER},
       </if>
+      <if test="record.production != null" >
+        production = #{record.production,jdbcType=INTEGER},
+      </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
@@ -234,6 +246,7 @@
       group_id = #{record.groupId,jdbcType=BIGINT},
       contribution = #{record.contribution,jdbcType=INTEGER},
       gold = #{record.gold,jdbcType=INTEGER},
+      production = #{record.production,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       resource = #{record.resource,jdbcType=LONGVARBINARY}
     <if test="_parameter != null" >
@@ -248,6 +261,7 @@
       group_id = #{record.groupId,jdbcType=BIGINT},
       contribution = #{record.contribution,jdbcType=INTEGER},
       gold = #{record.gold,jdbcType=INTEGER},
+      production = #{record.production,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -271,6 +285,9 @@
       <if test="gold != null" >
         gold = #{gold,jdbcType=INTEGER},
       </if>
+      <if test="production != null" >
+        production = #{production,jdbcType=INTEGER},
+      </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -287,6 +304,7 @@
       group_id = #{groupId,jdbcType=BIGINT},
       contribution = #{contribution,jdbcType=INTEGER},
       gold = #{gold,jdbcType=INTEGER},
+      production = #{production,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       resource = #{resource,jdbcType=LONGVARBINARY}
     where id = #{id,jdbcType=BIGINT}
@@ -298,6 +316,7 @@
       group_id = #{groupId,jdbcType=BIGINT},
       contribution = #{contribution,jdbcType=INTEGER},
       gold = #{gold,jdbcType=INTEGER},
+      production = #{production,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>

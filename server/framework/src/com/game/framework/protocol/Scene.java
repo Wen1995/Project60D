@@ -626,6 +626,1427 @@ public final class Scene {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetSceneInfo)
   }
 
+  public interface TCSUpgradeOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int64 buildingId = 1;
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    boolean hasBuildingId();
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    long getBuildingId();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TCSUpgrade}
+   */
+  public static final class TCSUpgrade extends
+      com.google.protobuf.GeneratedMessage
+      implements TCSUpgradeOrBuilder {
+    // Use TCSUpgrade.newBuilder() to construct.
+    private TCSUpgrade(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TCSUpgrade(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TCSUpgrade defaultInstance;
+    public static TCSUpgrade getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TCSUpgrade getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TCSUpgrade(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              buildingId_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TCSUpgrade_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TCSUpgrade_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Scene.TCSUpgrade.class, com.game.framework.protocol.Scene.TCSUpgrade.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TCSUpgrade> PARSER =
+        new com.google.protobuf.AbstractParser<TCSUpgrade>() {
+      public TCSUpgrade parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TCSUpgrade(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TCSUpgrade> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int64 buildingId = 1;
+    public static final int BUILDINGID_FIELD_NUMBER = 1;
+    private long buildingId_;
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    public boolean hasBuildingId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    public long getBuildingId() {
+      return buildingId_;
+    }
+
+    private void initFields() {
+      buildingId_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, buildingId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, buildingId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Scene.TCSUpgrade parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Scene.TCSUpgrade parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TCSUpgrade parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Scene.TCSUpgrade parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TCSUpgrade parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TCSUpgrade parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TCSUpgrade parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TCSUpgrade parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TCSUpgrade parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TCSUpgrade parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Scene.TCSUpgrade prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TCSUpgrade}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Scene.TCSUpgradeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TCSUpgrade_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TCSUpgrade_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Scene.TCSUpgrade.class, com.game.framework.protocol.Scene.TCSUpgrade.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Scene.TCSUpgrade.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        buildingId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TCSUpgrade_descriptor;
+      }
+
+      public com.game.framework.protocol.Scene.TCSUpgrade getDefaultInstanceForType() {
+        return com.game.framework.protocol.Scene.TCSUpgrade.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Scene.TCSUpgrade build() {
+        com.game.framework.protocol.Scene.TCSUpgrade result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Scene.TCSUpgrade buildPartial() {
+        com.game.framework.protocol.Scene.TCSUpgrade result = new com.game.framework.protocol.Scene.TCSUpgrade(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.buildingId_ = buildingId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Scene.TCSUpgrade) {
+          return mergeFrom((com.game.framework.protocol.Scene.TCSUpgrade)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Scene.TCSUpgrade other) {
+        if (other == com.game.framework.protocol.Scene.TCSUpgrade.getDefaultInstance()) return this;
+        if (other.hasBuildingId()) {
+          setBuildingId(other.getBuildingId());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Scene.TCSUpgrade parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Scene.TCSUpgrade) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int64 buildingId = 1;
+      private long buildingId_ ;
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public boolean hasBuildingId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public long getBuildingId() {
+        return buildingId_;
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public Builder setBuildingId(long value) {
+        bitField0_ |= 0x00000001;
+        buildingId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public Builder clearBuildingId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        buildingId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSUpgrade)
+    }
+
+    static {
+      defaultInstance = new TCSUpgrade(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSUpgrade)
+  }
+
+  public interface TSCUpgradeOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional bool state = 1;
+    /**
+     * <code>optional bool state = 1;</code>
+     *
+     * <pre>
+     * 建筑是否在可以升级的状态
+     * </pre>
+     */
+    boolean hasState();
+    /**
+     * <code>optional bool state = 1;</code>
+     *
+     * <pre>
+     * 建筑是否在可以升级的状态
+     * </pre>
+     */
+    boolean getState();
+
+    // optional bool group = 2;
+    /**
+     * <code>optional bool group = 2;</code>
+     *
+     * <pre>
+     * 公司实力是否满足
+     * </pre>
+     */
+    boolean hasGroup();
+    /**
+     * <code>optional bool group = 2;</code>
+     *
+     * <pre>
+     * 公司实力是否满足
+     * </pre>
+     */
+    boolean getGroup();
+
+    // optional bool resource = 3;
+    /**
+     * <code>optional bool resource = 3;</code>
+     *
+     * <pre>
+     * 资源是否满足 
+     * </pre>
+     */
+    boolean hasResource();
+    /**
+     * <code>optional bool resource = 3;</code>
+     *
+     * <pre>
+     * 资源是否满足 
+     * </pre>
+     */
+    boolean getResource();
+
+    // optional bool tool = 4;
+    /**
+     * <code>optional bool tool = 4;</code>
+     *
+     * <pre>
+     * 特殊道具是否满足
+     * </pre>
+     */
+    boolean hasTool();
+    /**
+     * <code>optional bool tool = 4;</code>
+     *
+     * <pre>
+     * 特殊道具是否满足
+     * </pre>
+     */
+    boolean getTool();
+
+    // optional bool production = 5;
+    /**
+     * <code>optional bool production = 5;</code>
+     *
+     * <pre>
+     * 是否有空闲的建筑队列
+     * </pre>
+     */
+    boolean hasProduction();
+    /**
+     * <code>optional bool production = 5;</code>
+     *
+     * <pre>
+     * 是否有空闲的建筑队列
+     * </pre>
+     */
+    boolean getProduction();
+
+    // optional int64 finishTime = 6;
+    /**
+     * <code>optional int64 finishTime = 6;</code>
+     *
+     * <pre>
+     * 升级完成时间
+     * </pre>
+     */
+    boolean hasFinishTime();
+    /**
+     * <code>optional int64 finishTime = 6;</code>
+     *
+     * <pre>
+     * 升级完成时间
+     * </pre>
+     */
+    long getFinishTime();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TSCUpgrade}
+   */
+  public static final class TSCUpgrade extends
+      com.google.protobuf.GeneratedMessage
+      implements TSCUpgradeOrBuilder {
+    // Use TSCUpgrade.newBuilder() to construct.
+    private TSCUpgrade(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TSCUpgrade(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TSCUpgrade defaultInstance;
+    public static TSCUpgrade getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TSCUpgrade getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSCUpgrade(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              state_ = input.readBool();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              group_ = input.readBool();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              resource_ = input.readBool();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              tool_ = input.readBool();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              production_ = input.readBool();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              finishTime_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TSCUpgrade_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TSCUpgrade_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Scene.TSCUpgrade.class, com.game.framework.protocol.Scene.TSCUpgrade.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TSCUpgrade> PARSER =
+        new com.google.protobuf.AbstractParser<TSCUpgrade>() {
+      public TSCUpgrade parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSCUpgrade(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TSCUpgrade> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional bool state = 1;
+    public static final int STATE_FIELD_NUMBER = 1;
+    private boolean state_;
+    /**
+     * <code>optional bool state = 1;</code>
+     *
+     * <pre>
+     * 建筑是否在可以升级的状态
+     * </pre>
+     */
+    public boolean hasState() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional bool state = 1;</code>
+     *
+     * <pre>
+     * 建筑是否在可以升级的状态
+     * </pre>
+     */
+    public boolean getState() {
+      return state_;
+    }
+
+    // optional bool group = 2;
+    public static final int GROUP_FIELD_NUMBER = 2;
+    private boolean group_;
+    /**
+     * <code>optional bool group = 2;</code>
+     *
+     * <pre>
+     * 公司实力是否满足
+     * </pre>
+     */
+    public boolean hasGroup() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional bool group = 2;</code>
+     *
+     * <pre>
+     * 公司实力是否满足
+     * </pre>
+     */
+    public boolean getGroup() {
+      return group_;
+    }
+
+    // optional bool resource = 3;
+    public static final int RESOURCE_FIELD_NUMBER = 3;
+    private boolean resource_;
+    /**
+     * <code>optional bool resource = 3;</code>
+     *
+     * <pre>
+     * 资源是否满足 
+     * </pre>
+     */
+    public boolean hasResource() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bool resource = 3;</code>
+     *
+     * <pre>
+     * 资源是否满足 
+     * </pre>
+     */
+    public boolean getResource() {
+      return resource_;
+    }
+
+    // optional bool tool = 4;
+    public static final int TOOL_FIELD_NUMBER = 4;
+    private boolean tool_;
+    /**
+     * <code>optional bool tool = 4;</code>
+     *
+     * <pre>
+     * 特殊道具是否满足
+     * </pre>
+     */
+    public boolean hasTool() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional bool tool = 4;</code>
+     *
+     * <pre>
+     * 特殊道具是否满足
+     * </pre>
+     */
+    public boolean getTool() {
+      return tool_;
+    }
+
+    // optional bool production = 5;
+    public static final int PRODUCTION_FIELD_NUMBER = 5;
+    private boolean production_;
+    /**
+     * <code>optional bool production = 5;</code>
+     *
+     * <pre>
+     * 是否有空闲的建筑队列
+     * </pre>
+     */
+    public boolean hasProduction() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional bool production = 5;</code>
+     *
+     * <pre>
+     * 是否有空闲的建筑队列
+     * </pre>
+     */
+    public boolean getProduction() {
+      return production_;
+    }
+
+    // optional int64 finishTime = 6;
+    public static final int FINISHTIME_FIELD_NUMBER = 6;
+    private long finishTime_;
+    /**
+     * <code>optional int64 finishTime = 6;</code>
+     *
+     * <pre>
+     * 升级完成时间
+     * </pre>
+     */
+    public boolean hasFinishTime() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional int64 finishTime = 6;</code>
+     *
+     * <pre>
+     * 升级完成时间
+     * </pre>
+     */
+    public long getFinishTime() {
+      return finishTime_;
+    }
+
+    private void initFields() {
+      state_ = false;
+      group_ = false;
+      resource_ = false;
+      tool_ = false;
+      production_ = false;
+      finishTime_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, state_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(2, group_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(3, resource_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBool(4, tool_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBool(5, production_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt64(6, finishTime_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, state_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, group_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, resource_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, tool_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, production_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, finishTime_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Scene.TSCUpgrade parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Scene.TSCUpgrade parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TSCUpgrade parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Scene.TSCUpgrade parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TSCUpgrade parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TSCUpgrade parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TSCUpgrade parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TSCUpgrade parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TSCUpgrade parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TSCUpgrade parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Scene.TSCUpgrade prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TSCUpgrade}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Scene.TSCUpgradeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TSCUpgrade_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TSCUpgrade_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Scene.TSCUpgrade.class, com.game.framework.protocol.Scene.TSCUpgrade.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Scene.TSCUpgrade.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        state_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        group_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        resource_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        tool_ = false;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        production_ = false;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        finishTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TSCUpgrade_descriptor;
+      }
+
+      public com.game.framework.protocol.Scene.TSCUpgrade getDefaultInstanceForType() {
+        return com.game.framework.protocol.Scene.TSCUpgrade.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Scene.TSCUpgrade build() {
+        com.game.framework.protocol.Scene.TSCUpgrade result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Scene.TSCUpgrade buildPartial() {
+        com.game.framework.protocol.Scene.TSCUpgrade result = new com.game.framework.protocol.Scene.TSCUpgrade(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.state_ = state_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.group_ = group_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.resource_ = resource_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.tool_ = tool_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.production_ = production_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.finishTime_ = finishTime_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Scene.TSCUpgrade) {
+          return mergeFrom((com.game.framework.protocol.Scene.TSCUpgrade)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Scene.TSCUpgrade other) {
+        if (other == com.game.framework.protocol.Scene.TSCUpgrade.getDefaultInstance()) return this;
+        if (other.hasState()) {
+          setState(other.getState());
+        }
+        if (other.hasGroup()) {
+          setGroup(other.getGroup());
+        }
+        if (other.hasResource()) {
+          setResource(other.getResource());
+        }
+        if (other.hasTool()) {
+          setTool(other.getTool());
+        }
+        if (other.hasProduction()) {
+          setProduction(other.getProduction());
+        }
+        if (other.hasFinishTime()) {
+          setFinishTime(other.getFinishTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Scene.TSCUpgrade parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Scene.TSCUpgrade) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional bool state = 1;
+      private boolean state_ ;
+      /**
+       * <code>optional bool state = 1;</code>
+       *
+       * <pre>
+       * 建筑是否在可以升级的状态
+       * </pre>
+       */
+      public boolean hasState() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional bool state = 1;</code>
+       *
+       * <pre>
+       * 建筑是否在可以升级的状态
+       * </pre>
+       */
+      public boolean getState() {
+        return state_;
+      }
+      /**
+       * <code>optional bool state = 1;</code>
+       *
+       * <pre>
+       * 建筑是否在可以升级的状态
+       * </pre>
+       */
+      public Builder setState(boolean value) {
+        bitField0_ |= 0x00000001;
+        state_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool state = 1;</code>
+       *
+       * <pre>
+       * 建筑是否在可以升级的状态
+       * </pre>
+       */
+      public Builder clearState() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        state_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional bool group = 2;
+      private boolean group_ ;
+      /**
+       * <code>optional bool group = 2;</code>
+       *
+       * <pre>
+       * 公司实力是否满足
+       * </pre>
+       */
+      public boolean hasGroup() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional bool group = 2;</code>
+       *
+       * <pre>
+       * 公司实力是否满足
+       * </pre>
+       */
+      public boolean getGroup() {
+        return group_;
+      }
+      /**
+       * <code>optional bool group = 2;</code>
+       *
+       * <pre>
+       * 公司实力是否满足
+       * </pre>
+       */
+      public Builder setGroup(boolean value) {
+        bitField0_ |= 0x00000002;
+        group_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool group = 2;</code>
+       *
+       * <pre>
+       * 公司实力是否满足
+       * </pre>
+       */
+      public Builder clearGroup() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        group_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional bool resource = 3;
+      private boolean resource_ ;
+      /**
+       * <code>optional bool resource = 3;</code>
+       *
+       * <pre>
+       * 资源是否满足 
+       * </pre>
+       */
+      public boolean hasResource() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional bool resource = 3;</code>
+       *
+       * <pre>
+       * 资源是否满足 
+       * </pre>
+       */
+      public boolean getResource() {
+        return resource_;
+      }
+      /**
+       * <code>optional bool resource = 3;</code>
+       *
+       * <pre>
+       * 资源是否满足 
+       * </pre>
+       */
+      public Builder setResource(boolean value) {
+        bitField0_ |= 0x00000004;
+        resource_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool resource = 3;</code>
+       *
+       * <pre>
+       * 资源是否满足 
+       * </pre>
+       */
+      public Builder clearResource() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        resource_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional bool tool = 4;
+      private boolean tool_ ;
+      /**
+       * <code>optional bool tool = 4;</code>
+       *
+       * <pre>
+       * 特殊道具是否满足
+       * </pre>
+       */
+      public boolean hasTool() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bool tool = 4;</code>
+       *
+       * <pre>
+       * 特殊道具是否满足
+       * </pre>
+       */
+      public boolean getTool() {
+        return tool_;
+      }
+      /**
+       * <code>optional bool tool = 4;</code>
+       *
+       * <pre>
+       * 特殊道具是否满足
+       * </pre>
+       */
+      public Builder setTool(boolean value) {
+        bitField0_ |= 0x00000008;
+        tool_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool tool = 4;</code>
+       *
+       * <pre>
+       * 特殊道具是否满足
+       * </pre>
+       */
+      public Builder clearTool() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        tool_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional bool production = 5;
+      private boolean production_ ;
+      /**
+       * <code>optional bool production = 5;</code>
+       *
+       * <pre>
+       * 是否有空闲的建筑队列
+       * </pre>
+       */
+      public boolean hasProduction() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional bool production = 5;</code>
+       *
+       * <pre>
+       * 是否有空闲的建筑队列
+       * </pre>
+       */
+      public boolean getProduction() {
+        return production_;
+      }
+      /**
+       * <code>optional bool production = 5;</code>
+       *
+       * <pre>
+       * 是否有空闲的建筑队列
+       * </pre>
+       */
+      public Builder setProduction(boolean value) {
+        bitField0_ |= 0x00000010;
+        production_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool production = 5;</code>
+       *
+       * <pre>
+       * 是否有空闲的建筑队列
+       * </pre>
+       */
+      public Builder clearProduction() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        production_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 finishTime = 6;
+      private long finishTime_ ;
+      /**
+       * <code>optional int64 finishTime = 6;</code>
+       *
+       * <pre>
+       * 升级完成时间
+       * </pre>
+       */
+      public boolean hasFinishTime() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional int64 finishTime = 6;</code>
+       *
+       * <pre>
+       * 升级完成时间
+       * </pre>
+       */
+      public long getFinishTime() {
+        return finishTime_;
+      }
+      /**
+       * <code>optional int64 finishTime = 6;</code>
+       *
+       * <pre>
+       * 升级完成时间
+       * </pre>
+       */
+      public Builder setFinishTime(long value) {
+        bitField0_ |= 0x00000020;
+        finishTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 finishTime = 6;</code>
+       *
+       * <pre>
+       * 升级完成时间
+       * </pre>
+       */
+      public Builder clearFinishTime() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        finishTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCUpgrade)
+    }
+
+    static {
+      defaultInstance = new TSCUpgrade(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCUpgrade)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_framework_protocol_TCSGetSceneInfo_descriptor;
   private static
@@ -636,6 +2057,16 @@ public final class Scene {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TSCGetSceneInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TCSUpgrade_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TCSUpgrade_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TSCUpgrade_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TSCUpgrade_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -647,7 +2078,10 @@ public final class Scene {
     java.lang.String[] descriptorData = {
       "\n\013scene.proto\022\033com.game.framework.protoc" +
       "ol\"\021\n\017TCSGetSceneInfo\"\021\n\017TSCGetSceneInfo" +
-      "B\002H\001"
+      "\" \n\nTCSUpgrade\022\022\n\nbuildingId\030\001 \001(\003\"r\n\nTS" +
+      "CUpgrade\022\r\n\005state\030\001 \001(\010\022\r\n\005group\030\002 \001(\010\022\020" +
+      "\n\010resource\030\003 \001(\010\022\014\n\004tool\030\004 \001(\010\022\022\n\nproduc" +
+      "tion\030\005 \001(\010\022\022\n\nfinishTime\030\006 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -666,6 +2100,18 @@ public final class Scene {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetSceneInfo_descriptor,
               new java.lang.String[] { });
+          internal_static_com_game_framework_protocol_TCSUpgrade_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_com_game_framework_protocol_TCSUpgrade_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TCSUpgrade_descriptor,
+              new java.lang.String[] { "BuildingId", });
+          internal_static_com_game_framework_protocol_TSCUpgrade_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_com_game_framework_protocol_TSCUpgrade_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TSCUpgrade_descriptor,
+              new java.lang.String[] { "State", "Group", "Resource", "Tool", "Production", "FinishTime", });
           return null;
         }
       };

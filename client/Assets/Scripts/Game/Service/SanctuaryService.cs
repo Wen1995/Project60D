@@ -13,9 +13,11 @@ public class SanctuaryService : ServiceBase {
         subrenderer = GameObject.Find("SubRenderer").GetComponent<SubRendererController>();
     }
 
-    public void RPCGetBuildingData()
+    public void RPCGetSceneData()
     {
-
+        var builder = TCSGetSceneInfo.CreateBuilder();
+        TCSGetSceneInfo getSceneInfo = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETSCENEINFO, getSceneInfo.ToByteArray());
     }
 
     /// <summary>

@@ -18,11 +18,9 @@ public class XLSReader{
     public static void Importxls()
     {
         projectDir = Directory.GetParent(Directory.GetParent(Application.dataPath).ToString()).ToString();
-        xlsDir = projectDir + "/tools/xls";
+        xlsDir = projectDir + "/tools/excelGen/xls";
         binaryDir = Application.dataPath + "/Resources/ConfigData/";
-        //XmlSerializer serializer = new XmlSerializer(typeof(ConfigData));
         BinaryFormatter formatter = new BinaryFormatter();
-        //  FileStream stream = new FileStream(Application.dataPath + "/")
         foreach (string file in Directory.GetFiles(xlsDir))
         {
             string path = file.Replace("\\", "/");
@@ -61,14 +59,14 @@ public class XLSReader{
                 localData.VAR.Add(data.Rows[2][i].ToString(), count++);
                 colRec.Add(i);
             }
-        //save data
+        //calculate rows of one column
         localData.mData = new object[localData.VAR.Count][];
         for (int i = 0; i < localData.mData.Length; i++)
             localData.mData[i] = new object[row - 3];
 
-
+        //add data
         for (int i = 0; i < localData.VAR.Count; i++)
-            for (int j = 3; j < row; j++)
+            for (int j = 4; j < row; j++)
                 localData.mData[i][j - 3] = data.Rows[j][colRec[i]];
 
         return localData;

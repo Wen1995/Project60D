@@ -6,7 +6,6 @@ using UnityEngine;
 public class UILoginPanel : PanelBase {
 
     UIInput userName = null;
-    UIInput password = null;
 
     private void Start()
     {
@@ -27,13 +26,16 @@ public class UILoginPanel : PanelBase {
 
     void OnLogin()
     {
+        NDictionary data = new NDictionary();
+        data.Add("username", userName.value);
         FacadeSingleton.Instance.InvokeService("Login", ConstVal.Service_Common);
     }
 
     void OnLoginSuccussed(NetMsgDef msg)
     {
         TSCLogin login = TSCLogin.ParseFrom(msg.mBtsData);
-        print("userid: " + login.Uid);
+        print("login successed , userid = " + login.Uid);
+        SceneLoader.LoadScene("SLoading");
     }
 
     void OnGetUserData(NetMsgDef msg)

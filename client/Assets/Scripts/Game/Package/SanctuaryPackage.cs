@@ -8,8 +8,9 @@ public class BuildingData
 }
 
 
-public class SanctuaryPackage : ModelBase{
+public class SanctuaryPackage : ModelBase {
 
+    List<BuildingData> mBuildingDataList = new List<BuildingData>();
 
     public override void Release()
     {
@@ -17,6 +18,12 @@ public class SanctuaryPackage : ModelBase{
     }
 
     #region Acess Data
+
+    public List<BuildingData> GetBuildingDataList()
+    {
+        return mBuildingDataList;
+    }
+
     public void GetSelectionBuildingData()
     {
         //TODO

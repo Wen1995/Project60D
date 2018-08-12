@@ -5,7 +5,7 @@ public class Building {
 
     private Long groupId;
 
-    private Integer level;
+    private Integer configId;
 
     private Integer type;
 
@@ -31,12 +31,12 @@ public class Building {
         this.groupId = groupId;
     }
 
-    public Integer getLevel() {
-        return level;
+    public Integer getConfigId() {
+        return configId;
     }
 
-    public void setLevel(Integer level) {
-        this.level = level;
+    public void setConfigId(Integer configId) {
+        this.configId = configId;
     }
 
     public Integer getType() {

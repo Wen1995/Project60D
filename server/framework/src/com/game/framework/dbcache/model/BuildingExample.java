@@ -224,63 +224,63 @@ public class BuildingExample {
             return (Criteria) this;
         }
 
-        public Criteria andLevelIsNull() {
-            addCriterion("level is null");
+        public Criteria andConfigIdIsNull() {
+            addCriterion("config_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andLevelIsNotNull() {
-            addCriterion("level is not null");
+        public Criteria andConfigIdIsNotNull() {
+            addCriterion("config_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLevelEqualTo(Integer value) {
-            addCriterion("level =", value, "level");
+        public Criteria andConfigIdEqualTo(Integer value) {
+            addCriterion("config_id =", value, "configId");
             return (Criteria) this;
         }
 
-        public Criteria andLevelNotEqualTo(Integer value) {
-            addCriterion("level <>", value, "level");
+        public Criteria andConfigIdNotEqualTo(Integer value) {
+            addCriterion("config_id <>", value, "configId");
             return (Criteria) this;
         }
 
-        public Criteria andLevelGreaterThan(Integer value) {
-            addCriterion("level >", value, "level");
+        public Criteria andConfigIdGreaterThan(Integer value) {
+            addCriterion("config_id >", value, "configId");
             return (Criteria) this;
         }
 
-        public Criteria andLevelGreaterThanOrEqualTo(Integer value) {
-            addCriterion("level >=", value, "level");
+        public Criteria andConfigIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("config_id >=", value, "configId");
             return (Criteria) this;
         }
 
-        public Criteria andLevelLessThan(Integer value) {
-            addCriterion("level <", value, "level");
+        public Criteria andConfigIdLessThan(Integer value) {
+            addCriterion("config_id <", value, "configId");
             return (Criteria) this;
         }
 
-        public Criteria andLevelLessThanOrEqualTo(Integer value) {
-            addCriterion("level <=", value, "level");
+        public Criteria andConfigIdLessThanOrEqualTo(Integer value) {
+            addCriterion("config_id <=", value, "configId");
             return (Criteria) this;
         }
 
-        public Criteria andLevelIn(List<Integer> values) {
-            addCriterion("level in", values, "level");
+        public Criteria andConfigIdIn(List<Integer> values) {
+            addCriterion("config_id in", values, "configId");
             return (Criteria) this;
         }
 
-        public Criteria andLevelNotIn(List<Integer> values) {
-            addCriterion("level not in", values, "level");
+        public Criteria andConfigIdNotIn(List<Integer> values) {
+            addCriterion("config_id not in", values, "configId");
             return (Criteria) this;
         }
 
-        public Criteria andLevelBetween(Integer value1, Integer value2) {
-            addCriterion("level between", value1, value2, "level");
+        public Criteria andConfigIdBetween(Integer value1, Integer value2) {
+            addCriterion("config_id between", value1, value2, "configId");
             return (Criteria) this;
         }
 
-        public Criteria andLevelNotBetween(Integer value1, Integer value2) {
-            addCriterion("level not between", value1, value2, "level");
+        public Criteria andConfigIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("config_id not between", value1, value2, "configId");
             return (Criteria) this;
         }
 

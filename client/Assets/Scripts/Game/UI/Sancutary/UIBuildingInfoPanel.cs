@@ -28,12 +28,12 @@ public class UIBuildingInfoPanel : PanelBase {
         //render 3d model
         NDictionary data = new NDictionary();
         data.Add("model", Resources.Load("Prefabs/Building/car"));
-        modelGo = FacadeSingleton.Instance.InvokeService("OpenSubRenderer", ConstVal.Service_Common, data) as GameObject;
+        modelGo = FacadeSingleton.Instance.InvokeService("OpenSubRenderer", ConstVal.Service_Sanctuary, data) as GameObject;
     }
 
     void Close()
     {
-        FacadeSingleton.Instance.InvokeService("CloseSubRenderer", ConstVal.Service_Common);
+        FacadeSingleton.Instance.InvokeService("CloseSubRenderer", ConstVal.Service_Sanctuary);
         FacadeSingleton.Instance.BackPanel();
     }
 

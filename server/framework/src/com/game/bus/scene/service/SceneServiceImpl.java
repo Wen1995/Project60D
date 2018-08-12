@@ -1,5 +1,6 @@
 package com.game.bus.scene.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -11,8 +12,10 @@ import com.game.framework.dbcache.model.Building;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.Common.Error;
 import com.game.framework.protocol.Database.BuildingState;
-import com.game.framework.protocol.Database.Upgrade;
+import com.game.framework.protocol.Database.UpgradeInfo;
 import com.game.framework.protocol.Database.UserResource;
+import com.game.framework.protocol.Scene.BuildingInfo;
+import com.game.framework.protocol.Scene.TSCGetSceneInfo;
 import com.game.framework.protocol.Scene.TSCUpgrade;
 
 @Service
@@ -24,8 +27,23 @@ public class SceneServiceImpl implements SceneService {
     
     @Override
     public TPacket getSceneInfo(Long uid) throws Exception {
-        // TODO Auto-generated method stub
-        return null;
+        User user = userDao.get(uid);
+        Long groupId = user.getGroupId();
+        List<Building> buildings = buildingDao.getAllByGroupId(groupId);
+        
+        List<BuildingInfo> buildingInfos = new ArrayList<>();
+        BuildingInfo.Builder buildingInfoBuilder = BuildingInfo.newBuilder();
+        for (Building building : buildings) {
+            buildingInfoBuilder.setBuildingId(building.getId()).setConfigId(building.getConfigId());
+            buildingInfos.add(buildingInfoBuilder.build());
+        }
+        TSCGetSceneInfo p = TSCGetSceneInfo.newBuilder()
+                .addAllBuildingInfos(buildingInfos)
+                .build();
+        TPacket resp = new TPacket();
+        resp.setUid(uid);
+        resp.setBuffer(p.toByteArray());
+        return resp;
     }
 
     @Override
@@ -47,7 +65,7 @@ public class SceneServiceImpl implements SceneService {
         }
         // 建筑是否在升级
         BuildingState buildingState = BuildingState.parseFrom(building.getState());
-        Upgrade upgrade = buildingState.getUpgrade();
+        UpgradeInfo upgrade = buildingState.getUpgradeInfo();
         state = upgrade.getUpgrading();
         // 公司实力是否满足
         List<Building> buildings = buildingDao.getAllByGroupId(groupId);

@@ -321,6 +321,410 @@ public final class Common {
     // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.Error)
   }
 
+  /**
+   * Protobuf enum {@code com.game.framework.protocol.Resource}
+   */
+  public enum Resource
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>RICE = 1;</code>
+     *
+     * <pre>
+     * 大米
+     * </pre>
+     */
+    RICE(0, 1),
+    /**
+     * <code>VEGETABLES = 2;</code>
+     *
+     * <pre>
+     * 蔬菜
+     * </pre>
+     */
+    VEGETABLES(1, 2),
+    /**
+     * <code>FRUIT = 3;</code>
+     *
+     * <pre>
+     * 水果
+     * </pre>
+     */
+    FRUIT(2, 3),
+    /**
+     * <code>GRASS = 4;</code>
+     *
+     * <pre>
+     * 草
+     * </pre>
+     */
+    GRASS(3, 4),
+    /**
+     * <code>PIGFOOD = 5;</code>
+     *
+     * <pre>
+     * 猪饲料
+     * </pre>
+     */
+    PIGFOOD(4, 5),
+    /**
+     * <code>PORK = 6;</code>
+     *
+     * <pre>
+     * 猪肉
+     * </pre>
+     */
+    PORK(5, 6),
+    /**
+     * <code>CRUDE = 7;</code>
+     *
+     * <pre>
+     * 原油
+     * </pre>
+     */
+    CRUDE(6, 7),
+    /**
+     * <code>GASOLINE = 8;</code>
+     *
+     * <pre>
+     * 汽油
+     * </pre>
+     */
+    GASOLINE(7, 8),
+    /**
+     * <code>IRON = 9;</code>
+     *
+     * <pre>
+     * 铁
+     * </pre>
+     */
+    IRON(8, 9),
+    /**
+     * <code>STEEL = 10;</code>
+     *
+     * <pre>
+     * 钢
+     * </pre>
+     */
+    STEEL(9, 10),
+    /**
+     * <code>PINE = 11;</code>
+     *
+     * <pre>
+     * 松木
+     * </pre>
+     */
+    PINE(10, 11),
+    /**
+     * <code>WHITEBIRCH = 12;</code>
+     *
+     * <pre>
+     * 白桦木
+     * </pre>
+     */
+    WHITEBIRCH(11, 12),
+    /**
+     * <code>IRONBIRCH = 13;</code>
+     *
+     * <pre>
+     * 铁桦木
+     * </pre>
+     */
+    IRONBIRCH(12, 13),
+    /**
+     * <code>PINEBOARD = 14;</code>
+     *
+     * <pre>
+     * 松木板
+     * </pre>
+     */
+    PINEBOARD(13, 14),
+    /**
+     * <code>WHITEBIRCHBOARD = 15;</code>
+     *
+     * <pre>
+     * 白桦木板
+     * </pre>
+     */
+    WHITEBIRCHBOARD(14, 15),
+    /**
+     * <code>IRONBIRCHBOARD = 16;</code>
+     *
+     * <pre>
+     * 铁桦木板
+     * </pre>
+     */
+    IRONBIRCHBOARD(15, 16),
+    /**
+     * <code>PUREWATER = 17;</code>
+     *
+     * <pre>
+     * 纯净水
+     * </pre>
+     */
+    PUREWATER(16, 17),
+    /**
+     * <code>MINERALWATER = 18;</code>
+     *
+     * <pre>
+     * 矿物质水
+     * </pre>
+     */
+    MINERALWATER(17, 18),
+    /**
+     * <code>ELECTRICITY = 19;</code>
+     *
+     * <pre>
+     * 电力
+     * </pre>
+     */
+    ELECTRICITY(18, 19),
+    /**
+     * <code>BULLET = 20;</code>
+     *
+     * <pre>
+     * 子弹
+     * </pre>
+     */
+    BULLET(19, 20),
+    ;
+
+    /**
+     * <code>RICE = 1;</code>
+     *
+     * <pre>
+     * 大米
+     * </pre>
+     */
+    public static final int RICE_VALUE = 1;
+    /**
+     * <code>VEGETABLES = 2;</code>
+     *
+     * <pre>
+     * 蔬菜
+     * </pre>
+     */
+    public static final int VEGETABLES_VALUE = 2;
+    /**
+     * <code>FRUIT = 3;</code>
+     *
+     * <pre>
+     * 水果
+     * </pre>
+     */
+    public static final int FRUIT_VALUE = 3;
+    /**
+     * <code>GRASS = 4;</code>
+     *
+     * <pre>
+     * 草
+     * </pre>
+     */
+    public static final int GRASS_VALUE = 4;
+    /**
+     * <code>PIGFOOD = 5;</code>
+     *
+     * <pre>
+     * 猪饲料
+     * </pre>
+     */
+    public static final int PIGFOOD_VALUE = 5;
+    /**
+     * <code>PORK = 6;</code>
+     *
+     * <pre>
+     * 猪肉
+     * </pre>
+     */
+    public static final int PORK_VALUE = 6;
+    /**
+     * <code>CRUDE = 7;</code>
+     *
+     * <pre>
+     * 原油
+     * </pre>
+     */
+    public static final int CRUDE_VALUE = 7;
+    /**
+     * <code>GASOLINE = 8;</code>
+     *
+     * <pre>
+     * 汽油
+     * </pre>
+     */
+    public static final int GASOLINE_VALUE = 8;
+    /**
+     * <code>IRON = 9;</code>
+     *
+     * <pre>
+     * 铁
+     * </pre>
+     */
+    public static final int IRON_VALUE = 9;
+    /**
+     * <code>STEEL = 10;</code>
+     *
+     * <pre>
+     * 钢
+     * </pre>
+     */
+    public static final int STEEL_VALUE = 10;
+    /**
+     * <code>PINE = 11;</code>
+     *
+     * <pre>
+     * 松木
+     * </pre>
+     */
+    public static final int PINE_VALUE = 11;
+    /**
+     * <code>WHITEBIRCH = 12;</code>
+     *
+     * <pre>
+     * 白桦木
+     * </pre>
+     */
+    public static final int WHITEBIRCH_VALUE = 12;
+    /**
+     * <code>IRONBIRCH = 13;</code>
+     *
+     * <pre>
+     * 铁桦木
+     * </pre>
+     */
+    public static final int IRONBIRCH_VALUE = 13;
+    /**
+     * <code>PINEBOARD = 14;</code>
+     *
+     * <pre>
+     * 松木板
+     * </pre>
+     */
+    public static final int PINEBOARD_VALUE = 14;
+    /**
+     * <code>WHITEBIRCHBOARD = 15;</code>
+     *
+     * <pre>
+     * 白桦木板
+     * </pre>
+     */
+    public static final int WHITEBIRCHBOARD_VALUE = 15;
+    /**
+     * <code>IRONBIRCHBOARD = 16;</code>
+     *
+     * <pre>
+     * 铁桦木板
+     * </pre>
+     */
+    public static final int IRONBIRCHBOARD_VALUE = 16;
+    /**
+     * <code>PUREWATER = 17;</code>
+     *
+     * <pre>
+     * 纯净水
+     * </pre>
+     */
+    public static final int PUREWATER_VALUE = 17;
+    /**
+     * <code>MINERALWATER = 18;</code>
+     *
+     * <pre>
+     * 矿物质水
+     * </pre>
+     */
+    public static final int MINERALWATER_VALUE = 18;
+    /**
+     * <code>ELECTRICITY = 19;</code>
+     *
+     * <pre>
+     * 电力
+     * </pre>
+     */
+    public static final int ELECTRICITY_VALUE = 19;
+    /**
+     * <code>BULLET = 20;</code>
+     *
+     * <pre>
+     * 子弹
+     * </pre>
+     */
+    public static final int BULLET_VALUE = 20;
+
+
+    public final int getNumber() { return value; }
+
+    public static Resource valueOf(int value) {
+      switch (value) {
+        case 1: return RICE;
+        case 2: return VEGETABLES;
+        case 3: return FRUIT;
+        case 4: return GRASS;
+        case 5: return PIGFOOD;
+        case 6: return PORK;
+        case 7: return CRUDE;
+        case 8: return GASOLINE;
+        case 9: return IRON;
+        case 10: return STEEL;
+        case 11: return PINE;
+        case 12: return WHITEBIRCH;
+        case 13: return IRONBIRCH;
+        case 14: return PINEBOARD;
+        case 15: return WHITEBIRCHBOARD;
+        case 16: return IRONBIRCHBOARD;
+        case 17: return PUREWATER;
+        case 18: return MINERALWATER;
+        case 19: return ELECTRICITY;
+        case 20: return BULLET;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Resource>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<Resource>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Resource>() {
+            public Resource findValueByNumber(int number) {
+              return Resource.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final Resource[] VALUES = values();
+
+    public static Resource valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private Resource(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.Resource)
+  }
+
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -335,7 +739,14 @@ public final class Common {
       "UT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREATEGROUP\020\013\022\016" +
       "\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO\020\037\022\013\n\007UPGR" +
       "ADE\020 *:\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_" +
-      "HANDLE\020\002\022\017\n\013NO_BUILDING\020\003B\002H\001"
+      "HANDLE\020\002\022\017\n\013NO_BUILDING\020\003*\236\002\n\010Resource\022\010" +
+      "\n\004RICE\020\001\022\016\n\nVEGETABLES\020\002\022\t\n\005FRUIT\020\003\022\t\n\005G" +
+      "RASS\020\004\022\013\n\007PIGFOOD\020\005\022\010\n\004PORK\020\006\022\t\n\005CRUDE\020\007" +
+      "\022\014\n\010GASOLINE\020\010\022\010\n\004IRON\020\t\022\t\n\005STEEL\020\n\022\010\n\004P" +
+      "INE\020\013\022\016\n\nWHITEBIRCH\020\014\022\r\n\tIRONBIRCH\020\r\022\r\n\t",
+      "PINEBOARD\020\016\022\023\n\017WHITEBIRCHBOARD\020\017\022\022\n\016IRON" +
+      "BIRCHBOARD\020\020\022\r\n\tPUREWATER\020\021\022\020\n\014MINERALWA" +
+      "TER\020\022\022\017\n\013ELECTRICITY\020\023\022\n\n\006BULLET\020\024B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

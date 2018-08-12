@@ -319,6 +319,31 @@ public final class Scene {
 
   public interface TSCGetSceneInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;
+    /**
+     * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+     */
+    java.util.List<com.game.framework.protocol.Scene.BuildingInfo> 
+        getBuildingInfosList();
+    /**
+     * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+     */
+    com.game.framework.protocol.Scene.BuildingInfo getBuildingInfos(int index);
+    /**
+     * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+     */
+    int getBuildingInfosCount();
+    /**
+     * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+     */
+    java.util.List<? extends com.game.framework.protocol.Scene.BuildingInfoOrBuilder> 
+        getBuildingInfosOrBuilderList();
+    /**
+     * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+     */
+    com.game.framework.protocol.Scene.BuildingInfoOrBuilder getBuildingInfosOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetSceneInfo}
@@ -353,6 +378,7 @@ public final class Scene {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -370,6 +396,14 @@ public final class Scene {
               }
               break;
             }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                buildingInfos_ = new java.util.ArrayList<com.game.framework.protocol.Scene.BuildingInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              buildingInfos_.add(input.readMessage(com.game.framework.protocol.Scene.BuildingInfo.PARSER, extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -378,6 +412,9 @@ public final class Scene {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          buildingInfos_ = java.util.Collections.unmodifiableList(buildingInfos_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -409,7 +446,44 @@ public final class Scene {
       return PARSER;
     }
 
+    // repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;
+    public static final int BUILDINGINFOS_FIELD_NUMBER = 1;
+    private java.util.List<com.game.framework.protocol.Scene.BuildingInfo> buildingInfos_;
+    /**
+     * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+     */
+    public java.util.List<com.game.framework.protocol.Scene.BuildingInfo> getBuildingInfosList() {
+      return buildingInfos_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+     */
+    public java.util.List<? extends com.game.framework.protocol.Scene.BuildingInfoOrBuilder> 
+        getBuildingInfosOrBuilderList() {
+      return buildingInfos_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+     */
+    public int getBuildingInfosCount() {
+      return buildingInfos_.size();
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+     */
+    public com.game.framework.protocol.Scene.BuildingInfo getBuildingInfos(int index) {
+      return buildingInfos_.get(index);
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+     */
+    public com.game.framework.protocol.Scene.BuildingInfoOrBuilder getBuildingInfosOrBuilder(
+        int index) {
+      return buildingInfos_.get(index);
+    }
+
     private void initFields() {
+      buildingInfos_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -423,6 +497,9 @@ public final class Scene {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      for (int i = 0; i < buildingInfos_.size(); i++) {
+        output.writeMessage(1, buildingInfos_.get(i));
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -432,6 +509,10 @@ public final class Scene {
       if (size != -1) return size;
 
       size = 0;
+      for (int i = 0; i < buildingInfos_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, buildingInfos_.get(i));
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -540,6 +621,7 @@ public final class Scene {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getBuildingInfosFieldBuilder();
         }
       }
       private static Builder create() {
@@ -548,6 +630,12 @@ public final class Scene {
 
       public Builder clear() {
         super.clear();
+        if (buildingInfosBuilder_ == null) {
+          buildingInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          buildingInfosBuilder_.clear();
+        }
         return this;
       }
 
@@ -574,6 +662,16 @@ public final class Scene {
 
       public com.game.framework.protocol.Scene.TSCGetSceneInfo buildPartial() {
         com.game.framework.protocol.Scene.TSCGetSceneInfo result = new com.game.framework.protocol.Scene.TSCGetSceneInfo(this);
+        int from_bitField0_ = bitField0_;
+        if (buildingInfosBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            buildingInfos_ = java.util.Collections.unmodifiableList(buildingInfos_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.buildingInfos_ = buildingInfos_;
+        } else {
+          result.buildingInfos_ = buildingInfosBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -589,6 +687,32 @@ public final class Scene {
 
       public Builder mergeFrom(com.game.framework.protocol.Scene.TSCGetSceneInfo other) {
         if (other == com.game.framework.protocol.Scene.TSCGetSceneInfo.getDefaultInstance()) return this;
+        if (buildingInfosBuilder_ == null) {
+          if (!other.buildingInfos_.isEmpty()) {
+            if (buildingInfos_.isEmpty()) {
+              buildingInfos_ = other.buildingInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureBuildingInfosIsMutable();
+              buildingInfos_.addAll(other.buildingInfos_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.buildingInfos_.isEmpty()) {
+            if (buildingInfosBuilder_.isEmpty()) {
+              buildingInfosBuilder_.dispose();
+              buildingInfosBuilder_ = null;
+              buildingInfos_ = other.buildingInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              buildingInfosBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getBuildingInfosFieldBuilder() : null;
+            } else {
+              buildingInfosBuilder_.addAllMessages(other.buildingInfos_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -614,6 +738,247 @@ public final class Scene {
         }
         return this;
       }
+      private int bitField0_;
+
+      // repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;
+      private java.util.List<com.game.framework.protocol.Scene.BuildingInfo> buildingInfos_ =
+        java.util.Collections.emptyList();
+      private void ensureBuildingInfosIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          buildingInfos_ = new java.util.ArrayList<com.game.framework.protocol.Scene.BuildingInfo>(buildingInfos_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.Scene.BuildingInfo, com.game.framework.protocol.Scene.BuildingInfo.Builder, com.game.framework.protocol.Scene.BuildingInfoOrBuilder> buildingInfosBuilder_;
+
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public java.util.List<com.game.framework.protocol.Scene.BuildingInfo> getBuildingInfosList() {
+        if (buildingInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(buildingInfos_);
+        } else {
+          return buildingInfosBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public int getBuildingInfosCount() {
+        if (buildingInfosBuilder_ == null) {
+          return buildingInfos_.size();
+        } else {
+          return buildingInfosBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public com.game.framework.protocol.Scene.BuildingInfo getBuildingInfos(int index) {
+        if (buildingInfosBuilder_ == null) {
+          return buildingInfos_.get(index);
+        } else {
+          return buildingInfosBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public Builder setBuildingInfos(
+          int index, com.game.framework.protocol.Scene.BuildingInfo value) {
+        if (buildingInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBuildingInfosIsMutable();
+          buildingInfos_.set(index, value);
+          onChanged();
+        } else {
+          buildingInfosBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public Builder setBuildingInfos(
+          int index, com.game.framework.protocol.Scene.BuildingInfo.Builder builderForValue) {
+        if (buildingInfosBuilder_ == null) {
+          ensureBuildingInfosIsMutable();
+          buildingInfos_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          buildingInfosBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public Builder addBuildingInfos(com.game.framework.protocol.Scene.BuildingInfo value) {
+        if (buildingInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBuildingInfosIsMutable();
+          buildingInfos_.add(value);
+          onChanged();
+        } else {
+          buildingInfosBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public Builder addBuildingInfos(
+          int index, com.game.framework.protocol.Scene.BuildingInfo value) {
+        if (buildingInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBuildingInfosIsMutable();
+          buildingInfos_.add(index, value);
+          onChanged();
+        } else {
+          buildingInfosBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public Builder addBuildingInfos(
+          com.game.framework.protocol.Scene.BuildingInfo.Builder builderForValue) {
+        if (buildingInfosBuilder_ == null) {
+          ensureBuildingInfosIsMutable();
+          buildingInfos_.add(builderForValue.build());
+          onChanged();
+        } else {
+          buildingInfosBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public Builder addBuildingInfos(
+          int index, com.game.framework.protocol.Scene.BuildingInfo.Builder builderForValue) {
+        if (buildingInfosBuilder_ == null) {
+          ensureBuildingInfosIsMutable();
+          buildingInfos_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          buildingInfosBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public Builder addAllBuildingInfos(
+          java.lang.Iterable<? extends com.game.framework.protocol.Scene.BuildingInfo> values) {
+        if (buildingInfosBuilder_ == null) {
+          ensureBuildingInfosIsMutable();
+          super.addAll(values, buildingInfos_);
+          onChanged();
+        } else {
+          buildingInfosBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public Builder clearBuildingInfos() {
+        if (buildingInfosBuilder_ == null) {
+          buildingInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          buildingInfosBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public Builder removeBuildingInfos(int index) {
+        if (buildingInfosBuilder_ == null) {
+          ensureBuildingInfosIsMutable();
+          buildingInfos_.remove(index);
+          onChanged();
+        } else {
+          buildingInfosBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public com.game.framework.protocol.Scene.BuildingInfo.Builder getBuildingInfosBuilder(
+          int index) {
+        return getBuildingInfosFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public com.game.framework.protocol.Scene.BuildingInfoOrBuilder getBuildingInfosOrBuilder(
+          int index) {
+        if (buildingInfosBuilder_ == null) {
+          return buildingInfos_.get(index);  } else {
+          return buildingInfosBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public java.util.List<? extends com.game.framework.protocol.Scene.BuildingInfoOrBuilder> 
+           getBuildingInfosOrBuilderList() {
+        if (buildingInfosBuilder_ != null) {
+          return buildingInfosBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(buildingInfos_);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public com.game.framework.protocol.Scene.BuildingInfo.Builder addBuildingInfosBuilder() {
+        return getBuildingInfosFieldBuilder().addBuilder(
+            com.game.framework.protocol.Scene.BuildingInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public com.game.framework.protocol.Scene.BuildingInfo.Builder addBuildingInfosBuilder(
+          int index) {
+        return getBuildingInfosFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.Scene.BuildingInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;</code>
+       */
+      public java.util.List<com.game.framework.protocol.Scene.BuildingInfo.Builder> 
+           getBuildingInfosBuilderList() {
+        return getBuildingInfosFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.Scene.BuildingInfo, com.game.framework.protocol.Scene.BuildingInfo.Builder, com.game.framework.protocol.Scene.BuildingInfoOrBuilder> 
+          getBuildingInfosFieldBuilder() {
+        if (buildingInfosBuilder_ == null) {
+          buildingInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.Scene.BuildingInfo, com.game.framework.protocol.Scene.BuildingInfo.Builder, com.game.framework.protocol.Scene.BuildingInfoOrBuilder>(
+                  buildingInfos_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          buildingInfos_ = null;
+        }
+        return buildingInfosBuilder_;
+      }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetSceneInfo)
     }
@@ -624,6 +989,547 @@ public final class Scene {
     }
 
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetSceneInfo)
+  }
+
+  public interface BuildingInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int64 buildingId = 1;
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    boolean hasBuildingId();
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    long getBuildingId();
+
+    // optional int32 configId = 2;
+    /**
+     * <code>optional int32 configId = 2;</code>
+     *
+     * <pre>
+     * 建筑configId
+     * </pre>
+     */
+    boolean hasConfigId();
+    /**
+     * <code>optional int32 configId = 2;</code>
+     *
+     * <pre>
+     * 建筑configId
+     * </pre>
+     */
+    int getConfigId();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.BuildingInfo}
+   */
+  public static final class BuildingInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements BuildingInfoOrBuilder {
+    // Use BuildingInfo.newBuilder() to construct.
+    private BuildingInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private BuildingInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final BuildingInfo defaultInstance;
+    public static BuildingInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public BuildingInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BuildingInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              buildingId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              configId_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_BuildingInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_BuildingInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Scene.BuildingInfo.class, com.game.framework.protocol.Scene.BuildingInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<BuildingInfo> PARSER =
+        new com.google.protobuf.AbstractParser<BuildingInfo>() {
+      public BuildingInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BuildingInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BuildingInfo> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int64 buildingId = 1;
+    public static final int BUILDINGID_FIELD_NUMBER = 1;
+    private long buildingId_;
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    public boolean hasBuildingId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    public long getBuildingId() {
+      return buildingId_;
+    }
+
+    // optional int32 configId = 2;
+    public static final int CONFIGID_FIELD_NUMBER = 2;
+    private int configId_;
+    /**
+     * <code>optional int32 configId = 2;</code>
+     *
+     * <pre>
+     * 建筑configId
+     * </pre>
+     */
+    public boolean hasConfigId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 configId = 2;</code>
+     *
+     * <pre>
+     * 建筑configId
+     * </pre>
+     */
+    public int getConfigId() {
+      return configId_;
+    }
+
+    private void initFields() {
+      buildingId_ = 0L;
+      configId_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, buildingId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, configId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, buildingId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, configId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Scene.BuildingInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Scene.BuildingInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.BuildingInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Scene.BuildingInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.BuildingInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.BuildingInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.BuildingInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.BuildingInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.BuildingInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.BuildingInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Scene.BuildingInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.BuildingInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Scene.BuildingInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_BuildingInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_BuildingInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Scene.BuildingInfo.class, com.game.framework.protocol.Scene.BuildingInfo.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Scene.BuildingInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        buildingId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        configId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_BuildingInfo_descriptor;
+      }
+
+      public com.game.framework.protocol.Scene.BuildingInfo getDefaultInstanceForType() {
+        return com.game.framework.protocol.Scene.BuildingInfo.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Scene.BuildingInfo build() {
+        com.game.framework.protocol.Scene.BuildingInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Scene.BuildingInfo buildPartial() {
+        com.game.framework.protocol.Scene.BuildingInfo result = new com.game.framework.protocol.Scene.BuildingInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.buildingId_ = buildingId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.configId_ = configId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Scene.BuildingInfo) {
+          return mergeFrom((com.game.framework.protocol.Scene.BuildingInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Scene.BuildingInfo other) {
+        if (other == com.game.framework.protocol.Scene.BuildingInfo.getDefaultInstance()) return this;
+        if (other.hasBuildingId()) {
+          setBuildingId(other.getBuildingId());
+        }
+        if (other.hasConfigId()) {
+          setConfigId(other.getConfigId());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Scene.BuildingInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Scene.BuildingInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int64 buildingId = 1;
+      private long buildingId_ ;
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public boolean hasBuildingId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public long getBuildingId() {
+        return buildingId_;
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public Builder setBuildingId(long value) {
+        bitField0_ |= 0x00000001;
+        buildingId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public Builder clearBuildingId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        buildingId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 configId = 2;
+      private int configId_ ;
+      /**
+       * <code>optional int32 configId = 2;</code>
+       *
+       * <pre>
+       * 建筑configId
+       * </pre>
+       */
+      public boolean hasConfigId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 configId = 2;</code>
+       *
+       * <pre>
+       * 建筑configId
+       * </pre>
+       */
+      public int getConfigId() {
+        return configId_;
+      }
+      /**
+       * <code>optional int32 configId = 2;</code>
+       *
+       * <pre>
+       * 建筑configId
+       * </pre>
+       */
+      public Builder setConfigId(int value) {
+        bitField0_ |= 0x00000002;
+        configId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 configId = 2;</code>
+       *
+       * <pre>
+       * 建筑configId
+       * </pre>
+       */
+      public Builder clearConfigId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        configId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.BuildingInfo)
+    }
+
+    static {
+      defaultInstance = new BuildingInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.BuildingInfo)
   }
 
   public interface TCSUpgradeOrBuilder
@@ -1062,7 +1968,7 @@ public final class Scene {
      * <code>optional bool state = 1;</code>
      *
      * <pre>
-     * 建筑是否在可以升级的状态
+     * 建筑是否在升级
      * </pre>
      */
     boolean hasState();
@@ -1070,7 +1976,7 @@ public final class Scene {
      * <code>optional bool state = 1;</code>
      *
      * <pre>
-     * 建筑是否在可以升级的状态
+     * 建筑是否在升级
      * </pre>
      */
     boolean getState();
@@ -1098,7 +2004,7 @@ public final class Scene {
      * <code>optional bool resource = 3;</code>
      *
      * <pre>
-     * 资源是否满足 
+     * 资源是否满足
      * </pre>
      */
     boolean hasResource();
@@ -1106,7 +2012,7 @@ public final class Scene {
      * <code>optional bool resource = 3;</code>
      *
      * <pre>
-     * 资源是否满足 
+     * 资源是否满足
      * </pre>
      */
     boolean getResource();
@@ -1293,7 +2199,7 @@ public final class Scene {
      * <code>optional bool state = 1;</code>
      *
      * <pre>
-     * 建筑是否在可以升级的状态
+     * 建筑是否在升级
      * </pre>
      */
     public boolean hasState() {
@@ -1303,7 +2209,7 @@ public final class Scene {
      * <code>optional bool state = 1;</code>
      *
      * <pre>
-     * 建筑是否在可以升级的状态
+     * 建筑是否在升级
      * </pre>
      */
     public boolean getState() {
@@ -1341,7 +2247,7 @@ public final class Scene {
      * <code>optional bool resource = 3;</code>
      *
      * <pre>
-     * 资源是否满足 
+     * 资源是否满足
      * </pre>
      */
     public boolean hasResource() {
@@ -1351,7 +2257,7 @@ public final class Scene {
      * <code>optional bool resource = 3;</code>
      *
      * <pre>
-     * 资源是否满足 
+     * 资源是否满足
      * </pre>
      */
     public boolean getResource() {
@@ -1748,7 +2654,7 @@ public final class Scene {
        * <code>optional bool state = 1;</code>
        *
        * <pre>
-       * 建筑是否在可以升级的状态
+       * 建筑是否在升级
        * </pre>
        */
       public boolean hasState() {
@@ -1758,7 +2664,7 @@ public final class Scene {
        * <code>optional bool state = 1;</code>
        *
        * <pre>
-       * 建筑是否在可以升级的状态
+       * 建筑是否在升级
        * </pre>
        */
       public boolean getState() {
@@ -1768,7 +2674,7 @@ public final class Scene {
        * <code>optional bool state = 1;</code>
        *
        * <pre>
-       * 建筑是否在可以升级的状态
+       * 建筑是否在升级
        * </pre>
        */
       public Builder setState(boolean value) {
@@ -1781,7 +2687,7 @@ public final class Scene {
        * <code>optional bool state = 1;</code>
        *
        * <pre>
-       * 建筑是否在可以升级的状态
+       * 建筑是否在升级
        * </pre>
        */
       public Builder clearState() {
@@ -1846,7 +2752,7 @@ public final class Scene {
        * <code>optional bool resource = 3;</code>
        *
        * <pre>
-       * 资源是否满足 
+       * 资源是否满足
        * </pre>
        */
       public boolean hasResource() {
@@ -1856,7 +2762,7 @@ public final class Scene {
        * <code>optional bool resource = 3;</code>
        *
        * <pre>
-       * 资源是否满足 
+       * 资源是否满足
        * </pre>
        */
       public boolean getResource() {
@@ -1866,7 +2772,7 @@ public final class Scene {
        * <code>optional bool resource = 3;</code>
        *
        * <pre>
-       * 资源是否满足 
+       * 资源是否满足
        * </pre>
        */
       public Builder setResource(boolean value) {
@@ -1879,7 +2785,7 @@ public final class Scene {
        * <code>optional bool resource = 3;</code>
        *
        * <pre>
-       * 资源是否满足 
+       * 资源是否满足
        * </pre>
        */
       public Builder clearResource() {
@@ -2058,6 +2964,11 @@ public final class Scene {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TSCGetSceneInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_BuildingInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_BuildingInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_framework_protocol_TCSUpgrade_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -2077,7 +2988,10 @@ public final class Scene {
   static {
     java.lang.String[] descriptorData = {
       "\n\013scene.proto\022\033com.game.framework.protoc" +
-      "ol\"\021\n\017TCSGetSceneInfo\"\021\n\017TSCGetSceneInfo" +
+      "ol\"\021\n\017TCSGetSceneInfo\"S\n\017TSCGetSceneInfo" +
+      "\022@\n\rbuildingInfos\030\001 \003(\0132).com.game.frame" +
+      "work.protocol.BuildingInfo\"4\n\014BuildingIn" +
+      "fo\022\022\n\nbuildingId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005" +
       "\" \n\nTCSUpgrade\022\022\n\nbuildingId\030\001 \001(\003\"r\n\nTS" +
       "CUpgrade\022\r\n\005state\030\001 \001(\010\022\r\n\005group\030\002 \001(\010\022\020" +
       "\n\010resource\030\003 \001(\010\022\014\n\004tool\030\004 \001(\010\022\022\n\nproduc" +
@@ -2099,15 +3013,21 @@ public final class Scene {
           internal_static_com_game_framework_protocol_TSCGetSceneInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetSceneInfo_descriptor,
-              new java.lang.String[] { });
-          internal_static_com_game_framework_protocol_TCSUpgrade_descriptor =
+              new java.lang.String[] { "BuildingInfos", });
+          internal_static_com_game_framework_protocol_BuildingInfo_descriptor =
             getDescriptor().getMessageTypes().get(2);
+          internal_static_com_game_framework_protocol_BuildingInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_BuildingInfo_descriptor,
+              new java.lang.String[] { "BuildingId", "ConfigId", });
+          internal_static_com_game_framework_protocol_TCSUpgrade_descriptor =
+            getDescriptor().getMessageTypes().get(3);
           internal_static_com_game_framework_protocol_TCSUpgrade_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TCSUpgrade_descriptor,
               new java.lang.String[] { "BuildingId", });
           internal_static_com_game_framework_protocol_TSCUpgrade_descriptor =
-            getDescriptor().getMessageTypes().get(3);
+            getDescriptor().getMessageTypes().get(4);
           internal_static_com_game_framework_protocol_TSCUpgrade_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCUpgrade_descriptor,

@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.game.framework.dbcache.model.Building" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="group_id" property="groupId" jdbcType="BIGINT" />
-    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="config_id" property="configId" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="position_x" property="positionX" jdbcType="INTEGER" />
     <result column="position_y" property="positionY" jdbcType="INTEGER" />
@@ -71,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, group_id, level, type, position_x, position_y
+    id, group_id, config_id, type, position_x, position_y
   </sql>
   <sql id="Blob_Column_List" >
     state
@@ -125,10 +125,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.game.framework.dbcache.model.Building" >
-    insert into t_building (id, group_id, level, 
+    insert into t_building (id, group_id, config_id, 
       type, position_x, position_y, 
       state)
-    values (#{id,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{level,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{configId,jdbcType=INTEGER}, 
       #{type,jdbcType=INTEGER}, #{positionX,jdbcType=INTEGER}, #{positionY,jdbcType=INTEGER}, 
       #{state,jdbcType=LONGVARBINARY})
   </insert>
@@ -141,8 +141,8 @@
       <if test="groupId != null" >
         group_id,
       </if>
-      <if test="level != null" >
-        level,
+      <if test="configId != null" >
+        config_id,
       </if>
       <if test="type != null" >
         type,
@@ -164,8 +164,8 @@
       <if test="groupId != null" >
         #{groupId,jdbcType=BIGINT},
       </if>
-      <if test="level != null" >
-        #{level,jdbcType=INTEGER},
+      <if test="configId != null" >
+        #{configId,jdbcType=INTEGER},
       </if>
       <if test="type != null" >
         #{type,jdbcType=INTEGER},
@@ -196,8 +196,8 @@
       <if test="record.groupId != null" >
         group_id = #{record.groupId,jdbcType=BIGINT},
       </if>
-      <if test="record.level != null" >
-        level = #{record.level,jdbcType=INTEGER},
+      <if test="record.configId != null" >
+        config_id = #{record.configId,jdbcType=INTEGER},
       </if>
       <if test="record.type != null" >
         type = #{record.type,jdbcType=INTEGER},
@@ -220,7 +220,7 @@
     update t_building
     set id = #{record.id,jdbcType=BIGINT},
       group_id = #{record.groupId,jdbcType=BIGINT},
-      level = #{record.level,jdbcType=INTEGER},
+      config_id = #{record.configId,jdbcType=INTEGER},
       type = #{record.type,jdbcType=INTEGER},
       position_x = #{record.positionX,jdbcType=INTEGER},
       position_y = #{record.positionY,jdbcType=INTEGER},
@@ -233,7 +233,7 @@
     update t_building
     set id = #{record.id,jdbcType=BIGINT},
       group_id = #{record.groupId,jdbcType=BIGINT},
-      level = #{record.level,jdbcType=INTEGER},
+      config_id = #{record.configId,jdbcType=INTEGER},
       type = #{record.type,jdbcType=INTEGER},
       position_x = #{record.positionX,jdbcType=INTEGER},
       position_y = #{record.positionY,jdbcType=INTEGER}
@@ -247,8 +247,8 @@
       <if test="groupId != null" >
         group_id = #{groupId,jdbcType=BIGINT},
       </if>
-      <if test="level != null" >
-        level = #{level,jdbcType=INTEGER},
+      <if test="configId != null" >
+        config_id = #{configId,jdbcType=INTEGER},
       </if>
       <if test="type != null" >
         type = #{type,jdbcType=INTEGER},
@@ -268,7 +268,7 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.game.framework.dbcache.model.Building" >
     update t_building
     set group_id = #{groupId,jdbcType=BIGINT},
-      level = #{level,jdbcType=INTEGER},
+      config_id = #{configId,jdbcType=INTEGER},
       type = #{type,jdbcType=INTEGER},
       position_x = #{positionX,jdbcType=INTEGER},
       position_y = #{positionY,jdbcType=INTEGER},
@@ -278,7 +278,7 @@
   <update id="updateByPrimaryKey" parameterType="com.game.framework.dbcache.model.Building" >
     update t_building
     set group_id = #{groupId,jdbcType=BIGINT},
-      level = #{level,jdbcType=INTEGER},
+      config_id = #{configId,jdbcType=INTEGER},
       type = #{type,jdbcType=INTEGER},
       position_x = #{positionX,jdbcType=INTEGER},
       position_y = #{positionY,jdbcType=INTEGER}

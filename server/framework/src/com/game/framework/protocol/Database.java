@@ -11,365 +11,30 @@ public final class Database {
   public interface UserResourceOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional int32 rice = 1;
+    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
     /**
-     * <code>optional int32 rice = 1;</code>
-     *
-     * <pre>
-     * 大米
-     * </pre>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      */
-    boolean hasRice();
+    java.util.List<com.game.framework.protocol.Database.ResourceInfo> 
+        getResourceInfosList();
     /**
-     * <code>optional int32 rice = 1;</code>
-     *
-     * <pre>
-     * 大米
-     * </pre>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      */
-    int getRice();
-
-    // optional int32 vegetables = 2;
+    com.game.framework.protocol.Database.ResourceInfo getResourceInfos(int index);
     /**
-     * <code>optional int32 vegetables = 2;</code>
-     *
-     * <pre>
-     * 蔬菜
-     * </pre>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      */
-    boolean hasVegetables();
+    int getResourceInfosCount();
     /**
-     * <code>optional int32 vegetables = 2;</code>
-     *
-     * <pre>
-     * 蔬菜
-     * </pre>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      */
-    int getVegetables();
-
-    // optional int32 fruit = 3;
+    java.util.List<? extends com.game.framework.protocol.Database.ResourceInfoOrBuilder> 
+        getResourceInfosOrBuilderList();
     /**
-     * <code>optional int32 fruit = 3;</code>
-     *
-     * <pre>
-     * 水果
-     * </pre>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      */
-    boolean hasFruit();
-    /**
-     * <code>optional int32 fruit = 3;</code>
-     *
-     * <pre>
-     * 水果
-     * </pre>
-     */
-    int getFruit();
-
-    // optional int32 grass = 4;
-    /**
-     * <code>optional int32 grass = 4;</code>
-     *
-     * <pre>
-     * 草
-     * </pre>
-     */
-    boolean hasGrass();
-    /**
-     * <code>optional int32 grass = 4;</code>
-     *
-     * <pre>
-     * 草
-     * </pre>
-     */
-    int getGrass();
-
-    // optional int32 pigFood = 5;
-    /**
-     * <code>optional int32 pigFood = 5;</code>
-     *
-     * <pre>
-     * 猪饲料
-     * </pre>
-     */
-    boolean hasPigFood();
-    /**
-     * <code>optional int32 pigFood = 5;</code>
-     *
-     * <pre>
-     * 猪饲料
-     * </pre>
-     */
-    int getPigFood();
-
-    // optional int32 pork = 6;
-    /**
-     * <code>optional int32 pork = 6;</code>
-     *
-     * <pre>
-     * 猪肉
-     * </pre>
-     */
-    boolean hasPork();
-    /**
-     * <code>optional int32 pork = 6;</code>
-     *
-     * <pre>
-     * 猪肉
-     * </pre>
-     */
-    int getPork();
-
-    // optional int32 crude = 7;
-    /**
-     * <code>optional int32 crude = 7;</code>
-     *
-     * <pre>
-     * 原油
-     * </pre>
-     */
-    boolean hasCrude();
-    /**
-     * <code>optional int32 crude = 7;</code>
-     *
-     * <pre>
-     * 原油
-     * </pre>
-     */
-    int getCrude();
-
-    // optional int32 gasoline = 8;
-    /**
-     * <code>optional int32 gasoline = 8;</code>
-     *
-     * <pre>
-     * 汽油
-     * </pre>
-     */
-    boolean hasGasoline();
-    /**
-     * <code>optional int32 gasoline = 8;</code>
-     *
-     * <pre>
-     * 汽油
-     * </pre>
-     */
-    int getGasoline();
-
-    // optional int32 iron = 9;
-    /**
-     * <code>optional int32 iron = 9;</code>
-     *
-     * <pre>
-     * 铁
-     * </pre>
-     */
-    boolean hasIron();
-    /**
-     * <code>optional int32 iron = 9;</code>
-     *
-     * <pre>
-     * 铁
-     * </pre>
-     */
-    int getIron();
-
-    // optional int32 steel = 10;
-    /**
-     * <code>optional int32 steel = 10;</code>
-     *
-     * <pre>
-     * 钢
-     * </pre>
-     */
-    boolean hasSteel();
-    /**
-     * <code>optional int32 steel = 10;</code>
-     *
-     * <pre>
-     * 钢
-     * </pre>
-     */
-    int getSteel();
-
-    // optional int32 pine = 11;
-    /**
-     * <code>optional int32 pine = 11;</code>
-     *
-     * <pre>
-     * 松木
-     * </pre>
-     */
-    boolean hasPine();
-    /**
-     * <code>optional int32 pine = 11;</code>
-     *
-     * <pre>
-     * 松木
-     * </pre>
-     */
-    int getPine();
-
-    // optional int32 whiteBirch = 12;
-    /**
-     * <code>optional int32 whiteBirch = 12;</code>
-     *
-     * <pre>
-     * 白桦木
-     * </pre>
-     */
-    boolean hasWhiteBirch();
-    /**
-     * <code>optional int32 whiteBirch = 12;</code>
-     *
-     * <pre>
-     * 白桦木
-     * </pre>
-     */
-    int getWhiteBirch();
-
-    // optional int32 ironBirch = 13;
-    /**
-     * <code>optional int32 ironBirch = 13;</code>
-     *
-     * <pre>
-     * 铁桦木
-     * </pre>
-     */
-    boolean hasIronBirch();
-    /**
-     * <code>optional int32 ironBirch = 13;</code>
-     *
-     * <pre>
-     * 铁桦木
-     * </pre>
-     */
-    int getIronBirch();
-
-    // optional int32 pineBoard = 14;
-    /**
-     * <code>optional int32 pineBoard = 14;</code>
-     *
-     * <pre>
-     * 松木板
-     * </pre>
-     */
-    boolean hasPineBoard();
-    /**
-     * <code>optional int32 pineBoard = 14;</code>
-     *
-     * <pre>
-     * 松木板
-     * </pre>
-     */
-    int getPineBoard();
-
-    // optional int32 whiteBirchBoard = 15;
-    /**
-     * <code>optional int32 whiteBirchBoard = 15;</code>
-     *
-     * <pre>
-     * 白桦木板
-     * </pre>
-     */
-    boolean hasWhiteBirchBoard();
-    /**
-     * <code>optional int32 whiteBirchBoard = 15;</code>
-     *
-     * <pre>
-     * 白桦木板
-     * </pre>
-     */
-    int getWhiteBirchBoard();
-
-    // optional int32 ironBirchBoard = 16;
-    /**
-     * <code>optional int32 ironBirchBoard = 16;</code>
-     *
-     * <pre>
-     * 铁桦木板
-     * </pre>
-     */
-    boolean hasIronBirchBoard();
-    /**
-     * <code>optional int32 ironBirchBoard = 16;</code>
-     *
-     * <pre>
-     * 铁桦木板
-     * </pre>
-     */
-    int getIronBirchBoard();
-
-    // optional int32 pureWater = 17;
-    /**
-     * <code>optional int32 pureWater = 17;</code>
-     *
-     * <pre>
-     * 纯净水
-     * </pre>
-     */
-    boolean hasPureWater();
-    /**
-     * <code>optional int32 pureWater = 17;</code>
-     *
-     * <pre>
-     * 纯净水
-     * </pre>
-     */
-    int getPureWater();
-
-    // optional int32 mineralWater = 18;
-    /**
-     * <code>optional int32 mineralWater = 18;</code>
-     *
-     * <pre>
-     * 矿物质水
-     * </pre>
-     */
-    boolean hasMineralWater();
-    /**
-     * <code>optional int32 mineralWater = 18;</code>
-     *
-     * <pre>
-     * 矿物质水
-     * </pre>
-     */
-    int getMineralWater();
-
-    // optional int32 electricity = 19;
-    /**
-     * <code>optional int32 electricity = 19;</code>
-     *
-     * <pre>
-     * 电力
-     * </pre>
-     */
-    boolean hasElectricity();
-    /**
-     * <code>optional int32 electricity = 19;</code>
-     *
-     * <pre>
-     * 电力
-     * </pre>
-     */
-    int getElectricity();
-
-    // optional int32 bullet = 20;
-    /**
-     * <code>optional int32 bullet = 20;</code>
-     *
-     * <pre>
-     * 子弹
-     * </pre>
-     */
-    boolean hasBullet();
-    /**
-     * <code>optional int32 bullet = 20;</code>
-     *
-     * <pre>
-     * 子弹
-     * </pre>
-     */
-    int getBullet();
+    com.game.framework.protocol.Database.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.UserResource}
@@ -422,104 +87,12 @@ public final class Database {
               }
               break;
             }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              rice_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              vegetables_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              fruit_ = input.readInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              grass_ = input.readInt32();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              pigFood_ = input.readInt32();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              pork_ = input.readInt32();
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000040;
-              crude_ = input.readInt32();
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000080;
-              gasoline_ = input.readInt32();
-              break;
-            }
-            case 72: {
-              bitField0_ |= 0x00000100;
-              iron_ = input.readInt32();
-              break;
-            }
-            case 80: {
-              bitField0_ |= 0x00000200;
-              steel_ = input.readInt32();
-              break;
-            }
-            case 88: {
-              bitField0_ |= 0x00000400;
-              pine_ = input.readInt32();
-              break;
-            }
-            case 96: {
-              bitField0_ |= 0x00000800;
-              whiteBirch_ = input.readInt32();
-              break;
-            }
-            case 104: {
-              bitField0_ |= 0x00001000;
-              ironBirch_ = input.readInt32();
-              break;
-            }
-            case 112: {
-              bitField0_ |= 0x00002000;
-              pineBoard_ = input.readInt32();
-              break;
-            }
-            case 120: {
-              bitField0_ |= 0x00004000;
-              whiteBirchBoard_ = input.readInt32();
-              break;
-            }
-            case 128: {
-              bitField0_ |= 0x00008000;
-              ironBirchBoard_ = input.readInt32();
-              break;
-            }
-            case 136: {
-              bitField0_ |= 0x00010000;
-              pureWater_ = input.readInt32();
-              break;
-            }
-            case 144: {
-              bitField0_ |= 0x00020000;
-              mineralWater_ = input.readInt32();
-              break;
-            }
-            case 152: {
-              bitField0_ |= 0x00040000;
-              electricity_ = input.readInt32();
-              break;
-            }
-            case 160: {
-              bitField0_ |= 0x00080000;
-              bullet_ = input.readInt32();
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.Database.ResourceInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              resourceInfos_.add(input.readMessage(com.game.framework.protocol.Database.ResourceInfo.PARSER, extensionRegistry));
               break;
             }
           }
@@ -530,6 +103,9 @@ public final class Database {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -561,508 +137,44 @@ public final class Database {
       return PARSER;
     }
 
-    private int bitField0_;
-    // optional int32 rice = 1;
-    public static final int RICE_FIELD_NUMBER = 1;
-    private int rice_;
+    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+    public static final int RESOURCEINFOS_FIELD_NUMBER = 1;
+    private java.util.List<com.game.framework.protocol.Database.ResourceInfo> resourceInfos_;
     /**
-     * <code>optional int32 rice = 1;</code>
-     *
-     * <pre>
-     * 大米
-     * </pre>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      */
-    public boolean hasRice() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+    public java.util.List<com.game.framework.protocol.Database.ResourceInfo> getResourceInfosList() {
+      return resourceInfos_;
     }
     /**
-     * <code>optional int32 rice = 1;</code>
-     *
-     * <pre>
-     * 大米
-     * </pre>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      */
-    public int getRice() {
-      return rice_;
-    }
-
-    // optional int32 vegetables = 2;
-    public static final int VEGETABLES_FIELD_NUMBER = 2;
-    private int vegetables_;
-    /**
-     * <code>optional int32 vegetables = 2;</code>
-     *
-     * <pre>
-     * 蔬菜
-     * </pre>
-     */
-    public boolean hasVegetables() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+    public java.util.List<? extends com.game.framework.protocol.Database.ResourceInfoOrBuilder> 
+        getResourceInfosOrBuilderList() {
+      return resourceInfos_;
     }
     /**
-     * <code>optional int32 vegetables = 2;</code>
-     *
-     * <pre>
-     * 蔬菜
-     * </pre>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      */
-    public int getVegetables() {
-      return vegetables_;
-    }
-
-    // optional int32 fruit = 3;
-    public static final int FRUIT_FIELD_NUMBER = 3;
-    private int fruit_;
-    /**
-     * <code>optional int32 fruit = 3;</code>
-     *
-     * <pre>
-     * 水果
-     * </pre>
-     */
-    public boolean hasFruit() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+    public int getResourceInfosCount() {
+      return resourceInfos_.size();
     }
     /**
-     * <code>optional int32 fruit = 3;</code>
-     *
-     * <pre>
-     * 水果
-     * </pre>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      */
-    public int getFruit() {
-      return fruit_;
-    }
-
-    // optional int32 grass = 4;
-    public static final int GRASS_FIELD_NUMBER = 4;
-    private int grass_;
-    /**
-     * <code>optional int32 grass = 4;</code>
-     *
-     * <pre>
-     * 草
-     * </pre>
-     */
-    public boolean hasGrass() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+    public com.game.framework.protocol.Database.ResourceInfo getResourceInfos(int index) {
+      return resourceInfos_.get(index);
     }
     /**
-     * <code>optional int32 grass = 4;</code>
-     *
-     * <pre>
-     * 草
-     * </pre>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      */
-    public int getGrass() {
-      return grass_;
-    }
-
-    // optional int32 pigFood = 5;
-    public static final int PIGFOOD_FIELD_NUMBER = 5;
-    private int pigFood_;
-    /**
-     * <code>optional int32 pigFood = 5;</code>
-     *
-     * <pre>
-     * 猪饲料
-     * </pre>
-     */
-    public boolean hasPigFood() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>optional int32 pigFood = 5;</code>
-     *
-     * <pre>
-     * 猪饲料
-     * </pre>
-     */
-    public int getPigFood() {
-      return pigFood_;
-    }
-
-    // optional int32 pork = 6;
-    public static final int PORK_FIELD_NUMBER = 6;
-    private int pork_;
-    /**
-     * <code>optional int32 pork = 6;</code>
-     *
-     * <pre>
-     * 猪肉
-     * </pre>
-     */
-    public boolean hasPork() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
-    }
-    /**
-     * <code>optional int32 pork = 6;</code>
-     *
-     * <pre>
-     * 猪肉
-     * </pre>
-     */
-    public int getPork() {
-      return pork_;
-    }
-
-    // optional int32 crude = 7;
-    public static final int CRUDE_FIELD_NUMBER = 7;
-    private int crude_;
-    /**
-     * <code>optional int32 crude = 7;</code>
-     *
-     * <pre>
-     * 原油
-     * </pre>
-     */
-    public boolean hasCrude() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
-    }
-    /**
-     * <code>optional int32 crude = 7;</code>
-     *
-     * <pre>
-     * 原油
-     * </pre>
-     */
-    public int getCrude() {
-      return crude_;
-    }
-
-    // optional int32 gasoline = 8;
-    public static final int GASOLINE_FIELD_NUMBER = 8;
-    private int gasoline_;
-    /**
-     * <code>optional int32 gasoline = 8;</code>
-     *
-     * <pre>
-     * 汽油
-     * </pre>
-     */
-    public boolean hasGasoline() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
-    }
-    /**
-     * <code>optional int32 gasoline = 8;</code>
-     *
-     * <pre>
-     * 汽油
-     * </pre>
-     */
-    public int getGasoline() {
-      return gasoline_;
-    }
-
-    // optional int32 iron = 9;
-    public static final int IRON_FIELD_NUMBER = 9;
-    private int iron_;
-    /**
-     * <code>optional int32 iron = 9;</code>
-     *
-     * <pre>
-     * 铁
-     * </pre>
-     */
-    public boolean hasIron() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
-    }
-    /**
-     * <code>optional int32 iron = 9;</code>
-     *
-     * <pre>
-     * 铁
-     * </pre>
-     */
-    public int getIron() {
-      return iron_;
-    }
-
-    // optional int32 steel = 10;
-    public static final int STEEL_FIELD_NUMBER = 10;
-    private int steel_;
-    /**
-     * <code>optional int32 steel = 10;</code>
-     *
-     * <pre>
-     * 钢
-     * </pre>
-     */
-    public boolean hasSteel() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
-    }
-    /**
-     * <code>optional int32 steel = 10;</code>
-     *
-     * <pre>
-     * 钢
-     * </pre>
-     */
-    public int getSteel() {
-      return steel_;
-    }
-
-    // optional int32 pine = 11;
-    public static final int PINE_FIELD_NUMBER = 11;
-    private int pine_;
-    /**
-     * <code>optional int32 pine = 11;</code>
-     *
-     * <pre>
-     * 松木
-     * </pre>
-     */
-    public boolean hasPine() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
-    }
-    /**
-     * <code>optional int32 pine = 11;</code>
-     *
-     * <pre>
-     * 松木
-     * </pre>
-     */
-    public int getPine() {
-      return pine_;
-    }
-
-    // optional int32 whiteBirch = 12;
-    public static final int WHITEBIRCH_FIELD_NUMBER = 12;
-    private int whiteBirch_;
-    /**
-     * <code>optional int32 whiteBirch = 12;</code>
-     *
-     * <pre>
-     * 白桦木
-     * </pre>
-     */
-    public boolean hasWhiteBirch() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
-    }
-    /**
-     * <code>optional int32 whiteBirch = 12;</code>
-     *
-     * <pre>
-     * 白桦木
-     * </pre>
-     */
-    public int getWhiteBirch() {
-      return whiteBirch_;
-    }
-
-    // optional int32 ironBirch = 13;
-    public static final int IRONBIRCH_FIELD_NUMBER = 13;
-    private int ironBirch_;
-    /**
-     * <code>optional int32 ironBirch = 13;</code>
-     *
-     * <pre>
-     * 铁桦木
-     * </pre>
-     */
-    public boolean hasIronBirch() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
-    }
-    /**
-     * <code>optional int32 ironBirch = 13;</code>
-     *
-     * <pre>
-     * 铁桦木
-     * </pre>
-     */
-    public int getIronBirch() {
-      return ironBirch_;
-    }
-
-    // optional int32 pineBoard = 14;
-    public static final int PINEBOARD_FIELD_NUMBER = 14;
-    private int pineBoard_;
-    /**
-     * <code>optional int32 pineBoard = 14;</code>
-     *
-     * <pre>
-     * 松木板
-     * </pre>
-     */
-    public boolean hasPineBoard() {
-      return ((bitField0_ & 0x00002000) == 0x00002000);
-    }
-    /**
-     * <code>optional int32 pineBoard = 14;</code>
-     *
-     * <pre>
-     * 松木板
-     * </pre>
-     */
-    public int getPineBoard() {
-      return pineBoard_;
-    }
-
-    // optional int32 whiteBirchBoard = 15;
-    public static final int WHITEBIRCHBOARD_FIELD_NUMBER = 15;
-    private int whiteBirchBoard_;
-    /**
-     * <code>optional int32 whiteBirchBoard = 15;</code>
-     *
-     * <pre>
-     * 白桦木板
-     * </pre>
-     */
-    public boolean hasWhiteBirchBoard() {
-      return ((bitField0_ & 0x00004000) == 0x00004000);
-    }
-    /**
-     * <code>optional int32 whiteBirchBoard = 15;</code>
-     *
-     * <pre>
-     * 白桦木板
-     * </pre>
-     */
-    public int getWhiteBirchBoard() {
-      return whiteBirchBoard_;
-    }
-
-    // optional int32 ironBirchBoard = 16;
-    public static final int IRONBIRCHBOARD_FIELD_NUMBER = 16;
-    private int ironBirchBoard_;
-    /**
-     * <code>optional int32 ironBirchBoard = 16;</code>
-     *
-     * <pre>
-     * 铁桦木板
-     * </pre>
-     */
-    public boolean hasIronBirchBoard() {
-      return ((bitField0_ & 0x00008000) == 0x00008000);
-    }
-    /**
-     * <code>optional int32 ironBirchBoard = 16;</code>
-     *
-     * <pre>
-     * 铁桦木板
-     * </pre>
-     */
-    public int getIronBirchBoard() {
-      return ironBirchBoard_;
-    }
-
-    // optional int32 pureWater = 17;
-    public static final int PUREWATER_FIELD_NUMBER = 17;
-    private int pureWater_;
-    /**
-     * <code>optional int32 pureWater = 17;</code>
-     *
-     * <pre>
-     * 纯净水
-     * </pre>
-     */
-    public boolean hasPureWater() {
-      return ((bitField0_ & 0x00010000) == 0x00010000);
-    }
-    /**
-     * <code>optional int32 pureWater = 17;</code>
-     *
-     * <pre>
-     * 纯净水
-     * </pre>
-     */
-    public int getPureWater() {
-      return pureWater_;
-    }
-
-    // optional int32 mineralWater = 18;
-    public static final int MINERALWATER_FIELD_NUMBER = 18;
-    private int mineralWater_;
-    /**
-     * <code>optional int32 mineralWater = 18;</code>
-     *
-     * <pre>
-     * 矿物质水
-     * </pre>
-     */
-    public boolean hasMineralWater() {
-      return ((bitField0_ & 0x00020000) == 0x00020000);
-    }
-    /**
-     * <code>optional int32 mineralWater = 18;</code>
-     *
-     * <pre>
-     * 矿物质水
-     * </pre>
-     */
-    public int getMineralWater() {
-      return mineralWater_;
-    }
-
-    // optional int32 electricity = 19;
-    public static final int ELECTRICITY_FIELD_NUMBER = 19;
-    private int electricity_;
-    /**
-     * <code>optional int32 electricity = 19;</code>
-     *
-     * <pre>
-     * 电力
-     * </pre>
-     */
-    public boolean hasElectricity() {
-      return ((bitField0_ & 0x00040000) == 0x00040000);
-    }
-    /**
-     * <code>optional int32 electricity = 19;</code>
-     *
-     * <pre>
-     * 电力
-     * </pre>
-     */
-    public int getElectricity() {
-      return electricity_;
-    }
-
-    // optional int32 bullet = 20;
-    public static final int BULLET_FIELD_NUMBER = 20;
-    private int bullet_;
-    /**
-     * <code>optional int32 bullet = 20;</code>
-     *
-     * <pre>
-     * 子弹
-     * </pre>
-     */
-    public boolean hasBullet() {
-      return ((bitField0_ & 0x00080000) == 0x00080000);
-    }
-    /**
-     * <code>optional int32 bullet = 20;</code>
-     *
-     * <pre>
-     * 子弹
-     * </pre>
-     */
-    public int getBullet() {
-      return bullet_;
+    public com.game.framework.protocol.Database.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+        int index) {
+      return resourceInfos_.get(index);
     }
 
     private void initFields() {
-      rice_ = 0;
-      vegetables_ = 0;
-      fruit_ = 0;
-      grass_ = 0;
-      pigFood_ = 0;
-      pork_ = 0;
-      crude_ = 0;
-      gasoline_ = 0;
-      iron_ = 0;
-      steel_ = 0;
-      pine_ = 0;
-      whiteBirch_ = 0;
-      ironBirch_ = 0;
-      pineBoard_ = 0;
-      whiteBirchBoard_ = 0;
-      ironBirchBoard_ = 0;
-      pureWater_ = 0;
-      mineralWater_ = 0;
-      electricity_ = 0;
-      bullet_ = 0;
+      resourceInfos_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1076,65 +188,8 @@ public final class Database {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, rice_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, vegetables_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, fruit_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(4, grass_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, pigFood_);
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeInt32(6, pork_);
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeInt32(7, crude_);
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeInt32(8, gasoline_);
-      }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeInt32(9, iron_);
-      }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeInt32(10, steel_);
-      }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeInt32(11, pine_);
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(12, whiteBirch_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeInt32(13, ironBirch_);
-      }
-      if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        output.writeInt32(14, pineBoard_);
-      }
-      if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        output.writeInt32(15, whiteBirchBoard_);
-      }
-      if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        output.writeInt32(16, ironBirchBoard_);
-      }
-      if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        output.writeInt32(17, pureWater_);
-      }
-      if (((bitField0_ & 0x00020000) == 0x00020000)) {
-        output.writeInt32(18, mineralWater_);
-      }
-      if (((bitField0_ & 0x00040000) == 0x00040000)) {
-        output.writeInt32(19, electricity_);
-      }
-      if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        output.writeInt32(20, bullet_);
+      for (int i = 0; i < resourceInfos_.size(); i++) {
+        output.writeMessage(1, resourceInfos_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -1145,85 +200,9 @@ public final class Database {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      for (int i = 0; i < resourceInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, rice_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, vegetables_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, fruit_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, grass_);
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, pigFood_);
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, pork_);
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, crude_);
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, gasoline_);
-      }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, iron_);
-      }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, steel_);
-      }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(11, pine_);
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, whiteBirch_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(13, ironBirch_);
-      }
-      if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(14, pineBoard_);
-      }
-      if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(15, whiteBirchBoard_);
-      }
-      if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(16, ironBirchBoard_);
-      }
-      if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(17, pureWater_);
-      }
-      if (((bitField0_ & 0x00020000) == 0x00020000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(18, mineralWater_);
-      }
-      if (((bitField0_ & 0x00040000) == 0x00040000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(19, electricity_);
-      }
-      if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(20, bullet_);
+          .computeMessageSize(1, resourceInfos_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1333,6 +312,7 @@ public final class Database {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getResourceInfosFieldBuilder();
         }
       }
       private static Builder create() {
@@ -1341,46 +321,12 @@ public final class Database {
 
       public Builder clear() {
         super.clear();
-        rice_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        vegetables_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        fruit_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        grass_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        pigFood_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        pork_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000020);
-        crude_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000040);
-        gasoline_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000080);
-        iron_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000100);
-        steel_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000200);
-        pine_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000400);
-        whiteBirch_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000800);
-        ironBirch_ = 0;
-        bitField0_ = (bitField0_ & ~0x00001000);
-        pineBoard_ = 0;
-        bitField0_ = (bitField0_ & ~0x00002000);
-        whiteBirchBoard_ = 0;
-        bitField0_ = (bitField0_ & ~0x00004000);
-        ironBirchBoard_ = 0;
-        bitField0_ = (bitField0_ & ~0x00008000);
-        pureWater_ = 0;
-        bitField0_ = (bitField0_ & ~0x00010000);
-        mineralWater_ = 0;
-        bitField0_ = (bitField0_ & ~0x00020000);
-        electricity_ = 0;
-        bitField0_ = (bitField0_ & ~0x00040000);
-        bullet_ = 0;
-        bitField0_ = (bitField0_ & ~0x00080000);
+        if (resourceInfosBuilder_ == null) {
+          resourceInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          resourceInfosBuilder_.clear();
+        }
         return this;
       }
 
@@ -1408,88 +354,15 @@ public final class Database {
       public com.game.framework.protocol.Database.UserResource buildPartial() {
         com.game.framework.protocol.Database.UserResource result = new com.game.framework.protocol.Database.UserResource(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
+        if (resourceInfosBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.resourceInfos_ = resourceInfos_;
+        } else {
+          result.resourceInfos_ = resourceInfosBuilder_.build();
         }
-        result.rice_ = rice_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.vegetables_ = vegetables_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.fruit_ = fruit_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.grass_ = grass_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.pigFood_ = pigFood_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.pork_ = pork_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000040;
-        }
-        result.crude_ = crude_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000080;
-        }
-        result.gasoline_ = gasoline_;
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
-          to_bitField0_ |= 0x00000100;
-        }
-        result.iron_ = iron_;
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
-          to_bitField0_ |= 0x00000200;
-        }
-        result.steel_ = steel_;
-        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
-          to_bitField0_ |= 0x00000400;
-        }
-        result.pine_ = pine_;
-        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
-          to_bitField0_ |= 0x00000800;
-        }
-        result.whiteBirch_ = whiteBirch_;
-        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
-          to_bitField0_ |= 0x00001000;
-        }
-        result.ironBirch_ = ironBirch_;
-        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
-          to_bitField0_ |= 0x00002000;
-        }
-        result.pineBoard_ = pineBoard_;
-        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
-          to_bitField0_ |= 0x00004000;
-        }
-        result.whiteBirchBoard_ = whiteBirchBoard_;
-        if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
-          to_bitField0_ |= 0x00008000;
-        }
-        result.ironBirchBoard_ = ironBirchBoard_;
-        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
-          to_bitField0_ |= 0x00010000;
-        }
-        result.pureWater_ = pureWater_;
-        if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
-          to_bitField0_ |= 0x00020000;
-        }
-        result.mineralWater_ = mineralWater_;
-        if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
-          to_bitField0_ |= 0x00040000;
-        }
-        result.electricity_ = electricity_;
-        if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
-          to_bitField0_ |= 0x00080000;
-        }
-        result.bullet_ = bullet_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1505,65 +378,31 @@ public final class Database {
 
       public Builder mergeFrom(com.game.framework.protocol.Database.UserResource other) {
         if (other == com.game.framework.protocol.Database.UserResource.getDefaultInstance()) return this;
-        if (other.hasRice()) {
-          setRice(other.getRice());
-        }
-        if (other.hasVegetables()) {
-          setVegetables(other.getVegetables());
-        }
-        if (other.hasFruit()) {
-          setFruit(other.getFruit());
-        }
-        if (other.hasGrass()) {
-          setGrass(other.getGrass());
-        }
-        if (other.hasPigFood()) {
-          setPigFood(other.getPigFood());
-        }
-        if (other.hasPork()) {
-          setPork(other.getPork());
-        }
-        if (other.hasCrude()) {
-          setCrude(other.getCrude());
-        }
-        if (other.hasGasoline()) {
-          setGasoline(other.getGasoline());
-        }
-        if (other.hasIron()) {
-          setIron(other.getIron());
-        }
-        if (other.hasSteel()) {
-          setSteel(other.getSteel());
-        }
-        if (other.hasPine()) {
-          setPine(other.getPine());
-        }
-        if (other.hasWhiteBirch()) {
-          setWhiteBirch(other.getWhiteBirch());
-        }
-        if (other.hasIronBirch()) {
-          setIronBirch(other.getIronBirch());
-        }
-        if (other.hasPineBoard()) {
-          setPineBoard(other.getPineBoard());
-        }
-        if (other.hasWhiteBirchBoard()) {
-          setWhiteBirchBoard(other.getWhiteBirchBoard());
-        }
-        if (other.hasIronBirchBoard()) {
-          setIronBirchBoard(other.getIronBirchBoard());
-        }
-        if (other.hasPureWater()) {
-          setPureWater(other.getPureWater());
-        }
-        if (other.hasMineralWater()) {
-          setMineralWater(other.getMineralWater());
-        }
-        if (other.hasElectricity()) {
-          setElectricity(other.getElectricity());
-        }
-        if (other.hasBullet()) {
-          setBullet(other.getBullet());
+        if (resourceInfosBuilder_ == null) {
+          if (!other.resourceInfos_.isEmpty()) {
+            if (resourceInfos_.isEmpty()) {
+              resourceInfos_ = other.resourceInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureResourceInfosIsMutable();
+              resourceInfos_.addAll(other.resourceInfos_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.resourceInfos_.isEmpty()) {
+            if (resourceInfosBuilder_.isEmpty()) {
+              resourceInfosBuilder_.dispose();
+              resourceInfosBuilder_ = null;
+              resourceInfos_ = other.resourceInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              resourceInfosBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getResourceInfosFieldBuilder() : null;
+            } else {
+              resourceInfosBuilder_.addAllMessages(other.resourceInfos_);
+            }
+          }
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1592,984 +431,244 @@ public final class Database {
       }
       private int bitField0_;
 
-      // optional int32 rice = 1;
-      private int rice_ ;
-      /**
-       * <code>optional int32 rice = 1;</code>
-       *
-       * <pre>
-       * 大米
-       * </pre>
-       */
-      public boolean hasRice() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional int32 rice = 1;</code>
-       *
-       * <pre>
-       * 大米
-       * </pre>
-       */
-      public int getRice() {
-        return rice_;
-      }
-      /**
-       * <code>optional int32 rice = 1;</code>
-       *
-       * <pre>
-       * 大米
-       * </pre>
-       */
-      public Builder setRice(int value) {
-        bitField0_ |= 0x00000001;
-        rice_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 rice = 1;</code>
-       *
-       * <pre>
-       * 大米
-       * </pre>
-       */
-      public Builder clearRice() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        rice_ = 0;
-        onChanged();
-        return this;
+      // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+      private java.util.List<com.game.framework.protocol.Database.ResourceInfo> resourceInfos_ =
+        java.util.Collections.emptyList();
+      private void ensureResourceInfosIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.Database.ResourceInfo>(resourceInfos_);
+          bitField0_ |= 0x00000001;
+         }
       }
 
-      // optional int32 vegetables = 2;
-      private int vegetables_ ;
-      /**
-       * <code>optional int32 vegetables = 2;</code>
-       *
-       * <pre>
-       * 蔬菜
-       * </pre>
-       */
-      public boolean hasVegetables() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional int32 vegetables = 2;</code>
-       *
-       * <pre>
-       * 蔬菜
-       * </pre>
-       */
-      public int getVegetables() {
-        return vegetables_;
-      }
-      /**
-       * <code>optional int32 vegetables = 2;</code>
-       *
-       * <pre>
-       * 蔬菜
-       * </pre>
-       */
-      public Builder setVegetables(int value) {
-        bitField0_ |= 0x00000002;
-        vegetables_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 vegetables = 2;</code>
-       *
-       * <pre>
-       * 蔬菜
-       * </pre>
-       */
-      public Builder clearVegetables() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        vegetables_ = 0;
-        onChanged();
-        return this;
-      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.Database.ResourceInfo, com.game.framework.protocol.Database.ResourceInfo.Builder, com.game.framework.protocol.Database.ResourceInfoOrBuilder> resourceInfosBuilder_;
 
-      // optional int32 fruit = 3;
-      private int fruit_ ;
       /**
-       * <code>optional int32 fruit = 3;</code>
-       *
-       * <pre>
-       * 水果
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public boolean hasFruit() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+      public java.util.List<com.game.framework.protocol.Database.ResourceInfo> getResourceInfosList() {
+        if (resourceInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(resourceInfos_);
+        } else {
+          return resourceInfosBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>optional int32 fruit = 3;</code>
-       *
-       * <pre>
-       * 水果
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public int getFruit() {
-        return fruit_;
+      public int getResourceInfosCount() {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.size();
+        } else {
+          return resourceInfosBuilder_.getCount();
+        }
       }
       /**
-       * <code>optional int32 fruit = 3;</code>
-       *
-       * <pre>
-       * 水果
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder setFruit(int value) {
-        bitField0_ |= 0x00000004;
-        fruit_ = value;
-        onChanged();
+      public com.game.framework.protocol.Database.ResourceInfo getResourceInfos(int index) {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.get(index);
+        } else {
+          return resourceInfosBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       */
+      public Builder setResourceInfos(
+          int index, com.game.framework.protocol.Database.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourceInfosIsMutable();
+          resourceInfos_.set(index, value);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>optional int32 fruit = 3;</code>
-       *
-       * <pre>
-       * 水果
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder clearFruit() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        fruit_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 grass = 4;
-      private int grass_ ;
-      /**
-       * <code>optional int32 grass = 4;</code>
-       *
-       * <pre>
-       * 草
-       * </pre>
-       */
-      public boolean hasGrass() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>optional int32 grass = 4;</code>
-       *
-       * <pre>
-       * 草
-       * </pre>
-       */
-      public int getGrass() {
-        return grass_;
-      }
-      /**
-       * <code>optional int32 grass = 4;</code>
-       *
-       * <pre>
-       * 草
-       * </pre>
-       */
-      public Builder setGrass(int value) {
-        bitField0_ |= 0x00000008;
-        grass_ = value;
-        onChanged();
+      public Builder setResourceInfos(
+          int index, com.game.framework.protocol.Database.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          resourceInfosBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * <code>optional int32 grass = 4;</code>
-       *
-       * <pre>
-       * 草
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder clearGrass() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        grass_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 pigFood = 5;
-      private int pigFood_ ;
-      /**
-       * <code>optional int32 pigFood = 5;</code>
-       *
-       * <pre>
-       * 猪饲料
-       * </pre>
-       */
-      public boolean hasPigFood() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>optional int32 pigFood = 5;</code>
-       *
-       * <pre>
-       * 猪饲料
-       * </pre>
-       */
-      public int getPigFood() {
-        return pigFood_;
-      }
-      /**
-       * <code>optional int32 pigFood = 5;</code>
-       *
-       * <pre>
-       * 猪饲料
-       * </pre>
-       */
-      public Builder setPigFood(int value) {
-        bitField0_ |= 0x00000010;
-        pigFood_ = value;
-        onChanged();
+      public Builder addResourceInfos(com.game.framework.protocol.Database.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(value);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
-       * <code>optional int32 pigFood = 5;</code>
-       *
-       * <pre>
-       * 猪饲料
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder clearPigFood() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        pigFood_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 pork = 6;
-      private int pork_ ;
-      /**
-       * <code>optional int32 pork = 6;</code>
-       *
-       * <pre>
-       * 猪肉
-       * </pre>
-       */
-      public boolean hasPork() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
-      }
-      /**
-       * <code>optional int32 pork = 6;</code>
-       *
-       * <pre>
-       * 猪肉
-       * </pre>
-       */
-      public int getPork() {
-        return pork_;
-      }
-      /**
-       * <code>optional int32 pork = 6;</code>
-       *
-       * <pre>
-       * 猪肉
-       * </pre>
-       */
-      public Builder setPork(int value) {
-        bitField0_ |= 0x00000020;
-        pork_ = value;
-        onChanged();
+      public Builder addResourceInfos(
+          int index, com.game.framework.protocol.Database.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(index, value);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>optional int32 pork = 6;</code>
-       *
-       * <pre>
-       * 猪肉
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder clearPork() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        pork_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 crude = 7;
-      private int crude_ ;
-      /**
-       * <code>optional int32 crude = 7;</code>
-       *
-       * <pre>
-       * 原油
-       * </pre>
-       */
-      public boolean hasCrude() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
-      }
-      /**
-       * <code>optional int32 crude = 7;</code>
-       *
-       * <pre>
-       * 原油
-       * </pre>
-       */
-      public int getCrude() {
-        return crude_;
-      }
-      /**
-       * <code>optional int32 crude = 7;</code>
-       *
-       * <pre>
-       * 原油
-       * </pre>
-       */
-      public Builder setCrude(int value) {
-        bitField0_ |= 0x00000040;
-        crude_ = value;
-        onChanged();
+      public Builder addResourceInfos(
+          com.game.framework.protocol.Database.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(builderForValue.build());
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(builderForValue.build());
+        }
         return this;
       }
       /**
-       * <code>optional int32 crude = 7;</code>
-       *
-       * <pre>
-       * 原油
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder clearCrude() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        crude_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 gasoline = 8;
-      private int gasoline_ ;
-      /**
-       * <code>optional int32 gasoline = 8;</code>
-       *
-       * <pre>
-       * 汽油
-       * </pre>
-       */
-      public boolean hasGasoline() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
-      }
-      /**
-       * <code>optional int32 gasoline = 8;</code>
-       *
-       * <pre>
-       * 汽油
-       * </pre>
-       */
-      public int getGasoline() {
-        return gasoline_;
-      }
-      /**
-       * <code>optional int32 gasoline = 8;</code>
-       *
-       * <pre>
-       * 汽油
-       * </pre>
-       */
-      public Builder setGasoline(int value) {
-        bitField0_ |= 0x00000080;
-        gasoline_ = value;
-        onChanged();
+      public Builder addResourceInfos(
+          int index, com.game.framework.protocol.Database.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * <code>optional int32 gasoline = 8;</code>
-       *
-       * <pre>
-       * 汽油
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder clearGasoline() {
-        bitField0_ = (bitField0_ & ~0x00000080);
-        gasoline_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 iron = 9;
-      private int iron_ ;
-      /**
-       * <code>optional int32 iron = 9;</code>
-       *
-       * <pre>
-       * 铁
-       * </pre>
-       */
-      public boolean hasIron() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
-      }
-      /**
-       * <code>optional int32 iron = 9;</code>
-       *
-       * <pre>
-       * 铁
-       * </pre>
-       */
-      public int getIron() {
-        return iron_;
-      }
-      /**
-       * <code>optional int32 iron = 9;</code>
-       *
-       * <pre>
-       * 铁
-       * </pre>
-       */
-      public Builder setIron(int value) {
-        bitField0_ |= 0x00000100;
-        iron_ = value;
-        onChanged();
+      public Builder addAllResourceInfos(
+          java.lang.Iterable<? extends com.game.framework.protocol.Database.ResourceInfo> values) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          super.addAll(values, resourceInfos_);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addAllMessages(values);
+        }
         return this;
       }
       /**
-       * <code>optional int32 iron = 9;</code>
-       *
-       * <pre>
-       * 铁
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder clearIron() {
-        bitField0_ = (bitField0_ & ~0x00000100);
-        iron_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 steel = 10;
-      private int steel_ ;
-      /**
-       * <code>optional int32 steel = 10;</code>
-       *
-       * <pre>
-       * 钢
-       * </pre>
-       */
-      public boolean hasSteel() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
-      }
-      /**
-       * <code>optional int32 steel = 10;</code>
-       *
-       * <pre>
-       * 钢
-       * </pre>
-       */
-      public int getSteel() {
-        return steel_;
-      }
-      /**
-       * <code>optional int32 steel = 10;</code>
-       *
-       * <pre>
-       * 钢
-       * </pre>
-       */
-      public Builder setSteel(int value) {
-        bitField0_ |= 0x00000200;
-        steel_ = value;
-        onChanged();
+      public Builder clearResourceInfos() {
+        if (resourceInfosBuilder_ == null) {
+          resourceInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.clear();
+        }
         return this;
       }
       /**
-       * <code>optional int32 steel = 10;</code>
-       *
-       * <pre>
-       * 钢
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder clearSteel() {
-        bitField0_ = (bitField0_ & ~0x00000200);
-        steel_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 pine = 11;
-      private int pine_ ;
-      /**
-       * <code>optional int32 pine = 11;</code>
-       *
-       * <pre>
-       * 松木
-       * </pre>
-       */
-      public boolean hasPine() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
-      }
-      /**
-       * <code>optional int32 pine = 11;</code>
-       *
-       * <pre>
-       * 松木
-       * </pre>
-       */
-      public int getPine() {
-        return pine_;
-      }
-      /**
-       * <code>optional int32 pine = 11;</code>
-       *
-       * <pre>
-       * 松木
-       * </pre>
-       */
-      public Builder setPine(int value) {
-        bitField0_ |= 0x00000400;
-        pine_ = value;
-        onChanged();
+      public Builder removeResourceInfos(int index) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.remove(index);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.remove(index);
+        }
         return this;
       }
       /**
-       * <code>optional int32 pine = 11;</code>
-       *
-       * <pre>
-       * 松木
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder clearPine() {
-        bitField0_ = (bitField0_ & ~0x00000400);
-        pine_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 whiteBirch = 12;
-      private int whiteBirch_ ;
-      /**
-       * <code>optional int32 whiteBirch = 12;</code>
-       *
-       * <pre>
-       * 白桦木
-       * </pre>
-       */
-      public boolean hasWhiteBirch() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+      public com.game.framework.protocol.Database.ResourceInfo.Builder getResourceInfosBuilder(
+          int index) {
+        return getResourceInfosFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>optional int32 whiteBirch = 12;</code>
-       *
-       * <pre>
-       * 白桦木
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public int getWhiteBirch() {
-        return whiteBirch_;
+      public com.game.framework.protocol.Database.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+          int index) {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.get(index);  } else {
+          return resourceInfosBuilder_.getMessageOrBuilder(index);
+        }
       }
       /**
-       * <code>optional int32 whiteBirch = 12;</code>
-       *
-       * <pre>
-       * 白桦木
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder setWhiteBirch(int value) {
-        bitField0_ |= 0x00000800;
-        whiteBirch_ = value;
-        onChanged();
-        return this;
+      public java.util.List<? extends com.game.framework.protocol.Database.ResourceInfoOrBuilder> 
+           getResourceInfosOrBuilderList() {
+        if (resourceInfosBuilder_ != null) {
+          return resourceInfosBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(resourceInfos_);
+        }
       }
       /**
-       * <code>optional int32 whiteBirch = 12;</code>
-       *
-       * <pre>
-       * 白桦木
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder clearWhiteBirch() {
-        bitField0_ = (bitField0_ & ~0x00000800);
-        whiteBirch_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 ironBirch = 13;
-      private int ironBirch_ ;
-      /**
-       * <code>optional int32 ironBirch = 13;</code>
-       *
-       * <pre>
-       * 铁桦木
-       * </pre>
-       */
-      public boolean hasIronBirch() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
+      public com.game.framework.protocol.Database.ResourceInfo.Builder addResourceInfosBuilder() {
+        return getResourceInfosFieldBuilder().addBuilder(
+            com.game.framework.protocol.Database.ResourceInfo.getDefaultInstance());
       }
       /**
-       * <code>optional int32 ironBirch = 13;</code>
-       *
-       * <pre>
-       * 铁桦木
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public int getIronBirch() {
-        return ironBirch_;
+      public com.game.framework.protocol.Database.ResourceInfo.Builder addResourceInfosBuilder(
+          int index) {
+        return getResourceInfosFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.Database.ResourceInfo.getDefaultInstance());
       }
       /**
-       * <code>optional int32 ironBirch = 13;</code>
-       *
-       * <pre>
-       * 铁桦木
-       * </pre>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        */
-      public Builder setIronBirch(int value) {
-        bitField0_ |= 0x00001000;
-        ironBirch_ = value;
-        onChanged();
-        return this;
+      public java.util.List<com.game.framework.protocol.Database.ResourceInfo.Builder> 
+           getResourceInfosBuilderList() {
+        return getResourceInfosFieldBuilder().getBuilderList();
       }
-      /**
-       * <code>optional int32 ironBirch = 13;</code>
-       *
-       * <pre>
-       * 铁桦木
-       * </pre>
-       */
-      public Builder clearIronBirch() {
-        bitField0_ = (bitField0_ & ~0x00001000);
-        ironBirch_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 pineBoard = 14;
-      private int pineBoard_ ;
-      /**
-       * <code>optional int32 pineBoard = 14;</code>
-       *
-       * <pre>
-       * 松木板
-       * </pre>
-       */
-      public boolean hasPineBoard() {
-        return ((bitField0_ & 0x00002000) == 0x00002000);
-      }
-      /**
-       * <code>optional int32 pineBoard = 14;</code>
-       *
-       * <pre>
-       * 松木板
-       * </pre>
-       */
-      public int getPineBoard() {
-        return pineBoard_;
-      }
-      /**
-       * <code>optional int32 pineBoard = 14;</code>
-       *
-       * <pre>
-       * 松木板
-       * </pre>
-       */
-      public Builder setPineBoard(int value) {
-        bitField0_ |= 0x00002000;
-        pineBoard_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 pineBoard = 14;</code>
-       *
-       * <pre>
-       * 松木板
-       * </pre>
-       */
-      public Builder clearPineBoard() {
-        bitField0_ = (bitField0_ & ~0x00002000);
-        pineBoard_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 whiteBirchBoard = 15;
-      private int whiteBirchBoard_ ;
-      /**
-       * <code>optional int32 whiteBirchBoard = 15;</code>
-       *
-       * <pre>
-       * 白桦木板
-       * </pre>
-       */
-      public boolean hasWhiteBirchBoard() {
-        return ((bitField0_ & 0x00004000) == 0x00004000);
-      }
-      /**
-       * <code>optional int32 whiteBirchBoard = 15;</code>
-       *
-       * <pre>
-       * 白桦木板
-       * </pre>
-       */
-      public int getWhiteBirchBoard() {
-        return whiteBirchBoard_;
-      }
-      /**
-       * <code>optional int32 whiteBirchBoard = 15;</code>
-       *
-       * <pre>
-       * 白桦木板
-       * </pre>
-       */
-      public Builder setWhiteBirchBoard(int value) {
-        bitField0_ |= 0x00004000;
-        whiteBirchBoard_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 whiteBirchBoard = 15;</code>
-       *
-       * <pre>
-       * 白桦木板
-       * </pre>
-       */
-      public Builder clearWhiteBirchBoard() {
-        bitField0_ = (bitField0_ & ~0x00004000);
-        whiteBirchBoard_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 ironBirchBoard = 16;
-      private int ironBirchBoard_ ;
-      /**
-       * <code>optional int32 ironBirchBoard = 16;</code>
-       *
-       * <pre>
-       * 铁桦木板
-       * </pre>
-       */
-      public boolean hasIronBirchBoard() {
-        return ((bitField0_ & 0x00008000) == 0x00008000);
-      }
-      /**
-       * <code>optional int32 ironBirchBoard = 16;</code>
-       *
-       * <pre>
-       * 铁桦木板
-       * </pre>
-       */
-      public int getIronBirchBoard() {
-        return ironBirchBoard_;
-      }
-      /**
-       * <code>optional int32 ironBirchBoard = 16;</code>
-       *
-       * <pre>
-       * 铁桦木板
-       * </pre>
-       */
-      public Builder setIronBirchBoard(int value) {
-        bitField0_ |= 0x00008000;
-        ironBirchBoard_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 ironBirchBoard = 16;</code>
-       *
-       * <pre>
-       * 铁桦木板
-       * </pre>
-       */
-      public Builder clearIronBirchBoard() {
-        bitField0_ = (bitField0_ & ~0x00008000);
-        ironBirchBoard_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 pureWater = 17;
-      private int pureWater_ ;
-      /**
-       * <code>optional int32 pureWater = 17;</code>
-       *
-       * <pre>
-       * 纯净水
-       * </pre>
-       */
-      public boolean hasPureWater() {
-        return ((bitField0_ & 0x00010000) == 0x00010000);
-      }
-      /**
-       * <code>optional int32 pureWater = 17;</code>
-       *
-       * <pre>
-       * 纯净水
-       * </pre>
-       */
-      public int getPureWater() {
-        return pureWater_;
-      }
-      /**
-       * <code>optional int32 pureWater = 17;</code>
-       *
-       * <pre>
-       * 纯净水
-       * </pre>
-       */
-      public Builder setPureWater(int value) {
-        bitField0_ |= 0x00010000;
-        pureWater_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 pureWater = 17;</code>
-       *
-       * <pre>
-       * 纯净水
-       * </pre>
-       */
-      public Builder clearPureWater() {
-        bitField0_ = (bitField0_ & ~0x00010000);
-        pureWater_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 mineralWater = 18;
-      private int mineralWater_ ;
-      /**
-       * <code>optional int32 mineralWater = 18;</code>
-       *
-       * <pre>
-       * 矿物质水
-       * </pre>
-       */
-      public boolean hasMineralWater() {
-        return ((bitField0_ & 0x00020000) == 0x00020000);
-      }
-      /**
-       * <code>optional int32 mineralWater = 18;</code>
-       *
-       * <pre>
-       * 矿物质水
-       * </pre>
-       */
-      public int getMineralWater() {
-        return mineralWater_;
-      }
-      /**
-       * <code>optional int32 mineralWater = 18;</code>
-       *
-       * <pre>
-       * 矿物质水
-       * </pre>
-       */
-      public Builder setMineralWater(int value) {
-        bitField0_ |= 0x00020000;
-        mineralWater_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 mineralWater = 18;</code>
-       *
-       * <pre>
-       * 矿物质水
-       * </pre>
-       */
-      public Builder clearMineralWater() {
-        bitField0_ = (bitField0_ & ~0x00020000);
-        mineralWater_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 electricity = 19;
-      private int electricity_ ;
-      /**
-       * <code>optional int32 electricity = 19;</code>
-       *
-       * <pre>
-       * 电力
-       * </pre>
-       */
-      public boolean hasElectricity() {
-        return ((bitField0_ & 0x00040000) == 0x00040000);
-      }
-      /**
-       * <code>optional int32 electricity = 19;</code>
-       *
-       * <pre>
-       * 电力
-       * </pre>
-       */
-      public int getElectricity() {
-        return electricity_;
-      }
-      /**
-       * <code>optional int32 electricity = 19;</code>
-       *
-       * <pre>
-       * 电力
-       * </pre>
-       */
-      public Builder setElectricity(int value) {
-        bitField0_ |= 0x00040000;
-        electricity_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 electricity = 19;</code>
-       *
-       * <pre>
-       * 电力
-       * </pre>
-       */
-      public Builder clearElectricity() {
-        bitField0_ = (bitField0_ & ~0x00040000);
-        electricity_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 bullet = 20;
-      private int bullet_ ;
-      /**
-       * <code>optional int32 bullet = 20;</code>
-       *
-       * <pre>
-       * 子弹
-       * </pre>
-       */
-      public boolean hasBullet() {
-        return ((bitField0_ & 0x00080000) == 0x00080000);
-      }
-      /**
-       * <code>optional int32 bullet = 20;</code>
-       *
-       * <pre>
-       * 子弹
-       * </pre>
-       */
-      public int getBullet() {
-        return bullet_;
-      }
-      /**
-       * <code>optional int32 bullet = 20;</code>
-       *
-       * <pre>
-       * 子弹
-       * </pre>
-       */
-      public Builder setBullet(int value) {
-        bitField0_ |= 0x00080000;
-        bullet_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 bullet = 20;</code>
-       *
-       * <pre>
-       * 子弹
-       * </pre>
-       */
-      public Builder clearBullet() {
-        bitField0_ = (bitField0_ & ~0x00080000);
-        bullet_ = 0;
-        onChanged();
-        return this;
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.Database.ResourceInfo, com.game.framework.protocol.Database.ResourceInfo.Builder, com.game.framework.protocol.Database.ResourceInfoOrBuilder> 
+          getResourceInfosFieldBuilder() {
+        if (resourceInfosBuilder_ == null) {
+          resourceInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.Database.ResourceInfo, com.game.framework.protocol.Database.ResourceInfo.Builder, com.game.framework.protocol.Database.ResourceInfoOrBuilder>(
+                  resourceInfos_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          resourceInfos_ = null;
+        }
+        return resourceInfosBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.UserResource)
@@ -2583,22 +682,563 @@ public final class Database {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.UserResource)
   }
 
+  public interface ResourceInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int32 resource = 1;
+    /**
+     * <code>optional int32 resource = 1;</code>
+     *
+     * <pre>
+     * 资源类型枚举
+     * </pre>
+     */
+    boolean hasResource();
+    /**
+     * <code>optional int32 resource = 1;</code>
+     *
+     * <pre>
+     * 资源类型枚举
+     * </pre>
+     */
+    int getResource();
+
+    // optional int32 number = 2;
+    /**
+     * <code>optional int32 number = 2;</code>
+     *
+     * <pre>
+     * 资源数量
+     * </pre>
+     */
+    boolean hasNumber();
+    /**
+     * <code>optional int32 number = 2;</code>
+     *
+     * <pre>
+     * 资源数量
+     * </pre>
+     */
+    int getNumber();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.ResourceInfo}
+   */
+  public static final class ResourceInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements ResourceInfoOrBuilder {
+    // Use ResourceInfo.newBuilder() to construct.
+    private ResourceInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ResourceInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ResourceInfo defaultInstance;
+    public static ResourceInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ResourceInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ResourceInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              resource_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              number_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Database.ResourceInfo.class, com.game.framework.protocol.Database.ResourceInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ResourceInfo> PARSER =
+        new com.google.protobuf.AbstractParser<ResourceInfo>() {
+      public ResourceInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ResourceInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ResourceInfo> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int32 resource = 1;
+    public static final int RESOURCE_FIELD_NUMBER = 1;
+    private int resource_;
+    /**
+     * <code>optional int32 resource = 1;</code>
+     *
+     * <pre>
+     * 资源类型枚举
+     * </pre>
+     */
+    public boolean hasResource() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 resource = 1;</code>
+     *
+     * <pre>
+     * 资源类型枚举
+     * </pre>
+     */
+    public int getResource() {
+      return resource_;
+    }
+
+    // optional int32 number = 2;
+    public static final int NUMBER_FIELD_NUMBER = 2;
+    private int number_;
+    /**
+     * <code>optional int32 number = 2;</code>
+     *
+     * <pre>
+     * 资源数量
+     * </pre>
+     */
+    public boolean hasNumber() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 number = 2;</code>
+     *
+     * <pre>
+     * 资源数量
+     * </pre>
+     */
+    public int getNumber() {
+      return number_;
+    }
+
+    private void initFields() {
+      resource_ = 0;
+      number_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, resource_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, number_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, resource_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, number_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Database.ResourceInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Database.ResourceInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.ResourceInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Database.ResourceInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.ResourceInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Database.ResourceInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.ResourceInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Database.ResourceInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.ResourceInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Database.ResourceInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Database.ResourceInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.ResourceInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Database.ResourceInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Database.ResourceInfo.class, com.game.framework.protocol.Database.ResourceInfo.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Database.ResourceInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        resource_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        number_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
+      }
+
+      public com.game.framework.protocol.Database.ResourceInfo getDefaultInstanceForType() {
+        return com.game.framework.protocol.Database.ResourceInfo.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Database.ResourceInfo build() {
+        com.game.framework.protocol.Database.ResourceInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Database.ResourceInfo buildPartial() {
+        com.game.framework.protocol.Database.ResourceInfo result = new com.game.framework.protocol.Database.ResourceInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.resource_ = resource_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.number_ = number_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Database.ResourceInfo) {
+          return mergeFrom((com.game.framework.protocol.Database.ResourceInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Database.ResourceInfo other) {
+        if (other == com.game.framework.protocol.Database.ResourceInfo.getDefaultInstance()) return this;
+        if (other.hasResource()) {
+          setResource(other.getResource());
+        }
+        if (other.hasNumber()) {
+          setNumber(other.getNumber());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Database.ResourceInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Database.ResourceInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int32 resource = 1;
+      private int resource_ ;
+      /**
+       * <code>optional int32 resource = 1;</code>
+       *
+       * <pre>
+       * 资源类型枚举
+       * </pre>
+       */
+      public boolean hasResource() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 resource = 1;</code>
+       *
+       * <pre>
+       * 资源类型枚举
+       * </pre>
+       */
+      public int getResource() {
+        return resource_;
+      }
+      /**
+       * <code>optional int32 resource = 1;</code>
+       *
+       * <pre>
+       * 资源类型枚举
+       * </pre>
+       */
+      public Builder setResource(int value) {
+        bitField0_ |= 0x00000001;
+        resource_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 resource = 1;</code>
+       *
+       * <pre>
+       * 资源类型枚举
+       * </pre>
+       */
+      public Builder clearResource() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        resource_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 number = 2;
+      private int number_ ;
+      /**
+       * <code>optional int32 number = 2;</code>
+       *
+       * <pre>
+       * 资源数量
+       * </pre>
+       */
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 number = 2;</code>
+       *
+       * <pre>
+       * 资源数量
+       * </pre>
+       */
+      public int getNumber() {
+        return number_;
+      }
+      /**
+       * <code>optional int32 number = 2;</code>
+       *
+       * <pre>
+       * 资源数量
+       * </pre>
+       */
+      public Builder setNumber(int value) {
+        bitField0_ |= 0x00000002;
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 number = 2;</code>
+       *
+       * <pre>
+       * 资源数量
+       * </pre>
+       */
+      public Builder clearNumber() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        number_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.ResourceInfo)
+    }
+
+    static {
+      defaultInstance = new ResourceInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.ResourceInfo)
+  }
+
   public interface BuildingStateOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional .com.game.framework.protocol.Upgrade upgrade = 1;
+    // optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;
     /**
-     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
      */
-    boolean hasUpgrade();
+    boolean hasUpgradeInfo();
     /**
-     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
      */
-    com.game.framework.protocol.Database.Upgrade getUpgrade();
+    com.game.framework.protocol.Database.UpgradeInfo getUpgradeInfo();
     /**
-     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
      */
-    com.game.framework.protocol.Database.UpgradeOrBuilder getUpgradeOrBuilder();
+    com.game.framework.protocol.Database.UpgradeInfoOrBuilder getUpgradeInfoOrBuilder();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.BuildingState}
@@ -2652,14 +1292,14 @@ public final class Database {
               break;
             }
             case 10: {
-              com.game.framework.protocol.Database.Upgrade.Builder subBuilder = null;
+              com.game.framework.protocol.Database.UpgradeInfo.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = upgrade_.toBuilder();
+                subBuilder = upgradeInfo_.toBuilder();
               }
-              upgrade_ = input.readMessage(com.game.framework.protocol.Database.Upgrade.PARSER, extensionRegistry);
+              upgradeInfo_ = input.readMessage(com.game.framework.protocol.Database.UpgradeInfo.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(upgrade_);
-                upgrade_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(upgradeInfo_);
+                upgradeInfo_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000001;
               break;
@@ -2704,30 +1344,30 @@ public final class Database {
     }
 
     private int bitField0_;
-    // optional .com.game.framework.protocol.Upgrade upgrade = 1;
-    public static final int UPGRADE_FIELD_NUMBER = 1;
-    private com.game.framework.protocol.Database.Upgrade upgrade_;
+    // optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;
+    public static final int UPGRADEINFO_FIELD_NUMBER = 1;
+    private com.game.framework.protocol.Database.UpgradeInfo upgradeInfo_;
     /**
-     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
      */
-    public boolean hasUpgrade() {
+    public boolean hasUpgradeInfo() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
      */
-    public com.game.framework.protocol.Database.Upgrade getUpgrade() {
-      return upgrade_;
+    public com.game.framework.protocol.Database.UpgradeInfo getUpgradeInfo() {
+      return upgradeInfo_;
     }
     /**
-     * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+     * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
      */
-    public com.game.framework.protocol.Database.UpgradeOrBuilder getUpgradeOrBuilder() {
-      return upgrade_;
+    public com.game.framework.protocol.Database.UpgradeInfoOrBuilder getUpgradeInfoOrBuilder() {
+      return upgradeInfo_;
     }
 
     private void initFields() {
-      upgrade_ = com.game.framework.protocol.Database.Upgrade.getDefaultInstance();
+      upgradeInfo_ = com.game.framework.protocol.Database.UpgradeInfo.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2742,7 +1382,7 @@ public final class Database {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, upgrade_);
+        output.writeMessage(1, upgradeInfo_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -2755,7 +1395,7 @@ public final class Database {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, upgrade_);
+          .computeMessageSize(1, upgradeInfo_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2865,7 +1505,7 @@ public final class Database {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getUpgradeFieldBuilder();
+          getUpgradeInfoFieldBuilder();
         }
       }
       private static Builder create() {
@@ -2874,10 +1514,10 @@ public final class Database {
 
       public Builder clear() {
         super.clear();
-        if (upgradeBuilder_ == null) {
-          upgrade_ = com.game.framework.protocol.Database.Upgrade.getDefaultInstance();
+        if (upgradeInfoBuilder_ == null) {
+          upgradeInfo_ = com.game.framework.protocol.Database.UpgradeInfo.getDefaultInstance();
         } else {
-          upgradeBuilder_.clear();
+          upgradeInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -2911,10 +1551,10 @@ public final class Database {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        if (upgradeBuilder_ == null) {
-          result.upgrade_ = upgrade_;
+        if (upgradeInfoBuilder_ == null) {
+          result.upgradeInfo_ = upgradeInfo_;
         } else {
-          result.upgrade_ = upgradeBuilder_.build();
+          result.upgradeInfo_ = upgradeInfoBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -2932,8 +1572,8 @@ public final class Database {
 
       public Builder mergeFrom(com.game.framework.protocol.Database.BuildingState other) {
         if (other == com.game.framework.protocol.Database.BuildingState.getDefaultInstance()) return this;
-        if (other.hasUpgrade()) {
-          mergeUpgrade(other.getUpgrade());
+        if (other.hasUpgradeInfo()) {
+          mergeUpgradeInfo(other.getUpgradeInfo());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -2962,121 +1602,121 @@ public final class Database {
       }
       private int bitField0_;
 
-      // optional .com.game.framework.protocol.Upgrade upgrade = 1;
-      private com.game.framework.protocol.Database.Upgrade upgrade_ = com.game.framework.protocol.Database.Upgrade.getDefaultInstance();
+      // optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;
+      private com.game.framework.protocol.Database.UpgradeInfo upgradeInfo_ = com.game.framework.protocol.Database.UpgradeInfo.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.game.framework.protocol.Database.Upgrade, com.game.framework.protocol.Database.Upgrade.Builder, com.game.framework.protocol.Database.UpgradeOrBuilder> upgradeBuilder_;
+          com.game.framework.protocol.Database.UpgradeInfo, com.game.framework.protocol.Database.UpgradeInfo.Builder, com.game.framework.protocol.Database.UpgradeInfoOrBuilder> upgradeInfoBuilder_;
       /**
-       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
        */
-      public boolean hasUpgrade() {
+      public boolean hasUpgradeInfo() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
        */
-      public com.game.framework.protocol.Database.Upgrade getUpgrade() {
-        if (upgradeBuilder_ == null) {
-          return upgrade_;
+      public com.game.framework.protocol.Database.UpgradeInfo getUpgradeInfo() {
+        if (upgradeInfoBuilder_ == null) {
+          return upgradeInfo_;
         } else {
-          return upgradeBuilder_.getMessage();
+          return upgradeInfoBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
        */
-      public Builder setUpgrade(com.game.framework.protocol.Database.Upgrade value) {
-        if (upgradeBuilder_ == null) {
+      public Builder setUpgradeInfo(com.game.framework.protocol.Database.UpgradeInfo value) {
+        if (upgradeInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          upgrade_ = value;
+          upgradeInfo_ = value;
           onChanged();
         } else {
-          upgradeBuilder_.setMessage(value);
+          upgradeInfoBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
        */
-      public Builder setUpgrade(
-          com.game.framework.protocol.Database.Upgrade.Builder builderForValue) {
-        if (upgradeBuilder_ == null) {
-          upgrade_ = builderForValue.build();
+      public Builder setUpgradeInfo(
+          com.game.framework.protocol.Database.UpgradeInfo.Builder builderForValue) {
+        if (upgradeInfoBuilder_ == null) {
+          upgradeInfo_ = builderForValue.build();
           onChanged();
         } else {
-          upgradeBuilder_.setMessage(builderForValue.build());
+          upgradeInfoBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
        */
-      public Builder mergeUpgrade(com.game.framework.protocol.Database.Upgrade value) {
-        if (upgradeBuilder_ == null) {
+      public Builder mergeUpgradeInfo(com.game.framework.protocol.Database.UpgradeInfo value) {
+        if (upgradeInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              upgrade_ != com.game.framework.protocol.Database.Upgrade.getDefaultInstance()) {
-            upgrade_ =
-              com.game.framework.protocol.Database.Upgrade.newBuilder(upgrade_).mergeFrom(value).buildPartial();
+              upgradeInfo_ != com.game.framework.protocol.Database.UpgradeInfo.getDefaultInstance()) {
+            upgradeInfo_ =
+              com.game.framework.protocol.Database.UpgradeInfo.newBuilder(upgradeInfo_).mergeFrom(value).buildPartial();
           } else {
-            upgrade_ = value;
+            upgradeInfo_ = value;
           }
           onChanged();
         } else {
-          upgradeBuilder_.mergeFrom(value);
+          upgradeInfoBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
        */
-      public Builder clearUpgrade() {
-        if (upgradeBuilder_ == null) {
-          upgrade_ = com.game.framework.protocol.Database.Upgrade.getDefaultInstance();
+      public Builder clearUpgradeInfo() {
+        if (upgradeInfoBuilder_ == null) {
+          upgradeInfo_ = com.game.framework.protocol.Database.UpgradeInfo.getDefaultInstance();
           onChanged();
         } else {
-          upgradeBuilder_.clear();
+          upgradeInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
        */
-      public com.game.framework.protocol.Database.Upgrade.Builder getUpgradeBuilder() {
+      public com.game.framework.protocol.Database.UpgradeInfo.Builder getUpgradeInfoBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
-        return getUpgradeFieldBuilder().getBuilder();
+        return getUpgradeInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
        */
-      public com.game.framework.protocol.Database.UpgradeOrBuilder getUpgradeOrBuilder() {
-        if (upgradeBuilder_ != null) {
-          return upgradeBuilder_.getMessageOrBuilder();
+      public com.game.framework.protocol.Database.UpgradeInfoOrBuilder getUpgradeInfoOrBuilder() {
+        if (upgradeInfoBuilder_ != null) {
+          return upgradeInfoBuilder_.getMessageOrBuilder();
         } else {
-          return upgrade_;
+          return upgradeInfo_;
         }
       }
       /**
-       * <code>optional .com.game.framework.protocol.Upgrade upgrade = 1;</code>
+       * <code>optional .com.game.framework.protocol.UpgradeInfo upgradeInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.game.framework.protocol.Database.Upgrade, com.game.framework.protocol.Database.Upgrade.Builder, com.game.framework.protocol.Database.UpgradeOrBuilder> 
-          getUpgradeFieldBuilder() {
-        if (upgradeBuilder_ == null) {
-          upgradeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.game.framework.protocol.Database.Upgrade, com.game.framework.protocol.Database.Upgrade.Builder, com.game.framework.protocol.Database.UpgradeOrBuilder>(
-                  upgrade_,
+          com.game.framework.protocol.Database.UpgradeInfo, com.game.framework.protocol.Database.UpgradeInfo.Builder, com.game.framework.protocol.Database.UpgradeInfoOrBuilder> 
+          getUpgradeInfoFieldBuilder() {
+        if (upgradeInfoBuilder_ == null) {
+          upgradeInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.framework.protocol.Database.UpgradeInfo, com.game.framework.protocol.Database.UpgradeInfo.Builder, com.game.framework.protocol.Database.UpgradeInfoOrBuilder>(
+                  upgradeInfo_,
                   getParentForChildren(),
                   isClean());
-          upgrade_ = null;
+          upgradeInfo_ = null;
         }
-        return upgradeBuilder_;
+        return upgradeInfoBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.BuildingState)
@@ -3090,7 +1730,7 @@ public final class Database {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.BuildingState)
   }
 
-  public interface UpgradeOrBuilder
+  public interface UpgradeInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // optional bool upgrading = 1;
@@ -3130,24 +1770,24 @@ public final class Database {
     long getUid();
   }
   /**
-   * Protobuf type {@code com.game.framework.protocol.Upgrade}
+   * Protobuf type {@code com.game.framework.protocol.UpgradeInfo}
    */
-  public static final class Upgrade extends
+  public static final class UpgradeInfo extends
       com.google.protobuf.GeneratedMessage
-      implements UpgradeOrBuilder {
-    // Use Upgrade.newBuilder() to construct.
-    private Upgrade(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements UpgradeInfoOrBuilder {
+    // Use UpgradeInfo.newBuilder() to construct.
+    private UpgradeInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private Upgrade(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private UpgradeInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final Upgrade defaultInstance;
-    public static Upgrade getDefaultInstance() {
+    private static final UpgradeInfo defaultInstance;
+    public static UpgradeInfo getDefaultInstance() {
       return defaultInstance;
     }
 
-    public Upgrade getDefaultInstanceForType() {
+    public UpgradeInfo getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -3157,7 +1797,7 @@ public final class Database {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private Upgrade(
+    private UpgradeInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3204,28 +1844,28 @@ public final class Database {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_Upgrade_descriptor;
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UpgradeInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_Upgrade_fieldAccessorTable
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UpgradeInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.game.framework.protocol.Database.Upgrade.class, com.game.framework.protocol.Database.Upgrade.Builder.class);
+              com.game.framework.protocol.Database.UpgradeInfo.class, com.game.framework.protocol.Database.UpgradeInfo.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Upgrade> PARSER =
-        new com.google.protobuf.AbstractParser<Upgrade>() {
-      public Upgrade parsePartialFrom(
+    public static com.google.protobuf.Parser<UpgradeInfo> PARSER =
+        new com.google.protobuf.AbstractParser<UpgradeInfo>() {
+      public UpgradeInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Upgrade(input, extensionRegistry);
+        return new UpgradeInfo(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Upgrade> getParserForType() {
+    public com.google.protobuf.Parser<UpgradeInfo> getParserForType() {
       return PARSER;
     }
 
@@ -3329,53 +1969,53 @@ public final class Database {
       return super.writeReplace();
     }
 
-    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+    public static com.game.framework.protocol.Database.UpgradeInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+    public static com.game.framework.protocol.Database.UpgradeInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.framework.protocol.Database.Upgrade parseFrom(byte[] data)
+    public static com.game.framework.protocol.Database.UpgradeInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+    public static com.game.framework.protocol.Database.UpgradeInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.framework.protocol.Database.Upgrade parseFrom(java.io.InputStream input)
+    public static com.game.framework.protocol.Database.UpgradeInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+    public static com.game.framework.protocol.Database.UpgradeInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.game.framework.protocol.Database.Upgrade parseDelimitedFrom(java.io.InputStream input)
+    public static com.game.framework.protocol.Database.UpgradeInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.game.framework.protocol.Database.Upgrade parseDelimitedFrom(
+    public static com.game.framework.protocol.Database.UpgradeInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+    public static com.game.framework.protocol.Database.UpgradeInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.framework.protocol.Database.Upgrade parseFrom(
+    public static com.game.framework.protocol.Database.UpgradeInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3384,7 +2024,7 @@ public final class Database {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.game.framework.protocol.Database.Upgrade prototype) {
+    public static Builder newBuilder(com.game.framework.protocol.Database.UpgradeInfo prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -3396,24 +2036,24 @@ public final class Database {
       return builder;
     }
     /**
-     * Protobuf type {@code com.game.framework.protocol.Upgrade}
+     * Protobuf type {@code com.game.framework.protocol.UpgradeInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.game.framework.protocol.Database.UpgradeOrBuilder {
+       implements com.game.framework.protocol.Database.UpgradeInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_Upgrade_descriptor;
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UpgradeInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_Upgrade_fieldAccessorTable
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UpgradeInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.game.framework.protocol.Database.Upgrade.class, com.game.framework.protocol.Database.Upgrade.Builder.class);
+                com.game.framework.protocol.Database.UpgradeInfo.class, com.game.framework.protocol.Database.UpgradeInfo.Builder.class);
       }
 
-      // Construct using com.game.framework.protocol.Database.Upgrade.newBuilder()
+      // Construct using com.game.framework.protocol.Database.UpgradeInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3446,23 +2086,23 @@ public final class Database {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_Upgrade_descriptor;
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_UpgradeInfo_descriptor;
       }
 
-      public com.game.framework.protocol.Database.Upgrade getDefaultInstanceForType() {
-        return com.game.framework.protocol.Database.Upgrade.getDefaultInstance();
+      public com.game.framework.protocol.Database.UpgradeInfo getDefaultInstanceForType() {
+        return com.game.framework.protocol.Database.UpgradeInfo.getDefaultInstance();
       }
 
-      public com.game.framework.protocol.Database.Upgrade build() {
-        com.game.framework.protocol.Database.Upgrade result = buildPartial();
+      public com.game.framework.protocol.Database.UpgradeInfo build() {
+        com.game.framework.protocol.Database.UpgradeInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.game.framework.protocol.Database.Upgrade buildPartial() {
-        com.game.framework.protocol.Database.Upgrade result = new com.game.framework.protocol.Database.Upgrade(this);
+      public com.game.framework.protocol.Database.UpgradeInfo buildPartial() {
+        com.game.framework.protocol.Database.UpgradeInfo result = new com.game.framework.protocol.Database.UpgradeInfo(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3479,16 +2119,16 @@ public final class Database {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.framework.protocol.Database.Upgrade) {
-          return mergeFrom((com.game.framework.protocol.Database.Upgrade)other);
+        if (other instanceof com.game.framework.protocol.Database.UpgradeInfo) {
+          return mergeFrom((com.game.framework.protocol.Database.UpgradeInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.game.framework.protocol.Database.Upgrade other) {
-        if (other == com.game.framework.protocol.Database.Upgrade.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.game.framework.protocol.Database.UpgradeInfo other) {
+        if (other == com.game.framework.protocol.Database.UpgradeInfo.getDefaultInstance()) return this;
         if (other.hasUpgrading()) {
           setUpgrading(other.getUpgrading());
         }
@@ -3507,11 +2147,11 @@ public final class Database {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.game.framework.protocol.Database.Upgrade parsedMessage = null;
+        com.game.framework.protocol.Database.UpgradeInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.framework.protocol.Database.Upgrade) e.getUnfinishedMessage();
+          parsedMessage = (com.game.framework.protocol.Database.UpgradeInfo) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -3620,15 +2260,15 @@ public final class Database {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.Upgrade)
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.UpgradeInfo)
     }
 
     static {
-      defaultInstance = new Upgrade(true);
+      defaultInstance = new UpgradeInfo(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.Upgrade)
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.UpgradeInfo)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -3637,15 +2277,20 @@ public final class Database {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_UserResource_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_framework_protocol_BuildingState_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_BuildingState_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_game_framework_protocol_Upgrade_descriptor;
+    internal_static_com_game_framework_protocol_UpgradeInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_game_framework_protocol_Upgrade_fieldAccessorTable;
+      internal_static_com_game_framework_protocol_UpgradeInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3656,19 +2301,13 @@ public final class Database {
   static {
     java.lang.String[] descriptorData = {
       "\n\016database.proto\022\033com.game.framework.pro" +
-      "tocol\"\362\002\n\014UserResource\022\014\n\004rice\030\001 \001(\005\022\022\n\n" +
-      "vegetables\030\002 \001(\005\022\r\n\005fruit\030\003 \001(\005\022\r\n\005grass" +
-      "\030\004 \001(\005\022\017\n\007pigFood\030\005 \001(\005\022\014\n\004pork\030\006 \001(\005\022\r\n" +
-      "\005crude\030\007 \001(\005\022\020\n\010gasoline\030\010 \001(\005\022\014\n\004iron\030\t" +
-      " \001(\005\022\r\n\005steel\030\n \001(\005\022\014\n\004pine\030\013 \001(\005\022\022\n\nwhi" +
-      "teBirch\030\014 \001(\005\022\021\n\tironBirch\030\r \001(\005\022\021\n\tpine" +
-      "Board\030\016 \001(\005\022\027\n\017whiteBirchBoard\030\017 \001(\005\022\026\n\016" +
-      "ironBirchBoard\030\020 \001(\005\022\021\n\tpureWater\030\021 \001(\005\022" +
-      "\024\n\014mineralWater\030\022 \001(\005\022\023\n\013electricity\030\023 \001",
-      "(\005\022\016\n\006bullet\030\024 \001(\005\"F\n\rBuildingState\0225\n\007u" +
-      "pgrade\030\001 \001(\0132$.com.game.framework.protoc" +
-      "ol.Upgrade\")\n\007Upgrade\022\021\n\tupgrading\030\001 \001(\010" +
-      "\022\013\n\003uid\030\002 \001(\003B\002H\001"
+      "tocol\"P\n\014UserResource\022@\n\rresourceInfos\030\001" +
+      " \003(\0132).com.game.framework.protocol.Resou" +
+      "rceInfo\"0\n\014ResourceInfo\022\020\n\010resource\030\001 \001(" +
+      "\005\022\016\n\006number\030\002 \001(\005\"N\n\rBuildingState\022=\n\013up" +
+      "gradeInfo\030\001 \001(\0132(.com.game.framework.pro" +
+      "tocol.UpgradeInfo\"-\n\013UpgradeInfo\022\021\n\tupgr" +
+      "ading\030\001 \001(\010\022\013\n\003uid\030\002 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3680,18 +2319,24 @@ public final class Database {
           internal_static_com_game_framework_protocol_UserResource_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_UserResource_descriptor,
-              new java.lang.String[] { "Rice", "Vegetables", "Fruit", "Grass", "PigFood", "Pork", "Crude", "Gasoline", "Iron", "Steel", "Pine", "WhiteBirch", "IronBirch", "PineBoard", "WhiteBirchBoard", "IronBirchBoard", "PureWater", "MineralWater", "Electricity", "Bullet", });
-          internal_static_com_game_framework_protocol_BuildingState_descriptor =
+              new java.lang.String[] { "ResourceInfos", });
+          internal_static_com_game_framework_protocol_ResourceInfo_descriptor =
             getDescriptor().getMessageTypes().get(1);
+          internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_ResourceInfo_descriptor,
+              new java.lang.String[] { "Resource", "Number", });
+          internal_static_com_game_framework_protocol_BuildingState_descriptor =
+            getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_BuildingState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_BuildingState_descriptor,
-              new java.lang.String[] { "Upgrade", });
-          internal_static_com_game_framework_protocol_Upgrade_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_com_game_framework_protocol_Upgrade_fieldAccessorTable = new
+              new java.lang.String[] { "UpgradeInfo", });
+          internal_static_com_game_framework_protocol_UpgradeInfo_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_com_game_framework_protocol_UpgradeInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_game_framework_protocol_Upgrade_descriptor,
+              internal_static_com_game_framework_protocol_UpgradeInfo_descriptor,
               new java.lang.String[] { "Upgrading", "Uid", });
           return null;
         }

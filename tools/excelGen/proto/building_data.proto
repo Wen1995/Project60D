@@ -81,7 +81,7 @@ message BUILDING{
     /** 消耗黄金 */
     optional int32 gold_cost = 21 [default = 0];
     /** 消耗电力 */
-    optional int32 gold_cost = 22 [default = 0];
+    optional int32 elec_cost = 22 [default = 0];
 
     message CostStruct{
         /** 消耗ID */

@@ -374,8 +374,8 @@ namespace com.game.framework.protocol {
   public sealed partial class ResourceInfo : pb::GeneratedMessageLite<ResourceInfo, ResourceInfo.Builder> {
     private ResourceInfo() { }
     private static readonly ResourceInfo defaultInstance = new ResourceInfo().MakeReadOnly();
-    private static readonly string[] _resourceInfoFieldNames = new string[] { "number", "resource" };
-    private static readonly uint[] _resourceInfoFieldTags = new uint[] { 16, 8 };
+    private static readonly string[] _resourceInfoFieldNames = new string[] { "configId", "number" };
+    private static readonly uint[] _resourceInfoFieldTags = new uint[] { 8, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -397,14 +397,14 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ResourceFieldNumber = 1;
-    private bool hasResource;
-    private int resource_;
-    public bool HasResource {
-      get { return hasResource; }
+    public const int ConfigIdFieldNumber = 1;
+    private bool hasConfigId;
+    private int configId_;
+    public bool HasConfigId {
+      get { return hasConfigId; }
     }
-    public int Resource {
-      get { return resource_; }
+    public int ConfigId {
+      get { return configId_; }
     }
     
     #if UNITY_EDITOR
@@ -435,11 +435,11 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _resourceInfoFieldNames;
-      if (hasResource) {
-        output.WriteInt32(1, field_names[1], Resource);
+      if (hasConfigId) {
+        output.WriteInt32(1, field_names[0], ConfigId);
       }
       if (hasNumber) {
-        output.WriteInt32(2, field_names[0], Number);
+        output.WriteInt32(2, field_names[1], Number);
       }
     }
     
@@ -453,8 +453,8 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasResource) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, Resource);
+        if (hasConfigId) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, ConfigId);
         }
         if (hasNumber) {
           size += pb::CodedOutputStream.ComputeInt32Size(2, Number);
@@ -467,7 +467,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasResource) hash ^= resource_.GetHashCode();
+      if (hasConfigId) hash ^= configId_.GetHashCode();
       if (hasNumber) hash ^= number_.GetHashCode();
       return hash;
     }
@@ -475,7 +475,7 @@ namespace com.game.framework.protocol {
     public override bool Equals(object obj) {
       ResourceInfo other = obj as ResourceInfo;
       if (other == null) return false;
-      if (hasResource != other.hasResource || (hasResource && !resource_.Equals(other.resource_))) return false;
+      if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
       if (hasNumber != other.hasNumber || (hasNumber && !number_.Equals(other.number_))) return false;
       return true;
     }
@@ -637,8 +637,8 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(ResourceInfo other) {
         if (other == global::com.game.framework.protocol.ResourceInfo.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasResource) {
-          Resource = other.Resource;
+        if (other.HasConfigId) {
+          ConfigId = other.ConfigId;
         }
         if (other.HasNumber) {
           Number = other.Number;
@@ -676,7 +676,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 8: {
-              result.hasResource = input.ReadInt32(ref result.resource_);
+              result.hasConfigId = input.ReadInt32(ref result.configId_);
               break;
             }
             case 16: {
@@ -690,23 +690,23 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasResource {
-        get { return result.hasResource; }
+      public bool HasConfigId {
+        get { return result.hasConfigId; }
       }
-      public int Resource {
-        get { return result.Resource; }
-        set { SetResource(value); }
+      public int ConfigId {
+        get { return result.ConfigId; }
+        set { SetConfigId(value); }
       }
-      public Builder SetResource(int value) {
+      public Builder SetConfigId(int value) {
         PrepareBuilder();
-        result.hasResource = true;
-        result.resource_ = value;
+        result.hasConfigId = true;
+        result.configId_ = value;
         return this;
       }
-      public Builder ClearResource() {
+      public Builder ClearConfigId() {
         PrepareBuilder();
-        result.hasResource = false;
-        result.resource_ = 0;
+        result.hasConfigId = false;
+        result.configId_ = 0;
         return this;
       }
       

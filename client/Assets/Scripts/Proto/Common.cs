@@ -34,6 +34,7 @@ namespace com.game.framework.protocol {
     APPLYGROUP = 12,
     GETSCENEINFO = 31,
     UPGRADE = 32,
+    FINISHUPGRADE = 33,
   }
   
   public enum Error {

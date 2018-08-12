@@ -5,6 +5,8 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.game.framework.resource.data.BuildingData.BUILDING;
+import com.game.framework.resource.data.ItemResData.ITEM_RES;
 import com.game.framework.utils.ExternalStorageUtil;
 import com.game.framework.utils.ReadOnlyMap;
 import com.game.framework.utils.StringUtil;
@@ -26,8 +28,12 @@ public class StaticDataManager {
 
     private static final String DIR = "config/data/";
     
+    public ReadOnlyMap<Integer, BUILDING> buildingMap; 
+    public ReadOnlyMap<Integer, ITEM_RES> itemResMap; 
+    
     public void init() {
-        
+        buildingMap = load(BUILDING.class);
+        itemResMap = load(ITEM_RES.class);
     }
     
     @SuppressWarnings("unchecked")

@@ -7,13 +7,15 @@ import java.util.Date;
 import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.game.framework.console.constant.Constant;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.game.framework.dbcache.dao.IServerDao;
 import com.game.framework.dbcache.model.Server;
 
 public class ServerConfig {
     private static Logger logger = LoggerFactory.getLogger(ServerConfig.class);
-
+    
+    private static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
     private static Properties prop = new Properties();
     private static int restartTimes;
 
@@ -47,7 +49,7 @@ public class ServerConfig {
 
     private static void initServerSql() {
         long serverId = getServerId() * 1L;
-        IServerDao ud = (IServerDao) Constant.context.getBean("serverDao");
+        IServerDao ud = (IServerDao) context.getBean("serverDao");
         Server serverVo = ud.sqlSelectByPrimaryKey(serverId);
         if (serverVo == null) {
             serverVo = new Server();

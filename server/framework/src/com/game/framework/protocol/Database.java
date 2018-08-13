@@ -685,23 +685,23 @@ public final class Database {
   public interface ResourceInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional int32 resource = 1;
+    // optional int32 configId = 1;
     /**
-     * <code>optional int32 resource = 1;</code>
+     * <code>optional int32 configId = 1;</code>
      *
      * <pre>
-     * 资源类型枚举
+     * 资源configId
      * </pre>
      */
-    boolean hasResource();
+    boolean hasConfigId();
     /**
-     * <code>optional int32 resource = 1;</code>
+     * <code>optional int32 configId = 1;</code>
      *
      * <pre>
-     * 资源类型枚举
+     * 资源configId
      * </pre>
      */
-    int getResource();
+    int getConfigId();
 
     // optional int32 number = 2;
     /**
@@ -774,7 +774,7 @@ public final class Database {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              resource_ = input.readInt32();
+              configId_ = input.readInt32();
               break;
             }
             case 16: {
@@ -822,28 +822,28 @@ public final class Database {
     }
 
     private int bitField0_;
-    // optional int32 resource = 1;
-    public static final int RESOURCE_FIELD_NUMBER = 1;
-    private int resource_;
+    // optional int32 configId = 1;
+    public static final int CONFIGID_FIELD_NUMBER = 1;
+    private int configId_;
     /**
-     * <code>optional int32 resource = 1;</code>
+     * <code>optional int32 configId = 1;</code>
      *
      * <pre>
-     * 资源类型枚举
+     * 资源configId
      * </pre>
      */
-    public boolean hasResource() {
+    public boolean hasConfigId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional int32 resource = 1;</code>
+     * <code>optional int32 configId = 1;</code>
      *
      * <pre>
-     * 资源类型枚举
+     * 资源configId
      * </pre>
      */
-    public int getResource() {
-      return resource_;
+    public int getConfigId() {
+      return configId_;
     }
 
     // optional int32 number = 2;
@@ -871,7 +871,7 @@ public final class Database {
     }
 
     private void initFields() {
-      resource_ = 0;
+      configId_ = 0;
       number_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -887,7 +887,7 @@ public final class Database {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, resource_);
+        output.writeInt32(1, configId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, number_);
@@ -903,7 +903,7 @@ public final class Database {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, resource_);
+          .computeInt32Size(1, configId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1025,7 +1025,7 @@ public final class Database {
 
       public Builder clear() {
         super.clear();
-        resource_ = 0;
+        configId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         number_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -1060,7 +1060,7 @@ public final class Database {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.resource_ = resource_;
+        result.configId_ = configId_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -1081,8 +1081,8 @@ public final class Database {
 
       public Builder mergeFrom(com.game.framework.protocol.Database.ResourceInfo other) {
         if (other == com.game.framework.protocol.Database.ResourceInfo.getDefaultInstance()) return this;
-        if (other.hasResource()) {
-          setResource(other.getResource());
+        if (other.hasConfigId()) {
+          setConfigId(other.getConfigId());
         }
         if (other.hasNumber()) {
           setNumber(other.getNumber());
@@ -1114,51 +1114,51 @@ public final class Database {
       }
       private int bitField0_;
 
-      // optional int32 resource = 1;
-      private int resource_ ;
+      // optional int32 configId = 1;
+      private int configId_ ;
       /**
-       * <code>optional int32 resource = 1;</code>
+       * <code>optional int32 configId = 1;</code>
        *
        * <pre>
-       * 资源类型枚举
+       * 资源configId
        * </pre>
        */
-      public boolean hasResource() {
+      public boolean hasConfigId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional int32 resource = 1;</code>
+       * <code>optional int32 configId = 1;</code>
        *
        * <pre>
-       * 资源类型枚举
+       * 资源configId
        * </pre>
        */
-      public int getResource() {
-        return resource_;
+      public int getConfigId() {
+        return configId_;
       }
       /**
-       * <code>optional int32 resource = 1;</code>
+       * <code>optional int32 configId = 1;</code>
        *
        * <pre>
-       * 资源类型枚举
+       * 资源configId
        * </pre>
        */
-      public Builder setResource(int value) {
+      public Builder setConfigId(int value) {
         bitField0_ |= 0x00000001;
-        resource_ = value;
+        configId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 resource = 1;</code>
+       * <code>optional int32 configId = 1;</code>
        *
        * <pre>
-       * 资源类型枚举
+       * 资源configId
        * </pre>
        */
-      public Builder clearResource() {
+      public Builder clearConfigId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        resource_ = 0;
+        configId_ = 0;
         onChanged();
         return this;
       }
@@ -2303,7 +2303,7 @@ public final class Database {
       "\n\016database.proto\022\033com.game.framework.pro" +
       "tocol\"P\n\014UserResource\022@\n\rresourceInfos\030\001" +
       " \003(\0132).com.game.framework.protocol.Resou" +
-      "rceInfo\"0\n\014ResourceInfo\022\020\n\010resource\030\001 \001(" +
+      "rceInfo\"0\n\014ResourceInfo\022\020\n\010configId\030\001 \001(" +
       "\005\022\016\n\006number\030\002 \001(\005\"N\n\rBuildingState\022=\n\013up" +
       "gradeInfo\030\001 \001(\0132(.com.game.framework.pro" +
       "tocol.UpgradeInfo\"-\n\013UpgradeInfo\022\021\n\tupgr" +
@@ -2325,7 +2325,7 @@ public final class Database {
           internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_ResourceInfo_descriptor,
-              new java.lang.String[] { "Resource", "Number", });
+              new java.lang.String[] { "ConfigId", "Number", });
           internal_static_com_game_framework_protocol_BuildingState_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_BuildingState_fieldAccessorTable = new

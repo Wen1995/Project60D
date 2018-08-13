@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.game.framework.console.constant.Constant;
 import com.game.framework.utils.ClassUtil;
 import com.game.framework.utils.StringUtil;
@@ -25,7 +27,7 @@ public class HandlerMappingManager {
         return instance;
     }
 
-    
+    private static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
     private Map<Short, HandlerInvoker> invokerMap = new HashMap<>();
     private Map<String, HandlerRoute> routeMap = new HashMap<>();
     public void init() {
@@ -47,7 +49,7 @@ public class HandlerMappingManager {
                     HandlerMethodMapping handlerMethodMapping = m.getAnnotation(HandlerMethodMapping.class);
                     if (null != handlerMethodMapping) {
                         logger.info("[Handler Mapping] cmd:{}, m.name:{}", handlerMethodMapping.cmd(), m.getName());
-                        invokerMap.put(handlerMethodMapping.cmd(), new HandlerInvoker(m, Constant.context.getBean(className)));
+                        invokerMap.put(handlerMethodMapping.cmd(), new HandlerInvoker(m, context.getBean(className)));
                     }
                 }
             } catch (Exception e) {

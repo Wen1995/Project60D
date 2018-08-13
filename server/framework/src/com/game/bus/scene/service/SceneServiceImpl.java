@@ -9,6 +9,8 @@ import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.console.exception.BaseException;
 import com.game.framework.dbcache.dao.IBuildingDao;
 import com.game.framework.dbcache.dao.IUserDao;
+import com.game.framework.dbcache.id.IdManager;
+import com.game.framework.dbcache.id.IdType;
 import com.game.framework.dbcache.model.Building;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.Common.Cmd;
@@ -21,6 +23,7 @@ import com.game.framework.protocol.Scene.BuildingInfo;
 import com.game.framework.protocol.Scene.TCSFinishUpgrade;
 import com.game.framework.protocol.Scene.TSCFinishUpgrade;
 import com.game.framework.protocol.Scene.TSCGetSceneInfo;
+import com.game.framework.protocol.Scene.TSCUnlock;
 import com.game.framework.protocol.Scene.TSCUpgrade;
 import com.game.framework.resource.StaticDataManager;
 import com.game.framework.resource.data.BuildingData.BUILDING.CostStruct;
@@ -135,7 +138,10 @@ public class SceneServiceImpl implements SceneService {
                                 .setUid(uid)
                                 .setUpgrading(true)
                                 .build();
-                        building.setState(upgradeInfo.toByteArray());
+                        buildingState = buildingState.toBuilder()
+                                .setUpgradeInfo(upgradeInfo)
+                                .build();
+                        building.setState(buildingState.toByteArray());
                         buildingDao.update(building);
                         TimerManager timerManager = TimerManager.GetInstance();
                         String timerKey = TimerConstant.UPGRADE + buildingId;
@@ -182,6 +188,33 @@ public class SceneServiceImpl implements SceneService {
         
         TSCFinishUpgrade p = TSCFinishUpgrade.newBuilder()
                 .setBuildingId(buildingId)
+                .build();
+        TPacket resp = new TPacket();
+        resp.setUid(uid);
+        resp.setBuffer(p.toByteArray());
+        return resp;
+    }
+
+    @Override
+    public TPacket unlock(Long uid, Integer configId) throws Exception {
+        User user = userDao.get(uid);
+        Long id = IdManager.GetInstance().genId(IdType.BUILDING);
+        Building building = new Building();
+        building.setId(id);
+        building.setGroupId(user.getGroupId());
+        building.setConfigId(configId);
+        UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
+                .setUid(uid)
+                .setUpgrading(false)
+                .build();
+        BuildingState buildingState = BuildingState.newBuilder()
+                .setUpgradeInfo(upgradeInfo)
+                .build();
+        building.setState(buildingState.toByteArray());
+        buildingDao.insert(building);
+        
+        TSCUnlock p = TSCUnlock.newBuilder()
+                .setBuildingId(id)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);

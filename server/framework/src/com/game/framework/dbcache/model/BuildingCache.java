@@ -31,53 +31,43 @@ public final class BuildingCache {
      */
     long getGroupId();
 
-    // optional int32 level = 3;
+    // optional int32 configId = 3;
     /**
-     * <code>optional int32 level = 3;</code>
+     * <code>optional int32 configId = 3;</code>
      */
-    boolean hasLevel();
+    boolean hasConfigId();
     /**
-     * <code>optional int32 level = 3;</code>
+     * <code>optional int32 configId = 3;</code>
      */
-    int getLevel();
+    int getConfigId();
 
-    // optional int32 type = 4;
+    // optional int32 positionX = 4;
     /**
-     * <code>optional int32 type = 4;</code>
-     */
-    boolean hasType();
-    /**
-     * <code>optional int32 type = 4;</code>
-     */
-    int getType();
-
-    // optional int32 positionX = 5;
-    /**
-     * <code>optional int32 positionX = 5;</code>
+     * <code>optional int32 positionX = 4;</code>
      */
     boolean hasPositionX();
     /**
-     * <code>optional int32 positionX = 5;</code>
+     * <code>optional int32 positionX = 4;</code>
      */
     int getPositionX();
 
-    // optional int32 positionY = 6;
+    // optional int32 positionY = 5;
     /**
-     * <code>optional int32 positionY = 6;</code>
+     * <code>optional int32 positionY = 5;</code>
      */
     boolean hasPositionY();
     /**
-     * <code>optional int32 positionY = 6;</code>
+     * <code>optional int32 positionY = 5;</code>
      */
     int getPositionY();
 
-    // optional bytes state = 7;
+    // optional bytes state = 6;
     /**
-     * <code>optional bytes state = 7;</code>
+     * <code>optional bytes state = 6;</code>
      */
     boolean hasState();
     /**
-     * <code>optional bytes state = 7;</code>
+     * <code>optional bytes state = 6;</code>
      */
     com.google.protobuf.ByteString getState();
   }
@@ -144,26 +134,21 @@ public final class BuildingCache {
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              level_ = input.readInt32();
+              configId_ = input.readInt32();
               break;
             }
             case 32: {
               bitField0_ |= 0x00000008;
-              type_ = input.readInt32();
+              positionX_ = input.readInt32();
               break;
             }
             case 40: {
               bitField0_ |= 0x00000010;
-              positionX_ = input.readInt32();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
               positionY_ = input.readInt32();
               break;
             }
-            case 58: {
-              bitField0_ |= 0x00000040;
+            case 50: {
+              bitField0_ |= 0x00000020;
               state_ = input.readBytes();
               break;
             }
@@ -239,81 +224,65 @@ public final class BuildingCache {
       return groupId_;
     }
 
-    // optional int32 level = 3;
-    public static final int LEVEL_FIELD_NUMBER = 3;
-    private int level_;
+    // optional int32 configId = 3;
+    public static final int CONFIGID_FIELD_NUMBER = 3;
+    private int configId_;
     /**
-     * <code>optional int32 level = 3;</code>
+     * <code>optional int32 configId = 3;</code>
      */
-    public boolean hasLevel() {
+    public boolean hasConfigId() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 level = 3;</code>
+     * <code>optional int32 configId = 3;</code>
      */
-    public int getLevel() {
-      return level_;
+    public int getConfigId() {
+      return configId_;
     }
 
-    // optional int32 type = 4;
-    public static final int TYPE_FIELD_NUMBER = 4;
-    private int type_;
+    // optional int32 positionX = 4;
+    public static final int POSITIONX_FIELD_NUMBER = 4;
+    private int positionX_;
     /**
-     * <code>optional int32 type = 4;</code>
+     * <code>optional int32 positionX = 4;</code>
      */
-    public boolean hasType() {
+    public boolean hasPositionX() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional int32 type = 4;</code>
-     */
-    public int getType() {
-      return type_;
-    }
-
-    // optional int32 positionX = 5;
-    public static final int POSITIONX_FIELD_NUMBER = 5;
-    private int positionX_;
-    /**
-     * <code>optional int32 positionX = 5;</code>
-     */
-    public boolean hasPositionX() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>optional int32 positionX = 5;</code>
+     * <code>optional int32 positionX = 4;</code>
      */
     public int getPositionX() {
       return positionX_;
     }
 
-    // optional int32 positionY = 6;
-    public static final int POSITIONY_FIELD_NUMBER = 6;
+    // optional int32 positionY = 5;
+    public static final int POSITIONY_FIELD_NUMBER = 5;
     private int positionY_;
     /**
-     * <code>optional int32 positionY = 6;</code>
+     * <code>optional int32 positionY = 5;</code>
      */
     public boolean hasPositionY() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional int32 positionY = 6;</code>
+     * <code>optional int32 positionY = 5;</code>
      */
     public int getPositionY() {
       return positionY_;
     }
 
-    // optional bytes state = 7;
-    public static final int STATE_FIELD_NUMBER = 7;
+    // optional bytes state = 6;
+    public static final int STATE_FIELD_NUMBER = 6;
     private com.google.protobuf.ByteString state_;
     /**
-     * <code>optional bytes state = 7;</code>
+     * <code>optional bytes state = 6;</code>
      */
     public boolean hasState() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional bytes state = 7;</code>
+     * <code>optional bytes state = 6;</code>
      */
     public com.google.protobuf.ByteString getState() {
       return state_;
@@ -322,8 +291,7 @@ public final class BuildingCache {
     private void initFields() {
       id_ = 0L;
       groupId_ = 0L;
-      level_ = 0;
-      type_ = 0;
+      configId_ = 0;
       positionX_ = 0;
       positionY_ = 0;
       state_ = com.google.protobuf.ByteString.EMPTY;
@@ -347,19 +315,16 @@ public final class BuildingCache {
         output.writeInt64(2, groupId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, level_);
+        output.writeInt32(3, configId_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(4, type_);
+        output.writeInt32(4, positionX_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, positionX_);
+        output.writeInt32(5, positionY_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeInt32(6, positionY_);
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, state_);
+        output.writeBytes(6, state_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -380,23 +345,19 @@ public final class BuildingCache {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, level_);
+          .computeInt32Size(3, configId_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, type_);
+          .computeInt32Size(4, positionX_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, positionX_);
+          .computeInt32Size(5, positionY_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, positionY_);
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, state_);
+          .computeBytesSize(6, state_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -518,16 +479,14 @@ public final class BuildingCache {
         bitField0_ = (bitField0_ & ~0x00000001);
         groupId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        level_ = 0;
+        configId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        type_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000008);
         positionX_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         positionY_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         state_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -567,21 +526,17 @@ public final class BuildingCache {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.level_ = level_;
+        result.configId_ = configId_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.type_ = type_;
+        result.positionX_ = positionX_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.positionX_ = positionX_;
+        result.positionY_ = positionY_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
-        }
-        result.positionY_ = positionY_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000040;
         }
         result.state_ = state_;
         result.bitField0_ = to_bitField0_;
@@ -606,11 +561,8 @@ public final class BuildingCache {
         if (other.hasGroupId()) {
           setGroupId(other.getGroupId());
         }
-        if (other.hasLevel()) {
-          setLevel(other.getLevel());
-        }
-        if (other.hasType()) {
-          setType(other.getType());
+        if (other.hasConfigId()) {
+          setConfigId(other.getConfigId());
         }
         if (other.hasPositionX()) {
           setPositionX(other.getPositionX());
@@ -714,169 +666,136 @@ public final class BuildingCache {
         return this;
       }
 
-      // optional int32 level = 3;
-      private int level_ ;
+      // optional int32 configId = 3;
+      private int configId_ ;
       /**
-       * <code>optional int32 level = 3;</code>
+       * <code>optional int32 configId = 3;</code>
        */
-      public boolean hasLevel() {
+      public boolean hasConfigId() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 level = 3;</code>
+       * <code>optional int32 configId = 3;</code>
        */
-      public int getLevel() {
-        return level_;
+      public int getConfigId() {
+        return configId_;
       }
       /**
-       * <code>optional int32 level = 3;</code>
+       * <code>optional int32 configId = 3;</code>
        */
-      public Builder setLevel(int value) {
+      public Builder setConfigId(int value) {
         bitField0_ |= 0x00000004;
-        level_ = value;
+        configId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 level = 3;</code>
+       * <code>optional int32 configId = 3;</code>
        */
-      public Builder clearLevel() {
+      public Builder clearConfigId() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        level_ = 0;
+        configId_ = 0;
         onChanged();
         return this;
       }
 
-      // optional int32 type = 4;
-      private int type_ ;
+      // optional int32 positionX = 4;
+      private int positionX_ ;
       /**
-       * <code>optional int32 type = 4;</code>
+       * <code>optional int32 positionX = 4;</code>
        */
-      public boolean hasType() {
+      public boolean hasPositionX() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional int32 type = 4;</code>
-       */
-      public int getType() {
-        return type_;
-      }
-      /**
-       * <code>optional int32 type = 4;</code>
-       */
-      public Builder setType(int value) {
-        bitField0_ |= 0x00000008;
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 type = 4;</code>
-       */
-      public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        type_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 positionX = 5;
-      private int positionX_ ;
-      /**
-       * <code>optional int32 positionX = 5;</code>
-       */
-      public boolean hasPositionX() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>optional int32 positionX = 5;</code>
+       * <code>optional int32 positionX = 4;</code>
        */
       public int getPositionX() {
         return positionX_;
       }
       /**
-       * <code>optional int32 positionX = 5;</code>
+       * <code>optional int32 positionX = 4;</code>
        */
       public Builder setPositionX(int value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         positionX_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 positionX = 5;</code>
+       * <code>optional int32 positionX = 4;</code>
        */
       public Builder clearPositionX() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         positionX_ = 0;
         onChanged();
         return this;
       }
 
-      // optional int32 positionY = 6;
+      // optional int32 positionY = 5;
       private int positionY_ ;
       /**
-       * <code>optional int32 positionY = 6;</code>
+       * <code>optional int32 positionY = 5;</code>
        */
       public boolean hasPositionY() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional int32 positionY = 6;</code>
+       * <code>optional int32 positionY = 5;</code>
        */
       public int getPositionY() {
         return positionY_;
       }
       /**
-       * <code>optional int32 positionY = 6;</code>
+       * <code>optional int32 positionY = 5;</code>
        */
       public Builder setPositionY(int value) {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000010;
         positionY_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 positionY = 6;</code>
+       * <code>optional int32 positionY = 5;</code>
        */
       public Builder clearPositionY() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         positionY_ = 0;
         onChanged();
         return this;
       }
 
-      // optional bytes state = 7;
+      // optional bytes state = 6;
       private com.google.protobuf.ByteString state_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes state = 7;</code>
+       * <code>optional bytes state = 6;</code>
        */
       public boolean hasState() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional bytes state = 7;</code>
+       * <code>optional bytes state = 6;</code>
        */
       public com.google.protobuf.ByteString getState() {
         return state_;
       }
       /**
-       * <code>optional bytes state = 7;</code>
+       * <code>optional bytes state = 6;</code>
        */
       public Builder setState(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000020;
         state_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes state = 7;</code>
+       * <code>optional bytes state = 6;</code>
        */
       public Builder clearState() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000020);
         state_ = getDefaultInstance().getState();
         onChanged();
         return this;
@@ -908,10 +827,10 @@ public final class BuildingCache {
   static {
     java.lang.String[] descriptorData = {
       "\n\023BuildingCache.proto\022 com.game.framewor" +
-      "k.dbcache.model\"~\n\rProtoBuilding\022\n\n\002id\030\001" +
-      " \001(\003\022\017\n\007groupId\030\002 \001(\003\022\r\n\005level\030\003 \001(\005\022\014\n\004" +
-      "type\030\004 \001(\005\022\021\n\tpositionX\030\005 \001(\005\022\021\n\tpositio" +
-      "nY\030\006 \001(\005\022\r\n\005state\030\007 \001(\014B\002H\001"
+      "k.dbcache.model\"s\n\rProtoBuilding\022\n\n\002id\030\001" +
+      " \001(\003\022\017\n\007groupId\030\002 \001(\003\022\020\n\010configId\030\003 \001(\005\022" +
+      "\021\n\tpositionX\030\004 \001(\005\022\021\n\tpositionY\030\005 \001(\005\022\r\n" +
+      "\005state\030\006 \001(\014B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -923,7 +842,7 @@ public final class BuildingCache {
           internal_static_com_game_framework_dbcache_model_ProtoBuilding_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_dbcache_model_ProtoBuilding_descriptor,
-              new java.lang.String[] { "Id", "GroupId", "Level", "Type", "PositionX", "PositionY", "State", });
+              new java.lang.String[] { "Id", "GroupId", "ConfigId", "PositionX", "PositionY", "State", });
           return null;
         }
       };

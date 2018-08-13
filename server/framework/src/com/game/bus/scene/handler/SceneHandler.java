@@ -11,6 +11,7 @@ import com.game.framework.console.GateServer;
 import com.game.bus.scene.service.SceneService;
 import com.game.framework.protocol.Scene.TCSUpgrade;
 import com.game.framework.protocol.Scene.TCSFinishUpgrade;
+import com.game.framework.protocol.Scene.TCSUnlock;
 import com.game.framework.protocol.Scene.TCSGetSceneInfo;
 
 @Controller
@@ -36,6 +37,16 @@ public class SceneHandler {
 		Long buildingId = msg.getBuildingId();		
 		TPacket resp = service.finishUpgrade(p.getUid(), buildingId);
 		resp.setCmd(Cmd.FINISHUPGRADE_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 解锁建筑 */
+	@HandlerMethodMapping(cmd = Cmd.UNLOCK_VALUE)
+	public void unlock(TPacket p) throws Exception {
+		TCSUnlock msg = TCSUnlock.parseFrom(p.getBuffer());
+		Integer configId = msg.getConfigId();		
+		TPacket resp = service.unlock(p.getUid(), configId);
+		resp.setCmd(Cmd.UNLOCK_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}
 

@@ -2459,6 +2459,638 @@ namespace com.game.framework.protocol {
     }
   }
   
+  public sealed partial class TCSUnlock : pb::GeneratedMessageLite<TCSUnlock, TCSUnlock.Builder> {
+    private TCSUnlock() { }
+    private static readonly TCSUnlock defaultInstance = new TCSUnlock().MakeReadOnly();
+    private static readonly string[] _tCSUnlockFieldNames = new string[] { "configId" };
+    private static readonly uint[] _tCSUnlockFieldTags = new uint[] { 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TCSUnlock DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TCSUnlock ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ConfigIdFieldNumber = 1;
+    private bool hasConfigId;
+    private int configId_;
+    public bool HasConfigId {
+      get { return hasConfigId; }
+    }
+    public int ConfigId {
+      get { return configId_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tCSUnlockFieldNames;
+      if (hasConfigId) {
+        output.WriteInt32(1, field_names[0], ConfigId);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasConfigId) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, ConfigId);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasConfigId) hash ^= configId_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TCSUnlock other = obj as TCSUnlock;
+      if (other == null) return false;
+      if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSUnlock ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TCSUnlock MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TCSUnlock prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSUnlock, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TCSUnlock cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TCSUnlock result;
+      
+      private TCSUnlock PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TCSUnlock original = result;
+          result = new TCSUnlock();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TCSUnlock MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TCSUnlock DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TCSUnlock.DefaultInstance; }
+      }
+      
+      public override TCSUnlock BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TCSUnlock) {
+          return MergeFrom((TCSUnlock) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TCSUnlock other) {
+        if (other == global::com.game.framework.protocol.TCSUnlock.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasConfigId) {
+          ConfigId = other.ConfigId;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tCSUnlockFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tCSUnlockFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasConfigId = input.ReadInt32(ref result.configId_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasConfigId {
+        get { return result.hasConfigId; }
+      }
+      public int ConfigId {
+        get { return result.ConfigId; }
+        set { SetConfigId(value); }
+      }
+      public Builder SetConfigId(int value) {
+        PrepareBuilder();
+        result.hasConfigId = true;
+        result.configId_ = value;
+        return this;
+      }
+      public Builder ClearConfigId() {
+        PrepareBuilder();
+        result.hasConfigId = false;
+        result.configId_ = 0;
+        return this;
+      }
+    }
+    static TCSUnlock() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TSCUnlock : pb::GeneratedMessageLite<TSCUnlock, TSCUnlock.Builder> {
+    private TSCUnlock() { }
+    private static readonly TSCUnlock defaultInstance = new TSCUnlock().MakeReadOnly();
+    private static readonly string[] _tSCUnlockFieldNames = new string[] { "buildingId" };
+    private static readonly uint[] _tSCUnlockFieldTags = new uint[] { 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TSCUnlock DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TSCUnlock ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BuildingIdFieldNumber = 1;
+    private bool hasBuildingId;
+    private long buildingId_;
+    public bool HasBuildingId {
+      get { return hasBuildingId; }
+    }
+    public long BuildingId {
+      get { return buildingId_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tSCUnlockFieldNames;
+      if (hasBuildingId) {
+        output.WriteInt64(1, field_names[0], BuildingId);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasBuildingId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, BuildingId);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasBuildingId) hash ^= buildingId_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TSCUnlock other = obj as TSCUnlock;
+      if (other == null) return false;
+      if (hasBuildingId != other.hasBuildingId || (hasBuildingId && !buildingId_.Equals(other.buildingId_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCUnlock ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TSCUnlock MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TSCUnlock prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCUnlock, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TSCUnlock cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TSCUnlock result;
+      
+      private TSCUnlock PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TSCUnlock original = result;
+          result = new TSCUnlock();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TSCUnlock MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TSCUnlock DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TSCUnlock.DefaultInstance; }
+      }
+      
+      public override TSCUnlock BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TSCUnlock) {
+          return MergeFrom((TSCUnlock) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TSCUnlock other) {
+        if (other == global::com.game.framework.protocol.TSCUnlock.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasBuildingId) {
+          BuildingId = other.BuildingId;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tSCUnlockFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tSCUnlockFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasBuildingId = input.ReadInt64(ref result.buildingId_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasBuildingId {
+        get { return result.hasBuildingId; }
+      }
+      public long BuildingId {
+        get { return result.BuildingId; }
+        set { SetBuildingId(value); }
+      }
+      public Builder SetBuildingId(long value) {
+        PrepareBuilder();
+        result.hasBuildingId = true;
+        result.buildingId_ = value;
+        return this;
+      }
+      public Builder ClearBuildingId() {
+        PrepareBuilder();
+        result.hasBuildingId = false;
+        result.buildingId_ = 0L;
+        return this;
+      }
+    }
+    static TSCUnlock() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+    }
+  }
+  
   #endregion
   
 }

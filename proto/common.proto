@@ -25,6 +25,8 @@ enum Cmd {
 	UPGRADE = 32;
 	// 完成升级
 	FINISHUPGRADE = 33;
+	// 解锁建筑
+	UNLOCK = 34;
 }
 
 enum Error {

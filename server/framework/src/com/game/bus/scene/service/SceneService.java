@@ -10,6 +10,9 @@ public interface SceneService {
 	/** 完成升级 */
 	TPacket finishUpgrade(Long uid, Long buildingId) throws Exception;
 
+	/** 解锁建筑 */
+	TPacket unlock(Long uid, Integer configId) throws Exception;
+
 	/** 场景信息 */
 	TPacket getSceneInfo(Long uid) throws Exception;
 }

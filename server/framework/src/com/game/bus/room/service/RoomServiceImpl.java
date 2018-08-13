@@ -30,6 +30,10 @@ public class RoomServiceImpl implements RoomService {
         group.setTotalContribution(user.getContribution());
         groupDao.insert(group);
         
+        user.setGroupId(id);
+        userDao.bindWithGroupId(uid, id);
+        userDao.update(user);
+        
         TSCCreateGroup p = TSCCreateGroup.newBuilder()
                 .setGroupId(id)
                 .build();
@@ -51,6 +55,11 @@ public class RoomServiceImpl implements RoomService {
                 full = false;
                 group.setPeopleNumber(number + 1);
                 groupDao.update(group);
+                
+                User user = userDao.get(uid);
+                user.setGroupId(groupId);
+                userDao.bindWithGroupId(uid, groupId);
+                userDao.update(user);
             }
         }
         TSCApplyGroup p = TSCApplyGroup.newBuilder()

@@ -32,4 +32,6 @@ message UpgradeInfo {
 message ReceiveInfo {
 	// 上次领取时间
 	optional int64 lastReceiveTime = 1;
+	// 领取人
+	optional int64 uid = 2;
 }

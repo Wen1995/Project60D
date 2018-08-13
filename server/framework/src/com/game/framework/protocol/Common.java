@@ -92,6 +92,14 @@ public final class Common {
      * </pre>
      */
     UNLOCK(9, 34),
+    /**
+     * <code>FINISHUNLOCK = 35;</code>
+     *
+     * <pre>
+     * 完成解锁
+     * </pre>
+     */
+    FINISHUNLOCK(10, 35),
     ;
 
     /**
@@ -173,6 +181,14 @@ public final class Common {
      * </pre>
      */
     public static final int UNLOCK_VALUE = 34;
+    /**
+     * <code>FINISHUNLOCK = 35;</code>
+     *
+     * <pre>
+     * 完成解锁
+     * </pre>
+     */
+    public static final int FINISHUNLOCK_VALUE = 35;
 
 
     public final int getNumber() { return value; }
@@ -189,6 +205,7 @@ public final class Common {
         case 32: return UPGRADE;
         case 33: return FINISHUPGRADE;
         case 34: return UNLOCK;
+        case 35: return FINISHUNLOCK;
         default: return null;
       }
     }
@@ -269,6 +286,14 @@ public final class Common {
      * </pre>
      */
     NO_BUILDING(2, 3),
+    /**
+     * <code>LEVEL_OVER = 4;</code>
+     *
+     * <pre>
+     * 等级超过上限
+     * </pre>
+     */
+    LEVEL_OVER(3, 4),
     ;
 
     /**
@@ -295,6 +320,14 @@ public final class Common {
      * </pre>
      */
     public static final int NO_BUILDING_VALUE = 3;
+    /**
+     * <code>LEVEL_OVER = 4;</code>
+     *
+     * <pre>
+     * 等级超过上限
+     * </pre>
+     */
+    public static final int LEVEL_OVER_VALUE = 4;
 
 
     public final int getNumber() { return value; }
@@ -304,6 +337,7 @@ public final class Common {
         case 1: return SERVER_ERR;
         case 2: return RIGHT_HANDLE;
         case 3: return NO_BUILDING;
+        case 4: return LEVEL_OVER;
         default: return null;
       }
     }
@@ -769,19 +803,20 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\227\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
+      "col*\251\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
       "OUT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREATEGROUP\020\013\022" +
       "\016\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO\020\037\022\013\n\007UPG" +
-      "RADE\020 \022\021\n\rFINISHUPGRADE\020!\022\n\n\006UNLOCK\020\"*:\n" +
-      "\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_HANDLE\020\002" +
-      "\022\017\n\013NO_BUILDING\020\003*\236\002\n\010Resource\022\010\n\004RICE\020\001" +
-      "\022\016\n\nVEGETABLES\020\002\022\t\n\005FRUIT\020\003\022\t\n\005GRASS\020\004\022\013" +
-      "\n\007PIGFOOD\020\005\022\010\n\004PORK\020\006\022\t\n\005CRUDE\020\007\022\014\n\010GASO" +
-      "LINE\020\010\022\010\n\004IRON\020\t\022\t\n\005STEEL\020\n\022\010\n\004PINE\020\013\022\016\n",
-      "\nWHITEBIRCH\020\014\022\r\n\tIRONBIRCH\020\r\022\r\n\tPINEBOAR" +
-      "D\020\016\022\023\n\017WHITEBIRCHBOARD\020\017\022\022\n\016IRONBIRCHBOA" +
-      "RD\020\020\022\r\n\tPUREWATER\020\021\022\020\n\014MINERALWATER\020\022\022\017\n" +
-      "\013ELECTRICITY\020\023\022\n\n\006BULLET\020\024B\002H\001"
+      "RADE\020 \022\021\n\rFINISHUPGRADE\020!\022\n\n\006UNLOCK\020\"\022\020\n" +
+      "\014FINISHUNLOCK\020#*J\n\005Error\022\016\n\nSERVER_ERR\020\001" +
+      "\022\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nL" +
+      "EVEL_OVER\020\004*\236\002\n\010Resource\022\010\n\004RICE\020\001\022\016\n\nVE" +
+      "GETABLES\020\002\022\t\n\005FRUIT\020\003\022\t\n\005GRASS\020\004\022\013\n\007PIGF" +
+      "OOD\020\005\022\010\n\004PORK\020\006\022\t\n\005CRUDE\020\007\022\014\n\010GASOLINE\020\010",
+      "\022\010\n\004IRON\020\t\022\t\n\005STEEL\020\n\022\010\n\004PINE\020\013\022\016\n\nWHITE" +
+      "BIRCH\020\014\022\r\n\tIRONBIRCH\020\r\022\r\n\tPINEBOARD\020\016\022\023\n" +
+      "\017WHITEBIRCHBOARD\020\017\022\022\n\016IRONBIRCHBOARD\020\020\022\r" +
+      "\n\tPUREWATER\020\021\022\020\n\014MINERALWATER\020\022\022\017\n\013ELECT" +
+      "RICITY\020\023\022\n\n\006BULLET\020\024B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

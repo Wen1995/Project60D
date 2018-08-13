@@ -11,4 +11,6 @@ public interface IUserDao extends IBaseDao<User, UserMapper, UserExample> {
 
     List<User> getPageList(int currentPage);
     
+    void bindWithGroupId(Long id, Long groupId);
+    
 }

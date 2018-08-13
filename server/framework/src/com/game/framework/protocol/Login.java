@@ -557,6 +557,24 @@ public final class Login {
      * </pre>
      */
     long getSystemCurrentTime();
+
+    // optional bool isHaveGroup = 3;
+    /**
+     * <code>optional bool isHaveGroup = 3;</code>
+     *
+     * <pre>
+     * 是否有groupId
+     * </pre>
+     */
+    boolean hasIsHaveGroup();
+    /**
+     * <code>optional bool isHaveGroup = 3;</code>
+     *
+     * <pre>
+     * 是否有groupId
+     * </pre>
+     */
+    boolean getIsHaveGroup();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCLogin}
@@ -617,6 +635,11 @@ public final class Login {
             case 16: {
               bitField0_ |= 0x00000002;
               systemCurrentTime_ = input.readInt64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              isHaveGroup_ = input.readBool();
               break;
             }
           }
@@ -699,9 +722,34 @@ public final class Login {
       return systemCurrentTime_;
     }
 
+    // optional bool isHaveGroup = 3;
+    public static final int ISHAVEGROUP_FIELD_NUMBER = 3;
+    private boolean isHaveGroup_;
+    /**
+     * <code>optional bool isHaveGroup = 3;</code>
+     *
+     * <pre>
+     * 是否有groupId
+     * </pre>
+     */
+    public boolean hasIsHaveGroup() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bool isHaveGroup = 3;</code>
+     *
+     * <pre>
+     * 是否有groupId
+     * </pre>
+     */
+    public boolean getIsHaveGroup() {
+      return isHaveGroup_;
+    }
+
     private void initFields() {
       uid_ = 0L;
       systemCurrentTime_ = 0L;
+      isHaveGroup_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -721,6 +769,9 @@ public final class Login {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt64(2, systemCurrentTime_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(3, isHaveGroup_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -737,6 +788,10 @@ public final class Login {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, systemCurrentTime_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, isHaveGroup_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -858,6 +913,8 @@ public final class Login {
         bitField0_ = (bitField0_ & ~0x00000001);
         systemCurrentTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
+        isHaveGroup_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -894,6 +951,10 @@ public final class Login {
           to_bitField0_ |= 0x00000002;
         }
         result.systemCurrentTime_ = systemCurrentTime_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.isHaveGroup_ = isHaveGroup_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -915,6 +976,9 @@ public final class Login {
         }
         if (other.hasSystemCurrentTime()) {
           setSystemCurrentTime(other.getSystemCurrentTime());
+        }
+        if (other.hasIsHaveGroup()) {
+          setIsHaveGroup(other.getIsHaveGroup());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1021,6 +1085,55 @@ public final class Login {
       public Builder clearSystemCurrentTime() {
         bitField0_ = (bitField0_ & ~0x00000002);
         systemCurrentTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional bool isHaveGroup = 3;
+      private boolean isHaveGroup_ ;
+      /**
+       * <code>optional bool isHaveGroup = 3;</code>
+       *
+       * <pre>
+       * 是否有groupId
+       * </pre>
+       */
+      public boolean hasIsHaveGroup() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional bool isHaveGroup = 3;</code>
+       *
+       * <pre>
+       * 是否有groupId
+       * </pre>
+       */
+      public boolean getIsHaveGroup() {
+        return isHaveGroup_;
+      }
+      /**
+       * <code>optional bool isHaveGroup = 3;</code>
+       *
+       * <pre>
+       * 是否有groupId
+       * </pre>
+       */
+      public Builder setIsHaveGroup(boolean value) {
+        bitField0_ |= 0x00000004;
+        isHaveGroup_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool isHaveGroup = 3;</code>
+       *
+       * <pre>
+       * 是否有groupId
+       * </pre>
+       */
+      public Builder clearIsHaveGroup() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        isHaveGroup_ = false;
         onChanged();
         return this;
       }
@@ -2431,11 +2544,11 @@ public final class Login {
   static {
     java.lang.String[] descriptorData = {
       "\n\013login.proto\022\033com.game.framework.protoc" +
-      "ol\"\033\n\010TCSLogin\022\017\n\007account\030\001 \001(\t\"2\n\010TSCLo" +
+      "ol\"\033\n\010TCSLogin\022\017\n\007account\030\001 \001(\t\"G\n\010TSCLo" +
       "gin\022\013\n\003uid\030\001 \001(\003\022\031\n\021systemCurrentTime\030\002 " +
-      "\001(\003\"\013\n\tTCSLogout\"\013\n\tTSCLogout\"\020\n\016TCSGetU" +
-      "serInfo\"!\n\016TSCGetUserInfo\022\017\n\007groupId\030\001 \001" +
-      "(\003B\002H\001"
+      "\001(\003\022\023\n\013isHaveGroup\030\003 \001(\010\"\013\n\tTCSLogout\"\013\n" +
+      "\tTSCLogout\"\020\n\016TCSGetUserInfo\"!\n\016TSCGetUs" +
+      "erInfo\022\017\n\007groupId\030\001 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2453,7 +2566,7 @@ public final class Login {
           internal_static_com_game_framework_protocol_TSCLogin_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCLogin_descriptor,
-              new java.lang.String[] { "Uid", "SystemCurrentTime", });
+              new java.lang.String[] { "Uid", "SystemCurrentTime", "IsHaveGroup", });
           internal_static_com_game_framework_protocol_TCSLogout_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_TCSLogout_fieldAccessorTable = new

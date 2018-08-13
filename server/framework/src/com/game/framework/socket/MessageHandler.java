@@ -19,6 +19,7 @@ public class MessageHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         TPacket p = (TPacket) msg;
+        logger.info("[TPacket CMD] {}", Cmd.valueOf(p.getCmd()));
         if (p.getCmd() == Cmd.LOGIN_VALUE) {
             p.setChannel(ctx.channel());
         } else {

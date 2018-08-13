@@ -27,4 +27,9 @@ public class UserDao extends BaseDao<User, UserMapper, UserExample> implements I
         return sqlSelectByExample(example);
     }
 
+    @Override
+    public void bindWithGroupId(Long id, Long groupId) {
+        String redisKey = getGroupIdCacheKey(pojoClazz.getSimpleName(), groupId);
+        redisUtil.hashSet(redisKey, id.toString(), "");
+    }
 }

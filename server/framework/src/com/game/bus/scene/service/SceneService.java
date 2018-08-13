@@ -13,6 +13,9 @@ public interface SceneService {
 	/** 解锁建筑 */
 	TPacket unlock(Long uid, Integer configId) throws Exception;
 
+	/** 完成解锁 */
+	TPacket finishUnlock(Long uid, Long buildingId) throws Exception;
+
 	/** 场景信息 */
 	TPacket getSceneInfo(Long uid) throws Exception;
 }

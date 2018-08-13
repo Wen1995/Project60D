@@ -1521,8 +1521,8 @@ namespace com.game.framework.protocol {
   public sealed partial class ReceiveInfo : pb::GeneratedMessageLite<ReceiveInfo, ReceiveInfo.Builder> {
     private ReceiveInfo() { }
     private static readonly ReceiveInfo defaultInstance = new ReceiveInfo().MakeReadOnly();
-    private static readonly string[] _receiveInfoFieldNames = new string[] { "lastReceiveTime" };
-    private static readonly uint[] _receiveInfoFieldTags = new uint[] { 8 };
+    private static readonly string[] _receiveInfoFieldNames = new string[] { "lastReceiveTime", "uid" };
+    private static readonly uint[] _receiveInfoFieldTags = new uint[] { 8, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -1555,6 +1555,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int UidFieldNumber = 2;
+    private bool hasUid;
+    private long uid_;
+    public bool HasUid {
+      get { return hasUid; }
+    }
+    public long Uid {
+      get { return uid_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -1572,6 +1585,9 @@ namespace com.game.framework.protocol {
       if (hasLastReceiveTime) {
         output.WriteInt64(1, field_names[0], LastReceiveTime);
       }
+      if (hasUid) {
+        output.WriteInt64(2, field_names[1], Uid);
+      }
     }
     
     private int memoizedSerializedSize = -1;
@@ -1587,6 +1603,9 @@ namespace com.game.framework.protocol {
         if (hasLastReceiveTime) {
           size += pb::CodedOutputStream.ComputeInt64Size(1, LastReceiveTime);
         }
+        if (hasUid) {
+          size += pb::CodedOutputStream.ComputeInt64Size(2, Uid);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -1596,6 +1615,7 @@ namespace com.game.framework.protocol {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasLastReceiveTime) hash ^= lastReceiveTime_.GetHashCode();
+      if (hasUid) hash ^= uid_.GetHashCode();
       return hash;
     }
     
@@ -1603,6 +1623,7 @@ namespace com.game.framework.protocol {
       ReceiveInfo other = obj as ReceiveInfo;
       if (other == null) return false;
       if (hasLastReceiveTime != other.hasLastReceiveTime || (hasLastReceiveTime && !lastReceiveTime_.Equals(other.lastReceiveTime_))) return false;
+      if (hasUid != other.hasUid || (hasUid && !uid_.Equals(other.uid_))) return false;
       return true;
     }
     
@@ -1766,6 +1787,9 @@ namespace com.game.framework.protocol {
         if (other.HasLastReceiveTime) {
           LastReceiveTime = other.LastReceiveTime;
         }
+        if (other.HasUid) {
+          Uid = other.Uid;
+        }
         return this;
       }
       
@@ -1802,6 +1826,10 @@ namespace com.game.framework.protocol {
               result.hasLastReceiveTime = input.ReadInt64(ref result.lastReceiveTime_);
               break;
             }
+            case 16: {
+              result.hasUid = input.ReadInt64(ref result.uid_);
+              break;
+            }
           }
         }
         
@@ -1826,6 +1854,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasLastReceiveTime = false;
         result.lastReceiveTime_ = 0L;
+        return this;
+      }
+      
+      public bool HasUid {
+        get { return result.hasUid; }
+      }
+      public long Uid {
+        get { return result.Uid; }
+        set { SetUid(value); }
+      }
+      public Builder SetUid(long value) {
+        PrepareBuilder();
+        result.hasUid = true;
+        result.uid_ = value;
+        return this;
+      }
+      public Builder ClearUid() {
+        PrepareBuilder();
+        result.hasUid = false;
+        result.uid_ = 0L;
         return this;
       }
     }

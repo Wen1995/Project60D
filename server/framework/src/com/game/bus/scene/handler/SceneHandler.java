@@ -12,6 +12,7 @@ import com.game.bus.scene.service.SceneService;
 import com.game.framework.protocol.Scene.TCSUpgrade;
 import com.game.framework.protocol.Scene.TCSFinishUpgrade;
 import com.game.framework.protocol.Scene.TCSUnlock;
+import com.game.framework.protocol.Scene.TCSFinishUnlock;
 import com.game.framework.protocol.Scene.TCSGetSceneInfo;
 
 @Controller
@@ -47,6 +48,16 @@ public class SceneHandler {
 		Integer configId = msg.getConfigId();		
 		TPacket resp = service.unlock(p.getUid(), configId);
 		resp.setCmd(Cmd.UNLOCK_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 完成解锁 */
+	@HandlerMethodMapping(cmd = Cmd.FINISHUNLOCK_VALUE)
+	public void finishUnlock(TPacket p) throws Exception {
+		TCSFinishUnlock msg = TCSFinishUnlock.parseFrom(p.getBuffer());
+		Long buildingId = msg.getBuildingId();		
+		TPacket resp = service.finishUnlock(p.getUid(), buildingId);
+		resp.setCmd(Cmd.FINISHUNLOCK_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}
 

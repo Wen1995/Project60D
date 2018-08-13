@@ -497,15 +497,15 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
         return builder.toString();
     }
 
-    private String getCacheKey(String tb, Long id) {
+    public String getCacheKey(String tb, Long id) {
         return tb + SPLIT + id;
     }
     
-    private String getUIDCacheKey(String tb, Long id) {
+    public String getUIDCacheKey(String tb, Long id) {
         return tb + UID_SPLIT + id;
     }
     
-    private String getGroupIdCacheKey(String tb, Long id) {
+    public String getGroupIdCacheKey(String tb, Long id) {
         return tb + GROUP_SPLIT + id;
     }
 }

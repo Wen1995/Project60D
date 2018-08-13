@@ -68,20 +68,22 @@ message BUILDING{
 (个) */
     optional int32 max_labor_uk = 15 [default = 0];
     /** 建筑功能表名 */
-    optional string bldg_func_table_name = 16 [default = ""];
+    optional int32 pro_id = 16 [default = 0];
+    /** 建筑功能表名 */
+    optional string bldg_func_table_name = 17 [default = ""];
     /** 建筑功能表索引ID */
-    optional int32 bldg_func_table_id = 17 [default = 0];
+    optional int32 bldg_func_table_id = 18 [default = 0];
     /** 庄园势力限制 */
-    optional int32 bldg_strength_lim = 18 [default = 0];
+    optional int32 bldg_strength_lim = 19 [default = 0];
     /** 增加公司实力 */
-    optional int32 bldg_strength_add = 19 [default = 0];
+    optional int32 bldg_strength_add = 20 [default = 0];
     /** 消耗时间
 (秒) */
-    optional int32 time_cost = 20 [default = 0];
+    optional int32 time_cost = 21 [default = 0];
     /** 消耗黄金 */
-    optional int32 gold_cost = 21 [default = 0];
+    optional int32 gold_cost = 22 [default = 0];
     /** 消耗电力 */
-    optional int32 elec_cost = 22 [default = 0];
+    optional int32 elec_cost = 23 [default = 0];
 
     message CostStruct{
         /** 消耗ID */
@@ -91,7 +93,7 @@ message BUILDING{
         optional int32 cost_qty = 2 [default = 0];
     }
 
-    repeated CostStruct cost_table = 23;
+    repeated CostStruct cost_table = 24;
 }
 
 message BUILDING_ARRAY {

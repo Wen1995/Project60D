@@ -1,0 +1,20 @@
+/**
+* @file:   proto/songshu_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message SONGSHU{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 生长速度 */
+    optional int32 songshu_spd = 2 [default = 0];
+    /** 单次最高产量 */
+    optional int32 songshu_cap = 3 [default = 0];
+}
+
+message SONGSHU_ARRAY {
+    repeated SONGSHU items = 1;
+}

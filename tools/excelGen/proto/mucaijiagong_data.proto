@@ -1,0 +1,20 @@
+/**
+* @file:   proto/mucaijiagong_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message MUCAIJIAGONG{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 加工速度 */
+    optional int32 mucai_spd = 2 [default = 0];
+    /** 最大加工量 */
+    optional int32 mucai_cap = 3 [default = 0];
+}
+
+message MUCAIJIAGONG_ARRAY {
+    repeated MUCAIJIAGONG items = 1;
+}

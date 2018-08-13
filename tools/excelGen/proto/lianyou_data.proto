@@ -1,0 +1,20 @@
+/**
+* @file:   proto/lianyou_data.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message LIANYOU{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 炼油速度 */
+    optional int32 lianyou_spd = 2 [default = 0];
+    /** 最高炼油量 */
+    optional int32 lianyou_cap = 3 [default = 0];
+}
+
+message LIANYOU_ARRAY {
+    repeated LIANYOU items = 1;
+}

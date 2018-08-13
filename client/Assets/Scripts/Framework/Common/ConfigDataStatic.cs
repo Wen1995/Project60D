@@ -4,47 +4,44 @@ using UnityEngine;
 using System.Xml.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
-[System.Serializable]
-public class ConfigData
-{
-    public SerializableDictionary<string, int> VAR;
-    //public object[,] mData;
-    public object[][] mData;
-
-    public ConfigData()
-    {
-        VAR = new SerializableDictionary<string, int>();
-    }
-}
+using com.game.framework.resource.data;
+using ICSharpCode.SharpZipLib.GZip;
+using ICSharpCode.SharpZipLib.Zip;
+using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
+using System;
+using System.Reflection;
 
 public class ConfigDataStatic{
 
-    static Dictionary<string, ConfigData> mConfigMap = new Dictionary<string, ConfigData>();
+    static Dictionary<string, object> mConfigMap = new Dictionary<string, object>();
     /// <summary>
     /// Deserilize all config data ,load to memory 
     /// You should do this once when loading the game
     /// </summary>
     public static void LoadAllConfigData()
     {
-        TextAsset[] assets = Resources.LoadAll<TextAsset>("StaticData/");
+        TextAsset[] assets = Resources.LoadAll<TextAsset>("ConfigData/");
         BinaryFormatter formatter = new BinaryFormatter();
-        //Object obj = Resources.Load<TextAsset>("StaticData/test");
-        //Debug.Log(obj.name);
+        System.IO.MemoryStream formatStream = new System.IO.MemoryStream();
         foreach (TextAsset asset in assets)
         {
-            //Deserialize binary file
-            ConfigData data = null;
-            Stream stream = new System.IO.MemoryStream(asset.bytes);
-            data = formatter.Deserialize(stream) as ConfigData;
-            //Save ConfigData
-            mConfigMap.Add(asset.name, data);
+            //get proto class by reflection
+            string name = asset.name;
+            Type type = Type.GetType("com.game.framework.resource.data." + asset.name.ToUpper() + "_ARRAY");
+            if (type == null) continue;
+            //decompress binary data
+            byte[] zlibData = new byte[asset.bytes.Length - 8];
+            Array.Copy(asset.bytes, 8, zlibData, 0, zlibData.Length);
+            byte[] deCompressedData = CompressionUtil.DecompressZLIB(zlibData);
+            //deserialize decompressed binary
+            object resClass = type.GetMethod("ParseFrom", BindingFlags.Static | BindingFlags.Public, null, new[] { typeof(byte[])}, null).Invoke(null, new object[] { deCompressedData });
+            mConfigMap.Add(asset.name.ToUpper(), resClass);
         }
     }
 
-    public static ConfigData RetrieveConfigData(string name)
+    public static T RetrieveConfigData<T>(string name)
     {
-        if (!mConfigMap.ContainsKey(name)) return null;
-        return mConfigMap[name];
+        if (!mConfigMap.ContainsKey(name)) return default(T);
+        return (T)Convert.ChangeType(mConfigMap[name], typeof(T));
     }
 }

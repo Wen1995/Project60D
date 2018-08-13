@@ -17,10 +17,4 @@ public class SLoadingController : Controller {
     {
         ConfigDataStatic.LoadAllConfigData();
     }
-
-    void RPCGetUserData()
-    { }
-
-    void RPCGetBuildingData()
-    { }
 }

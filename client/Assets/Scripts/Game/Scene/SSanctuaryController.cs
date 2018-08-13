@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using com.game.framework.protocol;
+using com.game.framework.resource.data;
 using UnityEngine;
 
 public class SSanctuaryController : SceneController
@@ -31,11 +32,19 @@ public class SSanctuaryController : SceneController
     //actually do something
     public void Start()
     {
-        FacadeSingleton.Instance.OverlayerPanel("UIMenuPanel");
-        FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
+        //FacadeSingleton.Instance.OverlayerPanel("UIMenuPanel");
+        //FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
         //AddBuildingEvent();
+        BUILDING_ARRAY array = ConfigDataStatic.RetrieveConfigData<BUILDING_ARRAY>("BUILDING");
+        for (int i = 0; i < array.ItemsCount; i++)
+        {
+            print(array.GetItems(i).BldgName);
+        }
     }
 
+    /// <summary>
+    /// Get SceneData and start building scene
+    /// </summary>
     void OnGetSceneInfo(NetMsgDef msg)
     {
         TSCGetSceneInfo sceneInfo = TSCGetSceneInfo.ParseFrom(msg.mBtsData);

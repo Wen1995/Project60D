@@ -10,7 +10,9 @@ public enum IdType {
     /** 玩家 */
     USER(1),
     /** 工会 */
-    GROUP(2);
+    GROUP(2),
+    /** 建筑 */
+    BUILDING(3);
 
     private byte val;
 

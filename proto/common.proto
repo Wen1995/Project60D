@@ -25,6 +25,10 @@ enum Cmd {
 	UPGRADE = 32;
 	// 完成升级
 	FINISHUPGRADE = 33;
+	// 解锁建筑
+	UNLOCK = 34;
+	// 完成解锁
+	FINISHUNLOCK = 35;
 }
 
 enum Error {
@@ -34,6 +38,8 @@ enum Error {
 	RIGHT_HANDLE = 2;
 	// 建筑不存在
 	NO_BUILDING = 3;
+	// 等级超过上限
+	LEVEL_OVER = 4;
 }
 
 enum Resource {

@@ -84,6 +84,14 @@ public final class Common {
      * </pre>
      */
     FINISHUPGRADE(8, 33),
+    /**
+     * <code>UNLOCK = 34;</code>
+     *
+     * <pre>
+     * 解锁建筑
+     * </pre>
+     */
+    UNLOCK(9, 34),
     ;
 
     /**
@@ -157,6 +165,14 @@ public final class Common {
      * </pre>
      */
     public static final int FINISHUPGRADE_VALUE = 33;
+    /**
+     * <code>UNLOCK = 34;</code>
+     *
+     * <pre>
+     * 解锁建筑
+     * </pre>
+     */
+    public static final int UNLOCK_VALUE = 34;
 
 
     public final int getNumber() { return value; }
@@ -172,6 +188,7 @@ public final class Common {
         case 31: return GETSCENEINFO;
         case 32: return UPGRADE;
         case 33: return FINISHUPGRADE;
+        case 34: return UNLOCK;
         default: return null;
       }
     }
@@ -752,19 +769,19 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\213\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
+      "col*\227\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
       "OUT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREATEGROUP\020\013\022" +
       "\016\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO\020\037\022\013\n\007UPG" +
-      "RADE\020 \022\021\n\rFINISHUPGRADE\020!*:\n\005Error\022\016\n\nSE" +
-      "RVER_ERR\020\001\022\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BUILD" +
-      "ING\020\003*\236\002\n\010Resource\022\010\n\004RICE\020\001\022\016\n\nVEGETABL" +
-      "ES\020\002\022\t\n\005FRUIT\020\003\022\t\n\005GRASS\020\004\022\013\n\007PIGFOOD\020\005\022" +
-      "\010\n\004PORK\020\006\022\t\n\005CRUDE\020\007\022\014\n\010GASOLINE\020\010\022\010\n\004IR" +
-      "ON\020\t\022\t\n\005STEEL\020\n\022\010\n\004PINE\020\013\022\016\n\nWHITEBIRCH\020",
-      "\014\022\r\n\tIRONBIRCH\020\r\022\r\n\tPINEBOARD\020\016\022\023\n\017WHITE" +
-      "BIRCHBOARD\020\017\022\022\n\016IRONBIRCHBOARD\020\020\022\r\n\tPURE" +
-      "WATER\020\021\022\020\n\014MINERALWATER\020\022\022\017\n\013ELECTRICITY" +
-      "\020\023\022\n\n\006BULLET\020\024B\002H\001"
+      "RADE\020 \022\021\n\rFINISHUPGRADE\020!\022\n\n\006UNLOCK\020\"*:\n" +
+      "\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_HANDLE\020\002" +
+      "\022\017\n\013NO_BUILDING\020\003*\236\002\n\010Resource\022\010\n\004RICE\020\001" +
+      "\022\016\n\nVEGETABLES\020\002\022\t\n\005FRUIT\020\003\022\t\n\005GRASS\020\004\022\013" +
+      "\n\007PIGFOOD\020\005\022\010\n\004PORK\020\006\022\t\n\005CRUDE\020\007\022\014\n\010GASO" +
+      "LINE\020\010\022\010\n\004IRON\020\t\022\t\n\005STEEL\020\n\022\010\n\004PINE\020\013\022\016\n",
+      "\nWHITEBIRCH\020\014\022\r\n\tIRONBIRCH\020\r\022\r\n\tPINEBOAR" +
+      "D\020\016\022\023\n\017WHITEBIRCHBOARD\020\017\022\022\n\016IRONBIRCHBOA" +
+      "RD\020\020\022\r\n\tPUREWATER\020\021\022\020\n\014MINERALWATER\020\022\022\017\n" +
+      "\013ELECTRICITY\020\023\022\n\n\006BULLET\020\024B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

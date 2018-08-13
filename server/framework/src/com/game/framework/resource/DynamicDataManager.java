@@ -5,7 +5,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.game.framework.console.constant.Constant;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.game.framework.dbcache.dao.IUserDao;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.utils.StringUtil;
@@ -26,10 +27,11 @@ public class DynamicDataManager {
         return instance;
     }
 
+    private static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
     public Map<String, Long> account2Uid = new ConcurrentHashMap<>();
-
+    
     public void init() {
-        IUserDao userDao = (IUserDao) Constant.context.getBean("userDao");
+        IUserDao userDao = (IUserDao) context.getBean("userDao");
         long startTime = System.currentTimeMillis();
         int pageCount = userDao.getPageCount();
         for (int currentPage = 1; currentPage <= pageCount; currentPage++) {

@@ -41,3 +41,29 @@ message TSCFinishUpgrade {
 	// 建筑ID
 	optional int64 buildingId = 1;
 }
+
+message TCSUnlock {
+	// 建筑configId
+	optional int32 configId = 1;
+}
+message TSCUnlock {
+	// 建筑ID
+	optional int64 buildingId = 1;
+	// 公司实力是否满足
+	optional bool isGroup = 2;
+	// 资源是否满足
+	optional bool isResource = 3;
+	// 是否有空闲的建筑队列
+	optional bool isProduction = 4;
+	// 升级完成时间
+	optional int64 finishTime = 5;
+}
+
+message TCSFinishUnlock {
+	// 建筑ID
+	optional int64 buildingId = 1;
+}
+message TSCFinishUnlock {
+	// 建筑ID
+	optional int64 buildingId = 1;
+}

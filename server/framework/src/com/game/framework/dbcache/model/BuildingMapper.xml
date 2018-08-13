@@ -5,7 +5,6 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="group_id" property="groupId" jdbcType="BIGINT" />
     <result column="config_id" property="configId" jdbcType="INTEGER" />
-    <result column="type" property="type" jdbcType="INTEGER" />
     <result column="position_x" property="positionX" jdbcType="INTEGER" />
     <result column="position_y" property="positionY" jdbcType="INTEGER" />
   </resultMap>
@@ -71,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, group_id, config_id, type, position_x, position_y
+    id, group_id, config_id, position_x, position_y
   </sql>
   <sql id="Blob_Column_List" >
     state
@@ -126,11 +125,11 @@
   </delete>
   <insert id="insert" parameterType="com.game.framework.dbcache.model.Building" >
     insert into t_building (id, group_id, config_id, 
-      type, position_x, position_y, 
-      state)
+      position_x, position_y, state
+      )
     values (#{id,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{configId,jdbcType=INTEGER}, 
-      #{type,jdbcType=INTEGER}, #{positionX,jdbcType=INTEGER}, #{positionY,jdbcType=INTEGER}, 
-      #{state,jdbcType=LONGVARBINARY})
+      #{positionX,jdbcType=INTEGER}, #{positionY,jdbcType=INTEGER}, #{state,jdbcType=LONGVARBINARY}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.game.framework.dbcache.model.Building" >
     insert into t_building
@@ -143,9 +142,6 @@
       </if>
       <if test="configId != null" >
         config_id,
-      </if>
-      <if test="type != null" >
-        type,
       </if>
       <if test="positionX != null" >
         position_x,
@@ -166,9 +162,6 @@
       </if>
       <if test="configId != null" >
         #{configId,jdbcType=INTEGER},
-      </if>
-      <if test="type != null" >
-        #{type,jdbcType=INTEGER},
       </if>
       <if test="positionX != null" >
         #{positionX,jdbcType=INTEGER},
@@ -199,9 +192,6 @@
       <if test="record.configId != null" >
         config_id = #{record.configId,jdbcType=INTEGER},
       </if>
-      <if test="record.type != null" >
-        type = #{record.type,jdbcType=INTEGER},
-      </if>
       <if test="record.positionX != null" >
         position_x = #{record.positionX,jdbcType=INTEGER},
       </if>
@@ -221,7 +211,6 @@
     set id = #{record.id,jdbcType=BIGINT},
       group_id = #{record.groupId,jdbcType=BIGINT},
       config_id = #{record.configId,jdbcType=INTEGER},
-      type = #{record.type,jdbcType=INTEGER},
       position_x = #{record.positionX,jdbcType=INTEGER},
       position_y = #{record.positionY,jdbcType=INTEGER},
       state = #{record.state,jdbcType=LONGVARBINARY}
@@ -234,7 +223,6 @@
     set id = #{record.id,jdbcType=BIGINT},
       group_id = #{record.groupId,jdbcType=BIGINT},
       config_id = #{record.configId,jdbcType=INTEGER},
-      type = #{record.type,jdbcType=INTEGER},
       position_x = #{record.positionX,jdbcType=INTEGER},
       position_y = #{record.positionY,jdbcType=INTEGER}
     <if test="_parameter != null" >
@@ -249,9 +237,6 @@
       </if>
       <if test="configId != null" >
         config_id = #{configId,jdbcType=INTEGER},
-      </if>
-      <if test="type != null" >
-        type = #{type,jdbcType=INTEGER},
       </if>
       <if test="positionX != null" >
         position_x = #{positionX,jdbcType=INTEGER},
@@ -269,7 +254,6 @@
     update t_building
     set group_id = #{groupId,jdbcType=BIGINT},
       config_id = #{configId,jdbcType=INTEGER},
-      type = #{type,jdbcType=INTEGER},
       position_x = #{positionX,jdbcType=INTEGER},
       position_y = #{positionY,jdbcType=INTEGER},
       state = #{state,jdbcType=LONGVARBINARY}
@@ -279,7 +263,6 @@
     update t_building
     set group_id = #{groupId,jdbcType=BIGINT},
       config_id = #{configId,jdbcType=INTEGER},
-      type = #{type,jdbcType=INTEGER},
       position_x = #{positionX,jdbcType=INTEGER},
       position_y = #{positionY,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}

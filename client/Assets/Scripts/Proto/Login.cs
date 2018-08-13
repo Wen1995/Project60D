@@ -345,8 +345,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCLogin : pb::GeneratedMessageLite<TSCLogin, TSCLogin.Builder> {
     private TSCLogin() { }
     private static readonly TSCLogin defaultInstance = new TSCLogin().MakeReadOnly();
-    private static readonly string[] _tSCLoginFieldNames = new string[] { "systemCurrentTime", "uid" };
-    private static readonly uint[] _tSCLoginFieldTags = new uint[] { 16, 8 };
+    private static readonly string[] _tSCLoginFieldNames = new string[] { "isHaveGroup", "systemCurrentTime", "uid" };
+    private static readonly uint[] _tSCLoginFieldTags = new uint[] { 24, 16, 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -392,6 +392,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int IsHaveGroupFieldNumber = 3;
+    private bool hasIsHaveGroup;
+    private bool isHaveGroup_;
+    public bool HasIsHaveGroup {
+      get { return hasIsHaveGroup; }
+    }
+    public bool IsHaveGroup {
+      get { return isHaveGroup_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -407,10 +420,13 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _tSCLoginFieldNames;
       if (hasUid) {
-        output.WriteInt64(1, field_names[1], Uid);
+        output.WriteInt64(1, field_names[2], Uid);
       }
       if (hasSystemCurrentTime) {
-        output.WriteInt64(2, field_names[0], SystemCurrentTime);
+        output.WriteInt64(2, field_names[1], SystemCurrentTime);
+      }
+      if (hasIsHaveGroup) {
+        output.WriteBool(3, field_names[0], IsHaveGroup);
       }
     }
     
@@ -430,6 +446,9 @@ namespace com.game.framework.protocol {
         if (hasSystemCurrentTime) {
           size += pb::CodedOutputStream.ComputeInt64Size(2, SystemCurrentTime);
         }
+        if (hasIsHaveGroup) {
+          size += pb::CodedOutputStream.ComputeBoolSize(3, IsHaveGroup);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -440,6 +459,7 @@ namespace com.game.framework.protocol {
       int hash = GetType().GetHashCode();
       if (hasUid) hash ^= uid_.GetHashCode();
       if (hasSystemCurrentTime) hash ^= systemCurrentTime_.GetHashCode();
+      if (hasIsHaveGroup) hash ^= isHaveGroup_.GetHashCode();
       return hash;
     }
     
@@ -448,6 +468,7 @@ namespace com.game.framework.protocol {
       if (other == null) return false;
       if (hasUid != other.hasUid || (hasUid && !uid_.Equals(other.uid_))) return false;
       if (hasSystemCurrentTime != other.hasSystemCurrentTime || (hasSystemCurrentTime && !systemCurrentTime_.Equals(other.systemCurrentTime_))) return false;
+      if (hasIsHaveGroup != other.hasIsHaveGroup || (hasIsHaveGroup && !isHaveGroup_.Equals(other.isHaveGroup_))) return false;
       return true;
     }
     
@@ -614,6 +635,9 @@ namespace com.game.framework.protocol {
         if (other.HasSystemCurrentTime) {
           SystemCurrentTime = other.SystemCurrentTime;
         }
+        if (other.HasIsHaveGroup) {
+          IsHaveGroup = other.IsHaveGroup;
+        }
         return this;
       }
       
@@ -652,6 +676,10 @@ namespace com.game.framework.protocol {
             }
             case 16: {
               result.hasSystemCurrentTime = input.ReadInt64(ref result.systemCurrentTime_);
+              break;
+            }
+            case 24: {
+              result.hasIsHaveGroup = input.ReadBool(ref result.isHaveGroup_);
               break;
             }
           }
@@ -698,6 +726,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasSystemCurrentTime = false;
         result.systemCurrentTime_ = 0L;
+        return this;
+      }
+      
+      public bool HasIsHaveGroup {
+        get { return result.hasIsHaveGroup; }
+      }
+      public bool IsHaveGroup {
+        get { return result.IsHaveGroup; }
+        set { SetIsHaveGroup(value); }
+      }
+      public Builder SetIsHaveGroup(bool value) {
+        PrepareBuilder();
+        result.hasIsHaveGroup = true;
+        result.isHaveGroup_ = value;
+        return this;
+      }
+      public Builder ClearIsHaveGroup() {
+        PrepareBuilder();
+        result.hasIsHaveGroup = false;
+        result.isHaveGroup_ = false;
         return this;
       }
     }

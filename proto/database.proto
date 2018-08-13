@@ -16,7 +16,10 @@ message ResourceInfo {
 }
 
 message BuildingState {
+	// 升级信息
 	optional UpgradeInfo upgradeInfo = 1;
+	// 领取信息
+	repeated ReceiveInfo receiveInfo = 2;
 }
 
 message UpgradeInfo {
@@ -24,4 +27,9 @@ message UpgradeInfo {
 	optional bool upgrading = 1;
 	// 升级人
 	optional int64 uid = 2;
+}
+
+message ReceiveInfo {
+	// 上次领取时间
+	optional int64 lastReceiveTime = 1;
 }

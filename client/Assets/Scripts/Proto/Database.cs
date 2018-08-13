@@ -738,8 +738,8 @@ namespace com.game.framework.protocol {
   public sealed partial class BuildingState : pb::GeneratedMessageLite<BuildingState, BuildingState.Builder> {
     private BuildingState() { }
     private static readonly BuildingState defaultInstance = new BuildingState().MakeReadOnly();
-    private static readonly string[] _buildingStateFieldNames = new string[] { "upgradeInfo" };
-    private static readonly uint[] _buildingStateFieldTags = new uint[] { 10 };
+    private static readonly string[] _buildingStateFieldNames = new string[] { "receiveInfo", "upgradeInfo" };
+    private static readonly uint[] _buildingStateFieldTags = new uint[] { 18, 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -772,6 +772,21 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ReceiveInfoFieldNumber = 2;
+    private pbc::PopsicleList<global::com.game.framework.protocol.ReceiveInfo> receiveInfo_ = new pbc::PopsicleList<global::com.game.framework.protocol.ReceiveInfo>();
+    public scg::IList<global::com.game.framework.protocol.ReceiveInfo> ReceiveInfoList {
+      get { return receiveInfo_; }
+    }
+    public int ReceiveInfoCount {
+      get { return receiveInfo_.Count; }
+    }
+    public global::com.game.framework.protocol.ReceiveInfo GetReceiveInfo(int index) {
+      return receiveInfo_[index];
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -787,7 +802,10 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _buildingStateFieldNames;
       if (hasUpgradeInfo) {
-        output.WriteMessage(1, field_names[0], UpgradeInfo);
+        output.WriteMessage(1, field_names[1], UpgradeInfo);
+      }
+      if (receiveInfo_.Count > 0) {
+        output.WriteMessageArray(2, field_names[0], receiveInfo_);
       }
     }
     
@@ -804,6 +822,9 @@ namespace com.game.framework.protocol {
         if (hasUpgradeInfo) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, UpgradeInfo);
         }
+        foreach (global::com.game.framework.protocol.ReceiveInfo element in ReceiveInfoList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(2, element);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -813,6 +834,8 @@ namespace com.game.framework.protocol {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasUpgradeInfo) hash ^= upgradeInfo_.GetHashCode();
+      foreach(global::com.game.framework.protocol.ReceiveInfo i in receiveInfo_)
+        hash ^= i.GetHashCode();
       return hash;
     }
     
@@ -820,6 +843,9 @@ namespace com.game.framework.protocol {
       BuildingState other = obj as BuildingState;
       if (other == null) return false;
       if (hasUpgradeInfo != other.hasUpgradeInfo || (hasUpgradeInfo && !upgradeInfo_.Equals(other.upgradeInfo_))) return false;
+      if(receiveInfo_.Count != other.receiveInfo_.Count) return false;
+      for(int ix=0; ix < receiveInfo_.Count; ix++)
+        if(!receiveInfo_[ix].Equals(other.receiveInfo_[ix])) return false;
       return true;
     }
     
@@ -886,6 +912,7 @@ namespace com.game.framework.protocol {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private BuildingState MakeReadOnly() {
+      receiveInfo_.MakeReadOnly();
       return this;
     }
     
@@ -983,6 +1010,9 @@ namespace com.game.framework.protocol {
         if (other.HasUpgradeInfo) {
           MergeUpgradeInfo(other.UpgradeInfo);
         }
+        if (other.receiveInfo_.Count != 0) {
+          result.receiveInfo_.Add(other.receiveInfo_);
+        }
         return this;
       }
       
@@ -1022,6 +1052,10 @@ namespace com.game.framework.protocol {
               }
               input.ReadMessage(subBuilder, extensionRegistry);
               UpgradeInfo = subBuilder.BuildPartial();
+              break;
+            }
+            case 18: {
+              input.ReadMessageArray(tag, field_name, result.receiveInfo_, global::com.game.framework.protocol.ReceiveInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -1068,6 +1102,50 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasUpgradeInfo = false;
         result.upgradeInfo_ = null;
+        return this;
+      }
+      
+      public pbc::IPopsicleList<global::com.game.framework.protocol.ReceiveInfo> ReceiveInfoList {
+        get { return PrepareBuilder().receiveInfo_; }
+      }
+      public int ReceiveInfoCount {
+        get { return result.ReceiveInfoCount; }
+      }
+      public global::com.game.framework.protocol.ReceiveInfo GetReceiveInfo(int index) {
+        return result.GetReceiveInfo(index);
+      }
+      public Builder SetReceiveInfo(int index, global::com.game.framework.protocol.ReceiveInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.receiveInfo_[index] = value;
+        return this;
+      }
+      public Builder SetReceiveInfo(int index, global::com.game.framework.protocol.ReceiveInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.receiveInfo_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddReceiveInfo(global::com.game.framework.protocol.ReceiveInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.receiveInfo_.Add(value);
+        return this;
+      }
+      public Builder AddReceiveInfo(global::com.game.framework.protocol.ReceiveInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.receiveInfo_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeReceiveInfo(scg::IEnumerable<global::com.game.framework.protocol.ReceiveInfo> values) {
+        PrepareBuilder();
+        result.receiveInfo_.Add(values);
+        return this;
+      }
+      public Builder ClearReceiveInfo() {
+        PrepareBuilder();
+        result.receiveInfo_.Clear();
         return this;
       }
     }
@@ -1436,6 +1514,322 @@ namespace com.game.framework.protocol {
       }
     }
     static UpgradeInfo() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Database.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class ReceiveInfo : pb::GeneratedMessageLite<ReceiveInfo, ReceiveInfo.Builder> {
+    private ReceiveInfo() { }
+    private static readonly ReceiveInfo defaultInstance = new ReceiveInfo().MakeReadOnly();
+    private static readonly string[] _receiveInfoFieldNames = new string[] { "lastReceiveTime" };
+    private static readonly uint[] _receiveInfoFieldTags = new uint[] { 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override ReceiveInfo DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override ReceiveInfo ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int LastReceiveTimeFieldNumber = 1;
+    private bool hasLastReceiveTime;
+    private long lastReceiveTime_;
+    public bool HasLastReceiveTime {
+      get { return hasLastReceiveTime; }
+    }
+    public long LastReceiveTime {
+      get { return lastReceiveTime_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _receiveInfoFieldNames;
+      if (hasLastReceiveTime) {
+        output.WriteInt64(1, field_names[0], LastReceiveTime);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasLastReceiveTime) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, LastReceiveTime);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasLastReceiveTime) hash ^= lastReceiveTime_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      ReceiveInfo other = obj as ReceiveInfo;
+      if (other == null) return false;
+      if (hasLastReceiveTime != other.hasLastReceiveTime || (hasLastReceiveTime && !lastReceiveTime_.Equals(other.lastReceiveTime_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static ReceiveInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private ReceiveInfo MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(ReceiveInfo prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<ReceiveInfo, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(ReceiveInfo cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private ReceiveInfo result;
+      
+      private ReceiveInfo PrepareBuilder() {
+        if (resultIsReadOnly) {
+          ReceiveInfo original = result;
+          result = new ReceiveInfo();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override ReceiveInfo MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override ReceiveInfo DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.ReceiveInfo.DefaultInstance; }
+      }
+      
+      public override ReceiveInfo BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is ReceiveInfo) {
+          return MergeFrom((ReceiveInfo) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(ReceiveInfo other) {
+        if (other == global::com.game.framework.protocol.ReceiveInfo.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasLastReceiveTime) {
+          LastReceiveTime = other.LastReceiveTime;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_receiveInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _receiveInfoFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasLastReceiveTime = input.ReadInt64(ref result.lastReceiveTime_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasLastReceiveTime {
+        get { return result.hasLastReceiveTime; }
+      }
+      public long LastReceiveTime {
+        get { return result.LastReceiveTime; }
+        set { SetLastReceiveTime(value); }
+      }
+      public Builder SetLastReceiveTime(long value) {
+        PrepareBuilder();
+        result.hasLastReceiveTime = true;
+        result.lastReceiveTime_ = value;
+        return this;
+      }
+      public Builder ClearLastReceiveTime() {
+        PrepareBuilder();
+        result.hasLastReceiveTime = false;
+        result.lastReceiveTime_ = 0L;
+        return this;
+      }
+    }
+    static ReceiveInfo() {
       object.ReferenceEquals(global::com.game.framework.protocol.Database.Descriptor, null);
     }
   }

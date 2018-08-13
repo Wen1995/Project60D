@@ -7,8 +7,6 @@ public class Building {
 
     private Integer configId;
 
-    private Integer type;
-
     private Integer positionX;
 
     private Integer positionY;
@@ -37,14 +35,6 @@ public class Building {
 
     public void setConfigId(Integer configId) {
         this.configId = configId;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
     }
 
     public Integer getPositionX() {

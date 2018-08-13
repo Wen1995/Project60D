@@ -54,7 +54,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 26bf094aa166a0e49991b9bd167062fe, type: 2}
   mSprites:
   - name: Arrow-Up-Icon
-    x: 0
+    x: 55
     y: 155
     width: 64
     height: 36
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Close-Icon-Small
-    x: 65
-    y: 156
+    x: 0
+    y: 88
     width: 35
     height: 35
     borderLeft: 0
@@ -92,9 +92,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Lens-Icon-Small
+  - name: Hammer-Icon
     x: 0
-    y: 121
+    y: 124
+    width: 54
+    height: 67
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Lens-Icon-Small
+    x: 36
+    y: 90
     width: 37
     height: 33
     borderLeft: 0

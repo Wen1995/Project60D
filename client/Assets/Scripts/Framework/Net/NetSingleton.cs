@@ -51,6 +51,7 @@ public class NetSingleton : Singleton<NetSingleton> {
         if (!networkMap.ContainsKey(netType)) return;
         if (!msgBufferMap.ContainsKey(netType))
             msgBufferMap.Add(netType, new List<NetMsgDef>());
+        Debug.Log(string.Format("Send Msg CMDID={0}", cmdID));
         NetMsgDef msg = RPCNetTools.CreateRpcMsg(cmdID, data);
         msgBufferMap[netType].Add(msg);
     }
@@ -62,6 +63,7 @@ public class NetSingleton : Singleton<NetSingleton> {
     {
         if (!msgBufferMap.ContainsKey(netType)) return;
         List<NetMsgDef> msgList = msgBufferMap[netType];
+        if (msgList.Count < 1) return;
         RPCNetwork network = networkMap[netType];
         network.SubmitNetMsg(msgList);
         msgList.Clear();

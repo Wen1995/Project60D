@@ -27,7 +27,6 @@ public class SanctuaryService : ServiceBase {
         builder.BuildingId = 1;
         var upgrade = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETSCENEINFO, upgrade.ToByteArray());
-
     }
 
     /// <summary>

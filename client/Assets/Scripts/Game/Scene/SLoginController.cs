@@ -19,6 +19,8 @@ public class SLoginController : SceneController {
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_User, typeof(UserPackage));
         //register panel
         FacadeSingleton.Instance.RegisterUIPanel("UILoginPanel", "Prefabs/UI/Common", 0, PanelAnchor.Center);
+        //register service
+        FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
 
         FacadeSingleton.Instance.OverlayerPanel("UILoginPanel");
     }

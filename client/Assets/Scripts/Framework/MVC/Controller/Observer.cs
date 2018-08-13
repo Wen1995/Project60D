@@ -44,7 +44,8 @@ public class Observer {
     {
         if (!mRPCResponceMap.ContainsKey(cmdID))
             mRPCResponceMap[cmdID] = new NRPCResponce(handler);
-        mRPCResponceMap[cmdID] += handler;
+        else
+            mRPCResponceMap[cmdID] += handler;
     }
 
     public void InvokeRPCResponce(short cmdID, NetMsgDef msg)

@@ -18,9 +18,9 @@ public static class ConstVal{
     //Service
     public static string Service_Common = "CommonService";
     public static string Service_Sanctuary = "SanctuaryService";
-    //Controller
 
-    //Event
+    //Static Data
+    public static string DATA_BUILDING = "BUILDINGD";
+    public static string DATA_ITEM_RES = "ITEM_RES";
 
-    //resPath
 }

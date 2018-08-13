@@ -18,4 +18,16 @@ public class CommonService : ServiceBase {
         TCSLogin login = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.LOGIN, login.ToByteArray());
     }
+
+    public void CreateGroup()
+    {
+        var builder = TCSCreateGroup.CreateBuilder();
+        TCSCreateGroup createGroup = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.CREATEGROUP, createGroup.ToByteArray());
+    }
+
+    public void JoinGroup(NDictionary args)
+    {
+
+    }
 }

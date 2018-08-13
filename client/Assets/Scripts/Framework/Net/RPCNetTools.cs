@@ -10,7 +10,6 @@ public class RPCNetTools {
     /// </summary>
     public static NetMsgDef CreateRpcMsg(short cmdID, byte[] data)
     {
-        if (data.Length < 1) return null;
         NetMsgHead msgHead = new NetMsgHead(cmdID, (short)(data.Length + 2));
         return new NetMsgDef(msgHead, data);
     }

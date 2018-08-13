@@ -4,8 +4,16 @@ using com.game.framework.protocol;
 using com.game.framework.resource.data;
 using UnityEngine;
 
+
+
 public class SSanctuaryController : SceneController
 {
+
+    //temp res path
+    string[] buildingPath = {
+
+    };
+
     public GameObject testBuilding;
 
     //register or bind something
@@ -16,7 +24,8 @@ public class SSanctuaryController : SceneController
         //register panel
         SetUIContainer();
         FacadeSingleton.Instance.RegisterUIPanel("UIMsgBoxPanel", "Prefabs/UI/Common", 10000, PanelAnchor.Center);
-        FacadeSingleton.Instance.RegisterUIPanel("UIMenuPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Top);
+        FacadeSingleton.Instance.RegisterUIPanel("UIInfoMenuPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Top);
+        FacadeSingleton.Instance.RegisterUIPanel("UIFuncMenuPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Bottom);
         FacadeSingleton.Instance.RegisterUIPanel("UIBuildingInteractionPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Bottom);
         FacadeSingleton.Instance.RegisterUIPanel("UIBuildingInfoPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIUserInfoPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
@@ -32,14 +41,8 @@ public class SSanctuaryController : SceneController
     //actually do something
     public void Start()
     {
-        //FacadeSingleton.Instance.OverlayerPanel("UIMenuPanel");
-        //FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
+        FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
         //AddBuildingEvent();
-        BUILDING_ARRAY array = ConfigDataStatic.RetrieveConfigData<BUILDING_ARRAY>("BUILDING");
-        for (int i = 0; i < array.ItemsCount; i++)
-        {
-            print(array.GetItems(i).BldgName);
-        }
     }
 
     /// <summary>
@@ -50,14 +53,7 @@ public class SSanctuaryController : SceneController
         TSCGetSceneInfo sceneInfo = TSCGetSceneInfo.ParseFrom(msg.mBtsData);
         SanctuaryPackage sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         sanctuaryPackage.SetBuildingDataList(sceneInfo);
-        BuildAllBuilding();
-    }
-
-    /// <summary>
-    /// Add a progress to building
-    /// </summary>
-    void BuildingUpgrade(NetMsgDef msg)
-    {
+        BuildSanctuary();
     }
 
     /// <summary>
@@ -71,7 +67,6 @@ public class SSanctuaryController : SceneController
     void BuildAllBuilding()
     {
         var buildingInfoList = FacadeSingleton.Instance.InvokeService("GetBuildingDataList", ConstVal.Service_Sanctuary) as IList<BuildingInfo>;
-        // build
         foreach (BuildingInfo building in buildingInfoList)
         {
             print(building.BuildingId);
@@ -82,6 +77,15 @@ public class SSanctuaryController : SceneController
     void BuildSingleBuilding(BuildingInfo info)
     {
         //TODO
+    }
+
+    void InitAllBuilding()
+    {
+        BUILDING_ARRAY buildingDataList = ConfigDataStatic.RetrieveConfigData<BUILDING_ARRAY>(ConstVal.DATA_BUILDING);
+        for (int i = 0; i < buildingDataList.ItemsCount; i += 20)
+        {
+            BUILDING building = buildingDataList.GetItems(i);
+        }
     }
 
     /// <summary>

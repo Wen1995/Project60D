@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class UserPackage : ModelBase {
 
+    private long mGroupID;
+    private long mUserID;
+
 
     public override void Release()
     { }
@@ -12,10 +15,15 @@ public class UserPackage : ModelBase {
     #endregion
 
     #region Set Data
-    public void SetUserPackage()
+
+    public void SetGroupID(long groupID)
     {
-        //TODO
+        mGroupID = groupID;
     }
 
+    public void SetUserID(long userID)
+    {
+        mUserID = userID;
+    }
     #endregion
 }

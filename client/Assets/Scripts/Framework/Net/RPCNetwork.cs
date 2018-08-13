@@ -58,6 +58,7 @@ public class RPCNetwork{
 
     void OnConnected(IAsyncResult ar)
     {
+        Debug.Log("RPCNetwork Connected");
         mTcpClient.EndConnect(ar);
         mOutStream = mTcpClient.GetStream();
         mOutStream.BeginRead(mByteBuffer, 0, MAX_READ, OnRead, null);
@@ -180,7 +181,7 @@ public class RPCNetwork{
             {
                 //Restore ReadPos
                 mRecieveStream.ShiftReadPos(-4);
-                break;
+                break; 
             }
             byte[] btsData = new byte[head.mSize - sizeof(short)];
             if (!mRecieveStream.Read(btsData, head.mSize - sizeof(short)))

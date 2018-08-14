@@ -220,160 +220,58 @@ public final class BuildingData {
         getBldgInfoBytes();
 
     /**
-     * <code>optional int32 ui_order = 10 [default = 0];</code>
+     * <code>optional int32 con_id = 10 [default = 0];</code>
      *
      * <pre>
-     ** 界面排序 
+     ** 消耗id 
      * </pre>
      */
-    boolean hasUiOrder();
+    boolean hasConId();
     /**
-     * <code>optional int32 ui_order = 10 [default = 0];</code>
+     * <code>optional int32 con_id = 10 [default = 0];</code>
      *
      * <pre>
-     ** 界面排序 
+     ** 消耗id 
      * </pre>
      */
-    int getUiOrder();
+    int getConId();
 
     /**
-     * <code>optional int32 bldg_func_type = 11 [default = 0];</code>
+     * <code>optional int32 con_pro = 11 [default = 0];</code>
      *
      * <pre>
-     ** 建筑功能类型
-     *(func=functional)
-     *太空基地(SpaceStation)=101
-     *星港(Spaceport)=102
-     *舰体厂(FuncHullFact)=103
-     *组装厂(ModFact)=104
-     *配件厂(CpntFact)=105
-     *采集厂(SurfCol)=201
-     *提炼厂(Refinery)=202
-     *核电厂(PowerPlant)=203
-     *仓库(ItemStg)=204
-     *聚居地(Habitat)=301
+     ** 消耗/产出 
      * </pre>
      */
-    boolean hasBldgFuncType();
+    boolean hasConPro();
     /**
-     * <code>optional int32 bldg_func_type = 11 [default = 0];</code>
+     * <code>optional int32 con_pro = 11 [default = 0];</code>
      *
      * <pre>
-     ** 建筑功能类型
-     *(func=functional)
-     *太空基地(SpaceStation)=101
-     *星港(Spaceport)=102
-     *舰体厂(FuncHullFact)=103
-     *组装厂(ModFact)=104
-     *配件厂(CpntFact)=105
-     *采集厂(SurfCol)=201
-     *提炼厂(Refinery)=202
-     *核电厂(PowerPlant)=203
-     *仓库(ItemStg)=204
-     *聚居地(Habitat)=301
+     ** 消耗/产出 
      * </pre>
      */
-    int getBldgFuncType();
+    int getConPro();
 
     /**
-     * <code>optional int32 cult_pt = 12 [default = 0];</code>
+     * <code>optional int32 pro_id = 12 [default = 0];</code>
      *
      * <pre>
-     **  
-     * </pre>
-     */
-    boolean hasCultPt();
-    /**
-     * <code>optional int32 cult_pt = 12 [default = 0];</code>
-     *
-     * <pre>
-     **  
-     * </pre>
-     */
-    int getCultPt();
-
-    /**
-     * <code>optional int32 hr_slot_qty = 13 [default = 0];</code>
-     *
-     * <pre>
-     ** 人力槽位数
-     *(个) 
-     * </pre>
-     */
-    boolean hasHrSlotQty();
-    /**
-     * <code>optional int32 hr_slot_qty = 13 [default = 0];</code>
-     *
-     * <pre>
-     ** 人力槽位数
-     *(个) 
-     * </pre>
-     */
-    int getHrSlotQty();
-
-    /**
-     * <code>optional int32 buff_pro = 14 [default = 0];</code>
-     *
-     * <pre>
-     ** 加成职业
-     *工程专家=1
-     *科学专家=2
-     *舰船专家=3
-     *普通公民=4
-     * </pre>
-     */
-    boolean hasBuffPro();
-    /**
-     * <code>optional int32 buff_pro = 14 [default = 0];</code>
-     *
-     * <pre>
-     ** 加成职业
-     *工程专家=1
-     *科学专家=2
-     *舰船专家=3
-     *普通公民=4
-     * </pre>
-     */
-    int getBuffPro();
-
-    /**
-     * <code>optional int32 max_labor_uk = 15 [default = 0];</code>
-     *
-     * <pre>
-     ** 人力储存上限
-     *(个) 
-     * </pre>
-     */
-    boolean hasMaxLaborUk();
-    /**
-     * <code>optional int32 max_labor_uk = 15 [default = 0];</code>
-     *
-     * <pre>
-     ** 人力储存上限
-     *(个) 
-     * </pre>
-     */
-    int getMaxLaborUk();
-
-    /**
-     * <code>optional int32 pro_id = 16 [default = 0];</code>
-     *
-     * <pre>
-     ** 建筑功能表名 
+     ** 产出id 
      * </pre>
      */
     boolean hasProId();
     /**
-     * <code>optional int32 pro_id = 16 [default = 0];</code>
+     * <code>optional int32 pro_id = 12 [default = 0];</code>
      *
      * <pre>
-     ** 建筑功能表名 
+     ** 产出id 
      * </pre>
      */
     int getProId();
 
     /**
-     * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
@@ -381,7 +279,7 @@ public final class BuildingData {
      */
     boolean hasBldgFuncTableName();
     /**
-     * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
@@ -389,7 +287,7 @@ public final class BuildingData {
      */
     java.lang.String getBldgFuncTableName();
     /**
-     * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
@@ -399,7 +297,7 @@ public final class BuildingData {
         getBldgFuncTableNameBytes();
 
     /**
-     * <code>optional int32 bldg_func_table_id = 18 [default = 0];</code>
+     * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
      *
      * <pre>
      ** 建筑功能表索引ID 
@@ -407,7 +305,7 @@ public final class BuildingData {
      */
     boolean hasBldgFuncTableId();
     /**
-     * <code>optional int32 bldg_func_table_id = 18 [default = 0];</code>
+     * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
      *
      * <pre>
      ** 建筑功能表索引ID 
@@ -416,7 +314,7 @@ public final class BuildingData {
     int getBldgFuncTableId();
 
     /**
-     * <code>optional int32 bldg_strength_lim = 19 [default = 0];</code>
+     * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
      *
      * <pre>
      ** 庄园势力限制 
@@ -424,7 +322,7 @@ public final class BuildingData {
      */
     boolean hasBldgStrengthLim();
     /**
-     * <code>optional int32 bldg_strength_lim = 19 [default = 0];</code>
+     * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
      *
      * <pre>
      ** 庄园势力限制 
@@ -433,7 +331,7 @@ public final class BuildingData {
     int getBldgStrengthLim();
 
     /**
-     * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
+     * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
      *
      * <pre>
      ** 增加公司实力 
@@ -441,7 +339,7 @@ public final class BuildingData {
      */
     boolean hasBldgStrengthAdd();
     /**
-     * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
+     * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
      *
      * <pre>
      ** 增加公司实力 
@@ -450,7 +348,7 @@ public final class BuildingData {
     int getBldgStrengthAdd();
 
     /**
-     * <code>optional int32 time_cost = 21 [default = 0];</code>
+     * <code>optional int32 time_cost = 17 [default = 0];</code>
      *
      * <pre>
      ** 消耗时间
@@ -459,7 +357,7 @@ public final class BuildingData {
      */
     boolean hasTimeCost();
     /**
-     * <code>optional int32 time_cost = 21 [default = 0];</code>
+     * <code>optional int32 time_cost = 17 [default = 0];</code>
      *
      * <pre>
      ** 消耗时间
@@ -469,7 +367,7 @@ public final class BuildingData {
     int getTimeCost();
 
     /**
-     * <code>optional int32 gold_cost = 22 [default = 0];</code>
+     * <code>optional int32 gold_cost = 18 [default = 0];</code>
      *
      * <pre>
      ** 消耗黄金 
@@ -477,7 +375,7 @@ public final class BuildingData {
      */
     boolean hasGoldCost();
     /**
-     * <code>optional int32 gold_cost = 22 [default = 0];</code>
+     * <code>optional int32 gold_cost = 18 [default = 0];</code>
      *
      * <pre>
      ** 消耗黄金 
@@ -486,7 +384,7 @@ public final class BuildingData {
     int getGoldCost();
 
     /**
-     * <code>optional int32 elec_cost = 23 [default = 0];</code>
+     * <code>optional int32 elec_cost = 19 [default = 0];</code>
      *
      * <pre>
      ** 消耗电力 
@@ -494,7 +392,7 @@ public final class BuildingData {
      */
     boolean hasElecCost();
     /**
-     * <code>optional int32 elec_cost = 23 [default = 0];</code>
+     * <code>optional int32 elec_cost = 19 [default = 0];</code>
      *
      * <pre>
      ** 消耗电力 
@@ -503,25 +401,25 @@ public final class BuildingData {
     int getElecCost();
 
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
      */
     java.util.List<com.game.framework.resource.data.BuildingData.BUILDING.CostStruct> 
         getCostTableList();
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
      */
     com.game.framework.resource.data.BuildingData.BUILDING.CostStruct getCostTable(int index);
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
      */
     int getCostTableCount();
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
      */
     java.util.List<? extends com.game.framework.resource.data.BuildingData.BUILDING.CostStructOrBuilder> 
         getCostTableOrBuilderList();
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
      */
     com.game.framework.resource.data.BuildingData.BUILDING.CostStructOrBuilder getCostTableOrBuilder(
         int index);
@@ -629,79 +527,59 @@ public final class BuildingData {
             }
             case 80: {
               bitField0_ |= 0x00000200;
-              uiOrder_ = input.readInt32();
+              conId_ = input.readInt32();
               break;
             }
             case 88: {
               bitField0_ |= 0x00000400;
-              bldgFuncType_ = input.readInt32();
+              conPro_ = input.readInt32();
               break;
             }
             case 96: {
               bitField0_ |= 0x00000800;
-              cultPt_ = input.readInt32();
+              proId_ = input.readInt32();
               break;
             }
-            case 104: {
+            case 106: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00001000;
-              hrSlotQty_ = input.readInt32();
+              bldgFuncTableName_ = bs;
               break;
             }
             case 112: {
               bitField0_ |= 0x00002000;
-              buffPro_ = input.readInt32();
+              bldgFuncTableId_ = input.readInt32();
               break;
             }
             case 120: {
               bitField0_ |= 0x00004000;
-              maxLaborUk_ = input.readInt32();
+              bldgStrengthLim_ = input.readInt32();
               break;
             }
             case 128: {
               bitField0_ |= 0x00008000;
-              proId_ = input.readInt32();
+              bldgStrengthAdd_ = input.readInt32();
               break;
             }
-            case 138: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 136: {
               bitField0_ |= 0x00010000;
-              bldgFuncTableName_ = bs;
+              timeCost_ = input.readInt32();
               break;
             }
             case 144: {
               bitField0_ |= 0x00020000;
-              bldgFuncTableId_ = input.readInt32();
+              goldCost_ = input.readInt32();
               break;
             }
             case 152: {
               bitField0_ |= 0x00040000;
-              bldgStrengthLim_ = input.readInt32();
-              break;
-            }
-            case 160: {
-              bitField0_ |= 0x00080000;
-              bldgStrengthAdd_ = input.readInt32();
-              break;
-            }
-            case 168: {
-              bitField0_ |= 0x00100000;
-              timeCost_ = input.readInt32();
-              break;
-            }
-            case 176: {
-              bitField0_ |= 0x00200000;
-              goldCost_ = input.readInt32();
-              break;
-            }
-            case 184: {
-              bitField0_ |= 0x00400000;
               elecCost_ = input.readInt32();
               break;
             }
-            case 194: {
-              if (!((mutable_bitField0_ & 0x00800000) == 0x00800000)) {
+            case 162: {
+              if (!((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
                 costTable_ = new java.util.ArrayList<com.game.framework.resource.data.BuildingData.BUILDING.CostStruct>();
-                mutable_bitField0_ |= 0x00800000;
+                mutable_bitField0_ |= 0x00080000;
               }
               costTable_.add(input.readMessage(com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.PARSER, extensionRegistry));
               break;
@@ -714,7 +592,7 @@ public final class BuildingData {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00800000) == 0x00800000)) {
+        if (((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
           costTable_ = java.util.Collections.unmodifiableList(costTable_);
         }
         this.unknownFields = unknownFields.build();
@@ -1645,215 +1523,89 @@ public final class BuildingData {
       }
     }
 
-    public static final int UI_ORDER_FIELD_NUMBER = 10;
-    private int uiOrder_;
+    public static final int CON_ID_FIELD_NUMBER = 10;
+    private int conId_;
     /**
-     * <code>optional int32 ui_order = 10 [default = 0];</code>
+     * <code>optional int32 con_id = 10 [default = 0];</code>
      *
      * <pre>
-     ** 界面排序 
+     ** 消耗id 
      * </pre>
      */
-    public boolean hasUiOrder() {
+    public boolean hasConId() {
       return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional int32 ui_order = 10 [default = 0];</code>
+     * <code>optional int32 con_id = 10 [default = 0];</code>
      *
      * <pre>
-     ** 界面排序 
+     ** 消耗id 
      * </pre>
      */
-    public int getUiOrder() {
-      return uiOrder_;
+    public int getConId() {
+      return conId_;
     }
 
-    public static final int BLDG_FUNC_TYPE_FIELD_NUMBER = 11;
-    private int bldgFuncType_;
+    public static final int CON_PRO_FIELD_NUMBER = 11;
+    private int conPro_;
     /**
-     * <code>optional int32 bldg_func_type = 11 [default = 0];</code>
+     * <code>optional int32 con_pro = 11 [default = 0];</code>
      *
      * <pre>
-     ** 建筑功能类型
-     *(func=functional)
-     *太空基地(SpaceStation)=101
-     *星港(Spaceport)=102
-     *舰体厂(FuncHullFact)=103
-     *组装厂(ModFact)=104
-     *配件厂(CpntFact)=105
-     *采集厂(SurfCol)=201
-     *提炼厂(Refinery)=202
-     *核电厂(PowerPlant)=203
-     *仓库(ItemStg)=204
-     *聚居地(Habitat)=301
+     ** 消耗/产出 
      * </pre>
      */
-    public boolean hasBldgFuncType() {
+    public boolean hasConPro() {
       return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional int32 bldg_func_type = 11 [default = 0];</code>
+     * <code>optional int32 con_pro = 11 [default = 0];</code>
      *
      * <pre>
-     ** 建筑功能类型
-     *(func=functional)
-     *太空基地(SpaceStation)=101
-     *星港(Spaceport)=102
-     *舰体厂(FuncHullFact)=103
-     *组装厂(ModFact)=104
-     *配件厂(CpntFact)=105
-     *采集厂(SurfCol)=201
-     *提炼厂(Refinery)=202
-     *核电厂(PowerPlant)=203
-     *仓库(ItemStg)=204
-     *聚居地(Habitat)=301
+     ** 消耗/产出 
      * </pre>
      */
-    public int getBldgFuncType() {
-      return bldgFuncType_;
+    public int getConPro() {
+      return conPro_;
     }
 
-    public static final int CULT_PT_FIELD_NUMBER = 12;
-    private int cultPt_;
-    /**
-     * <code>optional int32 cult_pt = 12 [default = 0];</code>
-     *
-     * <pre>
-     **  
-     * </pre>
-     */
-    public boolean hasCultPt() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
-    }
-    /**
-     * <code>optional int32 cult_pt = 12 [default = 0];</code>
-     *
-     * <pre>
-     **  
-     * </pre>
-     */
-    public int getCultPt() {
-      return cultPt_;
-    }
-
-    public static final int HR_SLOT_QTY_FIELD_NUMBER = 13;
-    private int hrSlotQty_;
-    /**
-     * <code>optional int32 hr_slot_qty = 13 [default = 0];</code>
-     *
-     * <pre>
-     ** 人力槽位数
-     *(个) 
-     * </pre>
-     */
-    public boolean hasHrSlotQty() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
-    }
-    /**
-     * <code>optional int32 hr_slot_qty = 13 [default = 0];</code>
-     *
-     * <pre>
-     ** 人力槽位数
-     *(个) 
-     * </pre>
-     */
-    public int getHrSlotQty() {
-      return hrSlotQty_;
-    }
-
-    public static final int BUFF_PRO_FIELD_NUMBER = 14;
-    private int buffPro_;
-    /**
-     * <code>optional int32 buff_pro = 14 [default = 0];</code>
-     *
-     * <pre>
-     ** 加成职业
-     *工程专家=1
-     *科学专家=2
-     *舰船专家=3
-     *普通公民=4
-     * </pre>
-     */
-    public boolean hasBuffPro() {
-      return ((bitField0_ & 0x00002000) == 0x00002000);
-    }
-    /**
-     * <code>optional int32 buff_pro = 14 [default = 0];</code>
-     *
-     * <pre>
-     ** 加成职业
-     *工程专家=1
-     *科学专家=2
-     *舰船专家=3
-     *普通公民=4
-     * </pre>
-     */
-    public int getBuffPro() {
-      return buffPro_;
-    }
-
-    public static final int MAX_LABOR_UK_FIELD_NUMBER = 15;
-    private int maxLaborUk_;
-    /**
-     * <code>optional int32 max_labor_uk = 15 [default = 0];</code>
-     *
-     * <pre>
-     ** 人力储存上限
-     *(个) 
-     * </pre>
-     */
-    public boolean hasMaxLaborUk() {
-      return ((bitField0_ & 0x00004000) == 0x00004000);
-    }
-    /**
-     * <code>optional int32 max_labor_uk = 15 [default = 0];</code>
-     *
-     * <pre>
-     ** 人力储存上限
-     *(个) 
-     * </pre>
-     */
-    public int getMaxLaborUk() {
-      return maxLaborUk_;
-    }
-
-    public static final int PRO_ID_FIELD_NUMBER = 16;
+    public static final int PRO_ID_FIELD_NUMBER = 12;
     private int proId_;
     /**
-     * <code>optional int32 pro_id = 16 [default = 0];</code>
+     * <code>optional int32 pro_id = 12 [default = 0];</code>
      *
      * <pre>
-     ** 建筑功能表名 
+     ** 产出id 
      * </pre>
      */
     public boolean hasProId() {
-      return ((bitField0_ & 0x00008000) == 0x00008000);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional int32 pro_id = 16 [default = 0];</code>
+     * <code>optional int32 pro_id = 12 [default = 0];</code>
      *
      * <pre>
-     ** 建筑功能表名 
+     ** 产出id 
      * </pre>
      */
     public int getProId() {
       return proId_;
     }
 
-    public static final int BLDG_FUNC_TABLE_NAME_FIELD_NUMBER = 17;
+    public static final int BLDG_FUNC_TABLE_NAME_FIELD_NUMBER = 13;
     private java.lang.Object bldgFuncTableName_;
     /**
-     * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
      * </pre>
      */
     public boolean hasBldgFuncTableName() {
-      return ((bitField0_ & 0x00010000) == 0x00010000);
+      return ((bitField0_ & 0x00001000) == 0x00001000);
     }
     /**
-     * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
@@ -1874,7 +1626,7 @@ public final class BuildingData {
       }
     }
     /**
-     * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
@@ -1894,20 +1646,20 @@ public final class BuildingData {
       }
     }
 
-    public static final int BLDG_FUNC_TABLE_ID_FIELD_NUMBER = 18;
+    public static final int BLDG_FUNC_TABLE_ID_FIELD_NUMBER = 14;
     private int bldgFuncTableId_;
     /**
-     * <code>optional int32 bldg_func_table_id = 18 [default = 0];</code>
+     * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
      *
      * <pre>
      ** 建筑功能表索引ID 
      * </pre>
      */
     public boolean hasBldgFuncTableId() {
-      return ((bitField0_ & 0x00020000) == 0x00020000);
+      return ((bitField0_ & 0x00002000) == 0x00002000);
     }
     /**
-     * <code>optional int32 bldg_func_table_id = 18 [default = 0];</code>
+     * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
      *
      * <pre>
      ** 建筑功能表索引ID 
@@ -1917,20 +1669,20 @@ public final class BuildingData {
       return bldgFuncTableId_;
     }
 
-    public static final int BLDG_STRENGTH_LIM_FIELD_NUMBER = 19;
+    public static final int BLDG_STRENGTH_LIM_FIELD_NUMBER = 15;
     private int bldgStrengthLim_;
     /**
-     * <code>optional int32 bldg_strength_lim = 19 [default = 0];</code>
+     * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
      *
      * <pre>
      ** 庄园势力限制 
      * </pre>
      */
     public boolean hasBldgStrengthLim() {
-      return ((bitField0_ & 0x00040000) == 0x00040000);
+      return ((bitField0_ & 0x00004000) == 0x00004000);
     }
     /**
-     * <code>optional int32 bldg_strength_lim = 19 [default = 0];</code>
+     * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
      *
      * <pre>
      ** 庄园势力限制 
@@ -1940,20 +1692,20 @@ public final class BuildingData {
       return bldgStrengthLim_;
     }
 
-    public static final int BLDG_STRENGTH_ADD_FIELD_NUMBER = 20;
+    public static final int BLDG_STRENGTH_ADD_FIELD_NUMBER = 16;
     private int bldgStrengthAdd_;
     /**
-     * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
+     * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
      *
      * <pre>
      ** 增加公司实力 
      * </pre>
      */
     public boolean hasBldgStrengthAdd() {
-      return ((bitField0_ & 0x00080000) == 0x00080000);
+      return ((bitField0_ & 0x00008000) == 0x00008000);
     }
     /**
-     * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
+     * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
      *
      * <pre>
      ** 增加公司实力 
@@ -1963,10 +1715,10 @@ public final class BuildingData {
       return bldgStrengthAdd_;
     }
 
-    public static final int TIME_COST_FIELD_NUMBER = 21;
+    public static final int TIME_COST_FIELD_NUMBER = 17;
     private int timeCost_;
     /**
-     * <code>optional int32 time_cost = 21 [default = 0];</code>
+     * <code>optional int32 time_cost = 17 [default = 0];</code>
      *
      * <pre>
      ** 消耗时间
@@ -1974,10 +1726,10 @@ public final class BuildingData {
      * </pre>
      */
     public boolean hasTimeCost() {
-      return ((bitField0_ & 0x00100000) == 0x00100000);
+      return ((bitField0_ & 0x00010000) == 0x00010000);
     }
     /**
-     * <code>optional int32 time_cost = 21 [default = 0];</code>
+     * <code>optional int32 time_cost = 17 [default = 0];</code>
      *
      * <pre>
      ** 消耗时间
@@ -1988,20 +1740,20 @@ public final class BuildingData {
       return timeCost_;
     }
 
-    public static final int GOLD_COST_FIELD_NUMBER = 22;
+    public static final int GOLD_COST_FIELD_NUMBER = 18;
     private int goldCost_;
     /**
-     * <code>optional int32 gold_cost = 22 [default = 0];</code>
+     * <code>optional int32 gold_cost = 18 [default = 0];</code>
      *
      * <pre>
      ** 消耗黄金 
      * </pre>
      */
     public boolean hasGoldCost() {
-      return ((bitField0_ & 0x00200000) == 0x00200000);
+      return ((bitField0_ & 0x00020000) == 0x00020000);
     }
     /**
-     * <code>optional int32 gold_cost = 22 [default = 0];</code>
+     * <code>optional int32 gold_cost = 18 [default = 0];</code>
      *
      * <pre>
      ** 消耗黄金 
@@ -2011,20 +1763,20 @@ public final class BuildingData {
       return goldCost_;
     }
 
-    public static final int ELEC_COST_FIELD_NUMBER = 23;
+    public static final int ELEC_COST_FIELD_NUMBER = 19;
     private int elecCost_;
     /**
-     * <code>optional int32 elec_cost = 23 [default = 0];</code>
+     * <code>optional int32 elec_cost = 19 [default = 0];</code>
      *
      * <pre>
      ** 消耗电力 
      * </pre>
      */
     public boolean hasElecCost() {
-      return ((bitField0_ & 0x00400000) == 0x00400000);
+      return ((bitField0_ & 0x00040000) == 0x00040000);
     }
     /**
-     * <code>optional int32 elec_cost = 23 [default = 0];</code>
+     * <code>optional int32 elec_cost = 19 [default = 0];</code>
      *
      * <pre>
      ** 消耗电力 
@@ -2034,35 +1786,35 @@ public final class BuildingData {
       return elecCost_;
     }
 
-    public static final int COST_TABLE_FIELD_NUMBER = 24;
+    public static final int COST_TABLE_FIELD_NUMBER = 20;
     private java.util.List<com.game.framework.resource.data.BuildingData.BUILDING.CostStruct> costTable_;
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
      */
     public java.util.List<com.game.framework.resource.data.BuildingData.BUILDING.CostStruct> getCostTableList() {
       return costTable_;
     }
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
      */
     public java.util.List<? extends com.game.framework.resource.data.BuildingData.BUILDING.CostStructOrBuilder> 
         getCostTableOrBuilderList() {
       return costTable_;
     }
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
      */
     public int getCostTableCount() {
       return costTable_.size();
     }
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
      */
     public com.game.framework.resource.data.BuildingData.BUILDING.CostStruct getCostTable(int index) {
       return costTable_.get(index);
     }
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
      */
     public com.game.framework.resource.data.BuildingData.BUILDING.CostStructOrBuilder getCostTableOrBuilder(
         int index) {
@@ -2079,12 +1831,8 @@ public final class BuildingData {
       prefabName_ = "";
       iconName_ = "";
       bldgInfo_ = "";
-      uiOrder_ = 0;
-      bldgFuncType_ = 0;
-      cultPt_ = 0;
-      hrSlotQty_ = 0;
-      buffPro_ = 0;
-      maxLaborUk_ = 0;
+      conId_ = 0;
+      conPro_ = 0;
       proId_ = 0;
       bldgFuncTableName_ = "";
       bldgFuncTableId_ = 0;
@@ -2140,49 +1888,37 @@ public final class BuildingData {
         output.writeBytes(9, getBldgInfoBytes());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeInt32(10, uiOrder_);
+        output.writeInt32(10, conId_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeInt32(11, bldgFuncType_);
+        output.writeInt32(11, conPro_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(12, cultPt_);
+        output.writeInt32(12, proId_);
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeInt32(13, hrSlotQty_);
+        output.writeBytes(13, getBldgFuncTableNameBytes());
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        output.writeInt32(14, buffPro_);
+        output.writeInt32(14, bldgFuncTableId_);
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        output.writeInt32(15, maxLaborUk_);
+        output.writeInt32(15, bldgStrengthLim_);
       }
       if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        output.writeInt32(16, proId_);
+        output.writeInt32(16, bldgStrengthAdd_);
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        output.writeBytes(17, getBldgFuncTableNameBytes());
+        output.writeInt32(17, timeCost_);
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
-        output.writeInt32(18, bldgFuncTableId_);
+        output.writeInt32(18, goldCost_);
       }
       if (((bitField0_ & 0x00040000) == 0x00040000)) {
-        output.writeInt32(19, bldgStrengthLim_);
-      }
-      if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        output.writeInt32(20, bldgStrengthAdd_);
-      }
-      if (((bitField0_ & 0x00100000) == 0x00100000)) {
-        output.writeInt32(21, timeCost_);
-      }
-      if (((bitField0_ & 0x00200000) == 0x00200000)) {
-        output.writeInt32(22, goldCost_);
-      }
-      if (((bitField0_ & 0x00400000) == 0x00400000)) {
-        output.writeInt32(23, elecCost_);
+        output.writeInt32(19, elecCost_);
       }
       for (int i = 0; i < costTable_.size(); i++) {
-        output.writeMessage(24, costTable_.get(i));
+        output.writeMessage(20, costTable_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -2231,63 +1967,47 @@ public final class BuildingData {
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, uiOrder_);
+          .computeInt32Size(10, conId_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(11, bldgFuncType_);
+          .computeInt32Size(11, conPro_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, cultPt_);
+          .computeInt32Size(12, proId_);
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(13, hrSlotQty_);
+          .computeBytesSize(13, getBldgFuncTableNameBytes());
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(14, buffPro_);
+          .computeInt32Size(14, bldgFuncTableId_);
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(15, maxLaborUk_);
+          .computeInt32Size(15, bldgStrengthLim_);
       }
       if (((bitField0_ & 0x00008000) == 0x00008000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(16, proId_);
+          .computeInt32Size(16, bldgStrengthAdd_);
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(17, getBldgFuncTableNameBytes());
+          .computeInt32Size(17, timeCost_);
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(18, bldgFuncTableId_);
+          .computeInt32Size(18, goldCost_);
       }
       if (((bitField0_ & 0x00040000) == 0x00040000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(19, bldgStrengthLim_);
-      }
-      if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(20, bldgStrengthAdd_);
-      }
-      if (((bitField0_ & 0x00100000) == 0x00100000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(21, timeCost_);
-      }
-      if (((bitField0_ & 0x00200000) == 0x00200000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(22, goldCost_);
-      }
-      if (((bitField0_ & 0x00400000) == 0x00400000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(23, elecCost_);
+          .computeInt32Size(19, elecCost_);
       }
       for (int i = 0; i < costTable_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(24, costTable_.get(i));
+          .computeMessageSize(20, costTable_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2425,37 +2145,29 @@ public final class BuildingData {
         bitField0_ = (bitField0_ & ~0x00000080);
         bldgInfo_ = "";
         bitField0_ = (bitField0_ & ~0x00000100);
-        uiOrder_ = 0;
+        conId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000200);
-        bldgFuncType_ = 0;
+        conPro_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
-        cultPt_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000800);
-        hrSlotQty_ = 0;
-        bitField0_ = (bitField0_ & ~0x00001000);
-        buffPro_ = 0;
-        bitField0_ = (bitField0_ & ~0x00002000);
-        maxLaborUk_ = 0;
-        bitField0_ = (bitField0_ & ~0x00004000);
         proId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00000800);
         bldgFuncTableName_ = "";
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00001000);
         bldgFuncTableId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00002000);
         bldgStrengthLim_ = 0;
-        bitField0_ = (bitField0_ & ~0x00040000);
+        bitField0_ = (bitField0_ & ~0x00004000);
         bldgStrengthAdd_ = 0;
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00008000);
         timeCost_ = 0;
-        bitField0_ = (bitField0_ & ~0x00100000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         goldCost_ = 0;
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         elecCost_ = 0;
-        bitField0_ = (bitField0_ & ~0x00400000);
+        bitField0_ = (bitField0_ & ~0x00040000);
         if (costTableBuilder_ == null) {
           costTable_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00800000);
+          bitField0_ = (bitField0_ & ~0x00080000);
         } else {
           costTableBuilder_.clear();
         }
@@ -2526,63 +2238,47 @@ public final class BuildingData {
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.uiOrder_ = uiOrder_;
+        result.conId_ = conId_;
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000400;
         }
-        result.bldgFuncType_ = bldgFuncType_;
+        result.conPro_ = conPro_;
         if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
           to_bitField0_ |= 0x00000800;
         }
-        result.cultPt_ = cultPt_;
+        result.proId_ = proId_;
         if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
           to_bitField0_ |= 0x00001000;
         }
-        result.hrSlotQty_ = hrSlotQty_;
+        result.bldgFuncTableName_ = bldgFuncTableName_;
         if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
           to_bitField0_ |= 0x00002000;
         }
-        result.buffPro_ = buffPro_;
+        result.bldgFuncTableId_ = bldgFuncTableId_;
         if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
           to_bitField0_ |= 0x00004000;
         }
-        result.maxLaborUk_ = maxLaborUk_;
+        result.bldgStrengthLim_ = bldgStrengthLim_;
         if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
           to_bitField0_ |= 0x00008000;
         }
-        result.proId_ = proId_;
+        result.bldgStrengthAdd_ = bldgStrengthAdd_;
         if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
           to_bitField0_ |= 0x00010000;
         }
-        result.bldgFuncTableName_ = bldgFuncTableName_;
+        result.timeCost_ = timeCost_;
         if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
           to_bitField0_ |= 0x00020000;
         }
-        result.bldgFuncTableId_ = bldgFuncTableId_;
+        result.goldCost_ = goldCost_;
         if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
           to_bitField0_ |= 0x00040000;
         }
-        result.bldgStrengthLim_ = bldgStrengthLim_;
-        if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
-          to_bitField0_ |= 0x00080000;
-        }
-        result.bldgStrengthAdd_ = bldgStrengthAdd_;
-        if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
-          to_bitField0_ |= 0x00100000;
-        }
-        result.timeCost_ = timeCost_;
-        if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
-          to_bitField0_ |= 0x00200000;
-        }
-        result.goldCost_ = goldCost_;
-        if (((from_bitField0_ & 0x00400000) == 0x00400000)) {
-          to_bitField0_ |= 0x00400000;
-        }
         result.elecCost_ = elecCost_;
         if (costTableBuilder_ == null) {
-          if (((bitField0_ & 0x00800000) == 0x00800000)) {
+          if (((bitField0_ & 0x00080000) == 0x00080000)) {
             costTable_ = java.util.Collections.unmodifiableList(costTable_);
-            bitField0_ = (bitField0_ & ~0x00800000);
+            bitField0_ = (bitField0_ & ~0x00080000);
           }
           result.costTable_ = costTable_;
         } else {
@@ -2639,29 +2335,17 @@ public final class BuildingData {
           bldgInfo_ = other.bldgInfo_;
           onChanged();
         }
-        if (other.hasUiOrder()) {
-          setUiOrder(other.getUiOrder());
+        if (other.hasConId()) {
+          setConId(other.getConId());
         }
-        if (other.hasBldgFuncType()) {
-          setBldgFuncType(other.getBldgFuncType());
-        }
-        if (other.hasCultPt()) {
-          setCultPt(other.getCultPt());
-        }
-        if (other.hasHrSlotQty()) {
-          setHrSlotQty(other.getHrSlotQty());
-        }
-        if (other.hasBuffPro()) {
-          setBuffPro(other.getBuffPro());
-        }
-        if (other.hasMaxLaborUk()) {
-          setMaxLaborUk(other.getMaxLaborUk());
+        if (other.hasConPro()) {
+          setConPro(other.getConPro());
         }
         if (other.hasProId()) {
           setProId(other.getProId());
         }
         if (other.hasBldgFuncTableName()) {
-          bitField0_ |= 0x00010000;
+          bitField0_ |= 0x00001000;
           bldgFuncTableName_ = other.bldgFuncTableName_;
           onChanged();
         }
@@ -2687,7 +2371,7 @@ public final class BuildingData {
           if (!other.costTable_.isEmpty()) {
             if (costTable_.isEmpty()) {
               costTable_ = other.costTable_;
-              bitField0_ = (bitField0_ & ~0x00800000);
+              bitField0_ = (bitField0_ & ~0x00080000);
             } else {
               ensureCostTableIsMutable();
               costTable_.addAll(other.costTable_);
@@ -2700,7 +2384,7 @@ public final class BuildingData {
               costTableBuilder_.dispose();
               costTableBuilder_ = null;
               costTable_ = other.costTable_;
-              bitField0_ = (bitField0_ & ~0x00800000);
+              bitField0_ = (bitField0_ & ~0x00080000);
               costTableBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getCostTableFieldBuilder() : null;
@@ -3416,405 +3100,145 @@ public final class BuildingData {
         return this;
       }
 
-      private int uiOrder_ ;
+      private int conId_ ;
       /**
-       * <code>optional int32 ui_order = 10 [default = 0];</code>
+       * <code>optional int32 con_id = 10 [default = 0];</code>
        *
        * <pre>
-       ** 界面排序 
+       ** 消耗id 
        * </pre>
        */
-      public boolean hasUiOrder() {
+      public boolean hasConId() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional int32 ui_order = 10 [default = 0];</code>
+       * <code>optional int32 con_id = 10 [default = 0];</code>
        *
        * <pre>
-       ** 界面排序 
+       ** 消耗id 
        * </pre>
        */
-      public int getUiOrder() {
-        return uiOrder_;
+      public int getConId() {
+        return conId_;
       }
       /**
-       * <code>optional int32 ui_order = 10 [default = 0];</code>
+       * <code>optional int32 con_id = 10 [default = 0];</code>
        *
        * <pre>
-       ** 界面排序 
+       ** 消耗id 
        * </pre>
        */
-      public Builder setUiOrder(int value) {
+      public Builder setConId(int value) {
         bitField0_ |= 0x00000200;
-        uiOrder_ = value;
+        conId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 ui_order = 10 [default = 0];</code>
+       * <code>optional int32 con_id = 10 [default = 0];</code>
        *
        * <pre>
-       ** 界面排序 
+       ** 消耗id 
        * </pre>
        */
-      public Builder clearUiOrder() {
+      public Builder clearConId() {
         bitField0_ = (bitField0_ & ~0x00000200);
-        uiOrder_ = 0;
+        conId_ = 0;
         onChanged();
         return this;
       }
 
-      private int bldgFuncType_ ;
+      private int conPro_ ;
       /**
-       * <code>optional int32 bldg_func_type = 11 [default = 0];</code>
+       * <code>optional int32 con_pro = 11 [default = 0];</code>
        *
        * <pre>
-       ** 建筑功能类型
-       *(func=functional)
-       *太空基地(SpaceStation)=101
-       *星港(Spaceport)=102
-       *舰体厂(FuncHullFact)=103
-       *组装厂(ModFact)=104
-       *配件厂(CpntFact)=105
-       *采集厂(SurfCol)=201
-       *提炼厂(Refinery)=202
-       *核电厂(PowerPlant)=203
-       *仓库(ItemStg)=204
-       *聚居地(Habitat)=301
+       ** 消耗/产出 
        * </pre>
        */
-      public boolean hasBldgFuncType() {
+      public boolean hasConPro() {
         return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional int32 bldg_func_type = 11 [default = 0];</code>
+       * <code>optional int32 con_pro = 11 [default = 0];</code>
        *
        * <pre>
-       ** 建筑功能类型
-       *(func=functional)
-       *太空基地(SpaceStation)=101
-       *星港(Spaceport)=102
-       *舰体厂(FuncHullFact)=103
-       *组装厂(ModFact)=104
-       *配件厂(CpntFact)=105
-       *采集厂(SurfCol)=201
-       *提炼厂(Refinery)=202
-       *核电厂(PowerPlant)=203
-       *仓库(ItemStg)=204
-       *聚居地(Habitat)=301
+       ** 消耗/产出 
        * </pre>
        */
-      public int getBldgFuncType() {
-        return bldgFuncType_;
+      public int getConPro() {
+        return conPro_;
       }
       /**
-       * <code>optional int32 bldg_func_type = 11 [default = 0];</code>
+       * <code>optional int32 con_pro = 11 [default = 0];</code>
        *
        * <pre>
-       ** 建筑功能类型
-       *(func=functional)
-       *太空基地(SpaceStation)=101
-       *星港(Spaceport)=102
-       *舰体厂(FuncHullFact)=103
-       *组装厂(ModFact)=104
-       *配件厂(CpntFact)=105
-       *采集厂(SurfCol)=201
-       *提炼厂(Refinery)=202
-       *核电厂(PowerPlant)=203
-       *仓库(ItemStg)=204
-       *聚居地(Habitat)=301
+       ** 消耗/产出 
        * </pre>
        */
-      public Builder setBldgFuncType(int value) {
+      public Builder setConPro(int value) {
         bitField0_ |= 0x00000400;
-        bldgFuncType_ = value;
+        conPro_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 bldg_func_type = 11 [default = 0];</code>
+       * <code>optional int32 con_pro = 11 [default = 0];</code>
        *
        * <pre>
-       ** 建筑功能类型
-       *(func=functional)
-       *太空基地(SpaceStation)=101
-       *星港(Spaceport)=102
-       *舰体厂(FuncHullFact)=103
-       *组装厂(ModFact)=104
-       *配件厂(CpntFact)=105
-       *采集厂(SurfCol)=201
-       *提炼厂(Refinery)=202
-       *核电厂(PowerPlant)=203
-       *仓库(ItemStg)=204
-       *聚居地(Habitat)=301
+       ** 消耗/产出 
        * </pre>
        */
-      public Builder clearBldgFuncType() {
+      public Builder clearConPro() {
         bitField0_ = (bitField0_ & ~0x00000400);
-        bldgFuncType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int cultPt_ ;
-      /**
-       * <code>optional int32 cult_pt = 12 [default = 0];</code>
-       *
-       * <pre>
-       **  
-       * </pre>
-       */
-      public boolean hasCultPt() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
-      }
-      /**
-       * <code>optional int32 cult_pt = 12 [default = 0];</code>
-       *
-       * <pre>
-       **  
-       * </pre>
-       */
-      public int getCultPt() {
-        return cultPt_;
-      }
-      /**
-       * <code>optional int32 cult_pt = 12 [default = 0];</code>
-       *
-       * <pre>
-       **  
-       * </pre>
-       */
-      public Builder setCultPt(int value) {
-        bitField0_ |= 0x00000800;
-        cultPt_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 cult_pt = 12 [default = 0];</code>
-       *
-       * <pre>
-       **  
-       * </pre>
-       */
-      public Builder clearCultPt() {
-        bitField0_ = (bitField0_ & ~0x00000800);
-        cultPt_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int hrSlotQty_ ;
-      /**
-       * <code>optional int32 hr_slot_qty = 13 [default = 0];</code>
-       *
-       * <pre>
-       ** 人力槽位数
-       *(个) 
-       * </pre>
-       */
-      public boolean hasHrSlotQty() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
-      }
-      /**
-       * <code>optional int32 hr_slot_qty = 13 [default = 0];</code>
-       *
-       * <pre>
-       ** 人力槽位数
-       *(个) 
-       * </pre>
-       */
-      public int getHrSlotQty() {
-        return hrSlotQty_;
-      }
-      /**
-       * <code>optional int32 hr_slot_qty = 13 [default = 0];</code>
-       *
-       * <pre>
-       ** 人力槽位数
-       *(个) 
-       * </pre>
-       */
-      public Builder setHrSlotQty(int value) {
-        bitField0_ |= 0x00001000;
-        hrSlotQty_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 hr_slot_qty = 13 [default = 0];</code>
-       *
-       * <pre>
-       ** 人力槽位数
-       *(个) 
-       * </pre>
-       */
-      public Builder clearHrSlotQty() {
-        bitField0_ = (bitField0_ & ~0x00001000);
-        hrSlotQty_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int buffPro_ ;
-      /**
-       * <code>optional int32 buff_pro = 14 [default = 0];</code>
-       *
-       * <pre>
-       ** 加成职业
-       *工程专家=1
-       *科学专家=2
-       *舰船专家=3
-       *普通公民=4
-       * </pre>
-       */
-      public boolean hasBuffPro() {
-        return ((bitField0_ & 0x00002000) == 0x00002000);
-      }
-      /**
-       * <code>optional int32 buff_pro = 14 [default = 0];</code>
-       *
-       * <pre>
-       ** 加成职业
-       *工程专家=1
-       *科学专家=2
-       *舰船专家=3
-       *普通公民=4
-       * </pre>
-       */
-      public int getBuffPro() {
-        return buffPro_;
-      }
-      /**
-       * <code>optional int32 buff_pro = 14 [default = 0];</code>
-       *
-       * <pre>
-       ** 加成职业
-       *工程专家=1
-       *科学专家=2
-       *舰船专家=3
-       *普通公民=4
-       * </pre>
-       */
-      public Builder setBuffPro(int value) {
-        bitField0_ |= 0x00002000;
-        buffPro_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 buff_pro = 14 [default = 0];</code>
-       *
-       * <pre>
-       ** 加成职业
-       *工程专家=1
-       *科学专家=2
-       *舰船专家=3
-       *普通公民=4
-       * </pre>
-       */
-      public Builder clearBuffPro() {
-        bitField0_ = (bitField0_ & ~0x00002000);
-        buffPro_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int maxLaborUk_ ;
-      /**
-       * <code>optional int32 max_labor_uk = 15 [default = 0];</code>
-       *
-       * <pre>
-       ** 人力储存上限
-       *(个) 
-       * </pre>
-       */
-      public boolean hasMaxLaborUk() {
-        return ((bitField0_ & 0x00004000) == 0x00004000);
-      }
-      /**
-       * <code>optional int32 max_labor_uk = 15 [default = 0];</code>
-       *
-       * <pre>
-       ** 人力储存上限
-       *(个) 
-       * </pre>
-       */
-      public int getMaxLaborUk() {
-        return maxLaborUk_;
-      }
-      /**
-       * <code>optional int32 max_labor_uk = 15 [default = 0];</code>
-       *
-       * <pre>
-       ** 人力储存上限
-       *(个) 
-       * </pre>
-       */
-      public Builder setMaxLaborUk(int value) {
-        bitField0_ |= 0x00004000;
-        maxLaborUk_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 max_labor_uk = 15 [default = 0];</code>
-       *
-       * <pre>
-       ** 人力储存上限
-       *(个) 
-       * </pre>
-       */
-      public Builder clearMaxLaborUk() {
-        bitField0_ = (bitField0_ & ~0x00004000);
-        maxLaborUk_ = 0;
+        conPro_ = 0;
         onChanged();
         return this;
       }
 
       private int proId_ ;
       /**
-       * <code>optional int32 pro_id = 16 [default = 0];</code>
+       * <code>optional int32 pro_id = 12 [default = 0];</code>
        *
        * <pre>
-       ** 建筑功能表名 
+       ** 产出id 
        * </pre>
        */
       public boolean hasProId() {
-        return ((bitField0_ & 0x00008000) == 0x00008000);
+        return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional int32 pro_id = 16 [default = 0];</code>
+       * <code>optional int32 pro_id = 12 [default = 0];</code>
        *
        * <pre>
-       ** 建筑功能表名 
+       ** 产出id 
        * </pre>
        */
       public int getProId() {
         return proId_;
       }
       /**
-       * <code>optional int32 pro_id = 16 [default = 0];</code>
+       * <code>optional int32 pro_id = 12 [default = 0];</code>
        *
        * <pre>
-       ** 建筑功能表名 
+       ** 产出id 
        * </pre>
        */
       public Builder setProId(int value) {
-        bitField0_ |= 0x00008000;
+        bitField0_ |= 0x00000800;
         proId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 pro_id = 16 [default = 0];</code>
+       * <code>optional int32 pro_id = 12 [default = 0];</code>
        *
        * <pre>
-       ** 建筑功能表名 
+       ** 产出id 
        * </pre>
        */
       public Builder clearProId() {
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00000800);
         proId_ = 0;
         onChanged();
         return this;
@@ -3822,17 +3246,17 @@ public final class BuildingData {
 
       private java.lang.Object bldgFuncTableName_ = "";
       /**
-       * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
        * </pre>
        */
       public boolean hasBldgFuncTableName() {
-        return ((bitField0_ & 0x00010000) == 0x00010000);
+        return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
-       * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
@@ -3853,7 +3277,7 @@ public final class BuildingData {
         }
       }
       /**
-       * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
@@ -3873,7 +3297,7 @@ public final class BuildingData {
         }
       }
       /**
-       * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
@@ -3884,26 +3308,26 @@ public final class BuildingData {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00010000;
+  bitField0_ |= 0x00001000;
         bldgFuncTableName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
        * </pre>
        */
       public Builder clearBldgFuncTableName() {
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00001000);
         bldgFuncTableName_ = getDefaultInstance().getBldgFuncTableName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string bldg_func_table_name = 17 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
@@ -3914,7 +3338,7 @@ public final class BuildingData {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00010000;
+  bitField0_ |= 0x00001000;
         bldgFuncTableName_ = value;
         onChanged();
         return this;
@@ -3922,17 +3346,17 @@ public final class BuildingData {
 
       private int bldgFuncTableId_ ;
       /**
-       * <code>optional int32 bldg_func_table_id = 18 [default = 0];</code>
+       * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
        *
        * <pre>
        ** 建筑功能表索引ID 
        * </pre>
        */
       public boolean hasBldgFuncTableId() {
-        return ((bitField0_ & 0x00020000) == 0x00020000);
+        return ((bitField0_ & 0x00002000) == 0x00002000);
       }
       /**
-       * <code>optional int32 bldg_func_table_id = 18 [default = 0];</code>
+       * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
        *
        * <pre>
        ** 建筑功能表索引ID 
@@ -3942,27 +3366,27 @@ public final class BuildingData {
         return bldgFuncTableId_;
       }
       /**
-       * <code>optional int32 bldg_func_table_id = 18 [default = 0];</code>
+       * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
        *
        * <pre>
        ** 建筑功能表索引ID 
        * </pre>
        */
       public Builder setBldgFuncTableId(int value) {
-        bitField0_ |= 0x00020000;
+        bitField0_ |= 0x00002000;
         bldgFuncTableId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 bldg_func_table_id = 18 [default = 0];</code>
+       * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
        *
        * <pre>
        ** 建筑功能表索引ID 
        * </pre>
        */
       public Builder clearBldgFuncTableId() {
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00002000);
         bldgFuncTableId_ = 0;
         onChanged();
         return this;
@@ -3970,17 +3394,17 @@ public final class BuildingData {
 
       private int bldgStrengthLim_ ;
       /**
-       * <code>optional int32 bldg_strength_lim = 19 [default = 0];</code>
+       * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
        *
        * <pre>
        ** 庄园势力限制 
        * </pre>
        */
       public boolean hasBldgStrengthLim() {
-        return ((bitField0_ & 0x00040000) == 0x00040000);
+        return ((bitField0_ & 0x00004000) == 0x00004000);
       }
       /**
-       * <code>optional int32 bldg_strength_lim = 19 [default = 0];</code>
+       * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
        *
        * <pre>
        ** 庄园势力限制 
@@ -3990,27 +3414,27 @@ public final class BuildingData {
         return bldgStrengthLim_;
       }
       /**
-       * <code>optional int32 bldg_strength_lim = 19 [default = 0];</code>
+       * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
        *
        * <pre>
        ** 庄园势力限制 
        * </pre>
        */
       public Builder setBldgStrengthLim(int value) {
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00004000;
         bldgStrengthLim_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 bldg_strength_lim = 19 [default = 0];</code>
+       * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
        *
        * <pre>
        ** 庄园势力限制 
        * </pre>
        */
       public Builder clearBldgStrengthLim() {
-        bitField0_ = (bitField0_ & ~0x00040000);
+        bitField0_ = (bitField0_ & ~0x00004000);
         bldgStrengthLim_ = 0;
         onChanged();
         return this;
@@ -4018,17 +3442,17 @@ public final class BuildingData {
 
       private int bldgStrengthAdd_ ;
       /**
-       * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
+       * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
        *
        * <pre>
        ** 增加公司实力 
        * </pre>
        */
       public boolean hasBldgStrengthAdd() {
-        return ((bitField0_ & 0x00080000) == 0x00080000);
+        return ((bitField0_ & 0x00008000) == 0x00008000);
       }
       /**
-       * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
+       * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
        *
        * <pre>
        ** 增加公司实力 
@@ -4038,27 +3462,27 @@ public final class BuildingData {
         return bldgStrengthAdd_;
       }
       /**
-       * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
+       * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
        *
        * <pre>
        ** 增加公司实力 
        * </pre>
        */
       public Builder setBldgStrengthAdd(int value) {
-        bitField0_ |= 0x00080000;
+        bitField0_ |= 0x00008000;
         bldgStrengthAdd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
+       * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
        *
        * <pre>
        ** 增加公司实力 
        * </pre>
        */
       public Builder clearBldgStrengthAdd() {
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00008000);
         bldgStrengthAdd_ = 0;
         onChanged();
         return this;
@@ -4066,7 +3490,7 @@ public final class BuildingData {
 
       private int timeCost_ ;
       /**
-       * <code>optional int32 time_cost = 21 [default = 0];</code>
+       * <code>optional int32 time_cost = 17 [default = 0];</code>
        *
        * <pre>
        ** 消耗时间
@@ -4074,10 +3498,10 @@ public final class BuildingData {
        * </pre>
        */
       public boolean hasTimeCost() {
-        return ((bitField0_ & 0x00100000) == 0x00100000);
+        return ((bitField0_ & 0x00010000) == 0x00010000);
       }
       /**
-       * <code>optional int32 time_cost = 21 [default = 0];</code>
+       * <code>optional int32 time_cost = 17 [default = 0];</code>
        *
        * <pre>
        ** 消耗时间
@@ -4088,7 +3512,7 @@ public final class BuildingData {
         return timeCost_;
       }
       /**
-       * <code>optional int32 time_cost = 21 [default = 0];</code>
+       * <code>optional int32 time_cost = 17 [default = 0];</code>
        *
        * <pre>
        ** 消耗时间
@@ -4096,13 +3520,13 @@ public final class BuildingData {
        * </pre>
        */
       public Builder setTimeCost(int value) {
-        bitField0_ |= 0x00100000;
+        bitField0_ |= 0x00010000;
         timeCost_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 time_cost = 21 [default = 0];</code>
+       * <code>optional int32 time_cost = 17 [default = 0];</code>
        *
        * <pre>
        ** 消耗时间
@@ -4110,7 +3534,7 @@ public final class BuildingData {
        * </pre>
        */
       public Builder clearTimeCost() {
-        bitField0_ = (bitField0_ & ~0x00100000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         timeCost_ = 0;
         onChanged();
         return this;
@@ -4118,17 +3542,17 @@ public final class BuildingData {
 
       private int goldCost_ ;
       /**
-       * <code>optional int32 gold_cost = 22 [default = 0];</code>
+       * <code>optional int32 gold_cost = 18 [default = 0];</code>
        *
        * <pre>
        ** 消耗黄金 
        * </pre>
        */
       public boolean hasGoldCost() {
-        return ((bitField0_ & 0x00200000) == 0x00200000);
+        return ((bitField0_ & 0x00020000) == 0x00020000);
       }
       /**
-       * <code>optional int32 gold_cost = 22 [default = 0];</code>
+       * <code>optional int32 gold_cost = 18 [default = 0];</code>
        *
        * <pre>
        ** 消耗黄金 
@@ -4138,27 +3562,27 @@ public final class BuildingData {
         return goldCost_;
       }
       /**
-       * <code>optional int32 gold_cost = 22 [default = 0];</code>
+       * <code>optional int32 gold_cost = 18 [default = 0];</code>
        *
        * <pre>
        ** 消耗黄金 
        * </pre>
        */
       public Builder setGoldCost(int value) {
-        bitField0_ |= 0x00200000;
+        bitField0_ |= 0x00020000;
         goldCost_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold_cost = 22 [default = 0];</code>
+       * <code>optional int32 gold_cost = 18 [default = 0];</code>
        *
        * <pre>
        ** 消耗黄金 
        * </pre>
        */
       public Builder clearGoldCost() {
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         goldCost_ = 0;
         onChanged();
         return this;
@@ -4166,17 +3590,17 @@ public final class BuildingData {
 
       private int elecCost_ ;
       /**
-       * <code>optional int32 elec_cost = 23 [default = 0];</code>
+       * <code>optional int32 elec_cost = 19 [default = 0];</code>
        *
        * <pre>
        ** 消耗电力 
        * </pre>
        */
       public boolean hasElecCost() {
-        return ((bitField0_ & 0x00400000) == 0x00400000);
+        return ((bitField0_ & 0x00040000) == 0x00040000);
       }
       /**
-       * <code>optional int32 elec_cost = 23 [default = 0];</code>
+       * <code>optional int32 elec_cost = 19 [default = 0];</code>
        *
        * <pre>
        ** 消耗电力 
@@ -4186,27 +3610,27 @@ public final class BuildingData {
         return elecCost_;
       }
       /**
-       * <code>optional int32 elec_cost = 23 [default = 0];</code>
+       * <code>optional int32 elec_cost = 19 [default = 0];</code>
        *
        * <pre>
        ** 消耗电力 
        * </pre>
        */
       public Builder setElecCost(int value) {
-        bitField0_ |= 0x00400000;
+        bitField0_ |= 0x00040000;
         elecCost_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 elec_cost = 23 [default = 0];</code>
+       * <code>optional int32 elec_cost = 19 [default = 0];</code>
        *
        * <pre>
        ** 消耗电力 
        * </pre>
        */
       public Builder clearElecCost() {
-        bitField0_ = (bitField0_ & ~0x00400000);
+        bitField0_ = (bitField0_ & ~0x00040000);
         elecCost_ = 0;
         onChanged();
         return this;
@@ -4215,9 +3639,9 @@ public final class BuildingData {
       private java.util.List<com.game.framework.resource.data.BuildingData.BUILDING.CostStruct> costTable_ =
         java.util.Collections.emptyList();
       private void ensureCostTableIsMutable() {
-        if (!((bitField0_ & 0x00800000) == 0x00800000)) {
+        if (!((bitField0_ & 0x00080000) == 0x00080000)) {
           costTable_ = new java.util.ArrayList<com.game.framework.resource.data.BuildingData.BUILDING.CostStruct>(costTable_);
-          bitField0_ |= 0x00800000;
+          bitField0_ |= 0x00080000;
          }
       }
 
@@ -4225,7 +3649,7 @@ public final class BuildingData {
           com.game.framework.resource.data.BuildingData.BUILDING.CostStruct, com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.Builder, com.game.framework.resource.data.BuildingData.BUILDING.CostStructOrBuilder> costTableBuilder_;
 
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public java.util.List<com.game.framework.resource.data.BuildingData.BUILDING.CostStruct> getCostTableList() {
         if (costTableBuilder_ == null) {
@@ -4235,7 +3659,7 @@ public final class BuildingData {
         }
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public int getCostTableCount() {
         if (costTableBuilder_ == null) {
@@ -4245,7 +3669,7 @@ public final class BuildingData {
         }
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public com.game.framework.resource.data.BuildingData.BUILDING.CostStruct getCostTable(int index) {
         if (costTableBuilder_ == null) {
@@ -4255,7 +3679,7 @@ public final class BuildingData {
         }
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public Builder setCostTable(
           int index, com.game.framework.resource.data.BuildingData.BUILDING.CostStruct value) {
@@ -4272,7 +3696,7 @@ public final class BuildingData {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public Builder setCostTable(
           int index, com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.Builder builderForValue) {
@@ -4286,7 +3710,7 @@ public final class BuildingData {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public Builder addCostTable(com.game.framework.resource.data.BuildingData.BUILDING.CostStruct value) {
         if (costTableBuilder_ == null) {
@@ -4302,7 +3726,7 @@ public final class BuildingData {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public Builder addCostTable(
           int index, com.game.framework.resource.data.BuildingData.BUILDING.CostStruct value) {
@@ -4319,7 +3743,7 @@ public final class BuildingData {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public Builder addCostTable(
           com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.Builder builderForValue) {
@@ -4333,7 +3757,7 @@ public final class BuildingData {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public Builder addCostTable(
           int index, com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.Builder builderForValue) {
@@ -4347,7 +3771,7 @@ public final class BuildingData {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public Builder addAllCostTable(
           java.lang.Iterable<? extends com.game.framework.resource.data.BuildingData.BUILDING.CostStruct> values) {
@@ -4362,12 +3786,12 @@ public final class BuildingData {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public Builder clearCostTable() {
         if (costTableBuilder_ == null) {
           costTable_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00800000);
+          bitField0_ = (bitField0_ & ~0x00080000);
           onChanged();
         } else {
           costTableBuilder_.clear();
@@ -4375,7 +3799,7 @@ public final class BuildingData {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public Builder removeCostTable(int index) {
         if (costTableBuilder_ == null) {
@@ -4388,14 +3812,14 @@ public final class BuildingData {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.Builder getCostTableBuilder(
           int index) {
         return getCostTableFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public com.game.framework.resource.data.BuildingData.BUILDING.CostStructOrBuilder getCostTableOrBuilder(
           int index) {
@@ -4405,7 +3829,7 @@ public final class BuildingData {
         }
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public java.util.List<? extends com.game.framework.resource.data.BuildingData.BUILDING.CostStructOrBuilder> 
            getCostTableOrBuilderList() {
@@ -4416,14 +3840,14 @@ public final class BuildingData {
         }
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.Builder addCostTableBuilder() {
         return getCostTableFieldBuilder().addBuilder(
             com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.Builder addCostTableBuilder(
           int index) {
@@ -4431,7 +3855,7 @@ public final class BuildingData {
             index, com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
        */
       public java.util.List<com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.Builder> 
            getCostTableBuilderList() {
@@ -4444,7 +3868,7 @@ public final class BuildingData {
           costTableBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.game.framework.resource.data.BuildingData.BUILDING.CostStruct, com.game.framework.resource.data.BuildingData.BUILDING.CostStruct.Builder, com.game.framework.resource.data.BuildingData.BUILDING.CostStructOrBuilder>(
                   costTable_,
-                  ((bitField0_ & 0x00800000) == 0x00800000),
+                  ((bitField0_ & 0x00080000) == 0x00080000),
                   getParentForChildren(),
                   isClean());
           costTable_ = null;
@@ -5176,26 +4600,23 @@ public final class BuildingData {
   static {
     java.lang.String[] descriptorData = {
       "\n\031proto/building_data.proto\022 com.game.fr" +
-      "amework.resource.data\"\242\005\n\010BUILDING\022\r\n\002id" +
+      "amework.resource.data\"\277\004\n\010BUILDING\022\r\n\002id" +
       "\030\001 \002(\005:\0010\022\024\n\tbldg_type\030\002 \001(\005:\0010\022\023\n\010bldg_" +
       "lvl\030\003 \001(\005:\0010\022\023\n\tbldg_name\030\004 \001(\t:\000\022\021\n\006in_" +
       "use\030\005 \001(\005:\0010\022\027\n\014max_bldg_lvl\030\006 \001(\005:\0010\022\025\n" +
       "\013prefab_name\030\007 \001(\t:\000\022\023\n\ticon_name\030\010 \001(\t:" +
-      "\000\022\023\n\tbldg_info\030\t \001(\t:\000\022\023\n\010ui_order\030\n \001(\005" +
-      ":\0010\022\031\n\016bldg_func_type\030\013 \001(\005:\0010\022\022\n\007cult_p" +
-      "t\030\014 \001(\005:\0010\022\026\n\013hr_slot_qty\030\r \001(\005:\0010\022\023\n\010bu" +
-      "ff_pro\030\016 \001(\005:\0010\022\027\n\014max_labor_uk\030\017 \001(\005:\0010",
-      "\022\021\n\006pro_id\030\020 \001(\005:\0010\022\036\n\024bldg_func_table_n" +
-      "ame\030\021 \001(\t:\000\022\035\n\022bldg_func_table_id\030\022 \001(\005:" +
-      "\0010\022\034\n\021bldg_strength_lim\030\023 \001(\005:\0010\022\034\n\021bldg" +
-      "_strength_add\030\024 \001(\005:\0010\022\024\n\ttime_cost\030\025 \001(" +
-      "\005:\0010\022\024\n\tgold_cost\030\026 \001(\005:\0010\022\024\n\telec_cost\030" +
-      "\027 \001(\005:\0010\022I\n\ncost_table\030\030 \003(\01325.com.game." +
-      "framework.resource.data.BUILDING.CostStr" +
-      "uct\0325\n\nCostStruct\022\022\n\007cost_id\030\001 \001(\005:\0010\022\023\n" +
-      "\010cost_qty\030\002 \001(\005:\0010\"K\n\016BUILDING_ARRAY\0229\n\005" +
-      "items\030\001 \003(\0132*.com.game.framework.resourc",
-      "e.data.BUILDING"
+      "\000\022\023\n\tbldg_info\030\t \001(\t:\000\022\021\n\006con_id\030\n \001(\005:\001" +
+      "0\022\022\n\007con_pro\030\013 \001(\005:\0010\022\021\n\006pro_id\030\014 \001(\005:\0010" +
+      "\022\036\n\024bldg_func_table_name\030\r \001(\t:\000\022\035\n\022bldg" +
+      "_func_table_id\030\016 \001(\005:\0010\022\034\n\021bldg_strength",
+      "_lim\030\017 \001(\005:\0010\022\034\n\021bldg_strength_add\030\020 \001(\005" +
+      ":\0010\022\024\n\ttime_cost\030\021 \001(\005:\0010\022\024\n\tgold_cost\030\022" +
+      " \001(\005:\0010\022\024\n\telec_cost\030\023 \001(\005:\0010\022I\n\ncost_ta" +
+      "ble\030\024 \003(\01325.com.game.framework.resource." +
+      "data.BUILDING.CostStruct\0325\n\nCostStruct\022\022" +
+      "\n\007cost_id\030\001 \001(\005:\0010\022\023\n\010cost_qty\030\002 \001(\005:\0010\"" +
+      "K\n\016BUILDING_ARRAY\0229\n\005items\030\001 \003(\0132*.com.g" +
+      "ame.framework.resource.data.BUILDING"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5214,7 +4635,7 @@ public final class BuildingData {
     internal_static_com_game_framework_resource_data_BUILDING_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_BUILDING_descriptor,
-        new java.lang.String[] { "Id", "BldgType", "BldgLvl", "BldgName", "InUse", "MaxBldgLvl", "PrefabName", "IconName", "BldgInfo", "UiOrder", "BldgFuncType", "CultPt", "HrSlotQty", "BuffPro", "MaxLaborUk", "ProId", "BldgFuncTableName", "BldgFuncTableId", "BldgStrengthLim", "BldgStrengthAdd", "TimeCost", "GoldCost", "ElecCost", "CostTable", });
+        new java.lang.String[] { "Id", "BldgType", "BldgLvl", "BldgName", "InUse", "MaxBldgLvl", "PrefabName", "IconName", "BldgInfo", "ConId", "ConPro", "ProId", "BldgFuncTableName", "BldgFuncTableId", "BldgStrengthLim", "BldgStrengthAdd", "TimeCost", "GoldCost", "ElecCost", "CostTable", });
     internal_static_com_game_framework_resource_data_BUILDING_CostStruct_descriptor =
       internal_static_com_game_framework_resource_data_BUILDING_descriptor.getNestedTypes().get(0);
     internal_static_com_game_framework_resource_data_BUILDING_CostStruct_fieldAccessorTable = new

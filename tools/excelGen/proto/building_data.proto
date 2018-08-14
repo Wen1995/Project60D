@@ -36,54 +36,27 @@ message BUILDING{
     optional string icon_name = 8 [default = ""];
     /** 建筑描述 */
     optional string bldg_info = 9 [default = ""];
-    /** 界面排序 */
-    optional int32 ui_order = 10 [default = 0];
-    /** 建筑功能类型
-        (func=functional)
-        太空基地(SpaceStation)=101
-        星港(Spaceport)=102
-        舰体厂(FuncHullFact)=103
-        组装厂(ModFact)=104
-        配件厂(CpntFact)=105
-        采集厂(SurfCol)=201
-        提炼厂(Refinery)=202
-        核电厂(PowerPlant)=203
-        仓库(ItemStg)=204
-        聚居地(Habitat)=301
-    */
-    optional int32 bldg_func_type = 11 [default = 0];
-    /**  */
-    optional int32 cult_pt = 12 [default = 0];
-    /** 人力槽位数
-(个) */
-    optional int32 hr_slot_qty = 13 [default = 0];
-    /** 加成职业
-        工程专家=1
-        科学专家=2
-        舰船专家=3
-        普通公民=4
-    */
-    optional int32 buff_pro = 14 [default = 0];
-    /** 人力储存上限
-(个) */
-    optional int32 max_labor_uk = 15 [default = 0];
+    /** 消耗id */
+    optional int32 con_id = 10 [default = 0];
+    /** 消耗/产出 */
+    optional int32 con_pro = 11 [default = 0];
+    /** 产出id */
+    optional int32 pro_id = 12 [default = 0];
     /** 建筑功能表名 */
-    optional int32 pro_id = 16 [default = 0];
-    /** 建筑功能表名 */
-    optional string bldg_func_table_name = 17 [default = ""];
+    optional string bldg_func_table_name = 13 [default = ""];
     /** 建筑功能表索引ID */
-    optional int32 bldg_func_table_id = 18 [default = 0];
+    optional int32 bldg_func_table_id = 14 [default = 0];
     /** 庄园势力限制 */
-    optional int32 bldg_strength_lim = 19 [default = 0];
+    optional int32 bldg_strength_lim = 15 [default = 0];
     /** 增加公司实力 */
-    optional int32 bldg_strength_add = 20 [default = 0];
+    optional int32 bldg_strength_add = 16 [default = 0];
     /** 消耗时间
 (秒) */
-    optional int32 time_cost = 21 [default = 0];
+    optional int32 time_cost = 17 [default = 0];
     /** 消耗黄金 */
-    optional int32 gold_cost = 22 [default = 0];
+    optional int32 gold_cost = 18 [default = 0];
     /** 消耗电力 */
-    optional int32 elec_cost = 23 [default = 0];
+    optional int32 elec_cost = 19 [default = 0];
 
     message CostStruct{
         /** 消耗ID */
@@ -93,7 +66,7 @@ message BUILDING{
         optional int32 cost_qty = 2 [default = 0];
     }
 
-    repeated CostStruct cost_table = 24;
+    repeated CostStruct cost_table = 20;
 }
 
 message BUILDING_ARRAY {

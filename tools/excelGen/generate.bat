@@ -29,7 +29,6 @@ python tool.py LIANYOU xls\Bldg_Func.xlsm
 python tool.py LIANGANG xls\Bldg_Func.xlsm
 python tool.py HUNNINGTU xls\Bldg_Func.xlsm
 python tool.py SONGSHU xls\Bldg_Func.xlsm
-python tool.py TIEHUA xls\Bldg_Func.xlsm
 python tool.py MUCAIJIAGONG xls\Bldg_Func.xlsm
 python tool.py QIANG xls\Bldg_Func.xlsm
 python tool.py DAMEN xls\Bldg_Func.xlsm
@@ -38,6 +37,6 @@ protoc.exe --java_out=./java proto/*.proto
 
 
 for /f "delims=" %%i in ('dir /b "proto\*.proto"') do (
-	%PROTOCS% proto\%%i
+	:%PROTOCS% proto\%%i
 )
 pause 

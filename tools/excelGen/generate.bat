@@ -38,6 +38,6 @@ protoc.exe --java_out=./java proto/*.proto
 
 
 for /f "delims=" %%i in ('dir /b "proto\*.proto"') do (
-	%PROTOCS% %%i
+	%PROTOCS% proto\%%i
 )
 pause 

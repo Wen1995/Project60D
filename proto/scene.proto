@@ -14,6 +14,10 @@ message BuildingInfo {
 	optional int64 buildingId = 1;
 	// 建筑configId
 	optional int32 configId = 2;
+	// 升级完成时间，finishTime = 0 则没在升级中
+	optional int64 finishTime = 3;
+	// 还未领取资源数量
+	optional int32 number = 4;
 }
 
 message TCSUpgrade {
@@ -66,4 +70,17 @@ message TCSFinishUnlock {
 message TSCFinishUnlock {
 	// 建筑ID
 	optional int64 buildingId = 1;
+}
+
+message TCSReceive {
+	// 建筑ID
+	optional int64 buildingId = 1;
+}
+message TSCReceive {
+	// 建筑ID
+	optional int64 buildingId = 1;
+	// 资源configId
+	optional int32 configId = 2;
+	// 资源数量
+	optional int32 number = 3;
 }

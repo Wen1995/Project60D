@@ -1029,6 +1029,42 @@ public final class Scene {
      * </pre>
      */
     int getConfigId();
+
+    // optional int64 finishTime = 3;
+    /**
+     * <code>optional int64 finishTime = 3;</code>
+     *
+     * <pre>
+     * 升级完成时间，finishTime = 0 则没在升级中
+     * </pre>
+     */
+    boolean hasFinishTime();
+    /**
+     * <code>optional int64 finishTime = 3;</code>
+     *
+     * <pre>
+     * 升级完成时间，finishTime = 0 则没在升级中
+     * </pre>
+     */
+    long getFinishTime();
+
+    // optional int32 number = 4;
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 还未领取资源数量
+     * </pre>
+     */
+    boolean hasNumber();
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 还未领取资源数量
+     * </pre>
+     */
+    int getNumber();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.BuildingInfo}
@@ -1089,6 +1125,16 @@ public final class Scene {
             case 16: {
               bitField0_ |= 0x00000002;
               configId_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              finishTime_ = input.readInt64();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              number_ = input.readInt32();
               break;
             }
           }
@@ -1179,9 +1225,59 @@ public final class Scene {
       return configId_;
     }
 
+    // optional int64 finishTime = 3;
+    public static final int FINISHTIME_FIELD_NUMBER = 3;
+    private long finishTime_;
+    /**
+     * <code>optional int64 finishTime = 3;</code>
+     *
+     * <pre>
+     * 升级完成时间，finishTime = 0 则没在升级中
+     * </pre>
+     */
+    public boolean hasFinishTime() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int64 finishTime = 3;</code>
+     *
+     * <pre>
+     * 升级完成时间，finishTime = 0 则没在升级中
+     * </pre>
+     */
+    public long getFinishTime() {
+      return finishTime_;
+    }
+
+    // optional int32 number = 4;
+    public static final int NUMBER_FIELD_NUMBER = 4;
+    private int number_;
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 还未领取资源数量
+     * </pre>
+     */
+    public boolean hasNumber() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 还未领取资源数量
+     * </pre>
+     */
+    public int getNumber() {
+      return number_;
+    }
+
     private void initFields() {
       buildingId_ = 0L;
       configId_ = 0;
+      finishTime_ = 0L;
+      number_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1201,6 +1297,12 @@ public final class Scene {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, configId_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, finishTime_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, number_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1217,6 +1319,14 @@ public final class Scene {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, configId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, finishTime_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, number_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1338,6 +1448,10 @@ public final class Scene {
         bitField0_ = (bitField0_ & ~0x00000001);
         configId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
+        finishTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        number_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1374,6 +1488,14 @@ public final class Scene {
           to_bitField0_ |= 0x00000002;
         }
         result.configId_ = configId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.finishTime_ = finishTime_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.number_ = number_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1395,6 +1517,12 @@ public final class Scene {
         }
         if (other.hasConfigId()) {
           setConfigId(other.getConfigId());
+        }
+        if (other.hasFinishTime()) {
+          setFinishTime(other.getFinishTime());
+        }
+        if (other.hasNumber()) {
+          setNumber(other.getNumber());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1517,6 +1645,104 @@ public final class Scene {
       public Builder clearConfigId() {
         bitField0_ = (bitField0_ & ~0x00000002);
         configId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 finishTime = 3;
+      private long finishTime_ ;
+      /**
+       * <code>optional int64 finishTime = 3;</code>
+       *
+       * <pre>
+       * 升级完成时间，finishTime = 0 则没在升级中
+       * </pre>
+       */
+      public boolean hasFinishTime() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int64 finishTime = 3;</code>
+       *
+       * <pre>
+       * 升级完成时间，finishTime = 0 则没在升级中
+       * </pre>
+       */
+      public long getFinishTime() {
+        return finishTime_;
+      }
+      /**
+       * <code>optional int64 finishTime = 3;</code>
+       *
+       * <pre>
+       * 升级完成时间，finishTime = 0 则没在升级中
+       * </pre>
+       */
+      public Builder setFinishTime(long value) {
+        bitField0_ |= 0x00000004;
+        finishTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 finishTime = 3;</code>
+       *
+       * <pre>
+       * 升级完成时间，finishTime = 0 则没在升级中
+       * </pre>
+       */
+      public Builder clearFinishTime() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        finishTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 number = 4;
+      private int number_ ;
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 还未领取资源数量
+       * </pre>
+       */
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 还未领取资源数量
+       * </pre>
+       */
+      public int getNumber() {
+        return number_;
+      }
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 还未领取资源数量
+       * </pre>
+       */
+      public Builder setNumber(int value) {
+        bitField0_ |= 0x00000008;
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 还未领取资源数量
+       * </pre>
+       */
+      public Builder clearNumber() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        number_ = 0;
         onChanged();
         return this;
       }
@@ -5860,6 +6086,1088 @@ public final class Scene {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCFinishUnlock)
   }
 
+  public interface TCSReceiveOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int64 buildingId = 1;
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    boolean hasBuildingId();
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    long getBuildingId();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TCSReceive}
+   */
+  public static final class TCSReceive extends
+      com.google.protobuf.GeneratedMessage
+      implements TCSReceiveOrBuilder {
+    // Use TCSReceive.newBuilder() to construct.
+    private TCSReceive(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TCSReceive(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TCSReceive defaultInstance;
+    public static TCSReceive getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TCSReceive getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TCSReceive(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              buildingId_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TCSReceive_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TCSReceive_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Scene.TCSReceive.class, com.game.framework.protocol.Scene.TCSReceive.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TCSReceive> PARSER =
+        new com.google.protobuf.AbstractParser<TCSReceive>() {
+      public TCSReceive parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TCSReceive(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TCSReceive> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int64 buildingId = 1;
+    public static final int BUILDINGID_FIELD_NUMBER = 1;
+    private long buildingId_;
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    public boolean hasBuildingId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    public long getBuildingId() {
+      return buildingId_;
+    }
+
+    private void initFields() {
+      buildingId_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, buildingId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, buildingId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Scene.TCSReceive parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Scene.TCSReceive parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TCSReceive parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Scene.TCSReceive parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TCSReceive parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TCSReceive parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TCSReceive parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TCSReceive parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TCSReceive parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TCSReceive parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Scene.TCSReceive prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TCSReceive}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Scene.TCSReceiveOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TCSReceive_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TCSReceive_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Scene.TCSReceive.class, com.game.framework.protocol.Scene.TCSReceive.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Scene.TCSReceive.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        buildingId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TCSReceive_descriptor;
+      }
+
+      public com.game.framework.protocol.Scene.TCSReceive getDefaultInstanceForType() {
+        return com.game.framework.protocol.Scene.TCSReceive.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Scene.TCSReceive build() {
+        com.game.framework.protocol.Scene.TCSReceive result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Scene.TCSReceive buildPartial() {
+        com.game.framework.protocol.Scene.TCSReceive result = new com.game.framework.protocol.Scene.TCSReceive(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.buildingId_ = buildingId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Scene.TCSReceive) {
+          return mergeFrom((com.game.framework.protocol.Scene.TCSReceive)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Scene.TCSReceive other) {
+        if (other == com.game.framework.protocol.Scene.TCSReceive.getDefaultInstance()) return this;
+        if (other.hasBuildingId()) {
+          setBuildingId(other.getBuildingId());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Scene.TCSReceive parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Scene.TCSReceive) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int64 buildingId = 1;
+      private long buildingId_ ;
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public boolean hasBuildingId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public long getBuildingId() {
+        return buildingId_;
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public Builder setBuildingId(long value) {
+        bitField0_ |= 0x00000001;
+        buildingId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public Builder clearBuildingId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        buildingId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSReceive)
+    }
+
+    static {
+      defaultInstance = new TCSReceive(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSReceive)
+  }
+
+  public interface TSCReceiveOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int64 buildingId = 1;
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    boolean hasBuildingId();
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    long getBuildingId();
+
+    // optional int32 configId = 2;
+    /**
+     * <code>optional int32 configId = 2;</code>
+     *
+     * <pre>
+     * 资源configId
+     * </pre>
+     */
+    boolean hasConfigId();
+    /**
+     * <code>optional int32 configId = 2;</code>
+     *
+     * <pre>
+     * 资源configId
+     * </pre>
+     */
+    int getConfigId();
+
+    // optional int32 number = 3;
+    /**
+     * <code>optional int32 number = 3;</code>
+     *
+     * <pre>
+     * 资源数量
+     * </pre>
+     */
+    boolean hasNumber();
+    /**
+     * <code>optional int32 number = 3;</code>
+     *
+     * <pre>
+     * 资源数量
+     * </pre>
+     */
+    int getNumber();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TSCReceive}
+   */
+  public static final class TSCReceive extends
+      com.google.protobuf.GeneratedMessage
+      implements TSCReceiveOrBuilder {
+    // Use TSCReceive.newBuilder() to construct.
+    private TSCReceive(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TSCReceive(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TSCReceive defaultInstance;
+    public static TSCReceive getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TSCReceive getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSCReceive(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              buildingId_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              configId_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              number_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TSCReceive_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TSCReceive_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Scene.TSCReceive.class, com.game.framework.protocol.Scene.TSCReceive.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TSCReceive> PARSER =
+        new com.google.protobuf.AbstractParser<TSCReceive>() {
+      public TSCReceive parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSCReceive(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TSCReceive> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int64 buildingId = 1;
+    public static final int BUILDINGID_FIELD_NUMBER = 1;
+    private long buildingId_;
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    public boolean hasBuildingId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int64 buildingId = 1;</code>
+     *
+     * <pre>
+     * 建筑ID
+     * </pre>
+     */
+    public long getBuildingId() {
+      return buildingId_;
+    }
+
+    // optional int32 configId = 2;
+    public static final int CONFIGID_FIELD_NUMBER = 2;
+    private int configId_;
+    /**
+     * <code>optional int32 configId = 2;</code>
+     *
+     * <pre>
+     * 资源configId
+     * </pre>
+     */
+    public boolean hasConfigId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 configId = 2;</code>
+     *
+     * <pre>
+     * 资源configId
+     * </pre>
+     */
+    public int getConfigId() {
+      return configId_;
+    }
+
+    // optional int32 number = 3;
+    public static final int NUMBER_FIELD_NUMBER = 3;
+    private int number_;
+    /**
+     * <code>optional int32 number = 3;</code>
+     *
+     * <pre>
+     * 资源数量
+     * </pre>
+     */
+    public boolean hasNumber() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 number = 3;</code>
+     *
+     * <pre>
+     * 资源数量
+     * </pre>
+     */
+    public int getNumber() {
+      return number_;
+    }
+
+    private void initFields() {
+      buildingId_ = 0L;
+      configId_ = 0;
+      number_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, buildingId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, configId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, number_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, buildingId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, configId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, number_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Scene.TSCReceive parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Scene.TSCReceive parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TSCReceive parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Scene.TSCReceive parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TSCReceive parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TSCReceive parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TSCReceive parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TSCReceive parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Scene.TSCReceive parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Scene.TSCReceive parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Scene.TSCReceive prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TSCReceive}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Scene.TSCReceiveOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TSCReceive_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TSCReceive_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Scene.TSCReceive.class, com.game.framework.protocol.Scene.TSCReceive.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Scene.TSCReceive.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        buildingId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        configId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        number_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Scene.internal_static_com_game_framework_protocol_TSCReceive_descriptor;
+      }
+
+      public com.game.framework.protocol.Scene.TSCReceive getDefaultInstanceForType() {
+        return com.game.framework.protocol.Scene.TSCReceive.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Scene.TSCReceive build() {
+        com.game.framework.protocol.Scene.TSCReceive result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Scene.TSCReceive buildPartial() {
+        com.game.framework.protocol.Scene.TSCReceive result = new com.game.framework.protocol.Scene.TSCReceive(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.buildingId_ = buildingId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.configId_ = configId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.number_ = number_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Scene.TSCReceive) {
+          return mergeFrom((com.game.framework.protocol.Scene.TSCReceive)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Scene.TSCReceive other) {
+        if (other == com.game.framework.protocol.Scene.TSCReceive.getDefaultInstance()) return this;
+        if (other.hasBuildingId()) {
+          setBuildingId(other.getBuildingId());
+        }
+        if (other.hasConfigId()) {
+          setConfigId(other.getConfigId());
+        }
+        if (other.hasNumber()) {
+          setNumber(other.getNumber());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Scene.TSCReceive parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Scene.TSCReceive) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int64 buildingId = 1;
+      private long buildingId_ ;
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public boolean hasBuildingId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public long getBuildingId() {
+        return buildingId_;
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public Builder setBuildingId(long value) {
+        bitField0_ |= 0x00000001;
+        buildingId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 buildingId = 1;</code>
+       *
+       * <pre>
+       * 建筑ID
+       * </pre>
+       */
+      public Builder clearBuildingId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        buildingId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 configId = 2;
+      private int configId_ ;
+      /**
+       * <code>optional int32 configId = 2;</code>
+       *
+       * <pre>
+       * 资源configId
+       * </pre>
+       */
+      public boolean hasConfigId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 configId = 2;</code>
+       *
+       * <pre>
+       * 资源configId
+       * </pre>
+       */
+      public int getConfigId() {
+        return configId_;
+      }
+      /**
+       * <code>optional int32 configId = 2;</code>
+       *
+       * <pre>
+       * 资源configId
+       * </pre>
+       */
+      public Builder setConfigId(int value) {
+        bitField0_ |= 0x00000002;
+        configId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 configId = 2;</code>
+       *
+       * <pre>
+       * 资源configId
+       * </pre>
+       */
+      public Builder clearConfigId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        configId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 number = 3;
+      private int number_ ;
+      /**
+       * <code>optional int32 number = 3;</code>
+       *
+       * <pre>
+       * 资源数量
+       * </pre>
+       */
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 number = 3;</code>
+       *
+       * <pre>
+       * 资源数量
+       * </pre>
+       */
+      public int getNumber() {
+        return number_;
+      }
+      /**
+       * <code>optional int32 number = 3;</code>
+       *
+       * <pre>
+       * 资源数量
+       * </pre>
+       */
+      public Builder setNumber(int value) {
+        bitField0_ |= 0x00000004;
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 number = 3;</code>
+       *
+       * <pre>
+       * 资源数量
+       * </pre>
+       */
+      public Builder clearNumber() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        number_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCReceive)
+    }
+
+    static {
+      defaultInstance = new TSCReceive(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCReceive)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_framework_protocol_TCSGetSceneInfo_descriptor;
   private static
@@ -5915,6 +7223,16 @@ public final class Scene {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TSCFinishUnlock_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TCSReceive_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TCSReceive_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TSCReceive_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TSCReceive_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5927,20 +7245,23 @@ public final class Scene {
       "\n\013scene.proto\022\033com.game.framework.protoc" +
       "ol\"\021\n\017TCSGetSceneInfo\"S\n\017TSCGetSceneInfo" +
       "\022@\n\rbuildingInfos\030\001 \003(\0132).com.game.frame" +
-      "work.protocol.BuildingInfo\"4\n\014BuildingIn" +
+      "work.protocol.BuildingInfo\"X\n\014BuildingIn" +
       "fo\022\022\n\nbuildingId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005" +
-      "\" \n\nTCSUpgrade\022\022\n\nbuildingId\030\001 \001(\003\"l\n\nTS" +
-      "CUpgrade\022\017\n\007isState\030\001 \001(\010\022\017\n\007isGroup\030\002 \001" +
-      "(\010\022\022\n\nisResource\030\003 \001(\010\022\024\n\014isProduction\030\004" +
-      " \001(\010\022\022\n\nfinishTime\030\005 \001(\003\"&\n\020TCSFinishUpg" +
-      "rade\022\022\n\nbuildingId\030\001 \001(\003\"&\n\020TSCFinishUpg",
-      "rade\022\022\n\nbuildingId\030\001 \001(\003\"\035\n\tTCSUnlock\022\020\n" +
-      "\010configId\030\001 \001(\005\"n\n\tTSCUnlock\022\022\n\nbuilding" +
-      "Id\030\001 \001(\003\022\017\n\007isGroup\030\002 \001(\010\022\022\n\nisResource\030" +
-      "\003 \001(\010\022\024\n\014isProduction\030\004 \001(\010\022\022\n\nfinishTim" +
-      "e\030\005 \001(\003\"%\n\017TCSFinishUnlock\022\022\n\nbuildingId" +
-      "\030\001 \001(\003\"%\n\017TSCFinishUnlock\022\022\n\nbuildingId\030" +
-      "\001 \001(\003B\002H\001"
+      "\022\022\n\nfinishTime\030\003 \001(\003\022\016\n\006number\030\004 \001(\005\" \n\n" +
+      "TCSUpgrade\022\022\n\nbuildingId\030\001 \001(\003\"l\n\nTSCUpg" +
+      "rade\022\017\n\007isState\030\001 \001(\010\022\017\n\007isGroup\030\002 \001(\010\022\022" +
+      "\n\nisResource\030\003 \001(\010\022\024\n\014isProduction\030\004 \001(\010" +
+      "\022\022\n\nfinishTime\030\005 \001(\003\"&\n\020TCSFinishUpgrade",
+      "\022\022\n\nbuildingId\030\001 \001(\003\"&\n\020TSCFinishUpgrade" +
+      "\022\022\n\nbuildingId\030\001 \001(\003\"\035\n\tTCSUnlock\022\020\n\010con" +
+      "figId\030\001 \001(\005\"n\n\tTSCUnlock\022\022\n\nbuildingId\030\001" +
+      " \001(\003\022\017\n\007isGroup\030\002 \001(\010\022\022\n\nisResource\030\003 \001(" +
+      "\010\022\024\n\014isProduction\030\004 \001(\010\022\022\n\nfinishTime\030\005 " +
+      "\001(\003\"%\n\017TCSFinishUnlock\022\022\n\nbuildingId\030\001 \001" +
+      "(\003\"%\n\017TSCFinishUnlock\022\022\n\nbuildingId\030\001 \001(" +
+      "\003\" \n\nTCSReceive\022\022\n\nbuildingId\030\001 \001(\003\"B\n\nT" +
+      "SCReceive\022\022\n\nbuildingId\030\001 \001(\003\022\020\n\010configI" +
+      "d\030\002 \001(\005\022\016\n\006number\030\003 \001(\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -5964,7 +7285,7 @@ public final class Scene {
           internal_static_com_game_framework_protocol_BuildingInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_BuildingInfo_descriptor,
-              new java.lang.String[] { "BuildingId", "ConfigId", });
+              new java.lang.String[] { "BuildingId", "ConfigId", "FinishTime", "Number", });
           internal_static_com_game_framework_protocol_TCSUpgrade_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_com_game_framework_protocol_TCSUpgrade_fieldAccessorTable = new
@@ -6013,6 +7334,18 @@ public final class Scene {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCFinishUnlock_descriptor,
               new java.lang.String[] { "BuildingId", });
+          internal_static_com_game_framework_protocol_TCSReceive_descriptor =
+            getDescriptor().getMessageTypes().get(11);
+          internal_static_com_game_framework_protocol_TCSReceive_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TCSReceive_descriptor,
+              new java.lang.String[] { "BuildingId", });
+          internal_static_com_game_framework_protocol_TSCReceive_descriptor =
+            getDescriptor().getMessageTypes().get(12);
+          internal_static_com_game_framework_protocol_TSCReceive_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TSCReceive_descriptor,
+              new java.lang.String[] { "BuildingId", "ConfigId", "Number", });
           return null;
         }
       };

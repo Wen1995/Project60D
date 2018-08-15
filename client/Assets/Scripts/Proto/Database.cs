@@ -738,7 +738,7 @@ namespace com.game.framework.protocol {
   public sealed partial class BuildingState : pb::GeneratedMessageLite<BuildingState, BuildingState.Builder> {
     private BuildingState() { }
     private static readonly BuildingState defaultInstance = new BuildingState().MakeReadOnly();
-    private static readonly string[] _buildingStateFieldNames = new string[] { "receiveInfo", "upgradeInfo" };
+    private static readonly string[] _buildingStateFieldNames = new string[] { "receiveInfos", "upgradeInfo" };
     private static readonly uint[] _buildingStateFieldTags = new uint[] { 18, 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -774,16 +774,16 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ReceiveInfoFieldNumber = 2;
-    private pbc::PopsicleList<global::com.game.framework.protocol.ReceiveInfo> receiveInfo_ = new pbc::PopsicleList<global::com.game.framework.protocol.ReceiveInfo>();
-    public scg::IList<global::com.game.framework.protocol.ReceiveInfo> ReceiveInfoList {
-      get { return receiveInfo_; }
+    public const int ReceiveInfosFieldNumber = 2;
+    private pbc::PopsicleList<global::com.game.framework.protocol.ReceiveInfo> receiveInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.ReceiveInfo>();
+    public scg::IList<global::com.game.framework.protocol.ReceiveInfo> ReceiveInfosList {
+      get { return receiveInfos_; }
     }
-    public int ReceiveInfoCount {
-      get { return receiveInfo_.Count; }
+    public int ReceiveInfosCount {
+      get { return receiveInfos_.Count; }
     }
-    public global::com.game.framework.protocol.ReceiveInfo GetReceiveInfo(int index) {
-      return receiveInfo_[index];
+    public global::com.game.framework.protocol.ReceiveInfo GetReceiveInfos(int index) {
+      return receiveInfos_[index];
     }
     
     #if UNITY_EDITOR
@@ -804,8 +804,8 @@ namespace com.game.framework.protocol {
       if (hasUpgradeInfo) {
         output.WriteMessage(1, field_names[1], UpgradeInfo);
       }
-      if (receiveInfo_.Count > 0) {
-        output.WriteMessageArray(2, field_names[0], receiveInfo_);
+      if (receiveInfos_.Count > 0) {
+        output.WriteMessageArray(2, field_names[0], receiveInfos_);
       }
     }
     
@@ -822,7 +822,7 @@ namespace com.game.framework.protocol {
         if (hasUpgradeInfo) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, UpgradeInfo);
         }
-        foreach (global::com.game.framework.protocol.ReceiveInfo element in ReceiveInfoList) {
+        foreach (global::com.game.framework.protocol.ReceiveInfo element in ReceiveInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(2, element);
         }
         memoizedSerializedSize = size;
@@ -834,7 +834,7 @@ namespace com.game.framework.protocol {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasUpgradeInfo) hash ^= upgradeInfo_.GetHashCode();
-      foreach(global::com.game.framework.protocol.ReceiveInfo i in receiveInfo_)
+      foreach(global::com.game.framework.protocol.ReceiveInfo i in receiveInfos_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -843,9 +843,9 @@ namespace com.game.framework.protocol {
       BuildingState other = obj as BuildingState;
       if (other == null) return false;
       if (hasUpgradeInfo != other.hasUpgradeInfo || (hasUpgradeInfo && !upgradeInfo_.Equals(other.upgradeInfo_))) return false;
-      if(receiveInfo_.Count != other.receiveInfo_.Count) return false;
-      for(int ix=0; ix < receiveInfo_.Count; ix++)
-        if(!receiveInfo_[ix].Equals(other.receiveInfo_[ix])) return false;
+      if(receiveInfos_.Count != other.receiveInfos_.Count) return false;
+      for(int ix=0; ix < receiveInfos_.Count; ix++)
+        if(!receiveInfos_[ix].Equals(other.receiveInfos_[ix])) return false;
       return true;
     }
     
@@ -912,7 +912,7 @@ namespace com.game.framework.protocol {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private BuildingState MakeReadOnly() {
-      receiveInfo_.MakeReadOnly();
+      receiveInfos_.MakeReadOnly();
       return this;
     }
     
@@ -1010,8 +1010,8 @@ namespace com.game.framework.protocol {
         if (other.HasUpgradeInfo) {
           MergeUpgradeInfo(other.UpgradeInfo);
         }
-        if (other.receiveInfo_.Count != 0) {
-          result.receiveInfo_.Add(other.receiveInfo_);
+        if (other.receiveInfos_.Count != 0) {
+          result.receiveInfos_.Add(other.receiveInfos_);
         }
         return this;
       }
@@ -1055,7 +1055,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 18: {
-              input.ReadMessageArray(tag, field_name, result.receiveInfo_, global::com.game.framework.protocol.ReceiveInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.receiveInfos_, global::com.game.framework.protocol.ReceiveInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -1105,47 +1105,47 @@ namespace com.game.framework.protocol {
         return this;
       }
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.ReceiveInfo> ReceiveInfoList {
-        get { return PrepareBuilder().receiveInfo_; }
+      public pbc::IPopsicleList<global::com.game.framework.protocol.ReceiveInfo> ReceiveInfosList {
+        get { return PrepareBuilder().receiveInfos_; }
       }
-      public int ReceiveInfoCount {
-        get { return result.ReceiveInfoCount; }
+      public int ReceiveInfosCount {
+        get { return result.ReceiveInfosCount; }
       }
-      public global::com.game.framework.protocol.ReceiveInfo GetReceiveInfo(int index) {
-        return result.GetReceiveInfo(index);
+      public global::com.game.framework.protocol.ReceiveInfo GetReceiveInfos(int index) {
+        return result.GetReceiveInfos(index);
       }
-      public Builder SetReceiveInfo(int index, global::com.game.framework.protocol.ReceiveInfo value) {
+      public Builder SetReceiveInfos(int index, global::com.game.framework.protocol.ReceiveInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.receiveInfo_[index] = value;
+        result.receiveInfos_[index] = value;
         return this;
       }
-      public Builder SetReceiveInfo(int index, global::com.game.framework.protocol.ReceiveInfo.Builder builderForValue) {
+      public Builder SetReceiveInfos(int index, global::com.game.framework.protocol.ReceiveInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.receiveInfo_[index] = builderForValue.Build();
+        result.receiveInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddReceiveInfo(global::com.game.framework.protocol.ReceiveInfo value) {
+      public Builder AddReceiveInfos(global::com.game.framework.protocol.ReceiveInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.receiveInfo_.Add(value);
+        result.receiveInfos_.Add(value);
         return this;
       }
-      public Builder AddReceiveInfo(global::com.game.framework.protocol.ReceiveInfo.Builder builderForValue) {
+      public Builder AddReceiveInfos(global::com.game.framework.protocol.ReceiveInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.receiveInfo_.Add(builderForValue.Build());
+        result.receiveInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeReceiveInfo(scg::IEnumerable<global::com.game.framework.protocol.ReceiveInfo> values) {
+      public Builder AddRangeReceiveInfos(scg::IEnumerable<global::com.game.framework.protocol.ReceiveInfo> values) {
         PrepareBuilder();
-        result.receiveInfo_.Add(values);
+        result.receiveInfos_.Add(values);
         return this;
       }
-      public Builder ClearReceiveInfo() {
+      public Builder ClearReceiveInfos() {
         PrepareBuilder();
-        result.receiveInfo_.Clear();
+        result.receiveInfos_.Clear();
         return this;
       }
     }
@@ -1157,8 +1157,8 @@ namespace com.game.framework.protocol {
   public sealed partial class UpgradeInfo : pb::GeneratedMessageLite<UpgradeInfo, UpgradeInfo.Builder> {
     private UpgradeInfo() { }
     private static readonly UpgradeInfo defaultInstance = new UpgradeInfo().MakeReadOnly();
-    private static readonly string[] _upgradeInfoFieldNames = new string[] { "uid", "upgrading" };
-    private static readonly uint[] _upgradeInfoFieldTags = new uint[] { 16, 8 };
+    private static readonly string[] _upgradeInfoFieldNames = new string[] { "finishTime", "uid" };
+    private static readonly uint[] _upgradeInfoFieldTags = new uint[] { 8, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -1180,14 +1180,14 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int UpgradingFieldNumber = 1;
-    private bool hasUpgrading;
-    private bool upgrading_;
-    public bool HasUpgrading {
-      get { return hasUpgrading; }
+    public const int FinishTimeFieldNumber = 1;
+    private bool hasFinishTime;
+    private long finishTime_;
+    public bool HasFinishTime {
+      get { return hasFinishTime; }
     }
-    public bool Upgrading {
-      get { return upgrading_; }
+    public long FinishTime {
+      get { return finishTime_; }
     }
     
     #if UNITY_EDITOR
@@ -1218,11 +1218,11 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _upgradeInfoFieldNames;
-      if (hasUpgrading) {
-        output.WriteBool(1, field_names[1], Upgrading);
+      if (hasFinishTime) {
+        output.WriteInt64(1, field_names[0], FinishTime);
       }
       if (hasUid) {
-        output.WriteInt64(2, field_names[0], Uid);
+        output.WriteInt64(2, field_names[1], Uid);
       }
     }
     
@@ -1236,8 +1236,8 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasUpgrading) {
-          size += pb::CodedOutputStream.ComputeBoolSize(1, Upgrading);
+        if (hasFinishTime) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, FinishTime);
         }
         if (hasUid) {
           size += pb::CodedOutputStream.ComputeInt64Size(2, Uid);
@@ -1250,7 +1250,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasUpgrading) hash ^= upgrading_.GetHashCode();
+      if (hasFinishTime) hash ^= finishTime_.GetHashCode();
       if (hasUid) hash ^= uid_.GetHashCode();
       return hash;
     }
@@ -1258,7 +1258,7 @@ namespace com.game.framework.protocol {
     public override bool Equals(object obj) {
       UpgradeInfo other = obj as UpgradeInfo;
       if (other == null) return false;
-      if (hasUpgrading != other.hasUpgrading || (hasUpgrading && !upgrading_.Equals(other.upgrading_))) return false;
+      if (hasFinishTime != other.hasFinishTime || (hasFinishTime && !finishTime_.Equals(other.finishTime_))) return false;
       if (hasUid != other.hasUid || (hasUid && !uid_.Equals(other.uid_))) return false;
       return true;
     }
@@ -1420,8 +1420,8 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(UpgradeInfo other) {
         if (other == global::com.game.framework.protocol.UpgradeInfo.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasUpgrading) {
-          Upgrading = other.Upgrading;
+        if (other.HasFinishTime) {
+          FinishTime = other.FinishTime;
         }
         if (other.HasUid) {
           Uid = other.Uid;
@@ -1459,7 +1459,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 8: {
-              result.hasUpgrading = input.ReadBool(ref result.upgrading_);
+              result.hasFinishTime = input.ReadInt64(ref result.finishTime_);
               break;
             }
             case 16: {
@@ -1473,23 +1473,23 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasUpgrading {
-        get { return result.hasUpgrading; }
+      public bool HasFinishTime {
+        get { return result.hasFinishTime; }
       }
-      public bool Upgrading {
-        get { return result.Upgrading; }
-        set { SetUpgrading(value); }
+      public long FinishTime {
+        get { return result.FinishTime; }
+        set { SetFinishTime(value); }
       }
-      public Builder SetUpgrading(bool value) {
+      public Builder SetFinishTime(long value) {
         PrepareBuilder();
-        result.hasUpgrading = true;
-        result.upgrading_ = value;
+        result.hasFinishTime = true;
+        result.finishTime_ = value;
         return this;
       }
-      public Builder ClearUpgrading() {
+      public Builder ClearFinishTime() {
         PrepareBuilder();
-        result.hasUpgrading = false;
-        result.upgrading_ = false;
+        result.hasFinishTime = false;
+        result.finishTime_ = 0L;
         return this;
       }
       
@@ -1521,8 +1521,8 @@ namespace com.game.framework.protocol {
   public sealed partial class ReceiveInfo : pb::GeneratedMessageLite<ReceiveInfo, ReceiveInfo.Builder> {
     private ReceiveInfo() { }
     private static readonly ReceiveInfo defaultInstance = new ReceiveInfo().MakeReadOnly();
-    private static readonly string[] _receiveInfoFieldNames = new string[] { "lastReceiveTime", "uid" };
-    private static readonly uint[] _receiveInfoFieldTags = new uint[] { 8, 16 };
+    private static readonly string[] _receiveInfoFieldNames = new string[] { "lastReceiveTime", "number", "uid" };
+    private static readonly uint[] _receiveInfoFieldTags = new uint[] { 8, 24, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -1568,6 +1568,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int NumberFieldNumber = 3;
+    private bool hasNumber;
+    private int number_;
+    public bool HasNumber {
+      get { return hasNumber; }
+    }
+    public int Number {
+      get { return number_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -1586,7 +1599,10 @@ namespace com.game.framework.protocol {
         output.WriteInt64(1, field_names[0], LastReceiveTime);
       }
       if (hasUid) {
-        output.WriteInt64(2, field_names[1], Uid);
+        output.WriteInt64(2, field_names[2], Uid);
+      }
+      if (hasNumber) {
+        output.WriteInt32(3, field_names[1], Number);
       }
     }
     
@@ -1606,6 +1622,9 @@ namespace com.game.framework.protocol {
         if (hasUid) {
           size += pb::CodedOutputStream.ComputeInt64Size(2, Uid);
         }
+        if (hasNumber) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, Number);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -1616,6 +1635,7 @@ namespace com.game.framework.protocol {
       int hash = GetType().GetHashCode();
       if (hasLastReceiveTime) hash ^= lastReceiveTime_.GetHashCode();
       if (hasUid) hash ^= uid_.GetHashCode();
+      if (hasNumber) hash ^= number_.GetHashCode();
       return hash;
     }
     
@@ -1624,6 +1644,7 @@ namespace com.game.framework.protocol {
       if (other == null) return false;
       if (hasLastReceiveTime != other.hasLastReceiveTime || (hasLastReceiveTime && !lastReceiveTime_.Equals(other.lastReceiveTime_))) return false;
       if (hasUid != other.hasUid || (hasUid && !uid_.Equals(other.uid_))) return false;
+      if (hasNumber != other.hasNumber || (hasNumber && !number_.Equals(other.number_))) return false;
       return true;
     }
     
@@ -1790,6 +1811,9 @@ namespace com.game.framework.protocol {
         if (other.HasUid) {
           Uid = other.Uid;
         }
+        if (other.HasNumber) {
+          Number = other.Number;
+        }
         return this;
       }
       
@@ -1828,6 +1852,10 @@ namespace com.game.framework.protocol {
             }
             case 16: {
               result.hasUid = input.ReadInt64(ref result.uid_);
+              break;
+            }
+            case 24: {
+              result.hasNumber = input.ReadInt32(ref result.number_);
               break;
             }
           }
@@ -1874,6 +1902,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasUid = false;
         result.uid_ = 0L;
+        return this;
+      }
+      
+      public bool HasNumber {
+        get { return result.hasNumber; }
+      }
+      public int Number {
+        get { return result.Number; }
+        set { SetNumber(value); }
+      }
+      public Builder SetNumber(int value) {
+        PrepareBuilder();
+        result.hasNumber = true;
+        result.number_ = value;
+        return this;
+      }
+      public Builder ClearNumber() {
+        PrepareBuilder();
+        result.hasNumber = false;
+        result.number_ = 0;
         return this;
       }
     }

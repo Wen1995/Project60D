@@ -15,7 +15,7 @@ public class AutoCode {
 	public static void main(String[] args) {
 		try {
 			GeneratorHandlerTemplater gt = new GeneratorHandlerTemplater();
-		 	gt.init();
+		 	gt.initCode();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

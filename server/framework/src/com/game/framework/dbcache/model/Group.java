@@ -11,6 +11,8 @@ public class Group {
 
     private Integer groupGold;
 
+    private Long storehouseId;
+
     public Long getId() {
         return id;
     }
@@ -49,5 +51,13 @@ public class Group {
 
     public void setGroupGold(Integer groupGold) {
         this.groupGold = groupGold;
+    }
+
+    public Long getStorehouseId() {
+        return storehouseId;
+    }
+
+    public void setStorehouseId(Long storehouseId) {
+        this.storehouseId = storehouseId;
     }
 }

@@ -14,24 +14,44 @@ public final class Database {
     // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
     /**
      * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
      */
     java.util.List<com.game.framework.protocol.Database.ResourceInfo> 
         getResourceInfosList();
     /**
      * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
      */
     com.game.framework.protocol.Database.ResourceInfo getResourceInfos(int index);
     /**
      * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
      */
     int getResourceInfosCount();
     /**
      * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
      */
     java.util.List<? extends com.game.framework.protocol.Database.ResourceInfoOrBuilder> 
         getResourceInfosOrBuilderList();
     /**
      * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
      */
     com.game.framework.protocol.Database.ResourceInfoOrBuilder getResourceInfosOrBuilder(
         int index);
@@ -142,12 +162,20 @@ public final class Database {
     private java.util.List<com.game.framework.protocol.Database.ResourceInfo> resourceInfos_;
     /**
      * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
      */
     public java.util.List<com.game.framework.protocol.Database.ResourceInfo> getResourceInfosList() {
       return resourceInfos_;
     }
     /**
      * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
      */
     public java.util.List<? extends com.game.framework.protocol.Database.ResourceInfoOrBuilder> 
         getResourceInfosOrBuilderList() {
@@ -155,18 +183,30 @@ public final class Database {
     }
     /**
      * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
      */
     public int getResourceInfosCount() {
       return resourceInfos_.size();
     }
     /**
      * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
      */
     public com.game.framework.protocol.Database.ResourceInfo getResourceInfos(int index) {
       return resourceInfos_.get(index);
     }
     /**
      * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
      */
     public com.game.framework.protocol.Database.ResourceInfoOrBuilder getResourceInfosOrBuilder(
         int index) {
@@ -446,6 +486,10 @@ public final class Database {
 
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public java.util.List<com.game.framework.protocol.Database.ResourceInfo> getResourceInfosList() {
         if (resourceInfosBuilder_ == null) {
@@ -456,6 +500,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public int getResourceInfosCount() {
         if (resourceInfosBuilder_ == null) {
@@ -466,6 +514,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public com.game.framework.protocol.Database.ResourceInfo getResourceInfos(int index) {
         if (resourceInfosBuilder_ == null) {
@@ -476,6 +528,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public Builder setResourceInfos(
           int index, com.game.framework.protocol.Database.ResourceInfo value) {
@@ -493,6 +549,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public Builder setResourceInfos(
           int index, com.game.framework.protocol.Database.ResourceInfo.Builder builderForValue) {
@@ -507,6 +567,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public Builder addResourceInfos(com.game.framework.protocol.Database.ResourceInfo value) {
         if (resourceInfosBuilder_ == null) {
@@ -523,6 +587,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public Builder addResourceInfos(
           int index, com.game.framework.protocol.Database.ResourceInfo value) {
@@ -540,6 +608,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public Builder addResourceInfos(
           com.game.framework.protocol.Database.ResourceInfo.Builder builderForValue) {
@@ -554,6 +626,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public Builder addResourceInfos(
           int index, com.game.framework.protocol.Database.ResourceInfo.Builder builderForValue) {
@@ -568,6 +644,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public Builder addAllResourceInfos(
           java.lang.Iterable<? extends com.game.framework.protocol.Database.ResourceInfo> values) {
@@ -582,6 +662,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public Builder clearResourceInfos() {
         if (resourceInfosBuilder_ == null) {
@@ -595,6 +679,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public Builder removeResourceInfos(int index) {
         if (resourceInfosBuilder_ == null) {
@@ -608,6 +696,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public com.game.framework.protocol.Database.ResourceInfo.Builder getResourceInfosBuilder(
           int index) {
@@ -615,6 +707,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public com.game.framework.protocol.Database.ResourceInfoOrBuilder getResourceInfosOrBuilder(
           int index) {
@@ -625,6 +721,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public java.util.List<? extends com.game.framework.protocol.Database.ResourceInfoOrBuilder> 
            getResourceInfosOrBuilderList() {
@@ -636,6 +736,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public com.game.framework.protocol.Database.ResourceInfo.Builder addResourceInfosBuilder() {
         return getResourceInfosFieldBuilder().addBuilder(
@@ -643,6 +747,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public com.game.framework.protocol.Database.ResourceInfo.Builder addResourceInfosBuilder(
           int index) {
@@ -651,6 +759,10 @@ public final class Database {
       }
       /**
        * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
        */
       public java.util.List<com.game.framework.protocol.Database.ResourceInfo.Builder> 
            getResourceInfosBuilderList() {
@@ -1252,49 +1364,49 @@ public final class Database {
      */
     com.game.framework.protocol.Database.UpgradeInfoOrBuilder getUpgradeInfoOrBuilder();
 
-    // repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;
+    // repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;
     /**
-     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
      *
      * <pre>
      * 领取信息
      * </pre>
      */
     java.util.List<com.game.framework.protocol.Database.ReceiveInfo> 
-        getReceiveInfoList();
+        getReceiveInfosList();
     /**
-     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
      *
      * <pre>
      * 领取信息
      * </pre>
      */
-    com.game.framework.protocol.Database.ReceiveInfo getReceiveInfo(int index);
+    com.game.framework.protocol.Database.ReceiveInfo getReceiveInfos(int index);
     /**
-     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
      *
      * <pre>
      * 领取信息
      * </pre>
      */
-    int getReceiveInfoCount();
+    int getReceiveInfosCount();
     /**
-     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
      *
      * <pre>
      * 领取信息
      * </pre>
      */
     java.util.List<? extends com.game.framework.protocol.Database.ReceiveInfoOrBuilder> 
-        getReceiveInfoOrBuilderList();
+        getReceiveInfosOrBuilderList();
     /**
-     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
      *
      * <pre>
      * 领取信息
      * </pre>
      */
-    com.game.framework.protocol.Database.ReceiveInfoOrBuilder getReceiveInfoOrBuilder(
+    com.game.framework.protocol.Database.ReceiveInfoOrBuilder getReceiveInfosOrBuilder(
         int index);
   }
   /**
@@ -1363,10 +1475,10 @@ public final class Database {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                receiveInfo_ = new java.util.ArrayList<com.game.framework.protocol.Database.ReceiveInfo>();
+                receiveInfos_ = new java.util.ArrayList<com.game.framework.protocol.Database.ReceiveInfo>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              receiveInfo_.add(input.readMessage(com.game.framework.protocol.Database.ReceiveInfo.PARSER, extensionRegistry));
+              receiveInfos_.add(input.readMessage(com.game.framework.protocol.Database.ReceiveInfo.PARSER, extensionRegistry));
               break;
             }
           }
@@ -1378,7 +1490,7 @@ public final class Database {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          receiveInfo_ = java.util.Collections.unmodifiableList(receiveInfo_);
+          receiveInfos_ = java.util.Collections.unmodifiableList(receiveInfos_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1446,65 +1558,65 @@ public final class Database {
       return upgradeInfo_;
     }
 
-    // repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;
-    public static final int RECEIVEINFO_FIELD_NUMBER = 2;
-    private java.util.List<com.game.framework.protocol.Database.ReceiveInfo> receiveInfo_;
+    // repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;
+    public static final int RECEIVEINFOS_FIELD_NUMBER = 2;
+    private java.util.List<com.game.framework.protocol.Database.ReceiveInfo> receiveInfos_;
     /**
-     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
      *
      * <pre>
      * 领取信息
      * </pre>
      */
-    public java.util.List<com.game.framework.protocol.Database.ReceiveInfo> getReceiveInfoList() {
-      return receiveInfo_;
+    public java.util.List<com.game.framework.protocol.Database.ReceiveInfo> getReceiveInfosList() {
+      return receiveInfos_;
     }
     /**
-     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
      *
      * <pre>
      * 领取信息
      * </pre>
      */
     public java.util.List<? extends com.game.framework.protocol.Database.ReceiveInfoOrBuilder> 
-        getReceiveInfoOrBuilderList() {
-      return receiveInfo_;
+        getReceiveInfosOrBuilderList() {
+      return receiveInfos_;
     }
     /**
-     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
      *
      * <pre>
      * 领取信息
      * </pre>
      */
-    public int getReceiveInfoCount() {
-      return receiveInfo_.size();
+    public int getReceiveInfosCount() {
+      return receiveInfos_.size();
     }
     /**
-     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
      *
      * <pre>
      * 领取信息
      * </pre>
      */
-    public com.game.framework.protocol.Database.ReceiveInfo getReceiveInfo(int index) {
-      return receiveInfo_.get(index);
+    public com.game.framework.protocol.Database.ReceiveInfo getReceiveInfos(int index) {
+      return receiveInfos_.get(index);
     }
     /**
-     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+     * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
      *
      * <pre>
      * 领取信息
      * </pre>
      */
-    public com.game.framework.protocol.Database.ReceiveInfoOrBuilder getReceiveInfoOrBuilder(
+    public com.game.framework.protocol.Database.ReceiveInfoOrBuilder getReceiveInfosOrBuilder(
         int index) {
-      return receiveInfo_.get(index);
+      return receiveInfos_.get(index);
     }
 
     private void initFields() {
       upgradeInfo_ = com.game.framework.protocol.Database.UpgradeInfo.getDefaultInstance();
-      receiveInfo_ = java.util.Collections.emptyList();
+      receiveInfos_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1521,8 +1633,8 @@ public final class Database {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, upgradeInfo_);
       }
-      for (int i = 0; i < receiveInfo_.size(); i++) {
-        output.writeMessage(2, receiveInfo_.get(i));
+      for (int i = 0; i < receiveInfos_.size(); i++) {
+        output.writeMessage(2, receiveInfos_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -1537,9 +1649,9 @@ public final class Database {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, upgradeInfo_);
       }
-      for (int i = 0; i < receiveInfo_.size(); i++) {
+      for (int i = 0; i < receiveInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, receiveInfo_.get(i));
+          .computeMessageSize(2, receiveInfos_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1650,7 +1762,7 @@ public final class Database {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getUpgradeInfoFieldBuilder();
-          getReceiveInfoFieldBuilder();
+          getReceiveInfosFieldBuilder();
         }
       }
       private static Builder create() {
@@ -1665,11 +1777,11 @@ public final class Database {
           upgradeInfoBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (receiveInfoBuilder_ == null) {
-          receiveInfo_ = java.util.Collections.emptyList();
+        if (receiveInfosBuilder_ == null) {
+          receiveInfos_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000002);
         } else {
-          receiveInfoBuilder_.clear();
+          receiveInfosBuilder_.clear();
         }
         return this;
       }
@@ -1707,14 +1819,14 @@ public final class Database {
         } else {
           result.upgradeInfo_ = upgradeInfoBuilder_.build();
         }
-        if (receiveInfoBuilder_ == null) {
+        if (receiveInfosBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            receiveInfo_ = java.util.Collections.unmodifiableList(receiveInfo_);
+            receiveInfos_ = java.util.Collections.unmodifiableList(receiveInfos_);
             bitField0_ = (bitField0_ & ~0x00000002);
           }
-          result.receiveInfo_ = receiveInfo_;
+          result.receiveInfos_ = receiveInfos_;
         } else {
-          result.receiveInfo_ = receiveInfoBuilder_.build();
+          result.receiveInfos_ = receiveInfosBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -1735,29 +1847,29 @@ public final class Database {
         if (other.hasUpgradeInfo()) {
           mergeUpgradeInfo(other.getUpgradeInfo());
         }
-        if (receiveInfoBuilder_ == null) {
-          if (!other.receiveInfo_.isEmpty()) {
-            if (receiveInfo_.isEmpty()) {
-              receiveInfo_ = other.receiveInfo_;
+        if (receiveInfosBuilder_ == null) {
+          if (!other.receiveInfos_.isEmpty()) {
+            if (receiveInfos_.isEmpty()) {
+              receiveInfos_ = other.receiveInfos_;
               bitField0_ = (bitField0_ & ~0x00000002);
             } else {
-              ensureReceiveInfoIsMutable();
-              receiveInfo_.addAll(other.receiveInfo_);
+              ensureReceiveInfosIsMutable();
+              receiveInfos_.addAll(other.receiveInfos_);
             }
             onChanged();
           }
         } else {
-          if (!other.receiveInfo_.isEmpty()) {
-            if (receiveInfoBuilder_.isEmpty()) {
-              receiveInfoBuilder_.dispose();
-              receiveInfoBuilder_ = null;
-              receiveInfo_ = other.receiveInfo_;
+          if (!other.receiveInfos_.isEmpty()) {
+            if (receiveInfosBuilder_.isEmpty()) {
+              receiveInfosBuilder_.dispose();
+              receiveInfosBuilder_ = null;
+              receiveInfos_ = other.receiveInfos_;
               bitField0_ = (bitField0_ & ~0x00000002);
-              receiveInfoBuilder_ = 
+              receiveInfosBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getReceiveInfoFieldBuilder() : null;
+                   getReceiveInfosFieldBuilder() : null;
             } else {
-              receiveInfoBuilder_.addAllMessages(other.receiveInfo_);
+              receiveInfosBuilder_.addAllMessages(other.receiveInfos_);
             }
           }
         }
@@ -1941,316 +2053,316 @@ public final class Database {
         return upgradeInfoBuilder_;
       }
 
-      // repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;
-      private java.util.List<com.game.framework.protocol.Database.ReceiveInfo> receiveInfo_ =
+      // repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;
+      private java.util.List<com.game.framework.protocol.Database.ReceiveInfo> receiveInfos_ =
         java.util.Collections.emptyList();
-      private void ensureReceiveInfoIsMutable() {
+      private void ensureReceiveInfosIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          receiveInfo_ = new java.util.ArrayList<com.game.framework.protocol.Database.ReceiveInfo>(receiveInfo_);
+          receiveInfos_ = new java.util.ArrayList<com.game.framework.protocol.Database.ReceiveInfo>(receiveInfos_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.game.framework.protocol.Database.ReceiveInfo, com.game.framework.protocol.Database.ReceiveInfo.Builder, com.game.framework.protocol.Database.ReceiveInfoOrBuilder> receiveInfoBuilder_;
+          com.game.framework.protocol.Database.ReceiveInfo, com.game.framework.protocol.Database.ReceiveInfo.Builder, com.game.framework.protocol.Database.ReceiveInfoOrBuilder> receiveInfosBuilder_;
 
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public java.util.List<com.game.framework.protocol.Database.ReceiveInfo> getReceiveInfoList() {
-        if (receiveInfoBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(receiveInfo_);
+      public java.util.List<com.game.framework.protocol.Database.ReceiveInfo> getReceiveInfosList() {
+        if (receiveInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(receiveInfos_);
         } else {
-          return receiveInfoBuilder_.getMessageList();
+          return receiveInfosBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public int getReceiveInfoCount() {
-        if (receiveInfoBuilder_ == null) {
-          return receiveInfo_.size();
+      public int getReceiveInfosCount() {
+        if (receiveInfosBuilder_ == null) {
+          return receiveInfos_.size();
         } else {
-          return receiveInfoBuilder_.getCount();
+          return receiveInfosBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public com.game.framework.protocol.Database.ReceiveInfo getReceiveInfo(int index) {
-        if (receiveInfoBuilder_ == null) {
-          return receiveInfo_.get(index);
+      public com.game.framework.protocol.Database.ReceiveInfo getReceiveInfos(int index) {
+        if (receiveInfosBuilder_ == null) {
+          return receiveInfos_.get(index);
         } else {
-          return receiveInfoBuilder_.getMessage(index);
+          return receiveInfosBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public Builder setReceiveInfo(
+      public Builder setReceiveInfos(
           int index, com.game.framework.protocol.Database.ReceiveInfo value) {
-        if (receiveInfoBuilder_ == null) {
+        if (receiveInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureReceiveInfoIsMutable();
-          receiveInfo_.set(index, value);
+          ensureReceiveInfosIsMutable();
+          receiveInfos_.set(index, value);
           onChanged();
         } else {
-          receiveInfoBuilder_.setMessage(index, value);
+          receiveInfosBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public Builder setReceiveInfo(
+      public Builder setReceiveInfos(
           int index, com.game.framework.protocol.Database.ReceiveInfo.Builder builderForValue) {
-        if (receiveInfoBuilder_ == null) {
-          ensureReceiveInfoIsMutable();
-          receiveInfo_.set(index, builderForValue.build());
+        if (receiveInfosBuilder_ == null) {
+          ensureReceiveInfosIsMutable();
+          receiveInfos_.set(index, builderForValue.build());
           onChanged();
         } else {
-          receiveInfoBuilder_.setMessage(index, builderForValue.build());
+          receiveInfosBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public Builder addReceiveInfo(com.game.framework.protocol.Database.ReceiveInfo value) {
-        if (receiveInfoBuilder_ == null) {
+      public Builder addReceiveInfos(com.game.framework.protocol.Database.ReceiveInfo value) {
+        if (receiveInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureReceiveInfoIsMutable();
-          receiveInfo_.add(value);
+          ensureReceiveInfosIsMutable();
+          receiveInfos_.add(value);
           onChanged();
         } else {
-          receiveInfoBuilder_.addMessage(value);
+          receiveInfosBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public Builder addReceiveInfo(
+      public Builder addReceiveInfos(
           int index, com.game.framework.protocol.Database.ReceiveInfo value) {
-        if (receiveInfoBuilder_ == null) {
+        if (receiveInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureReceiveInfoIsMutable();
-          receiveInfo_.add(index, value);
+          ensureReceiveInfosIsMutable();
+          receiveInfos_.add(index, value);
           onChanged();
         } else {
-          receiveInfoBuilder_.addMessage(index, value);
+          receiveInfosBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public Builder addReceiveInfo(
+      public Builder addReceiveInfos(
           com.game.framework.protocol.Database.ReceiveInfo.Builder builderForValue) {
-        if (receiveInfoBuilder_ == null) {
-          ensureReceiveInfoIsMutable();
-          receiveInfo_.add(builderForValue.build());
+        if (receiveInfosBuilder_ == null) {
+          ensureReceiveInfosIsMutable();
+          receiveInfos_.add(builderForValue.build());
           onChanged();
         } else {
-          receiveInfoBuilder_.addMessage(builderForValue.build());
+          receiveInfosBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public Builder addReceiveInfo(
+      public Builder addReceiveInfos(
           int index, com.game.framework.protocol.Database.ReceiveInfo.Builder builderForValue) {
-        if (receiveInfoBuilder_ == null) {
-          ensureReceiveInfoIsMutable();
-          receiveInfo_.add(index, builderForValue.build());
+        if (receiveInfosBuilder_ == null) {
+          ensureReceiveInfosIsMutable();
+          receiveInfos_.add(index, builderForValue.build());
           onChanged();
         } else {
-          receiveInfoBuilder_.addMessage(index, builderForValue.build());
+          receiveInfosBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public Builder addAllReceiveInfo(
+      public Builder addAllReceiveInfos(
           java.lang.Iterable<? extends com.game.framework.protocol.Database.ReceiveInfo> values) {
-        if (receiveInfoBuilder_ == null) {
-          ensureReceiveInfoIsMutable();
-          super.addAll(values, receiveInfo_);
+        if (receiveInfosBuilder_ == null) {
+          ensureReceiveInfosIsMutable();
+          super.addAll(values, receiveInfos_);
           onChanged();
         } else {
-          receiveInfoBuilder_.addAllMessages(values);
+          receiveInfosBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public Builder clearReceiveInfo() {
-        if (receiveInfoBuilder_ == null) {
-          receiveInfo_ = java.util.Collections.emptyList();
+      public Builder clearReceiveInfos() {
+        if (receiveInfosBuilder_ == null) {
+          receiveInfos_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
-          receiveInfoBuilder_.clear();
+          receiveInfosBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public Builder removeReceiveInfo(int index) {
-        if (receiveInfoBuilder_ == null) {
-          ensureReceiveInfoIsMutable();
-          receiveInfo_.remove(index);
+      public Builder removeReceiveInfos(int index) {
+        if (receiveInfosBuilder_ == null) {
+          ensureReceiveInfosIsMutable();
+          receiveInfos_.remove(index);
           onChanged();
         } else {
-          receiveInfoBuilder_.remove(index);
+          receiveInfosBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public com.game.framework.protocol.Database.ReceiveInfo.Builder getReceiveInfoBuilder(
+      public com.game.framework.protocol.Database.ReceiveInfo.Builder getReceiveInfosBuilder(
           int index) {
-        return getReceiveInfoFieldBuilder().getBuilder(index);
+        return getReceiveInfosFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public com.game.framework.protocol.Database.ReceiveInfoOrBuilder getReceiveInfoOrBuilder(
+      public com.game.framework.protocol.Database.ReceiveInfoOrBuilder getReceiveInfosOrBuilder(
           int index) {
-        if (receiveInfoBuilder_ == null) {
-          return receiveInfo_.get(index);  } else {
-          return receiveInfoBuilder_.getMessageOrBuilder(index);
+        if (receiveInfosBuilder_ == null) {
+          return receiveInfos_.get(index);  } else {
+          return receiveInfosBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
       public java.util.List<? extends com.game.framework.protocol.Database.ReceiveInfoOrBuilder> 
-           getReceiveInfoOrBuilderList() {
-        if (receiveInfoBuilder_ != null) {
-          return receiveInfoBuilder_.getMessageOrBuilderList();
+           getReceiveInfosOrBuilderList() {
+        if (receiveInfosBuilder_ != null) {
+          return receiveInfosBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(receiveInfo_);
+          return java.util.Collections.unmodifiableList(receiveInfos_);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public com.game.framework.protocol.Database.ReceiveInfo.Builder addReceiveInfoBuilder() {
-        return getReceiveInfoFieldBuilder().addBuilder(
+      public com.game.framework.protocol.Database.ReceiveInfo.Builder addReceiveInfosBuilder() {
+        return getReceiveInfosFieldBuilder().addBuilder(
             com.game.framework.protocol.Database.ReceiveInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
-      public com.game.framework.protocol.Database.ReceiveInfo.Builder addReceiveInfoBuilder(
+      public com.game.framework.protocol.Database.ReceiveInfo.Builder addReceiveInfosBuilder(
           int index) {
-        return getReceiveInfoFieldBuilder().addBuilder(
+        return getReceiveInfosFieldBuilder().addBuilder(
             index, com.game.framework.protocol.Database.ReceiveInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfo = 2;</code>
+       * <code>repeated .com.game.framework.protocol.ReceiveInfo receiveInfos = 2;</code>
        *
        * <pre>
        * 领取信息
        * </pre>
        */
       public java.util.List<com.game.framework.protocol.Database.ReceiveInfo.Builder> 
-           getReceiveInfoBuilderList() {
-        return getReceiveInfoFieldBuilder().getBuilderList();
+           getReceiveInfosBuilderList() {
+        return getReceiveInfosFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
           com.game.framework.protocol.Database.ReceiveInfo, com.game.framework.protocol.Database.ReceiveInfo.Builder, com.game.framework.protocol.Database.ReceiveInfoOrBuilder> 
-          getReceiveInfoFieldBuilder() {
-        if (receiveInfoBuilder_ == null) {
-          receiveInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          getReceiveInfosFieldBuilder() {
+        if (receiveInfosBuilder_ == null) {
+          receiveInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.game.framework.protocol.Database.ReceiveInfo, com.game.framework.protocol.Database.ReceiveInfo.Builder, com.game.framework.protocol.Database.ReceiveInfoOrBuilder>(
-                  receiveInfo_,
+                  receiveInfos_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
-          receiveInfo_ = null;
+          receiveInfos_ = null;
         }
-        return receiveInfoBuilder_;
+        return receiveInfosBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.BuildingState)
@@ -2267,23 +2379,23 @@ public final class Database {
   public interface UpgradeInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional bool upgrading = 1;
+    // optional int64 finishTime = 1;
     /**
-     * <code>optional bool upgrading = 1;</code>
+     * <code>optional int64 finishTime = 1;</code>
      *
      * <pre>
-     * 是否在升级中
+     * 升级完成时间，finishTime = 0 则没在升级中
      * </pre>
      */
-    boolean hasUpgrading();
+    boolean hasFinishTime();
     /**
-     * <code>optional bool upgrading = 1;</code>
+     * <code>optional int64 finishTime = 1;</code>
      *
      * <pre>
-     * 是否在升级中
+     * 升级完成时间，finishTime = 0 则没在升级中
      * </pre>
      */
-    boolean getUpgrading();
+    long getFinishTime();
 
     // optional int64 uid = 2;
     /**
@@ -2356,7 +2468,7 @@ public final class Database {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              upgrading_ = input.readBool();
+              finishTime_ = input.readInt64();
               break;
             }
             case 16: {
@@ -2404,28 +2516,28 @@ public final class Database {
     }
 
     private int bitField0_;
-    // optional bool upgrading = 1;
-    public static final int UPGRADING_FIELD_NUMBER = 1;
-    private boolean upgrading_;
+    // optional int64 finishTime = 1;
+    public static final int FINISHTIME_FIELD_NUMBER = 1;
+    private long finishTime_;
     /**
-     * <code>optional bool upgrading = 1;</code>
+     * <code>optional int64 finishTime = 1;</code>
      *
      * <pre>
-     * 是否在升级中
+     * 升级完成时间，finishTime = 0 则没在升级中
      * </pre>
      */
-    public boolean hasUpgrading() {
+    public boolean hasFinishTime() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional bool upgrading = 1;</code>
+     * <code>optional int64 finishTime = 1;</code>
      *
      * <pre>
-     * 是否在升级中
+     * 升级完成时间，finishTime = 0 则没在升级中
      * </pre>
      */
-    public boolean getUpgrading() {
-      return upgrading_;
+    public long getFinishTime() {
+      return finishTime_;
     }
 
     // optional int64 uid = 2;
@@ -2453,7 +2565,7 @@ public final class Database {
     }
 
     private void initFields() {
-      upgrading_ = false;
+      finishTime_ = 0L;
       uid_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
@@ -2469,7 +2581,7 @@ public final class Database {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBool(1, upgrading_);
+        output.writeInt64(1, finishTime_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt64(2, uid_);
@@ -2485,7 +2597,7 @@ public final class Database {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, upgrading_);
+          .computeInt64Size(1, finishTime_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -2607,7 +2719,7 @@ public final class Database {
 
       public Builder clear() {
         super.clear();
-        upgrading_ = false;
+        finishTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
         uid_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -2642,7 +2754,7 @@ public final class Database {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.upgrading_ = upgrading_;
+        result.finishTime_ = finishTime_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -2663,8 +2775,8 @@ public final class Database {
 
       public Builder mergeFrom(com.game.framework.protocol.Database.UpgradeInfo other) {
         if (other == com.game.framework.protocol.Database.UpgradeInfo.getDefaultInstance()) return this;
-        if (other.hasUpgrading()) {
-          setUpgrading(other.getUpgrading());
+        if (other.hasFinishTime()) {
+          setFinishTime(other.getFinishTime());
         }
         if (other.hasUid()) {
           setUid(other.getUid());
@@ -2696,51 +2808,51 @@ public final class Database {
       }
       private int bitField0_;
 
-      // optional bool upgrading = 1;
-      private boolean upgrading_ ;
+      // optional int64 finishTime = 1;
+      private long finishTime_ ;
       /**
-       * <code>optional bool upgrading = 1;</code>
+       * <code>optional int64 finishTime = 1;</code>
        *
        * <pre>
-       * 是否在升级中
+       * 升级完成时间，finishTime = 0 则没在升级中
        * </pre>
        */
-      public boolean hasUpgrading() {
+      public boolean hasFinishTime() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional bool upgrading = 1;</code>
+       * <code>optional int64 finishTime = 1;</code>
        *
        * <pre>
-       * 是否在升级中
+       * 升级完成时间，finishTime = 0 则没在升级中
        * </pre>
        */
-      public boolean getUpgrading() {
-        return upgrading_;
+      public long getFinishTime() {
+        return finishTime_;
       }
       /**
-       * <code>optional bool upgrading = 1;</code>
+       * <code>optional int64 finishTime = 1;</code>
        *
        * <pre>
-       * 是否在升级中
+       * 升级完成时间，finishTime = 0 则没在升级中
        * </pre>
        */
-      public Builder setUpgrading(boolean value) {
+      public Builder setFinishTime(long value) {
         bitField0_ |= 0x00000001;
-        upgrading_ = value;
+        finishTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool upgrading = 1;</code>
+       * <code>optional int64 finishTime = 1;</code>
        *
        * <pre>
-       * 是否在升级中
+       * 升级完成时间，finishTime = 0 则没在升级中
        * </pre>
        */
-      public Builder clearUpgrading() {
+      public Builder clearFinishTime() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        upgrading_ = false;
+        finishTime_ = 0L;
         onChanged();
         return this;
       }
@@ -2843,6 +2955,24 @@ public final class Database {
      * </pre>
      */
     long getUid();
+
+    // optional int32 number = 3;
+    /**
+     * <code>optional int32 number = 3;</code>
+     *
+     * <pre>
+     * 还未领取资源数量
+     * </pre>
+     */
+    boolean hasNumber();
+    /**
+     * <code>optional int32 number = 3;</code>
+     *
+     * <pre>
+     * 还未领取资源数量
+     * </pre>
+     */
+    int getNumber();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.ReceiveInfo}
@@ -2903,6 +3033,11 @@ public final class Database {
             case 16: {
               bitField0_ |= 0x00000002;
               uid_ = input.readInt64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              number_ = input.readInt32();
               break;
             }
           }
@@ -2993,9 +3128,34 @@ public final class Database {
       return uid_;
     }
 
+    // optional int32 number = 3;
+    public static final int NUMBER_FIELD_NUMBER = 3;
+    private int number_;
+    /**
+     * <code>optional int32 number = 3;</code>
+     *
+     * <pre>
+     * 还未领取资源数量
+     * </pre>
+     */
+    public boolean hasNumber() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 number = 3;</code>
+     *
+     * <pre>
+     * 还未领取资源数量
+     * </pre>
+     */
+    public int getNumber() {
+      return number_;
+    }
+
     private void initFields() {
       lastReceiveTime_ = 0L;
       uid_ = 0L;
+      number_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3015,6 +3175,9 @@ public final class Database {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt64(2, uid_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, number_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -3031,6 +3194,10 @@ public final class Database {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, uid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, number_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3152,6 +3319,8 @@ public final class Database {
         bitField0_ = (bitField0_ & ~0x00000001);
         uid_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
+        number_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3188,6 +3357,10 @@ public final class Database {
           to_bitField0_ |= 0x00000002;
         }
         result.uid_ = uid_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.number_ = number_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3209,6 +3382,9 @@ public final class Database {
         }
         if (other.hasUid()) {
           setUid(other.getUid());
+        }
+        if (other.hasNumber()) {
+          setNumber(other.getNumber());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -3335,6 +3511,55 @@ public final class Database {
         return this;
       }
 
+      // optional int32 number = 3;
+      private int number_ ;
+      /**
+       * <code>optional int32 number = 3;</code>
+       *
+       * <pre>
+       * 还未领取资源数量
+       * </pre>
+       */
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 number = 3;</code>
+       *
+       * <pre>
+       * 还未领取资源数量
+       * </pre>
+       */
+      public int getNumber() {
+        return number_;
+      }
+      /**
+       * <code>optional int32 number = 3;</code>
+       *
+       * <pre>
+       * 还未领取资源数量
+       * </pre>
+       */
+      public Builder setNumber(int value) {
+        bitField0_ |= 0x00000004;
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 number = 3;</code>
+       *
+       * <pre>
+       * 还未领取资源数量
+       * </pre>
+       */
+      public Builder clearNumber() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        number_ = 0;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.ReceiveInfo)
     }
 
@@ -3384,13 +3609,14 @@ public final class Database {
       "tocol\"P\n\014UserResource\022@\n\rresourceInfos\030\001" +
       " \003(\0132).com.game.framework.protocol.Resou" +
       "rceInfo\"0\n\014ResourceInfo\022\020\n\010configId\030\001 \001(" +
-      "\005\022\016\n\006number\030\002 \001(\005\"\215\001\n\rBuildingState\022=\n\013u" +
+      "\005\022\016\n\006number\030\002 \001(\005\"\216\001\n\rBuildingState\022=\n\013u" +
       "pgradeInfo\030\001 \001(\0132(.com.game.framework.pr" +
-      "otocol.UpgradeInfo\022=\n\013receiveInfo\030\002 \003(\0132" +
-      "(.com.game.framework.protocol.ReceiveInf" +
-      "o\"-\n\013UpgradeInfo\022\021\n\tupgrading\030\001 \001(\010\022\013\n\003u" +
-      "id\030\002 \001(\003\"3\n\013ReceiveInfo\022\027\n\017lastReceiveTi",
-      "me\030\001 \001(\003\022\013\n\003uid\030\002 \001(\003B\002H\001"
+      "otocol.UpgradeInfo\022>\n\014receiveInfos\030\002 \003(\013" +
+      "2(.com.game.framework.protocol.ReceiveIn" +
+      "fo\".\n\013UpgradeInfo\022\022\n\nfinishTime\030\001 \001(\003\022\013\n" +
+      "\003uid\030\002 \001(\003\"C\n\013ReceiveInfo\022\027\n\017lastReceive",
+      "Time\030\001 \001(\003\022\013\n\003uid\030\002 \001(\003\022\016\n\006number\030\003 \001(\005B" +
+      "\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3414,19 +3640,19 @@ public final class Database {
           internal_static_com_game_framework_protocol_BuildingState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_BuildingState_descriptor,
-              new java.lang.String[] { "UpgradeInfo", "ReceiveInfo", });
+              new java.lang.String[] { "UpgradeInfo", "ReceiveInfos", });
           internal_static_com_game_framework_protocol_UpgradeInfo_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_com_game_framework_protocol_UpgradeInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_UpgradeInfo_descriptor,
-              new java.lang.String[] { "Upgrading", "Uid", });
+              new java.lang.String[] { "FinishTime", "Uid", });
           internal_static_com_game_framework_protocol_ReceiveInfo_descriptor =
             getDescriptor().getMessageTypes().get(4);
           internal_static_com_game_framework_protocol_ReceiveInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_ReceiveInfo_descriptor,
-              new java.lang.String[] { "LastReceiveTime", "Uid", });
+              new java.lang.String[] { "LastReceiveTime", "Uid", "Number", });
           return null;
         }
       };

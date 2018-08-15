@@ -100,6 +100,14 @@ public final class Common {
      * </pre>
      */
     FINISHUNLOCK(10, 35),
+    /**
+     * <code>RECEIVE = 36;</code>
+     *
+     * <pre>
+     * 领取物品
+     * </pre>
+     */
+    RECEIVE(11, 36),
     ;
 
     /**
@@ -189,6 +197,14 @@ public final class Common {
      * </pre>
      */
     public static final int FINISHUNLOCK_VALUE = 35;
+    /**
+     * <code>RECEIVE = 36;</code>
+     *
+     * <pre>
+     * 领取物品
+     * </pre>
+     */
+    public static final int RECEIVE_VALUE = 36;
 
 
     public final int getNumber() { return value; }
@@ -206,6 +222,7 @@ public final class Common {
         case 33: return FINISHUPGRADE;
         case 34: return UNLOCK;
         case 35: return FINISHUNLOCK;
+        case 36: return RECEIVE;
         default: return null;
       }
     }
@@ -390,9 +407,107 @@ public final class Common {
   }
 
   /**
-   * Protobuf enum {@code com.game.framework.protocol.Resource}
+   * Protobuf enum {@code com.game.framework.protocol.BuildingType}
    */
-  public enum Resource
+  public enum BuildingType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>RECEIVE_BUILDING = 1;</code>
+     *
+     * <pre>
+     * 领取类
+     * </pre>
+     */
+    RECEIVE_BUILDING(0, 1),
+    /**
+     * <code>PROCESS_BUILDING = 2;</code>
+     *
+     * <pre>
+     * 加工类
+     * </pre>
+     */
+    PROCESS_BUILDING(1, 2),
+    ;
+
+    /**
+     * <code>RECEIVE_BUILDING = 1;</code>
+     *
+     * <pre>
+     * 领取类
+     * </pre>
+     */
+    public static final int RECEIVE_BUILDING_VALUE = 1;
+    /**
+     * <code>PROCESS_BUILDING = 2;</code>
+     *
+     * <pre>
+     * 加工类
+     * </pre>
+     */
+    public static final int PROCESS_BUILDING_VALUE = 2;
+
+
+    public final int getNumber() { return value; }
+
+    public static BuildingType valueOf(int value) {
+      switch (value) {
+        case 1: return RECEIVE_BUILDING;
+        case 2: return PROCESS_BUILDING;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<BuildingType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<BuildingType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<BuildingType>() {
+            public BuildingType findValueByNumber(int number) {
+              return BuildingType.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final BuildingType[] VALUES = values();
+
+    public static BuildingType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private BuildingType(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.BuildingType)
+  }
+
+  /**
+   * Protobuf enum {@code com.game.framework.protocol.ResourceType}
+   */
+  public enum ResourceType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <code>RICE = 1;</code>
@@ -720,7 +835,7 @@ public final class Common {
 
     public final int getNumber() { return value; }
 
-    public static Resource valueOf(int value) {
+    public static ResourceType valueOf(int value) {
       switch (value) {
         case 1: return RICE;
         case 2: return VEGETABLES;
@@ -746,15 +861,15 @@ public final class Common {
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<Resource>
+    public static com.google.protobuf.Internal.EnumLiteMap<ResourceType>
         internalGetValueMap() {
       return internalValueMap;
     }
-    private static com.google.protobuf.Internal.EnumLiteMap<Resource>
+    private static com.google.protobuf.Internal.EnumLiteMap<ResourceType>
         internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<Resource>() {
-            public Resource findValueByNumber(int number) {
-              return Resource.valueOf(number);
+          new com.google.protobuf.Internal.EnumLiteMap<ResourceType>() {
+            public ResourceType findValueByNumber(int number) {
+              return ResourceType.valueOf(number);
             }
           };
 
@@ -768,12 +883,12 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(2);
+      return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(3);
     }
 
-    private static final Resource[] VALUES = values();
+    private static final ResourceType[] VALUES = values();
 
-    public static Resource valueOf(
+    public static ResourceType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
@@ -785,12 +900,12 @@ public final class Common {
     private final int index;
     private final int value;
 
-    private Resource(int index, int value) {
+    private ResourceType(int index, int value) {
       this.index = index;
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.Resource)
+    // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.ResourceType)
   }
 
 
@@ -803,20 +918,22 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\251\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
+      "col*\266\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
       "OUT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREATEGROUP\020\013\022" +
       "\016\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO\020\037\022\013\n\007UPG" +
       "RADE\020 \022\021\n\rFINISHUPGRADE\020!\022\n\n\006UNLOCK\020\"\022\020\n" +
-      "\014FINISHUNLOCK\020#*J\n\005Error\022\016\n\nSERVER_ERR\020\001" +
-      "\022\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nL" +
-      "EVEL_OVER\020\004*\236\002\n\010Resource\022\010\n\004RICE\020\001\022\016\n\nVE" +
-      "GETABLES\020\002\022\t\n\005FRUIT\020\003\022\t\n\005GRASS\020\004\022\013\n\007PIGF" +
-      "OOD\020\005\022\010\n\004PORK\020\006\022\t\n\005CRUDE\020\007\022\014\n\010GASOLINE\020\010",
-      "\022\010\n\004IRON\020\t\022\t\n\005STEEL\020\n\022\010\n\004PINE\020\013\022\016\n\nWHITE" +
-      "BIRCH\020\014\022\r\n\tIRONBIRCH\020\r\022\r\n\tPINEBOARD\020\016\022\023\n" +
-      "\017WHITEBIRCHBOARD\020\017\022\022\n\016IRONBIRCHBOARD\020\020\022\r" +
-      "\n\tPUREWATER\020\021\022\020\n\014MINERALWATER\020\022\022\017\n\013ELECT" +
-      "RICITY\020\023\022\n\n\006BULLET\020\024B\002H\001"
+      "\014FINISHUNLOCK\020#\022\013\n\007RECEIVE\020$*J\n\005Error\022\016\n" +
+      "\nSERVER_ERR\020\001\022\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BU" +
+      "ILDING\020\003\022\016\n\nLEVEL_OVER\020\004*:\n\014BuildingType" +
+      "\022\024\n\020RECEIVE_BUILDING\020\001\022\024\n\020PROCESS_BUILDI" +
+      "NG\020\002*\242\002\n\014ResourceType\022\010\n\004RICE\020\001\022\016\n\nVEGET",
+      "ABLES\020\002\022\t\n\005FRUIT\020\003\022\t\n\005GRASS\020\004\022\013\n\007PIGFOOD" +
+      "\020\005\022\010\n\004PORK\020\006\022\t\n\005CRUDE\020\007\022\014\n\010GASOLINE\020\010\022\010\n" +
+      "\004IRON\020\t\022\t\n\005STEEL\020\n\022\010\n\004PINE\020\013\022\016\n\nWHITEBIR" +
+      "CH\020\014\022\r\n\tIRONBIRCH\020\r\022\r\n\tPINEBOARD\020\016\022\023\n\017WH" +
+      "ITEBIRCHBOARD\020\017\022\022\n\016IRONBIRCHBOARD\020\020\022\r\n\tP" +
+      "UREWATER\020\021\022\020\n\014MINERALWATER\020\022\022\017\n\013ELECTRIC" +
+      "ITY\020\023\022\n\n\006BULLET\020\024B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

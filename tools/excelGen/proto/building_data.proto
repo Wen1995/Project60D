@@ -10,13 +10,11 @@ message BUILDING{
     /** 建筑ID */
     required int32 id = 1 [default = 0];
     /** 建筑类型
-        农业领取=1
-        工业领取=2
-        农业加工=3
-        工业加工=4
-        功能建筑=5
-        防御建筑=6
-        武器=7
+        领取=1
+        加工=2
+        功能建筑=3
+        防御建筑=4
+        武器=5
     */
     optional int32 bldg_type = 2 [default = 0];
     /** 建筑等级 */

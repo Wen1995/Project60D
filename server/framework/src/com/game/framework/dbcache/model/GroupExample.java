@@ -413,6 +413,66 @@ public class GroupExample {
             addCriterion("group_gold not between", value1, value2, "groupGold");
             return (Criteria) this;
         }
+
+        public Criteria andStorehouseIdIsNull() {
+            addCriterion("storehouse_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdIsNotNull() {
+            addCriterion("storehouse_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdEqualTo(Long value) {
+            addCriterion("storehouse_id =", value, "storehouseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdNotEqualTo(Long value) {
+            addCriterion("storehouse_id <>", value, "storehouseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdGreaterThan(Long value) {
+            addCriterion("storehouse_id >", value, "storehouseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("storehouse_id >=", value, "storehouseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdLessThan(Long value) {
+            addCriterion("storehouse_id <", value, "storehouseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdLessThanOrEqualTo(Long value) {
+            addCriterion("storehouse_id <=", value, "storehouseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdIn(List<Long> values) {
+            addCriterion("storehouse_id in", values, "storehouseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdNotIn(List<Long> values) {
+            addCriterion("storehouse_id not in", values, "storehouseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdBetween(Long value1, Long value2) {
+            addCriterion("storehouse_id between", value1, value2, "storehouseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andStorehouseIdNotBetween(Long value1, Long value2) {
+            addCriterion("storehouse_id not between", value1, value2, "storehouseId");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

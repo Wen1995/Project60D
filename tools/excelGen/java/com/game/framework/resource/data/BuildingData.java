@@ -34,13 +34,11 @@ public final class BuildingData {
      *
      * <pre>
      ** 建筑类型
-     *农业领取=1
-     *工业领取=2
-     *农业加工=3
-     *工业加工=4
-     *功能建筑=5
-     *防御建筑=6
-     *武器=7
+     *领取=1
+     *加工=2
+     *功能建筑=3
+     *防御建筑=4
+     *武器=5
      * </pre>
      */
     boolean hasBldgType();
@@ -49,13 +47,11 @@ public final class BuildingData {
      *
      * <pre>
      ** 建筑类型
-     *农业领取=1
-     *工业领取=2
-     *农业加工=3
-     *工业加工=4
-     *功能建筑=5
-     *防御建筑=6
-     *武器=7
+     *领取=1
+     *加工=2
+     *功能建筑=3
+     *防御建筑=4
+     *武器=5
      * </pre>
      */
     int getBldgType();
@@ -1204,13 +1200,11 @@ public final class BuildingData {
      *
      * <pre>
      ** 建筑类型
-     *农业领取=1
-     *工业领取=2
-     *农业加工=3
-     *工业加工=4
-     *功能建筑=5
-     *防御建筑=6
-     *武器=7
+     *领取=1
+     *加工=2
+     *功能建筑=3
+     *防御建筑=4
+     *武器=5
      * </pre>
      */
     public boolean hasBldgType() {
@@ -1221,13 +1215,11 @@ public final class BuildingData {
      *
      * <pre>
      ** 建筑类型
-     *农业领取=1
-     *工业领取=2
-     *农业加工=3
-     *工业加工=4
-     *功能建筑=5
-     *防御建筑=6
-     *武器=7
+     *领取=1
+     *加工=2
+     *功能建筑=3
+     *防御建筑=4
+     *武器=5
      * </pre>
      */
     public int getBldgType() {
@@ -2478,13 +2470,11 @@ public final class BuildingData {
        *
        * <pre>
        ** 建筑类型
-       *农业领取=1
-       *工业领取=2
-       *农业加工=3
-       *工业加工=4
-       *功能建筑=5
-       *防御建筑=6
-       *武器=7
+       *领取=1
+       *加工=2
+       *功能建筑=3
+       *防御建筑=4
+       *武器=5
        * </pre>
        */
       public boolean hasBldgType() {
@@ -2495,13 +2485,11 @@ public final class BuildingData {
        *
        * <pre>
        ** 建筑类型
-       *农业领取=1
-       *工业领取=2
-       *农业加工=3
-       *工业加工=4
-       *功能建筑=5
-       *防御建筑=6
-       *武器=7
+       *领取=1
+       *加工=2
+       *功能建筑=3
+       *防御建筑=4
+       *武器=5
        * </pre>
        */
       public int getBldgType() {
@@ -2512,13 +2500,11 @@ public final class BuildingData {
        *
        * <pre>
        ** 建筑类型
-       *农业领取=1
-       *工业领取=2
-       *农业加工=3
-       *工业加工=4
-       *功能建筑=5
-       *防御建筑=6
-       *武器=7
+       *领取=1
+       *加工=2
+       *功能建筑=3
+       *防御建筑=4
+       *武器=5
        * </pre>
        */
       public Builder setBldgType(int value) {
@@ -2532,13 +2518,11 @@ public final class BuildingData {
        *
        * <pre>
        ** 建筑类型
-       *农业领取=1
-       *工业领取=2
-       *农业加工=3
-       *工业加工=4
-       *功能建筑=5
-       *防御建筑=6
-       *武器=7
+       *领取=1
+       *加工=2
+       *功能建筑=3
+       *防御建筑=4
+       *武器=5
        * </pre>
        */
       public Builder clearBldgType() {

@@ -17,12 +17,13 @@ import com.game.framework.console.handler.HandlersConfig.Handler;
 import com.game.framework.utils.DateUtil;
 import com.game.framework.utils.ExternalStorageUtil;
 import com.game.framework.utils.StringUtil;
+import com.google.common.base.CaseFormat;
 import com.game.framework.console.constant.Constant;
 
 public class GeneratorHandlerTemplater {
     private static Logger logger = LoggerFactory.getLogger(GeneratorHandlerTemplater.class);
 
-    public void init() throws Exception {
+    public void initCode() throws Exception {
         logger.info("--------- Auto Start ---------");
         HandlersConfig.GetInstance().init();
         
@@ -33,6 +34,37 @@ public class GeneratorHandlerTemplater {
         createHandlerClass(handlerGroups, handlers);
         createServiceClass(handlerGroups, handlers);
         logger.info("--------- Auto Success ---------");
+    }
+    
+    public void initData() throws Exception {
+        logger.info("--------- Auto Start ---------");
+        createStaticDataManagerClass();
+        logger.info("--------- Auto Success ---------");
+    }
+    
+    /**
+     * 生成StaticDataManager.java
+     */
+    private void createStaticDataManagerClass() {
+        VelocityEngine ve = newVelocityEngine();
+        Template template = ve.getTemplate("staticdatamanager.vm");
+        VelocityContext ctx = new VelocityContext();
+        
+        String path = "src/com/game/framework/resource/data";
+        List<String> fileNames = ExternalStorageUtil.getFileName(path);
+        
+        List<Object[]> classes = new ArrayList<>();
+        for (String fileName : fileNames) {
+            String minFileName = fileName.substring(0, fileName.indexOf("Data"));
+            String upperUnderscoreName = CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE, minFileName);
+            String[] s = {fileName, upperUnderscoreName, StringUtil.FirstLetterToLower(minFileName) + "Map"};
+            classes.add(s);
+        }
+        ctx.put("classes", classes.toArray());
+        String str = merge2Str(template, ctx);
+        String class_path = "src/com/game/framework/resource/StaticDataManager.java";
+        ExternalStorageUtil.write(class_path, str);
+        logger.info("auto generate " + class_path);
     }
 
     /**

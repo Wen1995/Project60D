@@ -37,6 +37,7 @@ namespace com.game.framework.protocol {
     FINISHUPGRADE = 33,
     UNLOCK = 34,
     FINISHUNLOCK = 35,
+    RECEIVE = 36,
   }
   
   public enum Error {
@@ -46,7 +47,12 @@ namespace com.game.framework.protocol {
     LEVEL_OVER = 4,
   }
   
-  public enum Resource {
+  public enum BuildingType {
+    RECEIVE_BUILDING = 1,
+    PROCESS_BUILDING = 2,
+  }
+  
+  public enum ResourceType {
     RICE = 1,
     VEGETABLES = 2,
     FRUIT = 3,

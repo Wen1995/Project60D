@@ -5,6 +5,7 @@ option optimize_for = SPEED;
 /** 这里存放mysql表中blob字段的二进制序列 */
 
 message UserResource {
+	// 资源信息
 	repeated ResourceInfo resourceInfos = 1;
 }
 
@@ -19,12 +20,12 @@ message BuildingState {
 	// 升级信息
 	optional UpgradeInfo upgradeInfo = 1;
 	// 领取信息
-	repeated ReceiveInfo receiveInfo = 2;
+	repeated ReceiveInfo receiveInfos = 2;
 }
 
 message UpgradeInfo {
-	// 是否在升级中
-	optional bool upgrading = 1;
+	// 升级完成时间，finishTime = 0 则没在升级中
+	optional int64 finishTime = 1;
 	// 升级人
 	optional int64 uid = 2;
 }
@@ -34,4 +35,6 @@ message ReceiveInfo {
 	optional int64 lastReceiveTime = 1;
 	// 领取人
 	optional int64 uid = 2;
+	// 还未领取资源数量
+	optional int32 number = 3;
 }

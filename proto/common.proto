@@ -29,6 +29,8 @@ enum Cmd {
 	UNLOCK = 34;
 	// 完成解锁
 	FINISHUNLOCK = 35;
+	// 领取物品
+	RECEIVE = 36;
 }
 
 enum Error {
@@ -42,7 +44,14 @@ enum Error {
 	LEVEL_OVER = 4;
 }
 
-enum Resource {
+enum BuildingType {
+	// 领取类
+	RECEIVE_BUILDING = 1;
+	// 加工类
+	PROCESS_BUILDING = 2;
+}
+
+enum ResourceType {
 	// 大米
 	RICE = 1;
 	// 蔬菜

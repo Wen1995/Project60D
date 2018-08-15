@@ -10,6 +10,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.DataFormatException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,13 +20,37 @@ public class ExternalStorageUtil {
     private static final Logger logger = LoggerFactory.getLogger(ExternalStorageUtil.class);
 
     private static final String COMPRESS_NAME = "ZLIB";
-    
+
     public static String getDir() {
         return System.getProperty("user.dir");
     }
 
     public static String getFullPath(String filepath) {
         return getDir() + filepath;
+    }
+
+    public static List<String> getFileName(String path) {
+        List<String> fileNames = new ArrayList<>();
+
+        File file = new File(path);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                logger.error("{}", e);
+            }
+        }
+
+        File[] files = file.listFiles();
+        for (int i = 0; i < files.length; i++) {
+            File f = files[i];
+            if (!f.isDirectory()) {
+                String name = f.getName();
+                name = name.substring(0, name.indexOf("."));
+                fileNames.add(name);
+            }
+        }
+        return fileNames;
     }
 
     public static String getTextByUTF(String filepath) {
@@ -105,7 +131,8 @@ public class ExternalStorageUtil {
 
         try {
             saveFile.createNewFile();
-            OutputStreamWriter write = new OutputStreamWriter(new FileOutputStream(saveFile), "UTF-8");
+            OutputStreamWriter write =
+                    new OutputStreamWriter(new FileOutputStream(saveFile), "UTF-8");
             BufferedWriter writer = new BufferedWriter(write);
             writer.write(txt);
             writer.close();
@@ -159,7 +186,7 @@ public class ExternalStorageUtil {
             }
         }
     }
-    
+
     public static byte[] loadData(String path) {
         byte[] data = null;
 

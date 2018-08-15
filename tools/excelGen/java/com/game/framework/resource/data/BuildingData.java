@@ -330,7 +330,7 @@ public final class BuildingData {
      * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
      *
      * <pre>
-     ** 增加公司实力 
+     ** 每级消耗资源价值 
      * </pre>
      */
     boolean hasBldgStrengthAdd();
@@ -338,7 +338,7 @@ public final class BuildingData {
      * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
      *
      * <pre>
-     ** 增加公司实力 
+     ** 每级消耗资源价值 
      * </pre>
      */
     int getBldgStrengthAdd();
@@ -1690,7 +1690,7 @@ public final class BuildingData {
      * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
      *
      * <pre>
-     ** 增加公司实力 
+     ** 每级消耗资源价值 
      * </pre>
      */
     public boolean hasBldgStrengthAdd() {
@@ -1700,7 +1700,7 @@ public final class BuildingData {
      * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
      *
      * <pre>
-     ** 增加公司实力 
+     ** 每级消耗资源价值 
      * </pre>
      */
     public int getBldgStrengthAdd() {
@@ -3429,7 +3429,7 @@ public final class BuildingData {
        * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
        *
        * <pre>
-       ** 增加公司实力 
+       ** 每级消耗资源价值 
        * </pre>
        */
       public boolean hasBldgStrengthAdd() {
@@ -3439,7 +3439,7 @@ public final class BuildingData {
        * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
        *
        * <pre>
-       ** 增加公司实力 
+       ** 每级消耗资源价值 
        * </pre>
        */
       public int getBldgStrengthAdd() {
@@ -3449,7 +3449,7 @@ public final class BuildingData {
        * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
        *
        * <pre>
-       ** 增加公司实力 
+       ** 每级消耗资源价值 
        * </pre>
        */
       public Builder setBldgStrengthAdd(int value) {
@@ -3462,7 +3462,7 @@ public final class BuildingData {
        * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
        *
        * <pre>
-       ** 增加公司实力 
+       ** 每级消耗资源价值 
        * </pre>
        */
       public Builder clearBldgStrengthAdd() {

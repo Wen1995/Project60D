@@ -34,6 +34,11 @@ public class Service{
         ServiceBase service = mServiceMap[module];
         var type = service.GetType();
         MethodInfo info = type.GetMethod(method);
+        if (info == null)
+        {
+            UnityEngine.Debug.Log(string.Format("method:{0} not found in module:{1}", method, module));
+            return null;
+        }
         if(args == null)
             return info.Invoke(service, null);
         else

@@ -16,9 +16,9 @@ public class Controller : MonoBehaviour {
         FacadeSingleton.Instance.RemoveEvent(name, handler);
     }
 
-    protected void SendEvent(string name)
+    protected void SendEvent(string name, NDictionary data = null)
     {
-        FacadeSingleton.Instance.SendEvent(name);
+        FacadeSingleton.Instance.SendEvent(name, data);
     }
 
     protected void RegisterRPCResponce(short cmdID, NRPCResponce handler)

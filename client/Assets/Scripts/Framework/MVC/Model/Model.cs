@@ -12,7 +12,7 @@ public class Model {
 
     public void RegisterModel(string name, System.Type type)
     {
-        if (!type.IsAssignableFrom(typeof(ModelBase)))
+        if (!type.IsSubclassOf(typeof(ModelBase)))
             return;
         ModelBase model = System.Activator.CreateInstance(type) as ModelBase;
         mModelMap.Add(name, model);

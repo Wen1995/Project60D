@@ -1,12 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloatingIcon : MonoBehaviour, IPoolUnit {
+public class PoolUnitBase : MonoBehaviour, IPoolUnit
+{
+    Type mType;
 
-    UnitState mUnitState = new UnitState();
-
-    #region IPoolUnit Member
     public void OnRestore()
     {
         throw new System.NotImplementedException();
@@ -24,13 +24,11 @@ public class FloatingIcon : MonoBehaviour, IPoolUnit {
 
     public void Restore()
     {
-        ISubPool pool = ObjectPoolSingleton.Instance.GetPool<FloatingIcon>();
-        pool.Restore(gameObject);
+        throw new System.NotImplementedException();
     }
 
     public UnitState State()
     {
-        return mUnitState;
+        throw new System.NotImplementedException();
     }
-    #endregion
 }

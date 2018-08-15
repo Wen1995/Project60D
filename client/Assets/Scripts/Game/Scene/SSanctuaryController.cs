@@ -8,19 +8,18 @@ using UnityEngine;
 
 public class SSanctuaryController : SceneController
 {
-
-    //temp res path
-    string[] buildingPath = {
-
-    };
-
     public GameObject testBuilding;
+    SanctuaryPackage sanctuaryPackage = null;
+
+    private Building unlockBuilding = null;
 
     //register or bind something
     public void Awake()
     {
         //register object pool
         ObjectPoolSingleton.Instance.RegisterComPool<FloatingIcon>(Resources.Load<GameObject>("Prefabs/Common/RemindIcon"));
+        ObjectPoolSingleton.Instance.RegisterComPool<ConstructionIcon>(Resources.Load<GameObject>("Prefabs/Common/ConstructionIcon"));
+        ObjectPoolSingleton.Instance.RegisterComPool<TimerIcon>(Resources.Load<GameObject>("Prefabs/Common/TimerIcon"));
         //register panel
         SetUIContainer();
         FacadeSingleton.Instance.RegisterUIPanel("UIMsgBoxPanel", "Prefabs/UI/Common", 10000, PanelAnchor.Center);
@@ -32,17 +31,29 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UIBackpackPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
+        FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
         //register package
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_User, typeof(UserPackage));
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_Sanctuary, typeof(SanctuaryPackage));
+        //register event
+        RegisterEvent("SelectBuilding", OnSelectBuilding);
         //bind event
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETSCENEINFO, OnGetSceneInfo);
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.UNLOCK, OnBuildingUnlock);
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.UPGRADE, OnBuildingUpgrade);
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.FINISHUPGRADE, OnBuildingFinish);
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.FINISHUNLOCK, OnBuildingFinish);
+
+        sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
     }
     //actually do something
     public void Start()
     {
+        //Init all building
+        //FacadeSingleton.Instance.InvokeService("InitBuilding", ConstVal.Service_Sanctuary);
         FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
-        //AddBuildingEvent();
+        //specify view
+        //BuildSanctuary();
     }
 
     /// <summary>
@@ -50,9 +61,14 @@ public class SSanctuaryController : SceneController
     /// </summary>
     void OnGetSceneInfo(NetMsgDef msg)
     {
+        print("Get Scene Info");
         TSCGetSceneInfo sceneInfo = TSCGetSceneInfo.ParseFrom(msg.mBtsData);
-        SanctuaryPackage sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
-        sanctuaryPackage.SetBuildingDataList(sceneInfo);
+        for (int i = 0; i < sceneInfo.BuildingInfosCount; i++)
+        {
+            BuildingInfo info = sceneInfo.BuildingInfosList[i];
+            print(string.Format("buildingID={0}, ConfigID={1}", info.BuildingId, info.ConfigId));
+            sanctuaryPackage.AddBuilgding(info);
+        }
         BuildSanctuary();
     }
 
@@ -61,31 +77,8 @@ public class SSanctuaryController : SceneController
     /// </summary>
     void BuildSanctuary()
     {
-        BuildAllBuilding();
-    }
-
-    void BuildAllBuilding()
-    {
-        var buildingInfoList = FacadeSingleton.Instance.InvokeService("GetBuildingDataList", ConstVal.Service_Sanctuary) as IList<BuildingInfo>;
-        foreach (BuildingInfo building in buildingInfoList)
-        {
-            print(building.BuildingId);
-            print(building.ConfigId);
-        }
-    }
-
-    void BuildSingleBuilding(BuildingInfo info)
-    {
+        SendEvent("RefreshBuildingView");
         //TODO
-    }
-
-    void InitAllBuilding()
-    {
-        BUILDING_ARRAY buildingDataList = ConfigDataStatic.RetrieveConfigData<BUILDING_ARRAY>(ConstVal.DATA_BUILDING);
-        for (int i = 0; i < buildingDataList.ItemsCount; i += 20)
-        {
-            BUILDING building = buildingDataList.GetItems(i);
-        }
     }
 
     /// <summary>
@@ -103,5 +96,66 @@ public class SSanctuaryController : SceneController
     public void BuildingCallback(NDictionary data = null)
     {
         print("callback!!!");
+    }
+
+    void OnBuildingUnlock(NetMsgDef msg)
+    {
+        TSCUnlock unlock = TSCUnlock.ParseFrom(msg.mBtsData);
+        if (!unlock.IsGroup)
+        {
+            print("group not satisfied");
+            return;
+        }
+        if (!unlock.IsResource)
+        {
+            print("group not satisfied");
+            return;
+        }
+        if (!unlock.IsProduction)
+        {
+            print("production line is full");
+            return;
+        }
+        //add progress to building
+        Debug.Log(string.Format("Remain time={0}", unlock.FinishTime));
+    }
+
+    void OnBuildingUpgrade(NetMsgDef msg)
+    {
+        //TODO
+    }
+
+    void OnBuildingUnlockFinish(NetMsgDef msg)
+    {
+        TSCUnlock unlock = TSCUnlock.ParseFrom(msg.mBtsData);
+    }
+
+    /// <summary>
+    /// Building finish unlock or upgrade
+    /// </summary>
+    void OnBuildingFinish(NetMsgDef msg)
+    {
+    }
+
+    void OnSelectBuilding(NDictionary data = null)
+    {
+        Building building = data.Value<Building>("building");
+
+        //check if building is unlock
+        if (building.BuildingID == 0)
+        {
+            // send unlock msg
+            int newConfigID = GlobalFunction.GetConfigIDByBuildingType(building.buildingType);
+            print(string.Format("unlock building type={0}, config={1}", building.buildingType, newConfigID));
+            unlockBuilding = building;
+            NDictionary args = new NDictionary();
+            args.Add("configID", newConfigID);
+            FacadeSingleton.Instance.InvokeService("RPCUnlockBuilding", ConstVal.Service_Sanctuary, args);
+        }
+        else
+        {
+            FacadeSingleton.Instance.OverlayerPanel("UIBuildingInteractionPanel");
+        }
+
     }
 }

@@ -66,4 +66,21 @@ public class ColliderToFit : MonoBehaviour
         }
     }
 
+    [MenuItem("ProjectTools/Building/MergeAndAddLock")]
+    static void MergeAndAddLock()
+    {
+        foreach (GameObject go in Selection.gameObjects)
+        {
+            GameObject merge = new GameObject("building");
+            merge.transform.parent = go.transform;
+            for (int i = go.transform.childCount - 1; i >= 0; i--)
+            {
+                go.transform.GetChild(i).parent = merge.transform;
+            }
+            GameObject lockGo = Instantiate(Resources.Load("lock") as GameObject);
+            lockGo.name = "lock";
+            Instantiate(lockGo).transform.parent = go.transform;
+        }
+    }
+
 }

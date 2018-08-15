@@ -124,7 +124,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.game.framework.dbcache.model.Timer" >
+  <insert id="insert" parameterType="com.game.framework.dbcache.model.Timer" useGeneratedKeys="true" keyProperty="id" >
     insert into t_timer (id, uid, cmd, timer_key, 
       start_time, delay, timer_data
       )

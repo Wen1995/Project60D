@@ -10,31 +10,30 @@ import com.game.framework.utils.ExternalStorageUtil;
 import com.game.framework.utils.ReadOnlyMap;
 import com.game.framework.utils.StringUtil;
 import com.google.common.base.CaseFormat;
-import com.game.framework.resource.data.BuildingData.BUILDING;
-import com.game.framework.resource.data.CangkuData.CANGKU;
-import com.game.framework.resource.data.DamenData.DAMEN;
-import com.game.framework.resource.data.DamiData.DAMI;
-import com.game.framework.resource.data.DianchizuData.DIANCHIZU;
-import com.game.framework.resource.data.HuafeiData.HUAFEI;
-import com.game.framework.resource.data.HunningtuData.HUNNINGTU;
-import com.game.framework.resource.data.ItemResData.ITEM_RES;
-import com.game.framework.resource.data.JianshenfangData.JIANSHENFANG;
-import com.game.framework.resource.data.JingData.JING;
-import com.game.framework.resource.data.JsfadianzhanData.JSFADIANZHAN;
-import com.game.framework.resource.data.KuangquanshuiData.KUANGQUANSHUI;
-import com.game.framework.resource.data.LiangangData.LIANGANG;
-import com.game.framework.resource.data.LianyouData.LIANYOU;
-import com.game.framework.resource.data.LushuiData.LUSHUI;
-import com.game.framework.resource.data.MucaijiagongData.MUCAIJIAGONG;
-import com.game.framework.resource.data.QiangData.QIANG;
-import com.game.framework.resource.data.ShucaiData.SHUCAI;
-import com.game.framework.resource.data.ShuiguoData.SHUIGUO;
-import com.game.framework.resource.data.SiliaoData.SILIAO;
-import com.game.framework.resource.data.SongshuData.SONGSHU;
-import com.game.framework.resource.data.TaiyangnengData.TAIYANGNENG;
-import com.game.framework.resource.data.TiehuaData.TIEHUA;
-import com.game.framework.resource.data.WuxiandianData.WUXIANDIAN;
-import com.game.framework.resource.data.ZhujuanData.ZHUJUAN;
+import com.game.framework.resource.data.BuildingBytes.BUILDING;
+import com.game.framework.resource.data.CangkuBytes.CANGKU;
+import com.game.framework.resource.data.DamenBytes.DAMEN;
+import com.game.framework.resource.data.DamiBytes.DAMI;
+import com.game.framework.resource.data.DianchizuBytes.DIANCHIZU;
+import com.game.framework.resource.data.HuafeiBytes.HUAFEI;
+import com.game.framework.resource.data.HunningtuBytes.HUNNINGTU;
+import com.game.framework.resource.data.ItemResBytes.ITEM_RES;
+import com.game.framework.resource.data.JianshenfangBytes.JIANSHENFANG;
+import com.game.framework.resource.data.JingBytes.JING;
+import com.game.framework.resource.data.JsfadianzhanBytes.JSFADIANZHAN;
+import com.game.framework.resource.data.KuangquanshuiBytes.KUANGQUANSHUI;
+import com.game.framework.resource.data.LiangangBytes.LIANGANG;
+import com.game.framework.resource.data.LianyouBytes.LIANYOU;
+import com.game.framework.resource.data.LushuiBytes.LUSHUI;
+import com.game.framework.resource.data.MucaijiagongBytes.MUCAIJIAGONG;
+import com.game.framework.resource.data.QiangBytes.QIANG;
+import com.game.framework.resource.data.ShucaiBytes.SHUCAI;
+import com.game.framework.resource.data.ShuiguoBytes.SHUIGUO;
+import com.game.framework.resource.data.SiliaoBytes.SILIAO;
+import com.game.framework.resource.data.SongshuBytes.SONGSHU;
+import com.game.framework.resource.data.TaiyangnengBytes.TAIYANGNENG;
+import com.game.framework.resource.data.WuxiandianBytes.WUXIANDIAN;
+import com.game.framework.resource.data.ZhujuanBytes.ZHUJUAN;
 
 public class StaticDataManager {
 	private static Logger logger = LoggerFactory.getLogger(StaticDataManager.class);
@@ -75,70 +74,9 @@ public class StaticDataManager {
 	public ReadOnlyMap<Integer, SILIAO> siliaoMap;
 	public ReadOnlyMap<Integer, SONGSHU> songshuMap;
 	public ReadOnlyMap<Integer, TAIYANGNENG> taiyangnengMap;
-	public ReadOnlyMap<Integer, TIEHUA> tiehuaMap;
 	public ReadOnlyMap<Integer, WUXIANDIAN> wuxiandianMap;
 	public ReadOnlyMap<Integer, ZHUJUAN> zhujuanMap;
-	
-    @SuppressWarnings({"unchecked", "rawtypes"})
-    public Integer getSpeed(String tableName, Integer tableId) {
-	    String lowerCamelName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
-	    String name = StringUtil.FirstLetterToUpper(lowerCamelName);
-	    String classPath = "com.game.framework.resource.data." + name + "Data$" + StringUtil.AllLetterToUpper(lowerCamelName);
-	    Integer speed = null;
-	    try {
-	        Field f = StaticDataManager.class.getDeclaredField(lowerCamelName + "Map");
-            ReadOnlyMap map = (ReadOnlyMap) f.get(StaticDataManager.GetInstance());
-            Class clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
-            Method method = clazz.getDeclaredMethod("get" + name + "Spd");
-            speed = (Integer) method.invoke(map.get(tableId));
-        } catch (ClassNotFoundException e) {
-            logger.error("", e);
-        } catch (NoSuchFieldException e) {
-            logger.error("", e);
-        } catch (SecurityException e) {
-            logger.error("", e);
-        } catch (IllegalArgumentException e) {
-            logger.error("", e);
-        } catch (IllegalAccessException e) {
-            logger.error("", e);
-        } catch (NoSuchMethodException e) {
-            logger.error("", e);
-        } catch (InvocationTargetException e) {
-            logger.error("", e);
-        }
-	    return speed;
-	}
-    
-    @SuppressWarnings({"unchecked", "rawtypes"})
-    public Integer getCapacity(String tableName, Integer tableId) {
-        String lowerCamelName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
-        String name = StringUtil.FirstLetterToUpper(lowerCamelName);
-        String classPath = "com.game.framework.resource.data." + name + "Data$" + StringUtil.AllLetterToUpper(lowerCamelName);
-        Integer speed = null;
-        try {
-            Field f = StaticDataManager.class.getDeclaredField(lowerCamelName + "Map");
-            ReadOnlyMap map = (ReadOnlyMap) f.get(StaticDataManager.GetInstance());
-            Class clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
-            Method method = clazz.getDeclaredMethod("get" + name + "Cap");
-            speed = (Integer) method.invoke(map.get(tableId));
-        } catch (ClassNotFoundException e) {
-            logger.error("", e);
-        } catch (NoSuchFieldException e) {
-            logger.error("", e);
-        } catch (SecurityException e) {
-            logger.error("", e);
-        } catch (IllegalArgumentException e) {
-            logger.error("", e);
-        } catch (IllegalAccessException e) {
-            logger.error("", e);
-        } catch (NoSuchMethodException e) {
-            logger.error("", e);
-        } catch (InvocationTargetException e) {
-            logger.error("", e);
-        }
-        return speed;
-    }
-	
+
 	public void init() {
 	    buildingMap = load(BUILDING.class);
         cangkuMap = load(CANGKU.class);
@@ -162,11 +100,10 @@ public class StaticDataManager {
         siliaoMap = load(SILIAO.class);
         songshuMap = load(SONGSHU.class);
         taiyangnengMap = load(TAIYANGNENG.class);
-        tiehuaMap = load(TIEHUA.class);
         wuxiandianMap = load(WUXIANDIAN.class);
         zhujuanMap = load(ZHUJUAN.class);
     }
-	
+
     @SuppressWarnings("unchecked")
     public <T> ReadOnlyMap<Integer, T> load(Class<T> _class) {
         HashMap<Integer, T> hash = new HashMap<Integer, T>();
@@ -178,7 +115,7 @@ public class StaticDataManager {
             Class<?> arr_class = Class.forName(sub_str + className + "_ARRAY");
             Method parseFromMethod = arr_class.getMethod("parseFrom", byte[].class);
 
-            Object arr = parseFromMethod.invoke(arr_class, ExternalStorageUtil.loadData(DIR + lowClassName + ".data"));
+            Object arr = parseFromMethod.invoke(arr_class, ExternalStorageUtil.loadData(DIR + lowClassName + ".bytes"));
             Method arr_getItemsCountMethod = arr_class.getMethod("getItemsCount");
             Method arr_getItemsMethod = arr_class.getMethod("getItems", int.class);
 
@@ -204,5 +141,65 @@ public class StaticDataManager {
             logger.error("DataManager", e);
         }
         return new ReadOnlyMap<>(hash);
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public Integer getSpeed(String tableName, Integer tableId) {
+        String lowerCamelName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
+        String name = StringUtil.FirstLetterToUpper(lowerCamelName);
+        String classPath = "com.game.framework.resource.data." + name + "Bytes$" + StringUtil.AllLetterToUpper(lowerCamelName);
+        Integer speed = null;
+        try {
+            Field f = StaticDataManager.class.getDeclaredField(lowerCamelName + "Map");
+            ReadOnlyMap map = (ReadOnlyMap) f.get(StaticDataManager.GetInstance());
+            Class clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
+            Method method = clazz.getDeclaredMethod("get" + name + "Spd");
+            speed = (Integer) method.invoke(map.get(tableId));
+        } catch (ClassNotFoundException e) {
+            logger.error("", e);
+        } catch (NoSuchFieldException e) {
+            logger.error("", e);
+        } catch (SecurityException e) {
+            logger.error("", e);
+        } catch (IllegalArgumentException e) {
+            logger.error("", e);
+        } catch (IllegalAccessException e) {
+            logger.error("", e);
+        } catch (NoSuchMethodException e) {
+            logger.error("", e);
+        } catch (InvocationTargetException e) {
+            logger.error("", e);
+        }
+        return speed;
+    }
+    
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public Integer getCapacity(String tableName, Integer tableId) {
+        String lowerCamelName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
+        String name = StringUtil.FirstLetterToUpper(lowerCamelName);
+        String classPath = "com.game.framework.resource.data." + name + "Bytes$" + StringUtil.AllLetterToUpper(lowerCamelName);
+        Integer speed = null;
+        try {
+            Field f = StaticDataManager.class.getDeclaredField(lowerCamelName + "Map");
+            ReadOnlyMap map = (ReadOnlyMap) f.get(StaticDataManager.GetInstance());
+            Class clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
+            Method method = clazz.getDeclaredMethod("get" + name + "Cap");
+            speed = (Integer) method.invoke(map.get(tableId));
+        } catch (ClassNotFoundException e) {
+            logger.error("", e);
+        } catch (NoSuchFieldException e) {
+            logger.error("", e);
+        } catch (SecurityException e) {
+            logger.error("", e);
+        } catch (IllegalArgumentException e) {
+            logger.error("", e);
+        } catch (IllegalAccessException e) {
+            logger.error("", e);
+        } catch (NoSuchMethodException e) {
+            logger.error("", e);
+        } catch (InvocationTargetException e) {
+            logger.error("", e);
+        }
+        return speed;
     }
 }

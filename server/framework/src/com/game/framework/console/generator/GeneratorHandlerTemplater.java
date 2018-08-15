@@ -55,7 +55,7 @@ public class GeneratorHandlerTemplater {
         
         List<Object[]> classes = new ArrayList<>();
         for (String fileName : fileNames) {
-            String minFileName = fileName.substring(0, fileName.indexOf("Data"));
+            String minFileName = fileName.substring(0, fileName.indexOf("Bytes"));
             String upperUnderscoreName = CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE, minFileName);
             String[] s = {fileName, upperUnderscoreName, StringUtil.FirstLetterToLower(minFileName) + "Map"};
             classes.add(s);

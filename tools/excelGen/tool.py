@@ -183,7 +183,7 @@ class SheetInterpreter:
         # 保存所有结构的名字
         self._struct_name_list = []
 
-        self._pb_file_name = "proto/" + sheet_name.lower() + "_data.proto"
+        self._pb_file_name = "proto/" + sheet_name.lower() + "_bytes.proto"
 
 
     def Interpreter(self) :
@@ -443,7 +443,7 @@ class DataParser:
         self._col = 0
 
         try:
-            self._module_name = self._sheet_name.lower() + "_data_pb2"
+            self._module_name = self._sheet_name.lower() + "_bytes_pb2"
             sys.path.append(os.getcwd()+"/py/proto")
             exec('from '+self._module_name + ' import *');
             self._module = sys.modules[self._module_name]
@@ -665,7 +665,7 @@ class DataParser:
             raise
 
     def _WriteData2File(self, data) :
-        file_name = "data/" + self._sheet_name.lower() + ".data"
+        file_name = "data/" + self._sheet_name.lower() + ".bytes"
         file = open(file_name, 'wb+')
         file.write(data)
         file.close()

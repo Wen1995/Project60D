@@ -1,0 +1,18 @@
+/**
+* @file:   proto/wuxiandian_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message WUXIANDIAN{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 接收距离 */
+    optional int32 wuxiandian_dis = 2 [default = 0];
+}
+
+message WUXIANDIAN_ARRAY {
+    repeated WUXIANDIAN items = 1;
+}

@@ -33,8 +33,8 @@ import com.game.framework.protocol.Scene.TSCReceive;
 import com.game.framework.protocol.Scene.TSCUnlock;
 import com.game.framework.protocol.Scene.TSCUpgrade;
 import com.game.framework.resource.StaticDataManager;
-import com.game.framework.resource.data.BuildingData.BUILDING;
-import com.game.framework.resource.data.BuildingData.BUILDING.CostStruct;
+import com.game.framework.resource.data.BuildingBytes.BUILDING;
+import com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct;
 import com.game.framework.task.TimerManager;
 import com.game.framework.utils.BuildingUtil;
 import com.game.framework.utils.ReadOnlyMap;
@@ -110,15 +110,14 @@ public class SceneServiceImpl implements SceneService {
             isState = false;
             // 公司实力是否满足
             List<Building> buildings = buildingDao.getAllByGroupId(groupId);
-            int appraisement = 0;
-            for (Building b : buildings) {
-                appraisement += StaticDataManager.GetInstance().buildingMap.get(b.getConfigId()).getBldgStrengthAdd();
-            }
-            if (appraisement >= StaticDataManager.GetInstance().buildingMap.get(configId).getBldgStrengthLim()) {
+            Group group = groupDao.get(groupId);
+            ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+            Integer totalContribution = group.getTotalContribution();
+            if (totalContribution >= buildingMap.get(configId).getBldgStrengthLim()) {
                 isGroup = true;
                 // 资源是否满足 
                 boolean isExist = true;
-                List<CostStruct> costStructs = StaticDataManager.GetInstance().buildingMap.get(configId).getCostTableList();
+                List<CostStruct> costStructs = buildingMap.get(configId).getCostTableList();
                 UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
                 List<ResourceInfo> resourceInfos = userResourceBuilder.build().getResourceInfosList();
                 for (CostStruct c : costStructs) {
@@ -141,8 +140,11 @@ public class SceneServiceImpl implements SceneService {
                     int production = user.getProduction();
                     if (production > 0) {
                         isProduction = true;
-                        // 更新
+                        // 更新玩家状态
                         user.setProduction(--production);
+                        Integer addContribution = buildingMap.get(configId).getBldgStrengthAdd();
+                        Integer contribution = user.getContribution() + addContribution;
+                        user.setContribution(contribution);
                         for (CostStruct c : costStructs) {
                             for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
                                 ResourceInfo r = userResourceBuilder.getResourceInfos(i);
@@ -161,8 +163,13 @@ public class SceneServiceImpl implements SceneService {
                         user.setResource(userResourceBuilder.build().toByteArray());
                         userDao.update(user);
                         
+                        // 增加公司的总贡献
+                        group.setTotalContribution(totalContribution + addContribution);
+                        groupDao.update(group);
+                        
+                        // 更新建筑升级状态
                         String timerKey = TimerConstant.UPGRADE + buildingId;
-                        int sec = StaticDataManager.GetInstance().buildingMap.get(configId).getTimeCost();
+                        int sec = buildingMap.get(configId).getTimeCost();
                         finishTime = System.currentTimeMillis() + sec * 1000;
                         
                         UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
@@ -201,11 +208,12 @@ public class SceneServiceImpl implements SceneService {
     public TPacket finishUpgrade(Long uid, Long buildingId) throws Exception {
         User user = userDao.get(uid);
         Building building = buildingDao.get(buildingId);
-        
-        int production = user.getProduction() + 1;
+        Group group = groupDao.get(user.getGroupId());
+        // 返回建筑队列
+        Integer production = user.getProduction() + 1;
         user.setProduction(production);
         userDao.update(user);
-        
+        // 更新建筑升级状态
         int configId = building.getConfigId() + 1;
         building.setConfigId(configId);
         UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
@@ -236,16 +244,15 @@ public class SceneServiceImpl implements SceneService {
         Long buildingId = 0L;
         
         User user = userDao.get(uid);
+        Group group = groupDao.get(user.getGroupId());
         // 公司实力是否满足
         List<Building> buildings = buildingDao.getAllByGroupId(user.getGroupId());
-        int appraisement = 0;
-        for (Building b : buildings) {
-            appraisement += StaticDataManager.GetInstance().buildingMap.get(b.getConfigId()).getBldgStrengthAdd();
-        }
-        if (appraisement >= StaticDataManager.GetInstance().buildingMap.get(configId).getBldgStrengthLim()) {
+        ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+        Integer totalContribution = group.getTotalContribution();
+        if (totalContribution >= buildingMap.get(configId).getBldgStrengthLim()) {
             isGroup = true;
             // 资源是否满足 
-            List<CostStruct> costStructs = StaticDataManager.GetInstance().buildingMap.get(configId).getCostTableList();
+            List<CostStruct> costStructs = buildingMap.get(configId).getCostTableList();
             UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
             List<ResourceInfo> resourceInfos = userResourceBuilder.build().getResourceInfosList();
             
@@ -270,8 +277,11 @@ public class SceneServiceImpl implements SceneService {
                 int production = user.getProduction();
                 if (production > 0) {
                     isProduction = true;
-                    // 更新
+                    // 更新玩家状态
                     user.setProduction(--production);
+                    Integer addContribution = buildingMap.get(configId).getBldgStrengthAdd();
+                    Integer contribution = user.getContribution() + addContribution;
+                    user.setContribution(contribution);
                     for (CostStruct c : costStructs) {
                         for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
                             ResourceInfo r = userResourceBuilder.getResourceInfos(i);
@@ -291,8 +301,13 @@ public class SceneServiceImpl implements SceneService {
                     user.setResource(userResourceBuilder.build().toByteArray());
                     userDao.update(user);
                     
+                    // 增加公司的总贡献
+                    group.setTotalContribution(totalContribution + addContribution);
+                    groupDao.update(group);
+                    
+                    // 更新建筑升级状态
                     String timerKey = TimerConstant.UNLOCK + buildingId;
-                    int sec = StaticDataManager.GetInstance().buildingMap.get(configId).getTimeCost();
+                    int sec = buildingMap.get(configId).getTimeCost();
                     finishTime = System.currentTimeMillis() + sec * 1000;
                     
                     buildingId = IdManager.GetInstance().genId(IdType.BUILDING);
@@ -333,21 +348,25 @@ public class SceneServiceImpl implements SceneService {
 
     @Override
     public TPacket finishUnlock(Long uid, Long buildingId) throws Exception {
+        User user = userDao.get(uid);
         Building building = buildingDao.get(buildingId);
-        List<User> users = userDao.getAllByGroupId(building.getGroupId());
-        List<ReceiveInfo> receiveInfos = new ArrayList<>();
-        
+        // 返回建筑队列
+        Integer production = user.getProduction() + 1;
+        user.setProduction(production);
+        userDao.update(user);
+        // 更新建筑升级状态
         UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
                 .setUid(uid)
                 .setFinishTime(0)
                 .build();
-        
+        // 领取类建筑领取状态初始化
+        List<User> users = userDao.getAllByGroupId(building.getGroupId());
+        List<ReceiveInfo> receiveInfos = new ArrayList<>();
         long lastReceiveTime = System.currentTimeMillis();
         ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder();
-        // 领取类建筑领取状态初始化
         if (BuildingUtil.isReceiveBuilding(building)) {
-            for (User user : users) {
-                receiveInfoBuilder.setUid(user.getId())
+            for (User u : users) {
+                receiveInfoBuilder.setUid(u.getId())
                 .setLastReceiveTime(lastReceiveTime)
                 .setNumber(0);
                 receiveInfos.add(receiveInfoBuilder.build());
@@ -359,6 +378,7 @@ public class SceneServiceImpl implements SceneService {
                 .addAllReceiveInfos(receiveInfos)
                 .build();
         building.setState(buildingState.toByteArray());
+        buildingDao.update(building);
         
         TSCFinishUnlock p = TSCFinishUnlock.newBuilder()
                 .setBuildingId(buildingId)
@@ -388,6 +408,7 @@ public class SceneServiceImpl implements SceneService {
         Integer storehouseTableId = buildingMap.get(storehouse.getConfigId()).getBldgFuncTableId();
         Integer storehouseCapacity = StaticDataManager.GetInstance().cangkuMap.get(storehouseTableId).getCangkuCap();
         Integer number = 0;
+        Integer leftNumber = 0;
         int resourceIndex = -1;
         UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
         for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
@@ -401,7 +422,6 @@ public class SceneServiceImpl implements SceneService {
         // 还有仓库容量
         if (storehouseCapacity > 0) {
             // 计算原有资源数量和时间差
-            number = 0;
             Long lastReceiveTime = 0L;
             Long thisReceiveTime = System.currentTimeMillis();
             int stateIndex = -1;
@@ -411,7 +431,7 @@ public class SceneServiceImpl implements SceneService {
                 if (uid.equals(r.getUid())) {
                     stateIndex = i;
                     lastReceiveTime = r.getLastReceiveTime();
-                    number = r.getNumber();
+                    leftNumber = r.getNumber();
                     break;
                 }
             }
@@ -424,12 +444,15 @@ public class SceneServiceImpl implements SceneService {
             Integer tableId = buildingMap.get(building.getConfigId()).getBldgFuncTableId();
             Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
             Integer capacity = StaticDataManager.GetInstance().getCapacity(tableName, tableId);
-            number += time/1000/3600*speed;
+            double peopleNumber = group.getPeopleNumber();
+            double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
+            number = (int) (time/1000/3600*speed*stake) + leftNumber;
+            capacity = (int) (capacity*stake);
             if (number > capacity) {
                 number = capacity;
             }
             // 计算多余的资源数量和仓库能装的资源
-            Integer leftNumber = 0;
+            leftNumber = 0;
             if (number > storehouseCapacity) {
                 leftNumber = number - storehouseCapacity;
                 number = storehouseCapacity;

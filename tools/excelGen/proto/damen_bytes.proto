@@ -1,0 +1,18 @@
+/**
+* @file:   proto/damen_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message DAMEN{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 耐久度 */
+    optional int32 damen_dura = 2 [default = 0];
+}
+
+message DAMEN_ARRAY {
+    repeated DAMEN items = 1;
+}

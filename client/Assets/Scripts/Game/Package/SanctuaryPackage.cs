@@ -11,31 +11,28 @@ public enum BuildingType {
     Fertilizer,
     Well,
     WaterCollector,
-
-    ZombiePlant = 201,
+    ZombiePlant,
     PowerPlant,
-    Forest0,
-    Forest1,
+    PineWood,
+    IronWood,
 
-    StockHouse = 301,
+    StockHouse = 201,
     FeedFactory,
     WaterFactory,
-
-    OilFactory = 401,
+    OilFactory,
     SteelFactory,
     ConcreteFactory,
     WoodFactory,
 
-
-    RadioStation = 501,
+    RadioStation = 301,
     StoreHouse,
     Battery,
     PowerGym,
     
-    Wall = 601,
+    Wall = 401,
     Gate,
 
-    Turret0 = 701,
+    Turret0 = 501,
 }
 
 public class NBuildingData
@@ -56,11 +53,16 @@ public class SanctuaryPackage : ModelBase {
     IList<BuildingInfo> mBuildingInfoList = null;
     Dictionary<BuildingType, NBuildingData> mBuildingDataMap = new Dictionary<BuildingType, NBuildingData>();
     Dictionary<long, Building> mBuildingMap = new Dictionary<long, Building>();
-    private NBuildingData selectionBuilding = null;
+    private Building selectionBuilding = null;
 
-    public override void Release()
+    public BuildingType GetBuildingTypeByConfigID(int configID)
     {
-        throw new System.NotImplementedException();
+        return (BuildingType)(configID / 10000 % 1000);
+    }
+
+    public int GetConfigIDByBuildingType(BuildingType type)
+    {
+        return 110000001 + (int)type * 10000;
     }
 
     #region Acess Data
@@ -70,7 +72,7 @@ public class SanctuaryPackage : ModelBase {
         return mBuildingInfoList;
     }
 
-    public NBuildingData GetSelectionBuildingData()
+    public Building GetSelectionBuilding()
     {
         return selectionBuilding;
     }
@@ -98,32 +100,9 @@ public class SanctuaryPackage : ModelBase {
 
     #region Set Data
 
-    public void SetBuildingInfoList(TSCGetSceneInfo sceneInfo)
+    public void SetSelectionBuilding(Building building)
     {
-        mBuildingInfoList = sceneInfo.BuildingInfosList;
-    }
-
-    public void SetSelectionBuildingData(Building building)
-    {
-        selectionBuilding = mBuildingDataMap[building.buildingType];
-    }
-
-    public void SetBuilding(TSCGetSceneInfo sceneInfo)
-    {
-        IList<BuildingInfo> buildingInfoList = sceneInfo.BuildingInfosList;
-        //TODO
-    }
-
-    public void SetBuilding(Building building, BuildingType type)
-    {
-        if (mBuildingDataMap.ContainsKey(type))
-        {
-            Debug.Log(string.Format("Building {0} has been created", type.ToString()));
-            return;
-        }
-        NBuildingData buildingData = new NBuildingData();
-        buildingData.building = building;
-        mBuildingDataMap[type] = buildingData;
+        selectionBuilding = building;
     }
 
     public void AddBuilding(BuildingType type)
@@ -139,17 +118,26 @@ public class SanctuaryPackage : ModelBase {
         mBuildingDataMap[type] = data;
     }
 
-    public void AddBuilgding(BuildingInfo buildingInfo)
+    /// <summary>
+    /// Add a building to map, which means building is unlocked
+    /// </summary>
+    public void AddBuilding(BuildingInfo buildingInfo)
     {
         long buildingID = buildingInfo.BuildingId;
-        if (!mBuildingMap.ContainsKey(buildingID))
+        if (mBuildingMap.ContainsKey(buildingID))
         {
-            Debug.Log(string.Format("buildingID:{0} duplicate", buildingID));
-            return;
+            Debug.Log(string.Format("building:{0}, type:{1} update", buildingID, GetBuildingTypeByConfigID(buildingInfo.ConfigId)));
+            Building building = mBuildingMap[buildingID];
+            building.SetBuilding(buildingInfo);
         }
-        Building building = GetTypeBuilding(GlobalFunction.GetBuildingTypeByConfigID(buildingInfo.ConfigId));
-        building.SetBuilding(buildingInfo);
-        mBuildingMap[buildingID] = building;
+        else
+        {
+            Debug.Log(string.Format("building:{0}, type:{1} added", buildingID, GetBuildingTypeByConfigID(buildingInfo.ConfigId)));
+            Building building = GetTypeBuilding(GetBuildingTypeByConfigID(buildingInfo.ConfigId));
+            if (building == null) return;
+            building.SetBuilding(buildingInfo);
+            mBuildingMap[buildingID] = building;
+        }
     }
 
     public void UnlockBuilding(long buildingID, Building building)
@@ -159,6 +147,10 @@ public class SanctuaryPackage : ModelBase {
     }
     #endregion
 
+    public override void Release()
+    {
+        throw new System.NotImplementedException();
+    }
 
     /// <summary>
     /// An uggly implement of gettting buliding's controller
@@ -186,9 +178,9 @@ public class SanctuaryPackage : ModelBase {
                 return null;
             case (BuildingType.PowerPlant):
                 return null;
-            case (BuildingType.Forest0):
+            case (BuildingType.PineWood):
                 return parent.Find("forest0").GetComponent<Building>();
-            case (BuildingType.Forest1):
+            case (BuildingType.IronWood):
                 return parent.Find("forest1").GetComponent<Building>();
 
             case (BuildingType.StockHouse):

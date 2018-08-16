@@ -4,6 +4,9 @@ import com.game.framework.console.disruptor.TPacket;
 
 public interface SceneService {
 
+	/** 建筑信息 */
+	TPacket getBuildingInfo(Long uid, Long buildingId) throws Exception;
+
 	/** 建筑升级 */
 	TPacket upgrade(Long uid, Long buildingId) throws Exception;
 

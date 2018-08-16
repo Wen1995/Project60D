@@ -639,11 +639,668 @@ namespace com.game.framework.protocol {
     }
   }
   
+  public sealed partial class TCSGetBuildingInfo : pb::GeneratedMessageLite<TCSGetBuildingInfo, TCSGetBuildingInfo.Builder> {
+    private TCSGetBuildingInfo() { }
+    private static readonly TCSGetBuildingInfo defaultInstance = new TCSGetBuildingInfo().MakeReadOnly();
+    private static readonly string[] _tCSGetBuildingInfoFieldNames = new string[] { "buildingId" };
+    private static readonly uint[] _tCSGetBuildingInfoFieldTags = new uint[] { 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TCSGetBuildingInfo DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TCSGetBuildingInfo ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BuildingIdFieldNumber = 1;
+    private bool hasBuildingId;
+    private long buildingId_;
+    public bool HasBuildingId {
+      get { return hasBuildingId; }
+    }
+    public long BuildingId {
+      get { return buildingId_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tCSGetBuildingInfoFieldNames;
+      if (hasBuildingId) {
+        output.WriteInt64(1, field_names[0], BuildingId);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasBuildingId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, BuildingId);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasBuildingId) hash ^= buildingId_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TCSGetBuildingInfo other = obj as TCSGetBuildingInfo;
+      if (other == null) return false;
+      if (hasBuildingId != other.hasBuildingId || (hasBuildingId && !buildingId_.Equals(other.buildingId_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetBuildingInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TCSGetBuildingInfo MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TCSGetBuildingInfo prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSGetBuildingInfo, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TCSGetBuildingInfo cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TCSGetBuildingInfo result;
+      
+      private TCSGetBuildingInfo PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TCSGetBuildingInfo original = result;
+          result = new TCSGetBuildingInfo();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TCSGetBuildingInfo MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TCSGetBuildingInfo DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TCSGetBuildingInfo.DefaultInstance; }
+      }
+      
+      public override TCSGetBuildingInfo BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TCSGetBuildingInfo) {
+          return MergeFrom((TCSGetBuildingInfo) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TCSGetBuildingInfo other) {
+        if (other == global::com.game.framework.protocol.TCSGetBuildingInfo.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasBuildingId) {
+          BuildingId = other.BuildingId;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tCSGetBuildingInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tCSGetBuildingInfoFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasBuildingId = input.ReadInt64(ref result.buildingId_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasBuildingId {
+        get { return result.hasBuildingId; }
+      }
+      public long BuildingId {
+        get { return result.BuildingId; }
+        set { SetBuildingId(value); }
+      }
+      public Builder SetBuildingId(long value) {
+        PrepareBuilder();
+        result.hasBuildingId = true;
+        result.buildingId_ = value;
+        return this;
+      }
+      public Builder ClearBuildingId() {
+        PrepareBuilder();
+        result.hasBuildingId = false;
+        result.buildingId_ = 0L;
+        return this;
+      }
+    }
+    static TCSGetBuildingInfo() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TSCGetBuildingInfo : pb::GeneratedMessageLite<TSCGetBuildingInfo, TSCGetBuildingInfo.Builder> {
+    private TSCGetBuildingInfo() { }
+    private static readonly TSCGetBuildingInfo defaultInstance = new TSCGetBuildingInfo().MakeReadOnly();
+    private static readonly string[] _tSCGetBuildingInfoFieldNames = new string[] { "buildingInfo" };
+    private static readonly uint[] _tSCGetBuildingInfoFieldTags = new uint[] { 10 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TSCGetBuildingInfo DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TSCGetBuildingInfo ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BuildingInfoFieldNumber = 1;
+    private bool hasBuildingInfo;
+    private global::com.game.framework.protocol.BuildingInfo buildingInfo_;
+    public bool HasBuildingInfo {
+      get { return hasBuildingInfo; }
+    }
+    public global::com.game.framework.protocol.BuildingInfo BuildingInfo {
+      get { return buildingInfo_ ?? global::com.game.framework.protocol.BuildingInfo.DefaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tSCGetBuildingInfoFieldNames;
+      if (hasBuildingInfo) {
+        output.WriteMessage(1, field_names[0], BuildingInfo);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasBuildingInfo) {
+          size += pb::CodedOutputStream.ComputeMessageSize(1, BuildingInfo);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasBuildingInfo) hash ^= buildingInfo_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TSCGetBuildingInfo other = obj as TSCGetBuildingInfo;
+      if (other == null) return false;
+      if (hasBuildingInfo != other.hasBuildingInfo || (hasBuildingInfo && !buildingInfo_.Equals(other.buildingInfo_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetBuildingInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TSCGetBuildingInfo MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TSCGetBuildingInfo prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCGetBuildingInfo, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TSCGetBuildingInfo cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TSCGetBuildingInfo result;
+      
+      private TSCGetBuildingInfo PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TSCGetBuildingInfo original = result;
+          result = new TSCGetBuildingInfo();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TSCGetBuildingInfo MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TSCGetBuildingInfo DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TSCGetBuildingInfo.DefaultInstance; }
+      }
+      
+      public override TSCGetBuildingInfo BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TSCGetBuildingInfo) {
+          return MergeFrom((TSCGetBuildingInfo) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TSCGetBuildingInfo other) {
+        if (other == global::com.game.framework.protocol.TSCGetBuildingInfo.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasBuildingInfo) {
+          MergeBuildingInfo(other.BuildingInfo);
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tSCGetBuildingInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tSCGetBuildingInfoFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 10: {
+              global::com.game.framework.protocol.BuildingInfo.Builder subBuilder = global::com.game.framework.protocol.BuildingInfo.CreateBuilder();
+              if (result.hasBuildingInfo) {
+                subBuilder.MergeFrom(BuildingInfo);
+              }
+              input.ReadMessage(subBuilder, extensionRegistry);
+              BuildingInfo = subBuilder.BuildPartial();
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasBuildingInfo {
+       get { return result.hasBuildingInfo; }
+      }
+      public global::com.game.framework.protocol.BuildingInfo BuildingInfo {
+        get { return result.BuildingInfo; }
+        set { SetBuildingInfo(value); }
+      }
+      public Builder SetBuildingInfo(global::com.game.framework.protocol.BuildingInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasBuildingInfo = true;
+        result.buildingInfo_ = value;
+        return this;
+      }
+      public Builder SetBuildingInfo(global::com.game.framework.protocol.BuildingInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.hasBuildingInfo = true;
+        result.buildingInfo_ = builderForValue.Build();
+        return this;
+      }
+      public Builder MergeBuildingInfo(global::com.game.framework.protocol.BuildingInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        if (result.hasBuildingInfo &&
+            result.buildingInfo_ != global::com.game.framework.protocol.BuildingInfo.DefaultInstance) {
+            result.buildingInfo_ = global::com.game.framework.protocol.BuildingInfo.CreateBuilder(result.buildingInfo_).MergeFrom(value).BuildPartial();
+        } else {
+          result.buildingInfo_ = value;
+        }
+        result.hasBuildingInfo = true;
+        return this;
+      }
+      public Builder ClearBuildingInfo() {
+        PrepareBuilder();
+        result.hasBuildingInfo = false;
+        result.buildingInfo_ = null;
+        return this;
+      }
+    }
+    static TSCGetBuildingInfo() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+    }
+  }
+  
   public sealed partial class BuildingInfo : pb::GeneratedMessageLite<BuildingInfo, BuildingInfo.Builder> {
     private BuildingInfo() { }
     private static readonly BuildingInfo defaultInstance = new BuildingInfo().MakeReadOnly();
-    private static readonly string[] _buildingInfoFieldNames = new string[] { "buildingId", "configId", "finishTime", "number" };
-    private static readonly uint[] _buildingInfoFieldTags = new uint[] { 8, 16, 24, 32 };
+    private static readonly string[] _buildingInfoFieldNames = new string[] { "buildingId", "configId", "finishTime", "number", "uid" };
+    private static readonly uint[] _buildingInfoFieldTags = new uint[] { 8, 16, 24, 40, 32 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -704,7 +1361,20 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int NumberFieldNumber = 4;
+    public const int UidFieldNumber = 4;
+    private bool hasUid;
+    private long uid_;
+    public bool HasUid {
+      get { return hasUid; }
+    }
+    public long Uid {
+      get { return uid_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int NumberFieldNumber = 5;
     private bool hasNumber;
     private int number_;
     public bool HasNumber {
@@ -738,8 +1408,11 @@ namespace com.game.framework.protocol {
       if (hasFinishTime) {
         output.WriteInt64(3, field_names[2], FinishTime);
       }
+      if (hasUid) {
+        output.WriteInt64(4, field_names[4], Uid);
+      }
       if (hasNumber) {
-        output.WriteInt32(4, field_names[3], Number);
+        output.WriteInt32(5, field_names[3], Number);
       }
     }
     
@@ -762,8 +1435,11 @@ namespace com.game.framework.protocol {
         if (hasFinishTime) {
           size += pb::CodedOutputStream.ComputeInt64Size(3, FinishTime);
         }
+        if (hasUid) {
+          size += pb::CodedOutputStream.ComputeInt64Size(4, Uid);
+        }
         if (hasNumber) {
-          size += pb::CodedOutputStream.ComputeInt32Size(4, Number);
+          size += pb::CodedOutputStream.ComputeInt32Size(5, Number);
         }
         memoizedSerializedSize = size;
         return size;
@@ -776,6 +1452,7 @@ namespace com.game.framework.protocol {
       if (hasBuildingId) hash ^= buildingId_.GetHashCode();
       if (hasConfigId) hash ^= configId_.GetHashCode();
       if (hasFinishTime) hash ^= finishTime_.GetHashCode();
+      if (hasUid) hash ^= uid_.GetHashCode();
       if (hasNumber) hash ^= number_.GetHashCode();
       return hash;
     }
@@ -786,6 +1463,7 @@ namespace com.game.framework.protocol {
       if (hasBuildingId != other.hasBuildingId || (hasBuildingId && !buildingId_.Equals(other.buildingId_))) return false;
       if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
       if (hasFinishTime != other.hasFinishTime || (hasFinishTime && !finishTime_.Equals(other.finishTime_))) return false;
+      if (hasUid != other.hasUid || (hasUid && !uid_.Equals(other.uid_))) return false;
       if (hasNumber != other.hasNumber || (hasNumber && !number_.Equals(other.number_))) return false;
       return true;
     }
@@ -956,6 +1634,9 @@ namespace com.game.framework.protocol {
         if (other.HasFinishTime) {
           FinishTime = other.FinishTime;
         }
+        if (other.HasUid) {
+          Uid = other.Uid;
+        }
         if (other.HasNumber) {
           Number = other.Number;
         }
@@ -1004,6 +1685,10 @@ namespace com.game.framework.protocol {
               break;
             }
             case 32: {
+              result.hasUid = input.ReadInt64(ref result.uid_);
+              break;
+            }
+            case 40: {
               result.hasNumber = input.ReadInt32(ref result.number_);
               break;
             }
@@ -1071,6 +1756,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasFinishTime = false;
         result.finishTime_ = 0L;
+        return this;
+      }
+      
+      public bool HasUid {
+        get { return result.hasUid; }
+      }
+      public long Uid {
+        get { return result.Uid; }
+        set { SetUid(value); }
+      }
+      public Builder SetUid(long value) {
+        PrepareBuilder();
+        result.hasUid = true;
+        result.uid_ = value;
+        return this;
+      }
+      public Builder ClearUid() {
+        PrepareBuilder();
+        result.hasUid = false;
+        result.uid_ = 0L;
         return this;
       }
       
@@ -1418,8 +2123,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCUpgrade : pb::GeneratedMessageLite<TSCUpgrade, TSCUpgrade.Builder> {
     private TSCUpgrade() { }
     private static readonly TSCUpgrade defaultInstance = new TSCUpgrade().MakeReadOnly();
-    private static readonly string[] _tSCUpgradeFieldNames = new string[] { "finishTime", "isGroup", "isProduction", "isResource", "isState" };
-    private static readonly uint[] _tSCUpgradeFieldTags = new uint[] { 40, 16, 32, 24, 8 };
+    private static readonly string[] _tSCUpgradeFieldNames = new string[] { "buildingId", "finishTime", "isGroup", "isProduction", "isResource", "isState" };
+    private static readonly uint[] _tSCUpgradeFieldTags = new uint[] { 48, 40, 16, 32, 24, 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -1504,6 +2209,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BuildingIdFieldNumber = 6;
+    private bool hasBuildingId;
+    private long buildingId_;
+    public bool HasBuildingId {
+      get { return hasBuildingId; }
+    }
+    public long BuildingId {
+      get { return buildingId_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -1519,19 +2237,22 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _tSCUpgradeFieldNames;
       if (hasIsState) {
-        output.WriteBool(1, field_names[4], IsState);
+        output.WriteBool(1, field_names[5], IsState);
       }
       if (hasIsGroup) {
-        output.WriteBool(2, field_names[1], IsGroup);
+        output.WriteBool(2, field_names[2], IsGroup);
       }
       if (hasIsResource) {
-        output.WriteBool(3, field_names[3], IsResource);
+        output.WriteBool(3, field_names[4], IsResource);
       }
       if (hasIsProduction) {
-        output.WriteBool(4, field_names[2], IsProduction);
+        output.WriteBool(4, field_names[3], IsProduction);
       }
       if (hasFinishTime) {
-        output.WriteInt64(5, field_names[0], FinishTime);
+        output.WriteInt64(5, field_names[1], FinishTime);
+      }
+      if (hasBuildingId) {
+        output.WriteInt64(6, field_names[0], BuildingId);
       }
     }
     
@@ -1560,6 +2281,9 @@ namespace com.game.framework.protocol {
         if (hasFinishTime) {
           size += pb::CodedOutputStream.ComputeInt64Size(5, FinishTime);
         }
+        if (hasBuildingId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(6, BuildingId);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -1573,6 +2297,7 @@ namespace com.game.framework.protocol {
       if (hasIsResource) hash ^= isResource_.GetHashCode();
       if (hasIsProduction) hash ^= isProduction_.GetHashCode();
       if (hasFinishTime) hash ^= finishTime_.GetHashCode();
+      if (hasBuildingId) hash ^= buildingId_.GetHashCode();
       return hash;
     }
     
@@ -1584,6 +2309,7 @@ namespace com.game.framework.protocol {
       if (hasIsResource != other.hasIsResource || (hasIsResource && !isResource_.Equals(other.isResource_))) return false;
       if (hasIsProduction != other.hasIsProduction || (hasIsProduction && !isProduction_.Equals(other.isProduction_))) return false;
       if (hasFinishTime != other.hasFinishTime || (hasFinishTime && !finishTime_.Equals(other.finishTime_))) return false;
+      if (hasBuildingId != other.hasBuildingId || (hasBuildingId && !buildingId_.Equals(other.buildingId_))) return false;
       return true;
     }
     
@@ -1759,6 +2485,9 @@ namespace com.game.framework.protocol {
         if (other.HasFinishTime) {
           FinishTime = other.FinishTime;
         }
+        if (other.HasBuildingId) {
+          BuildingId = other.BuildingId;
+        }
         return this;
       }
       
@@ -1809,6 +2538,10 @@ namespace com.game.framework.protocol {
             }
             case 40: {
               result.hasFinishTime = input.ReadInt64(ref result.finishTime_);
+              break;
+            }
+            case 48: {
+              result.hasBuildingId = input.ReadInt64(ref result.buildingId_);
               break;
             }
           }
@@ -1915,6 +2648,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasFinishTime = false;
         result.finishTime_ = 0L;
+        return this;
+      }
+      
+      public bool HasBuildingId {
+        get { return result.hasBuildingId; }
+      }
+      public long BuildingId {
+        get { return result.BuildingId; }
+        set { SetBuildingId(value); }
+      }
+      public Builder SetBuildingId(long value) {
+        PrepareBuilder();
+        result.hasBuildingId = true;
+        result.buildingId_ = value;
+        return this;
+      }
+      public Builder ClearBuildingId() {
+        PrepareBuilder();
+        result.hasBuildingId = false;
+        result.buildingId_ = 0L;
         return this;
       }
     }

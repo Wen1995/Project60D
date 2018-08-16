@@ -23,16 +23,22 @@ public class Building : Controller {
     private NEventHandler clickEvent = null;
     private Transform floatingIconTrans = null;
 
-    private SanctuaryPackage sanctuaryPackage = null;
+    private SanctuaryPackage mSanctuaryPackage = null;
 
     public long BuildingID
     { get { return buildingID; } }
     public int ConfigID
     { get { return configID; } }
+    public SanctuaryPackage sanctuaryPackage
+    {
+        get {
+            if(mSanctuaryPackage == null)
+                mSanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
+            return mSanctuaryPackage;        }
+    }
 
     private void Awake()
     {
-        sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         floatingIconTrans = transform.Find("FloatingPos");
         RegisterEvent("RefreshBuildingView", InitView);
     }
@@ -44,9 +50,8 @@ public class Building : Controller {
             //handle click event first
             return;
         }
-        NDictionary data = new NDictionary();
-        data.Add("building", this);
-        SendEvent("SelectBuilding", data);
+        sanctuaryPackage.SetSelectionBuilding(this);
+        SendEvent("SelectBuilding");
     }
 
     public void InitView(NDictionary data = null)
@@ -73,10 +78,16 @@ public class Building : Controller {
         configID = buildingInfo.ConfigId;
     }
 
+    public void SetBuilding(long buildingID, int configID)
+    {
+        this.buildingID = buildingID;
+        this.configID = configID;
+    }
+
     public void UnlockBuilding(long budilingID)
     {
         this.buildingID = budilingID;
-        configID = GlobalFunction.GetConfigIDByBuildingType(buildingType);
+        configID = sanctuaryPackage.GetConfigIDByBuildingType(buildingType);
     }
 
     public virtual void AddClickEvent(NEventHandler callback)
@@ -91,16 +102,25 @@ public class Building : Controller {
     }
     #region State Changing
 
-    public void OnBuildingUnlock(long finishTime)
+    public void SetStateIdle()
     {
+        mState = BuildingState.Idle;
+    }
+
+    public void SetStateUnlock(long finishTime)
+    {
+        mState = BuildingState.Upgrade;
         AddCountdownTimer(finishTime);
     }
 
-    public void OnBuildingUpgrade()
-    { }
+    public void SetStateUpgrade(long finishTime)
+    {
+        mState = BuildingState.Upgrade;
+        AddCountdownTimer(finishTime);
+    }
 
     public void OnBuildingUpgradeFinish()
-    { }
+    {}
 
     public void OnBuildingUnlockFinish()
     {}

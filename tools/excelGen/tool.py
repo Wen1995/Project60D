@@ -480,7 +480,8 @@ class DataParser:
         #self._WriteReadableData2File(str(item_array))
 
         data = item_array.SerializeToString()
-        self._WriteData2File(data)
+        self._WriteData2File1(data)
+        self._WriteData2File2(data)
 
 
         #comment this line for test .by kevin at 2013年1月12日 17:23:35
@@ -664,8 +665,16 @@ class DataParser:
             print "parse cell(%u, %u) error, please check it, maybe type is wrong."%(row, col)
             raise
 
-    def _WriteData2File(self, data) :
+    def _WriteData2File1(self, data) :
         file_name = "data/" + self._sheet_name.lower() + ".bytes"
+        file = open(file_name, 'wb+')
+        file.write(data)
+        file.close()
+        # ZLIB 压缩
+        compress_file(file_name)
+
+    def _WriteData2File2(self, data) :
+        file_name = "../../client/Assets/Resources/ConfigData/" + self._sheet_name.lower() + ".bytes"
         file = open(file_name, 'wb+')
         file.write(data)
         file.close()

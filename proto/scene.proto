@@ -6,7 +6,17 @@ message TCSGetSceneInfo {
 
 }
 message TSCGetSceneInfo {
+	// 所有建筑信息
 	repeated BuildingInfo buildingInfos = 1;
+}
+
+message TCSGetBuildingInfo {
+	// 建筑ID
+	optional int64 buildingId = 1;
+}
+message TSCGetBuildingInfo {
+	// 当前建筑信息
+	optional BuildingInfo buildingInfo = 1;
 }
 
 message BuildingInfo {
@@ -14,10 +24,12 @@ message BuildingInfo {
 	optional int64 buildingId = 1;
 	// 建筑configId
 	optional int32 configId = 2;
-	// 升级完成时间，finishTime = 0 则没在升级中
+	// 升级完成时间，值为 0 则没在升级中
 	optional int64 finishTime = 3;
+	// 升级人
+	optional int64 uid = 4;
 	// 还未领取资源数量
-	optional int32 number = 4;
+	optional int32 number = 5;
 }
 
 message TCSUpgrade {
@@ -35,6 +47,8 @@ message TSCUpgrade {
 	optional bool isProduction = 4;
 	// 升级完成时间
 	optional int64 finishTime = 5;
+	// 建筑ID
+	optional int64 buildingId = 6;
 }
 
 message TCSFinishUpgrade {

@@ -69,45 +69,53 @@ public final class Common {
      */
     GETSCENEINFO(6, 31),
     /**
-     * <code>UPGRADE = 32;</code>
+     * <code>GETBUILDINGINFO = 32;</code>
+     *
+     * <pre>
+     * 建筑信息
+     * </pre>
+     */
+    GETBUILDINGINFO(7, 32),
+    /**
+     * <code>UPGRADE = 33;</code>
      *
      * <pre>
      * 建筑升级
      * </pre>
      */
-    UPGRADE(7, 32),
+    UPGRADE(8, 33),
     /**
-     * <code>FINISHUPGRADE = 33;</code>
+     * <code>FINISHUPGRADE = 34;</code>
      *
      * <pre>
      * 完成升级
      * </pre>
      */
-    FINISHUPGRADE(8, 33),
+    FINISHUPGRADE(9, 34),
     /**
-     * <code>UNLOCK = 34;</code>
+     * <code>UNLOCK = 35;</code>
      *
      * <pre>
      * 解锁建筑
      * </pre>
      */
-    UNLOCK(9, 34),
+    UNLOCK(10, 35),
     /**
-     * <code>FINISHUNLOCK = 35;</code>
+     * <code>FINISHUNLOCK = 36;</code>
      *
      * <pre>
      * 完成解锁
      * </pre>
      */
-    FINISHUNLOCK(10, 35),
+    FINISHUNLOCK(11, 36),
     /**
-     * <code>RECEIVE = 36;</code>
+     * <code>RECEIVE = 37;</code>
      *
      * <pre>
      * 领取物品
      * </pre>
      */
-    RECEIVE(11, 36),
+    RECEIVE(12, 37),
     ;
 
     /**
@@ -166,45 +174,53 @@ public final class Common {
      */
     public static final int GETSCENEINFO_VALUE = 31;
     /**
-     * <code>UPGRADE = 32;</code>
+     * <code>GETBUILDINGINFO = 32;</code>
+     *
+     * <pre>
+     * 建筑信息
+     * </pre>
+     */
+    public static final int GETBUILDINGINFO_VALUE = 32;
+    /**
+     * <code>UPGRADE = 33;</code>
      *
      * <pre>
      * 建筑升级
      * </pre>
      */
-    public static final int UPGRADE_VALUE = 32;
+    public static final int UPGRADE_VALUE = 33;
     /**
-     * <code>FINISHUPGRADE = 33;</code>
+     * <code>FINISHUPGRADE = 34;</code>
      *
      * <pre>
      * 完成升级
      * </pre>
      */
-    public static final int FINISHUPGRADE_VALUE = 33;
+    public static final int FINISHUPGRADE_VALUE = 34;
     /**
-     * <code>UNLOCK = 34;</code>
+     * <code>UNLOCK = 35;</code>
      *
      * <pre>
      * 解锁建筑
      * </pre>
      */
-    public static final int UNLOCK_VALUE = 34;
+    public static final int UNLOCK_VALUE = 35;
     /**
-     * <code>FINISHUNLOCK = 35;</code>
+     * <code>FINISHUNLOCK = 36;</code>
      *
      * <pre>
      * 完成解锁
      * </pre>
      */
-    public static final int FINISHUNLOCK_VALUE = 35;
+    public static final int FINISHUNLOCK_VALUE = 36;
     /**
-     * <code>RECEIVE = 36;</code>
+     * <code>RECEIVE = 37;</code>
      *
      * <pre>
      * 领取物品
      * </pre>
      */
-    public static final int RECEIVE_VALUE = 36;
+    public static final int RECEIVE_VALUE = 37;
 
 
     public final int getNumber() { return value; }
@@ -218,11 +234,12 @@ public final class Common {
         case 11: return CREATEGROUP;
         case 12: return APPLYGROUP;
         case 31: return GETSCENEINFO;
-        case 32: return UPGRADE;
-        case 33: return FINISHUPGRADE;
-        case 34: return UNLOCK;
-        case 35: return FINISHUNLOCK;
-        case 36: return RECEIVE;
+        case 32: return GETBUILDINGINFO;
+        case 33: return UPGRADE;
+        case 34: return FINISHUPGRADE;
+        case 35: return UNLOCK;
+        case 36: return FINISHUNLOCK;
+        case 37: return RECEIVE;
         default: return null;
       }
     }
@@ -918,22 +935,23 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\266\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
+      "col*\313\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
       "OUT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREATEGROUP\020\013\022" +
-      "\016\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO\020\037\022\013\n\007UPG" +
-      "RADE\020 \022\021\n\rFINISHUPGRADE\020!\022\n\n\006UNLOCK\020\"\022\020\n" +
-      "\014FINISHUNLOCK\020#\022\013\n\007RECEIVE\020$*J\n\005Error\022\016\n" +
-      "\nSERVER_ERR\020\001\022\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BU" +
-      "ILDING\020\003\022\016\n\nLEVEL_OVER\020\004*:\n\014BuildingType" +
-      "\022\024\n\020RECEIVE_BUILDING\020\001\022\024\n\020PROCESS_BUILDI" +
-      "NG\020\002*\242\002\n\014ResourceType\022\010\n\004RICE\020\001\022\016\n\nVEGET",
-      "ABLES\020\002\022\t\n\005FRUIT\020\003\022\t\n\005GRASS\020\004\022\013\n\007PIGFOOD" +
-      "\020\005\022\010\n\004PORK\020\006\022\t\n\005CRUDE\020\007\022\014\n\010GASOLINE\020\010\022\010\n" +
-      "\004IRON\020\t\022\t\n\005STEEL\020\n\022\010\n\004PINE\020\013\022\016\n\nWHITEBIR" +
-      "CH\020\014\022\r\n\tIRONBIRCH\020\r\022\r\n\tPINEBOARD\020\016\022\023\n\017WH" +
-      "ITEBIRCHBOARD\020\017\022\022\n\016IRONBIRCHBOARD\020\020\022\r\n\tP" +
-      "UREWATER\020\021\022\020\n\014MINERALWATER\020\022\022\017\n\013ELECTRIC" +
-      "ITY\020\023\022\n\n\006BULLET\020\024B\002H\001"
+      "\016\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO\020\037\022\023\n\017GET" +
+      "BUILDINGINFO\020 \022\013\n\007UPGRADE\020!\022\021\n\rFINISHUPG" +
+      "RADE\020\"\022\n\n\006UNLOCK\020#\022\020\n\014FINISHUNLOCK\020$\022\013\n\007" +
+      "RECEIVE\020%*J\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RI" +
+      "GHT_HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLEVEL_O" +
+      "VER\020\004*:\n\014BuildingType\022\024\n\020RECEIVE_BUILDIN" +
+      "G\020\001\022\024\n\020PROCESS_BUILDING\020\002*\242\002\n\014ResourceTy",
+      "pe\022\010\n\004RICE\020\001\022\016\n\nVEGETABLES\020\002\022\t\n\005FRUIT\020\003\022" +
+      "\t\n\005GRASS\020\004\022\013\n\007PIGFOOD\020\005\022\010\n\004PORK\020\006\022\t\n\005CRU" +
+      "DE\020\007\022\014\n\010GASOLINE\020\010\022\010\n\004IRON\020\t\022\t\n\005STEEL\020\n\022" +
+      "\010\n\004PINE\020\013\022\016\n\nWHITEBIRCH\020\014\022\r\n\tIRONBIRCH\020\r" +
+      "\022\r\n\tPINEBOARD\020\016\022\023\n\017WHITEBIRCHBOARD\020\017\022\022\n\016" +
+      "IRONBIRCHBOARD\020\020\022\r\n\tPUREWATER\020\021\022\020\n\014MINER" +
+      "ALWATER\020\022\022\017\n\013ELECTRICITY\020\023\022\n\n\006BULLET\020\024B\002" +
+      "H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

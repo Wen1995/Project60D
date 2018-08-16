@@ -28,6 +28,19 @@ public class CommonService : ServiceBase {
 
     public void JoinGroup(NDictionary args)
     {
+        //TODO
+    }
 
+    public int GetTime()
+    {
+        var epochStart = new System.DateTime(1970, 1, 1, 8, 0, 0, System.DateTimeKind.Utc);
+        int curTime = (int)(System.DateTime.UtcNow - epochStart).TotalSeconds;
+        return curTime;
+    }
+
+    public string TimeFormat(int time)
+    {
+        //TODO
+        return "";
     }
 }

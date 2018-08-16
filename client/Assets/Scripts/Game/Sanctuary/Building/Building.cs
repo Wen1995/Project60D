@@ -23,16 +23,22 @@ public class Building : Controller {
     private NEventHandler clickEvent = null;
     private Transform floatingIconTrans = null;
 
-    private SanctuaryPackage sanctuaryPackage = null;
+    private SanctuaryPackage mSanctuaryPackage = null;
 
     public long BuildingID
     { get { return buildingID; } }
     public int ConfigID
     { get { return configID; } }
+    public SanctuaryPackage sanctuaryPackage
+    {
+        get {
+            if(mSanctuaryPackage == null)
+                mSanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
+            return mSanctuaryPackage;        }
+    }
 
     private void Awake()
     {
-        sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         floatingIconTrans = transform.Find("FloatingPos");
         RegisterEvent("RefreshBuildingView", InitView);
     }
@@ -81,7 +87,7 @@ public class Building : Controller {
     public void UnlockBuilding(long budilingID)
     {
         this.buildingID = budilingID;
-        configID = GlobalFunction.GetConfigIDByBuildingType(buildingType);
+        configID = sanctuaryPackage.GetConfigIDByBuildingType(buildingType);
     }
 
     public virtual void AddClickEvent(NEventHandler callback)
@@ -96,20 +102,25 @@ public class Building : Controller {
     }
     #region State Changing
 
-    public void OnBuildingUnlock(long finishTime)
+    public void SetStateIdle()
     {
-        mState = BuildingState.Unlock;
+        mState = BuildingState.Idle;
+    }
+
+    public void SetStateUnlock(long finishTime)
+    {
+        mState = BuildingState.Upgrade;
         AddCountdownTimer(finishTime);
     }
 
-    public void OnBuildingUpgrade(long finishTime)
+    public void SetStateUpgrade(long finishTime)
     {
         mState = BuildingState.Upgrade;
         AddCountdownTimer(finishTime);
     }
 
     public void OnBuildingUpgradeFinish()
-    { }
+    {}
 
     public void OnBuildingUnlockFinish()
     {}

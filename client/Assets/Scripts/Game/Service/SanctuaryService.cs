@@ -7,7 +7,6 @@ using com.game.framework.resource.data;
 public class SanctuaryService : ServiceBase {
 
     SubRendererController subrenderer = null;
-    private bool isUnlock = false;
 
     public override void InitService()
     {
@@ -51,6 +50,16 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.UPGRADE, upgrade.ToByteArray());
     }
 
+    public void RPCReceive(NDictionary args)
+    {
+        if (args == null) return;
+        long buildingID = args.Value<long>("buildingID");
+        var builder = TCSReceive.CreateBuilder();
+        builder.BuildingId = buildingID;
+        TCSReceive receive = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.RECEIVE, receive.ToByteArray());
+    }
+
     /// <summary>
     /// Use a extra camera to render the object you give
     /// Normally used to render a 3d model in UI
@@ -69,7 +78,6 @@ public class SanctuaryService : ServiceBase {
             return;
         subrenderer.Close();
     }
-
 
     /// <summary>
     /// Before getting scene info
@@ -94,6 +102,4 @@ public class SanctuaryService : ServiceBase {
     {
         if (args == null) return;
     }
-
-    
 }

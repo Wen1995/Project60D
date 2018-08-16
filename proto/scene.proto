@@ -35,6 +35,8 @@ message TSCUpgrade {
 	optional bool isProduction = 4;
 	// 升级完成时间
 	optional int64 finishTime = 5;
+	// 建筑ID
+	optional int64 buildingId = 6;
 }
 
 message TCSFinishUpgrade {

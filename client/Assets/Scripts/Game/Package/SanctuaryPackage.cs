@@ -56,7 +56,7 @@ public class SanctuaryPackage : ModelBase {
     IList<BuildingInfo> mBuildingInfoList = null;
     Dictionary<BuildingType, NBuildingData> mBuildingDataMap = new Dictionary<BuildingType, NBuildingData>();
     Dictionary<long, Building> mBuildingMap = new Dictionary<long, Building>();
-    private NBuildingData selectionBuilding = null;
+    private Building selectionBuilding = null;
 
     public override void Release()
     {
@@ -70,7 +70,7 @@ public class SanctuaryPackage : ModelBase {
         return mBuildingInfoList;
     }
 
-    public NBuildingData GetSelectionBuildingData()
+    public Building GetSelectionBuilding()
     {
         return selectionBuilding;
     }
@@ -103,9 +103,9 @@ public class SanctuaryPackage : ModelBase {
         mBuildingInfoList = sceneInfo.BuildingInfosList;
     }
 
-    public void SetSelectionBuildingData(Building building)
+    public void SetSelectionBuilding(Building building)
     {
-        selectionBuilding = mBuildingDataMap[building.buildingType];
+        selectionBuilding = building;
     }
 
     public void SetBuilding(TSCGetSceneInfo sceneInfo)
@@ -139,17 +139,26 @@ public class SanctuaryPackage : ModelBase {
         mBuildingDataMap[type] = data;
     }
 
+    /// <summary>
+    /// Add a building to map, which means building is unlocked
+    /// </summary>
     public void AddBuilgding(BuildingInfo buildingInfo)
     {
         long buildingID = buildingInfo.BuildingId;
-        if (!mBuildingMap.ContainsKey(buildingID))
+        if (mBuildingMap.ContainsKey(buildingID))
         {
-            Debug.Log(string.Format("buildingID:{0} duplicate", buildingID));
-            return;
+            Debug.Log(string.Format("building:{0}, type:{1} update", buildingID, GlobalFunction.GetBuildingTypeByConfigID(buildingInfo.ConfigId)));
+            Building building = mBuildingMap[buildingID];
+            building.SetBuilding(buildingInfo);
         }
-        Building building = GetTypeBuilding(GlobalFunction.GetBuildingTypeByConfigID(buildingInfo.ConfigId));
-        building.SetBuilding(buildingInfo);
-        mBuildingMap[buildingID] = building;
+        else
+        {
+            Debug.Log(string.Format("Add building:{0}, type:{1}", buildingID, GlobalFunction.GetBuildingTypeByConfigID(buildingInfo.ConfigId)));
+            Building building = GetTypeBuilding(GlobalFunction.GetBuildingTypeByConfigID(buildingInfo.ConfigId));
+            if (building == null) return;
+            building.SetBuilding(buildingInfo);
+            mBuildingMap[buildingID] = building;
+        }
     }
 
     public void UnlockBuilding(long buildingID, Building building)

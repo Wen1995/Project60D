@@ -33,7 +33,6 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
         //register package
-        FacadeSingleton.Instance.RegisterData(ConstVal.Package_User, typeof(UserPackage));
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_Sanctuary, typeof(SanctuaryPackage));
         //register event
         RegisterEvent("SelectBuilding", OnSelectBuilding);
@@ -41,8 +40,8 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETSCENEINFO, OnGetSceneInfo);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.UNLOCK, OnBuildingUnlock);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.UPGRADE, OnBuildingUpgrade);
-        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.FINISHUPGRADE, OnBuildingFinish);
-        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.FINISHUNLOCK, OnBuildingFinish);
+        //FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.FINISHUPGRADE, OnBuildingFinish);
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.FINISHUNLOCK, OnBuildingUnlockFinish);
 
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
     }
@@ -108,7 +107,7 @@ public class SSanctuaryController : SceneController
         }
         if (!unlock.IsResource)
         {
-            print("group not satisfied");
+            print("resource not satisfied");
             return;
         }
         if (!unlock.IsProduction)
@@ -116,31 +115,48 @@ public class SSanctuaryController : SceneController
             print("production line is full");
             return;
         }
-        //add progress to building
+        long buildingID = unlock.BuildingId;
+        sanctuaryPackage.UnlockBuilding(buildingID, unlockBuilding);
+        unlockBuilding.UnlockBuilding(buildingID);
         Debug.Log(string.Format("Remain time={0}", unlock.FinishTime));
     }
 
     void OnBuildingUpgrade(NetMsgDef msg)
     {
-        //TODO
+        TSCUpgrade upgrade = TSCUpgrade.ParseFrom(msg.mBtsData);
+        if (!upgrade.IsState)
+        {
+            Debug.Log("building is upgrading");
+            return;
+        }
+        if (!upgrade.IsGroup)
+        {
+            Debug.Log("group not satisfied");
+            return;
+        }
+        if (!upgrade.IsResource)
+        {
+            print("resource not satisfied");
+            return;
+        }
+        if (!upgrade.IsProduction)
+        {
+            print("production line is full");
+            return;
+        }
+        long finishTime = upgrade.FinishTime;
+        Building building = sanctuaryPackage.GetSelectionBuilding();
     }
 
     void OnBuildingUnlockFinish(NetMsgDef msg)
     {
         TSCUnlock unlock = TSCUnlock.ParseFrom(msg.mBtsData);
-    }
-
-    /// <summary>
-    /// Building finish unlock or upgrade
-    /// </summary>
-    void OnBuildingFinish(NetMsgDef msg)
-    {
+        FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
     }
 
     void OnSelectBuilding(NDictionary data = null)
     {
-        Building building = data.Value<Building>("building");
-
+        Building building = sanctuaryPackage.GetSelectionBuildingData();
         //check if building is unlock
         if (building.BuildingID == 0)
         {
@@ -154,7 +170,10 @@ public class SSanctuaryController : SceneController
         }
         else
         {
-            FacadeSingleton.Instance.OverlayerPanel("UIBuildingInteractionPanel");
+            NDictionary args = new NDictionary();
+            args.Add("buildingID", building.BuildingID);
+            FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, args);
+            //FacadeSingleton.Instance.OverlayerPanel("UIBuildingInteractionPanel");
         }
 
     }

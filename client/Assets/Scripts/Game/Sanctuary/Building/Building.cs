@@ -44,9 +44,8 @@ public class Building : Controller {
             //handle click event first
             return;
         }
-        NDictionary data = new NDictionary();
-        data.Add("building", this);
-        SendEvent("SelectBuilding", data);
+        sanctuaryPackage.SetSelectionBuilding(this);
+        SendEvent("SelectBuilding");
     }
 
     public void InitView(NDictionary data = null)
@@ -73,6 +72,12 @@ public class Building : Controller {
         configID = buildingInfo.ConfigId;
     }
 
+    public void SetBuilding(long buildingID, int configID)
+    {
+        this.buildingID = buildingID;
+        this.configID = configID;
+    }
+
     public void UnlockBuilding(long budilingID)
     {
         this.buildingID = budilingID;
@@ -93,11 +98,15 @@ public class Building : Controller {
 
     public void OnBuildingUnlock(long finishTime)
     {
+        mState = BuildingState.Unlock;
         AddCountdownTimer(finishTime);
     }
 
-    public void OnBuildingUpgrade()
-    { }
+    public void OnBuildingUpgrade(long finishTime)
+    {
+        mState = BuildingState.Upgrade;
+        AddCountdownTimer(finishTime);
+    }
 
     public void OnBuildingUpgradeFinish()
     { }

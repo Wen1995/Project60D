@@ -19,4 +19,6 @@ public class Constant {
 	
 	public static final int MAX_LEVEL = 20;
 	
+	public static final int K = 100000;
+	
 }

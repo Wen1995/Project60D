@@ -1,6 +1,8 @@
 package com.game.init.login.service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -11,9 +13,14 @@ import com.game.framework.dbcache.id.IdManager;
 import com.game.framework.dbcache.id.IdType;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.Common.Error;
+import com.game.framework.protocol.Database.ResourceInfo;
+import com.game.framework.protocol.Database.UserResource;
 import com.game.framework.protocol.Login.TSCGetUserInfo;
 import com.game.framework.protocol.Login.TSCLogin;
 import com.game.framework.resource.DynamicDataManager;
+import com.game.framework.resource.StaticDataManager;
+import com.game.framework.resource.data.ItemResBytes.ITEM_RES;
+import com.game.framework.utils.ReadOnlyMap;
 import com.game.framework.utils.StringUtil;
 
 @Service
@@ -42,6 +49,21 @@ public class LoginServiceImpl implements LoginService {
             user.setAccount(account);
             user.setCreateTime(new Date());
             user.setProduction(1);
+            
+            // 初始资源
+            List<ResourceInfo> resourceInfos = new ArrayList<>();
+            ReadOnlyMap<Integer, ITEM_RES> itemResMap = StaticDataManager.GetInstance().itemResMap;
+            for (Integer key : itemResMap.keySet()) {
+                ResourceInfo resourceInfo = ResourceInfo.newBuilder()
+                        .setConfigId(key)
+                        .setNumber(100000)
+                        .build();
+                resourceInfos.add(resourceInfo);
+            }
+            UserResource userResource = UserResource.newBuilder()
+                    .addAllResourceInfos(resourceInfos).build();
+            user.setResource(userResource.toByteArray());
+            
             userDao.insert(user);
             account2Id.put(account, uid);
         }

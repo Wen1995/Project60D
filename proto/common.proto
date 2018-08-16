@@ -21,16 +21,18 @@ enum Cmd {
 	//////////////////场景模块 31-60//////////////////
 	// 场景信息
 	GETSCENEINFO = 31;
+	// 建筑信息
+	GETBUILDINGINFO = 32;
 	// 建筑升级
-	UPGRADE = 32;
+	UPGRADE = 33;
 	// 完成升级
-	FINISHUPGRADE = 33;
+	FINISHUPGRADE = 34;
 	// 解锁建筑
-	UNLOCK = 34;
+	UNLOCK = 35;
 	// 完成解锁
-	FINISHUNLOCK = 35;
+	FINISHUNLOCK = 36;
 	// 领取物品
-	RECEIVE = 36;
+	RECEIVE = 37;
 }
 
 enum Error {

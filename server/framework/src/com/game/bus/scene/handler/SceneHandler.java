@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import com.game.framework.console.GateServer;
 import com.game.bus.scene.service.SceneService;
+import com.game.framework.protocol.Scene.TCSGetBuildingInfo;
 import com.game.framework.protocol.Scene.TCSUpgrade;
 import com.game.framework.protocol.Scene.TCSFinishUpgrade;
 import com.game.framework.protocol.Scene.TCSUnlock;
@@ -21,6 +22,16 @@ import com.game.framework.protocol.Scene.TCSGetSceneInfo;
 public class SceneHandler {
 	@Resource
 	private SceneService service;
+
+	/** 建筑信息 */
+	@HandlerMethodMapping(cmd = Cmd.GETBUILDINGINFO_VALUE)
+	public void getBuildingInfo(TPacket p) throws Exception {
+		TCSGetBuildingInfo msg = TCSGetBuildingInfo.parseFrom(p.getBuffer());
+		Long buildingId = msg.getBuildingId();		
+		TPacket resp = service.getBuildingInfo(p.getUid(), buildingId);
+		resp.setCmd(Cmd.GETBUILDINGINFO_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
 
 	/** 建筑升级 */
 	@HandlerMethodMapping(cmd = Cmd.UPGRADE_VALUE)

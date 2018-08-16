@@ -105,8 +105,8 @@ public class SceneServiceImpl implements SceneService {
         }
         // 建筑是否在升级
         BuildingState buildingState = BuildingState.parseFrom(building.getState());
-        UpgradeInfo upgrade = buildingState.toBuilder().getUpgradeInfo();
-        if (upgrade.getFinishTime() == 0) {
+        UpgradeInfo upgradeInfo = buildingState.toBuilder().getUpgradeInfo();
+        if (upgradeInfo.getFinishTime() == 0) {
             isState = false;
             // 公司实力是否满足
             List<Building> buildings = buildingDao.getAllByGroupId(groupId);
@@ -172,7 +172,7 @@ public class SceneServiceImpl implements SceneService {
                         int sec = buildingMap.get(configId).getTimeCost();
                         finishTime = System.currentTimeMillis() + sec * 1000;
                         
-                        UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
+                        upgradeInfo.toBuilder()
                                 .setUid(uid)
                                 .setFinishTime(finishTime)
                                 .build();
@@ -197,6 +197,7 @@ public class SceneServiceImpl implements SceneService {
                 .setIsResource(isResource)
                 .setIsProduction(isProduction)
                 .setFinishTime(finishTime)
+                .setBuildingId(buildingId)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
@@ -209,19 +210,54 @@ public class SceneServiceImpl implements SceneService {
         User user = userDao.get(uid);
         Building building = buildingDao.get(buildingId);
         Group group = groupDao.get(user.getGroupId());
+        Integer configId = building.getConfigId();
+        BuildingState.Builder buildingStatebuilder = BuildingState.parseFrom(building.getState()).toBuilder();
         // 返回建筑队列
         Integer production = user.getProduction() + 1;
         user.setProduction(production);
         userDao.update(user);
+        
+        // 领取类建筑领取状态更新
+        List<ReceiveInfo> receiveInfos = new ArrayList<>();
+        if (BuildingUtil.isReceiveBuilding(building)) {
+            List<User> users = userDao.getAllByGroupId(building.getGroupId());
+            Long thisReceiveTime = System.currentTimeMillis();
+            long time = 0L;
+            Integer number = 0;
+            
+            ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+            String tableName = buildingMap.get(configId).getBldgFuncTableName();
+            Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
+            Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
+            Integer capacity = StaticDataManager.GetInstance().getCapacity(tableName, tableId);
+            double peopleNumber = group.getPeopleNumber();
+            for (int i = 0; i < buildingStatebuilder.getReceiveInfosCount(); i++) {
+                ReceiveInfo r = buildingStatebuilder.getReceiveInfos(i);
+                User u = userDao.get(r.getUid());
+                double stake = 1/peopleNumber + ((u.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
+                time = thisReceiveTime - r.getLastReceiveTime();
+                number = (int) (time/1000/3600*speed*stake) + r.getNumber();
+                capacity = (int) (capacity*stake);
+                if (number > capacity) {
+                    number = capacity;
+                }
+                r = r.toBuilder()
+                        .setLastReceiveTime(thisReceiveTime)
+                        .setNumber(number)
+                        .build();
+                receiveInfos.add(r);
+            }
+        }
+        
         // 更新建筑升级状态
-        int configId = building.getConfigId() + 1;
-        building.setConfigId(configId);
-        UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
+        building.setConfigId(configId + 1);
+        UpgradeInfo upgradeInfo = buildingStatebuilder.getUpgradeInfo().toBuilder()
                 .setUid(uid)
                 .setFinishTime(0)
                 .build();
-        BuildingState buildingState = BuildingState.newBuilder()
+        BuildingState buildingState = buildingStatebuilder
                 .setUpgradeInfo(upgradeInfo)
+                .addAllReceiveInfos(receiveInfos)
                 .build();
         building.setState(buildingState.toByteArray());
         buildingDao.update(building);
@@ -354,30 +390,32 @@ public class SceneServiceImpl implements SceneService {
         Integer production = user.getProduction() + 1;
         user.setProduction(production);
         userDao.update(user);
-        // 更新建筑升级状态
-        UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
-                .setUid(uid)
-                .setFinishTime(0)
-                .build();
+        
         // 领取类建筑领取状态初始化
-        List<User> users = userDao.getAllByGroupId(building.getGroupId());
         List<ReceiveInfo> receiveInfos = new ArrayList<>();
-        long lastReceiveTime = System.currentTimeMillis();
-        ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder();
         if (BuildingUtil.isReceiveBuilding(building)) {
+            List<User> users = userDao.getAllByGroupId(building.getGroupId());
+            long thisReceiveTime = System.currentTimeMillis();
+            ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder();
             for (User u : users) {
                 receiveInfoBuilder.setUid(u.getId())
-                .setLastReceiveTime(lastReceiveTime)
+                .setLastReceiveTime(thisReceiveTime)
                 .setNumber(0);
                 receiveInfos.add(receiveInfoBuilder.build());
             }
         }
         
-        BuildingState buildingState = BuildingState.newBuilder()
+        // 更新建筑升级状态
+        BuildingState.Builder buildingStatebuilder = BuildingState.parseFrom(building.getState()).toBuilder();
+        UpgradeInfo upgradeInfo = buildingStatebuilder.getUpgradeInfo().toBuilder()
+                .setUid(uid)
+                .setFinishTime(0)
+                .build();
+        buildingStatebuilder
                 .setUpgradeInfo(upgradeInfo)
                 .addAllReceiveInfos(receiveInfos)
                 .build();
-        building.setState(buildingState.toByteArray());
+        building.setState(buildingStatebuilder.build().toByteArray());
         buildingDao.update(building);
         
         TSCFinishUnlock p = TSCFinishUnlock.newBuilder()
@@ -396,7 +434,7 @@ public class SceneServiceImpl implements SceneService {
         if (building == null) {
             throw new BaseException(Error.NO_BUILDING_VALUE);
         }
-        long groupId = user.getGroupId();
+        Long groupId = user.getGroupId();
         if (!building.getGroupId().equals(groupId)) {
             throw new BaseException(Error.RIGHT_HANDLE_VALUE);
         }
@@ -438,7 +476,8 @@ public class SceneServiceImpl implements SceneService {
             if (stateIndex == -1) {
                 throw new BaseException(Error.SERVER_ERR_VALUE);
             }
-            int time = (int) (thisReceiveTime - lastReceiveTime);
+            long time = thisReceiveTime - lastReceiveTime;
+            
             // 计算新增资源数量
             String tableName = buildingMap.get(building.getConfigId()).getBldgFuncTableName();
             Integer tableId = buildingMap.get(building.getConfigId()).getBldgFuncTableId();
@@ -451,18 +490,23 @@ public class SceneServiceImpl implements SceneService {
             if (number > capacity) {
                 number = capacity;
             }
+            
             // 计算多余的资源数量和仓库能装的资源
             leftNumber = 0;
             if (number > storehouseCapacity) {
                 leftNumber = number - storehouseCapacity;
                 number = storehouseCapacity;
             }
+            
             // 更新生产类建筑状态
-            ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder()
+            ReceiveInfo.Builder receiveInfoBuilder = buildingStateBuilder.getReceiveInfosBuilder(stateIndex)
                     .setLastReceiveTime(thisReceiveTime)
                     .setUid(uid)
                     .setNumber(leftNumber);
             buildingStateBuilder.setReceiveInfos(stateIndex, receiveInfoBuilder);
+            building.setState(buildingStateBuilder.build().toByteArray());
+            buildingDao.update(building);
+            
             // 更新仓库资源
             ResourceInfo resourceInfo;
             if (resourceIndex != -1) {
@@ -479,6 +523,8 @@ public class SceneServiceImpl implements SceneService {
                 resourceInfos.add(resourceInfo);
                 userResourceBuilder.addAllResourceInfos(resourceInfos);
             }
+            user.setResource(userResourceBuilder.build().toByteArray());
+            userDao.update(user);
         }
         TSCReceive p = TSCReceive.newBuilder()
                 .setBuildingId(buildingId)

@@ -1418,8 +1418,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCUpgrade : pb::GeneratedMessageLite<TSCUpgrade, TSCUpgrade.Builder> {
     private TSCUpgrade() { }
     private static readonly TSCUpgrade defaultInstance = new TSCUpgrade().MakeReadOnly();
-    private static readonly string[] _tSCUpgradeFieldNames = new string[] { "finishTime", "isGroup", "isProduction", "isResource", "isState" };
-    private static readonly uint[] _tSCUpgradeFieldTags = new uint[] { 40, 16, 32, 24, 8 };
+    private static readonly string[] _tSCUpgradeFieldNames = new string[] { "buildingId", "finishTime", "isGroup", "isProduction", "isResource", "isState" };
+    private static readonly uint[] _tSCUpgradeFieldTags = new uint[] { 48, 40, 16, 32, 24, 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -1504,6 +1504,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BuildingIdFieldNumber = 6;
+    private bool hasBuildingId;
+    private long buildingId_;
+    public bool HasBuildingId {
+      get { return hasBuildingId; }
+    }
+    public long BuildingId {
+      get { return buildingId_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -1519,19 +1532,22 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _tSCUpgradeFieldNames;
       if (hasIsState) {
-        output.WriteBool(1, field_names[4], IsState);
+        output.WriteBool(1, field_names[5], IsState);
       }
       if (hasIsGroup) {
-        output.WriteBool(2, field_names[1], IsGroup);
+        output.WriteBool(2, field_names[2], IsGroup);
       }
       if (hasIsResource) {
-        output.WriteBool(3, field_names[3], IsResource);
+        output.WriteBool(3, field_names[4], IsResource);
       }
       if (hasIsProduction) {
-        output.WriteBool(4, field_names[2], IsProduction);
+        output.WriteBool(4, field_names[3], IsProduction);
       }
       if (hasFinishTime) {
-        output.WriteInt64(5, field_names[0], FinishTime);
+        output.WriteInt64(5, field_names[1], FinishTime);
+      }
+      if (hasBuildingId) {
+        output.WriteInt64(6, field_names[0], BuildingId);
       }
     }
     
@@ -1560,6 +1576,9 @@ namespace com.game.framework.protocol {
         if (hasFinishTime) {
           size += pb::CodedOutputStream.ComputeInt64Size(5, FinishTime);
         }
+        if (hasBuildingId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(6, BuildingId);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -1573,6 +1592,7 @@ namespace com.game.framework.protocol {
       if (hasIsResource) hash ^= isResource_.GetHashCode();
       if (hasIsProduction) hash ^= isProduction_.GetHashCode();
       if (hasFinishTime) hash ^= finishTime_.GetHashCode();
+      if (hasBuildingId) hash ^= buildingId_.GetHashCode();
       return hash;
     }
     
@@ -1584,6 +1604,7 @@ namespace com.game.framework.protocol {
       if (hasIsResource != other.hasIsResource || (hasIsResource && !isResource_.Equals(other.isResource_))) return false;
       if (hasIsProduction != other.hasIsProduction || (hasIsProduction && !isProduction_.Equals(other.isProduction_))) return false;
       if (hasFinishTime != other.hasFinishTime || (hasFinishTime && !finishTime_.Equals(other.finishTime_))) return false;
+      if (hasBuildingId != other.hasBuildingId || (hasBuildingId && !buildingId_.Equals(other.buildingId_))) return false;
       return true;
     }
     
@@ -1759,6 +1780,9 @@ namespace com.game.framework.protocol {
         if (other.HasFinishTime) {
           FinishTime = other.FinishTime;
         }
+        if (other.HasBuildingId) {
+          BuildingId = other.BuildingId;
+        }
         return this;
       }
       
@@ -1809,6 +1833,10 @@ namespace com.game.framework.protocol {
             }
             case 40: {
               result.hasFinishTime = input.ReadInt64(ref result.finishTime_);
+              break;
+            }
+            case 48: {
+              result.hasBuildingId = input.ReadInt64(ref result.buildingId_);
               break;
             }
           }
@@ -1915,6 +1943,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasFinishTime = false;
         result.finishTime_ = 0L;
+        return this;
+      }
+      
+      public bool HasBuildingId {
+        get { return result.hasBuildingId; }
+      }
+      public long BuildingId {
+        get { return result.BuildingId; }
+        set { SetBuildingId(value); }
+      }
+      public Builder SetBuildingId(long value) {
+        PrepareBuilder();
+        result.hasBuildingId = true;
+        result.buildingId_ = value;
+        return this;
+      }
+      public Builder ClearBuildingId() {
+        PrepareBuilder();
+        result.hasBuildingId = false;
+        result.buildingId_ = 0L;
         return this;
       }
     }

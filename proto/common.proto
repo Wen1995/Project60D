@@ -33,6 +33,8 @@ enum Cmd {
 	FINISHUNLOCK = 36;
 	// 领取物品
 	RECEIVE = 37;
+	// 加工物品
+	PROCESS = 38;
 }
 
 enum Error {

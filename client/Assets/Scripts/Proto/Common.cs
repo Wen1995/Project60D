@@ -39,6 +39,7 @@ namespace com.game.framework.protocol {
     UNLOCK = 35,
     FINISHUNLOCK = 36,
     RECEIVE = 37,
+    PROCESS = 38,
   }
   
   public enum Error {

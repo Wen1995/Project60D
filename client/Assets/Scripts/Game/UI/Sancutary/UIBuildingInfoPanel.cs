@@ -1,10 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using com.game.framework.resource.data;
 using UnityEngine;
+
+public class BuildingAttributeData
+{
+    public string name;
+    public int value;
+    public BuildingAttributeData(string name, int value)
+    {
+        this.name = name;
+        this.value = value;        
+    }
+}
 
 public class UIBuildingInfoPanel : PanelBase {
 
     private GameObject modelGo = null;
+    private Building selecttionBuilding = null;
+    private SanctuaryPackage sanctuarytPackage = null;
 
     protected override void Awake()
     {
@@ -20,7 +35,15 @@ public class UIBuildingInfoPanel : PanelBase {
     public override void OpenPanel()
     {
         base.OpenPanel();
-        InitView();
+        sanctuarytPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
+        selecttionBuilding = sanctuarytPackage.GetSelectionBuilding();
+        //InitView();
+    }
+
+    public override void ClosePanel()
+    {
+        base.ClosePanel();
+        selecttionBuilding = null;
     }
 
     void InitView()
@@ -29,6 +52,9 @@ public class UIBuildingInfoPanel : PanelBase {
         NDictionary data = new NDictionary();
         data.Add("model", Resources.Load("Prefabs/Building/car"));
         modelGo = FacadeSingleton.Instance.InvokeService("OpenSubRenderer", ConstVal.Service_Sanctuary, data) as GameObject;
+        //get attribute data
+        //List<BuildingAttributeData> dataList = sanctuarytPackage.GetBuildingAttribute(selecttionBuilding);
+                
     }
 
     void Close()
@@ -44,4 +70,9 @@ public class UIBuildingInfoPanel : PanelBase {
 
     void OnSlideTab()
     { }
+
+    void ShowBuilingAttribute()
+    {
+        //TODO        
+    }
 }

@@ -6,7 +6,7 @@ public class SubRendererController : MonoBehaviour {
 
 
     public Transform ModelPos;
-    public Camera camera;
+    new public Camera camera;
     private GameObject targetGo;
 
     public GameObject Open(GameObject prefab)

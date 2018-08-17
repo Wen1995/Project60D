@@ -13,8 +13,8 @@ public class RPCNetwork{
     private TcpClient mTcpClient = null;
     private NetworkStream mOutStream = null;
     byte[] mByteBuffer = new byte[MAX_READ];        //Socket OutStream Buffer
-    private MemoryStream mSendStream = new MemoryStream(1024 * 16);
-    private MemoryStream mRecieveStream = new MemoryStream(1024 * 16);
+    private NMemoryStream mSendStream = new NMemoryStream(1024 * 16);
+    private NMemoryStream mRecieveStream = new NMemoryStream(1024 * 16);
     private Queue<NetMsgDef> mSendMsgQueue = new Queue<NetMsgDef>();
     private Queue<NetMsgDef> mRecieveMsgQueue = new Queue<NetMsgDef>();
     //--attribute------------------------------------
@@ -92,7 +92,7 @@ public class RPCNetwork{
         }
         catch (Exception e)
         {
-            //TODO
+            UnityEngine.Debug.Log(e);
             Disconnect();
         }
     }
@@ -115,6 +115,7 @@ public class RPCNetwork{
         }
         catch (Exception e)
         {
+            UnityEngine.Debug.Log(e);
             Disconnect();
         }
         finally

@@ -102,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4108748445545970}
   - component: {fileID: 65690284359885402}
+  - component: {fileID: 114730711176107242}
   m_Layer: 9
   m_Name: watercollector
   m_TagString: Untagged
@@ -131,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1647096994110888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -230.0538, y: 0, z: -268.74}
+  m_LocalPosition: {x: -186.99669, y: 0, z: -238.34663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4928816120606872}
@@ -377,3 +378,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114730711176107242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1647096994110888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cae8d387362474c8644ae390afbfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingType: 106

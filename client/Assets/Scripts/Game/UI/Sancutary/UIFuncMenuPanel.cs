@@ -9,7 +9,7 @@ public class UIFuncMenuPanel : PanelBase {
     {
         base.Awake();
         //bind event
-        UIButton button = transform.Find("buildinglist").GetComponent<UIButton>();
+        //UIButton button = transform.Find("buildinglist").GetComponent<UIButton>();
         //button.onClick.Add(new EventDelegate())
     }
 

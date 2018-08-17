@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using com.game.framework.protocol;
 using com.game.framework.resource.data;
+using System;
 
 public enum BuildingType {
     Rice = 101,
@@ -14,7 +15,6 @@ public enum BuildingType {
     ZombiePlant,
     PowerPlant,
     PineWood,
-    IronWood,
 
     StockHouse = 201,
     FeedFactory,
@@ -33,6 +33,16 @@ public enum BuildingType {
     Gate,
 
     Turret0 = 501,
+}
+
+public enum BuildingFunc
+{
+    Collect,
+    Craft,
+    Function,
+    Defence,
+    Weapon
+
 }
 
 public class NBuildingData
@@ -65,6 +75,40 @@ public class SanctuaryPackage : ModelBase {
         return 110000001 + (int)type * 10000;
     }
 
+    public BuildingFunc GetBuildingFuncByConfigID(int configID)
+    {
+        return (BuildingFunc)(configID / 1000000 % 10);
+    }
+
+    public object GetBuildingConfigData(BuildingType type)
+    {
+        string name = GetBuildingConfigDataName(type);
+        Type dataType = Type.GetType(name + "_ARRAY");
+
+        object configData = ConfigDataStatic.RetrieveConfigData(name);
+        return Convert.ChangeType(configData, dataType);
+    }
+
+    public int GetBulidingLevel(Building building)
+    {
+        if(building.ConfigID == 0)            
+        {
+            Debug.Log(string.Format("building type{0} is not unlocked", building.buildingType));
+            return 0;
+        }
+        return building.ConfigID % 100;
+    }
+
+    public bool GetBuildingCraftInfo(int buildingConfigID, out int fromConfig, out int toConfig)
+    {
+        fromConfig = 0;
+        toConfig = 0;
+        if(GetBuildingFuncByConfigID(buildingConfigID) != BuildingFunc.Craft)
+            return false;
+        //TODO
+        return true;
+    }
+
     #region Acess Data
 
     public IList<BuildingInfo> GetBuildingInfoList()
@@ -77,14 +121,15 @@ public class SanctuaryPackage : ModelBase {
         return selectionBuilding;
     }
 
-    public NBuildingData GetBuilding(BuildingType type)
+
+    public Building GetBuilding(long buildingID)
     {
-        if (!mBuildingDataMap.ContainsKey(type))
+        if(!mBuildingMap.ContainsKey(buildingID))
         {
-            Debug.Log(string.Format("Building{0} is not created", type.ToString()));
+            Debug.Log(string.Format("Building ID={0} does not exist", buildingID));
             return null;
         }
-        return mBuildingDataMap[type];
+        return mBuildingMap[buildingID];
     }
 
     public int GetConfigID(BuildingType type)
@@ -143,6 +188,7 @@ public class SanctuaryPackage : ModelBase {
     public void UnlockBuilding(long buildingID, Building building)
     {
         building.UnlockBuilding(buildingID);
+        //building.SetBuilding(buildingID);
         mBuildingMap.Add(buildingID, building);
     }
     #endregion
@@ -156,7 +202,7 @@ public class SanctuaryPackage : ModelBase {
     /// An uggly implement of gettting buliding's controller
     /// this is temporary ,will be removed in time
     /// </summary>
-    public Building GetTypeBuilding(BuildingType type)
+    Building GetTypeBuilding(BuildingType type)
     {
         Transform parent = GameObject.Find("mainscene/buildings").transform;
         switch (type)
@@ -180,8 +226,6 @@ public class SanctuaryPackage : ModelBase {
                 return null;
             case (BuildingType.PineWood):
                 return parent.Find("forest0").GetComponent<Building>();
-            case (BuildingType.IronWood):
-                return parent.Find("forest1").GetComponent<Building>();
 
             case (BuildingType.StockHouse):
                 return parent.Find("stockhouse").GetComponent<Building>();
@@ -214,5 +258,88 @@ public class SanctuaryPackage : ModelBase {
                 return parent.Find("gate").GetComponent<Building>();
         }
         return null;
+    }
+
+    /// <summary>
+    /// Uggly implement of getting buliding's excel sheet name
+    /// </summary>
+    public string GetBuildingConfigDataName(BuildingType type)
+    {
+        switch (type)
+        {
+            case (BuildingType.Fruit):
+                return "SHUIGUO";
+            case (BuildingType.Veg):
+                return "SHUCAI";
+            case (BuildingType.Rice):
+                return "DAMI";
+            case (BuildingType.Fertilizer):
+                return "HUAFEI";
+            case (BuildingType.Well):
+                return "JING";
+            case (BuildingType.WaterCollector):
+                return "LUSHUI";
+            case (BuildingType.ZombiePlant):
+                return "JSFADIANZHAN";
+            case (BuildingType.PowerPlant):
+                return "TAIYANGNENG";
+            case (BuildingType.PineWood):
+                return "SONGSHU";
+
+            case (BuildingType.StockHouse):
+                return "ZHUJUAN";
+            case (BuildingType.FeedFactory):
+                return "SILIAO";
+            case (BuildingType.WaterFactory):
+                return "KAUNGQUANSHUI";
+
+            case (BuildingType.OilFactory):
+                return "LIANYOU";
+            case (BuildingType.SteelFactory):
+                return "LIANGANG";
+            case (BuildingType.ConcreteFactory):
+                return "HUNNINGTU";
+            case (BuildingType.WoodFactory):
+                return "MUCAIJIAGONG";
+
+            case (BuildingType.RadioStation):
+                return null;
+            case (BuildingType.StoreHouse):
+                return "CANGKU";
+            case (BuildingType.Battery):
+                return "DIANCHIZU";
+            case (BuildingType.PowerGym):
+                return "JIANSHENFANG";
+
+            case (BuildingType.Wall):
+                return "QIANG";
+            case (BuildingType.Gate):
+                return "DAMEN";
+        }
+        return "";
+    }
+
+    /// <summary>
+    /// Uggly implement of getting buliding's attribute
+    /// </summary>
+    public List<BuildingAttributeData> GetBuildingAttribute(Building building)
+    {
+        BuildingType type = building.buildingType;
+        int level = GetBulidingLevel(building);
+        List<BuildingAttributeData> dataList = new List<BuildingAttributeData>();
+        string dataName = GetBuildingConfigDataName(type);
+        switch(type)
+        {
+            case(BuildingType.Rice):
+            {
+                DAMI_ARRAY array = ConfigDataStatic.RetrieveConfigData<DAMI_ARRAY>(dataName);
+                DAMI configData = array.GetItems(level - 1);
+                dataList.Add(new BuildingAttributeData("生长速度", configData.DamiSpd));
+                dataList.Add(new BuildingAttributeData("单次最高产量", configData.DamiCap));
+                break;
+            }
+            
+        } 
+        return dataList;
     }
 }

@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 26bf094aa166a0e49991b9bd167062fe, type: 2}
   mSprites:
   - name: Arrow-Up-Icon
-    x: 55
-    y: 155
+    x: 134
+    y: 220
     width: 64
     height: 36
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Close-Icon-Small
-    x: 0
-    y: 88
+    x: 79
+    y: 153
     width: 35
     height: 35
     borderLeft: 0
@@ -79,9 +79,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Coins-Sack-Icon-Small
+    x: 0
+    y: 158
+    width: 78
+    height: 98
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Enter-Icon
     x: 0
-    y: 192
+    y: 28
     width: 64
     height: 64
     borderLeft: 0
@@ -93,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Hammer-Icon
-    x: 0
-    y: 124
+    x: 79
+    y: 189
     width: 54
     height: 67
     borderLeft: 0
@@ -106,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Lens-Icon-Small
-    x: 36
-    y: 90
+    x: 115
+    y: 155
     width: 37
     height: 33
     borderLeft: 0
@@ -118,11 +131,50 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Minus-Icon
+    x: 0
+    y: 19
+    width: 65
+    height: 8
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Plus-Icon
+    x: 0
+    y: 93
+    width: 65
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Trash-Icon-Small
-    x: 65
+    x: 199
     y: 210
     width: 42
     height: 46
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Unlock-Icon-Small
+    x: 153
+    y: 153
+    width: 30
+    height: 35
     borderLeft: 0
     borderRight: 0
     borderTop: 0

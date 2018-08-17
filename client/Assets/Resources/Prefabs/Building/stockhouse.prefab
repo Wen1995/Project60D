@@ -137,6 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4460731778692642}
   - component: {fileID: 65037407141986592}
+  - component: {fileID: 114836164315931172}
   m_Layer: 9
   m_Name: stockhouse
   m_TagString: Untagged
@@ -596,7 +597,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387063133899522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.453796, y: 0, z: 14.619995}
+  m_LocalPosition: {x: 23.603317, y: 0, z: 45.01335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4959430697592960}
@@ -1642,3 +1643,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15.238167, y: 5.653091, z: 15.714531}
   m_Center: {x: -0.28310013, y: 2.5520265, z: -1.3831062}
+--- !u!114 &114836164315931172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387063133899522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cae8d387362474c8644ae390afbfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingType: 201

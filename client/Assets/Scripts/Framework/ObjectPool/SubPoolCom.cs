@@ -14,7 +14,6 @@ public class SubPoolCom<UnitType> : SubPoolBase<UnitType> where UnitType : Compo
         return comp;
     }
 
-
     protected override void OnUnitStateChanged(UnitType unit)
     {
         if (unit.State().State == PoolUnitState.Idle)

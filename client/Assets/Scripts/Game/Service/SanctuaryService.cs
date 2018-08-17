@@ -90,14 +90,6 @@ public class SanctuaryService : ServiceBase {
             sanctuaryPackage.AddBuilding(val);
     }
 
-    /// <summary>
-    /// refresh view of building
-    /// </summary>
-    public void RefreshAllBuilding()
-    {
-        SanctuaryPackage sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
-    }
-
     public void UpgradeBuilding(NDictionary args)
     {
         if (args == null) return;

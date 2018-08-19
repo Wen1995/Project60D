@@ -56,7 +56,7 @@ public class LoginServiceImpl implements LoginService {
             for (Integer key : itemResMap.keySet()) {
                 ResourceInfo resourceInfo = ResourceInfo.newBuilder()
                         .setConfigId(key)
-                        .setNumber(100000)
+                        .setNumber(200)
                         .build();
                 resourceInfos.add(resourceInfo);
             }

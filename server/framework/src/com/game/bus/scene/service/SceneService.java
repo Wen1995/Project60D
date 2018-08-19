@@ -19,8 +19,14 @@ public interface SceneService {
 	/** 完成解锁 */
 	TPacket finishUnlock(Long uid, Long buildingId) throws Exception;
 
-	/** 完成解锁 */
+	/** 领取物品 */
 	TPacket receive(Long uid, Long buildingId) throws Exception;
+
+	/** 加工物品 */
+	TPacket process(Long uid, Long buildingId, Integer number) throws Exception;
+
+	/** 中断加工 */
+	TPacket interruptProcess(Long uid, Long buildingId) throws Exception;
 
 	/** 场景信息 */
 	TPacket getSceneInfo(Long uid) throws Exception;

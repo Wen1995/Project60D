@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-public class MemoryStream {
+public class NMemoryStream {
 
     //attribute
     byte[] mByteBuffer = null;
@@ -20,7 +20,7 @@ public class MemoryStream {
     public uint ReadPos { get { return mReadPos; } }
 
 
-    public MemoryStream(int capacity)
+    public NMemoryStream(int capacity)
     {
         mByteBuffer = new byte[capacity];
         mCapacity = (uint)capacity;
@@ -71,6 +71,7 @@ public class MemoryStream {
         }
         catch (Exception e)
         {
+            UnityEngine.Debug.Log(e);
             return false;
         }
         return true;
@@ -120,7 +121,7 @@ public class MemoryStream {
         }
         catch (Exception e)
         {
-            //TODO
+            UnityEngine.Debug.Log(e);
             return false;
         }
     }
@@ -137,7 +138,7 @@ public class MemoryStream {
         }
         catch (Exception e)
         {
-            //TODO
+            UnityEngine.Debug.Log(e);
             return false;
         }
     }
@@ -203,7 +204,7 @@ public class MemoryStream {
         }
         catch (Exception e)
         {
-            //TODO
+            UnityEngine.Debug.Log(e);
             return false;
         }
     }

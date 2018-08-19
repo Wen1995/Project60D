@@ -97,7 +97,7 @@ public class UIContainerBase : MonoBehaviour {
     public void OpenUtilityPanel(string name)
     {
         if (string.IsNullOrEmpty(name)) return;
-        PanelBase panel = OpenPanelByName(name);
+        OpenPanelByName(name);
     }
 
     public void CloseUtilityPanel(string name)

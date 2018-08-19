@@ -65,6 +65,16 @@ public final class GroupCache {
      * <code>optional int32 groupGold = 5;</code>
      */
     int getGroupGold();
+
+    // optional int64 storehouseId = 6;
+    /**
+     * <code>optional int64 storehouseId = 6;</code>
+     */
+    boolean hasStorehouseId();
+    /**
+     * <code>optional int64 storehouseId = 6;</code>
+     */
+    long getStorehouseId();
   }
   /**
    * Protobuf type {@code com.game.framework.dbcache.model.ProtoGroup}
@@ -140,6 +150,11 @@ public final class GroupCache {
             case 40: {
               bitField0_ |= 0x00000010;
               groupGold_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              storehouseId_ = input.readInt64();
               break;
             }
           }
@@ -289,12 +304,29 @@ public final class GroupCache {
       return groupGold_;
     }
 
+    // optional int64 storehouseId = 6;
+    public static final int STOREHOUSEID_FIELD_NUMBER = 6;
+    private long storehouseId_;
+    /**
+     * <code>optional int64 storehouseId = 6;</code>
+     */
+    public boolean hasStorehouseId() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional int64 storehouseId = 6;</code>
+     */
+    public long getStorehouseId() {
+      return storehouseId_;
+    }
+
     private void initFields() {
       id_ = 0L;
       name_ = "";
       peopleNumber_ = 0;
       totalContribution_ = 0;
       groupGold_ = 0;
+      storehouseId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -322,6 +354,9 @@ public final class GroupCache {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt32(5, groupGold_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt64(6, storehouseId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -351,6 +386,10 @@ public final class GroupCache {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, groupGold_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, storehouseId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -478,6 +517,8 @@ public final class GroupCache {
         bitField0_ = (bitField0_ & ~0x00000008);
         groupGold_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
+        storehouseId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -526,6 +567,10 @@ public final class GroupCache {
           to_bitField0_ |= 0x00000010;
         }
         result.groupGold_ = groupGold_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.storehouseId_ = storehouseId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -558,6 +603,9 @@ public final class GroupCache {
         }
         if (other.hasGroupGold()) {
           setGroupGold(other.getGroupGold());
+        }
+        if (other.hasStorehouseId()) {
+          setStorehouseId(other.getStorehouseId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -792,6 +840,39 @@ public final class GroupCache {
         return this;
       }
 
+      // optional int64 storehouseId = 6;
+      private long storehouseId_ ;
+      /**
+       * <code>optional int64 storehouseId = 6;</code>
+       */
+      public boolean hasStorehouseId() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional int64 storehouseId = 6;</code>
+       */
+      public long getStorehouseId() {
+        return storehouseId_;
+      }
+      /**
+       * <code>optional int64 storehouseId = 6;</code>
+       */
+      public Builder setStorehouseId(long value) {
+        bitField0_ |= 0x00000020;
+        storehouseId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 storehouseId = 6;</code>
+       */
+      public Builder clearStorehouseId() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        storehouseId_ = 0L;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:com.game.framework.dbcache.model.ProtoGroup)
     }
 
@@ -818,10 +899,10 @@ public final class GroupCache {
   static {
     java.lang.String[] descriptorData = {
       "\n\020GroupCache.proto\022 com.game.framework.d" +
-      "bcache.model\"j\n\nProtoGroup\022\n\n\002id\030\001 \001(\003\022\014" +
-      "\n\004name\030\002 \001(\t\022\024\n\014peopleNumber\030\003 \001(\005\022\031\n\021to" +
-      "talContribution\030\004 \001(\005\022\021\n\tgroupGold\030\005 \001(\005" +
-      "B\002H\001"
+      "bcache.model\"\200\001\n\nProtoGroup\022\n\n\002id\030\001 \001(\003\022" +
+      "\014\n\004name\030\002 \001(\t\022\024\n\014peopleNumber\030\003 \001(\005\022\031\n\021t" +
+      "otalContribution\030\004 \001(\005\022\021\n\tgroupGold\030\005 \001(" +
+      "\005\022\024\n\014storehouseId\030\006 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -833,7 +914,7 @@ public final class GroupCache {
           internal_static_com_game_framework_dbcache_model_ProtoGroup_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_dbcache_model_ProtoGroup_descriptor,
-              new java.lang.String[] { "Id", "Name", "PeopleNumber", "TotalContribution", "GroupGold", });
+              new java.lang.String[] { "Id", "Name", "PeopleNumber", "TotalContribution", "GroupGold", "StorehouseId", });
           return null;
         }
       };

@@ -51,7 +51,7 @@ public class UILoginPanel : PanelBase {
 
     void OnGetUserData(NetMsgDef msg)
     {
-        UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+        //UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
         //TODO
         FacadeSingleton.Instance.LoadScene("SLoading");
     }

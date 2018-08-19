@@ -21,6 +21,8 @@ message BuildingState {
 	optional UpgradeInfo upgradeInfo = 1;
 	// 领取信息
 	repeated ReceiveInfo receiveInfos = 2;
+	// 加工信息
+	optional ProcessInfo processInfo = 3;
 }
 
 message UpgradeInfo {
@@ -37,4 +39,13 @@ message ReceiveInfo {
 	optional int64 uid = 2;
 	// 还未领取资源数量
 	optional int32 number = 3;
+}
+
+message ProcessInfo {
+	// 加工开始时间
+	optional int64 startTime = 1;
+	// 加工完成时间
+	optional int64 endTime = 2;
+	// 加工人
+	optional int64 uid = 3;
 }

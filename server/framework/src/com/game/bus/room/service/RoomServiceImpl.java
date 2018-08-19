@@ -13,6 +13,7 @@ import com.game.framework.dbcache.model.Building;
 import com.game.framework.dbcache.model.Group;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.Database.BuildingState;
+import com.game.framework.protocol.Database.ProcessInfo;
 import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Database.UpgradeInfo;
 import com.game.framework.protocol.Room.TSCApplyGroup;
@@ -31,10 +32,13 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public TPacket createGroup(Long uid) throws Exception {
         Long id = IdManager.GetInstance().genId(IdType.GROUP);
+        Long buildingId = IdManager.GetInstance().genId(IdType.BUILDING);
+        
         Group group = new Group();
         group.setId(id);
         group.setPeopleNumber(1);
         group.setTotalContribution(0);
+        group.setStorehouseId(buildingId);
         groupDao.insert(group);
         
         User user = userDao.get(uid);
@@ -43,7 +47,6 @@ public class RoomServiceImpl implements RoomService {
         userDao.update(user);
         
         // 创建仓库
-        Long buildingId = IdManager.GetInstance().genId(IdType.BUILDING);
         Building building = new Building();
         building.setId(buildingId);
         building.setGroupId(user.getGroupId());
@@ -91,17 +94,28 @@ public class RoomServiceImpl implements RoomService {
                 BuildingState.Builder buildingStateBuilder;
                 List<ReceiveInfo> receiveInfos;
                 ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder();
+                ProcessInfo.Builder processInfoBuilder = ProcessInfo.newBuilder();
                 long time = System.currentTimeMillis();
                 for (Building b : buildings) {
-                    // 领取类建筑领取状态初始化
-                    if (BuildingUtil.isReceiveBuilding(b)) {
+                    if (BuildingUtil.isReceiveBuilding(b)) {                // 领取类建筑领取状态初始化
                         buildingStateBuilder = BuildingState.parseFrom(b.getState()).toBuilder();
-                        receiveInfos = buildingStateBuilder.build().getReceiveInfosList();
+                        receiveInfos = buildingStateBuilder.getReceiveInfosList();
                         receiveInfoBuilder.setLastReceiveTime(time);
-                        receiveInfoBuilder.setUid(uid);
-                        receiveInfoBuilder.setNumber(0);
+                        receiveInfoBuilder.setUid(uid).setNumber(0);
                         receiveInfos.add(receiveInfoBuilder.build());
                         buildingStateBuilder.addAllReceiveInfos(receiveInfos);
+                        b.setState(buildingStateBuilder.build().toByteArray());
+                        buildingDao.update(b);
+                    } else if (BuildingUtil.isProcessBuilding(b)) {         // 加工类建筑领取状态初始化
+                        buildingStateBuilder = BuildingState.parseFrom(b.getState()).toBuilder();
+                        receiveInfos = buildingStateBuilder.getReceiveInfosList();
+                        receiveInfoBuilder.setUid(uid).setNumber(0);
+                        receiveInfos.add(receiveInfoBuilder.build());
+                        buildingStateBuilder.addAllReceiveInfos(receiveInfos);
+                        
+                        processInfoBuilder.setStartTime(0).setEndTime(0);
+                        buildingStateBuilder.setProcessInfo(processInfoBuilder);
+                        b.setState(buildingStateBuilder.build().toByteArray());
                         buildingDao.update(b);
                     }
                 }

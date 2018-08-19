@@ -21,4 +21,6 @@ public class Constant {
 	
 	public static final int K = 100000;
 	
+	public static final double P  = 0.95;
+	
 }

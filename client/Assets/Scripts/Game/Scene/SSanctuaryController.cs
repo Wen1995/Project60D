@@ -30,6 +30,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UIBuildingInfoPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIUserInfoPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIBackpackPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UIBuildingCraftPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
@@ -44,6 +45,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.UPGRADE, OnBuildingUpgrade);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.FINISHUPGRADE, OnBuildingUpgradeFinish);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.FINISHUNLOCK, OnBuildingUnlockFinish);
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.RECEIVE, OnReceive);
 
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPakcage;
@@ -85,28 +87,19 @@ public class SSanctuaryController : SceneController
     }
 
     void OnSelectBuilding(NDictionary data = null)
-    {
+    {   
         Building building = sanctuaryPackage.GetSelectionBuilding();
-        //check if building is unlock
-        if (building.BuildingID == 0)
+        Debug.Log(string.Format("BuildingID={0}, type{1} selected", building.BuildingID, building.buildingType));
+        if(building.State == BuildingState.Collect)
         {
-            // send unlock msg
-            int newConfigID = sanctuaryPackage.GetConfigIDByBuildingType(building.buildingType);
-            print(string.Format("unlock building type={0}, config={1}", building.buildingType, newConfigID));
-            unlockBuilding = building;
             NDictionary args = new NDictionary();
-            args.Add("configID", newConfigID);
-            FacadeSingleton.Instance.InvokeService("RPCUnlockBuilding", ConstVal.Service_Sanctuary, args);
+            args.Add("buildingID", building.BuildingID);
+            FacadeSingleton.Instance.InvokeService("RPCReceive", ConstVal.Service_Sanctuary, args);
         }
         else
-        {
-            //NDictionary args = new NDictionary();
-            //args.Add("buildingID", building.BuildingID);
-            //FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, args);
             FacadeSingleton.Instance.OverlayerPanel("UIBuildingInteractionPanel");
-        }
-
     }
+
 
     #region RPC responce
 
@@ -127,6 +120,7 @@ public class SSanctuaryController : SceneController
 
     void OnBuildingUnlock(NetMsgDef msg)
     {
+        Debug.Log("building unlock get responce");
         TSCUnlock unlock = TSCUnlock.ParseFrom(msg.mBtsData);
         if (!unlock.IsGroup)
         {
@@ -144,14 +138,17 @@ public class SSanctuaryController : SceneController
             return;
         }
         long buildingID = unlock.BuildingId;
-        sanctuaryPackage.UnlockBuilding(buildingID, unlockBuilding);
-        int remainTime = (int)unlock.FinishTime - GlobalFunction.GetTimeStamp();
-        unlockBuilding.SetStateUnlock(remainTime);
-        Debug.Log(string.Format("Remain time={0}", remainTime));
+        long finishTime = unlock.FinishTime;
+        int remainTime = GlobalFunction.MilliToSec(finishTime - GlobalFunction.GetTimeStamp());
+        Building building  = sanctuaryPackage.GetSelectionBuilding();
+        sanctuaryPackage.UnlockBuilding(buildingID, building);
+        building.SetStateUnlock(remainTime);
+        building.RefreshView();
     }
 
     void OnBuildingUpgrade(NetMsgDef msg)
     {
+        Debug.Log("building upgrade get responce");
         TSCUpgrade upgrade = TSCUpgrade.ParseFrom(msg.mBtsData);
         if (upgrade.IsState)
         {
@@ -173,12 +170,12 @@ public class SSanctuaryController : SceneController
             print("production line is full");
             return;
         }
-        
         Building building = sanctuaryPackage.GetSelectionBuilding();
         long finishTime = upgrade.FinishTime;
-        int remainTime = (int)finishTime - GlobalFunction.GetTimeStamp();
-        Debug.Log(string.Format("Upgrade remainTime={0}", remainTime));
+        int remainTime = GlobalFunction.MilliToSec(finishTime - GlobalFunction.GetTimeStamp());
         building.SetStateUpgrade(remainTime);
+        building.RefreshView();
+        //Debug.Log(string.Format("Upgrade remainTime={0}", remainTime));
     }
 
     void OnBuildingUnlockFinish(NetMsgDef msg)
@@ -198,6 +195,9 @@ public class SSanctuaryController : SceneController
         long buildingID = receive.BuildingId;
         int configID = receive.ConfigId;
         int num = receive.Number;
+        
+        Building building = sanctuaryPackage.GetBuilding(buildingID);
+        building.SetStateIdle();
         Debug.Log(string.Format("buildingID{0} collect res type={1}, num={2}", buildingID, configID, num));
     }
     #endregion

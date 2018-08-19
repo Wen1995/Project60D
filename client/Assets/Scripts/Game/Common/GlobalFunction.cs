@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class GlobalFunction{
+public static class GlobalFunction {
+
+    private static DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
 
     public static string TimeFormat(long time)
     {
@@ -10,10 +13,26 @@ public static class GlobalFunction{
         return time.ToString();
     }
 
-    public static int GetTimeStamp()
+    public static long GetTimeStamp()
     {
-        var epochStart = new System.DateTime(1970, 1, 1, 8, 0, 0, System.DateTimeKind.Utc);
-        int curTime = (int)(System.DateTime.UtcNow - epochStart).TotalSeconds;
-        return curTime;
+        double curTime = (System.DateTime.UtcNow - epochStart).TotalMilliseconds;
+        return System.Convert.ToInt64(curTime);
+    }
+
+    public static int MilliToSec(long time)
+    {
+        return (int)Mathf.Floor((float)(time / 1000));
+    }
+
+    public static bool GetRemainTime(long finishTime, out long remainTime)
+    {
+        if(finishTime <= 0)
+        {
+            remainTime = 0;
+            return false;
+        }
+        long curTime = GetTimeStamp();
+        remainTime = finishTime - curTime;
+        return true;
     }
 }

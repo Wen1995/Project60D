@@ -15,6 +15,8 @@ import com.game.framework.protocol.Scene.TCSFinishUpgrade;
 import com.game.framework.protocol.Scene.TCSUnlock;
 import com.game.framework.protocol.Scene.TCSFinishUnlock;
 import com.game.framework.protocol.Scene.TCSReceive;
+import com.game.framework.protocol.Scene.TCSProcess;
+import com.game.framework.protocol.Scene.TCSInterruptProcess;
 import com.game.framework.protocol.Scene.TCSGetSceneInfo;
 
 @Controller
@@ -73,13 +75,33 @@ public class SceneHandler {
 		GateServer.GetInstance().send(resp);
 	}
 
-	/** 完成解锁 */
+	/** 领取物品 */
 	@HandlerMethodMapping(cmd = Cmd.RECEIVE_VALUE)
 	public void receive(TPacket p) throws Exception {
 		TCSReceive msg = TCSReceive.parseFrom(p.getBuffer());
 		Long buildingId = msg.getBuildingId();		
 		TPacket resp = service.receive(p.getUid(), buildingId);
 		resp.setCmd(Cmd.RECEIVE_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 加工物品 */
+	@HandlerMethodMapping(cmd = Cmd.PROCESS_VALUE)
+	public void process(TPacket p) throws Exception {
+		TCSProcess msg = TCSProcess.parseFrom(p.getBuffer());
+		Long buildingId = msg.getBuildingId();		Integer number = msg.getNumber();		
+		TPacket resp = service.process(p.getUid(), buildingId, number);
+		resp.setCmd(Cmd.PROCESS_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 中断加工 */
+	@HandlerMethodMapping(cmd = Cmd.INTERRUPTPROCESS_VALUE)
+	public void interruptProcess(TPacket p) throws Exception {
+		TCSInterruptProcess msg = TCSInterruptProcess.parseFrom(p.getBuffer());
+		Long buildingId = msg.getBuildingId();		
+		TPacket resp = service.interruptProcess(p.getUid(), buildingId);
+		resp.setCmd(Cmd.INTERRUPTPROCESS_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}
 

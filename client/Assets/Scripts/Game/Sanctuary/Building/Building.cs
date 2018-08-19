@@ -10,7 +10,8 @@ public enum BuildingState
     Idle,
     Unlock,
     Upgrade,
-    Remind
+    Remind,
+    Collect,
 }
 
 public class Building : Controller {
@@ -18,7 +19,9 @@ public class Building : Controller {
     public BuildingType buildingType;
     private long buildingID = 0;        //stay 0 if the building is locked
     private int configID = 0;
-    private BuildingState mState = BuildingState.Locked;
+    private BuildingState mState = BuildingState.Idle;
+    private long finishTime = 0;
+    private long collectNumber = 0;
 
     private NEventHandler clickEvent = null;
     private Transform floatingIconTrans = null;
@@ -29,6 +32,9 @@ public class Building : Controller {
     { get { return buildingID; } }
     public int ConfigID
     { get { return configID; } }
+    public BuildingState State
+    { get { return mState; } }
+
     public SanctuaryPackage sanctuaryPackage
     {
         get {
@@ -40,32 +46,43 @@ public class Building : Controller {
     private void Awake()
     {
         floatingIconTrans = transform.Find("FloatingPos");
-        RegisterEvent("RefreshBuildingView", InitView);
+        RegisterEvent("RefreshBuildingView", RefreshView);
     }
 
     public virtual void OnClick()
     {
-        if (clickEvent != null)
-        {
-            //handle click event first
-            return;
-        }
         sanctuaryPackage.SetSelectionBuilding(this);
         SendEvent("SelectBuilding");
     }
 
-    public void InitView(NDictionary data = null)
+    public void RefreshView(NDictionary data = null)
     {
         ClearFloatingIcon();
-        if (configID == 0)
+        if(mState == BuildingState.Locked)
         {
             transform.Find("building").gameObject.SetActive(false);
             transform.Find("lock").gameObject.SetActive(true);
+            return;
         }
-        else
+        transform.Find("building").gameObject.SetActive(true);
+        transform.Find("lock").gameObject.SetActive(false);
+        switch(mState)
         {
-            transform.Find("building").gameObject.SetActive(true);
-            transform.Find("lock").gameObject.SetActive(false);
+            case(BuildingState.Upgrade):
+            {
+                AddCountdownTimer(finishTime);
+                break;
+            }
+            case(BuildingState.Unlock):
+            {
+                AddCountdownTimer(finishTime);
+                break;
+            }
+            case(BuildingState.Collect):
+            {
+                AddRemindIcon();
+                break;
+            }
         }
     }
 
@@ -76,12 +93,23 @@ public class Building : Controller {
     {
         buildingID = buildingInfo.BuildingId;
         configID = buildingInfo.ConfigId;
+        print("number=" + buildingInfo.Number);
+        long remainTime = 0;
+        if(GlobalFunction.GetRemainTime(buildingInfo.UpgradeFinishTime, out remainTime))
+        {
+            SetStateUpgrade(remainTime);
+        }
+        else if(buildingInfo.Number > 0)
+        {
+            SetStateCollect(buildingInfo.Number);
+        }
+        else
+            SetStateIdle();
     }
 
-    public void SetBuilding(long buildingID, int configID)
+    public void SetBuildng(long buildingID)
     {
         this.buildingID = buildingID;
-        this.configID = configID;
     }
 
     public void UnlockBuilding(long budilingID)
@@ -104,19 +132,31 @@ public class Building : Controller {
 
     public void SetStateIdle()
     {
+        Debug.Log(string.Format("building type={0} set state idle", sanctuaryPackage.GetBuildingTypeByConfigID(configID)));
         mState = BuildingState.Idle;
     }
 
     public void SetStateUnlock(long finishTime)
     {
+        Debug.Log(string.Format("building type={0} set state unlock", sanctuaryPackage.GetBuildingTypeByConfigID(configID)));
         mState = BuildingState.Upgrade;
-        AddCountdownTimer(finishTime);
+        this.finishTime = finishTime;
+        //AddCountdownTimer(finishTime);
     }
 
     public void SetStateUpgrade(long finishTime)
     {
+        Debug.Log(string.Format("building type={0} set state upgrade", sanctuaryPackage.GetBuildingTypeByConfigID(configID)));
         mState = BuildingState.Upgrade;
-        AddCountdownTimer(finishTime);
+        this.finishTime = finishTime;
+        //AddCountdownTimer(finishTime);
+    }
+
+    public void SetStateCollect(int number)
+    {
+        Debug.Log(string.Format("building type={0} set state collect", sanctuaryPackage.GetBuildingTypeByConfigID(configID)));
+        mState = BuildingState.Collect;
+        collectNumber = number;
     }
 
     public void OnBuildingUpgradeFinish()

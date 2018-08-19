@@ -53,6 +53,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 88f9188529ba2ea4aa7f100d291e67ae, type: 2}
   mSprites:
+  - name: Arrow-Right-Icon_2
+    x: 2650
+    y: 3313
+    width: 66
+    height: 57
+    borderLeft: 11
+    borderRight: 38
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Basic-Outline
     x: 0
     y: 1371

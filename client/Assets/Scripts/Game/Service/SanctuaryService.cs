@@ -60,6 +60,21 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.RECEIVE, receive.ToByteArray());
     }
 
+    public void RPCCraft(NDictionary args)
+    {
+        if(args == null) return;
+        var builder = TCSProcess.CreateBuilder();
+        builder.BuildingId = args.Value<long>("buildingID");
+        builder.Number = args.Value<int>("num");
+        TCSProcess process = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.PROCESS, process.ToByteArray());
+    }
+
+    public void RPCCancelCraft(NDictionary args)
+    {
+        if(args == null) return;
+    }
+
     /// <summary>
     /// Use a extra camera to render the object you give
     /// Normally used to render a 3d model in UI

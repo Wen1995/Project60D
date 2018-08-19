@@ -1978,7 +1978,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: "\u9886\u53D6"
+  mText: "\u52A0\u5DE5"
   mFontSize: 26
   mFontStyle: 0
   mAlignment: 0

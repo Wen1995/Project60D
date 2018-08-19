@@ -37,6 +37,7 @@ public class UIBuildingInfoPanel : PanelBase {
         base.OpenPanel();
         sanctuarytPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         selecttionBuilding = sanctuarytPackage.GetSelectionBuilding();
+        
         //InitView();
     }
 
@@ -67,9 +68,6 @@ public class UIBuildingInfoPanel : PanelBase {
     {
         modelGo.transform.Rotate(new Vector3(0, -pos.x, 0));
     }
-
-    void OnSlideTab()
-    { }
 
     void ShowBuilingAttribute()
     {

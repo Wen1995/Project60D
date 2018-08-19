@@ -45,6 +45,7 @@ public class UIBuildingInteractionPanel : PanelBase{
     {
         if (selectBuilding == null) return;
         HideAllButton();
+        print(selectBuilding.ConfigID);
         BuildingFunc funcType = sanctuaryPackage.GetBuildingFuncByConfigID(selectBuilding.ConfigID);
         switch (selectBuilding.State)
         {
@@ -60,12 +61,18 @@ public class UIBuildingInteractionPanel : PanelBase{
                         infoBtn.gameObject.SetActive(true);
                         upgradeBtn.gameObject.SetActive(true);
                         collectBtn.gameObject.SetActive(true);
+                        craftBtn.gameObject.SetActive(true);
                     }
                     else if(funcType == BuildingFunc.Craft)
                     {
                         infoBtn.gameObject.SetActive(true);
                         upgradeBtn.gameObject.SetActive(true);
                         craftBtn.gameObject.SetActive(true);    
+                    }
+                    else
+                    {
+                        infoBtn.gameObject.SetActive(true);
+                        upgradeBtn.gameObject.SetActive(true);
                     }
                     break;
                 }

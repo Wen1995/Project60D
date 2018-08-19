@@ -6,8 +6,6 @@ using com.game.framework.resource.data;
 
 public class ConfigDataStatic{
 
-    static Dictionary<string, object> mConfigMap = new Dictionary<string, object>();
-
     static Dictionary<string, Dictionary<object, object>> mConfigDataMap = new Dictionary<string, Dictionary<object, object>>();
     /// <summary>
     /// Deserilize all config data ,load to memory 
@@ -29,24 +27,7 @@ public class ConfigDataStatic{
             //deserialize decompressed binary
             object resClass = type.GetMethod("ParseFrom", BindingFlags.Static | BindingFlags.Public, null, new[] { typeof(byte[])}, null).Invoke(null, new object[] { deCompressedData });
             ParseData(name, resClass);
-            //mConfigMap.Add(asset.name.ToUpper(), resClass);
         }
-
-        //temp
-        BUILDING item = mConfigDataMap["BUILDING"][111010009] as BUILDING;
-        Debug.Log(item.BldgName);
-    }
-
-    public static object RetrieveConfigData(string name)
-    {
-        if (!mConfigMap.ContainsKey(name)) return null;
-        return mConfigMap[name];
-    }
-
-    public static T RetrieveConfigData<T>(string name)
-    {
-        if (!mConfigMap.ContainsKey(name)) return default(T);        
-        return (T)Convert.ChangeType(mConfigMap[name], typeof(T));
     }
 
     public static void ParseData(string name, object array)
@@ -63,14 +44,17 @@ public class ConfigDataStatic{
         {
             object sheetData = getItemMethod.Invoke(array, new object[] {i});
             object idValue = sheetIDInfo.GetValue(sheetData, null);
-            if((int)idValue == 215070001)
-                Debug.Log(string.Format("name={0}, id={1} duplicate", name, (int)idValue));
             if(mConfigDataMap[name].ContainsKey(idValue))
             {
-                //Debug.Log(string.Format("name={0}, id={1} duplicate", name, (int)idValue));
+                Debug.LogWarning(string.Format("ConfigData name={0}, id={1} duplicate", name, (int)idValue));
                 continue;
             }
             mConfigDataMap[name].Add(idValue, sheetData);
         }
+    }
+
+    public static Dictionary<object, object>GetConfigDataTable(string name)
+    {
+        return mConfigDataMap[name];
     }
 }

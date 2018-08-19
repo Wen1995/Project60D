@@ -19,7 +19,7 @@ public class Building : Controller {
     public BuildingType buildingType;
     private long buildingID = 0;        //stay 0 if the building is locked
     private int configID = 0;
-    private BuildingState mState = BuildingState.Idle;
+    private BuildingState mState = BuildingState.Locked;
     private long finishTime = 0;
     private long collectNumber = 0;
 

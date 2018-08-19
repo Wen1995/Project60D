@@ -37,7 +37,7 @@ public enum BuildingType {
 
 public enum BuildingFunc
 {
-    Collect,
+    Collect = 1,
     Craft,
     Function,
     Defence,
@@ -78,15 +78,6 @@ public class SanctuaryPackage : ModelBase {
     public BuildingFunc GetBuildingFuncByConfigID(int configID)
     {
         return (BuildingFunc)(configID / 1000000 % 10);
-    }
-
-    public object GetBuildingConfigData(BuildingType type)
-    {
-        string name = GetBuildingConfigDataName(type);
-        Type dataType = Type.GetType(name + "_ARRAY");
-
-        object configData = ConfigDataStatic.RetrieveConfigData(name);
-        return Convert.ChangeType(configData, dataType);
     }
 
     public int GetBulidingLevel(Building building)
@@ -332,10 +323,10 @@ public class SanctuaryPackage : ModelBase {
         {
             case(BuildingType.Rice):
             {
-                DAMI_ARRAY array = ConfigDataStatic.RetrieveConfigData<DAMI_ARRAY>(dataName);
-                DAMI configData = array.GetItems(level - 1);
-                dataList.Add(new BuildingAttributeData("生长速度", configData.DamiSpd));
-                dataList.Add(new BuildingAttributeData("单次最高产量", configData.DamiCap));
+                // DAMI_ARRAY array = ConfigDataStatic.RetrieveConfigData<DAMI_ARRAY>(dataName);
+                // DAMI configData = array.GetItems(level - 1);
+                // dataList.Add(new BuildingAttributeData("生长速度", configData.DamiSpd));
+                // dataList.Add(new BuildingAttributeData("单次最高产量", configData.DamiCap));
                 break;
             }
             

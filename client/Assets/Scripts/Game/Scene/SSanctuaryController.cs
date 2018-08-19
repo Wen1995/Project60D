@@ -10,7 +10,7 @@ public class SSanctuaryController : SceneController
 {
     public GameObject testBuilding;
     SanctuaryPackage sanctuaryPackage = null;
-    ItemPakcage itemPackage = null;
+    ItemPackage itemPackage = null;
 
     private Building unlockBuilding = null;
 
@@ -36,7 +36,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
         //register package
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_Sanctuary, typeof(SanctuaryPackage));
-        FacadeSingleton.Instance.RegisterData(ConstVal.Package_Item, typeof(ItemPakcage));
+        FacadeSingleton.Instance.RegisterData(ConstVal.Package_Item, typeof(ItemPackage));
         //register event
         RegisterEvent("SelectBuilding", OnSelectBuilding);
         //bind event
@@ -48,7 +48,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.RECEIVE, OnReceive);
 
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
-        itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPakcage;
+        itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
     }
     //actually do something
     public void Start()
@@ -199,6 +199,15 @@ public class SSanctuaryController : SceneController
         Building building = sanctuaryPackage.GetBuilding(buildingID);
         building.SetStateIdle();
         Debug.Log(string.Format("buildingID{0} collect res type={1}, num={2}", buildingID, configID, num));
+    }
+
+    void OnCraft(NetMsgDef msg)
+    {
+        TSCProcess process = TSCProcess.ParseFrom(msg.mBtsData);
+        print(process.BuildingId);
+        print(process.FinishTime);
+        print(process.Uid);
+        print(process.Number);
     }
     #endregion
 

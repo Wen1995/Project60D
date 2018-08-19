@@ -36,7 +36,7 @@ message BUILDING{
     optional string bldg_info = 9 [default = ""];
     /** 消耗id */
     optional int32 con_id = 10 [default = 0];
-    /** 消耗/产出 */
+    /** 消耗产出比 */
     optional int32 con_pro = 11 [default = 0];
     /** 产出id */
     optional int32 pro_id = 12 [default = 0];

@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/siliao_bytes.proto',
   package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x18proto/siliao_bytes.proto\x12 com.game.framework.resource.data\"K\n\x06SILIAO\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x1b\n\x10siliao_spd_coeff\x18\x02 \x01(\x05:\x01\x30\x12\x15\n\nsiliao_cap\x18\x03 \x01(\x05:\x01\x30\"G\n\x0cSILIAO_ARRAY\x12\x37\n\x05items\x18\x01 \x03(\x0b\x32(.com.game.framework.resource.data.SILIAO')
+  serialized_pb=_b('\n\x18proto/siliao_bytes.proto\x12 com.game.framework.resource.data\"E\n\x06SILIAO\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x15\n\nsiliao_spd\x18\x02 \x01(\x05:\x01\x30\x12\x15\n\nsiliao_cap\x18\x03 \x01(\x05:\x01\x30\"G\n\x0cSILIAO_ARRAY\x12\x37\n\x05items\x18\x01 \x03(\x0b\x32(.com.game.framework.resource.data.SILIAO')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -40,7 +40,7 @@ _SILIAO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='siliao_spd_coeff', full_name='com.game.framework.resource.data.SILIAO.siliao_spd_coeff', index=1,
+      name='siliao_spd', full_name='com.game.framework.resource.data.SILIAO.siliao_spd', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -65,7 +65,7 @@ _SILIAO = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=62,
-  serialized_end=137,
+  serialized_end=131,
 )
 
 
@@ -94,8 +94,8 @@ _SILIAO_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=139,
-  serialized_end=210,
+  serialized_start=133,
+  serialized_end=204,
 )
 
 _SILIAO_ARRAY.fields_by_name['items'].message_type = _SILIAO

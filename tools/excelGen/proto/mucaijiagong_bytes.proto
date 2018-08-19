@@ -10,9 +10,9 @@ message MUCAIJIAGONG{
     /** 索引 */
     required int32 id = 1 [default = 0];
     /** 加工速度 */
-    optional int32 mucai_spd = 2 [default = 0];
+    optional int32 mucaijiagong_spd = 2 [default = 0];
     /** 最大加工量 */
-    optional int32 mucai_cap = 3 [default = 0];
+    optional int32 mucaijiagong_cap = 3 [default = 0];
 }
 
 message MUCAIJIAGONG_ARRAY {

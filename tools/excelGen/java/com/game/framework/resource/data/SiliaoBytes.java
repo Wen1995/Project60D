@@ -30,21 +30,21 @@ public final class SiliaoBytes {
     int getId();
 
     /**
-     * <code>optional int32 siliao_spd_coeff = 2 [default = 0];</code>
+     * <code>optional int32 siliao_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 加工速度 
      * </pre>
      */
-    boolean hasSiliaoSpdCoeff();
+    boolean hasSiliaoSpd();
     /**
-     * <code>optional int32 siliao_spd_coeff = 2 [default = 0];</code>
+     * <code>optional int32 siliao_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 加工速度 
      * </pre>
      */
-    int getSiliaoSpdCoeff();
+    int getSiliaoSpd();
 
     /**
      * <code>optional int32 siliao_cap = 3 [default = 0];</code>
@@ -122,7 +122,7 @@ public final class SiliaoBytes {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              siliaoSpdCoeff_ = input.readInt32();
+              siliaoSpd_ = input.readInt32();
               break;
             }
             case 24: {
@@ -193,27 +193,27 @@ public final class SiliaoBytes {
       return id_;
     }
 
-    public static final int SILIAO_SPD_COEFF_FIELD_NUMBER = 2;
-    private int siliaoSpdCoeff_;
+    public static final int SILIAO_SPD_FIELD_NUMBER = 2;
+    private int siliaoSpd_;
     /**
-     * <code>optional int32 siliao_spd_coeff = 2 [default = 0];</code>
+     * <code>optional int32 siliao_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 加工速度 
      * </pre>
      */
-    public boolean hasSiliaoSpdCoeff() {
+    public boolean hasSiliaoSpd() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 siliao_spd_coeff = 2 [default = 0];</code>
+     * <code>optional int32 siliao_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 加工速度 
      * </pre>
      */
-    public int getSiliaoSpdCoeff() {
-      return siliaoSpdCoeff_;
+    public int getSiliaoSpd() {
+      return siliaoSpd_;
     }
 
     public static final int SILIAO_CAP_FIELD_NUMBER = 3;
@@ -241,7 +241,7 @@ public final class SiliaoBytes {
 
     private void initFields() {
       id_ = 0;
-      siliaoSpdCoeff_ = 0;
+      siliaoSpd_ = 0;
       siliaoCap_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -265,7 +265,7 @@ public final class SiliaoBytes {
         output.writeInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, siliaoSpdCoeff_);
+        output.writeInt32(2, siliaoSpd_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, siliaoCap_);
@@ -285,7 +285,7 @@ public final class SiliaoBytes {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, siliaoSpdCoeff_);
+          .computeInt32Size(2, siliaoSpd_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -410,7 +410,7 @@ public final class SiliaoBytes {
         super.clear();
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        siliaoSpdCoeff_ = 0;
+        siliaoSpd_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
         siliaoCap_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -449,7 +449,7 @@ public final class SiliaoBytes {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.siliaoSpdCoeff_ = siliaoSpdCoeff_;
+        result.siliaoSpd_ = siliaoSpd_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -473,8 +473,8 @@ public final class SiliaoBytes {
         if (other.hasId()) {
           setId(other.getId());
         }
-        if (other.hasSiliaoSpdCoeff()) {
-          setSiliaoSpdCoeff(other.getSiliaoSpdCoeff());
+        if (other.hasSiliaoSpd()) {
+          setSiliaoSpd(other.getSiliaoSpd());
         }
         if (other.hasSiliaoCap()) {
           setSiliaoCap(other.getSiliaoCap());
@@ -558,50 +558,50 @@ public final class SiliaoBytes {
         return this;
       }
 
-      private int siliaoSpdCoeff_ ;
+      private int siliaoSpd_ ;
       /**
-       * <code>optional int32 siliao_spd_coeff = 2 [default = 0];</code>
+       * <code>optional int32 siliao_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 加工速度 
        * </pre>
        */
-      public boolean hasSiliaoSpdCoeff() {
+      public boolean hasSiliaoSpd() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 siliao_spd_coeff = 2 [default = 0];</code>
+       * <code>optional int32 siliao_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 加工速度 
        * </pre>
        */
-      public int getSiliaoSpdCoeff() {
-        return siliaoSpdCoeff_;
+      public int getSiliaoSpd() {
+        return siliaoSpd_;
       }
       /**
-       * <code>optional int32 siliao_spd_coeff = 2 [default = 0];</code>
+       * <code>optional int32 siliao_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 加工速度 
        * </pre>
        */
-      public Builder setSiliaoSpdCoeff(int value) {
+      public Builder setSiliaoSpd(int value) {
         bitField0_ |= 0x00000002;
-        siliaoSpdCoeff_ = value;
+        siliaoSpd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 siliao_spd_coeff = 2 [default = 0];</code>
+       * <code>optional int32 siliao_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 加工速度 
        * </pre>
        */
-      public Builder clearSiliaoSpdCoeff() {
+      public Builder clearSiliaoSpd() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        siliaoSpdCoeff_ = 0;
+        siliaoSpd_ = 0;
         onChanged();
         return this;
       }
@@ -1373,11 +1373,11 @@ public final class SiliaoBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\030proto/siliao_bytes.proto\022 com.game.fra" +
-      "mework.resource.data\"K\n\006SILIAO\022\r\n\002id\030\001 \002" +
-      "(\005:\0010\022\033\n\020siliao_spd_coeff\030\002 \001(\005:\0010\022\025\n\nsi" +
-      "liao_cap\030\003 \001(\005:\0010\"G\n\014SILIAO_ARRAY\0227\n\005ite" +
-      "ms\030\001 \003(\0132(.com.game.framework.resource.d" +
-      "ata.SILIAO"
+      "mework.resource.data\"E\n\006SILIAO\022\r\n\002id\030\001 \002" +
+      "(\005:\0010\022\025\n\nsiliao_spd\030\002 \001(\005:\0010\022\025\n\nsiliao_c" +
+      "ap\030\003 \001(\005:\0010\"G\n\014SILIAO_ARRAY\0227\n\005items\030\001 \003" +
+      "(\0132(.com.game.framework.resource.data.SI" +
+      "LIAO"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1396,7 +1396,7 @@ public final class SiliaoBytes {
     internal_static_com_game_framework_resource_data_SILIAO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_SILIAO_descriptor,
-        new java.lang.String[] { "Id", "SiliaoSpdCoeff", "SiliaoCap", });
+        new java.lang.String[] { "Id", "SiliaoSpd", "SiliaoCap", });
     internal_static_com_game_framework_resource_data_SILIAO_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_SILIAO_ARRAY_fieldAccessorTable = new

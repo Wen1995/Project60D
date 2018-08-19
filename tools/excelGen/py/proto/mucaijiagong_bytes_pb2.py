@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/mucaijiagong_bytes.proto',
   package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x1eproto/mucaijiagong_bytes.proto\x12 com.game.framework.resource.data\"I\n\x0cMUCAIJIAGONG\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x14\n\tmucai_spd\x18\x02 \x01(\x05:\x01\x30\x12\x14\n\tmucai_cap\x18\x03 \x01(\x05:\x01\x30\"S\n\x12MUCAIJIAGONG_ARRAY\x12=\n\x05items\x18\x01 \x03(\x0b\x32..com.game.framework.resource.data.MUCAIJIAGONG')
+  serialized_pb=_b('\n\x1eproto/mucaijiagong_bytes.proto\x12 com.game.framework.resource.data\"W\n\x0cMUCAIJIAGONG\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x1b\n\x10mucaijiagong_spd\x18\x02 \x01(\x05:\x01\x30\x12\x1b\n\x10mucaijiagong_cap\x18\x03 \x01(\x05:\x01\x30\"S\n\x12MUCAIJIAGONG_ARRAY\x12=\n\x05items\x18\x01 \x03(\x0b\x32..com.game.framework.resource.data.MUCAIJIAGONG')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -40,14 +40,14 @@ _MUCAIJIAGONG = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='mucai_spd', full_name='com.game.framework.resource.data.MUCAIJIAGONG.mucai_spd', index=1,
+      name='mucaijiagong_spd', full_name='com.game.framework.resource.data.MUCAIJIAGONG.mucaijiagong_spd', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='mucai_cap', full_name='com.game.framework.resource.data.MUCAIJIAGONG.mucai_cap', index=2,
+      name='mucaijiagong_cap', full_name='com.game.framework.resource.data.MUCAIJIAGONG.mucaijiagong_cap', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -65,7 +65,7 @@ _MUCAIJIAGONG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=68,
-  serialized_end=141,
+  serialized_end=155,
 )
 
 
@@ -94,8 +94,8 @@ _MUCAIJIAGONG_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=143,
-  serialized_end=226,
+  serialized_start=157,
+  serialized_end=240,
 )
 
 _MUCAIJIAGONG_ARRAY.fields_by_name['items'].message_type = _MUCAIJIAGONG

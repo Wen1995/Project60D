@@ -10,9 +10,9 @@ message JSFADIANZHAN{
     /** 索引 */
     required int32 id = 1 [default = 0];
     /** 能量转化率（js水平x这个系数） */
-    optional int32 js_spd = 2 [default = 0];
+    optional int32 jsfadianzhan_spd = 2 [default = 0];
     /** 单次最大储电量 */
-    optional int32 js_cap = 3 [default = 0];
+    optional int32 jsfadianzhan_cap = 3 [default = 0];
 }
 
 message JSFADIANZHAN_ARRAY {

@@ -3,7 +3,7 @@ package com.game.framework.protocol;
 option optimize_for = SPEED;
 
 enum Cmd {
-	ERROR = 0;
+	ERROR = -1;
 	//////////////////登录模块 1-10///////////////////
 	// 登录
 	LOGIN = 1;

@@ -26,7 +26,7 @@ namespace com.game.framework.protocol {
   }
   #region Enums
   public enum Cmd {
-    ERROR = 0,
+    ERROR = -1,
     LOGIN = 1,
     LOGOUT = 2,
     GETUSERINFO = 3,

@@ -116,6 +116,22 @@ public final class Common {
      * </pre>
      */
     RECEIVE(12, 37),
+    /**
+     * <code>PROCESS = 38;</code>
+     *
+     * <pre>
+     * 加工物品
+     * </pre>
+     */
+    PROCESS(13, 38),
+    /**
+     * <code>INTERRUPTPROCESS = 40;</code>
+     *
+     * <pre>
+     * 中断加工
+     * </pre>
+     */
+    INTERRUPTPROCESS(14, 40),
     ;
 
     /**
@@ -221,6 +237,22 @@ public final class Common {
      * </pre>
      */
     public static final int RECEIVE_VALUE = 37;
+    /**
+     * <code>PROCESS = 38;</code>
+     *
+     * <pre>
+     * 加工物品
+     * </pre>
+     */
+    public static final int PROCESS_VALUE = 38;
+    /**
+     * <code>INTERRUPTPROCESS = 40;</code>
+     *
+     * <pre>
+     * 中断加工
+     * </pre>
+     */
+    public static final int INTERRUPTPROCESS_VALUE = 40;
 
 
     public final int getNumber() { return value; }
@@ -240,6 +272,8 @@ public final class Common {
         case 35: return UNLOCK;
         case 36: return FINISHUNLOCK;
         case 37: return RECEIVE;
+        case 38: return PROCESS;
+        case 40: return INTERRUPTPROCESS;
         default: return null;
       }
     }
@@ -328,6 +362,38 @@ public final class Common {
      * </pre>
      */
     LEVEL_OVER(3, 4),
+    /**
+     * <code>BUILDING_TYPE_ERR = 5;</code>
+     *
+     * <pre>
+     * 建筑类型错误
+     * </pre>
+     */
+    BUILDING_TYPE_ERR(4, 5),
+    /**
+     * <code>RESOURCE_ERR = 6;</code>
+     *
+     * <pre>
+     * 资源错误
+     * </pre>
+     */
+    RESOURCE_ERR(5, 6),
+    /**
+     * <code>TIME_ERR = 7;</code>
+     *
+     * <pre>
+     * 时间错误
+     * </pre>
+     */
+    TIME_ERR(6, 7),
+    /**
+     * <code>NO_MORE_CAPACITY = 10;</code>
+     *
+     * <pre>
+     * 容量不足
+     * </pre>
+     */
+    NO_MORE_CAPACITY(7, 10),
     ;
 
     /**
@@ -362,6 +428,38 @@ public final class Common {
      * </pre>
      */
     public static final int LEVEL_OVER_VALUE = 4;
+    /**
+     * <code>BUILDING_TYPE_ERR = 5;</code>
+     *
+     * <pre>
+     * 建筑类型错误
+     * </pre>
+     */
+    public static final int BUILDING_TYPE_ERR_VALUE = 5;
+    /**
+     * <code>RESOURCE_ERR = 6;</code>
+     *
+     * <pre>
+     * 资源错误
+     * </pre>
+     */
+    public static final int RESOURCE_ERR_VALUE = 6;
+    /**
+     * <code>TIME_ERR = 7;</code>
+     *
+     * <pre>
+     * 时间错误
+     * </pre>
+     */
+    public static final int TIME_ERR_VALUE = 7;
+    /**
+     * <code>NO_MORE_CAPACITY = 10;</code>
+     *
+     * <pre>
+     * 容量不足
+     * </pre>
+     */
+    public static final int NO_MORE_CAPACITY_VALUE = 10;
 
 
     public final int getNumber() { return value; }
@@ -372,6 +470,10 @@ public final class Common {
         case 2: return RIGHT_HANDLE;
         case 3: return NO_BUILDING;
         case 4: return LEVEL_OVER;
+        case 5: return BUILDING_TYPE_ERR;
+        case 6: return RESOURCE_ERR;
+        case 7: return TIME_ERR;
+        case 10: return NO_MORE_CAPACITY;
         default: return null;
       }
     }
@@ -935,23 +1037,25 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\313\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
+      "col*\356\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
       "OUT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREATEGROUP\020\013\022" +
       "\016\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO\020\037\022\023\n\017GET" +
       "BUILDINGINFO\020 \022\013\n\007UPGRADE\020!\022\021\n\rFINISHUPG" +
       "RADE\020\"\022\n\n\006UNLOCK\020#\022\020\n\014FINISHUNLOCK\020$\022\013\n\007" +
-      "RECEIVE\020%*J\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RI" +
-      "GHT_HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLEVEL_O" +
-      "VER\020\004*:\n\014BuildingType\022\024\n\020RECEIVE_BUILDIN" +
-      "G\020\001\022\024\n\020PROCESS_BUILDING\020\002*\242\002\n\014ResourceTy",
-      "pe\022\010\n\004RICE\020\001\022\016\n\nVEGETABLES\020\002\022\t\n\005FRUIT\020\003\022" +
-      "\t\n\005GRASS\020\004\022\013\n\007PIGFOOD\020\005\022\010\n\004PORK\020\006\022\t\n\005CRU" +
-      "DE\020\007\022\014\n\010GASOLINE\020\010\022\010\n\004IRON\020\t\022\t\n\005STEEL\020\n\022" +
-      "\010\n\004PINE\020\013\022\016\n\nWHITEBIRCH\020\014\022\r\n\tIRONBIRCH\020\r" +
-      "\022\r\n\tPINEBOARD\020\016\022\023\n\017WHITEBIRCHBOARD\020\017\022\022\n\016" +
-      "IRONBIRCHBOARD\020\020\022\r\n\tPUREWATER\020\021\022\020\n\014MINER" +
-      "ALWATER\020\022\022\017\n\013ELECTRICITY\020\023\022\n\n\006BULLET\020\024B\002" +
-      "H\001"
+      "RECEIVE\020%\022\013\n\007PROCESS\020&\022\024\n\020INTERRUPTPROCE" +
+      "SS\020(*\227\001\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_" +
+      "HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLEVEL_OVER\020" +
+      "\004\022\025\n\021BUILDING_TYPE_ERR\020\005\022\020\n\014RESOURCE_ERR",
+      "\020\006\022\014\n\010TIME_ERR\020\007\022\024\n\020NO_MORE_CAPACITY\020\n*:" +
+      "\n\014BuildingType\022\024\n\020RECEIVE_BUILDING\020\001\022\024\n\020" +
+      "PROCESS_BUILDING\020\002*\242\002\n\014ResourceType\022\010\n\004R" +
+      "ICE\020\001\022\016\n\nVEGETABLES\020\002\022\t\n\005FRUIT\020\003\022\t\n\005GRAS" +
+      "S\020\004\022\013\n\007PIGFOOD\020\005\022\010\n\004PORK\020\006\022\t\n\005CRUDE\020\007\022\014\n" +
+      "\010GASOLINE\020\010\022\010\n\004IRON\020\t\022\t\n\005STEEL\020\n\022\010\n\004PINE" +
+      "\020\013\022\016\n\nWHITEBIRCH\020\014\022\r\n\tIRONBIRCH\020\r\022\r\n\tPIN" +
+      "EBOARD\020\016\022\023\n\017WHITEBIRCHBOARD\020\017\022\022\n\016IRONBIR" +
+      "CHBOARD\020\020\022\r\n\tPUREWATER\020\021\022\020\n\014MINERALWATER" +
+      "\020\022\022\017\n\013ELECTRICITY\020\023\022\n\n\006BULLET\020\024B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

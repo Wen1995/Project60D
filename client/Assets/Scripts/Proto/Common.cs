@@ -40,6 +40,7 @@ namespace com.game.framework.protocol {
     FINISHUNLOCK = 36,
     RECEIVE = 37,
     PROCESS = 38,
+    INTERRUPTPROCESS = 40,
   }
   
   public enum Error {
@@ -47,6 +48,10 @@ namespace com.game.framework.protocol {
     RIGHT_HANDLE = 2,
     NO_BUILDING = 3,
     LEVEL_OVER = 4,
+    BUILDING_TYPE_ERR = 5,
+    RESOURCE_ERR = 6,
+    TIME_ERR = 7,
+    NO_MORE_CAPACITY = 10,
   }
   
   public enum BuildingType {

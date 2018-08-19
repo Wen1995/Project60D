@@ -26,7 +26,9 @@
 		<Handler model="Scene" method="finishUpgrade" description="完成升级"/>
 		<Handler model="Scene" method="unlock" description="解锁建筑"/>
 		<Handler model="Scene" method="finishUnlock" description="完成解锁"/>
-		<Handler model="Scene" method="receive" description="完成解锁"/>
+		<Handler model="Scene" method="receive" description="领取物品"/>
+		<Handler model="Scene" method="process" description="加工物品"/>
+		<Handler model="Scene" method="interruptProcess" description="中断加工"/>
 	</HandlerGroup>
 	
 </HandlerGroups>

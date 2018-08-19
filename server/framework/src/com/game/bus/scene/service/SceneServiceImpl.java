@@ -19,6 +19,7 @@ import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.protocol.Common.Error;
 import com.game.framework.protocol.Database.BuildingState;
+import com.game.framework.protocol.Database.ProcessInfo;
 import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Database.ResourceInfo;
 import com.game.framework.protocol.Database.UpgradeInfo;
@@ -30,6 +31,8 @@ import com.game.framework.protocol.Scene.TSCFinishUnlock;
 import com.game.framework.protocol.Scene.TSCFinishUpgrade;
 import com.game.framework.protocol.Scene.TSCGetBuildingInfo;
 import com.game.framework.protocol.Scene.TSCGetSceneInfo;
+import com.game.framework.protocol.Scene.TSCInterruptProcess;
+import com.game.framework.protocol.Scene.TSCProcess;
 import com.game.framework.protocol.Scene.TSCReceive;
 import com.game.framework.protocol.Scene.TSCUnlock;
 import com.game.framework.protocol.Scene.TSCUpgrade;
@@ -80,7 +83,7 @@ public class SceneServiceImpl implements SceneService {
                     if (uid.equals(r.getUid())) {
                         double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
                         time = thisReceiveTime - r.getLastReceiveTime();
-                        number = (int) (time/1000/3600*speed*stake) + r.getNumber();
+                        number = (int) (time*speed*stake/1000/3600) + r.getNumber();
                         capacity = (int) (capacity*stake);
                         if (number > capacity) {
                             number = capacity;
@@ -97,8 +100,8 @@ public class SceneServiceImpl implements SceneService {
             }
             buildingInfoBuilder.setBuildingId(building.getId())
             .setConfigId(building.getConfigId())
-            .setFinishTime(upgradeInfo.getFinishTime())
-            .setUid(upgradeInfo.getUid())
+            .setUpgradeFinishTime(upgradeInfo.getFinishTime())
+            .setUpgradeUid(upgradeInfo.getUid())
             .setNumber(number);
             buildingInfos.add(buildingInfoBuilder.build());
         }
@@ -144,7 +147,7 @@ public class SceneServiceImpl implements SceneService {
                 if (uid.equals(r.getUid())) {
                     double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
                     time = thisReceiveTime - r.getLastReceiveTime();
-                    number = (int) (time/1000/3600*speed*stake) + r.getNumber();
+                    number = (int) (time*speed*stake/1000/3600) + r.getNumber();
                     capacity = (int) (capacity*stake);
                     if (number > capacity) {
                         number = capacity;
@@ -160,12 +163,11 @@ public class SceneServiceImpl implements SceneService {
             }
         }
         
-        
         BuildingInfo.Builder buildingInfoBuilder = BuildingInfo.newBuilder()
                 .setBuildingId(buildingId)
                 .setConfigId(building.getConfigId())
-                .setFinishTime(upgradeInfo.getFinishTime())
-                .setUid(upgradeInfo.getUid())
+                .setUpgradeFinishTime(upgradeInfo.getFinishTime())
+                .setUpgradeUid(upgradeInfo.getUid())
                 .setNumber(number);
         
         TSCGetBuildingInfo p = TSCGetBuildingInfo.newBuilder()
@@ -329,7 +331,7 @@ public class SceneServiceImpl implements SceneService {
                 User u = userDao.get(r.getUid());
                 double stake = 1/peopleNumber + ((u.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
                 time = thisReceiveTime - r.getLastReceiveTime();
-                number = (int) (time/1000/3600*speed*stake) + r.getNumber();
+                number = (int) (time*speed*stake/1000/3600) + r.getNumber();
                 capacity = (int) (capacity*stake);
                 if (number > capacity) {
                     number = capacity;
@@ -482,30 +484,35 @@ public class SceneServiceImpl implements SceneService {
         user.setProduction(production);
         userDao.update(user);
         
-        // 领取类建筑领取状态初始化
+        BuildingState.Builder buildingStatebuilder = BuildingState.parseFrom(building.getState()).toBuilder();
         List<ReceiveInfo> receiveInfos = new ArrayList<>();
-        if (BuildingUtil.isReceiveBuilding(building)) {
+        if (BuildingUtil.isReceiveBuilding(building)) {             // 领取类建筑领取状态初始化
             List<User> users = userDao.getAllByGroupId(building.getGroupId());
             long thisReceiveTime = System.currentTimeMillis();
             ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder();
             for (User u : users) {
-                receiveInfoBuilder.setUid(u.getId())
-                .setLastReceiveTime(thisReceiveTime)
-                .setNumber(0);
+                receiveInfoBuilder.setUid(u.getId()).setLastReceiveTime(thisReceiveTime).setNumber(0);
                 receiveInfos.add(receiveInfoBuilder.build());
             }
+            buildingStatebuilder.addAllReceiveInfos(receiveInfos);
+        } else if (BuildingUtil.isProcessBuilding(building)) {      // 加工类建筑领取状态初始化
+            List<User> users = userDao.getAllByGroupId(building.getGroupId());
+            ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder();
+            for (User u : users) {
+                receiveInfoBuilder.setUid(u.getId()).setNumber(0);
+                receiveInfos.add(receiveInfoBuilder.build());
+            }
+            ProcessInfo.Builder processInfoBuilder = ProcessInfo.newBuilder()
+                    .setStartTime(0).setEndTime(0);
+            buildingStatebuilder.setProcessInfo(processInfoBuilder);
+            buildingStatebuilder.addAllReceiveInfos(receiveInfos);
         }
         
         // 更新建筑升级状态
-        BuildingState.Builder buildingStatebuilder = BuildingState.parseFrom(building.getState()).toBuilder();
-        UpgradeInfo upgradeInfo = buildingStatebuilder.getUpgradeInfo().toBuilder()
+        UpgradeInfo.Builder upgradeInfoBuilder = buildingStatebuilder.getUpgradeInfoBuilder()
                 .setUid(uid)
-                .setFinishTime(0)
-                .build();
-        buildingStatebuilder
-                .setUpgradeInfo(upgradeInfo)
-                .addAllReceiveInfos(receiveInfos)
-                .build();
+                .setFinishTime(0);
+        buildingStatebuilder.setUpgradeInfo(upgradeInfoBuilder);
         building.setState(buildingStatebuilder.build().toByteArray());
         buildingDao.update(building);
         
@@ -524,6 +531,9 @@ public class SceneServiceImpl implements SceneService {
         Building building = buildingDao.get(buildingId);
         if (building == null) {
             throw new BaseException(Error.NO_BUILDING_VALUE);
+        }
+        if (!BuildingUtil.isReceiveBuilding(building)) {
+            throw new BaseException(Error.BUILDING_TYPE_ERR_VALUE);
         }
         Long groupId = user.getGroupId();
         if (!building.getGroupId().equals(groupId)) {
@@ -548,7 +558,7 @@ public class SceneServiceImpl implements SceneService {
             number += r.getNumber();
         }
         storehouseCapacity -= number;
-        // 还有仓库容量
+        // 仓库还有容量
         if (storehouseCapacity > 0) {
             // 计算原有资源数量和时间差
             Long lastReceiveTime = 0L;
@@ -576,7 +586,7 @@ public class SceneServiceImpl implements SceneService {
             Integer capacity = StaticDataManager.GetInstance().getCapacity(tableName, tableId);
             double peopleNumber = group.getPeopleNumber();
             double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
-            number = (int) (time/1000/3600*speed*stake) + leftNumber;
+            number = (int) (time*speed*stake/1000/3600) + leftNumber;
             capacity = (int) (capacity*stake);
             if (number > capacity) {
                 number = capacity;
@@ -601,9 +611,9 @@ public class SceneServiceImpl implements SceneService {
             // 更新仓库资源
             ResourceInfo resourceInfo;
             if (resourceIndex != -1) {
-                resourceInfo = userResourceBuilder.getResourceInfos(resourceIndex).toBuilder()
-                        .setNumber(number)
-                        .build();
+                resourceInfo = userResourceBuilder.getResourceInfos(resourceIndex);
+                number += resourceInfo.getNumber();
+                resourceInfo.toBuilder().setNumber(number);
                 userResourceBuilder.setResourceInfos(resourceIndex, resourceInfo);
             } else {
                 List<ResourceInfo> resourceInfos = userResourceBuilder.getResourceInfosList();
@@ -616,7 +626,10 @@ public class SceneServiceImpl implements SceneService {
             }
             user.setResource(userResourceBuilder.build().toByteArray());
             userDao.update(user);
+        } else {
+            throw new BaseException(Error.NO_MORE_CAPACITY_VALUE);
         }
+        
         TSCReceive p = TSCReceive.newBuilder()
                 .setBuildingId(buildingId)
                 .setConfigId(productionConfigId)
@@ -627,4 +640,236 @@ public class SceneServiceImpl implements SceneService {
         resp.setBuffer(p.toByteArray());
         return resp;
     }
+
+    @Override
+    public TPacket process(Long uid, Long buildingId, Integer number) throws Exception {
+        User user = userDao.get(uid);
+        Building building = buildingDao.get(buildingId);
+        if (building == null) {
+            throw new BaseException(Error.NO_BUILDING_VALUE);
+        }
+        if (!BuildingUtil.isProcessBuilding(building)) {
+            throw new BaseException(Error.BUILDING_TYPE_ERR_VALUE);
+        }
+        Long groupId = user.getGroupId();
+        if (!building.getGroupId().equals(groupId)) {
+            throw new BaseException(Error.RIGHT_HANDLE_VALUE);
+        }
+        Integer leftNumber = 0;
+        Long processUid = 0L;
+        Long thisTime = System.currentTimeMillis();
+        BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
+        ProcessInfo processInfo = buildingStateBuilder.getProcessInfo();
+        
+        // 是否在加工中
+        Long finishTime = processInfo.getEndTime();
+        if (finishTime < thisTime) {
+            // 是否有未领取资源
+            int receiveIndex = -1;
+            ReceiveInfo receiveInfo = null;
+            for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
+                receiveInfo = buildingStateBuilder.getReceiveInfos(i);
+                if (uid.equals(receiveInfo.getUid())) {
+                    receiveIndex = i;
+                    leftNumber = receiveInfo.getNumber();
+                    break;
+                }
+            }
+            if (receiveIndex == -1) {
+                throw new BaseException(Error.SERVER_ERR_VALUE);
+            }
+            if (leftNumber == 0) {
+                int resourceNumber = 0;
+                ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+                UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
+                
+                // 仓库是否有足够的对应资源
+                int resourceIndex = -1;
+                ResourceInfo resourceInfo = null;
+                Integer constructConfigId = buildingMap.get(building.getConfigId()).getConId();
+                for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
+                    resourceInfo = userResourceBuilder.getResourceInfos(i);
+                    if (constructConfigId.equals(resourceInfo.getConfigId())) {
+                        resourceIndex = i;
+                        resourceNumber = resourceInfo.getNumber();
+                        break;
+                    }
+                }
+                Integer conProRate = buildingMap.get(building.getConfigId()).getConPro();
+                
+                String tableName = buildingMap.get(building.getConfigId()).getBldgFuncTableName();
+                Integer tableId = buildingMap.get(building.getConfigId()).getBldgFuncTableId();
+                Integer capacity = StaticDataManager.GetInstance().getCapacity(tableName, tableId);
+                // 仓库是否有对应的资源、是否有足够的数量、是否有足够的加工仓库容量、是否是加工比的整数倍
+                if (resourceIndex != -1 && resourceNumber >= number && capacity >= number && number%conProRate == 0) {
+                    Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
+                    Long startTime = System.currentTimeMillis();
+                    finishTime = startTime + (long)(number)*3600*1000/speed;
+                    
+                    // 消耗仓库资源
+                    resourceNumber -= number;
+                    if (resourceNumber == 0) {
+                        userResourceBuilder.removeResourceInfos(resourceIndex);
+                    } else {
+                        resourceInfo.toBuilder().setNumber(resourceNumber);
+                        userResourceBuilder.setResourceInfos(resourceIndex, resourceInfo);
+                    }
+                    user.setResource(userResourceBuilder.build().toByteArray());
+                    userDao.update(user);
+                    
+                    // 更新加工建筑状态
+                    number /= conProRate;
+                    receiveInfo.toBuilder().setNumber(number);
+                    processInfo.toBuilder().setUid(uid).setStartTime(startTime).setEndTime(finishTime);
+                    buildingStateBuilder.setProcessInfo(processInfo).setReceiveInfos(receiveIndex, receiveInfo);
+                    building.setState(buildingStateBuilder.build().toByteArray());
+                    buildingDao.update(building);
+                } else {
+                    throw new BaseException(Error.RESOURCE_ERR_VALUE);
+                }
+            }
+        } else {
+            processUid = processInfo.getUid();
+        }
+        
+        TSCProcess p = TSCProcess.newBuilder()
+                .setBuildingId(buildingId)
+                .setFinishTime(finishTime)
+                .setUid(processUid)
+                .setNumber(leftNumber)
+                .build();
+        TPacket resp = new TPacket();
+        resp.setUid(uid);
+        resp.setBuffer(p.toByteArray());
+        return resp;
+    }
+
+    @Override
+    public TPacket interruptProcess(Long uid, Long buildingId) throws Exception {
+        User user = userDao.get(uid);
+        Building building = buildingDao.get(buildingId);
+        if (building == null) {
+            throw new BaseException(Error.NO_BUILDING_VALUE);
+        }
+        if (!BuildingUtil.isProcessBuilding(building)) {
+            throw new BaseException(Error.BUILDING_TYPE_ERR_VALUE);
+        }
+        Long groupId = user.getGroupId();
+        if (!building.getGroupId().equals(groupId)) {
+            throw new BaseException(Error.RIGHT_HANDLE_VALUE);
+        }
+        BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
+        ProcessInfo.Builder processInfoBuilder = buildingStateBuilder.getProcessInfoBuilder();
+        if (uid.equals(processInfoBuilder.getUid())) {
+            throw new BaseException(Error.RIGHT_HANDLE_VALUE);
+        }
+        Long thisTime = System.currentTimeMillis();
+        Long time = thisTime - processInfoBuilder.getStartTime();
+        if (thisTime > processInfoBuilder.getEndTime() || time < 0) {
+            throw new BaseException(Error.TIME_ERR_VALUE);
+        }
+        
+        // 计算已经生产的数量
+        ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+        String tableName = buildingMap.get(building.getConfigId()).getBldgFuncTableName();
+        Integer tableId = buildingMap.get(building.getConfigId()).getBldgFuncTableId();
+        Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
+        Integer conProRate = buildingMap.get(building.getConfigId()).getConPro();
+        Integer number = (int) (time*speed/(conProRate*3600*1000));
+        
+        // 计算返回仓库的原料数量
+        int receiveIndex = -1;
+        Integer leftNumber = 0;
+        ReceiveInfo receiveInfo = null;
+        for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
+            receiveInfo = buildingStateBuilder.getReceiveInfos(i);
+            if (uid.equals(receiveInfo.getUid())) {
+                receiveIndex = i;
+                leftNumber = receiveInfo.getNumber();
+                break;
+            }
+        }
+        if (receiveIndex == -1) {
+            throw new BaseException(Error.SERVER_ERR_VALUE);
+        }
+        leftNumber -= number;
+        leftNumber *= conProRate;
+        leftNumber = (int) (leftNumber * Constant.P);
+        
+        // 仓库是否有足够的容量
+        int constructResourceIndex = -1;
+        int productResourceIndex = -1;
+        Integer configId = null;
+        Integer constructConfigId = buildingMap.get(building.getConfigId()).getConId();
+        Integer productConfigId = buildingMap.get(building.getConfigId()).getProId();
+        
+        Integer storeNumber = 0;
+        Group group = groupDao.get(groupId);
+        Building storehouse = buildingDao.get(group.getStorehouseId());
+        Integer storehouseTableId = buildingMap.get(storehouse.getConfigId()).getBldgFuncTableId();
+        Integer storehouseCapacity = StaticDataManager.GetInstance().cangkuMap.get(storehouseTableId).getCangkuCap();
+        
+        ResourceInfo resourceInfo = null;
+        UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
+        for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
+            resourceInfo = userResourceBuilder.getResourceInfos(i);
+            configId = resourceInfo.getConfigId();
+            if (constructConfigId.equals(configId)) {
+                constructResourceIndex = i;
+            } else if (productConfigId.equals(configId)) {
+                productResourceIndex = i;
+            }
+            storeNumber += resourceInfo.getNumber();
+        }
+        storehouseCapacity -= storeNumber;
+        
+        // 仓库还有容量
+        if (storehouseCapacity > 0) {
+            // 更新仓库原料
+            ResourceInfo.Builder resourceInfoBuilder = userResourceBuilder.getResourceInfosBuilder(constructResourceIndex);
+            resourceInfoBuilder.setNumber(resourceInfoBuilder.getNumber() + leftNumber);
+            userResourceBuilder.setResourceInfos(constructResourceIndex, resourceInfoBuilder);
+            
+            // 更新仓库加工产品
+            resourceInfoBuilder = userResourceBuilder.getResourceInfosBuilder(productResourceIndex);
+            resourceInfoBuilder.setNumber(resourceInfoBuilder.getNumber() + number);
+            userResourceBuilder.setResourceInfos(productResourceIndex, resourceInfoBuilder);
+            user.setResource(userResourceBuilder.build().toByteArray());
+            userDao.update(user);
+            
+            // 更新加工建筑状态
+            ProcessInfo.Builder processInfoBuiler = buildingStateBuilder.getProcessInfoBuilder();
+            processInfoBuiler.setEndTime(thisTime);
+        } else {
+            throw new BaseException(Error.NO_MORE_CAPACITY_VALUE);
+        }
+        
+        TSCInterruptProcess p = TSCInterruptProcess.newBuilder()
+                .setBuildingId(buildingId)
+                .build();
+        TPacket resp = new TPacket();
+        resp.setUid(uid);
+        resp.setBuffer(p.toByteArray());
+        return resp;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

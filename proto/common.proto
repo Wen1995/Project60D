@@ -35,6 +35,8 @@ enum Cmd {
 	RECEIVE = 37;
 	// 加工物品
 	PROCESS = 38;
+	// 中断加工
+	INTERRUPTPROCESS = 40;
 }
 
 enum Error {
@@ -46,6 +48,14 @@ enum Error {
 	NO_BUILDING = 3;
 	// 等级超过上限
 	LEVEL_OVER = 4;
+	// 建筑类型错误
+	BUILDING_TYPE_ERR = 5;
+	// 资源错误
+	RESOURCE_ERR = 6;
+	// 时间错误
+	TIME_ERR = 7;
+	// 容量不足
+	NO_MORE_CAPACITY = 10;
 }
 
 enum BuildingType {

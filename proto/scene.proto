@@ -119,3 +119,12 @@ message TSCProcess {
 	// 未领取资源数量
 	optional int32 number = 4;
 }
+
+message TCSInterruptProcess {
+	// 建筑ID
+	optional int64 buildingId = 1;
+}
+message TSCInterruptProcess {
+	// 建筑ID
+	optional int64 buildingId = 1;
+}

@@ -1408,6 +1408,32 @@ public final class Database {
      */
     com.game.framework.protocol.Database.ReceiveInfoOrBuilder getReceiveInfosOrBuilder(
         int index);
+
+    // optional .com.game.framework.protocol.ProcessInfo processInfo = 3;
+    /**
+     * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+     *
+     * <pre>
+     * 加工信息
+     * </pre>
+     */
+    boolean hasProcessInfo();
+    /**
+     * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+     *
+     * <pre>
+     * 加工信息
+     * </pre>
+     */
+    com.game.framework.protocol.Database.ProcessInfo getProcessInfo();
+    /**
+     * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+     *
+     * <pre>
+     * 加工信息
+     * </pre>
+     */
+    com.game.framework.protocol.Database.ProcessInfoOrBuilder getProcessInfoOrBuilder();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.BuildingState}
@@ -1479,6 +1505,19 @@ public final class Database {
                 mutable_bitField0_ |= 0x00000002;
               }
               receiveInfos_.add(input.readMessage(com.game.framework.protocol.Database.ReceiveInfo.PARSER, extensionRegistry));
+              break;
+            }
+            case 26: {
+              com.game.framework.protocol.Database.ProcessInfo.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = processInfo_.toBuilder();
+              }
+              processInfo_ = input.readMessage(com.game.framework.protocol.Database.ProcessInfo.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(processInfo_);
+                processInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
               break;
             }
           }
@@ -1614,9 +1653,44 @@ public final class Database {
       return receiveInfos_.get(index);
     }
 
+    // optional .com.game.framework.protocol.ProcessInfo processInfo = 3;
+    public static final int PROCESSINFO_FIELD_NUMBER = 3;
+    private com.game.framework.protocol.Database.ProcessInfo processInfo_;
+    /**
+     * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+     *
+     * <pre>
+     * 加工信息
+     * </pre>
+     */
+    public boolean hasProcessInfo() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+     *
+     * <pre>
+     * 加工信息
+     * </pre>
+     */
+    public com.game.framework.protocol.Database.ProcessInfo getProcessInfo() {
+      return processInfo_;
+    }
+    /**
+     * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+     *
+     * <pre>
+     * 加工信息
+     * </pre>
+     */
+    public com.game.framework.protocol.Database.ProcessInfoOrBuilder getProcessInfoOrBuilder() {
+      return processInfo_;
+    }
+
     private void initFields() {
       upgradeInfo_ = com.game.framework.protocol.Database.UpgradeInfo.getDefaultInstance();
       receiveInfos_ = java.util.Collections.emptyList();
+      processInfo_ = com.game.framework.protocol.Database.ProcessInfo.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1636,6 +1710,9 @@ public final class Database {
       for (int i = 0; i < receiveInfos_.size(); i++) {
         output.writeMessage(2, receiveInfos_.get(i));
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(3, processInfo_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1652,6 +1729,10 @@ public final class Database {
       for (int i = 0; i < receiveInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, receiveInfos_.get(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, processInfo_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1763,6 +1844,7 @@ public final class Database {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getUpgradeInfoFieldBuilder();
           getReceiveInfosFieldBuilder();
+          getProcessInfoFieldBuilder();
         }
       }
       private static Builder create() {
@@ -1783,6 +1865,12 @@ public final class Database {
         } else {
           receiveInfosBuilder_.clear();
         }
+        if (processInfoBuilder_ == null) {
+          processInfo_ = com.game.framework.protocol.Database.ProcessInfo.getDefaultInstance();
+        } else {
+          processInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -1828,6 +1916,14 @@ public final class Database {
         } else {
           result.receiveInfos_ = receiveInfosBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (processInfoBuilder_ == null) {
+          result.processInfo_ = processInfo_;
+        } else {
+          result.processInfo_ = processInfoBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1872,6 +1968,9 @@ public final class Database {
               receiveInfosBuilder_.addAllMessages(other.receiveInfos_);
             }
           }
+        }
+        if (other.hasProcessInfo()) {
+          mergeProcessInfo(other.getProcessInfo());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -2363,6 +2462,159 @@ public final class Database {
           receiveInfos_ = null;
         }
         return receiveInfosBuilder_;
+      }
+
+      // optional .com.game.framework.protocol.ProcessInfo processInfo = 3;
+      private com.game.framework.protocol.Database.ProcessInfo processInfo_ = com.game.framework.protocol.Database.ProcessInfo.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.framework.protocol.Database.ProcessInfo, com.game.framework.protocol.Database.ProcessInfo.Builder, com.game.framework.protocol.Database.ProcessInfoOrBuilder> processInfoBuilder_;
+      /**
+       * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+       *
+       * <pre>
+       * 加工信息
+       * </pre>
+       */
+      public boolean hasProcessInfo() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+       *
+       * <pre>
+       * 加工信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Database.ProcessInfo getProcessInfo() {
+        if (processInfoBuilder_ == null) {
+          return processInfo_;
+        } else {
+          return processInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+       *
+       * <pre>
+       * 加工信息
+       * </pre>
+       */
+      public Builder setProcessInfo(com.game.framework.protocol.Database.ProcessInfo value) {
+        if (processInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          processInfo_ = value;
+          onChanged();
+        } else {
+          processInfoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+       *
+       * <pre>
+       * 加工信息
+       * </pre>
+       */
+      public Builder setProcessInfo(
+          com.game.framework.protocol.Database.ProcessInfo.Builder builderForValue) {
+        if (processInfoBuilder_ == null) {
+          processInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          processInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+       *
+       * <pre>
+       * 加工信息
+       * </pre>
+       */
+      public Builder mergeProcessInfo(com.game.framework.protocol.Database.ProcessInfo value) {
+        if (processInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              processInfo_ != com.game.framework.protocol.Database.ProcessInfo.getDefaultInstance()) {
+            processInfo_ =
+              com.game.framework.protocol.Database.ProcessInfo.newBuilder(processInfo_).mergeFrom(value).buildPartial();
+          } else {
+            processInfo_ = value;
+          }
+          onChanged();
+        } else {
+          processInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+       *
+       * <pre>
+       * 加工信息
+       * </pre>
+       */
+      public Builder clearProcessInfo() {
+        if (processInfoBuilder_ == null) {
+          processInfo_ = com.game.framework.protocol.Database.ProcessInfo.getDefaultInstance();
+          onChanged();
+        } else {
+          processInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+       *
+       * <pre>
+       * 加工信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Database.ProcessInfo.Builder getProcessInfoBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getProcessInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+       *
+       * <pre>
+       * 加工信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Database.ProcessInfoOrBuilder getProcessInfoOrBuilder() {
+        if (processInfoBuilder_ != null) {
+          return processInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return processInfo_;
+        }
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.ProcessInfo processInfo = 3;</code>
+       *
+       * <pre>
+       * 加工信息
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.framework.protocol.Database.ProcessInfo, com.game.framework.protocol.Database.ProcessInfo.Builder, com.game.framework.protocol.Database.ProcessInfoOrBuilder> 
+          getProcessInfoFieldBuilder() {
+        if (processInfoBuilder_ == null) {
+          processInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.framework.protocol.Database.ProcessInfo, com.game.framework.protocol.Database.ProcessInfo.Builder, com.game.framework.protocol.Database.ProcessInfoOrBuilder>(
+                  processInfo_,
+                  getParentForChildren(),
+                  isClean());
+          processInfo_ = null;
+        }
+        return processInfoBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.BuildingState)
@@ -3571,6 +3823,660 @@ public final class Database {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.ReceiveInfo)
   }
 
+  public interface ProcessInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int64 startTime = 1;
+    /**
+     * <code>optional int64 startTime = 1;</code>
+     *
+     * <pre>
+     * 加工开始时间
+     * </pre>
+     */
+    boolean hasStartTime();
+    /**
+     * <code>optional int64 startTime = 1;</code>
+     *
+     * <pre>
+     * 加工开始时间
+     * </pre>
+     */
+    long getStartTime();
+
+    // optional int64 endTime = 2;
+    /**
+     * <code>optional int64 endTime = 2;</code>
+     *
+     * <pre>
+     * 加工完成时间
+     * </pre>
+     */
+    boolean hasEndTime();
+    /**
+     * <code>optional int64 endTime = 2;</code>
+     *
+     * <pre>
+     * 加工完成时间
+     * </pre>
+     */
+    long getEndTime();
+
+    // optional int64 uid = 3;
+    /**
+     * <code>optional int64 uid = 3;</code>
+     *
+     * <pre>
+     * 加工人
+     * </pre>
+     */
+    boolean hasUid();
+    /**
+     * <code>optional int64 uid = 3;</code>
+     *
+     * <pre>
+     * 加工人
+     * </pre>
+     */
+    long getUid();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.ProcessInfo}
+   */
+  public static final class ProcessInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements ProcessInfoOrBuilder {
+    // Use ProcessInfo.newBuilder() to construct.
+    private ProcessInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ProcessInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ProcessInfo defaultInstance;
+    public static ProcessInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ProcessInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ProcessInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              startTime_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              endTime_ = input.readInt64();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              uid_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_ProcessInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_ProcessInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Database.ProcessInfo.class, com.game.framework.protocol.Database.ProcessInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ProcessInfo> PARSER =
+        new com.google.protobuf.AbstractParser<ProcessInfo>() {
+      public ProcessInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ProcessInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProcessInfo> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int64 startTime = 1;
+    public static final int STARTTIME_FIELD_NUMBER = 1;
+    private long startTime_;
+    /**
+     * <code>optional int64 startTime = 1;</code>
+     *
+     * <pre>
+     * 加工开始时间
+     * </pre>
+     */
+    public boolean hasStartTime() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int64 startTime = 1;</code>
+     *
+     * <pre>
+     * 加工开始时间
+     * </pre>
+     */
+    public long getStartTime() {
+      return startTime_;
+    }
+
+    // optional int64 endTime = 2;
+    public static final int ENDTIME_FIELD_NUMBER = 2;
+    private long endTime_;
+    /**
+     * <code>optional int64 endTime = 2;</code>
+     *
+     * <pre>
+     * 加工完成时间
+     * </pre>
+     */
+    public boolean hasEndTime() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int64 endTime = 2;</code>
+     *
+     * <pre>
+     * 加工完成时间
+     * </pre>
+     */
+    public long getEndTime() {
+      return endTime_;
+    }
+
+    // optional int64 uid = 3;
+    public static final int UID_FIELD_NUMBER = 3;
+    private long uid_;
+    /**
+     * <code>optional int64 uid = 3;</code>
+     *
+     * <pre>
+     * 加工人
+     * </pre>
+     */
+    public boolean hasUid() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int64 uid = 3;</code>
+     *
+     * <pre>
+     * 加工人
+     * </pre>
+     */
+    public long getUid() {
+      return uid_;
+    }
+
+    private void initFields() {
+      startTime_ = 0L;
+      endTime_ = 0L;
+      uid_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, startTime_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, endTime_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, uid_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, startTime_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, endTime_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, uid_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Database.ProcessInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Database.ProcessInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.ProcessInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Database.ProcessInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.ProcessInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Database.ProcessInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.ProcessInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Database.ProcessInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Database.ProcessInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Database.ProcessInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Database.ProcessInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.ProcessInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Database.ProcessInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_ProcessInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_ProcessInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Database.ProcessInfo.class, com.game.framework.protocol.Database.ProcessInfo.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Database.ProcessInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        startTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        endTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        uid_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Database.internal_static_com_game_framework_protocol_ProcessInfo_descriptor;
+      }
+
+      public com.game.framework.protocol.Database.ProcessInfo getDefaultInstanceForType() {
+        return com.game.framework.protocol.Database.ProcessInfo.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Database.ProcessInfo build() {
+        com.game.framework.protocol.Database.ProcessInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Database.ProcessInfo buildPartial() {
+        com.game.framework.protocol.Database.ProcessInfo result = new com.game.framework.protocol.Database.ProcessInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.startTime_ = startTime_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.endTime_ = endTime_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.uid_ = uid_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Database.ProcessInfo) {
+          return mergeFrom((com.game.framework.protocol.Database.ProcessInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Database.ProcessInfo other) {
+        if (other == com.game.framework.protocol.Database.ProcessInfo.getDefaultInstance()) return this;
+        if (other.hasStartTime()) {
+          setStartTime(other.getStartTime());
+        }
+        if (other.hasEndTime()) {
+          setEndTime(other.getEndTime());
+        }
+        if (other.hasUid()) {
+          setUid(other.getUid());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Database.ProcessInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Database.ProcessInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int64 startTime = 1;
+      private long startTime_ ;
+      /**
+       * <code>optional int64 startTime = 1;</code>
+       *
+       * <pre>
+       * 加工开始时间
+       * </pre>
+       */
+      public boolean hasStartTime() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int64 startTime = 1;</code>
+       *
+       * <pre>
+       * 加工开始时间
+       * </pre>
+       */
+      public long getStartTime() {
+        return startTime_;
+      }
+      /**
+       * <code>optional int64 startTime = 1;</code>
+       *
+       * <pre>
+       * 加工开始时间
+       * </pre>
+       */
+      public Builder setStartTime(long value) {
+        bitField0_ |= 0x00000001;
+        startTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 startTime = 1;</code>
+       *
+       * <pre>
+       * 加工开始时间
+       * </pre>
+       */
+      public Builder clearStartTime() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        startTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 endTime = 2;
+      private long endTime_ ;
+      /**
+       * <code>optional int64 endTime = 2;</code>
+       *
+       * <pre>
+       * 加工完成时间
+       * </pre>
+       */
+      public boolean hasEndTime() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int64 endTime = 2;</code>
+       *
+       * <pre>
+       * 加工完成时间
+       * </pre>
+       */
+      public long getEndTime() {
+        return endTime_;
+      }
+      /**
+       * <code>optional int64 endTime = 2;</code>
+       *
+       * <pre>
+       * 加工完成时间
+       * </pre>
+       */
+      public Builder setEndTime(long value) {
+        bitField0_ |= 0x00000002;
+        endTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 endTime = 2;</code>
+       *
+       * <pre>
+       * 加工完成时间
+       * </pre>
+       */
+      public Builder clearEndTime() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        endTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 uid = 3;
+      private long uid_ ;
+      /**
+       * <code>optional int64 uid = 3;</code>
+       *
+       * <pre>
+       * 加工人
+       * </pre>
+       */
+      public boolean hasUid() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int64 uid = 3;</code>
+       *
+       * <pre>
+       * 加工人
+       * </pre>
+       */
+      public long getUid() {
+        return uid_;
+      }
+      /**
+       * <code>optional int64 uid = 3;</code>
+       *
+       * <pre>
+       * 加工人
+       * </pre>
+       */
+      public Builder setUid(long value) {
+        bitField0_ |= 0x00000004;
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 uid = 3;</code>
+       *
+       * <pre>
+       * 加工人
+       * </pre>
+       */
+      public Builder clearUid() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        uid_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.ProcessInfo)
+    }
+
+    static {
+      defaultInstance = new ProcessInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.ProcessInfo)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_framework_protocol_UserResource_descriptor;
   private static
@@ -3596,6 +4502,11 @@ public final class Database {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_ReceiveInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_ProcessInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_ProcessInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3609,14 +4520,17 @@ public final class Database {
       "tocol\"P\n\014UserResource\022@\n\rresourceInfos\030\001" +
       " \003(\0132).com.game.framework.protocol.Resou" +
       "rceInfo\"0\n\014ResourceInfo\022\020\n\010configId\030\001 \001(" +
-      "\005\022\016\n\006number\030\002 \001(\005\"\216\001\n\rBuildingState\022=\n\013u" +
+      "\005\022\016\n\006number\030\002 \001(\005\"\315\001\n\rBuildingState\022=\n\013u" +
       "pgradeInfo\030\001 \001(\0132(.com.game.framework.pr" +
       "otocol.UpgradeInfo\022>\n\014receiveInfos\030\002 \003(\013" +
       "2(.com.game.framework.protocol.ReceiveIn" +
-      "fo\".\n\013UpgradeInfo\022\022\n\nfinishTime\030\001 \001(\003\022\013\n" +
-      "\003uid\030\002 \001(\003\"C\n\013ReceiveInfo\022\027\n\017lastReceive",
-      "Time\030\001 \001(\003\022\013\n\003uid\030\002 \001(\003\022\016\n\006number\030\003 \001(\005B" +
-      "\002H\001"
+      "fo\022=\n\013processInfo\030\003 \001(\0132(.com.game.frame" +
+      "work.protocol.ProcessInfo\".\n\013UpgradeInfo",
+      "\022\022\n\nfinishTime\030\001 \001(\003\022\013\n\003uid\030\002 \001(\003\"C\n\013Rec" +
+      "eiveInfo\022\027\n\017lastReceiveTime\030\001 \001(\003\022\013\n\003uid" +
+      "\030\002 \001(\003\022\016\n\006number\030\003 \001(\005\">\n\013ProcessInfo\022\021\n" +
+      "\tstartTime\030\001 \001(\003\022\017\n\007endTime\030\002 \001(\003\022\013\n\003uid" +
+      "\030\003 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3640,7 +4554,7 @@ public final class Database {
           internal_static_com_game_framework_protocol_BuildingState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_BuildingState_descriptor,
-              new java.lang.String[] { "UpgradeInfo", "ReceiveInfos", });
+              new java.lang.String[] { "UpgradeInfo", "ReceiveInfos", "ProcessInfo", });
           internal_static_com_game_framework_protocol_UpgradeInfo_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_com_game_framework_protocol_UpgradeInfo_fieldAccessorTable = new
@@ -3653,6 +4567,12 @@ public final class Database {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_ReceiveInfo_descriptor,
               new java.lang.String[] { "LastReceiveTime", "Uid", "Number", });
+          internal_static_com_game_framework_protocol_ProcessInfo_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_com_game_framework_protocol_ProcessInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_ProcessInfo_descriptor,
+              new java.lang.String[] { "StartTime", "EndTime", "Uid", });
           return null;
         }
       };

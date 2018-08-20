@@ -45,8 +45,12 @@ public class UIBuildingInteractionPanel : PanelBase{
     {
         if (selectBuilding == null) return;
         HideAllButton();
-        print(selectBuilding.ConfigID);
-        BuildingFunc funcType = sanctuaryPackage.GetBuildingFuncByConfigID(selectBuilding.ConfigID);
+        NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(selectBuilding.BuildingID);
+        BuildingFunc funcType = BuildingFunc.Collect;
+        if(info != null)
+            funcType = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
+        print(info.configID);
+        print(funcType.ToString());
         switch (selectBuilding.State)
         {
             case (BuildingState.Locked):
@@ -61,7 +65,6 @@ public class UIBuildingInteractionPanel : PanelBase{
                         infoBtn.gameObject.SetActive(true);
                         upgradeBtn.gameObject.SetActive(true);
                         collectBtn.gameObject.SetActive(true);
-                        craftBtn.gameObject.SetActive(true);
                     }
                     else if(funcType == BuildingFunc.Craft)
                     {
@@ -81,9 +84,16 @@ public class UIBuildingInteractionPanel : PanelBase{
                     infoBtn.gameObject.SetActive(true);
                     break;
                 }
-            case (BuildingState.Remind):
+            case (BuildingState.Collect):
                 {
                     //Building in remind state should never invoke this panel
+                    break;
+                }
+            case (BuildingState.Craft):
+                {
+                    infoBtn.gameObject.SetActive(true);
+                    upgradeBtn.gameObject.SetActive(true);
+                    craftBtn.gameObject.SetActive(true);
                     break;
                 }
         }

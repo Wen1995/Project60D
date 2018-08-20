@@ -4,7 +4,7 @@ using System.Net;
 using System;
 using System.Net.Sockets;
 using UnityEngine;
-
+using com.game.framework.protocol;
 
 public class RPCNetwork{
     //--temp-----------------------------------------
@@ -17,6 +17,7 @@ public class RPCNetwork{
     private NMemoryStream mRecieveStream = new NMemoryStream(1024 * 16);
     private Queue<NetMsgDef> mSendMsgQueue = new Queue<NetMsgDef>();
     private Queue<NetMsgDef> mRecieveMsgQueue = new Queue<NetMsgDef>();
+    List<Error> mErrorList = new List<Error>();
     //--attribute------------------------------------
     private NetType mNetType;
     private bool isConnected = false;               //Set true once connected to server
@@ -47,6 +48,9 @@ public class RPCNetwork{
 
         //handle recieved msg
         HandleNetMsg();
+
+        //handle exception
+        HandleException();
     }
 
     //Begin connecting to server
@@ -92,6 +96,7 @@ public class RPCNetwork{
         }
         catch (Exception e)
         {
+            //OnException(e);
             UnityEngine.Debug.Log(e);
             Disconnect();
         }
@@ -115,6 +120,7 @@ public class RPCNetwork{
         }
         catch (Exception e)
         {
+            //OnException(e);
             UnityEngine.Debug.Log(e);
             Disconnect();
         }
@@ -210,6 +216,33 @@ public class RPCNetwork{
                 if (msg == null) continue;
                 mResponceCallback(mNetType, msg);
             }
+        }
+    }
+
+    /// <summary>
+    /// Add a exception to list
+    /// </summary>
+    void OnException(Error e)
+    {
+        Debug.Log(string.Format("Caught error {0}", e.ToString()));
+        //bandon adding duplicate exception
+        if(!mErrorList.Contains(e))
+            mErrorList.Add(e);
+    }
+
+
+    void HandleException()
+    {
+        if (mErrorList.Count < 1)
+            return;
+        lock (mErrorList)
+        {
+            for (int i = 0; i < mErrorList.Count; i++)
+            {
+                //mExceptionCallback()
+                mExceptionCallback(mNetType, mErrorList[i]);
+            }
+            mErrorList.Clear();
         }
     }
 }

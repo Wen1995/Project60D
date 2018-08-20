@@ -73,6 +73,10 @@ public class SanctuaryService : ServiceBase {
     public void RPCCancelCraft(NDictionary args)
     {
         if(args == null) return;
+        var builder = TCSInterruptProcess.CreateBuilder();
+        builder.BuildingId = args.Value<long>("buildingID");
+        TCSInterruptProcess interProcess = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.INTERRUPTPROCESS, interProcess.ToByteArray());
     }
 
     /// <summary>
@@ -92,17 +96,6 @@ public class SanctuaryService : ServiceBase {
         if (subrenderer == null)
             return;
         subrenderer.Close();
-    }
-
-    /// <summary>
-    /// Before getting scene info
-    /// </summary>
-    public void InitBuilding()
-    {
-        //iterate all types of building
-        SanctuaryPackage sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
-        foreach (BuildingType val in System.Enum.GetValues(typeof(BuildingType)))
-            sanctuaryPackage.AddBuilding(val);
     }
 
     public void UpgradeBuilding(NDictionary args)

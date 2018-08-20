@@ -45,24 +45,37 @@ public enum BuildingFunc
 
 }
 
-public class NBuildingData
+public class NBuildingInfo
 {
-    public int configID;
-    public long buildingID;
-    public Building building;
+    public Building building = null;
+    public int configID = 0;
+    public long buildingID = 0;
 
-    public NBuildingData()
+    public long upgradeFinishTime = 0;
+    public long upgardeUID = 0;
+    public long processFinishTime = 0;
+    public long processUID = 0;
+    public int number = 0;
+
+    public NBuildingInfo()
+    {}
+    public NBuildingInfo(BuildingInfo info)
     {
-        configID = 0;
-        building = null;
+        configID = info.ConfigId;
+        buildingID = info.BuildingId;
+        upgradeFinishTime = info.UpgradeFinishTime;
+        upgardeUID = info.UpgradeUid;
+        processFinishTime = info.ProcessFinishTime;
+        processUID = info.ProcessUid;
+        number = info.Number;
     }
 }
 
 public class SanctuaryPackage : ModelBase {
 
-    IList<BuildingInfo> mBuildingInfoList = null;
-    Dictionary<BuildingType, NBuildingData> mBuildingDataMap = new Dictionary<BuildingType, NBuildingData>();
-    Dictionary<long, Building> mBuildingMap = new Dictionary<long, Building>();
+    Dictionary<BuildingType, NBuildingInfo> mBuildingDataMap = new Dictionary<BuildingType, NBuildingInfo>();
+    Dictionary<long, NBuildingInfo> mBuildingInfoMap = new Dictionary<long, NBuildingInfo>();
+    List<BuildingAttributeData> attributeDataList = null;
     private Building selectionBuilding = null;
 
     public BuildingType GetBuildingTypeByConfigID(int configID)
@@ -80,57 +93,32 @@ public class SanctuaryPackage : ModelBase {
         return (BuildingFunc)(configID / 1000000 % 10);
     }
 
-    public int GetBulidingLevel(Building building)
+    public int GetBulidingLevelByConfigID(int configID)
     {
-        if(building.ConfigID == 0)            
-        {
-            Debug.Log(string.Format("building type{0} is not unlocked", building.buildingType));
+        if(configID == 0)
             return 0;
-        }
-        return building.ConfigID % 100;
-    }
-
-    public bool GetBuildingCraftInfo(int buildingConfigID, out int fromConfig, out int toConfig)
-    {
-        fromConfig = 0;
-        toConfig = 0;
-        if(GetBuildingFuncByConfigID(buildingConfigID) != BuildingFunc.Craft)
-            return false;
-        //TODO
-        return true;
+        return configID % 100;
     }
 
     #region Acess Data
-
-    public IList<BuildingInfo> GetBuildingInfoList()
-    {
-        return mBuildingInfoList;
-    }
-
     public Building GetSelectionBuilding()
     {
         return selectionBuilding;
     }
 
-
-    public Building GetBuilding(long buildingID)
+    public NBuildingInfo GetBuildingInfo(long buildingID)
     {
-        if(!mBuildingMap.ContainsKey(buildingID))
+        if(!mBuildingInfoMap.ContainsKey(buildingID))
         {
             Debug.Log(string.Format("Building ID={0} does not exist", buildingID));
             return null;
         }
-        return mBuildingMap[buildingID];
+        return mBuildingInfoMap[buildingID];
     }
 
-    public int GetConfigID(BuildingType type)
+    public List<BuildingAttributeData> GetBuildingAttributeDataList()
     {
-        if (!mBuildingDataMap.ContainsKey(type))
-        {
-            Debug.Log(string.Format("Building Type={0} not exist", type.ToString()));
-            return 0;
-        }
-        return mBuildingDataMap[type].configID;
+        return attributeDataList;
     }
     #endregion
 
@@ -141,46 +129,64 @@ public class SanctuaryPackage : ModelBase {
         selectionBuilding = building;
     }
 
-    public void AddBuilding(BuildingType type)
-    {
-        Building building = GetTypeBuilding(type);
-        if (mBuildingDataMap.ContainsKey(type))
-        {
-            Debug.Log(string.Format("building{0} is Added", type.ToString()));
-            return;
-        }
-        NBuildingData data = new NBuildingData();
-        data.building = building;
-        mBuildingDataMap[type] = data;
-    }
-
     /// <summary>
-    /// Add a building to map, which means building is unlocked
+    /// buildinginfo is from server
     /// </summary>
     public void AddBuilding(BuildingInfo buildingInfo)
-    {
-        long buildingID = buildingInfo.BuildingId;
-        if (mBuildingMap.ContainsKey(buildingID))
-        {
-            Debug.Log(string.Format("building:{0}, type:{1} update", buildingID, GetBuildingTypeByConfigID(buildingInfo.ConfigId)));
-            Building building = mBuildingMap[buildingID];
-            building.SetBuilding(buildingInfo);
-        }
-        else
-        {
-            Debug.Log(string.Format("building:{0}, type:{1} added", buildingID, GetBuildingTypeByConfigID(buildingInfo.ConfigId)));
-            Building building = GetTypeBuilding(GetBuildingTypeByConfigID(buildingInfo.ConfigId));
-            if (building == null) return;
-            building.SetBuilding(buildingInfo);
-            mBuildingMap[buildingID] = building;
-        }
+    { 
+        NBuildingInfo info = new NBuildingInfo(buildingInfo);
+        Debug.Log(buildingInfo.Number);
+        info.building = GetTypeBuilding(GetBuildingTypeByConfigID(buildingInfo.ConfigId));
+        info.building.SetBuildingID(info.buildingID);
+        mBuildingInfoMap[info.buildingID] = info;
     }
 
-    public void UnlockBuilding(long buildingID, Building building)
+    public void UnlockBuilding(long buildingID, Building building, long finishTime)
     {
-        building.UnlockBuilding(buildingID);
-        //building.SetBuilding(buildingID);
-        mBuildingMap.Add(buildingID, building);
+        NBuildingInfo info = new NBuildingInfo();
+        info.buildingID = buildingID;
+        info.configID = GetConfigIDByBuildingType(building.buildingType);
+        info.building = building;
+        info.upgradeFinishTime = finishTime;
+        building.UnlockBuilding(info);
+        mBuildingInfoMap.Add(buildingID, info);
+    }
+
+    public void StartUpgrade(TSCUpgrade upgrade)
+    {
+        NBuildingInfo info = GetBuildingInfo(upgrade.BuildingId);
+        info.upgradeFinishTime = upgrade.FinishTime;
+        info.building.RefreshView();
+    }
+
+    public void EndUpgrade(long buildnigID)
+    {
+        //TODO
+    }
+
+    public void StartCraft(TSCProcess process)
+    {
+        NBuildingInfo info = GetBuildingInfo(process.BuildingId);
+        if(info == null)
+        {
+            Debug.Log(string.Format("buidingID={0} not exist"));
+            return;
+        }
+        info.processFinishTime = process.FinishTime;
+        info.processUID = process.Uid;
+        info.number = process.Number;
+        info.building.RefreshView();
+    }
+    public void EndCraft(long buildingID)
+    {
+        NBuildingInfo info = GetBuildingInfo(buildingID);
+        if(info == null)
+        {
+            Debug.Log(string.Format("buidingID={0} not exist"));
+            return;
+        }
+        info.processFinishTime = 0;
+        info.building.RefreshView();
     }
     #endregion
 
@@ -312,25 +318,66 @@ public class SanctuaryPackage : ModelBase {
 
     /// <summary>
     /// Uggly implement of getting buliding's attribute
+    /// return count of list
     /// </summary>
-    public List<BuildingAttributeData> GetBuildingAttribute(Building building)
+    public int GetBuildingAttribute(Building building, int level)
     {
         BuildingType type = building.buildingType;
-        int level = GetBulidingLevel(building);
         List<BuildingAttributeData> dataList = new List<BuildingAttributeData>();
         string dataName = GetBuildingConfigDataName(type);
         switch(type)
         {
             case(BuildingType.Rice):
             {
-                // DAMI_ARRAY array = ConfigDataStatic.RetrieveConfigData<DAMI_ARRAY>(dataName);
-                // DAMI configData = array.GetItems(level - 1);
-                // dataList.Add(new BuildingAttributeData("生长速度", configData.DamiSpd));
-                // dataList.Add(new BuildingAttributeData("单次最高产量", configData.DamiCap));
+                var dataMap = ConfigDataStatic.GetConfigDataTable("DAMI");
+                DAMI data = dataMap[level] as DAMI;
+                dataList.Add(new BuildingAttributeData("生长速度", data.DamiSpd));
+                dataList.Add(new BuildingAttributeData("单次最高产量", data.DamiCap));
+                break;
+            }
+            case(BuildingType.Veg):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("SHUCAI");
+                SHUCAI data = dataMap[level] as SHUCAI;
+                dataList.Add(new BuildingAttributeData("生长速度", data.ShucaiSpd));
+                dataList.Add(new BuildingAttributeData("单次最高产量", data.ShucaiCap));
+                break;
+            }
+            case(BuildingType.Fertilizer):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("HUAFEI");
+                HUAFEI data = dataMap[level] as HUAFEI;
+                dataList.Add(new BuildingAttributeData("生长速度", data.HuafeiSpd));
+                dataList.Add(new BuildingAttributeData("单次最高产量", data.HuafeiCap));
+                break;
+            }
+            case(BuildingType.Fruit):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("SHUIGUO");
+                SHUIGUO data = dataMap[level] as SHUIGUO;
+                dataList.Add(new BuildingAttributeData("生长速度", data.ShuiguoSpd));
+                dataList.Add(new BuildingAttributeData("单次最高产量", data.ShuiguoCap));
+                break;
+        }
+            case(BuildingType.FeedFactory):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("SILIAO");
+                SILIAO data = dataMap[level] as SILIAO;
+                dataList.Add(new BuildingAttributeData("加工速度", data.SiliaoSpdCoeff));
+                dataList.Add(new BuildingAttributeData("最大加工量", data.SiliaoCap));
+                break;
+            }
+            case(BuildingType.Well):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("JING");
+                JING data = dataMap[level] as JING;
+                dataList.Add(new BuildingAttributeData("渗水速度", data.JingSpd));
+                dataList.Add(new BuildingAttributeData("容量", data.JingCap));
                 break;
             }
             
         } 
-        return dataList;
+        attributeDataList = dataList;
+        return attributeDataList.Count;
     }
 }

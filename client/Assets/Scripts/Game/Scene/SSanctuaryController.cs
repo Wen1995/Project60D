@@ -46,6 +46,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.FINISHUPGRADE, OnBuildingUpgradeFinish);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.FINISHUNLOCK, OnBuildingUnlockFinish);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.RECEIVE, OnReceive);
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.PROCESS, OnCraft);
 
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
@@ -69,23 +70,6 @@ public class SSanctuaryController : SceneController
         //TODO
     }
 
-    /// <summary>
-    /// Add building click callback
-    /// </summary>
-    void AddBuildingEvent()
-    {
-        if (testBuilding != null)
-        {
-            Building building = testBuilding.GetComponent<Building>();
-            building.AddClickEvent(BuildingCallback);
-        }
-    }
-
-    public void BuildingCallback(NDictionary data = null)
-    {
-        print("callback!!!");
-    }
-
     void OnSelectBuilding(NDictionary data = null)
     {   
         Building building = sanctuaryPackage.GetSelectionBuilding();
@@ -100,6 +84,11 @@ public class SSanctuaryController : SceneController
             FacadeSingleton.Instance.OverlayerPanel("UIBuildingInteractionPanel");
     }
 
+    IEnumerator CraftTimer(long buildingID, long remainTime)
+    {
+        yield return new WaitForSeconds(remainTime);
+        sanctuaryPackage.EndCraft(buildingID);
+    }
 
     #region RPC responce
 
@@ -120,7 +109,6 @@ public class SSanctuaryController : SceneController
 
     void OnBuildingUnlock(NetMsgDef msg)
     {
-        Debug.Log("building unlock get responce");
         TSCUnlock unlock = TSCUnlock.ParseFrom(msg.mBtsData);
         if (!unlock.IsGroup)
         {
@@ -141,8 +129,7 @@ public class SSanctuaryController : SceneController
         long finishTime = unlock.FinishTime;
         int remainTime = GlobalFunction.MilliToSec(finishTime - GlobalFunction.GetTimeStamp());
         Building building  = sanctuaryPackage.GetSelectionBuilding();
-        sanctuaryPackage.UnlockBuilding(buildingID, building);
-        building.SetStateUnlock(remainTime);
+        sanctuaryPackage.UnlockBuilding(buildingID, building, finishTime);
         building.RefreshView();
     }
 
@@ -170,12 +157,7 @@ public class SSanctuaryController : SceneController
             print("production line is full");
             return;
         }
-        Building building = sanctuaryPackage.GetSelectionBuilding();
-        long finishTime = upgrade.FinishTime;
-        int remainTime = GlobalFunction.MilliToSec(finishTime - GlobalFunction.GetTimeStamp());
-        building.SetStateUpgrade(remainTime);
-        building.RefreshView();
-        //Debug.Log(string.Format("Upgrade remainTime={0}", remainTime));
+        sanctuaryPackage.StartUpgrade(upgrade);
     }
 
     void OnBuildingUnlockFinish(NetMsgDef msg)
@@ -196,18 +178,28 @@ public class SSanctuaryController : SceneController
         int configID = receive.ConfigId;
         int num = receive.Number;
         
-        Building building = sanctuaryPackage.GetBuilding(buildingID);
-        building.SetStateIdle();
+        NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+        info.processFinishTime = 0;
+        info.number = 0;
+        info.building.RefreshView();
         Debug.Log(string.Format("buildingID{0} collect res type={1}, num={2}", buildingID, configID, num));
     }
 
     void OnCraft(NetMsgDef msg)
     {
         TSCProcess process = TSCProcess.ParseFrom(msg.mBtsData);
+        sanctuaryPackage.StartCraft(process);
+        long remainTime = 0;
+        GlobalFunction.GetRemainTime(process.FinishTime, out remainTime);
+        print("start counting , remainTime=" + remainTime.ToString());
+        StartCoroutine(CraftTimer(process.BuildingId, remainTime));
+    }
+
+    void OnCancelCraft(NetMsgDef msg)
+    {
+        TSCInterruptProcess process = TSCInterruptProcess.ParseFrom(msg.mBtsData);
         print(process.BuildingId);
-        print(process.FinishTime);
-        print(process.Uid);
-        print(process.Number);
+
     }
     #endregion
 

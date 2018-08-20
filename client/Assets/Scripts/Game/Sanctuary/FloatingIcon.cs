@@ -25,7 +25,7 @@ public class FloatingIcon : MonoBehaviour, IPoolUnit {
     public void Restore()
     {
         ISubPool pool = ObjectPoolSingleton.Instance.GetPool<FloatingIcon>();
-        pool.Restore(gameObject);
+        pool.Restore(this);
     }
 
     public UnitState State()

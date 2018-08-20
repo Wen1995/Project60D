@@ -20,6 +20,11 @@ public class UIBuildingInfoPanel : PanelBase {
     private GameObject modelGo = null;
     private Building selecttionBuilding = null;
     private SanctuaryPackage sanctuarytPackage = null;
+    
+
+    //view component
+    UILabel titleLabel = null;
+    private NTableView tableView = null;
 
     protected override void Awake()
     {
@@ -29,6 +34,9 @@ public class UIBuildingInfoPanel : PanelBase {
         button.onClick.Add(new EventDelegate(Close));
         UIEventListener listener = transform.Find("inbox/buildingview/texture").GetComponent<UIEventListener>();
         listener.onDrag += OnModelRotete;
+        tableView = transform.Find("inbox/panel/tableview").GetComponent<NTableView>();
+
+        titleLabel = transform.Find("inbox/title").GetComponent<UILabel>();
     }
 
 
@@ -37,8 +45,7 @@ public class UIBuildingInfoPanel : PanelBase {
         base.OpenPanel();
         sanctuarytPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         selecttionBuilding = sanctuarytPackage.GetSelectionBuilding();
-        
-        //InitView();
+        InitView();
     }
 
     public override void ClosePanel()
@@ -49,13 +56,21 @@ public class UIBuildingInfoPanel : PanelBase {
 
     void InitView()
     {
+        NBuildingInfo info = sanctuarytPackage.GetBuildingInfo(selecttionBuilding.BuildingID);
+        var buildingDataMap = ConfigDataStatic.GetConfigDataTable("BUILDING");
+        BUILDING buildingData = buildingDataMap[info.configID] as BUILDING;
+        int level = sanctuarytPackage.GetBulidingLevelByConfigID(info.configID);
+        titleLabel.text = string.Format("{0} Lv.{1}", buildingData.BldgName, level);
         //render 3d model
         NDictionary data = new NDictionary();
         data.Add("model", Resources.Load("Prefabs/Building/car"));
         modelGo = FacadeSingleton.Instance.InvokeService("OpenSubRenderer", ConstVal.Service_Sanctuary, data) as GameObject;
         //get attribute data
-        //List<BuildingAttributeData> dataList = sanctuarytPackage.GetBuildingAttribute(selecttionBuilding);
-                
+        int count = sanctuarytPackage.GetBuildingAttribute(selecttionBuilding, level);
+
+        tableView.DataCount = count;
+        tableView.TableChange();
+
     }
 
     void Close()
@@ -67,10 +82,5 @@ public class UIBuildingInfoPanel : PanelBase {
     void OnModelRotete(GameObject go, Vector2 pos)
     {
         modelGo.transform.Rotate(new Vector3(0, -pos.x, 0));
-    }
-
-    void ShowBuilingAttribute()
-    {
-        //TODO        
     }
 }

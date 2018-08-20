@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using com.game.framework.protocol;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,7 +39,7 @@ public class NetSingleton : Singleton<NetSingleton> {
         RPCNetwork network = networkMap[netType];
         if (network == null)
         {
-            print(string.Format("NetType{0:D} craete failed", (int)netType));
+            Debug.Log(string.Format("NetType{0:D} craete failed", (int)netType));
             return;
         }
         network.DoConnect(host, port);
@@ -71,13 +73,26 @@ public class NetSingleton : Singleton<NetSingleton> {
 
     public void OnResponceNetMsg(NetType nType, NetMsgDef msg)
     {
-
+        if(msg.mMsgHead.mCmdID == -1)
+        {
+            ErrorResponce(msg);
+            return;
+        }
         print(string.Format("NetMsg Recieved cmdID:{0:D}, size:{1:D}", (int)msg.mMsgHead.mCmdID, (int)msg.mMsgHead.mSize));
         FacadeSingleton.Instance.InvokeRPCResponce(msg.mMsgHead.mCmdID, msg);
     }
 
-    public void OnNetException(NetType nType, NetExceptionType e)
+    public void OnNetException(NetType nType, Error e)
     {
         print(string.Format("Error{0} occured!!", e.ToString()));
+    }
+
+    void ErrorResponce(NetMsgDef msg)
+    {
+        byte[] data = new byte[4];
+        if(msg.mBtsData.Length < 4)
+            Array.Copy(msg.mBtsData, 0, data, 0, msg.mBtsData.Length);
+        int errorCode = BitConverter.ToInt32(data, 0);
+        print(string.Format("Caught error code={0}", errorCode));
     }
 }

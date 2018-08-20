@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using com.game.framework.protocol;
 
 public class RPCNetTools {
 
@@ -53,4 +54,4 @@ public enum NetExceptionType
 
 // Net Callback Def
 public delegate void RPCResponceCallback(NetType netType, NetMsgDef netMsg);
-public delegate void RPCExceptionCallback(NetType netType, NetExceptionType exceptionType);
+public delegate void RPCExceptionCallback(NetType netType, Error exceptionType);

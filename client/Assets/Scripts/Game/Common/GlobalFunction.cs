@@ -26,13 +26,13 @@ public static class GlobalFunction {
 
     public static bool GetRemainTime(long finishTime, out long remainTime)
     {
-        if(finishTime <= 0)
+        long curTime = GetTimeStamp();
+        if(finishTime <= 0 || finishTime <= curTime)
         {
             remainTime = 0;
             return false;
         }
-        long curTime = GetTimeStamp();
-        remainTime = finishTime - curTime;
+        remainTime = (finishTime - curTime) / 1000;
         return true;
     }
 }

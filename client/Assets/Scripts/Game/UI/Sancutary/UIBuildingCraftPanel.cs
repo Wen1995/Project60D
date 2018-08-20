@@ -44,6 +44,8 @@ public class UIBuildingCraftPanel : PanelBase {
 		button.onClick.Add(new EventDelegate(OnMinus));
 		button = transform.Find("inbox/ingredient/okbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnStartCraft));
+		button = transform.Find("closebtn").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(Close));
 		cancelButton = transform.Find("inbox/production/cancelbtn").GetComponent<UIButton>();
 		cancelButton.onClick.Add(new EventDelegate(OnCancelCraft));
 
@@ -56,9 +58,11 @@ public class UIBuildingCraftPanel : PanelBase {
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
+		
 		building = sanctuaryPackage.GetSelectionBuilding();
+		NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(building.BuildingID);
 		var buildingDataMap = ConfigDataStatic.GetConfigDataTable("BUILDING");
-		buildingData = buildingDataMap[building.ConfigID] as BUILDING;
+		buildingData = buildingDataMap[info.configID] as BUILDING;
 		InitView();
 	}
 
@@ -79,7 +83,6 @@ public class UIBuildingCraftPanel : PanelBase {
 
 		itemData = itemDataMap[toConfigID] as ITEM_RES;
 		toItemName.text = itemData.MinName;
-
 		UpdateView();
 	}
 
@@ -89,12 +92,14 @@ public class UIBuildingCraftPanel : PanelBase {
 		toItemNum.text = ((int)(craftNum / ratio)).ToString();
 	}
 
+	void Close()
+	{
+		FacadeSingleton.Instance.BackPanel();
+	}
 
 
 	void OnPlus()
 	{
-		print(craftNum);
-		print(ratio);
 		craftNum += ratio;
 		craftNum = CheckNum(craftNum);
 		UpdateView();
@@ -125,6 +130,8 @@ public class UIBuildingCraftPanel : PanelBase {
 
 	void OnCancelCraft()
 	{
-		//TODO
+		NDictionary args = new NDictionary();
+		args.Add("buildingID", building.BuildingID);
+		FacadeSingleton.Instance.InvokeService("RPCCancelCraft", ConstVal.Service_Sanctuary, args);
 	}
 }

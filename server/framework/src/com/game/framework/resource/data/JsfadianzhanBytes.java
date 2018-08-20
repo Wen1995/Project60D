@@ -30,38 +30,38 @@ public final class JsfadianzhanBytes {
     int getId();
 
     /**
-     * <code>optional int32 js_spd = 2 [default = 0];</code>
+     * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 能量转化率（js水平x这个系数） 
      * </pre>
      */
-    boolean hasJsSpd();
+    boolean hasJsfadianzhanSpd();
     /**
-     * <code>optional int32 js_spd = 2 [default = 0];</code>
+     * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 能量转化率（js水平x这个系数） 
      * </pre>
      */
-    int getJsSpd();
+    int getJsfadianzhanSpd();
 
     /**
-     * <code>optional int32 js_cap = 3 [default = 0];</code>
+     * <code>optional int32 jsfadianzhan_cap = 3 [default = 0];</code>
      *
      * <pre>
      ** 单次最大储电量 
      * </pre>
      */
-    boolean hasJsCap();
+    boolean hasJsfadianzhanCap();
     /**
-     * <code>optional int32 js_cap = 3 [default = 0];</code>
+     * <code>optional int32 jsfadianzhan_cap = 3 [default = 0];</code>
      *
      * <pre>
      ** 单次最大储电量 
      * </pre>
      */
-    int getJsCap();
+    int getJsfadianzhanCap();
   }
   /**
    * Protobuf type {@code com.game.framework.resource.data.JSFADIANZHAN}
@@ -122,12 +122,12 @@ public final class JsfadianzhanBytes {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              jsSpd_ = input.readInt32();
+              jsfadianzhanSpd_ = input.readInt32();
               break;
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              jsCap_ = input.readInt32();
+              jsfadianzhanCap_ = input.readInt32();
               break;
             }
           }
@@ -193,56 +193,56 @@ public final class JsfadianzhanBytes {
       return id_;
     }
 
-    public static final int JS_SPD_FIELD_NUMBER = 2;
-    private int jsSpd_;
+    public static final int JSFADIANZHAN_SPD_FIELD_NUMBER = 2;
+    private int jsfadianzhanSpd_;
     /**
-     * <code>optional int32 js_spd = 2 [default = 0];</code>
+     * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 能量转化率（js水平x这个系数） 
      * </pre>
      */
-    public boolean hasJsSpd() {
+    public boolean hasJsfadianzhanSpd() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 js_spd = 2 [default = 0];</code>
+     * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 能量转化率（js水平x这个系数） 
      * </pre>
      */
-    public int getJsSpd() {
-      return jsSpd_;
+    public int getJsfadianzhanSpd() {
+      return jsfadianzhanSpd_;
     }
 
-    public static final int JS_CAP_FIELD_NUMBER = 3;
-    private int jsCap_;
+    public static final int JSFADIANZHAN_CAP_FIELD_NUMBER = 3;
+    private int jsfadianzhanCap_;
     /**
-     * <code>optional int32 js_cap = 3 [default = 0];</code>
+     * <code>optional int32 jsfadianzhan_cap = 3 [default = 0];</code>
      *
      * <pre>
      ** 单次最大储电量 
      * </pre>
      */
-    public boolean hasJsCap() {
+    public boolean hasJsfadianzhanCap() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 js_cap = 3 [default = 0];</code>
+     * <code>optional int32 jsfadianzhan_cap = 3 [default = 0];</code>
      *
      * <pre>
      ** 单次最大储电量 
      * </pre>
      */
-    public int getJsCap() {
-      return jsCap_;
+    public int getJsfadianzhanCap() {
+      return jsfadianzhanCap_;
     }
 
     private void initFields() {
       id_ = 0;
-      jsSpd_ = 0;
-      jsCap_ = 0;
+      jsfadianzhanSpd_ = 0;
+      jsfadianzhanCap_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -265,10 +265,10 @@ public final class JsfadianzhanBytes {
         output.writeInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, jsSpd_);
+        output.writeInt32(2, jsfadianzhanSpd_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, jsCap_);
+        output.writeInt32(3, jsfadianzhanCap_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -285,11 +285,11 @@ public final class JsfadianzhanBytes {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, jsSpd_);
+          .computeInt32Size(2, jsfadianzhanSpd_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, jsCap_);
+          .computeInt32Size(3, jsfadianzhanCap_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -410,9 +410,9 @@ public final class JsfadianzhanBytes {
         super.clear();
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        jsSpd_ = 0;
+        jsfadianzhanSpd_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        jsCap_ = 0;
+        jsfadianzhanCap_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -449,11 +449,11 @@ public final class JsfadianzhanBytes {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.jsSpd_ = jsSpd_;
+        result.jsfadianzhanSpd_ = jsfadianzhanSpd_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.jsCap_ = jsCap_;
+        result.jsfadianzhanCap_ = jsfadianzhanCap_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -473,11 +473,11 @@ public final class JsfadianzhanBytes {
         if (other.hasId()) {
           setId(other.getId());
         }
-        if (other.hasJsSpd()) {
-          setJsSpd(other.getJsSpd());
+        if (other.hasJsfadianzhanSpd()) {
+          setJsfadianzhanSpd(other.getJsfadianzhanSpd());
         }
-        if (other.hasJsCap()) {
-          setJsCap(other.getJsCap());
+        if (other.hasJsfadianzhanCap()) {
+          setJsfadianzhanCap(other.getJsfadianzhanCap());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -558,98 +558,98 @@ public final class JsfadianzhanBytes {
         return this;
       }
 
-      private int jsSpd_ ;
+      private int jsfadianzhanSpd_ ;
       /**
-       * <code>optional int32 js_spd = 2 [default = 0];</code>
+       * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 能量转化率（js水平x这个系数） 
        * </pre>
        */
-      public boolean hasJsSpd() {
+      public boolean hasJsfadianzhanSpd() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 js_spd = 2 [default = 0];</code>
+       * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 能量转化率（js水平x这个系数） 
        * </pre>
        */
-      public int getJsSpd() {
-        return jsSpd_;
+      public int getJsfadianzhanSpd() {
+        return jsfadianzhanSpd_;
       }
       /**
-       * <code>optional int32 js_spd = 2 [default = 0];</code>
+       * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 能量转化率（js水平x这个系数） 
        * </pre>
        */
-      public Builder setJsSpd(int value) {
+      public Builder setJsfadianzhanSpd(int value) {
         bitField0_ |= 0x00000002;
-        jsSpd_ = value;
+        jsfadianzhanSpd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 js_spd = 2 [default = 0];</code>
+       * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 能量转化率（js水平x这个系数） 
        * </pre>
        */
-      public Builder clearJsSpd() {
+      public Builder clearJsfadianzhanSpd() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        jsSpd_ = 0;
+        jsfadianzhanSpd_ = 0;
         onChanged();
         return this;
       }
 
-      private int jsCap_ ;
+      private int jsfadianzhanCap_ ;
       /**
-       * <code>optional int32 js_cap = 3 [default = 0];</code>
+       * <code>optional int32 jsfadianzhan_cap = 3 [default = 0];</code>
        *
        * <pre>
        ** 单次最大储电量 
        * </pre>
        */
-      public boolean hasJsCap() {
+      public boolean hasJsfadianzhanCap() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 js_cap = 3 [default = 0];</code>
+       * <code>optional int32 jsfadianzhan_cap = 3 [default = 0];</code>
        *
        * <pre>
        ** 单次最大储电量 
        * </pre>
        */
-      public int getJsCap() {
-        return jsCap_;
+      public int getJsfadianzhanCap() {
+        return jsfadianzhanCap_;
       }
       /**
-       * <code>optional int32 js_cap = 3 [default = 0];</code>
+       * <code>optional int32 jsfadianzhan_cap = 3 [default = 0];</code>
        *
        * <pre>
        ** 单次最大储电量 
        * </pre>
        */
-      public Builder setJsCap(int value) {
+      public Builder setJsfadianzhanCap(int value) {
         bitField0_ |= 0x00000004;
-        jsCap_ = value;
+        jsfadianzhanCap_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 js_cap = 3 [default = 0];</code>
+       * <code>optional int32 jsfadianzhan_cap = 3 [default = 0];</code>
        *
        * <pre>
        ** 单次最大储电量 
        * </pre>
        */
-      public Builder clearJsCap() {
+      public Builder clearJsfadianzhanCap() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        jsCap_ = 0;
+        jsfadianzhanCap_ = 0;
         onChanged();
         return this;
       }
@@ -1373,11 +1373,11 @@ public final class JsfadianzhanBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\036proto/jsfadianzhan_bytes.proto\022 com.ga" +
-      "me.framework.resource.data\"C\n\014JSFADIANZH" +
-      "AN\022\r\n\002id\030\001 \002(\005:\0010\022\021\n\006js_spd\030\002 \001(\005:\0010\022\021\n\006" +
-      "js_cap\030\003 \001(\005:\0010\"S\n\022JSFADIANZHAN_ARRAY\022=\n" +
-      "\005items\030\001 \003(\0132..com.game.framework.resour" +
-      "ce.data.JSFADIANZHAN"
+      "me.framework.resource.data\"W\n\014JSFADIANZH" +
+      "AN\022\r\n\002id\030\001 \002(\005:\0010\022\033\n\020jsfadianzhan_spd\030\002 " +
+      "\001(\005:\0010\022\033\n\020jsfadianzhan_cap\030\003 \001(\005:\0010\"S\n\022J" +
+      "SFADIANZHAN_ARRAY\022=\n\005items\030\001 \003(\0132..com.g" +
+      "ame.framework.resource.data.JSFADIANZHAN"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1396,7 +1396,7 @@ public final class JsfadianzhanBytes {
     internal_static_com_game_framework_resource_data_JSFADIANZHAN_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_JSFADIANZHAN_descriptor,
-        new java.lang.String[] { "Id", "JsSpd", "JsCap", });
+        new java.lang.String[] { "Id", "JsfadianzhanSpd", "JsfadianzhanCap", });
     internal_static_com_game_framework_resource_data_JSFADIANZHAN_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_JSFADIANZHAN_ARRAY_fieldAccessorTable = new

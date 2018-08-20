@@ -14,9 +14,9 @@ public final class Common {
   public enum Cmd
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>ERROR = 0;</code>
+     * <code>ERROR = -1;</code>
      */
-    ERROR(0, 0),
+    ERROR(0, -1),
     /**
      * <code>LOGIN = 1;</code>
      *
@@ -135,9 +135,9 @@ public final class Common {
     ;
 
     /**
-     * <code>ERROR = 0;</code>
+     * <code>ERROR = -1;</code>
      */
-    public static final int ERROR_VALUE = 0;
+    public static final int ERROR_VALUE = -1;
     /**
      * <code>LOGIN = 1;</code>
      *
@@ -259,7 +259,7 @@ public final class Common {
 
     public static Cmd valueOf(int value) {
       switch (value) {
-        case 0: return ERROR;
+        case -1: return ERROR;
         case 1: return LOGIN;
         case 2: return LOGOUT;
         case 3: return GETUSERINFO;
@@ -1037,25 +1037,26 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\356\001\n\003Cmd\022\t\n\005ERROR\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOG" +
-      "OUT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREATEGROUP\020\013\022" +
-      "\016\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO\020\037\022\023\n\017GET" +
-      "BUILDINGINFO\020 \022\013\n\007UPGRADE\020!\022\021\n\rFINISHUPG" +
-      "RADE\020\"\022\n\n\006UNLOCK\020#\022\020\n\014FINISHUNLOCK\020$\022\013\n\007" +
-      "RECEIVE\020%\022\013\n\007PROCESS\020&\022\024\n\020INTERRUPTPROCE" +
-      "SS\020(*\227\001\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_" +
-      "HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLEVEL_OVER\020" +
-      "\004\022\025\n\021BUILDING_TYPE_ERR\020\005\022\020\n\014RESOURCE_ERR",
-      "\020\006\022\014\n\010TIME_ERR\020\007\022\024\n\020NO_MORE_CAPACITY\020\n*:" +
-      "\n\014BuildingType\022\024\n\020RECEIVE_BUILDING\020\001\022\024\n\020" +
-      "PROCESS_BUILDING\020\002*\242\002\n\014ResourceType\022\010\n\004R" +
-      "ICE\020\001\022\016\n\nVEGETABLES\020\002\022\t\n\005FRUIT\020\003\022\t\n\005GRAS" +
-      "S\020\004\022\013\n\007PIGFOOD\020\005\022\010\n\004PORK\020\006\022\t\n\005CRUDE\020\007\022\014\n" +
-      "\010GASOLINE\020\010\022\010\n\004IRON\020\t\022\t\n\005STEEL\020\n\022\010\n\004PINE" +
-      "\020\013\022\016\n\nWHITEBIRCH\020\014\022\r\n\tIRONBIRCH\020\r\022\r\n\tPIN" +
-      "EBOARD\020\016\022\023\n\017WHITEBIRCHBOARD\020\017\022\022\n\016IRONBIR" +
-      "CHBOARD\020\020\022\r\n\tPUREWATER\020\021\022\020\n\014MINERALWATER" +
-      "\020\022\022\017\n\013ELECTRICITY\020\023\022\n\n\006BULLET\020\024B\002H\001"
+      "col*\367\001\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005LOGIN" +
+      "\020\001\022\n\n\006LOGOUT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREAT" +
+      "EGROUP\020\013\022\016\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO" +
+      "\020\037\022\023\n\017GETBUILDINGINFO\020 \022\013\n\007UPGRADE\020!\022\021\n\r" +
+      "FINISHUPGRADE\020\"\022\n\n\006UNLOCK\020#\022\020\n\014FINISHUNL" +
+      "OCK\020$\022\013\n\007RECEIVE\020%\022\013\n\007PROCESS\020&\022\024\n\020INTER" +
+      "RUPTPROCESS\020(*\227\001\n\005Error\022\016\n\nSERVER_ERR\020\001\022" +
+      "\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLE" +
+      "VEL_OVER\020\004\022\025\n\021BUILDING_TYPE_ERR\020\005\022\020\n\014RES",
+      "OURCE_ERR\020\006\022\014\n\010TIME_ERR\020\007\022\024\n\020NO_MORE_CAP" +
+      "ACITY\020\n*:\n\014BuildingType\022\024\n\020RECEIVE_BUILD" +
+      "ING\020\001\022\024\n\020PROCESS_BUILDING\020\002*\242\002\n\014Resource" +
+      "Type\022\010\n\004RICE\020\001\022\016\n\nVEGETABLES\020\002\022\t\n\005FRUIT\020" +
+      "\003\022\t\n\005GRASS\020\004\022\013\n\007PIGFOOD\020\005\022\010\n\004PORK\020\006\022\t\n\005C" +
+      "RUDE\020\007\022\014\n\010GASOLINE\020\010\022\010\n\004IRON\020\t\022\t\n\005STEEL\020" +
+      "\n\022\010\n\004PINE\020\013\022\016\n\nWHITEBIRCH\020\014\022\r\n\tIRONBIRCH" +
+      "\020\r\022\r\n\tPINEBOARD\020\016\022\023\n\017WHITEBIRCHBOARD\020\017\022\022" +
+      "\n\016IRONBIRCHBOARD\020\020\022\r\n\tPUREWATER\020\021\022\020\n\014MIN" +
+      "ERALWATER\020\022\022\017\n\013ELECTRICITY\020\023\022\n\n\006BULLET\020\024",
+      "B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

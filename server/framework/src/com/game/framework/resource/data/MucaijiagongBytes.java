@@ -30,38 +30,38 @@ public final class MucaijiagongBytes {
     int getId();
 
     /**
-     * <code>optional int32 mucai_spd = 2 [default = 0];</code>
+     * <code>optional int32 mucaijiagong_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 加工速度 
      * </pre>
      */
-    boolean hasMucaiSpd();
+    boolean hasMucaijiagongSpd();
     /**
-     * <code>optional int32 mucai_spd = 2 [default = 0];</code>
+     * <code>optional int32 mucaijiagong_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 加工速度 
      * </pre>
      */
-    int getMucaiSpd();
+    int getMucaijiagongSpd();
 
     /**
-     * <code>optional int32 mucai_cap = 3 [default = 0];</code>
+     * <code>optional int32 mucaijiagong_cap = 3 [default = 0];</code>
      *
      * <pre>
      ** 最大加工量 
      * </pre>
      */
-    boolean hasMucaiCap();
+    boolean hasMucaijiagongCap();
     /**
-     * <code>optional int32 mucai_cap = 3 [default = 0];</code>
+     * <code>optional int32 mucaijiagong_cap = 3 [default = 0];</code>
      *
      * <pre>
      ** 最大加工量 
      * </pre>
      */
-    int getMucaiCap();
+    int getMucaijiagongCap();
   }
   /**
    * Protobuf type {@code com.game.framework.resource.data.MUCAIJIAGONG}
@@ -122,12 +122,12 @@ public final class MucaijiagongBytes {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              mucaiSpd_ = input.readInt32();
+              mucaijiagongSpd_ = input.readInt32();
               break;
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              mucaiCap_ = input.readInt32();
+              mucaijiagongCap_ = input.readInt32();
               break;
             }
           }
@@ -193,56 +193,56 @@ public final class MucaijiagongBytes {
       return id_;
     }
 
-    public static final int MUCAI_SPD_FIELD_NUMBER = 2;
-    private int mucaiSpd_;
+    public static final int MUCAIJIAGONG_SPD_FIELD_NUMBER = 2;
+    private int mucaijiagongSpd_;
     /**
-     * <code>optional int32 mucai_spd = 2 [default = 0];</code>
+     * <code>optional int32 mucaijiagong_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 加工速度 
      * </pre>
      */
-    public boolean hasMucaiSpd() {
+    public boolean hasMucaijiagongSpd() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 mucai_spd = 2 [default = 0];</code>
+     * <code>optional int32 mucaijiagong_spd = 2 [default = 0];</code>
      *
      * <pre>
      ** 加工速度 
      * </pre>
      */
-    public int getMucaiSpd() {
-      return mucaiSpd_;
+    public int getMucaijiagongSpd() {
+      return mucaijiagongSpd_;
     }
 
-    public static final int MUCAI_CAP_FIELD_NUMBER = 3;
-    private int mucaiCap_;
+    public static final int MUCAIJIAGONG_CAP_FIELD_NUMBER = 3;
+    private int mucaijiagongCap_;
     /**
-     * <code>optional int32 mucai_cap = 3 [default = 0];</code>
+     * <code>optional int32 mucaijiagong_cap = 3 [default = 0];</code>
      *
      * <pre>
      ** 最大加工量 
      * </pre>
      */
-    public boolean hasMucaiCap() {
+    public boolean hasMucaijiagongCap() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 mucai_cap = 3 [default = 0];</code>
+     * <code>optional int32 mucaijiagong_cap = 3 [default = 0];</code>
      *
      * <pre>
      ** 最大加工量 
      * </pre>
      */
-    public int getMucaiCap() {
-      return mucaiCap_;
+    public int getMucaijiagongCap() {
+      return mucaijiagongCap_;
     }
 
     private void initFields() {
       id_ = 0;
-      mucaiSpd_ = 0;
-      mucaiCap_ = 0;
+      mucaijiagongSpd_ = 0;
+      mucaijiagongCap_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -265,10 +265,10 @@ public final class MucaijiagongBytes {
         output.writeInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, mucaiSpd_);
+        output.writeInt32(2, mucaijiagongSpd_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, mucaiCap_);
+        output.writeInt32(3, mucaijiagongCap_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -285,11 +285,11 @@ public final class MucaijiagongBytes {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, mucaiSpd_);
+          .computeInt32Size(2, mucaijiagongSpd_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, mucaiCap_);
+          .computeInt32Size(3, mucaijiagongCap_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -410,9 +410,9 @@ public final class MucaijiagongBytes {
         super.clear();
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        mucaiSpd_ = 0;
+        mucaijiagongSpd_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        mucaiCap_ = 0;
+        mucaijiagongCap_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -449,11 +449,11 @@ public final class MucaijiagongBytes {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.mucaiSpd_ = mucaiSpd_;
+        result.mucaijiagongSpd_ = mucaijiagongSpd_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.mucaiCap_ = mucaiCap_;
+        result.mucaijiagongCap_ = mucaijiagongCap_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -473,11 +473,11 @@ public final class MucaijiagongBytes {
         if (other.hasId()) {
           setId(other.getId());
         }
-        if (other.hasMucaiSpd()) {
-          setMucaiSpd(other.getMucaiSpd());
+        if (other.hasMucaijiagongSpd()) {
+          setMucaijiagongSpd(other.getMucaijiagongSpd());
         }
-        if (other.hasMucaiCap()) {
-          setMucaiCap(other.getMucaiCap());
+        if (other.hasMucaijiagongCap()) {
+          setMucaijiagongCap(other.getMucaijiagongCap());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -558,98 +558,98 @@ public final class MucaijiagongBytes {
         return this;
       }
 
-      private int mucaiSpd_ ;
+      private int mucaijiagongSpd_ ;
       /**
-       * <code>optional int32 mucai_spd = 2 [default = 0];</code>
+       * <code>optional int32 mucaijiagong_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 加工速度 
        * </pre>
        */
-      public boolean hasMucaiSpd() {
+      public boolean hasMucaijiagongSpd() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 mucai_spd = 2 [default = 0];</code>
+       * <code>optional int32 mucaijiagong_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 加工速度 
        * </pre>
        */
-      public int getMucaiSpd() {
-        return mucaiSpd_;
+      public int getMucaijiagongSpd() {
+        return mucaijiagongSpd_;
       }
       /**
-       * <code>optional int32 mucai_spd = 2 [default = 0];</code>
+       * <code>optional int32 mucaijiagong_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 加工速度 
        * </pre>
        */
-      public Builder setMucaiSpd(int value) {
+      public Builder setMucaijiagongSpd(int value) {
         bitField0_ |= 0x00000002;
-        mucaiSpd_ = value;
+        mucaijiagongSpd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 mucai_spd = 2 [default = 0];</code>
+       * <code>optional int32 mucaijiagong_spd = 2 [default = 0];</code>
        *
        * <pre>
        ** 加工速度 
        * </pre>
        */
-      public Builder clearMucaiSpd() {
+      public Builder clearMucaijiagongSpd() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        mucaiSpd_ = 0;
+        mucaijiagongSpd_ = 0;
         onChanged();
         return this;
       }
 
-      private int mucaiCap_ ;
+      private int mucaijiagongCap_ ;
       /**
-       * <code>optional int32 mucai_cap = 3 [default = 0];</code>
+       * <code>optional int32 mucaijiagong_cap = 3 [default = 0];</code>
        *
        * <pre>
        ** 最大加工量 
        * </pre>
        */
-      public boolean hasMucaiCap() {
+      public boolean hasMucaijiagongCap() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 mucai_cap = 3 [default = 0];</code>
+       * <code>optional int32 mucaijiagong_cap = 3 [default = 0];</code>
        *
        * <pre>
        ** 最大加工量 
        * </pre>
        */
-      public int getMucaiCap() {
-        return mucaiCap_;
+      public int getMucaijiagongCap() {
+        return mucaijiagongCap_;
       }
       /**
-       * <code>optional int32 mucai_cap = 3 [default = 0];</code>
+       * <code>optional int32 mucaijiagong_cap = 3 [default = 0];</code>
        *
        * <pre>
        ** 最大加工量 
        * </pre>
        */
-      public Builder setMucaiCap(int value) {
+      public Builder setMucaijiagongCap(int value) {
         bitField0_ |= 0x00000004;
-        mucaiCap_ = value;
+        mucaijiagongCap_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 mucai_cap = 3 [default = 0];</code>
+       * <code>optional int32 mucaijiagong_cap = 3 [default = 0];</code>
        *
        * <pre>
        ** 最大加工量 
        * </pre>
        */
-      public Builder clearMucaiCap() {
+      public Builder clearMucaijiagongCap() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        mucaiCap_ = 0;
+        mucaijiagongCap_ = 0;
         onChanged();
         return this;
       }
@@ -1373,11 +1373,11 @@ public final class MucaijiagongBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\036proto/mucaijiagong_bytes.proto\022 com.ga" +
-      "me.framework.resource.data\"I\n\014MUCAIJIAGO" +
-      "NG\022\r\n\002id\030\001 \002(\005:\0010\022\024\n\tmucai_spd\030\002 \001(\005:\0010\022" +
-      "\024\n\tmucai_cap\030\003 \001(\005:\0010\"S\n\022MUCAIJIAGONG_AR" +
-      "RAY\022=\n\005items\030\001 \003(\0132..com.game.framework." +
-      "resource.data.MUCAIJIAGONG"
+      "me.framework.resource.data\"W\n\014MUCAIJIAGO" +
+      "NG\022\r\n\002id\030\001 \002(\005:\0010\022\033\n\020mucaijiagong_spd\030\002 " +
+      "\001(\005:\0010\022\033\n\020mucaijiagong_cap\030\003 \001(\005:\0010\"S\n\022M" +
+      "UCAIJIAGONG_ARRAY\022=\n\005items\030\001 \003(\0132..com.g" +
+      "ame.framework.resource.data.MUCAIJIAGONG"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1396,7 +1396,7 @@ public final class MucaijiagongBytes {
     internal_static_com_game_framework_resource_data_MUCAIJIAGONG_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_MUCAIJIAGONG_descriptor,
-        new java.lang.String[] { "Id", "MucaiSpd", "MucaiCap", });
+        new java.lang.String[] { "Id", "MucaijiagongSpd", "MucaijiagongCap", });
     internal_static_com_game_framework_resource_data_MUCAIJIAGONG_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_MUCAIJIAGONG_ARRAY_fieldAccessorTable = new

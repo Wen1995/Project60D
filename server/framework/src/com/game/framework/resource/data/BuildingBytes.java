@@ -236,7 +236,7 @@ public final class BuildingBytes {
      * <code>optional int32 con_pro = 11 [default = 0];</code>
      *
      * <pre>
-     ** 消耗/产出 
+     ** 消耗产出比 
      * </pre>
      */
     boolean hasConPro();
@@ -244,7 +244,7 @@ public final class BuildingBytes {
      * <code>optional int32 con_pro = 11 [default = 0];</code>
      *
      * <pre>
-     ** 消耗/产出 
+     ** 消耗产出比 
      * </pre>
      */
     int getConPro();
@@ -1544,7 +1544,7 @@ public final class BuildingBytes {
      * <code>optional int32 con_pro = 11 [default = 0];</code>
      *
      * <pre>
-     ** 消耗/产出 
+     ** 消耗产出比 
      * </pre>
      */
     public boolean hasConPro() {
@@ -1554,7 +1554,7 @@ public final class BuildingBytes {
      * <code>optional int32 con_pro = 11 [default = 0];</code>
      *
      * <pre>
-     ** 消耗/产出 
+     ** 消耗产出比 
      * </pre>
      */
     public int getConPro() {
@@ -3137,7 +3137,7 @@ public final class BuildingBytes {
        * <code>optional int32 con_pro = 11 [default = 0];</code>
        *
        * <pre>
-       ** 消耗/产出 
+       ** 消耗产出比 
        * </pre>
        */
       public boolean hasConPro() {
@@ -3147,7 +3147,7 @@ public final class BuildingBytes {
        * <code>optional int32 con_pro = 11 [default = 0];</code>
        *
        * <pre>
-       ** 消耗/产出 
+       ** 消耗产出比 
        * </pre>
        */
       public int getConPro() {
@@ -3157,7 +3157,7 @@ public final class BuildingBytes {
        * <code>optional int32 con_pro = 11 [default = 0];</code>
        *
        * <pre>
-       ** 消耗/产出 
+       ** 消耗产出比 
        * </pre>
        */
       public Builder setConPro(int value) {
@@ -3170,7 +3170,7 @@ public final class BuildingBytes {
        * <code>optional int32 con_pro = 11 [default = 0];</code>
        *
        * <pre>
-       ** 消耗/产出 
+       ** 消耗产出比 
        * </pre>
        */
       public Builder clearConPro() {

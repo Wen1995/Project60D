@@ -1,9 +1,5 @@
 package com.game.framework.console.constant;
 
-/**
- * @author auto
- * date: ${time}
- */
 public class HandlerConstant {
 
 	/************* HandlerGroup *************/

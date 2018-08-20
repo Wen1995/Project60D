@@ -1,14 +1,18 @@
 import java.util.List;
+import com.game.framework.console.exception.BaseException;
 import com.game.framework.console.factory.ServiceFactory;
 import com.game.framework.dbcache.dao.IBuildingDao;
 import com.game.framework.dbcache.dao.IGroupDao;
 import com.game.framework.dbcache.dao.impl.BuildingDao;
 import com.game.framework.dbcache.dao.impl.GroupDao;
 import com.game.framework.dbcache.model.Building;
+import com.game.framework.protocol.Common.Error;
 import com.game.framework.protocol.Database.BuildingState;
+import com.game.framework.protocol.Database.ProcessInfo;
 import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Database.UpgradeInfo;
 import com.game.framework.utils.BuildingUtil;
+import com.game.framework.utils.StringUtil;
 
 public class StartTest {
     
@@ -16,7 +20,6 @@ public class StartTest {
     static IGroupDao groupDao = ServiceFactory.getProxy(GroupDao.class);
     
     public static void main(String[] args) throws Exception {
-        
         /*Long groupId = 8388609L;
         List<Building> buildings = buildingDao.getAllByGroupId(groupId);
         for (Building b : buildings) {

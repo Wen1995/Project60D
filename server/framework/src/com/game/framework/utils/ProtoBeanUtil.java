@@ -22,6 +22,7 @@ import com.google.protobuf.WireFormat.JavaType;
  */
 public class ProtoBeanUtil {
 
+    @SuppressWarnings("rawtypes")
     private static List<ProtoUtilTypeAdptor> adptors = new ArrayList<>();
 
     private static Logger logger = LoggerFactory.getLogger(ProtoBeanUtil.class);
@@ -39,6 +40,7 @@ public class ProtoBeanUtil {
     private static final String GET_PREFIX = "get";
     private static final String SET_PREFIX = "set";
 
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static void copyProperties(Object orig, Object dest)
             throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Method[] origMethods = orig.getClass().getDeclaredMethods();
@@ -101,12 +103,12 @@ public class ProtoBeanUtil {
                 }
             } catch (Exception e) {
                 logger.error("", e);
-                // not found
                 continue;
             }
         }
     }
 
+    @SuppressWarnings("rawtypes")
     public static Object getProperty(Object object, String fieldName) {
         try {
             StringBuilder builder = new StringBuilder();
@@ -128,8 +130,7 @@ public class ProtoBeanUtil {
             }
             return read;
         } catch (Exception e) {
-            // TODO proto bug
-            // logger.info("", e);
+            logger.error("", e);
         }
         return null;
     }

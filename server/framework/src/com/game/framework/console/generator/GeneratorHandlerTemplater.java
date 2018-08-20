@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import com.game.framework.console.handler.HandlerGroup;
 import com.game.framework.console.handler.HandlersConfig;
 import com.game.framework.console.handler.HandlersConfig.Handler;
-import com.game.framework.utils.DateUtil;
 import com.game.framework.utils.ExternalStorageUtil;
 import com.game.framework.utils.StringUtil;
 import com.google.common.base.CaseFormat;
@@ -91,7 +90,6 @@ public class GeneratorHandlerTemplater {
         VelocityEngine ve = newVelocityEngine();
         Template template = ve.getTemplate("handlerconstant.vm");
         VelocityContext ctx = new VelocityContext();
-        ctx.put("time", DateUtil.GetCurDateString());
         ctx.put("HandlerGroup", HandlerGroup_attrs.toArray());
         ctx.put("Model", Model_attrs.toArray());
 
@@ -143,7 +141,6 @@ public class GeneratorHandlerTemplater {
             ctx.put("litHandlerGroup", litHandlerGroup);
             String litModel = StringUtil.AllLetterToLower(modelClass.getModel());
             ctx.put("litModel", litModel);
-            ctx.put("time", DateUtil.GetCurDateString());
             ctx.put("bigHandlerGroup", modelClass.getHandlerGroup());
             ctx.put("model", modelClass.getModel());
             ctx.put("package", modelClass.getModel().toLowerCase());
@@ -227,7 +224,6 @@ public class GeneratorHandlerTemplater {
             ctx.put("litHandlerGroup", litHandlerGroup);
             String litModel = StringUtil.AllLetterToLower(modelClass.getModel());
             ctx.put("litModel", litModel);
-            ctx.put("time", DateUtil.GetCurDateString());
             ctx.put("bigHandlerGroup", modelClass.getHandlerGroup());
             ctx.put("model", modelClass.getModel());
 

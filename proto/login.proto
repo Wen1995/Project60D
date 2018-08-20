@@ -8,10 +8,10 @@ message TCSLogin {
 }
 message TSCLogin {
 	optional int64 uid = 1;
+	// 工会Id
+	optional int64 groupId = 2;
 	// 服务器当前时间
-	optional int64 systemCurrentTime = 2;
-	// 是否有groupId
-	optional bool isHaveGroup = 3;
+	optional int64 systemCurrentTime = 3;
 }
 
 message TCSLogout {

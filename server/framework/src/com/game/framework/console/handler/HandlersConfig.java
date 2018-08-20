@@ -38,7 +38,8 @@ public class HandlersConfig {
 
     @SuppressWarnings("unchecked")
     public void init() {
-        InputStream is = ClassLoader.getSystemResourceAsStream("com/game/framework/console/handler.xml");
+        InputStream is =
+                ClassLoader.getSystemResourceAsStream("com/game/framework/console/handler.xml");
         String handlerGroupName = null;
         String model = null;
         String method = null;
@@ -53,7 +54,7 @@ public class HandlersConfig {
             if (StringUtil.isNullOrEmpty(dir)) {
                 dir = Constant.DIR_ROOT + Constant.Separator + "src";
             }
-            
+
             List<Element> list = root.elements("HandlerGroup");
             for (Iterator<Element> iterator = list.iterator(); iterator.hasNext();) {
                 Element elem = (Element) iterator.next();
@@ -61,7 +62,7 @@ public class HandlersConfig {
                 int thread = XMLUtil.getInt(elem, "thread", 1);
                 int cleanCycSec = XMLUtil.getInt(elem, "clean", 60);
                 HandlerGroup handlerGroup = new HandlerGroup(handlerGroupName, thread, cleanCycSec);
-                
+
                 List<Element> handler_list = elem.elements("Handler");
                 for (Iterator<Element> it = handler_list.iterator(); it.hasNext();) {
                     Element handler_elem = (Element) it.next();
@@ -83,7 +84,8 @@ public class HandlersConfig {
                             methodParams, isInner);
 
                     if (handlers.containsKey(id)) {
-                        throw new Exception("HandlersConfig init() Handler Id Repeated ! Id = " + id);
+                        throw new Exception(
+                                "HandlersConfig init() Handler Id Repeated ! Id = " + id);
                     }
                     handlers.put(id, handler);
                 }

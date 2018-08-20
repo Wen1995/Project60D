@@ -33,15 +33,12 @@ public class LoginServiceImpl implements LoginService {
         if (StringUtil.isNullOrEmpty(account)) {
             throw new BaseException(Error.SERVER_ERR_VALUE);
         }
-        boolean isHaveGroup = false;
+        Long groupId = 0L;
         Map<String, Long> account2Id = DynamicDataManager.GetInstance().account2Uid;
         if (account2Id.containsKey(account)) {
             uid = account2Id.get(account);
             User user = userDao.get(uid);
-            Long groupId = user.getGroupId();
-            if (groupId != null && groupId != 0) {
-                isHaveGroup = true;
-            }
+            groupId = user.getGroupId();
         } else {
             User user = new User();
             uid = IdManager.GetInstance().genId(IdType.USER);
@@ -71,7 +68,7 @@ public class LoginServiceImpl implements LoginService {
         TSCLogin p = TSCLogin.newBuilder()
                 .setUid(uid)
                 .setSystemCurrentTime(System.currentTimeMillis())
-                .setIsHaveGroup(isHaveGroup)
+                .setGroupId(groupId)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);

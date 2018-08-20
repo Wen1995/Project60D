@@ -1,3 +1,5 @@
+import java.lang.reflect.Field;
+import java.util.Date;
 import java.util.List;
 import com.game.framework.console.exception.BaseException;
 import com.game.framework.console.factory.ServiceFactory;
@@ -12,7 +14,8 @@ import com.game.framework.protocol.Database.ProcessInfo;
 import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Database.UpgradeInfo;
 import com.game.framework.utils.BuildingUtil;
-import com.game.framework.utils.StringUtil;
+import com.game.framework.utils.DateTimeUtils;
+import com.game.framework.utils.ExternalStorageUtil;
 
 public class StartTest {
     
@@ -20,24 +23,45 @@ public class StartTest {
     static IGroupDao groupDao = ServiceFactory.getProxy(GroupDao.class);
     
     public static void main(String[] args) throws Exception {
-        /*Long groupId = 8388609L;
-        List<Building> buildings = buildingDao.getAllByGroupId(groupId);
-        for (Building b : buildings) {
-            if (BuildingUtil.isReceiveBuilding(b)) {
-                getBuildingInfo(b.getId());
-            }
-        }*/
-        //getBuildingInfo(12582914L);
+        getBuildingInfo(146800641L);
     }
     
     static void getBuildingInfo(Long buildingId) throws Exception {
         Building building = buildingDao.get(buildingId);
         BuildingState buildingState = BuildingState.parseFrom(building.getState());
         UpgradeInfo upgradeInfo = buildingState.getUpgradeInfo();
-        List<ReceiveInfo> receiveInfos = buildingState.getReceiveInfosList();
         
+        List<ReceiveInfo> receiveInfos = buildingState.getReceiveInfosList();
         for (ReceiveInfo r : receiveInfos) {
             System.out.println(r.getNumber());
+        }
+        //ProcessInfo processInfo = buildingState.getProcessInfo();
+        //System.out.println(DateTimeUtils.getDateFormateStr(new Date(processInfo.getEndTime())));
+    }
+    
+    static void getBuildingInfos(Long groupId) throws Exception {
+        List<Building> buildings = buildingDao.getAllByGroupId(groupId);
+        for (Building b : buildings) {
+            if (BuildingUtil.isReceiveBuilding(b)) {
+                getBuildingInfo(b.getId());
+            }
+        }
+    }
+    
+    static void getHandleXML() throws Exception {
+        List<String> fileNames = ExternalStorageUtil.getFileName("src/com/game/framework/protocol");
+        for (String name : fileNames) {
+            if (!name.equals("Common") && !name.equals("Database")) {
+                System.out.println("***" + name + "***");
+                String classPath = "com.game.framework.protocol." + name;
+                Class<?> clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
+                Field[] fields = clazz.getDeclaredFields();
+                for (Field f : fields) {
+                    name = f.getName();
+                    if (name.startsWith("internal_static_com_game_framework_protocol_TCS") && name.endsWith("_descriptor"))
+                        System.out.println(name.subSequence(47, name.lastIndexOf("_descriptor")));
+                }
+            }
         }
     }
 }

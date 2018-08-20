@@ -540,9 +540,27 @@ public final class Login {
      */
     long getUid();
 
-    // optional int64 systemCurrentTime = 2;
+    // optional int64 groupId = 2;
     /**
-     * <code>optional int64 systemCurrentTime = 2;</code>
+     * <code>optional int64 groupId = 2;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    boolean hasGroupId();
+    /**
+     * <code>optional int64 groupId = 2;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    long getGroupId();
+
+    // optional int64 systemCurrentTime = 3;
+    /**
+     * <code>optional int64 systemCurrentTime = 3;</code>
      *
      * <pre>
      * 服务器当前时间
@@ -550,31 +568,13 @@ public final class Login {
      */
     boolean hasSystemCurrentTime();
     /**
-     * <code>optional int64 systemCurrentTime = 2;</code>
+     * <code>optional int64 systemCurrentTime = 3;</code>
      *
      * <pre>
      * 服务器当前时间
      * </pre>
      */
     long getSystemCurrentTime();
-
-    // optional bool isHaveGroup = 3;
-    /**
-     * <code>optional bool isHaveGroup = 3;</code>
-     *
-     * <pre>
-     * 是否有groupId
-     * </pre>
-     */
-    boolean hasIsHaveGroup();
-    /**
-     * <code>optional bool isHaveGroup = 3;</code>
-     *
-     * <pre>
-     * 是否有groupId
-     * </pre>
-     */
-    boolean getIsHaveGroup();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCLogin}
@@ -634,12 +634,12 @@ public final class Login {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              systemCurrentTime_ = input.readInt64();
+              groupId_ = input.readInt64();
               break;
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              isHaveGroup_ = input.readBool();
+              systemCurrentTime_ = input.readInt64();
               break;
             }
           }
@@ -698,21 +698,45 @@ public final class Login {
       return uid_;
     }
 
-    // optional int64 systemCurrentTime = 2;
-    public static final int SYSTEMCURRENTTIME_FIELD_NUMBER = 2;
+    // optional int64 groupId = 2;
+    public static final int GROUPID_FIELD_NUMBER = 2;
+    private long groupId_;
+    /**
+     * <code>optional int64 groupId = 2;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    public boolean hasGroupId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int64 groupId = 2;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    public long getGroupId() {
+      return groupId_;
+    }
+
+    // optional int64 systemCurrentTime = 3;
+    public static final int SYSTEMCURRENTTIME_FIELD_NUMBER = 3;
     private long systemCurrentTime_;
     /**
-     * <code>optional int64 systemCurrentTime = 2;</code>
+     * <code>optional int64 systemCurrentTime = 3;</code>
      *
      * <pre>
      * 服务器当前时间
      * </pre>
      */
     public boolean hasSystemCurrentTime() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int64 systemCurrentTime = 2;</code>
+     * <code>optional int64 systemCurrentTime = 3;</code>
      *
      * <pre>
      * 服务器当前时间
@@ -722,34 +746,10 @@ public final class Login {
       return systemCurrentTime_;
     }
 
-    // optional bool isHaveGroup = 3;
-    public static final int ISHAVEGROUP_FIELD_NUMBER = 3;
-    private boolean isHaveGroup_;
-    /**
-     * <code>optional bool isHaveGroup = 3;</code>
-     *
-     * <pre>
-     * 是否有groupId
-     * </pre>
-     */
-    public boolean hasIsHaveGroup() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional bool isHaveGroup = 3;</code>
-     *
-     * <pre>
-     * 是否有groupId
-     * </pre>
-     */
-    public boolean getIsHaveGroup() {
-      return isHaveGroup_;
-    }
-
     private void initFields() {
       uid_ = 0L;
+      groupId_ = 0L;
       systemCurrentTime_ = 0L;
-      isHaveGroup_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -767,10 +767,10 @@ public final class Login {
         output.writeInt64(1, uid_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt64(2, systemCurrentTime_);
+        output.writeInt64(2, groupId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBool(3, isHaveGroup_);
+        output.writeInt64(3, systemCurrentTime_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -787,11 +787,11 @@ public final class Login {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, systemCurrentTime_);
+          .computeInt64Size(2, groupId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, isHaveGroup_);
+          .computeInt64Size(3, systemCurrentTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -911,9 +911,9 @@ public final class Login {
         super.clear();
         uid_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        systemCurrentTime_ = 0L;
+        groupId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        isHaveGroup_ = false;
+        systemCurrentTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -950,11 +950,11 @@ public final class Login {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.systemCurrentTime_ = systemCurrentTime_;
+        result.groupId_ = groupId_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.isHaveGroup_ = isHaveGroup_;
+        result.systemCurrentTime_ = systemCurrentTime_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -974,11 +974,11 @@ public final class Login {
         if (other.hasUid()) {
           setUid(other.getUid());
         }
+        if (other.hasGroupId()) {
+          setGroupId(other.getGroupId());
+        }
         if (other.hasSystemCurrentTime()) {
           setSystemCurrentTime(other.getSystemCurrentTime());
-        }
-        if (other.hasIsHaveGroup()) {
-          setIsHaveGroup(other.getIsHaveGroup());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1040,20 +1040,69 @@ public final class Login {
         return this;
       }
 
-      // optional int64 systemCurrentTime = 2;
+      // optional int64 groupId = 2;
+      private long groupId_ ;
+      /**
+       * <code>optional int64 groupId = 2;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public boolean hasGroupId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int64 groupId = 2;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public long getGroupId() {
+        return groupId_;
+      }
+      /**
+       * <code>optional int64 groupId = 2;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public Builder setGroupId(long value) {
+        bitField0_ |= 0x00000002;
+        groupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 groupId = 2;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public Builder clearGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        groupId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 systemCurrentTime = 3;
       private long systemCurrentTime_ ;
       /**
-       * <code>optional int64 systemCurrentTime = 2;</code>
+       * <code>optional int64 systemCurrentTime = 3;</code>
        *
        * <pre>
        * 服务器当前时间
        * </pre>
        */
       public boolean hasSystemCurrentTime() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int64 systemCurrentTime = 2;</code>
+       * <code>optional int64 systemCurrentTime = 3;</code>
        *
        * <pre>
        * 服务器当前时间
@@ -1063,77 +1112,28 @@ public final class Login {
         return systemCurrentTime_;
       }
       /**
-       * <code>optional int64 systemCurrentTime = 2;</code>
+       * <code>optional int64 systemCurrentTime = 3;</code>
        *
        * <pre>
        * 服务器当前时间
        * </pre>
        */
       public Builder setSystemCurrentTime(long value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         systemCurrentTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 systemCurrentTime = 2;</code>
+       * <code>optional int64 systemCurrentTime = 3;</code>
        *
        * <pre>
        * 服务器当前时间
        * </pre>
        */
       public Builder clearSystemCurrentTime() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        systemCurrentTime_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      // optional bool isHaveGroup = 3;
-      private boolean isHaveGroup_ ;
-      /**
-       * <code>optional bool isHaveGroup = 3;</code>
-       *
-       * <pre>
-       * 是否有groupId
-       * </pre>
-       */
-      public boolean hasIsHaveGroup() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional bool isHaveGroup = 3;</code>
-       *
-       * <pre>
-       * 是否有groupId
-       * </pre>
-       */
-      public boolean getIsHaveGroup() {
-        return isHaveGroup_;
-      }
-      /**
-       * <code>optional bool isHaveGroup = 3;</code>
-       *
-       * <pre>
-       * 是否有groupId
-       * </pre>
-       */
-      public Builder setIsHaveGroup(boolean value) {
-        bitField0_ |= 0x00000004;
-        isHaveGroup_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bool isHaveGroup = 3;</code>
-       *
-       * <pre>
-       * 是否有groupId
-       * </pre>
-       */
-      public Builder clearIsHaveGroup() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        isHaveGroup_ = false;
+        systemCurrentTime_ = 0L;
         onChanged();
         return this;
       }
@@ -2544,11 +2544,11 @@ public final class Login {
   static {
     java.lang.String[] descriptorData = {
       "\n\013login.proto\022\033com.game.framework.protoc" +
-      "ol\"\033\n\010TCSLogin\022\017\n\007account\030\001 \001(\t\"G\n\010TSCLo" +
-      "gin\022\013\n\003uid\030\001 \001(\003\022\031\n\021systemCurrentTime\030\002 " +
-      "\001(\003\022\023\n\013isHaveGroup\030\003 \001(\010\"\013\n\tTCSLogout\"\013\n" +
-      "\tTSCLogout\"\020\n\016TCSGetUserInfo\"!\n\016TSCGetUs" +
-      "erInfo\022\017\n\007groupId\030\001 \001(\003B\002H\001"
+      "ol\"\033\n\010TCSLogin\022\017\n\007account\030\001 \001(\t\"C\n\010TSCLo" +
+      "gin\022\013\n\003uid\030\001 \001(\003\022\017\n\007groupId\030\002 \001(\003\022\031\n\021sys" +
+      "temCurrentTime\030\003 \001(\003\"\013\n\tTCSLogout\"\013\n\tTSC" +
+      "Logout\"\020\n\016TCSGetUserInfo\"!\n\016TSCGetUserIn" +
+      "fo\022\017\n\007groupId\030\001 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2566,7 +2566,7 @@ public final class Login {
           internal_static_com_game_framework_protocol_TSCLogin_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCLogin_descriptor,
-              new java.lang.String[] { "Uid", "SystemCurrentTime", "IsHaveGroup", });
+              new java.lang.String[] { "Uid", "GroupId", "SystemCurrentTime", });
           internal_static_com_game_framework_protocol_TCSLogout_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_TCSLogout_fieldAccessorTable = new

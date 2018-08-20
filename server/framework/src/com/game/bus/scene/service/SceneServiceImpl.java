@@ -95,7 +95,19 @@ public class SceneServiceImpl implements SceneService {
                         break;
                     }
                 }
+            } else if (BuildingUtil.isProcessBuilding(building)) {
+                for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
+                    ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
+                    if (uid.equals(rBuilder.getUid())) {
+                        number = rBuilder.getNumber();
+                        break;
+                    }
+                }
+                ProcessInfo processInfo = buildingStateBuilder.getProcessInfo();
+                buildingInfoBuilder.setProcessUid(processInfo.getUid())
+                .setProcessFinishTime(processInfo.getEndTime());
             }
+            
             buildingInfoBuilder.setBuildingId(building.getId())
             .setConfigId(building.getConfigId())
             .setUpgradeFinishTime(upgradeInfo.getFinishTime())
@@ -130,6 +142,7 @@ public class SceneServiceImpl implements SceneService {
         
         // 领取类建筑领取状态更新
         Integer number = 0;
+        BuildingInfo.Builder buildingInfoBuilder = BuildingInfo.newBuilder();
         if (BuildingUtil.isReceiveBuilding(building)) {
             Long thisReceiveTime = System.currentTimeMillis();
             long time = 0;
@@ -157,10 +170,20 @@ public class SceneServiceImpl implements SceneService {
                     break;
                 }
             }
+        } else if (BuildingUtil.isProcessBuilding(building)) {
+            for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
+                ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
+                if (uid.equals(rBuilder.getUid())) {
+                    number = rBuilder.getNumber();
+                    break;
+                }
+            }
+            ProcessInfo processInfo = buildingStateBuilder.getProcessInfo();
+            buildingInfoBuilder.setProcessUid(processInfo.getUid())
+            .setProcessFinishTime(processInfo.getEndTime());
         }
         
-        BuildingInfo.Builder buildingInfoBuilder = BuildingInfo.newBuilder()
-                .setBuildingId(buildingId)
+        buildingInfoBuilder.setBuildingId(buildingId)
                 .setConfigId(building.getConfigId())
                 .setUpgradeFinishTime(upgradeInfo.getFinishTime())
                 .setUpgradeUid(upgradeInfo.getUid())
@@ -522,7 +545,7 @@ public class SceneServiceImpl implements SceneService {
         if (building == null) {
             throw new BaseException(Error.NO_BUILDING_VALUE);
         }
-        if (!BuildingUtil.isReceiveBuilding(building) || !BuildingUtil.isProcessBuilding(building)) {
+        if (!BuildingUtil.isReceiveBuilding(building) && !BuildingUtil.isProcessBuilding(building)) {
             throw new BaseException(Error.BUILDING_TYPE_ERR_VALUE);
         }
         Long groupId = user.getGroupId();
@@ -625,8 +648,7 @@ public class SceneServiceImpl implements SceneService {
             ResourceInfo.Builder resourceInfoBuilder;
             if (resourceIndex != -1) {
                 resourceInfoBuilder = userResourceBuilder.getResourceInfosBuilder(resourceIndex);
-                number += resourceInfoBuilder.getNumber();
-                resourceInfoBuilder.setNumber(number);
+                resourceInfoBuilder.setNumber(number + resourceInfoBuilder.getNumber());
                 userResourceBuilder.setResourceInfos(resourceIndex, resourceInfoBuilder);
             } else {
                 List<ResourceInfo> resourceInfos = userResourceBuilder.getResourceInfosList();

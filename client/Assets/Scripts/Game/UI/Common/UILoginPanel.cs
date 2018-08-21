@@ -7,6 +7,8 @@ public class UILoginPanel : PanelBase {
 
     UIInput userName = null;
 
+    UserPackage userPackage = null;
+
     private void Start()
     {
         //get ref
@@ -27,7 +29,6 @@ public class UILoginPanel : PanelBase {
 
     void OnLogin()
     {
-        print("Start login");
         NDictionary data = new NDictionary();
         data.Add("username", userName.value);
         FacadeSingleton.Instance.InvokeService("Login", ConstVal.Service_Common, data);
@@ -35,25 +36,26 @@ public class UILoginPanel : PanelBase {
 
     void OnLoginSuccussed(NetMsgDef msg)
     {
+        userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
         PlayerPrefs.SetString("username", userName.value);
         TSCLogin login = TSCLogin.ParseFrom(msg.mBtsData);
         print("login successed , userid = " + login.Uid);
+        userPackage.SetUserID(login.Uid);
+        GlobalFunction.GetTimeDelta(login.SystemCurrentTime);
         //check if need to create or join a sanctuary
-        if (!login.IsHaveGroup)
+        if(login.GroupId == 0)
         {
             //for now just create a new group
             FacadeSingleton.Instance.InvokeService("CreateGroup", ConstVal.Service_Common);
         }
         else
+        {
+            userPackage.SetGroupID(login.GroupId);
             LoadNextScene();
+        }
             
-    }
-
-    void OnGetUserData(NetMsgDef msg)
-    {
-        //UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
-        //TODO
-        FacadeSingleton.Instance.LoadScene("SLoading");
+            
+            
     }
 
     /// <summary>
@@ -63,6 +65,7 @@ public class UILoginPanel : PanelBase {
     {
         TSCCreateGroup res = TSCCreateGroup.ParseFrom(msg.mBtsData);
         print("New group id = " + res.GroupId);
+        userPackage.SetGroupID(res.GroupId);
         LoadNextScene();
     }
 

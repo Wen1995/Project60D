@@ -55,7 +55,7 @@ MonoBehaviour:
   mSprites:
   - name: Arrow-Right-Icon_2
     x: 2650
-    y: 3313
+    y: 3253
     width: 66
     height: 57
     borderLeft: 11
@@ -68,11 +68,11 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Basic-Outline
     x: 0
-    y: 1371
+    y: 1233
     width: 900
     height: 137
-    borderLeft: 0
-    borderRight: 0
+    borderLeft: 5
+    borderRight: 5
     borderTop: 10
     borderBottom: 10
     paddingLeft: 0
@@ -97,17 +97,17 @@ MonoBehaviour:
     y: 2892
     width: 348
     height: 100
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    borderLeft: 5
+    borderRight: 5
+    borderTop: 5
+    borderBottom: 5
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: Blue2-Outline
-    x: 901
-    y: 1371
+    x: 0
+    y: 957
     width: 900
     height: 137
     borderLeft: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Blue-Filled
     x: 0
-    y: 1233
+    y: 543
     width: 900
     height: 137
     borderLeft: 0
@@ -158,14 +158,14 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Blue-Outline
-    x: 901
-    y: 1233
+    x: 0
+    y: 405
     width: 900
     height: 137
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    borderLeft: 5
+    borderRight: 5
+    borderTop: 5
+    borderBottom: 5
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Colors
     x: 3319
-    y: 3859
+    y: 3673
     width: 578
     height: 35
     borderLeft: 0
@@ -209,6 +209,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Dot
+    x: 2650
+    y: 3232
+    width: 20
+    height: 20
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Enter-Icon
     x: 2650
     y: 3371
@@ -223,8 +236,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Green-Outline
-    x: 0
-    y: 1095
+    x: 901
+    y: 1371
     width: 900
     height: 137
     borderLeft: 0
@@ -250,7 +263,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: LightSkinTextfield
     x: 0
-    y: 957
+    y: 1371
     width: 900
     height: 137
     borderLeft: 0
@@ -263,7 +276,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: LightSkinTextfield-Border
     x: 0
-    y: 819
+    y: 1095
     width: 900
     height: 137
     borderLeft: 0
@@ -276,9 +289,48 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Line
     x: 2049
-    y: 2833
+    y: 2807
     width: 400
     height: 1
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Progress-Bar-Blue
+    x: 3319
+    y: 3660
+    width: 600
+    height: 12
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Progress-Bar-Green
+    x: 2049
+    y: 2822
+    width: 600
+    height: 12
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Progress-Bar-Red
+    x: 2049
+    y: 2809
+    width: 600
+    height: 12
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -326,33 +378,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Red-Outline
-    x: 0
-    y: 681
-    width: 900
-    height: 137
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: White-Basic-List-Background
-    x: 0
-    y: 543
-    width: 900
-    height: 137
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: White-Button
+  - name: Red-Button
     x: 3319
     y: 3895
     width: 348
@@ -365,9 +391,100 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: White-Button-Outline
+  - name: Red-Button-Outline
     x: 3668
     y: 3895
+    width: 348
+    height: 100
+    borderLeft: 10
+    borderRight: 10
+    borderTop: 10
+    borderBottom: 10
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Red-Button-Rounded
+    x: 2718
+    y: 2807
+    width: 293
+    height: 84
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Red-Button-Rounded-Outline
+    x: 3319
+    y: 3709
+    width: 293
+    height: 84
+    borderLeft: 40
+    borderRight: 40
+    borderTop: 3
+    borderBottom: 3
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Red-Outline
+    x: 0
+    y: 819
+    width: 900
+    height: 137
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: User-Question-Icon
+    x: 2650
+    y: 3311
+    width: 67
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: White-Basic-List-Background
+    x: 0
+    y: 681
+    width: 900
+    height: 137
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: White-Button
+    x: 3319
+    y: 3794
+    width: 348
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: White-Button-Outline
+    x: 3668
+    y: 3794
     width: 348
     height: 100
     borderLeft: 0
@@ -379,8 +496,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Yellow-Outline
-    x: 0
-    y: 405
+    x: 901
+    y: 1233
     width: 900
     height: 137
     borderLeft: 0

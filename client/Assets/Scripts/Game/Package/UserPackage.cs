@@ -6,7 +6,22 @@ public class UserPackage : ModelBase {
 
     private long mGroupID;
     private long mUserID;
+    private long mTimeDelta;
 
+    public long GourpID
+    {
+        get{return mGroupID;}
+    }
+
+    public long UserID
+    {
+        get{return mUserID;}
+    }
+    public long TimeDelta
+    {
+        get{return mTimeDelta;}
+        set{mTimeDelta = value;}
+    }
 
     public override void Release()
     { }
@@ -25,5 +40,7 @@ public class UserPackage : ModelBase {
     {
         mUserID = userID;
     }
+
+    
     #endregion
 }

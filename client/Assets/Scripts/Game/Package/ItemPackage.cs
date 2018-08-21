@@ -11,7 +11,6 @@ public enum ItemType
     Fertilizer,
     PineWood,
     IronWood,
-
     Cement = 201,
     Plant,
     Rawoil,
@@ -30,8 +29,15 @@ public enum ItemType
 
 }
 
+public class NItemInfo
+{
+    public int number;
+}
+
 public class ItemPackage : ModelBase
 {
+
+    public Dictionary<int, NItemInfo> mItemInfoMap = new Dictionary<int, NItemInfo>();
 
     public ItemType GetItemTypeByConfigID(int configID)
     {
@@ -54,6 +60,16 @@ public class ItemPackage : ModelBase
     {
         //TODO
         return 0;
+    }
+
+    public NItemInfo GetItemInfo(int configID)
+    {
+        if(!mItemInfoMap.ContainsKey(configID))
+        {
+            //Debug.Log(string.Format())
+            return null;
+        }
+        return mItemInfoMap[configID];
     }
     #endregion
 

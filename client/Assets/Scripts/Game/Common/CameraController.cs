@@ -15,8 +15,6 @@ public class CameraController : MonoBehaviour {
 
     //Movement state flag
     private Vector3 mouseOrigin;
-    private Vector3 lastDragVec;
-    private Vector3 curDragVec;
     private Vector3 cameraOrigin;
     private float curZoomDistance;
     
@@ -45,7 +43,6 @@ public class CameraController : MonoBehaviour {
             if (Input.GetMouseButtonDown(0))
             {
                 mouseOrigin = Input.mousePosition;
-                lastDragVec = new Vector3(0, 0, 0);
                 isPress = true;
                 OnClickDown();
             }

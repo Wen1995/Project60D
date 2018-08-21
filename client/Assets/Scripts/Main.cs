@@ -5,19 +5,11 @@ using com.game.framework.protocol;
 
 public class Main : MonoBehaviour {
 
-    const string HOST = "192.168.90.74";
-    //const string HOST = "127.0.0.1";
-    const int PORT = 8000;
-
     public bool SendMsg = false;
     public bool Connect = false;
     private bool isConnected = false;
     NetSingleton managerNet;
 
-    ObjectPoolSingleton objectPool = null;
-    Cube cube = null;
-    SubPoolCom<Cube> subPool;
-    UIContainerBase container;
 
     private void OnValidate()
     {

@@ -6,6 +6,7 @@ using UnityEngine;
 public static class GlobalFunction {
 
     private static DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
+    private static long DeltaTime = 0;
 
     public static string TimeFormat(long time)
     {
@@ -26,7 +27,7 @@ public static class GlobalFunction {
 
     public static bool GetRemainTime(long finishTime, out long remainTime)
     {
-        long curTime = GetTimeStamp();
+        long curTime = GetTimeStamp() + DeltaTime;
         if(finishTime <= 0 || finishTime <= curTime)
         {
             remainTime = 0;
@@ -34,5 +35,11 @@ public static class GlobalFunction {
         }
         remainTime = (finishTime - curTime) / 1000;
         return true;
+    }
+
+    public static void GetTimeDelta(long serverTime)
+    {
+        long curTime = GetTimeStamp();
+        DeltaTime =  curTime - serverTime;
     }
 }

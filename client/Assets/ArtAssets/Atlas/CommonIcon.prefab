@@ -53,9 +53,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 26bf094aa166a0e49991b9bd167062fe, type: 2}
   mSprites:
+  - name: Apple-Icon
+    x: 845
+    y: 834
+    width: 59
+    height: 65
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Arrow-Right-Icon
+    x: 976
+    y: 961
+    width: 37
+    height: 63
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Arrow-Up-Icon
-    x: 134
-    y: 220
+    x: 697
+    y: 821
     width: 64
     height: 36
     borderLeft: 0
@@ -66,9 +92,74 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: body
+    x: 571
+    y: 819
+    width: 125
+    height: 205
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Bolt-Icon
+    x: 571
+    y: 648
+    width: 38
+    height: 67
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Book-Icon
+    x: 776
+    y: 888
+    width: 62
+    height: 69
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Box-Icon
+    x: 962
+    y: 838
+    width: 56
+    height: 53
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Chat-Bubble-Points-Icon
+    x: 910
+    y: 963
+    width: 65
+    height: 61
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Close-Icon-Small
-    x: 79
-    y: 153
+    x: 571
+    y: 565
     width: 35
     height: 35
     borderLeft: 0
@@ -79,9 +170,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Coins-Sack-Dollar-Icon
+    x: 968
+    y: 893
+    width: 54
+    height: 66
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Coins-Sack-Icon-Small
-    x: 0
-    y: 158
+    x: 697
+    y: 926
     width: 78
     height: 98
     borderLeft: 0
@@ -93,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Enter-Icon
-    x: 0
-    y: 28
+    x: 845
+    y: 960
     width: 64
     height: 64
     borderLeft: 0
@@ -106,8 +210,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Hammer-Icon
-    x: 79
-    y: 189
+    x: 913
+    y: 892
     width: 54
     height: 67
     borderLeft: 0
@@ -118,11 +222,50 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Lens-Icon-Small
-    x: 115
-    y: 155
-    width: 37
-    height: 33
+  - name: Heart-Health-Icon
+    x: 571
+    y: 768
+    width: 55
+    height: 50
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Mail-Icon-Small
+    x: 571
+    y: 500
+    width: 36
+    height: 28
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ManorIcon
+    x: 571
+    y: 716
+    width: 51
+    height: 51
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Map-Icon
+    x: 776
+    y: 958
+    width: 68
+    height: 66
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -132,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Minus-Icon
-    x: 0
-    y: 19
+    x: 845
+    y: 825
     width: 65
     height: 8
     borderLeft: 0
@@ -144,9 +287,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Plus-Icon
+  - name: PinkDark-Circle
     x: 0
-    y: 93
+    y: 454
+    width: 570
+    height: 570
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Plus-Icon
+    x: 776
+    y: 823
     width: 65
     height: 64
     borderLeft: 0
@@ -157,9 +313,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Shop-Building-Icon
+    x: 697
+    y: 858
+    width: 69
+    height: 67
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Trash-Icon-Small
-    x: 199
-    y: 210
+    x: 571
+    y: 601
     width: 42
     height: 46
     borderLeft: 0
@@ -171,10 +340,36 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Unlock-Icon-Small
-    x: 153
-    y: 153
+    x: 571
+    y: 529
     width: 30
     height: 35
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: User-Question-Icon
+    x: 845
+    y: 900
+    width: 67
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Water-Icon
+    x: 913
+    y: 824
+    width: 48
+    height: 67
     borderLeft: 0
     borderRight: 0
     borderTop: 0

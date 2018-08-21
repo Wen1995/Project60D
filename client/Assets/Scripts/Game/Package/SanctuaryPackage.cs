@@ -72,8 +72,6 @@ public class NBuildingInfo
 }
 
 public class SanctuaryPackage : ModelBase {
-
-    Dictionary<BuildingType, NBuildingInfo> mBuildingDataMap = new Dictionary<BuildingType, NBuildingInfo>();
     Dictionary<long, NBuildingInfo> mBuildingInfoMap = new Dictionary<long, NBuildingInfo>();
     List<BuildingAttributeData> attributeDataList = null;
     private Building selectionBuilding = null;
@@ -98,6 +96,12 @@ public class SanctuaryPackage : ModelBase {
         if(configID == 0)
             return 0;
         return configID % 100;
+    }
+
+    public BUILDING GetBuildingConfigDataByConfigID(int configID)
+    {
+        var buildingDataMap = ConfigDataStatic.GetConfigDataTable("BUILDING");
+        return buildingDataMap[configID] as BUILDING;
     }
 
     #region Acess Data
@@ -135,7 +139,6 @@ public class SanctuaryPackage : ModelBase {
     public void AddBuilding(BuildingInfo buildingInfo)
     { 
         NBuildingInfo info = new NBuildingInfo(buildingInfo);
-        Debug.Log(buildingInfo.Number);
         info.building = GetTypeBuilding(GetBuildingTypeByConfigID(buildingInfo.ConfigId));
         info.building.SetBuildingID(info.buildingID);
         mBuildingInfoMap[info.buildingID] = info;
@@ -185,7 +188,30 @@ public class SanctuaryPackage : ModelBase {
             Debug.Log(string.Format("buidingID={0} not exist"));
             return;
         }
-        info.processFinishTime = 0;
+        info.building.RefreshView();
+    }
+
+    public void Receive(long buildingID)
+    {
+        NBuildingInfo info = GetBuildingInfo(buildingID);
+        if(info == null)
+        {
+            Debug.Log(string.Format("buidingID={0} not exist"));
+            return;
+        }
+        info.number = 0;
+        info.building.RefreshView();
+    }
+
+    public void CancelCraft(long buildingID)
+    {
+        NBuildingInfo info = GetBuildingInfo(buildingID);
+        if(info == null)
+        {
+            Debug.Log(string.Format("buidingID={0} not exist"));
+            return;
+        }
+        info.number = 0;
         info.building.RefreshView();
     }
     #endregion
@@ -324,7 +350,6 @@ public class SanctuaryPackage : ModelBase {
     {
         BuildingType type = building.buildingType;
         List<BuildingAttributeData> dataList = new List<BuildingAttributeData>();
-        string dataName = GetBuildingConfigDataName(type);
         switch(type)
         {
             case(BuildingType.Rice):

@@ -1,0 +1,27 @@
+package com.game.framework.protocol;
+
+option optimize_for = SPEED;
+
+message TCSGetResourceInfo {
+
+}
+message TSCGetResourceInfo {
+	// 资源信息
+	repeated ResourceInfo resourceInfos = 1;
+}
+
+message TCSGetResourceInfoByConfigId {
+	// 资源configId
+	optional int32 configId = 1;
+}
+message TSCGetResourceInfoByConfigId {
+	// 资源数量
+	optional int32 number = 1;
+}
+
+message ResourceInfo {
+	// 资源configId
+	optional int32 configId = 1;
+	// 资源数量
+	optional int32 number = 2;
+}

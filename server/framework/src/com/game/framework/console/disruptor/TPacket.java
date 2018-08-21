@@ -24,7 +24,7 @@ public class TPacket
 	
 	Object mark;//标记
 	
-	List<Long > receivers;
+	List<Long> receivers;
 	
 	boolean isInner;
 	

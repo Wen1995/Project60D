@@ -132,6 +132,32 @@ public final class Common {
      * </pre>
      */
     INTERRUPTPROCESS(14, 40),
+    /**
+     * <code>ZOMBIEINVADE = 61;</code>
+     *
+     * <pre>
+     *&#47;///////////////战斗模块 61-80//////////////////
+     * 僵尸入侵
+     * </pre>
+     */
+    ZOMBIEINVADE(15, 61),
+    /**
+     * <code>GETRESOURCEINFO = 81;</code>
+     *
+     * <pre>
+     *&#47;///////////////玩家模块 81-100//////////////////
+     * 玩家资源信息
+     * </pre>
+     */
+    GETRESOURCEINFO(16, 81),
+    /**
+     * <code>GETRESOURCEINFOBYCONFIGID = 82;</code>
+     *
+     * <pre>
+     * 玩家某种资源数量
+     * </pre>
+     */
+    GETRESOURCEINFOBYCONFIGID(17, 82),
     ;
 
     /**
@@ -253,6 +279,32 @@ public final class Common {
      * </pre>
      */
     public static final int INTERRUPTPROCESS_VALUE = 40;
+    /**
+     * <code>ZOMBIEINVADE = 61;</code>
+     *
+     * <pre>
+     *&#47;///////////////战斗模块 61-80//////////////////
+     * 僵尸入侵
+     * </pre>
+     */
+    public static final int ZOMBIEINVADE_VALUE = 61;
+    /**
+     * <code>GETRESOURCEINFO = 81;</code>
+     *
+     * <pre>
+     *&#47;///////////////玩家模块 81-100//////////////////
+     * 玩家资源信息
+     * </pre>
+     */
+    public static final int GETRESOURCEINFO_VALUE = 81;
+    /**
+     * <code>GETRESOURCEINFOBYCONFIGID = 82;</code>
+     *
+     * <pre>
+     * 玩家某种资源数量
+     * </pre>
+     */
+    public static final int GETRESOURCEINFOBYCONFIGID_VALUE = 82;
 
 
     public final int getNumber() { return value; }
@@ -274,6 +326,9 @@ public final class Common {
         case 37: return RECEIVE;
         case 38: return PROCESS;
         case 40: return INTERRUPTPROCESS;
+        case 61: return ZOMBIEINVADE;
+        case 81: return GETRESOURCEINFO;
+        case 82: return GETRESOURCEINFOBYCONFIGID;
         default: return null;
       }
     }
@@ -387,13 +442,21 @@ public final class Common {
      */
     TIME_ERR(6, 7),
     /**
+     * <code>LEFT_RESOURCE = 8;</code>
+     *
+     * <pre>
+     * 还有未领取的资源
+     * </pre>
+     */
+    LEFT_RESOURCE(7, 8),
+    /**
      * <code>NO_MORE_CAPACITY = 10;</code>
      *
      * <pre>
      * 容量不足
      * </pre>
      */
-    NO_MORE_CAPACITY(7, 10),
+    NO_MORE_CAPACITY(8, 10),
     ;
 
     /**
@@ -453,6 +516,14 @@ public final class Common {
      */
     public static final int TIME_ERR_VALUE = 7;
     /**
+     * <code>LEFT_RESOURCE = 8;</code>
+     *
+     * <pre>
+     * 还有未领取的资源
+     * </pre>
+     */
+    public static final int LEFT_RESOURCE_VALUE = 8;
+    /**
      * <code>NO_MORE_CAPACITY = 10;</code>
      *
      * <pre>
@@ -473,6 +544,7 @@ public final class Common {
         case 5: return BUILDING_TYPE_ERR;
         case 6: return RESOURCE_ERR;
         case 7: return TIME_ERR;
+        case 8: return LEFT_RESOURCE;
         case 10: return NO_MORE_CAPACITY;
         default: return null;
       }
@@ -624,371 +696,65 @@ public final class Common {
   }
 
   /**
-   * Protobuf enum {@code com.game.framework.protocol.ResourceType}
+   * Protobuf enum {@code com.game.framework.protocol.MessageType}
    */
-  public enum ResourceType
+  public enum MessageType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>RICE = 1;</code>
+     * <code>ZOMBIE_INFO = 2;</code>
      *
      * <pre>
-     * 大米
+     * 僵尸状态
      * </pre>
      */
-    RICE(0, 1),
+    ZOMBIE_INFO(0, 2),
     /**
-     * <code>VEGETABLES = 2;</code>
+     * <code>FIGHTING_INFO = 3;</code>
      *
      * <pre>
-     * 蔬菜
+     * 战斗结果
      * </pre>
      */
-    VEGETABLES(1, 2),
-    /**
-     * <code>FRUIT = 3;</code>
-     *
-     * <pre>
-     * 水果
-     * </pre>
-     */
-    FRUIT(2, 3),
-    /**
-     * <code>GRASS = 4;</code>
-     *
-     * <pre>
-     * 草
-     * </pre>
-     */
-    GRASS(3, 4),
-    /**
-     * <code>PIGFOOD = 5;</code>
-     *
-     * <pre>
-     * 猪饲料
-     * </pre>
-     */
-    PIGFOOD(4, 5),
-    /**
-     * <code>PORK = 6;</code>
-     *
-     * <pre>
-     * 猪肉
-     * </pre>
-     */
-    PORK(5, 6),
-    /**
-     * <code>CRUDE = 7;</code>
-     *
-     * <pre>
-     * 原油
-     * </pre>
-     */
-    CRUDE(6, 7),
-    /**
-     * <code>GASOLINE = 8;</code>
-     *
-     * <pre>
-     * 汽油
-     * </pre>
-     */
-    GASOLINE(7, 8),
-    /**
-     * <code>IRON = 9;</code>
-     *
-     * <pre>
-     * 铁
-     * </pre>
-     */
-    IRON(8, 9),
-    /**
-     * <code>STEEL = 10;</code>
-     *
-     * <pre>
-     * 钢
-     * </pre>
-     */
-    STEEL(9, 10),
-    /**
-     * <code>PINE = 11;</code>
-     *
-     * <pre>
-     * 松木
-     * </pre>
-     */
-    PINE(10, 11),
-    /**
-     * <code>WHITEBIRCH = 12;</code>
-     *
-     * <pre>
-     * 白桦木
-     * </pre>
-     */
-    WHITEBIRCH(11, 12),
-    /**
-     * <code>IRONBIRCH = 13;</code>
-     *
-     * <pre>
-     * 铁桦木
-     * </pre>
-     */
-    IRONBIRCH(12, 13),
-    /**
-     * <code>PINEBOARD = 14;</code>
-     *
-     * <pre>
-     * 松木板
-     * </pre>
-     */
-    PINEBOARD(13, 14),
-    /**
-     * <code>WHITEBIRCHBOARD = 15;</code>
-     *
-     * <pre>
-     * 白桦木板
-     * </pre>
-     */
-    WHITEBIRCHBOARD(14, 15),
-    /**
-     * <code>IRONBIRCHBOARD = 16;</code>
-     *
-     * <pre>
-     * 铁桦木板
-     * </pre>
-     */
-    IRONBIRCHBOARD(15, 16),
-    /**
-     * <code>PUREWATER = 17;</code>
-     *
-     * <pre>
-     * 纯净水
-     * </pre>
-     */
-    PUREWATER(16, 17),
-    /**
-     * <code>MINERALWATER = 18;</code>
-     *
-     * <pre>
-     * 矿物质水
-     * </pre>
-     */
-    MINERALWATER(17, 18),
-    /**
-     * <code>ELECTRICITY = 19;</code>
-     *
-     * <pre>
-     * 电力
-     * </pre>
-     */
-    ELECTRICITY(18, 19),
-    /**
-     * <code>BULLET = 20;</code>
-     *
-     * <pre>
-     * 子弹
-     * </pre>
-     */
-    BULLET(19, 20),
+    FIGHTING_INFO(1, 3),
     ;
 
     /**
-     * <code>RICE = 1;</code>
+     * <code>ZOMBIE_INFO = 2;</code>
      *
      * <pre>
-     * 大米
+     * 僵尸状态
      * </pre>
      */
-    public static final int RICE_VALUE = 1;
+    public static final int ZOMBIE_INFO_VALUE = 2;
     /**
-     * <code>VEGETABLES = 2;</code>
+     * <code>FIGHTING_INFO = 3;</code>
      *
      * <pre>
-     * 蔬菜
+     * 战斗结果
      * </pre>
      */
-    public static final int VEGETABLES_VALUE = 2;
-    /**
-     * <code>FRUIT = 3;</code>
-     *
-     * <pre>
-     * 水果
-     * </pre>
-     */
-    public static final int FRUIT_VALUE = 3;
-    /**
-     * <code>GRASS = 4;</code>
-     *
-     * <pre>
-     * 草
-     * </pre>
-     */
-    public static final int GRASS_VALUE = 4;
-    /**
-     * <code>PIGFOOD = 5;</code>
-     *
-     * <pre>
-     * 猪饲料
-     * </pre>
-     */
-    public static final int PIGFOOD_VALUE = 5;
-    /**
-     * <code>PORK = 6;</code>
-     *
-     * <pre>
-     * 猪肉
-     * </pre>
-     */
-    public static final int PORK_VALUE = 6;
-    /**
-     * <code>CRUDE = 7;</code>
-     *
-     * <pre>
-     * 原油
-     * </pre>
-     */
-    public static final int CRUDE_VALUE = 7;
-    /**
-     * <code>GASOLINE = 8;</code>
-     *
-     * <pre>
-     * 汽油
-     * </pre>
-     */
-    public static final int GASOLINE_VALUE = 8;
-    /**
-     * <code>IRON = 9;</code>
-     *
-     * <pre>
-     * 铁
-     * </pre>
-     */
-    public static final int IRON_VALUE = 9;
-    /**
-     * <code>STEEL = 10;</code>
-     *
-     * <pre>
-     * 钢
-     * </pre>
-     */
-    public static final int STEEL_VALUE = 10;
-    /**
-     * <code>PINE = 11;</code>
-     *
-     * <pre>
-     * 松木
-     * </pre>
-     */
-    public static final int PINE_VALUE = 11;
-    /**
-     * <code>WHITEBIRCH = 12;</code>
-     *
-     * <pre>
-     * 白桦木
-     * </pre>
-     */
-    public static final int WHITEBIRCH_VALUE = 12;
-    /**
-     * <code>IRONBIRCH = 13;</code>
-     *
-     * <pre>
-     * 铁桦木
-     * </pre>
-     */
-    public static final int IRONBIRCH_VALUE = 13;
-    /**
-     * <code>PINEBOARD = 14;</code>
-     *
-     * <pre>
-     * 松木板
-     * </pre>
-     */
-    public static final int PINEBOARD_VALUE = 14;
-    /**
-     * <code>WHITEBIRCHBOARD = 15;</code>
-     *
-     * <pre>
-     * 白桦木板
-     * </pre>
-     */
-    public static final int WHITEBIRCHBOARD_VALUE = 15;
-    /**
-     * <code>IRONBIRCHBOARD = 16;</code>
-     *
-     * <pre>
-     * 铁桦木板
-     * </pre>
-     */
-    public static final int IRONBIRCHBOARD_VALUE = 16;
-    /**
-     * <code>PUREWATER = 17;</code>
-     *
-     * <pre>
-     * 纯净水
-     * </pre>
-     */
-    public static final int PUREWATER_VALUE = 17;
-    /**
-     * <code>MINERALWATER = 18;</code>
-     *
-     * <pre>
-     * 矿物质水
-     * </pre>
-     */
-    public static final int MINERALWATER_VALUE = 18;
-    /**
-     * <code>ELECTRICITY = 19;</code>
-     *
-     * <pre>
-     * 电力
-     * </pre>
-     */
-    public static final int ELECTRICITY_VALUE = 19;
-    /**
-     * <code>BULLET = 20;</code>
-     *
-     * <pre>
-     * 子弹
-     * </pre>
-     */
-    public static final int BULLET_VALUE = 20;
+    public static final int FIGHTING_INFO_VALUE = 3;
 
 
     public final int getNumber() { return value; }
 
-    public static ResourceType valueOf(int value) {
+    public static MessageType valueOf(int value) {
       switch (value) {
-        case 1: return RICE;
-        case 2: return VEGETABLES;
-        case 3: return FRUIT;
-        case 4: return GRASS;
-        case 5: return PIGFOOD;
-        case 6: return PORK;
-        case 7: return CRUDE;
-        case 8: return GASOLINE;
-        case 9: return IRON;
-        case 10: return STEEL;
-        case 11: return PINE;
-        case 12: return WHITEBIRCH;
-        case 13: return IRONBIRCH;
-        case 14: return PINEBOARD;
-        case 15: return WHITEBIRCHBOARD;
-        case 16: return IRONBIRCHBOARD;
-        case 17: return PUREWATER;
-        case 18: return MINERALWATER;
-        case 19: return ELECTRICITY;
-        case 20: return BULLET;
+        case 2: return ZOMBIE_INFO;
+        case 3: return FIGHTING_INFO;
         default: return null;
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<ResourceType>
+    public static com.google.protobuf.Internal.EnumLiteMap<MessageType>
         internalGetValueMap() {
       return internalValueMap;
     }
-    private static com.google.protobuf.Internal.EnumLiteMap<ResourceType>
+    private static com.google.protobuf.Internal.EnumLiteMap<MessageType>
         internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<ResourceType>() {
-            public ResourceType findValueByNumber(int number) {
-              return ResourceType.valueOf(number);
+          new com.google.protobuf.Internal.EnumLiteMap<MessageType>() {
+            public MessageType findValueByNumber(int number) {
+              return MessageType.valueOf(number);
             }
           };
 
@@ -1005,9 +771,9 @@ public final class Common {
       return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(3);
     }
 
-    private static final ResourceType[] VALUES = values();
+    private static final MessageType[] VALUES = values();
 
-    public static ResourceType valueOf(
+    public static MessageType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
@@ -1019,12 +785,12 @@ public final class Common {
     private final int index;
     private final int value;
 
-    private ResourceType(int index, int value) {
+    private MessageType(int index, int value) {
       this.index = index;
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.ResourceType)
+    // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.MessageType)
   }
 
 
@@ -1037,26 +803,22 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\367\001\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005LOGIN" +
+      "col*\275\002\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005LOGIN" +
       "\020\001\022\n\n\006LOGOUT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREAT" +
       "EGROUP\020\013\022\016\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO" +
       "\020\037\022\023\n\017GETBUILDINGINFO\020 \022\013\n\007UPGRADE\020!\022\021\n\r" +
       "FINISHUPGRADE\020\"\022\n\n\006UNLOCK\020#\022\020\n\014FINISHUNL" +
       "OCK\020$\022\013\n\007RECEIVE\020%\022\013\n\007PROCESS\020&\022\024\n\020INTER" +
-      "RUPTPROCESS\020(*\227\001\n\005Error\022\016\n\nSERVER_ERR\020\001\022" +
-      "\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLE" +
-      "VEL_OVER\020\004\022\025\n\021BUILDING_TYPE_ERR\020\005\022\020\n\014RES",
-      "OURCE_ERR\020\006\022\014\n\010TIME_ERR\020\007\022\024\n\020NO_MORE_CAP" +
-      "ACITY\020\n*:\n\014BuildingType\022\024\n\020RECEIVE_BUILD" +
-      "ING\020\001\022\024\n\020PROCESS_BUILDING\020\002*\242\002\n\014Resource" +
-      "Type\022\010\n\004RICE\020\001\022\016\n\nVEGETABLES\020\002\022\t\n\005FRUIT\020" +
-      "\003\022\t\n\005GRASS\020\004\022\013\n\007PIGFOOD\020\005\022\010\n\004PORK\020\006\022\t\n\005C" +
-      "RUDE\020\007\022\014\n\010GASOLINE\020\010\022\010\n\004IRON\020\t\022\t\n\005STEEL\020" +
-      "\n\022\010\n\004PINE\020\013\022\016\n\nWHITEBIRCH\020\014\022\r\n\tIRONBIRCH" +
-      "\020\r\022\r\n\tPINEBOARD\020\016\022\023\n\017WHITEBIRCHBOARD\020\017\022\022" +
-      "\n\016IRONBIRCHBOARD\020\020\022\r\n\tPUREWATER\020\021\022\020\n\014MIN" +
-      "ERALWATER\020\022\022\017\n\013ELECTRICITY\020\023\022\n\n\006BULLET\020\024",
-      "B\002H\001"
+      "RUPTPROCESS\020(\022\020\n\014ZOMBIEINVADE\020=\022\023\n\017GETRE" +
+      "SOURCEINFO\020Q\022\035\n\031GETRESOURCEINFOBYCONFIGI" +
+      "D\020R*\252\001\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_H",
+      "ANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLEVEL_OVER\020\004" +
+      "\022\025\n\021BUILDING_TYPE_ERR\020\005\022\020\n\014RESOURCE_ERR\020" +
+      "\006\022\014\n\010TIME_ERR\020\007\022\021\n\rLEFT_RESOURCE\020\010\022\024\n\020NO" +
+      "_MORE_CAPACITY\020\n*:\n\014BuildingType\022\024\n\020RECE" +
+      "IVE_BUILDING\020\001\022\024\n\020PROCESS_BUILDING\020\002*1\n\013" +
+      "MessageType\022\017\n\013ZOMBIE_INFO\020\002\022\021\n\rFIGHTING" +
+      "_INFO\020\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

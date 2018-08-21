@@ -28,7 +28,7 @@ message BuildingInfo {
 	optional int64 upgradeFinishTime = 3;
 	// 升级人
 	optional int64 upgradeUid = 4;
-	// 加工完成时间，值为 0 则没在加工中
+	// 加工完成时间
 	optional int64 processFinishTime = 5;
 	// 加工人
 	optional int64 processUid = 6;
@@ -116,7 +116,7 @@ message TSCProcess {
 	optional int64 finishTime = 2;
 	// 加工人，值为 0 则没在加工中
 	optional int64 uid = 3;
-	// 未领取资源数量
+	// 加工生成资源数量
 	optional int32 number = 4;
 }
 

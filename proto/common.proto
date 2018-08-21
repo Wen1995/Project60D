@@ -37,6 +37,16 @@ enum Cmd {
 	PROCESS = 38;
 	// 中断加工
 	INTERRUPTPROCESS = 40;
+
+	//////////////////战斗模块 61-80//////////////////
+	// 僵尸入侵
+	ZOMBIEINVADE = 61;
+
+	//////////////////玩家模块 81-100//////////////////
+	// 玩家资源信息
+	GETRESOURCEINFO = 81;
+	// 玩家某种资源数量
+	GETRESOURCEINFOBYCONFIGID = 82;
 }
 
 enum Error {
@@ -54,6 +64,8 @@ enum Error {
 	RESOURCE_ERR = 6;
 	// 时间错误
 	TIME_ERR = 7;
+	// 还有未领取的资源
+	LEFT_RESOURCE = 8;
 	// 容量不足
 	NO_MORE_CAPACITY = 10;
 }
@@ -65,45 +77,9 @@ enum BuildingType {
 	PROCESS_BUILDING = 2;
 }
 
-enum ResourceType {
-	// 大米
-	RICE = 1;
-	// 蔬菜
-	VEGETABLES = 2;
-	// 水果
-	FRUIT = 3;
-	// 草
-	GRASS = 4;
-	// 猪饲料
-	PIGFOOD = 5;
-	// 猪肉
-	PORK = 6;
-	// 原油
-	CRUDE = 7;
-	// 汽油
-	GASOLINE = 8;
-	// 铁
-	IRON = 9;
-	// 钢
-	STEEL = 10;
-	// 松木
-	PINE = 11;
-	// 白桦木
-	WHITEBIRCH = 12;
-	// 铁桦木
-	IRONBIRCH = 13;
-	// 松木板
-	PINEBOARD = 14;
-	// 白桦木板
-	WHITEBIRCHBOARD = 15;
-	// 铁桦木板
-	IRONBIRCHBOARD = 16;
-	// 纯净水
-	PUREWATER = 17;
-	// 矿物质水
-	MINERALWATER = 18;
-	// 电力
-	ELECTRICITY = 19;
-	// 子弹
-	BULLET = 20;
+enum MessageType {
+	// 僵尸状态
+	ZOMBIE_INFO =  2;
+	// 战斗结果
+	FIGHTING_INFO = 3;
 }

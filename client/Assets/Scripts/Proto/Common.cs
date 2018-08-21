@@ -41,6 +41,9 @@ namespace com.game.framework.protocol {
     RECEIVE = 37,
     PROCESS = 38,
     INTERRUPTPROCESS = 40,
+    ZOMBIEINVADE = 61,
+    GETRESOURCEINFO = 81,
+    GETRESOURCEINFOBYCONFIGID = 82,
   }
   
   public enum Error {
@@ -51,6 +54,7 @@ namespace com.game.framework.protocol {
     BUILDING_TYPE_ERR = 5,
     RESOURCE_ERR = 6,
     TIME_ERR = 7,
+    LEFT_RESOURCE = 8,
     NO_MORE_CAPACITY = 10,
   }
   
@@ -59,27 +63,9 @@ namespace com.game.framework.protocol {
     PROCESS_BUILDING = 2,
   }
   
-  public enum ResourceType {
-    RICE = 1,
-    VEGETABLES = 2,
-    FRUIT = 3,
-    GRASS = 4,
-    PIGFOOD = 5,
-    PORK = 6,
-    CRUDE = 7,
-    GASOLINE = 8,
-    IRON = 9,
-    STEEL = 10,
-    PINE = 11,
-    WHITEBIRCH = 12,
-    IRONBIRCH = 13,
-    PINEBOARD = 14,
-    WHITEBIRCHBOARD = 15,
-    IRONBIRCHBOARD = 16,
-    PUREWATER = 17,
-    MINERALWATER = 18,
-    ELECTRICITY = 19,
-    BULLET = 20,
+  public enum MessageType {
+    ZOMBIE_INFO = 2,
+    FIGHTING_INFO = 3,
   }
   
   #endregion

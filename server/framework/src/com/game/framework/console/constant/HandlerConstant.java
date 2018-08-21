@@ -1,9 +1,5 @@
 package com.game.framework.console.constant;
 
-/**
- * @author auto
- * date: 2018-08-17 17:58:44
- */
 public class HandlerConstant {
 
 	/************* HandlerGroup *************/
@@ -14,5 +10,7 @@ public class HandlerConstant {
 	public static final String Model_Scene = "Scene";
 	public static final String Model_Login = "Login";
 	public static final String Model_Room = "Room";
+	public static final String Model_User = "User";
+	public static final String Model_Fighting = "Fighting";
 
 }

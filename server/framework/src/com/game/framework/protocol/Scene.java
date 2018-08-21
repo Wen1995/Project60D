@@ -2178,7 +2178,7 @@ public final class Scene {
      * <code>optional int64 processFinishTime = 5;</code>
      *
      * <pre>
-     * 加工完成时间，值为 0 则没在加工中
+     * 加工完成时间
      * </pre>
      */
     boolean hasProcessFinishTime();
@@ -2186,7 +2186,7 @@ public final class Scene {
      * <code>optional int64 processFinishTime = 5;</code>
      *
      * <pre>
-     * 加工完成时间，值为 0 则没在加工中
+     * 加工完成时间
      * </pre>
      */
     long getProcessFinishTime();
@@ -2456,7 +2456,7 @@ public final class Scene {
      * <code>optional int64 processFinishTime = 5;</code>
      *
      * <pre>
-     * 加工完成时间，值为 0 则没在加工中
+     * 加工完成时间
      * </pre>
      */
     public boolean hasProcessFinishTime() {
@@ -2466,7 +2466,7 @@ public final class Scene {
      * <code>optional int64 processFinishTime = 5;</code>
      *
      * <pre>
-     * 加工完成时间，值为 0 则没在加工中
+     * 加工完成时间
      * </pre>
      */
     public long getProcessFinishTime() {
@@ -3052,7 +3052,7 @@ public final class Scene {
        * <code>optional int64 processFinishTime = 5;</code>
        *
        * <pre>
-       * 加工完成时间，值为 0 则没在加工中
+       * 加工完成时间
        * </pre>
        */
       public boolean hasProcessFinishTime() {
@@ -3062,7 +3062,7 @@ public final class Scene {
        * <code>optional int64 processFinishTime = 5;</code>
        *
        * <pre>
-       * 加工完成时间，值为 0 则没在加工中
+       * 加工完成时间
        * </pre>
        */
       public long getProcessFinishTime() {
@@ -3072,7 +3072,7 @@ public final class Scene {
        * <code>optional int64 processFinishTime = 5;</code>
        *
        * <pre>
-       * 加工完成时间，值为 0 则没在加工中
+       * 加工完成时间
        * </pre>
        */
       public Builder setProcessFinishTime(long value) {
@@ -3085,7 +3085,7 @@ public final class Scene {
        * <code>optional int64 processFinishTime = 5;</code>
        *
        * <pre>
-       * 加工完成时间，值为 0 则没在加工中
+       * 加工完成时间
        * </pre>
        */
       public Builder clearProcessFinishTime() {
@@ -9330,7 +9330,7 @@ public final class Scene {
      * <code>optional int32 number = 4;</code>
      *
      * <pre>
-     * 未领取资源数量
+     * 加工生成资源数量
      * </pre>
      */
     boolean hasNumber();
@@ -9338,7 +9338,7 @@ public final class Scene {
      * <code>optional int32 number = 4;</code>
      *
      * <pre>
-     * 未领取资源数量
+     * 加工生成资源数量
      * </pre>
      */
     int getNumber();
@@ -9533,7 +9533,7 @@ public final class Scene {
      * <code>optional int32 number = 4;</code>
      *
      * <pre>
-     * 未领取资源数量
+     * 加工生成资源数量
      * </pre>
      */
     public boolean hasNumber() {
@@ -9543,7 +9543,7 @@ public final class Scene {
      * <code>optional int32 number = 4;</code>
      *
      * <pre>
-     * 未领取资源数量
+     * 加工生成资源数量
      * </pre>
      */
     public int getNumber() {
@@ -9981,7 +9981,7 @@ public final class Scene {
        * <code>optional int32 number = 4;</code>
        *
        * <pre>
-       * 未领取资源数量
+       * 加工生成资源数量
        * </pre>
        */
       public boolean hasNumber() {
@@ -9991,7 +9991,7 @@ public final class Scene {
        * <code>optional int32 number = 4;</code>
        *
        * <pre>
-       * 未领取资源数量
+       * 加工生成资源数量
        * </pre>
        */
       public int getNumber() {
@@ -10001,7 +10001,7 @@ public final class Scene {
        * <code>optional int32 number = 4;</code>
        *
        * <pre>
-       * 未领取资源数量
+       * 加工生成资源数量
        * </pre>
        */
       public Builder setNumber(int value) {
@@ -10014,7 +10014,7 @@ public final class Scene {
        * <code>optional int32 number = 4;</code>
        *
        * <pre>
-       * 未领取资源数量
+       * 加工生成资源数量
        * </pre>
        */
       public Builder clearNumber() {

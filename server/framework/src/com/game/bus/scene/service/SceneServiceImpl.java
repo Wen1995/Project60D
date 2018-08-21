@@ -690,6 +690,7 @@ public class SceneServiceImpl implements SceneService {
             throw new BaseException(Error.RIGHT_HANDLE_VALUE);
         }
         Integer leftNumber = 0;
+        Integer receiveNumber = 0;
         Long processUid = 0L;
         Long thisTime = System.currentTimeMillis();
         BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
@@ -752,8 +753,8 @@ public class SceneServiceImpl implements SceneService {
                     userDao.update(user);
                     
                     // 更新加工建筑状态
-                    number /= conProRate;
-                    receiveInfoBuilder.setNumber(number);
+                    receiveNumber = number/conProRate;
+                    receiveInfoBuilder.setNumber(receiveNumber);
                     processInfoBuilder.setUid(uid).setStartTime(startTime).setEndTime(finishTime);
                     buildingStateBuilder.setProcessInfo(processInfoBuilder).setReceiveInfos(receiveIndex, receiveInfoBuilder);
                     building.setState(buildingStateBuilder.build().toByteArray());
@@ -761,6 +762,8 @@ public class SceneServiceImpl implements SceneService {
                 } else {
                     throw new BaseException(Error.RESOURCE_ERR_VALUE);
                 }
+            } else {
+                throw new BaseException(Error.LEFT_RESOURCE_VALUE);
             }
         } else {
             processUid = processInfoBuilder.getUid();
@@ -770,7 +773,7 @@ public class SceneServiceImpl implements SceneService {
                 .setBuildingId(buildingId)
                 .setFinishTime(finishTime)
                 .setUid(processUid)
-                .setNumber(leftNumber)
+                .setNumber(receiveNumber)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);

@@ -7,19 +7,19 @@ message TCSGetResourceInfo {
 }
 message TSCGetResourceInfo {
 	// 资源信息
-	repeated ResourceInfo resourceInfos = 1;
+	repeated MyResourceInfo myResourceInfos = 1;
 }
 
 message TCSGetResourceInfoByConfigId {
 	// 资源configId
-	optional int32 configId = 1;
+	repeated int32 configId = 1;
 }
 message TSCGetResourceInfoByConfigId {
-	// 资源数量
-	optional int32 number = 1;
+	// 资源信息
+	repeated MyResourceInfo myResourceInfos = 1;
 }
 
-message ResourceInfo {
+message MyResourceInfo {
 	// 资源configId
 	optional int32 configId = 1;
 	// 资源数量

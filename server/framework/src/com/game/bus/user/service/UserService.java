@@ -1,5 +1,6 @@
 package com.game.bus.user.service;
 
+import java.util.List;
 import com.game.framework.console.disruptor.TPacket;
 
 public interface UserService {
@@ -8,5 +9,5 @@ public interface UserService {
 	TPacket getResourceInfo(Long uid) throws Exception;
 
 	/** 玩家某种资源数量 */
-	TPacket getResourceInfoByConfigId(Long uid, Integer configId) throws Exception;
+	TPacket getResourceInfoByConfigId(Long uid, List<Integer> configIdList) throws Exception;
 }

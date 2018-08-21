@@ -5,6 +5,7 @@ import com.game.framework.console.handler.HandlerMethodMapping;
 import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.console.constant.HandlerConstant;
 import com.game.framework.console.disruptor.TPacket;
+import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import com.game.framework.console.GateServer;
@@ -32,8 +33,8 @@ public class UserHandler {
 	@HandlerMethodMapping(cmd = Cmd.GETRESOURCEINFOBYCONFIGID_VALUE)
 	public void getResourceInfoByConfigId(TPacket p) throws Exception {
 		TCSGetResourceInfoByConfigId msg = TCSGetResourceInfoByConfigId.parseFrom(p.getBuffer());
-		Integer configId = msg.getConfigId();		
-		TPacket resp = service.getResourceInfoByConfigId(p.getUid(), configId);
+		List<Integer> configIdList = msg.getConfigIdList();		
+		TPacket resp = service.getResourceInfoByConfigId(p.getUid(), configIdList);
 		resp.setCmd(Cmd.GETRESOURCEINFOBYCONFIGID_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}

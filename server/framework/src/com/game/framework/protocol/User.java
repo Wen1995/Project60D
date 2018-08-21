@@ -320,49 +320,49 @@ public final class User {
   public interface TSCGetResourceInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+    // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
     /**
-     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    java.util.List<com.game.framework.protocol.User.ResourceInfo> 
-        getResourceInfosList();
+    java.util.List<com.game.framework.protocol.User.MyResourceInfo> 
+        getMyResourceInfosList();
     /**
-     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index);
+    com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index);
     /**
-     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    int getResourceInfosCount();
+    int getMyResourceInfosCount();
     /**
-     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
-        getResourceInfosOrBuilderList();
+    java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
+        getMyResourceInfosOrBuilderList();
     /**
-     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+    com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
         int index);
   }
   /**
@@ -418,10 +418,10 @@ public final class User {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.ResourceInfo>();
+                myResourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.MyResourceInfo>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              resourceInfos_.add(input.readMessage(com.game.framework.protocol.User.ResourceInfo.PARSER, extensionRegistry));
+              myResourceInfos_.add(input.readMessage(com.game.framework.protocol.User.MyResourceInfo.PARSER, extensionRegistry));
               break;
             }
           }
@@ -433,7 +433,7 @@ public final class User {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
+          myResourceInfos_ = java.util.Collections.unmodifiableList(myResourceInfos_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -466,64 +466,64 @@ public final class User {
       return PARSER;
     }
 
-    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
-    public static final int RESOURCEINFOS_FIELD_NUMBER = 1;
-    private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_;
+    // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
+    public static final int MYRESOURCEINFOS_FIELD_NUMBER = 1;
+    private java.util.List<com.game.framework.protocol.User.MyResourceInfo> myResourceInfos_;
     /**
-     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public java.util.List<com.game.framework.protocol.User.ResourceInfo> getResourceInfosList() {
-      return resourceInfos_;
+    public java.util.List<com.game.framework.protocol.User.MyResourceInfo> getMyResourceInfosList() {
+      return myResourceInfos_;
     }
     /**
-     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
-        getResourceInfosOrBuilderList() {
-      return resourceInfos_;
+    public java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
+        getMyResourceInfosOrBuilderList() {
+      return myResourceInfos_;
     }
     /**
-     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public int getResourceInfosCount() {
-      return resourceInfos_.size();
+    public int getMyResourceInfosCount() {
+      return myResourceInfos_.size();
     }
     /**
-     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index) {
-      return resourceInfos_.get(index);
+    public com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index) {
+      return myResourceInfos_.get(index);
     }
     /**
-     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+    public com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
         int index) {
-      return resourceInfos_.get(index);
+      return myResourceInfos_.get(index);
     }
 
     private void initFields() {
-      resourceInfos_ = java.util.Collections.emptyList();
+      myResourceInfos_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -537,8 +537,8 @@ public final class User {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < resourceInfos_.size(); i++) {
-        output.writeMessage(1, resourceInfos_.get(i));
+      for (int i = 0; i < myResourceInfos_.size(); i++) {
+        output.writeMessage(1, myResourceInfos_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -549,9 +549,9 @@ public final class User {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < resourceInfos_.size(); i++) {
+      for (int i = 0; i < myResourceInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, resourceInfos_.get(i));
+          .computeMessageSize(1, myResourceInfos_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -661,7 +661,7 @@ public final class User {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getResourceInfosFieldBuilder();
+          getMyResourceInfosFieldBuilder();
         }
       }
       private static Builder create() {
@@ -670,11 +670,11 @@ public final class User {
 
       public Builder clear() {
         super.clear();
-        if (resourceInfosBuilder_ == null) {
-          resourceInfos_ = java.util.Collections.emptyList();
+        if (myResourceInfosBuilder_ == null) {
+          myResourceInfos_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          resourceInfosBuilder_.clear();
+          myResourceInfosBuilder_.clear();
         }
         return this;
       }
@@ -703,14 +703,14 @@ public final class User {
       public com.game.framework.protocol.User.TSCGetResourceInfo buildPartial() {
         com.game.framework.protocol.User.TSCGetResourceInfo result = new com.game.framework.protocol.User.TSCGetResourceInfo(this);
         int from_bitField0_ = bitField0_;
-        if (resourceInfosBuilder_ == null) {
+        if (myResourceInfosBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
+            myResourceInfos_ = java.util.Collections.unmodifiableList(myResourceInfos_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.resourceInfos_ = resourceInfos_;
+          result.myResourceInfos_ = myResourceInfos_;
         } else {
-          result.resourceInfos_ = resourceInfosBuilder_.build();
+          result.myResourceInfos_ = myResourceInfosBuilder_.build();
         }
         onBuilt();
         return result;
@@ -727,29 +727,29 @@ public final class User {
 
       public Builder mergeFrom(com.game.framework.protocol.User.TSCGetResourceInfo other) {
         if (other == com.game.framework.protocol.User.TSCGetResourceInfo.getDefaultInstance()) return this;
-        if (resourceInfosBuilder_ == null) {
-          if (!other.resourceInfos_.isEmpty()) {
-            if (resourceInfos_.isEmpty()) {
-              resourceInfos_ = other.resourceInfos_;
+        if (myResourceInfosBuilder_ == null) {
+          if (!other.myResourceInfos_.isEmpty()) {
+            if (myResourceInfos_.isEmpty()) {
+              myResourceInfos_ = other.myResourceInfos_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureResourceInfosIsMutable();
-              resourceInfos_.addAll(other.resourceInfos_);
+              ensureMyResourceInfosIsMutable();
+              myResourceInfos_.addAll(other.myResourceInfos_);
             }
             onChanged();
           }
         } else {
-          if (!other.resourceInfos_.isEmpty()) {
-            if (resourceInfosBuilder_.isEmpty()) {
-              resourceInfosBuilder_.dispose();
-              resourceInfosBuilder_ = null;
-              resourceInfos_ = other.resourceInfos_;
+          if (!other.myResourceInfos_.isEmpty()) {
+            if (myResourceInfosBuilder_.isEmpty()) {
+              myResourceInfosBuilder_.dispose();
+              myResourceInfosBuilder_ = null;
+              myResourceInfos_ = other.myResourceInfos_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              resourceInfosBuilder_ = 
+              myResourceInfosBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getResourceInfosFieldBuilder() : null;
+                   getMyResourceInfosFieldBuilder() : null;
             } else {
-              resourceInfosBuilder_.addAllMessages(other.resourceInfos_);
+              myResourceInfosBuilder_.addAllMessages(other.myResourceInfos_);
             }
           }
         }
@@ -780,316 +780,316 @@ public final class User {
       }
       private int bitField0_;
 
-      // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
-      private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_ =
+      // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
+      private java.util.List<com.game.framework.protocol.User.MyResourceInfo> myResourceInfos_ =
         java.util.Collections.emptyList();
-      private void ensureResourceInfosIsMutable() {
+      private void ensureMyResourceInfosIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.ResourceInfo>(resourceInfos_);
+          myResourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.MyResourceInfo>(myResourceInfos_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder> resourceInfosBuilder_;
+          com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder> myResourceInfosBuilder_;
 
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public java.util.List<com.game.framework.protocol.User.ResourceInfo> getResourceInfosList() {
-        if (resourceInfosBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(resourceInfos_);
+      public java.util.List<com.game.framework.protocol.User.MyResourceInfo> getMyResourceInfosList() {
+        if (myResourceInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(myResourceInfos_);
         } else {
-          return resourceInfosBuilder_.getMessageList();
+          return myResourceInfosBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public int getResourceInfosCount() {
-        if (resourceInfosBuilder_ == null) {
-          return resourceInfos_.size();
+      public int getMyResourceInfosCount() {
+        if (myResourceInfosBuilder_ == null) {
+          return myResourceInfos_.size();
         } else {
-          return resourceInfosBuilder_.getCount();
+          return myResourceInfosBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index) {
-        if (resourceInfosBuilder_ == null) {
-          return resourceInfos_.get(index);
+      public com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index) {
+        if (myResourceInfosBuilder_ == null) {
+          return myResourceInfos_.get(index);
         } else {
-          return resourceInfosBuilder_.getMessage(index);
+          return myResourceInfosBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder setResourceInfos(
-          int index, com.game.framework.protocol.User.ResourceInfo value) {
-        if (resourceInfosBuilder_ == null) {
+      public Builder setMyResourceInfos(
+          int index, com.game.framework.protocol.User.MyResourceInfo value) {
+        if (myResourceInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureResourceInfosIsMutable();
-          resourceInfos_.set(index, value);
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.set(index, value);
           onChanged();
         } else {
-          resourceInfosBuilder_.setMessage(index, value);
+          myResourceInfosBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder setResourceInfos(
-          int index, com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
-        if (resourceInfosBuilder_ == null) {
-          ensureResourceInfosIsMutable();
-          resourceInfos_.set(index, builderForValue.build());
+      public Builder setMyResourceInfos(
+          int index, com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
+        if (myResourceInfosBuilder_ == null) {
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.set(index, builderForValue.build());
           onChanged();
         } else {
-          resourceInfosBuilder_.setMessage(index, builderForValue.build());
+          myResourceInfosBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addResourceInfos(com.game.framework.protocol.User.ResourceInfo value) {
-        if (resourceInfosBuilder_ == null) {
+      public Builder addMyResourceInfos(com.game.framework.protocol.User.MyResourceInfo value) {
+        if (myResourceInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureResourceInfosIsMutable();
-          resourceInfos_.add(value);
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.add(value);
           onChanged();
         } else {
-          resourceInfosBuilder_.addMessage(value);
+          myResourceInfosBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addResourceInfos(
-          int index, com.game.framework.protocol.User.ResourceInfo value) {
-        if (resourceInfosBuilder_ == null) {
+      public Builder addMyResourceInfos(
+          int index, com.game.framework.protocol.User.MyResourceInfo value) {
+        if (myResourceInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureResourceInfosIsMutable();
-          resourceInfos_.add(index, value);
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.add(index, value);
           onChanged();
         } else {
-          resourceInfosBuilder_.addMessage(index, value);
+          myResourceInfosBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addResourceInfos(
-          com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
-        if (resourceInfosBuilder_ == null) {
-          ensureResourceInfosIsMutable();
-          resourceInfos_.add(builderForValue.build());
+      public Builder addMyResourceInfos(
+          com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
+        if (myResourceInfosBuilder_ == null) {
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.add(builderForValue.build());
           onChanged();
         } else {
-          resourceInfosBuilder_.addMessage(builderForValue.build());
+          myResourceInfosBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addResourceInfos(
-          int index, com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
-        if (resourceInfosBuilder_ == null) {
-          ensureResourceInfosIsMutable();
-          resourceInfos_.add(index, builderForValue.build());
+      public Builder addMyResourceInfos(
+          int index, com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
+        if (myResourceInfosBuilder_ == null) {
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.add(index, builderForValue.build());
           onChanged();
         } else {
-          resourceInfosBuilder_.addMessage(index, builderForValue.build());
+          myResourceInfosBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addAllResourceInfos(
-          java.lang.Iterable<? extends com.game.framework.protocol.User.ResourceInfo> values) {
-        if (resourceInfosBuilder_ == null) {
-          ensureResourceInfosIsMutable();
-          super.addAll(values, resourceInfos_);
+      public Builder addAllMyResourceInfos(
+          java.lang.Iterable<? extends com.game.framework.protocol.User.MyResourceInfo> values) {
+        if (myResourceInfosBuilder_ == null) {
+          ensureMyResourceInfosIsMutable();
+          super.addAll(values, myResourceInfos_);
           onChanged();
         } else {
-          resourceInfosBuilder_.addAllMessages(values);
+          myResourceInfosBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder clearResourceInfos() {
-        if (resourceInfosBuilder_ == null) {
-          resourceInfos_ = java.util.Collections.emptyList();
+      public Builder clearMyResourceInfos() {
+        if (myResourceInfosBuilder_ == null) {
+          myResourceInfos_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          resourceInfosBuilder_.clear();
+          myResourceInfosBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder removeResourceInfos(int index) {
-        if (resourceInfosBuilder_ == null) {
-          ensureResourceInfosIsMutable();
-          resourceInfos_.remove(index);
+      public Builder removeMyResourceInfos(int index) {
+        if (myResourceInfosBuilder_ == null) {
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.remove(index);
           onChanged();
         } else {
-          resourceInfosBuilder_.remove(index);
+          myResourceInfosBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.ResourceInfo.Builder getResourceInfosBuilder(
+      public com.game.framework.protocol.User.MyResourceInfo.Builder getMyResourceInfosBuilder(
           int index) {
-        return getResourceInfosFieldBuilder().getBuilder(index);
+        return getMyResourceInfosFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+      public com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
           int index) {
-        if (resourceInfosBuilder_ == null) {
-          return resourceInfos_.get(index);  } else {
-          return resourceInfosBuilder_.getMessageOrBuilder(index);
+        if (myResourceInfosBuilder_ == null) {
+          return myResourceInfos_.get(index);  } else {
+          return myResourceInfosBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
-           getResourceInfosOrBuilderList() {
-        if (resourceInfosBuilder_ != null) {
-          return resourceInfosBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
+           getMyResourceInfosOrBuilderList() {
+        if (myResourceInfosBuilder_ != null) {
+          return myResourceInfosBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(resourceInfos_);
+          return java.util.Collections.unmodifiableList(myResourceInfos_);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.ResourceInfo.Builder addResourceInfosBuilder() {
-        return getResourceInfosFieldBuilder().addBuilder(
-            com.game.framework.protocol.User.ResourceInfo.getDefaultInstance());
+      public com.game.framework.protocol.User.MyResourceInfo.Builder addMyResourceInfosBuilder() {
+        return getMyResourceInfosFieldBuilder().addBuilder(
+            com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.ResourceInfo.Builder addResourceInfosBuilder(
+      public com.game.framework.protocol.User.MyResourceInfo.Builder addMyResourceInfosBuilder(
           int index) {
-        return getResourceInfosFieldBuilder().addBuilder(
-            index, com.game.framework.protocol.User.ResourceInfo.getDefaultInstance());
+        return getMyResourceInfosFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public java.util.List<com.game.framework.protocol.User.ResourceInfo.Builder> 
-           getResourceInfosBuilderList() {
-        return getResourceInfosFieldBuilder().getBuilderList();
+      public java.util.List<com.game.framework.protocol.User.MyResourceInfo.Builder> 
+           getMyResourceInfosBuilderList() {
+        return getMyResourceInfosFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder> 
-          getResourceInfosFieldBuilder() {
-        if (resourceInfosBuilder_ == null) {
-          resourceInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder>(
-                  resourceInfos_,
+          com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
+          getMyResourceInfosFieldBuilder() {
+        if (myResourceInfosBuilder_ == null) {
+          myResourceInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder>(
+                  myResourceInfos_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
-          resourceInfos_ = null;
+          myResourceInfos_ = null;
         }
-        return resourceInfosBuilder_;
+        return myResourceInfosBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetResourceInfo)
@@ -1106,23 +1106,31 @@ public final class User {
   public interface TCSGetResourceInfoByConfigIdOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional int32 configId = 1;
+    // repeated int32 configId = 1;
     /**
-     * <code>optional int32 configId = 1;</code>
+     * <code>repeated int32 configId = 1;</code>
      *
      * <pre>
      * 资源configId
      * </pre>
      */
-    boolean hasConfigId();
+    java.util.List<java.lang.Integer> getConfigIdList();
     /**
-     * <code>optional int32 configId = 1;</code>
+     * <code>repeated int32 configId = 1;</code>
      *
      * <pre>
      * 资源configId
      * </pre>
      */
-    int getConfigId();
+    int getConfigIdCount();
+    /**
+     * <code>repeated int32 configId = 1;</code>
+     *
+     * <pre>
+     * 资源configId
+     * </pre>
+     */
+    int getConfigId(int index);
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TCSGetResourceInfoByConfigId}
@@ -1176,8 +1184,24 @@ public final class User {
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
-              configId_ = input.readInt32();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                configId_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              configId_.add(input.readInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+                configId_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                configId_.add(input.readInt32());
+              }
+              input.popLimit(limit);
               break;
             }
           }
@@ -1188,6 +1212,9 @@ public final class User {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          configId_ = java.util.Collections.unmodifiableList(configId_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1219,33 +1246,43 @@ public final class User {
       return PARSER;
     }
 
-    private int bitField0_;
-    // optional int32 configId = 1;
+    // repeated int32 configId = 1;
     public static final int CONFIGID_FIELD_NUMBER = 1;
-    private int configId_;
+    private java.util.List<java.lang.Integer> configId_;
     /**
-     * <code>optional int32 configId = 1;</code>
+     * <code>repeated int32 configId = 1;</code>
      *
      * <pre>
      * 资源configId
      * </pre>
      */
-    public boolean hasConfigId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+    public java.util.List<java.lang.Integer>
+        getConfigIdList() {
+      return configId_;
     }
     /**
-     * <code>optional int32 configId = 1;</code>
+     * <code>repeated int32 configId = 1;</code>
      *
      * <pre>
      * 资源configId
      * </pre>
      */
-    public int getConfigId() {
-      return configId_;
+    public int getConfigIdCount() {
+      return configId_.size();
+    }
+    /**
+     * <code>repeated int32 configId = 1;</code>
+     *
+     * <pre>
+     * 资源configId
+     * </pre>
+     */
+    public int getConfigId(int index) {
+      return configId_.get(index);
     }
 
     private void initFields() {
-      configId_ = 0;
+      configId_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1259,8 +1296,8 @@ public final class User {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, configId_);
+      for (int i = 0; i < configId_.size(); i++) {
+        output.writeInt32(1, configId_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -1271,9 +1308,14 @@ public final class User {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, configId_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < configId_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(configId_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getConfigIdList().size();
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1391,7 +1433,7 @@ public final class User {
 
       public Builder clear() {
         super.clear();
-        configId_ = 0;
+        configId_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -1420,12 +1462,11 @@ public final class User {
       public com.game.framework.protocol.User.TCSGetResourceInfoByConfigId buildPartial() {
         com.game.framework.protocol.User.TCSGetResourceInfoByConfigId result = new com.game.framework.protocol.User.TCSGetResourceInfoByConfigId(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          configId_ = java.util.Collections.unmodifiableList(configId_);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.configId_ = configId_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1441,8 +1482,15 @@ public final class User {
 
       public Builder mergeFrom(com.game.framework.protocol.User.TCSGetResourceInfoByConfigId other) {
         if (other == com.game.framework.protocol.User.TCSGetResourceInfoByConfigId.getDefaultInstance()) return this;
-        if (other.hasConfigId()) {
-          setConfigId(other.getConfigId());
+        if (!other.configId_.isEmpty()) {
+          if (configId_.isEmpty()) {
+            configId_ = other.configId_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureConfigIdIsMutable();
+            configId_.addAll(other.configId_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1471,51 +1519,96 @@ public final class User {
       }
       private int bitField0_;
 
-      // optional int32 configId = 1;
-      private int configId_ ;
-      /**
-       * <code>optional int32 configId = 1;</code>
-       *
-       * <pre>
-       * 资源configId
-       * </pre>
-       */
-      public boolean hasConfigId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+      // repeated int32 configId = 1;
+      private java.util.List<java.lang.Integer> configId_ = java.util.Collections.emptyList();
+      private void ensureConfigIdIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          configId_ = new java.util.ArrayList<java.lang.Integer>(configId_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>optional int32 configId = 1;</code>
+       * <code>repeated int32 configId = 1;</code>
        *
        * <pre>
        * 资源configId
        * </pre>
        */
-      public int getConfigId() {
-        return configId_;
+      public java.util.List<java.lang.Integer>
+          getConfigIdList() {
+        return java.util.Collections.unmodifiableList(configId_);
       }
       /**
-       * <code>optional int32 configId = 1;</code>
+       * <code>repeated int32 configId = 1;</code>
        *
        * <pre>
        * 资源configId
        * </pre>
        */
-      public Builder setConfigId(int value) {
-        bitField0_ |= 0x00000001;
-        configId_ = value;
+      public int getConfigIdCount() {
+        return configId_.size();
+      }
+      /**
+       * <code>repeated int32 configId = 1;</code>
+       *
+       * <pre>
+       * 资源configId
+       * </pre>
+       */
+      public int getConfigId(int index) {
+        return configId_.get(index);
+      }
+      /**
+       * <code>repeated int32 configId = 1;</code>
+       *
+       * <pre>
+       * 资源configId
+       * </pre>
+       */
+      public Builder setConfigId(
+          int index, int value) {
+        ensureConfigIdIsMutable();
+        configId_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 configId = 1;</code>
+       * <code>repeated int32 configId = 1;</code>
+       *
+       * <pre>
+       * 资源configId
+       * </pre>
+       */
+      public Builder addConfigId(int value) {
+        ensureConfigIdIsMutable();
+        configId_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 configId = 1;</code>
+       *
+       * <pre>
+       * 资源configId
+       * </pre>
+       */
+      public Builder addAllConfigId(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureConfigIdIsMutable();
+        super.addAll(values, configId_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 configId = 1;</code>
        *
        * <pre>
        * 资源configId
        * </pre>
        */
       public Builder clearConfigId() {
+        configId_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
-        configId_ = 0;
         onChanged();
         return this;
       }
@@ -1534,23 +1627,50 @@ public final class User {
   public interface TSCGetResourceInfoByConfigIdOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional int32 number = 1;
+    // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
     /**
-     * <code>optional int32 number = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
-     * 资源数量
+     * 资源信息
      * </pre>
      */
-    boolean hasNumber();
+    java.util.List<com.game.framework.protocol.User.MyResourceInfo> 
+        getMyResourceInfosList();
     /**
-     * <code>optional int32 number = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
-     * 资源数量
+     * 资源信息
      * </pre>
      */
-    int getNumber();
+    com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index);
+    /**
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    int getMyResourceInfosCount();
+    /**
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
+        getMyResourceInfosOrBuilderList();
+    /**
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetResourceInfoByConfigId}
@@ -1603,9 +1723,12 @@ public final class User {
               }
               break;
             }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              number_ = input.readInt32();
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                myResourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.MyResourceInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              myResourceInfos_.add(input.readMessage(com.game.framework.protocol.User.MyResourceInfo.PARSER, extensionRegistry));
               break;
             }
           }
@@ -1616,6 +1739,9 @@ public final class User {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          myResourceInfos_ = java.util.Collections.unmodifiableList(myResourceInfos_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1647,33 +1773,64 @@ public final class User {
       return PARSER;
     }
 
-    private int bitField0_;
-    // optional int32 number = 1;
-    public static final int NUMBER_FIELD_NUMBER = 1;
-    private int number_;
+    // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
+    public static final int MYRESOURCEINFOS_FIELD_NUMBER = 1;
+    private java.util.List<com.game.framework.protocol.User.MyResourceInfo> myResourceInfos_;
     /**
-     * <code>optional int32 number = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
-     * 资源数量
+     * 资源信息
      * </pre>
      */
-    public boolean hasNumber() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+    public java.util.List<com.game.framework.protocol.User.MyResourceInfo> getMyResourceInfosList() {
+      return myResourceInfos_;
     }
     /**
-     * <code>optional int32 number = 1;</code>
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
      *
      * <pre>
-     * 资源数量
+     * 资源信息
      * </pre>
      */
-    public int getNumber() {
-      return number_;
+    public java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
+        getMyResourceInfosOrBuilderList() {
+      return myResourceInfos_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public int getMyResourceInfosCount() {
+      return myResourceInfos_.size();
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index) {
+      return myResourceInfos_.get(index);
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
+        int index) {
+      return myResourceInfos_.get(index);
     }
 
     private void initFields() {
-      number_ = 0;
+      myResourceInfos_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1687,8 +1844,8 @@ public final class User {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, number_);
+      for (int i = 0; i < myResourceInfos_.size(); i++) {
+        output.writeMessage(1, myResourceInfos_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -1699,9 +1856,9 @@ public final class User {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      for (int i = 0; i < myResourceInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, number_);
+          .computeMessageSize(1, myResourceInfos_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1811,6 +1968,7 @@ public final class User {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getMyResourceInfosFieldBuilder();
         }
       }
       private static Builder create() {
@@ -1819,8 +1977,12 @@ public final class User {
 
       public Builder clear() {
         super.clear();
-        number_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        if (myResourceInfosBuilder_ == null) {
+          myResourceInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          myResourceInfosBuilder_.clear();
+        }
         return this;
       }
 
@@ -1848,12 +2010,15 @@ public final class User {
       public com.game.framework.protocol.User.TSCGetResourceInfoByConfigId buildPartial() {
         com.game.framework.protocol.User.TSCGetResourceInfoByConfigId result = new com.game.framework.protocol.User.TSCGetResourceInfoByConfigId(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
+        if (myResourceInfosBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            myResourceInfos_ = java.util.Collections.unmodifiableList(myResourceInfos_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.myResourceInfos_ = myResourceInfos_;
+        } else {
+          result.myResourceInfos_ = myResourceInfosBuilder_.build();
         }
-        result.number_ = number_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1869,8 +2034,31 @@ public final class User {
 
       public Builder mergeFrom(com.game.framework.protocol.User.TSCGetResourceInfoByConfigId other) {
         if (other == com.game.framework.protocol.User.TSCGetResourceInfoByConfigId.getDefaultInstance()) return this;
-        if (other.hasNumber()) {
-          setNumber(other.getNumber());
+        if (myResourceInfosBuilder_ == null) {
+          if (!other.myResourceInfos_.isEmpty()) {
+            if (myResourceInfos_.isEmpty()) {
+              myResourceInfos_ = other.myResourceInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureMyResourceInfosIsMutable();
+              myResourceInfos_.addAll(other.myResourceInfos_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.myResourceInfos_.isEmpty()) {
+            if (myResourceInfosBuilder_.isEmpty()) {
+              myResourceInfosBuilder_.dispose();
+              myResourceInfosBuilder_ = null;
+              myResourceInfos_ = other.myResourceInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              myResourceInfosBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getMyResourceInfosFieldBuilder() : null;
+            } else {
+              myResourceInfosBuilder_.addAllMessages(other.myResourceInfos_);
+            }
+          }
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1899,53 +2087,316 @@ public final class User {
       }
       private int bitField0_;
 
-      // optional int32 number = 1;
-      private int number_ ;
+      // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
+      private java.util.List<com.game.framework.protocol.User.MyResourceInfo> myResourceInfos_ =
+        java.util.Collections.emptyList();
+      private void ensureMyResourceInfosIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          myResourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.MyResourceInfo>(myResourceInfos_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder> myResourceInfosBuilder_;
+
       /**
-       * <code>optional int32 number = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
-       * 资源数量
+       * 资源信息
        * </pre>
        */
-      public boolean hasNumber() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+      public java.util.List<com.game.framework.protocol.User.MyResourceInfo> getMyResourceInfosList() {
+        if (myResourceInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(myResourceInfos_);
+        } else {
+          return myResourceInfosBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>optional int32 number = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
-       * 资源数量
+       * 资源信息
        * </pre>
        */
-      public int getNumber() {
-        return number_;
+      public int getMyResourceInfosCount() {
+        if (myResourceInfosBuilder_ == null) {
+          return myResourceInfos_.size();
+        } else {
+          return myResourceInfosBuilder_.getCount();
+        }
       }
       /**
-       * <code>optional int32 number = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
-       * 资源数量
+       * 资源信息
        * </pre>
        */
-      public Builder setNumber(int value) {
-        bitField0_ |= 0x00000001;
-        number_ = value;
-        onChanged();
+      public com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index) {
+        if (myResourceInfosBuilder_ == null) {
+          return myResourceInfos_.get(index);
+        } else {
+          return myResourceInfosBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder setMyResourceInfos(
+          int index, com.game.framework.protocol.User.MyResourceInfo value) {
+        if (myResourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.set(index, value);
+          onChanged();
+        } else {
+          myResourceInfosBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>optional int32 number = 1;</code>
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
        *
        * <pre>
-       * 资源数量
+       * 资源信息
        * </pre>
        */
-      public Builder clearNumber() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        number_ = 0;
-        onChanged();
+      public Builder setMyResourceInfos(
+          int index, com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
+        if (myResourceInfosBuilder_ == null) {
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          myResourceInfosBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addMyResourceInfos(com.game.framework.protocol.User.MyResourceInfo value) {
+        if (myResourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.add(value);
+          onChanged();
+        } else {
+          myResourceInfosBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addMyResourceInfos(
+          int index, com.game.framework.protocol.User.MyResourceInfo value) {
+        if (myResourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.add(index, value);
+          onChanged();
+        } else {
+          myResourceInfosBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addMyResourceInfos(
+          com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
+        if (myResourceInfosBuilder_ == null) {
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.add(builderForValue.build());
+          onChanged();
+        } else {
+          myResourceInfosBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addMyResourceInfos(
+          int index, com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
+        if (myResourceInfosBuilder_ == null) {
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          myResourceInfosBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addAllMyResourceInfos(
+          java.lang.Iterable<? extends com.game.framework.protocol.User.MyResourceInfo> values) {
+        if (myResourceInfosBuilder_ == null) {
+          ensureMyResourceInfosIsMutable();
+          super.addAll(values, myResourceInfos_);
+          onChanged();
+        } else {
+          myResourceInfosBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder clearMyResourceInfos() {
+        if (myResourceInfosBuilder_ == null) {
+          myResourceInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          myResourceInfosBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder removeMyResourceInfos(int index) {
+        if (myResourceInfosBuilder_ == null) {
+          ensureMyResourceInfosIsMutable();
+          myResourceInfos_.remove(index);
+          onChanged();
+        } else {
+          myResourceInfosBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.MyResourceInfo.Builder getMyResourceInfosBuilder(
+          int index) {
+        return getMyResourceInfosFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
+          int index) {
+        if (myResourceInfosBuilder_ == null) {
+          return myResourceInfos_.get(index);  } else {
+          return myResourceInfosBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
+           getMyResourceInfosOrBuilderList() {
+        if (myResourceInfosBuilder_ != null) {
+          return myResourceInfosBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(myResourceInfos_);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.MyResourceInfo.Builder addMyResourceInfosBuilder() {
+        return getMyResourceInfosFieldBuilder().addBuilder(
+            com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.MyResourceInfo.Builder addMyResourceInfosBuilder(
+          int index) {
+        return getMyResourceInfosFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public java.util.List<com.game.framework.protocol.User.MyResourceInfo.Builder> 
+           getMyResourceInfosBuilderList() {
+        return getMyResourceInfosFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
+          getMyResourceInfosFieldBuilder() {
+        if (myResourceInfosBuilder_ == null) {
+          myResourceInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder>(
+                  myResourceInfos_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          myResourceInfos_ = null;
+        }
+        return myResourceInfosBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetResourceInfoByConfigId)
@@ -1959,7 +2410,7 @@ public final class User {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetResourceInfoByConfigId)
   }
 
-  public interface ResourceInfoOrBuilder
+  public interface MyResourceInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // optional int32 configId = 1;
@@ -1999,24 +2450,24 @@ public final class User {
     int getNumber();
   }
   /**
-   * Protobuf type {@code com.game.framework.protocol.ResourceInfo}
+   * Protobuf type {@code com.game.framework.protocol.MyResourceInfo}
    */
-  public static final class ResourceInfo extends
+  public static final class MyResourceInfo extends
       com.google.protobuf.GeneratedMessage
-      implements ResourceInfoOrBuilder {
-    // Use ResourceInfo.newBuilder() to construct.
-    private ResourceInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements MyResourceInfoOrBuilder {
+    // Use MyResourceInfo.newBuilder() to construct.
+    private MyResourceInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ResourceInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private MyResourceInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ResourceInfo defaultInstance;
-    public static ResourceInfo getDefaultInstance() {
+    private static final MyResourceInfo defaultInstance;
+    public static MyResourceInfo getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ResourceInfo getDefaultInstanceForType() {
+    public MyResourceInfo getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -2026,7 +2477,7 @@ public final class User {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ResourceInfo(
+    private MyResourceInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2073,28 +2524,28 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_MyResourceInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_MyResourceInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.game.framework.protocol.User.ResourceInfo.class, com.game.framework.protocol.User.ResourceInfo.Builder.class);
+              com.game.framework.protocol.User.MyResourceInfo.class, com.game.framework.protocol.User.MyResourceInfo.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ResourceInfo> PARSER =
-        new com.google.protobuf.AbstractParser<ResourceInfo>() {
-      public ResourceInfo parsePartialFrom(
+    public static com.google.protobuf.Parser<MyResourceInfo> PARSER =
+        new com.google.protobuf.AbstractParser<MyResourceInfo>() {
+      public MyResourceInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResourceInfo(input, extensionRegistry);
+        return new MyResourceInfo(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ResourceInfo> getParserForType() {
+    public com.google.protobuf.Parser<MyResourceInfo> getParserForType() {
       return PARSER;
     }
 
@@ -2198,53 +2649,53 @@ public final class User {
       return super.writeReplace();
     }
 
-    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.framework.protocol.User.ResourceInfo parseFrom(byte[] data)
+    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.framework.protocol.User.ResourceInfo parseFrom(java.io.InputStream input)
+    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.game.framework.protocol.User.ResourceInfo parseDelimitedFrom(java.io.InputStream input)
+    public static com.game.framework.protocol.User.MyResourceInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.game.framework.protocol.User.ResourceInfo parseDelimitedFrom(
+    public static com.game.framework.protocol.User.MyResourceInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2253,7 +2704,7 @@ public final class User {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.game.framework.protocol.User.ResourceInfo prototype) {
+    public static Builder newBuilder(com.game.framework.protocol.User.MyResourceInfo prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -2265,24 +2716,24 @@ public final class User {
       return builder;
     }
     /**
-     * Protobuf type {@code com.game.framework.protocol.ResourceInfo}
+     * Protobuf type {@code com.game.framework.protocol.MyResourceInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.game.framework.protocol.User.ResourceInfoOrBuilder {
+       implements com.game.framework.protocol.User.MyResourceInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_MyResourceInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_MyResourceInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.game.framework.protocol.User.ResourceInfo.class, com.game.framework.protocol.User.ResourceInfo.Builder.class);
+                com.game.framework.protocol.User.MyResourceInfo.class, com.game.framework.protocol.User.MyResourceInfo.Builder.class);
       }
 
-      // Construct using com.game.framework.protocol.User.ResourceInfo.newBuilder()
+      // Construct using com.game.framework.protocol.User.MyResourceInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2315,23 +2766,23 @@ public final class User {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_MyResourceInfo_descriptor;
       }
 
-      public com.game.framework.protocol.User.ResourceInfo getDefaultInstanceForType() {
-        return com.game.framework.protocol.User.ResourceInfo.getDefaultInstance();
+      public com.game.framework.protocol.User.MyResourceInfo getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance();
       }
 
-      public com.game.framework.protocol.User.ResourceInfo build() {
-        com.game.framework.protocol.User.ResourceInfo result = buildPartial();
+      public com.game.framework.protocol.User.MyResourceInfo build() {
+        com.game.framework.protocol.User.MyResourceInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.game.framework.protocol.User.ResourceInfo buildPartial() {
-        com.game.framework.protocol.User.ResourceInfo result = new com.game.framework.protocol.User.ResourceInfo(this);
+      public com.game.framework.protocol.User.MyResourceInfo buildPartial() {
+        com.game.framework.protocol.User.MyResourceInfo result = new com.game.framework.protocol.User.MyResourceInfo(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2348,16 +2799,16 @@ public final class User {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.framework.protocol.User.ResourceInfo) {
-          return mergeFrom((com.game.framework.protocol.User.ResourceInfo)other);
+        if (other instanceof com.game.framework.protocol.User.MyResourceInfo) {
+          return mergeFrom((com.game.framework.protocol.User.MyResourceInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.game.framework.protocol.User.ResourceInfo other) {
-        if (other == com.game.framework.protocol.User.ResourceInfo.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.game.framework.protocol.User.MyResourceInfo other) {
+        if (other == com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance()) return this;
         if (other.hasConfigId()) {
           setConfigId(other.getConfigId());
         }
@@ -2376,11 +2827,11 @@ public final class User {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.game.framework.protocol.User.ResourceInfo parsedMessage = null;
+        com.game.framework.protocol.User.MyResourceInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.framework.protocol.User.ResourceInfo) e.getUnfinishedMessage();
+          parsedMessage = (com.game.framework.protocol.User.MyResourceInfo) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2489,15 +2940,15 @@ public final class User {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.ResourceInfo)
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.MyResourceInfo)
     }
 
     static {
-      defaultInstance = new ResourceInfo(true);
+      defaultInstance = new MyResourceInfo(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.ResourceInfo)
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.MyResourceInfo)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -2521,10 +2972,10 @@ public final class User {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TSCGetResourceInfoByConfigId_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
+    internal_static_com_game_framework_protocol_MyResourceInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable;
+      internal_static_com_game_framework_protocol_MyResourceInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2535,13 +2986,15 @@ public final class User {
   static {
     java.lang.String[] descriptorData = {
       "\n\nuser.proto\022\033com.game.framework.protoco" +
-      "l\"\024\n\022TCSGetResourceInfo\"V\n\022TSCGetResourc" +
-      "eInfo\022@\n\rresourceInfos\030\001 \003(\0132).com.game." +
-      "framework.protocol.ResourceInfo\"0\n\034TCSGe" +
-      "tResourceInfoByConfigId\022\020\n\010configId\030\001 \001(" +
-      "\005\".\n\034TSCGetResourceInfoByConfigId\022\016\n\006num" +
-      "ber\030\001 \001(\005\"0\n\014ResourceInfo\022\020\n\010configId\030\001 " +
-      "\001(\005\022\016\n\006number\030\002 \001(\005B\002H\001"
+      "l\"\024\n\022TCSGetResourceInfo\"Z\n\022TSCGetResourc" +
+      "eInfo\022D\n\017myResourceInfos\030\001 \003(\0132+.com.gam" +
+      "e.framework.protocol.MyResourceInfo\"0\n\034T" +
+      "CSGetResourceInfoByConfigId\022\020\n\010configId\030" +
+      "\001 \003(\005\"d\n\034TSCGetResourceInfoByConfigId\022D\n" +
+      "\017myResourceInfos\030\001 \003(\0132+.com.game.framew" +
+      "ork.protocol.MyResourceInfo\"2\n\016MyResourc" +
+      "eInfo\022\020\n\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005B" +
+      "\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2559,7 +3012,7 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCGetResourceInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetResourceInfo_descriptor,
-              new java.lang.String[] { "ResourceInfos", });
+              new java.lang.String[] { "MyResourceInfos", });
           internal_static_com_game_framework_protocol_TCSGetResourceInfoByConfigId_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_TCSGetResourceInfoByConfigId_fieldAccessorTable = new
@@ -2571,12 +3024,12 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCGetResourceInfoByConfigId_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetResourceInfoByConfigId_descriptor,
-              new java.lang.String[] { "Number", });
-          internal_static_com_game_framework_protocol_ResourceInfo_descriptor =
+              new java.lang.String[] { "MyResourceInfos", });
+          internal_static_com_game_framework_protocol_MyResourceInfo_descriptor =
             getDescriptor().getMessageTypes().get(4);
-          internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable = new
+          internal_static_com_game_framework_protocol_MyResourceInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_game_framework_protocol_ResourceInfo_descriptor,
+              internal_static_com_game_framework_protocol_MyResourceInfo_descriptor,
               new java.lang.String[] { "ConfigId", "Number", });
           return null;
         }

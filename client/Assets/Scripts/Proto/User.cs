@@ -296,7 +296,7 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetResourceInfo : pb::GeneratedMessageLite<TSCGetResourceInfo, TSCGetResourceInfo.Builder> {
     private TSCGetResourceInfo() { }
     private static readonly TSCGetResourceInfo defaultInstance = new TSCGetResourceInfo().MakeReadOnly();
-    private static readonly string[] _tSCGetResourceInfoFieldNames = new string[] { "resourceInfos" };
+    private static readonly string[] _tSCGetResourceInfoFieldNames = new string[] { "myResourceInfos" };
     private static readonly uint[] _tSCGetResourceInfoFieldTags = new uint[] { 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -319,16 +319,16 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ResourceInfosFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo> resourceInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo>();
-    public scg::IList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
-      get { return resourceInfos_; }
+    public const int MyResourceInfosFieldNumber = 1;
+    private pbc::PopsicleList<global::com.game.framework.protocol.MyResourceInfo> myResourceInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.MyResourceInfo>();
+    public scg::IList<global::com.game.framework.protocol.MyResourceInfo> MyResourceInfosList {
+      get { return myResourceInfos_; }
     }
-    public int ResourceInfosCount {
-      get { return resourceInfos_.Count; }
+    public int MyResourceInfosCount {
+      get { return myResourceInfos_.Count; }
     }
-    public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
-      return resourceInfos_[index];
+    public global::com.game.framework.protocol.MyResourceInfo GetMyResourceInfos(int index) {
+      return myResourceInfos_[index];
     }
     
     #if UNITY_EDITOR
@@ -346,8 +346,8 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _tSCGetResourceInfoFieldNames;
-      if (resourceInfos_.Count > 0) {
-        output.WriteMessageArray(1, field_names[0], resourceInfos_);
+      if (myResourceInfos_.Count > 0) {
+        output.WriteMessageArray(1, field_names[0], myResourceInfos_);
       }
     }
     
@@ -361,7 +361,7 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.protocol.ResourceInfo element in ResourceInfosList) {
+        foreach (global::com.game.framework.protocol.MyResourceInfo element in MyResourceInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
@@ -372,7 +372,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.protocol.ResourceInfo i in resourceInfos_)
+      foreach(global::com.game.framework.protocol.MyResourceInfo i in myResourceInfos_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -380,9 +380,9 @@ namespace com.game.framework.protocol {
     public override bool Equals(object obj) {
       TSCGetResourceInfo other = obj as TSCGetResourceInfo;
       if (other == null) return false;
-      if(resourceInfos_.Count != other.resourceInfos_.Count) return false;
-      for(int ix=0; ix < resourceInfos_.Count; ix++)
-        if(!resourceInfos_[ix].Equals(other.resourceInfos_[ix])) return false;
+      if(myResourceInfos_.Count != other.myResourceInfos_.Count) return false;
+      for(int ix=0; ix < myResourceInfos_.Count; ix++)
+        if(!myResourceInfos_[ix].Equals(other.myResourceInfos_[ix])) return false;
       return true;
     }
     
@@ -449,7 +449,7 @@ namespace com.game.framework.protocol {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private TSCGetResourceInfo MakeReadOnly() {
-      resourceInfos_.MakeReadOnly();
+      myResourceInfos_.MakeReadOnly();
       return this;
     }
     
@@ -544,8 +544,8 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(TSCGetResourceInfo other) {
         if (other == global::com.game.framework.protocol.TSCGetResourceInfo.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.resourceInfos_.Count != 0) {
-          result.resourceInfos_.Add(other.resourceInfos_);
+        if (other.myResourceInfos_.Count != 0) {
+          result.myResourceInfos_.Add(other.myResourceInfos_);
         }
         return this;
       }
@@ -580,7 +580,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.resourceInfos_, global::com.game.framework.protocol.ResourceInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.myResourceInfos_, global::com.game.framework.protocol.MyResourceInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -590,47 +590,47 @@ namespace com.game.framework.protocol {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
-        get { return PrepareBuilder().resourceInfos_; }
+      public pbc::IPopsicleList<global::com.game.framework.protocol.MyResourceInfo> MyResourceInfosList {
+        get { return PrepareBuilder().myResourceInfos_; }
       }
-      public int ResourceInfosCount {
-        get { return result.ResourceInfosCount; }
+      public int MyResourceInfosCount {
+        get { return result.MyResourceInfosCount; }
       }
-      public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
-        return result.GetResourceInfos(index);
+      public global::com.game.framework.protocol.MyResourceInfo GetMyResourceInfos(int index) {
+        return result.GetMyResourceInfos(index);
       }
-      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo value) {
+      public Builder SetMyResourceInfos(int index, global::com.game.framework.protocol.MyResourceInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.resourceInfos_[index] = value;
+        result.myResourceInfos_[index] = value;
         return this;
       }
-      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+      public Builder SetMyResourceInfos(int index, global::com.game.framework.protocol.MyResourceInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.resourceInfos_[index] = builderForValue.Build();
+        result.myResourceInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo value) {
+      public Builder AddMyResourceInfos(global::com.game.framework.protocol.MyResourceInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.resourceInfos_.Add(value);
+        result.myResourceInfos_.Add(value);
         return this;
       }
-      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+      public Builder AddMyResourceInfos(global::com.game.framework.protocol.MyResourceInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.resourceInfos_.Add(builderForValue.Build());
+        result.myResourceInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeResourceInfos(scg::IEnumerable<global::com.game.framework.protocol.ResourceInfo> values) {
+      public Builder AddRangeMyResourceInfos(scg::IEnumerable<global::com.game.framework.protocol.MyResourceInfo> values) {
         PrepareBuilder();
-        result.resourceInfos_.Add(values);
+        result.myResourceInfos_.Add(values);
         return this;
       }
-      public Builder ClearResourceInfos() {
+      public Builder ClearMyResourceInfos() {
         PrepareBuilder();
-        result.resourceInfos_.Clear();
+        result.myResourceInfos_.Clear();
         return this;
       }
     }
@@ -666,13 +666,15 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int ConfigIdFieldNumber = 1;
-    private bool hasConfigId;
-    private int configId_;
-    public bool HasConfigId {
-      get { return hasConfigId; }
+    private pbc::PopsicleList<int> configId_ = new pbc::PopsicleList<int>();
+    public scg::IList<int> ConfigIdList {
+      get { return pbc::Lists.AsReadOnly(configId_); }
     }
-    public int ConfigId {
-      get { return configId_; }
+    public int ConfigIdCount {
+      get { return configId_.Count; }
+    }
+    public int GetConfigId(int index) {
+      return configId_[index];
     }
     
     #if UNITY_EDITOR
@@ -690,8 +692,8 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _tCSGetResourceInfoByConfigIdFieldNames;
-      if (hasConfigId) {
-        output.WriteInt32(1, field_names[0], ConfigId);
+      if (configId_.Count > 0) {
+        output.WriteInt32Array(1, field_names[0], configId_);
       }
     }
     
@@ -705,8 +707,13 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasConfigId) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, ConfigId);
+        {
+          int dataSize = 0;
+          foreach (int element in ConfigIdList) {
+            dataSize += pb::CodedOutputStream.ComputeInt32SizeNoTag(element);
+          }
+          size += dataSize;
+          size += 1 * configId_.Count;
         }
         memoizedSerializedSize = size;
         return size;
@@ -716,14 +723,17 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasConfigId) hash ^= configId_.GetHashCode();
+      foreach(int i in configId_)
+        hash ^= i.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
       TCSGetResourceInfoByConfigId other = obj as TCSGetResourceInfoByConfigId;
       if (other == null) return false;
-      if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
+      if(configId_.Count != other.configId_.Count) return false;
+      for(int ix=0; ix < configId_.Count; ix++)
+        if(!configId_[ix].Equals(other.configId_[ix])) return false;
       return true;
     }
     
@@ -790,6 +800,7 @@ namespace com.game.framework.protocol {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private TCSGetResourceInfoByConfigId MakeReadOnly() {
+      configId_.MakeReadOnly();
       return this;
     }
     
@@ -884,8 +895,8 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(TCSGetResourceInfoByConfigId other) {
         if (other == global::com.game.framework.protocol.TCSGetResourceInfoByConfigId.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasConfigId) {
-          ConfigId = other.ConfigId;
+        if (other.configId_.Count != 0) {
+          result.configId_.Add(other.configId_);
         }
         return this;
       }
@@ -919,8 +930,9 @@ namespace com.game.framework.protocol {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               break;
             }
+            case 10:
             case 8: {
-              result.hasConfigId = input.ReadInt32(ref result.configId_);
+              input.ReadInt32Array(tag, field_name, result.configId_);
               break;
             }
           }
@@ -930,23 +942,33 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasConfigId {
-        get { return result.hasConfigId; }
+      public pbc::IPopsicleList<int> ConfigIdList {
+        get { return PrepareBuilder().configId_; }
       }
-      public int ConfigId {
-        get { return result.ConfigId; }
-        set { SetConfigId(value); }
+      public int ConfigIdCount {
+        get { return result.ConfigIdCount; }
       }
-      public Builder SetConfigId(int value) {
+      public int GetConfigId(int index) {
+        return result.GetConfigId(index);
+      }
+      public Builder SetConfigId(int index, int value) {
         PrepareBuilder();
-        result.hasConfigId = true;
-        result.configId_ = value;
+        result.configId_[index] = value;
+        return this;
+      }
+      public Builder AddConfigId(int value) {
+        PrepareBuilder();
+        result.configId_.Add(value);
+        return this;
+      }
+      public Builder AddRangeConfigId(scg::IEnumerable<int> values) {
+        PrepareBuilder();
+        result.configId_.Add(values);
         return this;
       }
       public Builder ClearConfigId() {
         PrepareBuilder();
-        result.hasConfigId = false;
-        result.configId_ = 0;
+        result.configId_.Clear();
         return this;
       }
     }
@@ -958,8 +980,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetResourceInfoByConfigId : pb::GeneratedMessageLite<TSCGetResourceInfoByConfigId, TSCGetResourceInfoByConfigId.Builder> {
     private TSCGetResourceInfoByConfigId() { }
     private static readonly TSCGetResourceInfoByConfigId defaultInstance = new TSCGetResourceInfoByConfigId().MakeReadOnly();
-    private static readonly string[] _tSCGetResourceInfoByConfigIdFieldNames = new string[] { "number" };
-    private static readonly uint[] _tSCGetResourceInfoByConfigIdFieldTags = new uint[] { 8 };
+    private static readonly string[] _tSCGetResourceInfoByConfigIdFieldNames = new string[] { "myResourceInfos" };
+    private static readonly uint[] _tSCGetResourceInfoByConfigIdFieldTags = new uint[] { 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -981,14 +1003,16 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int NumberFieldNumber = 1;
-    private bool hasNumber;
-    private int number_;
-    public bool HasNumber {
-      get { return hasNumber; }
+    public const int MyResourceInfosFieldNumber = 1;
+    private pbc::PopsicleList<global::com.game.framework.protocol.MyResourceInfo> myResourceInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.MyResourceInfo>();
+    public scg::IList<global::com.game.framework.protocol.MyResourceInfo> MyResourceInfosList {
+      get { return myResourceInfos_; }
     }
-    public int Number {
-      get { return number_; }
+    public int MyResourceInfosCount {
+      get { return myResourceInfos_.Count; }
+    }
+    public global::com.game.framework.protocol.MyResourceInfo GetMyResourceInfos(int index) {
+      return myResourceInfos_[index];
     }
     
     #if UNITY_EDITOR
@@ -1006,8 +1030,8 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _tSCGetResourceInfoByConfigIdFieldNames;
-      if (hasNumber) {
-        output.WriteInt32(1, field_names[0], Number);
+      if (myResourceInfos_.Count > 0) {
+        output.WriteMessageArray(1, field_names[0], myResourceInfos_);
       }
     }
     
@@ -1021,8 +1045,8 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasNumber) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, Number);
+        foreach (global::com.game.framework.protocol.MyResourceInfo element in MyResourceInfosList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
         return size;
@@ -1032,14 +1056,17 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasNumber) hash ^= number_.GetHashCode();
+      foreach(global::com.game.framework.protocol.MyResourceInfo i in myResourceInfos_)
+        hash ^= i.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
       TSCGetResourceInfoByConfigId other = obj as TSCGetResourceInfoByConfigId;
       if (other == null) return false;
-      if (hasNumber != other.hasNumber || (hasNumber && !number_.Equals(other.number_))) return false;
+      if(myResourceInfos_.Count != other.myResourceInfos_.Count) return false;
+      for(int ix=0; ix < myResourceInfos_.Count; ix++)
+        if(!myResourceInfos_[ix].Equals(other.myResourceInfos_[ix])) return false;
       return true;
     }
     
@@ -1106,6 +1133,7 @@ namespace com.game.framework.protocol {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private TSCGetResourceInfoByConfigId MakeReadOnly() {
+      myResourceInfos_.MakeReadOnly();
       return this;
     }
     
@@ -1200,8 +1228,8 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(TSCGetResourceInfoByConfigId other) {
         if (other == global::com.game.framework.protocol.TSCGetResourceInfoByConfigId.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasNumber) {
-          Number = other.Number;
+        if (other.myResourceInfos_.Count != 0) {
+          result.myResourceInfos_.Add(other.myResourceInfos_);
         }
         return this;
       }
@@ -1235,8 +1263,8 @@ namespace com.game.framework.protocol {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               break;
             }
-            case 8: {
-              result.hasNumber = input.ReadInt32(ref result.number_);
+            case 10: {
+              input.ReadMessageArray(tag, field_name, result.myResourceInfos_, global::com.game.framework.protocol.MyResourceInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -1246,23 +1274,47 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasNumber {
-        get { return result.hasNumber; }
+      public pbc::IPopsicleList<global::com.game.framework.protocol.MyResourceInfo> MyResourceInfosList {
+        get { return PrepareBuilder().myResourceInfos_; }
       }
-      public int Number {
-        get { return result.Number; }
-        set { SetNumber(value); }
+      public int MyResourceInfosCount {
+        get { return result.MyResourceInfosCount; }
       }
-      public Builder SetNumber(int value) {
+      public global::com.game.framework.protocol.MyResourceInfo GetMyResourceInfos(int index) {
+        return result.GetMyResourceInfos(index);
+      }
+      public Builder SetMyResourceInfos(int index, global::com.game.framework.protocol.MyResourceInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.hasNumber = true;
-        result.number_ = value;
+        result.myResourceInfos_[index] = value;
         return this;
       }
-      public Builder ClearNumber() {
+      public Builder SetMyResourceInfos(int index, global::com.game.framework.protocol.MyResourceInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.hasNumber = false;
-        result.number_ = 0;
+        result.myResourceInfos_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddMyResourceInfos(global::com.game.framework.protocol.MyResourceInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.myResourceInfos_.Add(value);
+        return this;
+      }
+      public Builder AddMyResourceInfos(global::com.game.framework.protocol.MyResourceInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.myResourceInfos_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeMyResourceInfos(scg::IEnumerable<global::com.game.framework.protocol.MyResourceInfo> values) {
+        PrepareBuilder();
+        result.myResourceInfos_.Add(values);
+        return this;
+      }
+      public Builder ClearMyResourceInfos() {
+        PrepareBuilder();
+        result.myResourceInfos_.Clear();
         return this;
       }
     }
@@ -1271,26 +1323,26 @@ namespace com.game.framework.protocol {
     }
   }
   
-  public sealed partial class ResourceInfo : pb::GeneratedMessageLite<ResourceInfo, ResourceInfo.Builder> {
-    private ResourceInfo() { }
-    private static readonly ResourceInfo defaultInstance = new ResourceInfo().MakeReadOnly();
-    private static readonly string[] _resourceInfoFieldNames = new string[] { "configId", "number" };
-    private static readonly uint[] _resourceInfoFieldTags = new uint[] { 8, 16 };
+  public sealed partial class MyResourceInfo : pb::GeneratedMessageLite<MyResourceInfo, MyResourceInfo.Builder> {
+    private MyResourceInfo() { }
+    private static readonly MyResourceInfo defaultInstance = new MyResourceInfo().MakeReadOnly();
+    private static readonly string[] _myResourceInfoFieldNames = new string[] { "configId", "number" };
+    private static readonly uint[] _myResourceInfoFieldTags = new uint[] { 8, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo DefaultInstance {
+    public static MyResourceInfo DefaultInstance {
       get { return defaultInstance; }
     }
     
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public override ResourceInfo DefaultInstanceForType {
+    public override MyResourceInfo DefaultInstanceForType {
       get { return DefaultInstance; }
     }
     
-    protected override ResourceInfo ThisMessage {
+    protected override MyResourceInfo ThisMessage {
       get { return this; }
     }
     
@@ -1334,7 +1386,7 @@ namespace com.game.framework.protocol {
      #endif//
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
-      string[] field_names = _resourceInfoFieldNames;
+      string[] field_names = _myResourceInfoFieldNames;
       if (hasConfigId) {
         output.WriteInt32(1, field_names[0], ConfigId);
       }
@@ -1373,7 +1425,7 @@ namespace com.game.framework.protocol {
     }
     
     public override bool Equals(object obj) {
-      ResourceInfo other = obj as ResourceInfo;
+      MyResourceInfo other = obj as MyResourceInfo;
       if (other == null) return false;
       if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
       if (hasNumber != other.hasNumber || (hasNumber && !number_.Equals(other.number_))) return false;
@@ -1385,64 +1437,64 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo ParseFrom(pb::ByteString data) {
+    public static MyResourceInfo ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+    public static MyResourceInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo ParseFrom(byte[] data) {
+    public static MyResourceInfo ParseFrom(byte[] data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+    public static MyResourceInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo ParseFrom(global::System.IO.Stream input) {
+    public static MyResourceInfo ParseFrom(global::System.IO.Stream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static MyResourceInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+    public static MyResourceInfo ParseDelimitedFrom(global::System.IO.Stream input) {
       return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static MyResourceInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo ParseFrom(pb::ICodedInputStream input) {
+    public static MyResourceInfo ParseFrom(pb::ICodedInputStream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static ResourceInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+    public static MyResourceInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    private ResourceInfo MakeReadOnly() {
+    private MyResourceInfo MakeReadOnly() {
       return this;
     }
     
@@ -1461,11 +1513,11 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Builder CreateBuilder(ResourceInfo prototype) {
+    public static Builder CreateBuilder(MyResourceInfo prototype) {
       return new Builder(prototype);
     }
     
-    public sealed partial class Builder : pb::GeneratedBuilderLite<ResourceInfo, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<MyResourceInfo, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -1473,18 +1525,18 @@ namespace com.game.framework.protocol {
         result = DefaultInstance;
         resultIsReadOnly = true;
       }
-      internal Builder(ResourceInfo cloneFrom) {
+      internal Builder(MyResourceInfo cloneFrom) {
         result = cloneFrom;
         resultIsReadOnly = true;
       }
       
       private bool resultIsReadOnly;
-      private ResourceInfo result;
+      private MyResourceInfo result;
       
-      private ResourceInfo PrepareBuilder() {
+      private MyResourceInfo PrepareBuilder() {
         if (resultIsReadOnly) {
-          ResourceInfo original = result;
-          result = new ResourceInfo();
+          MyResourceInfo original = result;
+          result = new MyResourceInfo();
           resultIsReadOnly = false;
           MergeFrom(original);
         }
@@ -1495,7 +1547,7 @@ namespace com.game.framework.protocol {
         get { return result.IsInitialized; }
       }
       
-      protected override ResourceInfo MessageBeingBuilt {
+      protected override MyResourceInfo MessageBeingBuilt {
         get { return PrepareBuilder(); }
       }
       
@@ -1513,11 +1565,11 @@ namespace com.game.framework.protocol {
         }
       }
       
-      public override ResourceInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.ResourceInfo.DefaultInstance; }
+      public override MyResourceInfo DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.MyResourceInfo.DefaultInstance; }
       }
       
-      public override ResourceInfo BuildPartial() {
+      public override MyResourceInfo BuildPartial() {
         if (resultIsReadOnly) {
           return result;
         }
@@ -1526,16 +1578,16 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is ResourceInfo) {
-          return MergeFrom((ResourceInfo) other);
+        if (other is MyResourceInfo) {
+          return MergeFrom((MyResourceInfo) other);
         } else {
           base.MergeFrom(other);
           return this;
         }
       }
       
-      public override Builder MergeFrom(ResourceInfo other) {
-        if (other == global::com.game.framework.protocol.ResourceInfo.DefaultInstance) return this;
+      public override Builder MergeFrom(MyResourceInfo other) {
+        if (other == global::com.game.framework.protocol.MyResourceInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasConfigId) {
           ConfigId = other.ConfigId;
@@ -1556,9 +1608,9 @@ namespace com.game.framework.protocol {
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
           if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_resourceInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            int field_ordinal = global::System.Array.BinarySearch(_myResourceInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
             if(field_ordinal >= 0)
-              tag = _resourceInfoFieldTags[field_ordinal];
+              tag = _myResourceInfoFieldTags[field_ordinal];
             else {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
@@ -1630,7 +1682,7 @@ namespace com.game.framework.protocol {
         return this;
       }
     }
-    static ResourceInfo() {
+    static MyResourceInfo() {
       object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
     }
   }

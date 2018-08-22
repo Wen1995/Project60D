@@ -538,6 +538,10 @@ public class NTableView : MonoBehaviour
         // {
         //     cellCount = Mathf.CeilToInt(cellCount * 1.0f / m_tableData.ItemsCount);
         // }
+        if (ItemCount > 0)
+        {
+            cellCount = Mathf.CeilToInt(cellCount * 1.0f / ItemCount);
+        }
         return cellCount;
     }
 
@@ -551,6 +555,13 @@ public class NTableView : MonoBehaviour
         //     int dataCount = m_tableData.DataCount();
         //     count = end > dataCount ? (dataCount - begin) : (end - begin);
         // }
+        // object data = m_tableData.CellData(index, ref count);
+        if (ItemCount > 0)
+        {
+            int begin = ItemCount * index;
+            int end = ItemCount * (index + 1);
+            count = end > DataCount ? (DataCount - begin) : (end - begin);
+        }
         //object data = m_tableData.CellData(index, ref count);
         cell.DrawCell(index, count);
     }

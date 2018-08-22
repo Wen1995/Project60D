@@ -91,7 +91,7 @@ public class Building : Controller {
                 break;
             }
         }
-        Debug.Log(string.Format("buidlingtype={0}, state={1}", buildingType.ToString(), mState.ToString()));
+        //Debug.Log(string.Format("buidlingtype={0}, state={1}", buildingType.ToString(), mState.ToString()));
     }
 
     public void SetBuildingID(long buildingID)
@@ -140,7 +140,6 @@ public class Building : Controller {
     {
         for (int i = 0; i < floatingIconTrans.childCount; i++)
         {
-            print("clear icon");
             GameObject iconGo = floatingIconTrans.GetChild(0).gameObject;
             IPoolUnit iPoolUnit = iconGo.GetComponent<IPoolUnit>();
             iPoolUnit.Restore();

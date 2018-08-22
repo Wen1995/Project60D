@@ -8,10 +8,8 @@ public class NetSingleton : Singleton<NetSingleton> {
     //--reference-------------------------------------------------------
     private Dictionary<NetType, RPCNetwork> networkMap = new Dictionary<NetType, RPCNetwork>();
     private Dictionary<NetType, List<NetMsgDef>> msgBufferMap = new Dictionary<NetType, List<NetMsgDef>>();
-
     void Update()
     {
-        //TODO
         //submit msg, update
         foreach (KeyValuePair<NetType, RPCNetwork> kv in networkMap)
         {
@@ -85,6 +83,19 @@ public class NetSingleton : Singleton<NetSingleton> {
     public void OnNetException(NetType nType, Error e)
     {
         print(string.Format("Error{0} occured!!", e.ToString()));
+    }
+
+    public void StartHeartBeat()
+    {
+        StartCoroutine(HeartBeat());
+    }
+    IEnumerator HeartBeat()
+    {
+        while(true)
+        {
+            //SendNetMsg()
+            yield return new WaitForSeconds(60.0f);
+        }
     }
 
     void ErrorResponce(NetMsgDef msg)

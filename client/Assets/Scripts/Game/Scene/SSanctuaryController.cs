@@ -8,9 +8,9 @@ using UnityEngine;
 
 public class SSanctuaryController : SceneController
 {
-    public GameObject testBuilding;
     SanctuaryPackage sanctuaryPackage = null;
     ItemPackage itemPackage = null;
+    UserPackage userPackage = null;
 
     //register or bind something
     public void Awake()
@@ -31,6 +31,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UIPlayerMenuPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Top);
         FacadeSingleton.Instance.RegisterUIPanel("UIManorMenuPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Top);
         FacadeSingleton.Instance.RegisterUIPanel("UIFuncMenuPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Bottom);
+        FacadeSingleton.Instance.RegisterUIPanel("UIPlayerInfoPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
@@ -48,9 +49,11 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.RECEIVE, OnReceive);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.PROCESS, OnCraft);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.INTERRUPTPROCESS, OnCancelCraft);
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETRESOURCEINFO, OnGetResourceInfo);
 
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
+        userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
     }
     //actually do something
     public void Start()
@@ -64,8 +67,11 @@ public class SSanctuaryController : SceneController
     /// </summary>
     void BuildSanctuary()
     {
+        //open menu panel
+        FacadeSingleton.Instance.OverlayerPanel("UIFuncMenuPanel");
+        FacadeSingleton.Instance.OverlayerPanel("UIManorMenuPanel");
+        FacadeSingleton.Instance.OverlayerPanel("UIPlayerMenuPanel");
         SendEvent("RefreshBuildingView");
-        //TODO
     }
 
     void OnSelectBuilding(NDictionary data = null)
@@ -89,13 +95,22 @@ public class SSanctuaryController : SceneController
     /// </summary>
     void OnGetSceneInfo(NetMsgDef msg)
     {
-        print("Get Scene Info");
+        //print("Get Scene Info");
         TSCGetSceneInfo sceneInfo = TSCGetSceneInfo.ParseFrom(msg.mBtsData);
         for (int i = 0; i < sceneInfo.BuildingInfosCount; i++)
         {
             BuildingInfo info = sceneInfo.BuildingInfosList[i];
             sanctuaryPackage.AddBuilding(info);
         }
+        FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
+    }
+
+    void OnGetResourceInfo(NetMsgDef msg)
+    {
+        //print("Get Resource Info, item Count=");
+        TSCGetResourceInfo resInfos = TSCGetResourceInfo.ParseFrom(msg.mBtsData);
+        for(int i=0;i<resInfos.MyResourceInfosCount;i++)
+            itemPackage.AddItem(resInfos.GetMyResourceInfos(i));
         BuildSanctuary();
     }
 

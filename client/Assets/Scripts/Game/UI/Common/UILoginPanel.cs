@@ -36,6 +36,7 @@ public class UILoginPanel : PanelBase {
 
     void OnLoginSuccussed(NetMsgDef msg)
     {
+        NetSingleton.Instance.StartHeartBeat();
         userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
         PlayerPrefs.SetString("username", userName.value);
         TSCLogin login = TSCLogin.ParseFrom(msg.mBtsData);

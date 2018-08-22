@@ -45,6 +45,7 @@ public class PanelBase : Controller {
         mViewPanel.startingRenderQueue = num;
         for (int i = 0, iMax = mChildPanelList.Count; i < iMax; i++)
         {
+            mChildPanelList[i].depth = num + mChildPanelDepthList[i];
             mChildPanelList[i].startingRenderQueue = num + mChildPanelDepthList[i];
         }
     }

@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 65800186539542808}
   - component: {fileID: 114179028143952168}
   m_Layer: 5
-  m_Name: Event
+  m_Name: ranking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3011
+  startingRenderQueue: 3000
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0

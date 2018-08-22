@@ -1,53 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using com.game.framework.protocol;
 using com.game.framework.resource.data;
 using UnityEngine;
 
-public enum ItemType
-{
-    Rice = 101,
-    Veg,
-    Fruit,
-    Fertilizer,
-    PineWood,
-    IronWood,
-    Cement = 201,
-    Plant,
-    Rawoil,
-    Iron,
-    Bullet,
-    Medicine,
-
-    MineralWater = 501,
-    Feed,
-    Pork,
-    Oil,
-    Steel,
-    PineWoodPlank,
-    Concrete,
-    IronWoodPlank,
-
-}
-
 public class NItemInfo
 {
+    public int configID;
     public int number;
+    public NItemInfo(MyResourceInfo resInfo)
+    {
+        configID = resInfo.ConfigId;
+        number = resInfo.Number;
+    }
+}
+
+public enum ItemSortType
+{
 }
 
 public class ItemPackage : ModelBase
 {
 
-    public Dictionary<int, NItemInfo> mItemInfoMap = new Dictionary<int, NItemInfo>();
-
-    public ItemType GetItemTypeByConfigID(int configID)
-    {
-        return (ItemType)(configID / 10000 % 1000);
-    }
-
-    public int GetConfigIDByItemType(ItemType type)
-    {
-        return 210000001 + (int)type * 1000;
-    }
+    Dictionary<int, NItemInfo> mItemInfoMap = new Dictionary<int, NItemInfo>();
+    List<NItemInfo> mItemInfoList = new List<NItemInfo>();
 
     public ITEM_RES GetItemDataByConfigID(int configID)
     {
@@ -66,14 +42,36 @@ public class ItemPackage : ModelBase
     {
         if(!mItemInfoMap.ContainsKey(configID))
         {
-            //Debug.Log(string.Format())
+            Debug.Log(string.Format("item{0} not exist", GetItemDataByConfigID(configID)));
             return null;
         }
         return mItemInfoMap[configID];
     }
+
+    public List<NItemInfo> GetItemInfoList()
+    {
+        return mItemInfoList;
+    }
+
+    public void SortItemInfoList()
+    {
+        mItemInfoList.Clear();
+        foreach(var pair in mItemInfoMap)
+        {
+            mItemInfoList.Add(pair.Value);
+        }
+    }
     #endregion
 
     #region Set Data
+
+    public void AddItem(MyResourceInfo resInfo)
+    {
+        NItemInfo info = new NItemInfo(resInfo);
+        ITEM_RES itemData = GetItemDataByConfigID(resInfo.ConfigId);
+        //Debug.Log(string.Format("add item tpye={0}, num={1}", itemData.MinName, resInfo.Number));
+        mItemInfoMap[info.configID] = info;
+    }
 
     #endregion
 

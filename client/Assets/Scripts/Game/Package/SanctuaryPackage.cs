@@ -114,7 +114,7 @@ public class SanctuaryPackage : ModelBase {
     {
         if(!mBuildingInfoMap.ContainsKey(buildingID))
         {
-            Debug.Log(string.Format("Building ID={0} does not exist", buildingID));
+            //Debug.Log(string.Format("Building ID={0} does not exist", buildingID));
             return null;
         }
         return mBuildingInfoMap[buildingID];

@@ -79,6 +79,13 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.INTERRUPTPROCESS, interProcess.ToByteArray());
     }
 
+    public void RPCGetResourceInfo()
+    {
+        var builder = TCSGetResourceInfo.CreateBuilder();
+        TCSGetResourceInfo getResInfo = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETRESOURCEINFO, getResInfo.ToByteArray());
+    }
+
     /// <summary>
     /// Use a extra camera to render the object you give
     /// Normally used to render a 3d model in UI

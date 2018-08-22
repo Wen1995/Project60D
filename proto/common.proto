@@ -5,6 +5,8 @@ option optimize_for = SPEED;
 enum Cmd {
 	ERROR = -1;
 	//////////////////登录模块 1-10///////////////////
+	// 心跳
+	HEART = 0;
 	// 登录
 	LOGIN = 1;
 	// 玩家登出
@@ -43,10 +45,14 @@ enum Cmd {
 	ZOMBIEINVADE = 61;
 
 	//////////////////玩家模块 81-100//////////////////
-	// 玩家资源信息
+	// 玩家所有资源信息
 	GETRESOURCEINFO = 81;
-	// 玩家某种资源数量
+	// 玩家某些资源信息
 	GETRESOURCEINFOBYCONFIGID = 82;
+	// 玩家状态
+	GETUSERSTATE = 83;
+	// 玩家状态（周期）
+	GETUSERSTATEREGULAR = 84;
 }
 
 enum Error {

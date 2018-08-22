@@ -27,6 +27,7 @@ namespace com.game.framework.protocol {
   #region Enums
   public enum Cmd {
     ERROR = -1,
+    HEART = 0,
     LOGIN = 1,
     LOGOUT = 2,
     GETUSERINFO = 3,
@@ -44,6 +45,8 @@ namespace com.game.framework.protocol {
     ZOMBIEINVADE = 61,
     GETRESOURCEINFO = 81,
     GETRESOURCEINFOBYCONFIGID = 82,
+    GETUSERSTATE = 83,
+    GETUSERSTATEREGULAR = 84,
   }
   
   public enum Error {

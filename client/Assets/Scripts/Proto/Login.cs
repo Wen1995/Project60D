@@ -1022,26 +1022,26 @@ namespace com.game.framework.protocol {
     }
   }
   
-  public sealed partial class TSCLogout : pb::GeneratedMessageLite<TSCLogout, TSCLogout.Builder> {
-    private TSCLogout() { }
-    private static readonly TSCLogout defaultInstance = new TSCLogout().MakeReadOnly();
-    private static readonly string[] _tSCLogoutFieldNames = new string[] {  };
-    private static readonly uint[] _tSCLogoutFieldTags = new uint[] {  };
+  public sealed partial class TCSHeart : pb::GeneratedMessageLite<TCSHeart, TCSHeart.Builder> {
+    private TCSHeart() { }
+    private static readonly TCSHeart defaultInstance = new TCSHeart().MakeReadOnly();
+    private static readonly string[] _tCSHeartFieldNames = new string[] {  };
+    private static readonly uint[] _tCSHeartFieldTags = new uint[] {  };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout DefaultInstance {
+    public static TCSHeart DefaultInstance {
       get { return defaultInstance; }
     }
     
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public override TSCLogout DefaultInstanceForType {
+    public override TCSHeart DefaultInstanceForType {
       get { return DefaultInstance; }
     }
     
-    protected override TSCLogout ThisMessage {
+    protected override TCSHeart ThisMessage {
       get { return this; }
     }
     
@@ -1059,7 +1059,7 @@ namespace com.game.framework.protocol {
      #endif//
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
-      string[] field_names = _tSCLogoutFieldNames;
+      string[] field_names = _tCSHeartFieldNames;
     }
     
     private int memoizedSerializedSize = -1;
@@ -1084,7 +1084,7 @@ namespace com.game.framework.protocol {
     }
     
     public override bool Equals(object obj) {
-      TSCLogout other = obj as TSCLogout;
+      TCSHeart other = obj as TCSHeart;
       if (other == null) return false;
       return true;
     }
@@ -1094,64 +1094,64 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout ParseFrom(pb::ByteString data) {
+    public static TCSHeart ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSHeart ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout ParseFrom(byte[] data) {
+    public static TCSHeart ParseFrom(byte[] data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSHeart ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout ParseFrom(global::System.IO.Stream input) {
+    public static TCSHeart ParseFrom(global::System.IO.Stream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSHeart ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout ParseDelimitedFrom(global::System.IO.Stream input) {
+    public static TCSHeart ParseDelimitedFrom(global::System.IO.Stream input) {
       return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSHeart ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout ParseFrom(pb::ICodedInputStream input) {
+    public static TCSHeart ParseFrom(pb::ICodedInputStream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static TSCLogout ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+    public static TCSHeart ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    private TSCLogout MakeReadOnly() {
+    private TCSHeart MakeReadOnly() {
       return this;
     }
     
@@ -1170,11 +1170,11 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Builder CreateBuilder(TSCLogout prototype) {
+    public static Builder CreateBuilder(TCSHeart prototype) {
       return new Builder(prototype);
     }
     
-    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCLogout, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSHeart, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -1182,18 +1182,18 @@ namespace com.game.framework.protocol {
         result = DefaultInstance;
         resultIsReadOnly = true;
       }
-      internal Builder(TSCLogout cloneFrom) {
+      internal Builder(TCSHeart cloneFrom) {
         result = cloneFrom;
         resultIsReadOnly = true;
       }
       
       private bool resultIsReadOnly;
-      private TSCLogout result;
+      private TCSHeart result;
       
-      private TSCLogout PrepareBuilder() {
+      private TCSHeart PrepareBuilder() {
         if (resultIsReadOnly) {
-          TSCLogout original = result;
-          result = new TSCLogout();
+          TCSHeart original = result;
+          result = new TCSHeart();
           resultIsReadOnly = false;
           MergeFrom(original);
         }
@@ -1204,7 +1204,7 @@ namespace com.game.framework.protocol {
         get { return result.IsInitialized; }
       }
       
-      protected override TSCLogout MessageBeingBuilt {
+      protected override TCSHeart MessageBeingBuilt {
         get { return PrepareBuilder(); }
       }
       
@@ -1222,11 +1222,11 @@ namespace com.game.framework.protocol {
         }
       }
       
-      public override TSCLogout DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCLogout.DefaultInstance; }
+      public override TCSHeart DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TCSHeart.DefaultInstance; }
       }
       
-      public override TSCLogout BuildPartial() {
+      public override TCSHeart BuildPartial() {
         if (resultIsReadOnly) {
           return result;
         }
@@ -1235,16 +1235,16 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is TSCLogout) {
-          return MergeFrom((TSCLogout) other);
+        if (other is TCSHeart) {
+          return MergeFrom((TCSHeart) other);
         } else {
           base.MergeFrom(other);
           return this;
         }
       }
       
-      public override Builder MergeFrom(TSCLogout other) {
-        if (other == global::com.game.framework.protocol.TSCLogout.DefaultInstance) return this;
+      public override Builder MergeFrom(TCSHeart other) {
+        if (other == global::com.game.framework.protocol.TCSHeart.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -1259,9 +1259,9 @@ namespace com.game.framework.protocol {
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
           if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_tSCLogoutFieldNames, field_name, global::System.StringComparer.Ordinal);
+            int field_ordinal = global::System.Array.BinarySearch(_tCSHeartFieldNames, field_name, global::System.StringComparer.Ordinal);
             if(field_ordinal >= 0)
-              tag = _tSCLogoutFieldTags[field_ordinal];
+              tag = _tCSHeartFieldTags[field_ordinal];
             else {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
@@ -1285,7 +1285,323 @@ namespace com.game.framework.protocol {
       }
       
     }
-    static TSCLogout() {
+    static TCSHeart() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Login.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TSCHeart : pb::GeneratedMessageLite<TSCHeart, TSCHeart.Builder> {
+    private TSCHeart() { }
+    private static readonly TSCHeart defaultInstance = new TSCHeart().MakeReadOnly();
+    private static readonly string[] _tSCHeartFieldNames = new string[] { "systemCurrentTime" };
+    private static readonly uint[] _tSCHeartFieldTags = new uint[] { 24 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TSCHeart DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TSCHeart ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int SystemCurrentTimeFieldNumber = 3;
+    private bool hasSystemCurrentTime;
+    private long systemCurrentTime_;
+    public bool HasSystemCurrentTime {
+      get { return hasSystemCurrentTime; }
+    }
+    public long SystemCurrentTime {
+      get { return systemCurrentTime_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tSCHeartFieldNames;
+      if (hasSystemCurrentTime) {
+        output.WriteInt64(3, field_names[0], SystemCurrentTime);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasSystemCurrentTime) {
+          size += pb::CodedOutputStream.ComputeInt64Size(3, SystemCurrentTime);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasSystemCurrentTime) hash ^= systemCurrentTime_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TSCHeart other = obj as TSCHeart;
+      if (other == null) return false;
+      if (hasSystemCurrentTime != other.hasSystemCurrentTime || (hasSystemCurrentTime && !systemCurrentTime_.Equals(other.systemCurrentTime_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCHeart ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TSCHeart MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TSCHeart prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCHeart, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TSCHeart cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TSCHeart result;
+      
+      private TSCHeart PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TSCHeart original = result;
+          result = new TSCHeart();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TSCHeart MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TSCHeart DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TSCHeart.DefaultInstance; }
+      }
+      
+      public override TSCHeart BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TSCHeart) {
+          return MergeFrom((TSCHeart) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TSCHeart other) {
+        if (other == global::com.game.framework.protocol.TSCHeart.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasSystemCurrentTime) {
+          SystemCurrentTime = other.SystemCurrentTime;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tSCHeartFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tSCHeartFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 24: {
+              result.hasSystemCurrentTime = input.ReadInt64(ref result.systemCurrentTime_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasSystemCurrentTime {
+        get { return result.hasSystemCurrentTime; }
+      }
+      public long SystemCurrentTime {
+        get { return result.SystemCurrentTime; }
+        set { SetSystemCurrentTime(value); }
+      }
+      public Builder SetSystemCurrentTime(long value) {
+        PrepareBuilder();
+        result.hasSystemCurrentTime = true;
+        result.systemCurrentTime_ = value;
+        return this;
+      }
+      public Builder ClearSystemCurrentTime() {
+        PrepareBuilder();
+        result.hasSystemCurrentTime = false;
+        result.systemCurrentTime_ = 0L;
+        return this;
+      }
+    }
+    static TSCHeart() {
       object.ReferenceEquals(global::com.game.framework.protocol.Login.Descriptor, null);
     }
   }

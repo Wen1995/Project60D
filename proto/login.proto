@@ -17,8 +17,13 @@ message TSCLogin {
 message TCSLogout {
 
 }
-message TSCLogout {
 
+message TCSHeart {
+
+}
+message TSCHeart {
+	// 服务器当前时间
+	optional int64 systemCurrentTime = 3;
 }
 
 message TCSGetUserInfo {

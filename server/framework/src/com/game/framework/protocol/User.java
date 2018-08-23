@@ -320,49 +320,49 @@ public final class User {
   public interface TSCGetResourceInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
+    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    java.util.List<com.game.framework.protocol.User.MyResourceInfo> 
-        getMyResourceInfosList();
+    java.util.List<com.game.framework.protocol.User.ResourceInfo> 
+        getResourceInfosList();
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index);
+    com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index);
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    int getMyResourceInfosCount();
+    int getResourceInfosCount();
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
-        getMyResourceInfosOrBuilderList();
+    java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+        getResourceInfosOrBuilderList();
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
+    com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
         int index);
   }
   /**
@@ -418,10 +418,10 @@ public final class User {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                myResourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.MyResourceInfo>();
+                resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.ResourceInfo>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              myResourceInfos_.add(input.readMessage(com.game.framework.protocol.User.MyResourceInfo.PARSER, extensionRegistry));
+              resourceInfos_.add(input.readMessage(com.game.framework.protocol.User.ResourceInfo.PARSER, extensionRegistry));
               break;
             }
           }
@@ -433,7 +433,7 @@ public final class User {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          myResourceInfos_ = java.util.Collections.unmodifiableList(myResourceInfos_);
+          resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -466,64 +466,64 @@ public final class User {
       return PARSER;
     }
 
-    // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
-    public static final int MYRESOURCEINFOS_FIELD_NUMBER = 1;
-    private java.util.List<com.game.framework.protocol.User.MyResourceInfo> myResourceInfos_;
+    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+    public static final int RESOURCEINFOS_FIELD_NUMBER = 1;
+    private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_;
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public java.util.List<com.game.framework.protocol.User.MyResourceInfo> getMyResourceInfosList() {
-      return myResourceInfos_;
+    public java.util.List<com.game.framework.protocol.User.ResourceInfo> getResourceInfosList() {
+      return resourceInfos_;
     }
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
-        getMyResourceInfosOrBuilderList() {
-      return myResourceInfos_;
+    public java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+        getResourceInfosOrBuilderList() {
+      return resourceInfos_;
     }
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public int getMyResourceInfosCount() {
-      return myResourceInfos_.size();
+    public int getResourceInfosCount() {
+      return resourceInfos_.size();
     }
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index) {
-      return myResourceInfos_.get(index);
+    public com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index) {
+      return resourceInfos_.get(index);
     }
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
+    public com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
         int index) {
-      return myResourceInfos_.get(index);
+      return resourceInfos_.get(index);
     }
 
     private void initFields() {
-      myResourceInfos_ = java.util.Collections.emptyList();
+      resourceInfos_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -537,8 +537,8 @@ public final class User {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < myResourceInfos_.size(); i++) {
-        output.writeMessage(1, myResourceInfos_.get(i));
+      for (int i = 0; i < resourceInfos_.size(); i++) {
+        output.writeMessage(1, resourceInfos_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -549,9 +549,9 @@ public final class User {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < myResourceInfos_.size(); i++) {
+      for (int i = 0; i < resourceInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, myResourceInfos_.get(i));
+          .computeMessageSize(1, resourceInfos_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -661,7 +661,7 @@ public final class User {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getMyResourceInfosFieldBuilder();
+          getResourceInfosFieldBuilder();
         }
       }
       private static Builder create() {
@@ -670,11 +670,11 @@ public final class User {
 
       public Builder clear() {
         super.clear();
-        if (myResourceInfosBuilder_ == null) {
-          myResourceInfos_ = java.util.Collections.emptyList();
+        if (resourceInfosBuilder_ == null) {
+          resourceInfos_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          myResourceInfosBuilder_.clear();
+          resourceInfosBuilder_.clear();
         }
         return this;
       }
@@ -703,14 +703,14 @@ public final class User {
       public com.game.framework.protocol.User.TSCGetResourceInfo buildPartial() {
         com.game.framework.protocol.User.TSCGetResourceInfo result = new com.game.framework.protocol.User.TSCGetResourceInfo(this);
         int from_bitField0_ = bitField0_;
-        if (myResourceInfosBuilder_ == null) {
+        if (resourceInfosBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            myResourceInfos_ = java.util.Collections.unmodifiableList(myResourceInfos_);
+            resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.myResourceInfos_ = myResourceInfos_;
+          result.resourceInfos_ = resourceInfos_;
         } else {
-          result.myResourceInfos_ = myResourceInfosBuilder_.build();
+          result.resourceInfos_ = resourceInfosBuilder_.build();
         }
         onBuilt();
         return result;
@@ -727,29 +727,29 @@ public final class User {
 
       public Builder mergeFrom(com.game.framework.protocol.User.TSCGetResourceInfo other) {
         if (other == com.game.framework.protocol.User.TSCGetResourceInfo.getDefaultInstance()) return this;
-        if (myResourceInfosBuilder_ == null) {
-          if (!other.myResourceInfos_.isEmpty()) {
-            if (myResourceInfos_.isEmpty()) {
-              myResourceInfos_ = other.myResourceInfos_;
+        if (resourceInfosBuilder_ == null) {
+          if (!other.resourceInfos_.isEmpty()) {
+            if (resourceInfos_.isEmpty()) {
+              resourceInfos_ = other.resourceInfos_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureMyResourceInfosIsMutable();
-              myResourceInfos_.addAll(other.myResourceInfos_);
+              ensureResourceInfosIsMutable();
+              resourceInfos_.addAll(other.resourceInfos_);
             }
             onChanged();
           }
         } else {
-          if (!other.myResourceInfos_.isEmpty()) {
-            if (myResourceInfosBuilder_.isEmpty()) {
-              myResourceInfosBuilder_.dispose();
-              myResourceInfosBuilder_ = null;
-              myResourceInfos_ = other.myResourceInfos_;
+          if (!other.resourceInfos_.isEmpty()) {
+            if (resourceInfosBuilder_.isEmpty()) {
+              resourceInfosBuilder_.dispose();
+              resourceInfosBuilder_ = null;
+              resourceInfos_ = other.resourceInfos_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              myResourceInfosBuilder_ = 
+              resourceInfosBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getMyResourceInfosFieldBuilder() : null;
+                   getResourceInfosFieldBuilder() : null;
             } else {
-              myResourceInfosBuilder_.addAllMessages(other.myResourceInfos_);
+              resourceInfosBuilder_.addAllMessages(other.resourceInfos_);
             }
           }
         }
@@ -780,316 +780,316 @@ public final class User {
       }
       private int bitField0_;
 
-      // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
-      private java.util.List<com.game.framework.protocol.User.MyResourceInfo> myResourceInfos_ =
+      // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+      private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_ =
         java.util.Collections.emptyList();
-      private void ensureMyResourceInfosIsMutable() {
+      private void ensureResourceInfosIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          myResourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.MyResourceInfo>(myResourceInfos_);
+          resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.ResourceInfo>(resourceInfos_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder> myResourceInfosBuilder_;
+          com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder> resourceInfosBuilder_;
 
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public java.util.List<com.game.framework.protocol.User.MyResourceInfo> getMyResourceInfosList() {
-        if (myResourceInfosBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(myResourceInfos_);
+      public java.util.List<com.game.framework.protocol.User.ResourceInfo> getResourceInfosList() {
+        if (resourceInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(resourceInfos_);
         } else {
-          return myResourceInfosBuilder_.getMessageList();
+          return resourceInfosBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public int getMyResourceInfosCount() {
-        if (myResourceInfosBuilder_ == null) {
-          return myResourceInfos_.size();
+      public int getResourceInfosCount() {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.size();
         } else {
-          return myResourceInfosBuilder_.getCount();
+          return resourceInfosBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index) {
-        if (myResourceInfosBuilder_ == null) {
-          return myResourceInfos_.get(index);
+      public com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index) {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.get(index);
         } else {
-          return myResourceInfosBuilder_.getMessage(index);
+          return resourceInfosBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder setMyResourceInfos(
-          int index, com.game.framework.protocol.User.MyResourceInfo value) {
-        if (myResourceInfosBuilder_ == null) {
+      public Builder setResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.set(index, value);
+          ensureResourceInfosIsMutable();
+          resourceInfos_.set(index, value);
           onChanged();
         } else {
-          myResourceInfosBuilder_.setMessage(index, value);
+          resourceInfosBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder setMyResourceInfos(
-          int index, com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
-        if (myResourceInfosBuilder_ == null) {
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.set(index, builderForValue.build());
+      public Builder setResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.set(index, builderForValue.build());
           onChanged();
         } else {
-          myResourceInfosBuilder_.setMessage(index, builderForValue.build());
+          resourceInfosBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addMyResourceInfos(com.game.framework.protocol.User.MyResourceInfo value) {
-        if (myResourceInfosBuilder_ == null) {
+      public Builder addResourceInfos(com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.add(value);
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(value);
           onChanged();
         } else {
-          myResourceInfosBuilder_.addMessage(value);
+          resourceInfosBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addMyResourceInfos(
-          int index, com.game.framework.protocol.User.MyResourceInfo value) {
-        if (myResourceInfosBuilder_ == null) {
+      public Builder addResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.add(index, value);
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(index, value);
           onChanged();
         } else {
-          myResourceInfosBuilder_.addMessage(index, value);
+          resourceInfosBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addMyResourceInfos(
-          com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
-        if (myResourceInfosBuilder_ == null) {
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.add(builderForValue.build());
+      public Builder addResourceInfos(
+          com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(builderForValue.build());
           onChanged();
         } else {
-          myResourceInfosBuilder_.addMessage(builderForValue.build());
+          resourceInfosBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addMyResourceInfos(
-          int index, com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
-        if (myResourceInfosBuilder_ == null) {
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.add(index, builderForValue.build());
+      public Builder addResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(index, builderForValue.build());
           onChanged();
         } else {
-          myResourceInfosBuilder_.addMessage(index, builderForValue.build());
+          resourceInfosBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addAllMyResourceInfos(
-          java.lang.Iterable<? extends com.game.framework.protocol.User.MyResourceInfo> values) {
-        if (myResourceInfosBuilder_ == null) {
-          ensureMyResourceInfosIsMutable();
-          super.addAll(values, myResourceInfos_);
+      public Builder addAllResourceInfos(
+          java.lang.Iterable<? extends com.game.framework.protocol.User.ResourceInfo> values) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          super.addAll(values, resourceInfos_);
           onChanged();
         } else {
-          myResourceInfosBuilder_.addAllMessages(values);
+          resourceInfosBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder clearMyResourceInfos() {
-        if (myResourceInfosBuilder_ == null) {
-          myResourceInfos_ = java.util.Collections.emptyList();
+      public Builder clearResourceInfos() {
+        if (resourceInfosBuilder_ == null) {
+          resourceInfos_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          myResourceInfosBuilder_.clear();
+          resourceInfosBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder removeMyResourceInfos(int index) {
-        if (myResourceInfosBuilder_ == null) {
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.remove(index);
+      public Builder removeResourceInfos(int index) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.remove(index);
           onChanged();
         } else {
-          myResourceInfosBuilder_.remove(index);
+          resourceInfosBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.MyResourceInfo.Builder getMyResourceInfosBuilder(
+      public com.game.framework.protocol.User.ResourceInfo.Builder getResourceInfosBuilder(
           int index) {
-        return getMyResourceInfosFieldBuilder().getBuilder(index);
+        return getResourceInfosFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
+      public com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
           int index) {
-        if (myResourceInfosBuilder_ == null) {
-          return myResourceInfos_.get(index);  } else {
-          return myResourceInfosBuilder_.getMessageOrBuilder(index);
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.get(index);  } else {
+          return resourceInfosBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
-           getMyResourceInfosOrBuilderList() {
-        if (myResourceInfosBuilder_ != null) {
-          return myResourceInfosBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+           getResourceInfosOrBuilderList() {
+        if (resourceInfosBuilder_ != null) {
+          return resourceInfosBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(myResourceInfos_);
+          return java.util.Collections.unmodifiableList(resourceInfos_);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.MyResourceInfo.Builder addMyResourceInfosBuilder() {
-        return getMyResourceInfosFieldBuilder().addBuilder(
-            com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance());
+      public com.game.framework.protocol.User.ResourceInfo.Builder addResourceInfosBuilder() {
+        return getResourceInfosFieldBuilder().addBuilder(
+            com.game.framework.protocol.User.ResourceInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.MyResourceInfo.Builder addMyResourceInfosBuilder(
+      public com.game.framework.protocol.User.ResourceInfo.Builder addResourceInfosBuilder(
           int index) {
-        return getMyResourceInfosFieldBuilder().addBuilder(
-            index, com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance());
+        return getResourceInfosFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.User.ResourceInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public java.util.List<com.game.framework.protocol.User.MyResourceInfo.Builder> 
-           getMyResourceInfosBuilderList() {
-        return getMyResourceInfosFieldBuilder().getBuilderList();
+      public java.util.List<com.game.framework.protocol.User.ResourceInfo.Builder> 
+           getResourceInfosBuilderList() {
+        return getResourceInfosFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
-          getMyResourceInfosFieldBuilder() {
-        if (myResourceInfosBuilder_ == null) {
-          myResourceInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder>(
-                  myResourceInfos_,
+          com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+          getResourceInfosFieldBuilder() {
+        if (resourceInfosBuilder_ == null) {
+          resourceInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder>(
+                  resourceInfos_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
-          myResourceInfos_ = null;
+          resourceInfos_ = null;
         }
-        return myResourceInfosBuilder_;
+        return resourceInfosBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetResourceInfo)
@@ -1627,49 +1627,49 @@ public final class User {
   public interface TSCGetResourceInfoByConfigIdOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
+    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    java.util.List<com.game.framework.protocol.User.MyResourceInfo> 
-        getMyResourceInfosList();
+    java.util.List<com.game.framework.protocol.User.ResourceInfo> 
+        getResourceInfosList();
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index);
+    com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index);
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    int getMyResourceInfosCount();
+    int getResourceInfosCount();
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
-        getMyResourceInfosOrBuilderList();
+    java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+        getResourceInfosOrBuilderList();
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
+    com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
         int index);
   }
   /**
@@ -1725,10 +1725,10 @@ public final class User {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                myResourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.MyResourceInfo>();
+                resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.ResourceInfo>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              myResourceInfos_.add(input.readMessage(com.game.framework.protocol.User.MyResourceInfo.PARSER, extensionRegistry));
+              resourceInfos_.add(input.readMessage(com.game.framework.protocol.User.ResourceInfo.PARSER, extensionRegistry));
               break;
             }
           }
@@ -1740,7 +1740,7 @@ public final class User {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          myResourceInfos_ = java.util.Collections.unmodifiableList(myResourceInfos_);
+          resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1773,64 +1773,64 @@ public final class User {
       return PARSER;
     }
 
-    // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
-    public static final int MYRESOURCEINFOS_FIELD_NUMBER = 1;
-    private java.util.List<com.game.framework.protocol.User.MyResourceInfo> myResourceInfos_;
+    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+    public static final int RESOURCEINFOS_FIELD_NUMBER = 1;
+    private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_;
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public java.util.List<com.game.framework.protocol.User.MyResourceInfo> getMyResourceInfosList() {
-      return myResourceInfos_;
+    public java.util.List<com.game.framework.protocol.User.ResourceInfo> getResourceInfosList() {
+      return resourceInfos_;
     }
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
-        getMyResourceInfosOrBuilderList() {
-      return myResourceInfos_;
+    public java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+        getResourceInfosOrBuilderList() {
+      return resourceInfos_;
     }
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public int getMyResourceInfosCount() {
-      return myResourceInfos_.size();
+    public int getResourceInfosCount() {
+      return resourceInfos_.size();
     }
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index) {
-      return myResourceInfos_.get(index);
+    public com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index) {
+      return resourceInfos_.get(index);
     }
     /**
-     * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
      *
      * <pre>
      * 资源信息
      * </pre>
      */
-    public com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
+    public com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
         int index) {
-      return myResourceInfos_.get(index);
+      return resourceInfos_.get(index);
     }
 
     private void initFields() {
-      myResourceInfos_ = java.util.Collections.emptyList();
+      resourceInfos_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1844,8 +1844,8 @@ public final class User {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < myResourceInfos_.size(); i++) {
-        output.writeMessage(1, myResourceInfos_.get(i));
+      for (int i = 0; i < resourceInfos_.size(); i++) {
+        output.writeMessage(1, resourceInfos_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -1856,9 +1856,9 @@ public final class User {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < myResourceInfos_.size(); i++) {
+      for (int i = 0; i < resourceInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, myResourceInfos_.get(i));
+          .computeMessageSize(1, resourceInfos_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1968,7 +1968,7 @@ public final class User {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getMyResourceInfosFieldBuilder();
+          getResourceInfosFieldBuilder();
         }
       }
       private static Builder create() {
@@ -1977,11 +1977,11 @@ public final class User {
 
       public Builder clear() {
         super.clear();
-        if (myResourceInfosBuilder_ == null) {
-          myResourceInfos_ = java.util.Collections.emptyList();
+        if (resourceInfosBuilder_ == null) {
+          resourceInfos_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          myResourceInfosBuilder_.clear();
+          resourceInfosBuilder_.clear();
         }
         return this;
       }
@@ -2010,14 +2010,14 @@ public final class User {
       public com.game.framework.protocol.User.TSCGetResourceInfoByConfigId buildPartial() {
         com.game.framework.protocol.User.TSCGetResourceInfoByConfigId result = new com.game.framework.protocol.User.TSCGetResourceInfoByConfigId(this);
         int from_bitField0_ = bitField0_;
-        if (myResourceInfosBuilder_ == null) {
+        if (resourceInfosBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            myResourceInfos_ = java.util.Collections.unmodifiableList(myResourceInfos_);
+            resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
-          result.myResourceInfos_ = myResourceInfos_;
+          result.resourceInfos_ = resourceInfos_;
         } else {
-          result.myResourceInfos_ = myResourceInfosBuilder_.build();
+          result.resourceInfos_ = resourceInfosBuilder_.build();
         }
         onBuilt();
         return result;
@@ -2034,29 +2034,29 @@ public final class User {
 
       public Builder mergeFrom(com.game.framework.protocol.User.TSCGetResourceInfoByConfigId other) {
         if (other == com.game.framework.protocol.User.TSCGetResourceInfoByConfigId.getDefaultInstance()) return this;
-        if (myResourceInfosBuilder_ == null) {
-          if (!other.myResourceInfos_.isEmpty()) {
-            if (myResourceInfos_.isEmpty()) {
-              myResourceInfos_ = other.myResourceInfos_;
+        if (resourceInfosBuilder_ == null) {
+          if (!other.resourceInfos_.isEmpty()) {
+            if (resourceInfos_.isEmpty()) {
+              resourceInfos_ = other.resourceInfos_;
               bitField0_ = (bitField0_ & ~0x00000001);
             } else {
-              ensureMyResourceInfosIsMutable();
-              myResourceInfos_.addAll(other.myResourceInfos_);
+              ensureResourceInfosIsMutable();
+              resourceInfos_.addAll(other.resourceInfos_);
             }
             onChanged();
           }
         } else {
-          if (!other.myResourceInfos_.isEmpty()) {
-            if (myResourceInfosBuilder_.isEmpty()) {
-              myResourceInfosBuilder_.dispose();
-              myResourceInfosBuilder_ = null;
-              myResourceInfos_ = other.myResourceInfos_;
+          if (!other.resourceInfos_.isEmpty()) {
+            if (resourceInfosBuilder_.isEmpty()) {
+              resourceInfosBuilder_.dispose();
+              resourceInfosBuilder_ = null;
+              resourceInfos_ = other.resourceInfos_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              myResourceInfosBuilder_ = 
+              resourceInfosBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getMyResourceInfosFieldBuilder() : null;
+                   getResourceInfosFieldBuilder() : null;
             } else {
-              myResourceInfosBuilder_.addAllMessages(other.myResourceInfos_);
+              resourceInfosBuilder_.addAllMessages(other.resourceInfos_);
             }
           }
         }
@@ -2087,316 +2087,316 @@ public final class User {
       }
       private int bitField0_;
 
-      // repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;
-      private java.util.List<com.game.framework.protocol.User.MyResourceInfo> myResourceInfos_ =
+      // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+      private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_ =
         java.util.Collections.emptyList();
-      private void ensureMyResourceInfosIsMutable() {
+      private void ensureResourceInfosIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          myResourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.MyResourceInfo>(myResourceInfos_);
+          resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.ResourceInfo>(resourceInfos_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder> myResourceInfosBuilder_;
+          com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder> resourceInfosBuilder_;
 
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public java.util.List<com.game.framework.protocol.User.MyResourceInfo> getMyResourceInfosList() {
-        if (myResourceInfosBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(myResourceInfos_);
+      public java.util.List<com.game.framework.protocol.User.ResourceInfo> getResourceInfosList() {
+        if (resourceInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(resourceInfos_);
         } else {
-          return myResourceInfosBuilder_.getMessageList();
+          return resourceInfosBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public int getMyResourceInfosCount() {
-        if (myResourceInfosBuilder_ == null) {
-          return myResourceInfos_.size();
+      public int getResourceInfosCount() {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.size();
         } else {
-          return myResourceInfosBuilder_.getCount();
+          return resourceInfosBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.MyResourceInfo getMyResourceInfos(int index) {
-        if (myResourceInfosBuilder_ == null) {
-          return myResourceInfos_.get(index);
+      public com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index) {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.get(index);
         } else {
-          return myResourceInfosBuilder_.getMessage(index);
+          return resourceInfosBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder setMyResourceInfos(
-          int index, com.game.framework.protocol.User.MyResourceInfo value) {
-        if (myResourceInfosBuilder_ == null) {
+      public Builder setResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.set(index, value);
+          ensureResourceInfosIsMutable();
+          resourceInfos_.set(index, value);
           onChanged();
         } else {
-          myResourceInfosBuilder_.setMessage(index, value);
+          resourceInfosBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder setMyResourceInfos(
-          int index, com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
-        if (myResourceInfosBuilder_ == null) {
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.set(index, builderForValue.build());
+      public Builder setResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.set(index, builderForValue.build());
           onChanged();
         } else {
-          myResourceInfosBuilder_.setMessage(index, builderForValue.build());
+          resourceInfosBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addMyResourceInfos(com.game.framework.protocol.User.MyResourceInfo value) {
-        if (myResourceInfosBuilder_ == null) {
+      public Builder addResourceInfos(com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.add(value);
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(value);
           onChanged();
         } else {
-          myResourceInfosBuilder_.addMessage(value);
+          resourceInfosBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addMyResourceInfos(
-          int index, com.game.framework.protocol.User.MyResourceInfo value) {
-        if (myResourceInfosBuilder_ == null) {
+      public Builder addResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.add(index, value);
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(index, value);
           onChanged();
         } else {
-          myResourceInfosBuilder_.addMessage(index, value);
+          resourceInfosBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addMyResourceInfos(
-          com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
-        if (myResourceInfosBuilder_ == null) {
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.add(builderForValue.build());
+      public Builder addResourceInfos(
+          com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(builderForValue.build());
           onChanged();
         } else {
-          myResourceInfosBuilder_.addMessage(builderForValue.build());
+          resourceInfosBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addMyResourceInfos(
-          int index, com.game.framework.protocol.User.MyResourceInfo.Builder builderForValue) {
-        if (myResourceInfosBuilder_ == null) {
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.add(index, builderForValue.build());
+      public Builder addResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(index, builderForValue.build());
           onChanged();
         } else {
-          myResourceInfosBuilder_.addMessage(index, builderForValue.build());
+          resourceInfosBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder addAllMyResourceInfos(
-          java.lang.Iterable<? extends com.game.framework.protocol.User.MyResourceInfo> values) {
-        if (myResourceInfosBuilder_ == null) {
-          ensureMyResourceInfosIsMutable();
-          super.addAll(values, myResourceInfos_);
+      public Builder addAllResourceInfos(
+          java.lang.Iterable<? extends com.game.framework.protocol.User.ResourceInfo> values) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          super.addAll(values, resourceInfos_);
           onChanged();
         } else {
-          myResourceInfosBuilder_.addAllMessages(values);
+          resourceInfosBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder clearMyResourceInfos() {
-        if (myResourceInfosBuilder_ == null) {
-          myResourceInfos_ = java.util.Collections.emptyList();
+      public Builder clearResourceInfos() {
+        if (resourceInfosBuilder_ == null) {
+          resourceInfos_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          myResourceInfosBuilder_.clear();
+          resourceInfosBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public Builder removeMyResourceInfos(int index) {
-        if (myResourceInfosBuilder_ == null) {
-          ensureMyResourceInfosIsMutable();
-          myResourceInfos_.remove(index);
+      public Builder removeResourceInfos(int index) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.remove(index);
           onChanged();
         } else {
-          myResourceInfosBuilder_.remove(index);
+          resourceInfosBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.MyResourceInfo.Builder getMyResourceInfosBuilder(
+      public com.game.framework.protocol.User.ResourceInfo.Builder getResourceInfosBuilder(
           int index) {
-        return getMyResourceInfosFieldBuilder().getBuilder(index);
+        return getResourceInfosFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.MyResourceInfoOrBuilder getMyResourceInfosOrBuilder(
+      public com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
           int index) {
-        if (myResourceInfosBuilder_ == null) {
-          return myResourceInfos_.get(index);  } else {
-          return myResourceInfosBuilder_.getMessageOrBuilder(index);
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.get(index);  } else {
+          return resourceInfosBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public java.util.List<? extends com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
-           getMyResourceInfosOrBuilderList() {
-        if (myResourceInfosBuilder_ != null) {
-          return myResourceInfosBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+           getResourceInfosOrBuilderList() {
+        if (resourceInfosBuilder_ != null) {
+          return resourceInfosBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(myResourceInfos_);
+          return java.util.Collections.unmodifiableList(resourceInfos_);
         }
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.MyResourceInfo.Builder addMyResourceInfosBuilder() {
-        return getMyResourceInfosFieldBuilder().addBuilder(
-            com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance());
+      public com.game.framework.protocol.User.ResourceInfo.Builder addResourceInfosBuilder() {
+        return getResourceInfosFieldBuilder().addBuilder(
+            com.game.framework.protocol.User.ResourceInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public com.game.framework.protocol.User.MyResourceInfo.Builder addMyResourceInfosBuilder(
+      public com.game.framework.protocol.User.ResourceInfo.Builder addResourceInfosBuilder(
           int index) {
-        return getMyResourceInfosFieldBuilder().addBuilder(
-            index, com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance());
+        return getResourceInfosFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.User.ResourceInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.protocol.MyResourceInfo myResourceInfos = 1;</code>
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
        *
        * <pre>
        * 资源信息
        * </pre>
        */
-      public java.util.List<com.game.framework.protocol.User.MyResourceInfo.Builder> 
-           getMyResourceInfosBuilderList() {
-        return getMyResourceInfosFieldBuilder().getBuilderList();
+      public java.util.List<com.game.framework.protocol.User.ResourceInfo.Builder> 
+           getResourceInfosBuilderList() {
+        return getResourceInfosFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder> 
-          getMyResourceInfosFieldBuilder() {
-        if (myResourceInfosBuilder_ == null) {
-          myResourceInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.game.framework.protocol.User.MyResourceInfo, com.game.framework.protocol.User.MyResourceInfo.Builder, com.game.framework.protocol.User.MyResourceInfoOrBuilder>(
-                  myResourceInfos_,
+          com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+          getResourceInfosFieldBuilder() {
+        if (resourceInfosBuilder_ == null) {
+          resourceInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder>(
+                  resourceInfos_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
-          myResourceInfos_ = null;
+          resourceInfos_ = null;
         }
-        return myResourceInfosBuilder_;
+        return resourceInfosBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetResourceInfoByConfigId)
@@ -2410,7 +2410,793 @@ public final class User {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetResourceInfoByConfigId)
   }
 
-  public interface MyResourceInfoOrBuilder
+  public interface UserResourceOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    java.util.List<com.game.framework.protocol.User.ResourceInfo> 
+        getResourceInfosList();
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index);
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    int getResourceInfosCount();
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+        getResourceInfosOrBuilderList();
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.UserResource}
+   */
+  public static final class UserResource extends
+      com.google.protobuf.GeneratedMessage
+      implements UserResourceOrBuilder {
+    // Use UserResource.newBuilder() to construct.
+    private UserResource(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private UserResource(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final UserResource defaultInstance;
+    public static UserResource getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public UserResource getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UserResource(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.ResourceInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              resourceInfos_.add(input.readMessage(com.game.framework.protocol.User.ResourceInfo.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_UserResource_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_UserResource_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.User.UserResource.class, com.game.framework.protocol.User.UserResource.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<UserResource> PARSER =
+        new com.google.protobuf.AbstractParser<UserResource>() {
+      public UserResource parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UserResource(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UserResource> getParserForType() {
+      return PARSER;
+    }
+
+    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+    public static final int RESOURCEINFOS_FIELD_NUMBER = 1;
+    private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_;
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public java.util.List<com.game.framework.protocol.User.ResourceInfo> getResourceInfosList() {
+      return resourceInfos_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+        getResourceInfosOrBuilderList() {
+      return resourceInfos_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public int getResourceInfosCount() {
+      return resourceInfos_.size();
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index) {
+      return resourceInfos_.get(index);
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+        int index) {
+      return resourceInfos_.get(index);
+    }
+
+    private void initFields() {
+      resourceInfos_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < resourceInfos_.size(); i++) {
+        output.writeMessage(1, resourceInfos_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < resourceInfos_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, resourceInfos_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.User.UserResource parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.UserResource parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.UserResource parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.UserResource parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.UserResource parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.UserResource parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.UserResource parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.User.UserResource parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.UserResource parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.UserResource parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.User.UserResource prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.UserResource}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.User.UserResourceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_UserResource_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_UserResource_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.User.UserResource.class, com.game.framework.protocol.User.UserResource.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.User.UserResource.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getResourceInfosFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (resourceInfosBuilder_ == null) {
+          resourceInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          resourceInfosBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_UserResource_descriptor;
+      }
+
+      public com.game.framework.protocol.User.UserResource getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.UserResource.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.User.UserResource build() {
+        com.game.framework.protocol.User.UserResource result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.User.UserResource buildPartial() {
+        com.game.framework.protocol.User.UserResource result = new com.game.framework.protocol.User.UserResource(this);
+        int from_bitField0_ = bitField0_;
+        if (resourceInfosBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.resourceInfos_ = resourceInfos_;
+        } else {
+          result.resourceInfos_ = resourceInfosBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.User.UserResource) {
+          return mergeFrom((com.game.framework.protocol.User.UserResource)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.User.UserResource other) {
+        if (other == com.game.framework.protocol.User.UserResource.getDefaultInstance()) return this;
+        if (resourceInfosBuilder_ == null) {
+          if (!other.resourceInfos_.isEmpty()) {
+            if (resourceInfos_.isEmpty()) {
+              resourceInfos_ = other.resourceInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureResourceInfosIsMutable();
+              resourceInfos_.addAll(other.resourceInfos_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.resourceInfos_.isEmpty()) {
+            if (resourceInfosBuilder_.isEmpty()) {
+              resourceInfosBuilder_.dispose();
+              resourceInfosBuilder_ = null;
+              resourceInfos_ = other.resourceInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              resourceInfosBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getResourceInfosFieldBuilder() : null;
+            } else {
+              resourceInfosBuilder_.addAllMessages(other.resourceInfos_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.User.UserResource parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.User.UserResource) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+      private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_ =
+        java.util.Collections.emptyList();
+      private void ensureResourceInfosIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.ResourceInfo>(resourceInfos_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder> resourceInfosBuilder_;
+
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public java.util.List<com.game.framework.protocol.User.ResourceInfo> getResourceInfosList() {
+        if (resourceInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(resourceInfos_);
+        } else {
+          return resourceInfosBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public int getResourceInfosCount() {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.size();
+        } else {
+          return resourceInfosBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index) {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.get(index);
+        } else {
+          return resourceInfosBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder setResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourceInfosIsMutable();
+          resourceInfos_.set(index, value);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder setResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          resourceInfosBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addResourceInfos(com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(value);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(index, value);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addResourceInfos(
+          com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(builderForValue.build());
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addAllResourceInfos(
+          java.lang.Iterable<? extends com.game.framework.protocol.User.ResourceInfo> values) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          super.addAll(values, resourceInfos_);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder clearResourceInfos() {
+        if (resourceInfosBuilder_ == null) {
+          resourceInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder removeResourceInfos(int index) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.remove(index);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.ResourceInfo.Builder getResourceInfosBuilder(
+          int index) {
+        return getResourceInfosFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+          int index) {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.get(index);  } else {
+          return resourceInfosBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+           getResourceInfosOrBuilderList() {
+        if (resourceInfosBuilder_ != null) {
+          return resourceInfosBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(resourceInfos_);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.ResourceInfo.Builder addResourceInfosBuilder() {
+        return getResourceInfosFieldBuilder().addBuilder(
+            com.game.framework.protocol.User.ResourceInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.ResourceInfo.Builder addResourceInfosBuilder(
+          int index) {
+        return getResourceInfosFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.User.ResourceInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public java.util.List<com.game.framework.protocol.User.ResourceInfo.Builder> 
+           getResourceInfosBuilderList() {
+        return getResourceInfosFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+          getResourceInfosFieldBuilder() {
+        if (resourceInfosBuilder_ == null) {
+          resourceInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder>(
+                  resourceInfos_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          resourceInfos_ = null;
+        }
+        return resourceInfosBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.UserResource)
+    }
+
+    static {
+      defaultInstance = new UserResource(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.UserResource)
+  }
+
+  public interface ResourceInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
     // optional int32 configId = 1;
@@ -2450,24 +3236,24 @@ public final class User {
     int getNumber();
   }
   /**
-   * Protobuf type {@code com.game.framework.protocol.MyResourceInfo}
+   * Protobuf type {@code com.game.framework.protocol.ResourceInfo}
    */
-  public static final class MyResourceInfo extends
+  public static final class ResourceInfo extends
       com.google.protobuf.GeneratedMessage
-      implements MyResourceInfoOrBuilder {
-    // Use MyResourceInfo.newBuilder() to construct.
-    private MyResourceInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements ResourceInfoOrBuilder {
+    // Use ResourceInfo.newBuilder() to construct.
+    private ResourceInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private MyResourceInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private ResourceInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final MyResourceInfo defaultInstance;
-    public static MyResourceInfo getDefaultInstance() {
+    private static final ResourceInfo defaultInstance;
+    public static ResourceInfo getDefaultInstance() {
       return defaultInstance;
     }
 
-    public MyResourceInfo getDefaultInstanceForType() {
+    public ResourceInfo getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -2477,7 +3263,7 @@ public final class User {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private MyResourceInfo(
+    private ResourceInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2524,28 +3310,28 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_MyResourceInfo_descriptor;
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_MyResourceInfo_fieldAccessorTable
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.game.framework.protocol.User.MyResourceInfo.class, com.game.framework.protocol.User.MyResourceInfo.Builder.class);
+              com.game.framework.protocol.User.ResourceInfo.class, com.game.framework.protocol.User.ResourceInfo.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<MyResourceInfo> PARSER =
-        new com.google.protobuf.AbstractParser<MyResourceInfo>() {
-      public MyResourceInfo parsePartialFrom(
+    public static com.google.protobuf.Parser<ResourceInfo> PARSER =
+        new com.google.protobuf.AbstractParser<ResourceInfo>() {
+      public ResourceInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MyResourceInfo(input, extensionRegistry);
+        return new ResourceInfo(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<MyResourceInfo> getParserForType() {
+    public com.google.protobuf.Parser<ResourceInfo> getParserForType() {
       return PARSER;
     }
 
@@ -2649,53 +3435,53 @@ public final class User {
       return super.writeReplace();
     }
 
-    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(byte[] data)
+    public static com.game.framework.protocol.User.ResourceInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(java.io.InputStream input)
+    public static com.game.framework.protocol.User.ResourceInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.game.framework.protocol.User.MyResourceInfo parseDelimitedFrom(java.io.InputStream input)
+    public static com.game.framework.protocol.User.ResourceInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.game.framework.protocol.User.MyResourceInfo parseDelimitedFrom(
+    public static com.game.framework.protocol.User.ResourceInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.framework.protocol.User.MyResourceInfo parseFrom(
+    public static com.game.framework.protocol.User.ResourceInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2704,7 +3490,7 @@ public final class User {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.game.framework.protocol.User.MyResourceInfo prototype) {
+    public static Builder newBuilder(com.game.framework.protocol.User.ResourceInfo prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -2716,24 +3502,24 @@ public final class User {
       return builder;
     }
     /**
-     * Protobuf type {@code com.game.framework.protocol.MyResourceInfo}
+     * Protobuf type {@code com.game.framework.protocol.ResourceInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.game.framework.protocol.User.MyResourceInfoOrBuilder {
+       implements com.game.framework.protocol.User.ResourceInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_MyResourceInfo_descriptor;
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_MyResourceInfo_fieldAccessorTable
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.game.framework.protocol.User.MyResourceInfo.class, com.game.framework.protocol.User.MyResourceInfo.Builder.class);
+                com.game.framework.protocol.User.ResourceInfo.class, com.game.framework.protocol.User.ResourceInfo.Builder.class);
       }
 
-      // Construct using com.game.framework.protocol.User.MyResourceInfo.newBuilder()
+      // Construct using com.game.framework.protocol.User.ResourceInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2766,23 +3552,23 @@ public final class User {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_MyResourceInfo_descriptor;
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
       }
 
-      public com.game.framework.protocol.User.MyResourceInfo getDefaultInstanceForType() {
-        return com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance();
+      public com.game.framework.protocol.User.ResourceInfo getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.ResourceInfo.getDefaultInstance();
       }
 
-      public com.game.framework.protocol.User.MyResourceInfo build() {
-        com.game.framework.protocol.User.MyResourceInfo result = buildPartial();
+      public com.game.framework.protocol.User.ResourceInfo build() {
+        com.game.framework.protocol.User.ResourceInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.game.framework.protocol.User.MyResourceInfo buildPartial() {
-        com.game.framework.protocol.User.MyResourceInfo result = new com.game.framework.protocol.User.MyResourceInfo(this);
+      public com.game.framework.protocol.User.ResourceInfo buildPartial() {
+        com.game.framework.protocol.User.ResourceInfo result = new com.game.framework.protocol.User.ResourceInfo(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2799,16 +3585,16 @@ public final class User {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.framework.protocol.User.MyResourceInfo) {
-          return mergeFrom((com.game.framework.protocol.User.MyResourceInfo)other);
+        if (other instanceof com.game.framework.protocol.User.ResourceInfo) {
+          return mergeFrom((com.game.framework.protocol.User.ResourceInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.game.framework.protocol.User.MyResourceInfo other) {
-        if (other == com.game.framework.protocol.User.MyResourceInfo.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.game.framework.protocol.User.ResourceInfo other) {
+        if (other == com.game.framework.protocol.User.ResourceInfo.getDefaultInstance()) return this;
         if (other.hasConfigId()) {
           setConfigId(other.getConfigId());
         }
@@ -2827,11 +3613,11 @@ public final class User {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.game.framework.protocol.User.MyResourceInfo parsedMessage = null;
+        com.game.framework.protocol.User.ResourceInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.framework.protocol.User.MyResourceInfo) e.getUnfinishedMessage();
+          parsedMessage = (com.game.framework.protocol.User.ResourceInfo) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2940,15 +3726,2078 @@ public final class User {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.MyResourceInfo)
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.ResourceInfo)
     }
 
     static {
-      defaultInstance = new MyResourceInfo(true);
+      defaultInstance = new ResourceInfo(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.MyResourceInfo)
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.ResourceInfo)
+  }
+
+  public interface TCSGetUserStateOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TCSGetUserState}
+   */
+  public static final class TCSGetUserState extends
+      com.google.protobuf.GeneratedMessage
+      implements TCSGetUserStateOrBuilder {
+    // Use TCSGetUserState.newBuilder() to construct.
+    private TCSGetUserState(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TCSGetUserState(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TCSGetUserState defaultInstance;
+    public static TCSGetUserState getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TCSGetUserState getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TCSGetUserState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetUserState_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetUserState_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.User.TCSGetUserState.class, com.game.framework.protocol.User.TCSGetUserState.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TCSGetUserState> PARSER =
+        new com.google.protobuf.AbstractParser<TCSGetUserState>() {
+      public TCSGetUserState parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TCSGetUserState(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TCSGetUserState> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.User.TCSGetUserState parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserState parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserState parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserState parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserState parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserState parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserState parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserState parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserState parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserState parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.User.TCSGetUserState prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TCSGetUserState}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.User.TCSGetUserStateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetUserState_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetUserState_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.User.TCSGetUserState.class, com.game.framework.protocol.User.TCSGetUserState.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.User.TCSGetUserState.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetUserState_descriptor;
+      }
+
+      public com.game.framework.protocol.User.TCSGetUserState getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.TCSGetUserState.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.User.TCSGetUserState build() {
+        com.game.framework.protocol.User.TCSGetUserState result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.User.TCSGetUserState buildPartial() {
+        com.game.framework.protocol.User.TCSGetUserState result = new com.game.framework.protocol.User.TCSGetUserState(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.User.TCSGetUserState) {
+          return mergeFrom((com.game.framework.protocol.User.TCSGetUserState)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.User.TCSGetUserState other) {
+        if (other == com.game.framework.protocol.User.TCSGetUserState.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.User.TCSGetUserState parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.User.TCSGetUserState) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSGetUserState)
+    }
+
+    static {
+      defaultInstance = new TCSGetUserState(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSGetUserState)
+  }
+
+  public interface TCSGetUserStateRegularOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TCSGetUserStateRegular}
+   */
+  public static final class TCSGetUserStateRegular extends
+      com.google.protobuf.GeneratedMessage
+      implements TCSGetUserStateRegularOrBuilder {
+    // Use TCSGetUserStateRegular.newBuilder() to construct.
+    private TCSGetUserStateRegular(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TCSGetUserStateRegular(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TCSGetUserStateRegular defaultInstance;
+    public static TCSGetUserStateRegular getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TCSGetUserStateRegular getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TCSGetUserStateRegular(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetUserStateRegular_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetUserStateRegular_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.User.TCSGetUserStateRegular.class, com.game.framework.protocol.User.TCSGetUserStateRegular.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TCSGetUserStateRegular> PARSER =
+        new com.google.protobuf.AbstractParser<TCSGetUserStateRegular>() {
+      public TCSGetUserStateRegular parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TCSGetUserStateRegular(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TCSGetUserStateRegular> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.User.TCSGetUserStateRegular parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserStateRegular parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserStateRegular parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserStateRegular parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserStateRegular parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserStateRegular parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserStateRegular parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserStateRegular parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserStateRegular parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetUserStateRegular parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.User.TCSGetUserStateRegular prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TCSGetUserStateRegular}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.User.TCSGetUserStateRegularOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetUserStateRegular_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetUserStateRegular_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.User.TCSGetUserStateRegular.class, com.game.framework.protocol.User.TCSGetUserStateRegular.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.User.TCSGetUserStateRegular.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetUserStateRegular_descriptor;
+      }
+
+      public com.game.framework.protocol.User.TCSGetUserStateRegular getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.TCSGetUserStateRegular.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.User.TCSGetUserStateRegular build() {
+        com.game.framework.protocol.User.TCSGetUserStateRegular result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.User.TCSGetUserStateRegular buildPartial() {
+        com.game.framework.protocol.User.TCSGetUserStateRegular result = new com.game.framework.protocol.User.TCSGetUserStateRegular(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.User.TCSGetUserStateRegular) {
+          return mergeFrom((com.game.framework.protocol.User.TCSGetUserStateRegular)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.User.TCSGetUserStateRegular other) {
+        if (other == com.game.framework.protocol.User.TCSGetUserStateRegular.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.User.TCSGetUserStateRegular parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.User.TCSGetUserStateRegular) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSGetUserStateRegular)
+    }
+
+    static {
+      defaultInstance = new TCSGetUserStateRegular(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSGetUserStateRegular)
+  }
+
+  public interface TSCGetUserStateOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int32 blood = 1;
+    /**
+     * <code>optional int32 blood = 1;</code>
+     *
+     * <pre>
+     * 血量
+     * </pre>
+     */
+    boolean hasBlood();
+    /**
+     * <code>optional int32 blood = 1;</code>
+     *
+     * <pre>
+     * 血量
+     * </pre>
+     */
+    int getBlood();
+
+    // optional int32 food = 2;
+    /**
+     * <code>optional int32 food = 2;</code>
+     *
+     * <pre>
+     * 食物
+     * </pre>
+     */
+    boolean hasFood();
+    /**
+     * <code>optional int32 food = 2;</code>
+     *
+     * <pre>
+     * 食物
+     * </pre>
+     */
+    int getFood();
+
+    // optional int32 water = 3;
+    /**
+     * <code>optional int32 water = 3;</code>
+     *
+     * <pre>
+     * 水
+     * </pre>
+     */
+    boolean hasWater();
+    /**
+     * <code>optional int32 water = 3;</code>
+     *
+     * <pre>
+     * 水
+     * </pre>
+     */
+    int getWater();
+
+    // optional int32 health = 4;
+    /**
+     * <code>optional int32 health = 4;</code>
+     *
+     * <pre>
+     * 健康
+     * </pre>
+     */
+    boolean hasHealth();
+    /**
+     * <code>optional int32 health = 4;</code>
+     *
+     * <pre>
+     * 健康
+     * </pre>
+     */
+    int getHealth();
+
+    // optional int32 mood = 5;
+    /**
+     * <code>optional int32 mood = 5;</code>
+     *
+     * <pre>
+     * 心情
+     * </pre>
+     */
+    boolean hasMood();
+    /**
+     * <code>optional int32 mood = 5;</code>
+     *
+     * <pre>
+     * 心情
+     * </pre>
+     */
+    int getMood();
+
+    // optional int32 attack = 6;
+    /**
+     * <code>optional int32 attack = 6;</code>
+     *
+     * <pre>
+     * 攻击
+     * </pre>
+     */
+    boolean hasAttack();
+    /**
+     * <code>optional int32 attack = 6;</code>
+     *
+     * <pre>
+     * 攻击
+     * </pre>
+     */
+    int getAttack();
+
+    // optional int32 defense = 7;
+    /**
+     * <code>optional int32 defense = 7;</code>
+     *
+     * <pre>
+     * 防御
+     * </pre>
+     */
+    boolean hasDefense();
+    /**
+     * <code>optional int32 defense = 7;</code>
+     *
+     * <pre>
+     * 防御
+     * </pre>
+     */
+    int getDefense();
+
+    // optional int32 agile = 8;
+    /**
+     * <code>optional int32 agile = 8;</code>
+     *
+     * <pre>
+     * 敏捷
+     * </pre>
+     */
+    boolean hasAgile();
+    /**
+     * <code>optional int32 agile = 8;</code>
+     *
+     * <pre>
+     * 敏捷
+     * </pre>
+     */
+    int getAgile();
+
+    // optional int32 speed = 9;
+    /**
+     * <code>optional int32 speed = 9;</code>
+     *
+     * <pre>
+     * 移速
+     * </pre>
+     */
+    boolean hasSpeed();
+    /**
+     * <code>optional int32 speed = 9;</code>
+     *
+     * <pre>
+     * 移速
+     * </pre>
+     */
+    int getSpeed();
+
+    // optional int32 intellect = 10;
+    /**
+     * <code>optional int32 intellect = 10;</code>
+     *
+     * <pre>
+     * 智力
+     * </pre>
+     */
+    boolean hasIntellect();
+    /**
+     * <code>optional int32 intellect = 10;</code>
+     *
+     * <pre>
+     * 智力
+     * </pre>
+     */
+    int getIntellect();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TSCGetUserState}
+   */
+  public static final class TSCGetUserState extends
+      com.google.protobuf.GeneratedMessage
+      implements TSCGetUserStateOrBuilder {
+    // Use TSCGetUserState.newBuilder() to construct.
+    private TSCGetUserState(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TSCGetUserState(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TSCGetUserState defaultInstance;
+    public static TSCGetUserState getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TSCGetUserState getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSCGetUserState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              blood_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              food_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              water_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              health_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              mood_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              attack_ = input.readInt32();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              defense_ = input.readInt32();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              agile_ = input.readInt32();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              speed_ = input.readInt32();
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000200;
+              intellect_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetUserState_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetUserState_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.User.TSCGetUserState.class, com.game.framework.protocol.User.TSCGetUserState.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TSCGetUserState> PARSER =
+        new com.google.protobuf.AbstractParser<TSCGetUserState>() {
+      public TSCGetUserState parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSCGetUserState(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TSCGetUserState> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int32 blood = 1;
+    public static final int BLOOD_FIELD_NUMBER = 1;
+    private int blood_;
+    /**
+     * <code>optional int32 blood = 1;</code>
+     *
+     * <pre>
+     * 血量
+     * </pre>
+     */
+    public boolean hasBlood() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 blood = 1;</code>
+     *
+     * <pre>
+     * 血量
+     * </pre>
+     */
+    public int getBlood() {
+      return blood_;
+    }
+
+    // optional int32 food = 2;
+    public static final int FOOD_FIELD_NUMBER = 2;
+    private int food_;
+    /**
+     * <code>optional int32 food = 2;</code>
+     *
+     * <pre>
+     * 食物
+     * </pre>
+     */
+    public boolean hasFood() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 food = 2;</code>
+     *
+     * <pre>
+     * 食物
+     * </pre>
+     */
+    public int getFood() {
+      return food_;
+    }
+
+    // optional int32 water = 3;
+    public static final int WATER_FIELD_NUMBER = 3;
+    private int water_;
+    /**
+     * <code>optional int32 water = 3;</code>
+     *
+     * <pre>
+     * 水
+     * </pre>
+     */
+    public boolean hasWater() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 water = 3;</code>
+     *
+     * <pre>
+     * 水
+     * </pre>
+     */
+    public int getWater() {
+      return water_;
+    }
+
+    // optional int32 health = 4;
+    public static final int HEALTH_FIELD_NUMBER = 4;
+    private int health_;
+    /**
+     * <code>optional int32 health = 4;</code>
+     *
+     * <pre>
+     * 健康
+     * </pre>
+     */
+    public boolean hasHealth() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 health = 4;</code>
+     *
+     * <pre>
+     * 健康
+     * </pre>
+     */
+    public int getHealth() {
+      return health_;
+    }
+
+    // optional int32 mood = 5;
+    public static final int MOOD_FIELD_NUMBER = 5;
+    private int mood_;
+    /**
+     * <code>optional int32 mood = 5;</code>
+     *
+     * <pre>
+     * 心情
+     * </pre>
+     */
+    public boolean hasMood() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int32 mood = 5;</code>
+     *
+     * <pre>
+     * 心情
+     * </pre>
+     */
+    public int getMood() {
+      return mood_;
+    }
+
+    // optional int32 attack = 6;
+    public static final int ATTACK_FIELD_NUMBER = 6;
+    private int attack_;
+    /**
+     * <code>optional int32 attack = 6;</code>
+     *
+     * <pre>
+     * 攻击
+     * </pre>
+     */
+    public boolean hasAttack() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional int32 attack = 6;</code>
+     *
+     * <pre>
+     * 攻击
+     * </pre>
+     */
+    public int getAttack() {
+      return attack_;
+    }
+
+    // optional int32 defense = 7;
+    public static final int DEFENSE_FIELD_NUMBER = 7;
+    private int defense_;
+    /**
+     * <code>optional int32 defense = 7;</code>
+     *
+     * <pre>
+     * 防御
+     * </pre>
+     */
+    public boolean hasDefense() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional int32 defense = 7;</code>
+     *
+     * <pre>
+     * 防御
+     * </pre>
+     */
+    public int getDefense() {
+      return defense_;
+    }
+
+    // optional int32 agile = 8;
+    public static final int AGILE_FIELD_NUMBER = 8;
+    private int agile_;
+    /**
+     * <code>optional int32 agile = 8;</code>
+     *
+     * <pre>
+     * 敏捷
+     * </pre>
+     */
+    public boolean hasAgile() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional int32 agile = 8;</code>
+     *
+     * <pre>
+     * 敏捷
+     * </pre>
+     */
+    public int getAgile() {
+      return agile_;
+    }
+
+    // optional int32 speed = 9;
+    public static final int SPEED_FIELD_NUMBER = 9;
+    private int speed_;
+    /**
+     * <code>optional int32 speed = 9;</code>
+     *
+     * <pre>
+     * 移速
+     * </pre>
+     */
+    public boolean hasSpeed() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional int32 speed = 9;</code>
+     *
+     * <pre>
+     * 移速
+     * </pre>
+     */
+    public int getSpeed() {
+      return speed_;
+    }
+
+    // optional int32 intellect = 10;
+    public static final int INTELLECT_FIELD_NUMBER = 10;
+    private int intellect_;
+    /**
+     * <code>optional int32 intellect = 10;</code>
+     *
+     * <pre>
+     * 智力
+     * </pre>
+     */
+    public boolean hasIntellect() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    /**
+     * <code>optional int32 intellect = 10;</code>
+     *
+     * <pre>
+     * 智力
+     * </pre>
+     */
+    public int getIntellect() {
+      return intellect_;
+    }
+
+    private void initFields() {
+      blood_ = 0;
+      food_ = 0;
+      water_ = 0;
+      health_ = 0;
+      mood_ = 0;
+      attack_ = 0;
+      defense_ = 0;
+      agile_ = 0;
+      speed_ = 0;
+      intellect_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, blood_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, food_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, water_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, health_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, mood_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt32(6, attack_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeInt32(7, defense_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(8, agile_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeInt32(9, speed_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeInt32(10, intellect_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, blood_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, food_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, water_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, health_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, mood_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, attack_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, defense_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, agile_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, speed_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, intellect_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.User.TSCGetUserState parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TSCGetUserState parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetUserState parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TSCGetUserState parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetUserState parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCGetUserState parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetUserState parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCGetUserState parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetUserState parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCGetUserState parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.User.TSCGetUserState prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TSCGetUserState}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.User.TSCGetUserStateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetUserState_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetUserState_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.User.TSCGetUserState.class, com.game.framework.protocol.User.TSCGetUserState.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.User.TSCGetUserState.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        blood_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        food_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        water_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        health_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        mood_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        attack_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        defense_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        agile_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        speed_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        intellect_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetUserState_descriptor;
+      }
+
+      public com.game.framework.protocol.User.TSCGetUserState getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.TSCGetUserState.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.User.TSCGetUserState build() {
+        com.game.framework.protocol.User.TSCGetUserState result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.User.TSCGetUserState buildPartial() {
+        com.game.framework.protocol.User.TSCGetUserState result = new com.game.framework.protocol.User.TSCGetUserState(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.blood_ = blood_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.food_ = food_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.water_ = water_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.health_ = health_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.mood_ = mood_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.attack_ = attack_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.defense_ = defense_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.agile_ = agile_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.speed_ = speed_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.intellect_ = intellect_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.User.TSCGetUserState) {
+          return mergeFrom((com.game.framework.protocol.User.TSCGetUserState)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.User.TSCGetUserState other) {
+        if (other == com.game.framework.protocol.User.TSCGetUserState.getDefaultInstance()) return this;
+        if (other.hasBlood()) {
+          setBlood(other.getBlood());
+        }
+        if (other.hasFood()) {
+          setFood(other.getFood());
+        }
+        if (other.hasWater()) {
+          setWater(other.getWater());
+        }
+        if (other.hasHealth()) {
+          setHealth(other.getHealth());
+        }
+        if (other.hasMood()) {
+          setMood(other.getMood());
+        }
+        if (other.hasAttack()) {
+          setAttack(other.getAttack());
+        }
+        if (other.hasDefense()) {
+          setDefense(other.getDefense());
+        }
+        if (other.hasAgile()) {
+          setAgile(other.getAgile());
+        }
+        if (other.hasSpeed()) {
+          setSpeed(other.getSpeed());
+        }
+        if (other.hasIntellect()) {
+          setIntellect(other.getIntellect());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.User.TSCGetUserState parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.User.TSCGetUserState) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int32 blood = 1;
+      private int blood_ ;
+      /**
+       * <code>optional int32 blood = 1;</code>
+       *
+       * <pre>
+       * 血量
+       * </pre>
+       */
+      public boolean hasBlood() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 blood = 1;</code>
+       *
+       * <pre>
+       * 血量
+       * </pre>
+       */
+      public int getBlood() {
+        return blood_;
+      }
+      /**
+       * <code>optional int32 blood = 1;</code>
+       *
+       * <pre>
+       * 血量
+       * </pre>
+       */
+      public Builder setBlood(int value) {
+        bitField0_ |= 0x00000001;
+        blood_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 blood = 1;</code>
+       *
+       * <pre>
+       * 血量
+       * </pre>
+       */
+      public Builder clearBlood() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        blood_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 food = 2;
+      private int food_ ;
+      /**
+       * <code>optional int32 food = 2;</code>
+       *
+       * <pre>
+       * 食物
+       * </pre>
+       */
+      public boolean hasFood() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 food = 2;</code>
+       *
+       * <pre>
+       * 食物
+       * </pre>
+       */
+      public int getFood() {
+        return food_;
+      }
+      /**
+       * <code>optional int32 food = 2;</code>
+       *
+       * <pre>
+       * 食物
+       * </pre>
+       */
+      public Builder setFood(int value) {
+        bitField0_ |= 0x00000002;
+        food_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 food = 2;</code>
+       *
+       * <pre>
+       * 食物
+       * </pre>
+       */
+      public Builder clearFood() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        food_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 water = 3;
+      private int water_ ;
+      /**
+       * <code>optional int32 water = 3;</code>
+       *
+       * <pre>
+       * 水
+       * </pre>
+       */
+      public boolean hasWater() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 water = 3;</code>
+       *
+       * <pre>
+       * 水
+       * </pre>
+       */
+      public int getWater() {
+        return water_;
+      }
+      /**
+       * <code>optional int32 water = 3;</code>
+       *
+       * <pre>
+       * 水
+       * </pre>
+       */
+      public Builder setWater(int value) {
+        bitField0_ |= 0x00000004;
+        water_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 water = 3;</code>
+       *
+       * <pre>
+       * 水
+       * </pre>
+       */
+      public Builder clearWater() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        water_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 health = 4;
+      private int health_ ;
+      /**
+       * <code>optional int32 health = 4;</code>
+       *
+       * <pre>
+       * 健康
+       * </pre>
+       */
+      public boolean hasHealth() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 health = 4;</code>
+       *
+       * <pre>
+       * 健康
+       * </pre>
+       */
+      public int getHealth() {
+        return health_;
+      }
+      /**
+       * <code>optional int32 health = 4;</code>
+       *
+       * <pre>
+       * 健康
+       * </pre>
+       */
+      public Builder setHealth(int value) {
+        bitField0_ |= 0x00000008;
+        health_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 health = 4;</code>
+       *
+       * <pre>
+       * 健康
+       * </pre>
+       */
+      public Builder clearHealth() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        health_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 mood = 5;
+      private int mood_ ;
+      /**
+       * <code>optional int32 mood = 5;</code>
+       *
+       * <pre>
+       * 心情
+       * </pre>
+       */
+      public boolean hasMood() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 mood = 5;</code>
+       *
+       * <pre>
+       * 心情
+       * </pre>
+       */
+      public int getMood() {
+        return mood_;
+      }
+      /**
+       * <code>optional int32 mood = 5;</code>
+       *
+       * <pre>
+       * 心情
+       * </pre>
+       */
+      public Builder setMood(int value) {
+        bitField0_ |= 0x00000010;
+        mood_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 mood = 5;</code>
+       *
+       * <pre>
+       * 心情
+       * </pre>
+       */
+      public Builder clearMood() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        mood_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 attack = 6;
+      private int attack_ ;
+      /**
+       * <code>optional int32 attack = 6;</code>
+       *
+       * <pre>
+       * 攻击
+       * </pre>
+       */
+      public boolean hasAttack() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional int32 attack = 6;</code>
+       *
+       * <pre>
+       * 攻击
+       * </pre>
+       */
+      public int getAttack() {
+        return attack_;
+      }
+      /**
+       * <code>optional int32 attack = 6;</code>
+       *
+       * <pre>
+       * 攻击
+       * </pre>
+       */
+      public Builder setAttack(int value) {
+        bitField0_ |= 0x00000020;
+        attack_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 attack = 6;</code>
+       *
+       * <pre>
+       * 攻击
+       * </pre>
+       */
+      public Builder clearAttack() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        attack_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 defense = 7;
+      private int defense_ ;
+      /**
+       * <code>optional int32 defense = 7;</code>
+       *
+       * <pre>
+       * 防御
+       * </pre>
+       */
+      public boolean hasDefense() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional int32 defense = 7;</code>
+       *
+       * <pre>
+       * 防御
+       * </pre>
+       */
+      public int getDefense() {
+        return defense_;
+      }
+      /**
+       * <code>optional int32 defense = 7;</code>
+       *
+       * <pre>
+       * 防御
+       * </pre>
+       */
+      public Builder setDefense(int value) {
+        bitField0_ |= 0x00000040;
+        defense_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 defense = 7;</code>
+       *
+       * <pre>
+       * 防御
+       * </pre>
+       */
+      public Builder clearDefense() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        defense_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 agile = 8;
+      private int agile_ ;
+      /**
+       * <code>optional int32 agile = 8;</code>
+       *
+       * <pre>
+       * 敏捷
+       * </pre>
+       */
+      public boolean hasAgile() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional int32 agile = 8;</code>
+       *
+       * <pre>
+       * 敏捷
+       * </pre>
+       */
+      public int getAgile() {
+        return agile_;
+      }
+      /**
+       * <code>optional int32 agile = 8;</code>
+       *
+       * <pre>
+       * 敏捷
+       * </pre>
+       */
+      public Builder setAgile(int value) {
+        bitField0_ |= 0x00000080;
+        agile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 agile = 8;</code>
+       *
+       * <pre>
+       * 敏捷
+       * </pre>
+       */
+      public Builder clearAgile() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        agile_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 speed = 9;
+      private int speed_ ;
+      /**
+       * <code>optional int32 speed = 9;</code>
+       *
+       * <pre>
+       * 移速
+       * </pre>
+       */
+      public boolean hasSpeed() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional int32 speed = 9;</code>
+       *
+       * <pre>
+       * 移速
+       * </pre>
+       */
+      public int getSpeed() {
+        return speed_;
+      }
+      /**
+       * <code>optional int32 speed = 9;</code>
+       *
+       * <pre>
+       * 移速
+       * </pre>
+       */
+      public Builder setSpeed(int value) {
+        bitField0_ |= 0x00000100;
+        speed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 speed = 9;</code>
+       *
+       * <pre>
+       * 移速
+       * </pre>
+       */
+      public Builder clearSpeed() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        speed_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 intellect = 10;
+      private int intellect_ ;
+      /**
+       * <code>optional int32 intellect = 10;</code>
+       *
+       * <pre>
+       * 智力
+       * </pre>
+       */
+      public boolean hasIntellect() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <code>optional int32 intellect = 10;</code>
+       *
+       * <pre>
+       * 智力
+       * </pre>
+       */
+      public int getIntellect() {
+        return intellect_;
+      }
+      /**
+       * <code>optional int32 intellect = 10;</code>
+       *
+       * <pre>
+       * 智力
+       * </pre>
+       */
+      public Builder setIntellect(int value) {
+        bitField0_ |= 0x00000200;
+        intellect_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 intellect = 10;</code>
+       *
+       * <pre>
+       * 智力
+       * </pre>
+       */
+      public Builder clearIntellect() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        intellect_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetUserState)
+    }
+
+    static {
+      defaultInstance = new TSCGetUserState(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetUserState)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -2972,10 +5821,30 @@ public final class User {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TSCGetResourceInfoByConfigId_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_game_framework_protocol_MyResourceInfo_descriptor;
+    internal_static_com_game_framework_protocol_UserResource_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_game_framework_protocol_MyResourceInfo_fieldAccessorTable;
+      internal_static_com_game_framework_protocol_UserResource_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_ResourceInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TCSGetUserState_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TCSGetUserState_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TCSGetUserStateRegular_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TCSGetUserStateRegular_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TSCGetUserState_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TSCGetUserState_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2986,15 +5855,22 @@ public final class User {
   static {
     java.lang.String[] descriptorData = {
       "\n\nuser.proto\022\033com.game.framework.protoco" +
-      "l\"\024\n\022TCSGetResourceInfo\"Z\n\022TSCGetResourc" +
-      "eInfo\022D\n\017myResourceInfos\030\001 \003(\0132+.com.gam" +
-      "e.framework.protocol.MyResourceInfo\"0\n\034T" +
-      "CSGetResourceInfoByConfigId\022\020\n\010configId\030" +
-      "\001 \003(\005\"d\n\034TSCGetResourceInfoByConfigId\022D\n" +
-      "\017myResourceInfos\030\001 \003(\0132+.com.game.framew" +
-      "ork.protocol.MyResourceInfo\"2\n\016MyResourc" +
-      "eInfo\022\020\n\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005B" +
-      "\002H\001"
+      "l\"\024\n\022TCSGetResourceInfo\"V\n\022TSCGetResourc" +
+      "eInfo\022@\n\rresourceInfos\030\001 \003(\0132).com.game." +
+      "framework.protocol.ResourceInfo\"0\n\034TCSGe" +
+      "tResourceInfoByConfigId\022\020\n\010configId\030\001 \003(" +
+      "\005\"`\n\034TSCGetResourceInfoByConfigId\022@\n\rres" +
+      "ourceInfos\030\001 \003(\0132).com.game.framework.pr" +
+      "otocol.ResourceInfo\"P\n\014UserResource\022@\n\rr" +
+      "esourceInfos\030\001 \003(\0132).com.game.framework." +
+      "protocol.ResourceInfo\"0\n\014ResourceInfo\022\020\n",
+      "\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\"\021\n\017TCSGe" +
+      "tUserState\"\030\n\026TCSGetUserStateRegular\"\255\001\n" +
+      "\017TSCGetUserState\022\r\n\005blood\030\001 \001(\005\022\014\n\004food\030" +
+      "\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006health\030\004 \001(\005\022\014\n\004" +
+      "mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007defense\030\007 " +
+      "\001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t \001(\005\022\021\n\tint" +
+      "ellect\030\n \001(\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3012,7 +5888,7 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCGetResourceInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetResourceInfo_descriptor,
-              new java.lang.String[] { "MyResourceInfos", });
+              new java.lang.String[] { "ResourceInfos", });
           internal_static_com_game_framework_protocol_TCSGetResourceInfoByConfigId_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_TCSGetResourceInfoByConfigId_fieldAccessorTable = new
@@ -3024,13 +5900,37 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCGetResourceInfoByConfigId_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetResourceInfoByConfigId_descriptor,
-              new java.lang.String[] { "MyResourceInfos", });
-          internal_static_com_game_framework_protocol_MyResourceInfo_descriptor =
+              new java.lang.String[] { "ResourceInfos", });
+          internal_static_com_game_framework_protocol_UserResource_descriptor =
             getDescriptor().getMessageTypes().get(4);
-          internal_static_com_game_framework_protocol_MyResourceInfo_fieldAccessorTable = new
+          internal_static_com_game_framework_protocol_UserResource_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_game_framework_protocol_MyResourceInfo_descriptor,
+              internal_static_com_game_framework_protocol_UserResource_descriptor,
+              new java.lang.String[] { "ResourceInfos", });
+          internal_static_com_game_framework_protocol_ResourceInfo_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_ResourceInfo_descriptor,
               new java.lang.String[] { "ConfigId", "Number", });
+          internal_static_com_game_framework_protocol_TCSGetUserState_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_com_game_framework_protocol_TCSGetUserState_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TCSGetUserState_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_game_framework_protocol_TCSGetUserStateRegular_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_com_game_framework_protocol_TCSGetUserStateRegular_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TCSGetUserStateRegular_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_game_framework_protocol_TSCGetUserState_descriptor =
+            getDescriptor().getMessageTypes().get(8);
+          internal_static_com_game_framework_protocol_TSCGetUserState_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TSCGetUserState_descriptor,
+              new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", });
           return null;
         }
       };

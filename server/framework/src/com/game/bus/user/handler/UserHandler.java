@@ -12,6 +12,8 @@ import com.game.framework.console.GateServer;
 import com.game.bus.user.service.UserService;
 import com.game.framework.protocol.User.TCSGetResourceInfo;
 import com.game.framework.protocol.User.TCSGetResourceInfoByConfigId;
+import com.game.framework.protocol.User.TCSGetUserState;
+import com.game.framework.protocol.User.TCSGetUserStateRegular;
 
 @Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Bus, module = HandlerConstant.Model_User)
@@ -36,6 +38,26 @@ public class UserHandler {
 		List<Integer> configIdList = msg.getConfigIdList();		
 		TPacket resp = service.getResourceInfoByConfigId(p.getUid(), configIdList);
 		resp.setCmd(Cmd.GETRESOURCEINFOBYCONFIGID_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 玩家状态 */
+	@HandlerMethodMapping(cmd = Cmd.GETUSERSTATE_VALUE)
+	public void getUserState(TPacket p) throws Exception {
+		TCSGetUserState msg = TCSGetUserState.parseFrom(p.getBuffer());
+		
+		TPacket resp = service.getUserState(p.getUid());
+		resp.setCmd(Cmd.GETUSERSTATE_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 玩家状态（周期） */
+	@HandlerMethodMapping(cmd = Cmd.GETUSERSTATEREGULAR_VALUE)
+	public void getUserStateRegular(TPacket p) throws Exception {
+		TCSGetUserStateRegular msg = TCSGetUserStateRegular.parseFrom(p.getBuffer());
+		
+		TPacket resp = service.getUserStateRegular(p.getUid());
+		resp.setCmd(Cmd.GETUSERSTATEREGULAR_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}
 

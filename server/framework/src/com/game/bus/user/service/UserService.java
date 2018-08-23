@@ -10,4 +10,10 @@ public interface UserService {
 
 	/** 玩家某种资源数量 */
 	TPacket getResourceInfoByConfigId(Long uid, List<Integer> configIdList) throws Exception;
+
+	/** 玩家状态 */
+	TPacket getUserState(Long uid) throws Exception;
+
+	/** 玩家状态（周期） */
+	TPacket getUserStateRegular(Long uid) throws Exception;
 }

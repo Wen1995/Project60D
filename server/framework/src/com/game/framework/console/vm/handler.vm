@@ -5,6 +5,9 @@ import com.game.framework.console.handler.HandlerMethodMapping;
 import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.console.constant.HandlerConstant;
 import com.game.framework.console.disruptor.TPacket;
+#if(${haveList} == "true")
+import java.util.List;
+#end
 import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import com.game.framework.console.GateServer;

@@ -81,33 +81,143 @@ public final class UserCache {
      */
     int getGold();
 
-    // optional int32 production = 7;
+    // optional int32 blood = 7;
     /**
-     * <code>optional int32 production = 7;</code>
+     * <code>optional int32 blood = 7;</code>
+     */
+    boolean hasBlood();
+    /**
+     * <code>optional int32 blood = 7;</code>
+     */
+    int getBlood();
+
+    // optional int32 food = 8;
+    /**
+     * <code>optional int32 food = 8;</code>
+     */
+    boolean hasFood();
+    /**
+     * <code>optional int32 food = 8;</code>
+     */
+    int getFood();
+
+    // optional int32 water = 9;
+    /**
+     * <code>optional int32 water = 9;</code>
+     */
+    boolean hasWater();
+    /**
+     * <code>optional int32 water = 9;</code>
+     */
+    int getWater();
+
+    // optional int32 health = 10;
+    /**
+     * <code>optional int32 health = 10;</code>
+     */
+    boolean hasHealth();
+    /**
+     * <code>optional int32 health = 10;</code>
+     */
+    int getHealth();
+
+    // optional int32 mood = 11;
+    /**
+     * <code>optional int32 mood = 11;</code>
+     */
+    boolean hasMood();
+    /**
+     * <code>optional int32 mood = 11;</code>
+     */
+    int getMood();
+
+    // optional int32 attack = 12;
+    /**
+     * <code>optional int32 attack = 12;</code>
+     */
+    boolean hasAttack();
+    /**
+     * <code>optional int32 attack = 12;</code>
+     */
+    int getAttack();
+
+    // optional int32 defense = 13;
+    /**
+     * <code>optional int32 defense = 13;</code>
+     */
+    boolean hasDefense();
+    /**
+     * <code>optional int32 defense = 13;</code>
+     */
+    int getDefense();
+
+    // optional int32 agile = 14;
+    /**
+     * <code>optional int32 agile = 14;</code>
+     */
+    boolean hasAgile();
+    /**
+     * <code>optional int32 agile = 14;</code>
+     */
+    int getAgile();
+
+    // optional int32 speed = 15;
+    /**
+     * <code>optional int32 speed = 15;</code>
+     */
+    boolean hasSpeed();
+    /**
+     * <code>optional int32 speed = 15;</code>
+     */
+    int getSpeed();
+
+    // optional int32 intellect = 16;
+    /**
+     * <code>optional int32 intellect = 16;</code>
+     */
+    boolean hasIntellect();
+    /**
+     * <code>optional int32 intellect = 16;</code>
+     */
+    int getIntellect();
+
+    // optional int32 production = 17;
+    /**
+     * <code>optional int32 production = 17;</code>
      */
     boolean hasProduction();
     /**
-     * <code>optional int32 production = 7;</code>
+     * <code>optional int32 production = 17;</code>
      */
     int getProduction();
 
-    // optional sint64 createTime = 8;
+    // optional sint64 createTime = 18;
     /**
-     * <code>optional sint64 createTime = 8;</code>
+     * <code>optional sint64 createTime = 18;</code>
      */
     boolean hasCreateTime();
     /**
-     * <code>optional sint64 createTime = 8;</code>
+     * <code>optional sint64 createTime = 18;</code>
      */
     long getCreateTime();
 
-    // optional bytes resource = 9;
+    // optional sint64 logoutTime = 19;
     /**
-     * <code>optional bytes resource = 9;</code>
+     * <code>optional sint64 logoutTime = 19;</code>
+     */
+    boolean hasLogoutTime();
+    /**
+     * <code>optional sint64 logoutTime = 19;</code>
+     */
+    long getLogoutTime();
+
+    // optional bytes resource = 20;
+    /**
+     * <code>optional bytes resource = 20;</code>
      */
     boolean hasResource();
     /**
-     * <code>optional bytes resource = 9;</code>
+     * <code>optional bytes resource = 20;</code>
      */
     com.google.protobuf.ByteString getResource();
   }
@@ -194,16 +304,71 @@ public final class UserCache {
             }
             case 56: {
               bitField0_ |= 0x00000040;
-              production_ = input.readInt32();
+              blood_ = input.readInt32();
               break;
             }
             case 64: {
               bitField0_ |= 0x00000080;
+              food_ = input.readInt32();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              water_ = input.readInt32();
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000200;
+              health_ = input.readInt32();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
+              mood_ = input.readInt32();
+              break;
+            }
+            case 96: {
+              bitField0_ |= 0x00000800;
+              attack_ = input.readInt32();
+              break;
+            }
+            case 104: {
+              bitField0_ |= 0x00001000;
+              defense_ = input.readInt32();
+              break;
+            }
+            case 112: {
+              bitField0_ |= 0x00002000;
+              agile_ = input.readInt32();
+              break;
+            }
+            case 120: {
+              bitField0_ |= 0x00004000;
+              speed_ = input.readInt32();
+              break;
+            }
+            case 128: {
+              bitField0_ |= 0x00008000;
+              intellect_ = input.readInt32();
+              break;
+            }
+            case 136: {
+              bitField0_ |= 0x00010000;
+              production_ = input.readInt32();
+              break;
+            }
+            case 144: {
+              bitField0_ |= 0x00020000;
               createTime_ = input.readSInt64();
               break;
             }
-            case 74: {
-              bitField0_ |= 0x00000100;
+            case 152: {
+              bitField0_ |= 0x00040000;
+              logoutTime_ = input.readSInt64();
+              break;
+            }
+            case 162: {
+              bitField0_ |= 0x00080000;
               resource_ = input.readBytes();
               break;
             }
@@ -397,49 +562,225 @@ public final class UserCache {
       return gold_;
     }
 
-    // optional int32 production = 7;
-    public static final int PRODUCTION_FIELD_NUMBER = 7;
-    private int production_;
+    // optional int32 blood = 7;
+    public static final int BLOOD_FIELD_NUMBER = 7;
+    private int blood_;
     /**
-     * <code>optional int32 production = 7;</code>
+     * <code>optional int32 blood = 7;</code>
      */
-    public boolean hasProduction() {
+    public boolean hasBlood() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional int32 production = 7;</code>
+     * <code>optional int32 blood = 7;</code>
+     */
+    public int getBlood() {
+      return blood_;
+    }
+
+    // optional int32 food = 8;
+    public static final int FOOD_FIELD_NUMBER = 8;
+    private int food_;
+    /**
+     * <code>optional int32 food = 8;</code>
+     */
+    public boolean hasFood() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional int32 food = 8;</code>
+     */
+    public int getFood() {
+      return food_;
+    }
+
+    // optional int32 water = 9;
+    public static final int WATER_FIELD_NUMBER = 9;
+    private int water_;
+    /**
+     * <code>optional int32 water = 9;</code>
+     */
+    public boolean hasWater() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional int32 water = 9;</code>
+     */
+    public int getWater() {
+      return water_;
+    }
+
+    // optional int32 health = 10;
+    public static final int HEALTH_FIELD_NUMBER = 10;
+    private int health_;
+    /**
+     * <code>optional int32 health = 10;</code>
+     */
+    public boolean hasHealth() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    /**
+     * <code>optional int32 health = 10;</code>
+     */
+    public int getHealth() {
+      return health_;
+    }
+
+    // optional int32 mood = 11;
+    public static final int MOOD_FIELD_NUMBER = 11;
+    private int mood_;
+    /**
+     * <code>optional int32 mood = 11;</code>
+     */
+    public boolean hasMood() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <code>optional int32 mood = 11;</code>
+     */
+    public int getMood() {
+      return mood_;
+    }
+
+    // optional int32 attack = 12;
+    public static final int ATTACK_FIELD_NUMBER = 12;
+    private int attack_;
+    /**
+     * <code>optional int32 attack = 12;</code>
+     */
+    public boolean hasAttack() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    /**
+     * <code>optional int32 attack = 12;</code>
+     */
+    public int getAttack() {
+      return attack_;
+    }
+
+    // optional int32 defense = 13;
+    public static final int DEFENSE_FIELD_NUMBER = 13;
+    private int defense_;
+    /**
+     * <code>optional int32 defense = 13;</code>
+     */
+    public boolean hasDefense() {
+      return ((bitField0_ & 0x00001000) == 0x00001000);
+    }
+    /**
+     * <code>optional int32 defense = 13;</code>
+     */
+    public int getDefense() {
+      return defense_;
+    }
+
+    // optional int32 agile = 14;
+    public static final int AGILE_FIELD_NUMBER = 14;
+    private int agile_;
+    /**
+     * <code>optional int32 agile = 14;</code>
+     */
+    public boolean hasAgile() {
+      return ((bitField0_ & 0x00002000) == 0x00002000);
+    }
+    /**
+     * <code>optional int32 agile = 14;</code>
+     */
+    public int getAgile() {
+      return agile_;
+    }
+
+    // optional int32 speed = 15;
+    public static final int SPEED_FIELD_NUMBER = 15;
+    private int speed_;
+    /**
+     * <code>optional int32 speed = 15;</code>
+     */
+    public boolean hasSpeed() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    /**
+     * <code>optional int32 speed = 15;</code>
+     */
+    public int getSpeed() {
+      return speed_;
+    }
+
+    // optional int32 intellect = 16;
+    public static final int INTELLECT_FIELD_NUMBER = 16;
+    private int intellect_;
+    /**
+     * <code>optional int32 intellect = 16;</code>
+     */
+    public boolean hasIntellect() {
+      return ((bitField0_ & 0x00008000) == 0x00008000);
+    }
+    /**
+     * <code>optional int32 intellect = 16;</code>
+     */
+    public int getIntellect() {
+      return intellect_;
+    }
+
+    // optional int32 production = 17;
+    public static final int PRODUCTION_FIELD_NUMBER = 17;
+    private int production_;
+    /**
+     * <code>optional int32 production = 17;</code>
+     */
+    public boolean hasProduction() {
+      return ((bitField0_ & 0x00010000) == 0x00010000);
+    }
+    /**
+     * <code>optional int32 production = 17;</code>
      */
     public int getProduction() {
       return production_;
     }
 
-    // optional sint64 createTime = 8;
-    public static final int CREATETIME_FIELD_NUMBER = 8;
+    // optional sint64 createTime = 18;
+    public static final int CREATETIME_FIELD_NUMBER = 18;
     private long createTime_;
     /**
-     * <code>optional sint64 createTime = 8;</code>
+     * <code>optional sint64 createTime = 18;</code>
      */
     public boolean hasCreateTime() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00020000) == 0x00020000);
     }
     /**
-     * <code>optional sint64 createTime = 8;</code>
+     * <code>optional sint64 createTime = 18;</code>
      */
     public long getCreateTime() {
       return createTime_;
     }
 
-    // optional bytes resource = 9;
-    public static final int RESOURCE_FIELD_NUMBER = 9;
-    private com.google.protobuf.ByteString resource_;
+    // optional sint64 logoutTime = 19;
+    public static final int LOGOUTTIME_FIELD_NUMBER = 19;
+    private long logoutTime_;
     /**
-     * <code>optional bytes resource = 9;</code>
+     * <code>optional sint64 logoutTime = 19;</code>
      */
-    public boolean hasResource() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+    public boolean hasLogoutTime() {
+      return ((bitField0_ & 0x00040000) == 0x00040000);
     }
     /**
-     * <code>optional bytes resource = 9;</code>
+     * <code>optional sint64 logoutTime = 19;</code>
+     */
+    public long getLogoutTime() {
+      return logoutTime_;
+    }
+
+    // optional bytes resource = 20;
+    public static final int RESOURCE_FIELD_NUMBER = 20;
+    private com.google.protobuf.ByteString resource_;
+    /**
+     * <code>optional bytes resource = 20;</code>
+     */
+    public boolean hasResource() {
+      return ((bitField0_ & 0x00080000) == 0x00080000);
+    }
+    /**
+     * <code>optional bytes resource = 20;</code>
      */
     public com.google.protobuf.ByteString getResource() {
       return resource_;
@@ -452,8 +793,19 @@ public final class UserCache {
       groupId_ = 0L;
       contribution_ = 0;
       gold_ = 0;
+      blood_ = 0;
+      food_ = 0;
+      water_ = 0;
+      health_ = 0;
+      mood_ = 0;
+      attack_ = 0;
+      defense_ = 0;
+      agile_ = 0;
+      speed_ = 0;
+      intellect_ = 0;
       production_ = 0;
       createTime_ = 0L;
+      logoutTime_ = 0L;
       resource_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
@@ -487,13 +839,46 @@ public final class UserCache {
         output.writeInt32(6, gold_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeInt32(7, production_);
+        output.writeInt32(7, blood_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeSInt64(8, createTime_);
+        output.writeInt32(8, food_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeBytes(9, resource_);
+        output.writeInt32(9, water_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeInt32(10, health_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeInt32(11, mood_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeInt32(12, attack_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        output.writeInt32(13, defense_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        output.writeInt32(14, agile_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        output.writeInt32(15, speed_);
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        output.writeInt32(16, intellect_);
+      }
+      if (((bitField0_ & 0x00010000) == 0x00010000)) {
+        output.writeInt32(17, production_);
+      }
+      if (((bitField0_ & 0x00020000) == 0x00020000)) {
+        output.writeSInt64(18, createTime_);
+      }
+      if (((bitField0_ & 0x00040000) == 0x00040000)) {
+        output.writeSInt64(19, logoutTime_);
+      }
+      if (((bitField0_ & 0x00080000) == 0x00080000)) {
+        output.writeBytes(20, resource_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -530,15 +915,59 @@ public final class UserCache {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, production_);
+          .computeInt32Size(7, blood_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt64Size(8, createTime_);
+          .computeInt32Size(8, food_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, resource_);
+          .computeInt32Size(9, water_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, health_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, mood_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, attack_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(13, defense_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(14, agile_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(15, speed_);
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(16, intellect_);
+      }
+      if (((bitField0_ & 0x00010000) == 0x00010000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(17, production_);
+      }
+      if (((bitField0_ & 0x00020000) == 0x00020000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt64Size(18, createTime_);
+      }
+      if (((bitField0_ & 0x00040000) == 0x00040000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt64Size(19, logoutTime_);
+      }
+      if (((bitField0_ & 0x00080000) == 0x00080000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(20, resource_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -668,12 +1097,34 @@ public final class UserCache {
         bitField0_ = (bitField0_ & ~0x00000010);
         gold_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
-        production_ = 0;
+        blood_ = 0;
         bitField0_ = (bitField0_ & ~0x00000040);
-        createTime_ = 0L;
+        food_ = 0;
         bitField0_ = (bitField0_ & ~0x00000080);
-        resource_ = com.google.protobuf.ByteString.EMPTY;
+        water_ = 0;
         bitField0_ = (bitField0_ & ~0x00000100);
+        health_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        mood_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        attack_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000800);
+        defense_ = 0;
+        bitField0_ = (bitField0_ & ~0x00001000);
+        agile_ = 0;
+        bitField0_ = (bitField0_ & ~0x00002000);
+        speed_ = 0;
+        bitField0_ = (bitField0_ & ~0x00004000);
+        intellect_ = 0;
+        bitField0_ = (bitField0_ & ~0x00008000);
+        production_ = 0;
+        bitField0_ = (bitField0_ & ~0x00010000);
+        createTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00020000);
+        logoutTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00040000);
+        resource_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00080000);
         return this;
       }
 
@@ -729,13 +1180,57 @@ public final class UserCache {
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.production_ = production_;
+        result.blood_ = blood_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.createTime_ = createTime_;
+        result.food_ = food_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
+        }
+        result.water_ = water_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.health_ = health_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.mood_ = mood_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.attack_ = attack_;
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+          to_bitField0_ |= 0x00001000;
+        }
+        result.defense_ = defense_;
+        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
+          to_bitField0_ |= 0x00002000;
+        }
+        result.agile_ = agile_;
+        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
+          to_bitField0_ |= 0x00004000;
+        }
+        result.speed_ = speed_;
+        if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
+          to_bitField0_ |= 0x00008000;
+        }
+        result.intellect_ = intellect_;
+        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
+          to_bitField0_ |= 0x00010000;
+        }
+        result.production_ = production_;
+        if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
+          to_bitField0_ |= 0x00020000;
+        }
+        result.createTime_ = createTime_;
+        if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
+          to_bitField0_ |= 0x00040000;
+        }
+        result.logoutTime_ = logoutTime_;
+        if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
+          to_bitField0_ |= 0x00080000;
         }
         result.resource_ = resource_;
         result.bitField0_ = to_bitField0_;
@@ -776,11 +1271,44 @@ public final class UserCache {
         if (other.hasGold()) {
           setGold(other.getGold());
         }
+        if (other.hasBlood()) {
+          setBlood(other.getBlood());
+        }
+        if (other.hasFood()) {
+          setFood(other.getFood());
+        }
+        if (other.hasWater()) {
+          setWater(other.getWater());
+        }
+        if (other.hasHealth()) {
+          setHealth(other.getHealth());
+        }
+        if (other.hasMood()) {
+          setMood(other.getMood());
+        }
+        if (other.hasAttack()) {
+          setAttack(other.getAttack());
+        }
+        if (other.hasDefense()) {
+          setDefense(other.getDefense());
+        }
+        if (other.hasAgile()) {
+          setAgile(other.getAgile());
+        }
+        if (other.hasSpeed()) {
+          setSpeed(other.getSpeed());
+        }
+        if (other.hasIntellect()) {
+          setIntellect(other.getIntellect());
+        }
         if (other.hasProduction()) {
           setProduction(other.getProduction());
         }
         if (other.hasCreateTime()) {
           setCreateTime(other.getCreateTime());
+        }
+        if (other.hasLogoutTime()) {
+          setLogoutTime(other.getLogoutTime());
         }
         if (other.hasResource()) {
           setResource(other.getResource());
@@ -1092,103 +1620,466 @@ public final class UserCache {
         return this;
       }
 
-      // optional int32 production = 7;
-      private int production_ ;
+      // optional int32 blood = 7;
+      private int blood_ ;
       /**
-       * <code>optional int32 production = 7;</code>
+       * <code>optional int32 blood = 7;</code>
        */
-      public boolean hasProduction() {
+      public boolean hasBlood() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional int32 production = 7;</code>
+       * <code>optional int32 blood = 7;</code>
+       */
+      public int getBlood() {
+        return blood_;
+      }
+      /**
+       * <code>optional int32 blood = 7;</code>
+       */
+      public Builder setBlood(int value) {
+        bitField0_ |= 0x00000040;
+        blood_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 blood = 7;</code>
+       */
+      public Builder clearBlood() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        blood_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 food = 8;
+      private int food_ ;
+      /**
+       * <code>optional int32 food = 8;</code>
+       */
+      public boolean hasFood() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional int32 food = 8;</code>
+       */
+      public int getFood() {
+        return food_;
+      }
+      /**
+       * <code>optional int32 food = 8;</code>
+       */
+      public Builder setFood(int value) {
+        bitField0_ |= 0x00000080;
+        food_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 food = 8;</code>
+       */
+      public Builder clearFood() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        food_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 water = 9;
+      private int water_ ;
+      /**
+       * <code>optional int32 water = 9;</code>
+       */
+      public boolean hasWater() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional int32 water = 9;</code>
+       */
+      public int getWater() {
+        return water_;
+      }
+      /**
+       * <code>optional int32 water = 9;</code>
+       */
+      public Builder setWater(int value) {
+        bitField0_ |= 0x00000100;
+        water_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 water = 9;</code>
+       */
+      public Builder clearWater() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        water_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 health = 10;
+      private int health_ ;
+      /**
+       * <code>optional int32 health = 10;</code>
+       */
+      public boolean hasHealth() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <code>optional int32 health = 10;</code>
+       */
+      public int getHealth() {
+        return health_;
+      }
+      /**
+       * <code>optional int32 health = 10;</code>
+       */
+      public Builder setHealth(int value) {
+        bitField0_ |= 0x00000200;
+        health_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 health = 10;</code>
+       */
+      public Builder clearHealth() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        health_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 mood = 11;
+      private int mood_ ;
+      /**
+       * <code>optional int32 mood = 11;</code>
+       */
+      public boolean hasMood() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional int32 mood = 11;</code>
+       */
+      public int getMood() {
+        return mood_;
+      }
+      /**
+       * <code>optional int32 mood = 11;</code>
+       */
+      public Builder setMood(int value) {
+        bitField0_ |= 0x00000400;
+        mood_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 mood = 11;</code>
+       */
+      public Builder clearMood() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        mood_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 attack = 12;
+      private int attack_ ;
+      /**
+       * <code>optional int32 attack = 12;</code>
+       */
+      public boolean hasAttack() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional int32 attack = 12;</code>
+       */
+      public int getAttack() {
+        return attack_;
+      }
+      /**
+       * <code>optional int32 attack = 12;</code>
+       */
+      public Builder setAttack(int value) {
+        bitField0_ |= 0x00000800;
+        attack_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 attack = 12;</code>
+       */
+      public Builder clearAttack() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        attack_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 defense = 13;
+      private int defense_ ;
+      /**
+       * <code>optional int32 defense = 13;</code>
+       */
+      public boolean hasDefense() {
+        return ((bitField0_ & 0x00001000) == 0x00001000);
+      }
+      /**
+       * <code>optional int32 defense = 13;</code>
+       */
+      public int getDefense() {
+        return defense_;
+      }
+      /**
+       * <code>optional int32 defense = 13;</code>
+       */
+      public Builder setDefense(int value) {
+        bitField0_ |= 0x00001000;
+        defense_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 defense = 13;</code>
+       */
+      public Builder clearDefense() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        defense_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 agile = 14;
+      private int agile_ ;
+      /**
+       * <code>optional int32 agile = 14;</code>
+       */
+      public boolean hasAgile() {
+        return ((bitField0_ & 0x00002000) == 0x00002000);
+      }
+      /**
+       * <code>optional int32 agile = 14;</code>
+       */
+      public int getAgile() {
+        return agile_;
+      }
+      /**
+       * <code>optional int32 agile = 14;</code>
+       */
+      public Builder setAgile(int value) {
+        bitField0_ |= 0x00002000;
+        agile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 agile = 14;</code>
+       */
+      public Builder clearAgile() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        agile_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 speed = 15;
+      private int speed_ ;
+      /**
+       * <code>optional int32 speed = 15;</code>
+       */
+      public boolean hasSpeed() {
+        return ((bitField0_ & 0x00004000) == 0x00004000);
+      }
+      /**
+       * <code>optional int32 speed = 15;</code>
+       */
+      public int getSpeed() {
+        return speed_;
+      }
+      /**
+       * <code>optional int32 speed = 15;</code>
+       */
+      public Builder setSpeed(int value) {
+        bitField0_ |= 0x00004000;
+        speed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 speed = 15;</code>
+       */
+      public Builder clearSpeed() {
+        bitField0_ = (bitField0_ & ~0x00004000);
+        speed_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 intellect = 16;
+      private int intellect_ ;
+      /**
+       * <code>optional int32 intellect = 16;</code>
+       */
+      public boolean hasIntellect() {
+        return ((bitField0_ & 0x00008000) == 0x00008000);
+      }
+      /**
+       * <code>optional int32 intellect = 16;</code>
+       */
+      public int getIntellect() {
+        return intellect_;
+      }
+      /**
+       * <code>optional int32 intellect = 16;</code>
+       */
+      public Builder setIntellect(int value) {
+        bitField0_ |= 0x00008000;
+        intellect_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 intellect = 16;</code>
+       */
+      public Builder clearIntellect() {
+        bitField0_ = (bitField0_ & ~0x00008000);
+        intellect_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 production = 17;
+      private int production_ ;
+      /**
+       * <code>optional int32 production = 17;</code>
+       */
+      public boolean hasProduction() {
+        return ((bitField0_ & 0x00010000) == 0x00010000);
+      }
+      /**
+       * <code>optional int32 production = 17;</code>
        */
       public int getProduction() {
         return production_;
       }
       /**
-       * <code>optional int32 production = 7;</code>
+       * <code>optional int32 production = 17;</code>
        */
       public Builder setProduction(int value) {
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00010000;
         production_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 production = 7;</code>
+       * <code>optional int32 production = 17;</code>
        */
       public Builder clearProduction() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00010000);
         production_ = 0;
         onChanged();
         return this;
       }
 
-      // optional sint64 createTime = 8;
+      // optional sint64 createTime = 18;
       private long createTime_ ;
       /**
-       * <code>optional sint64 createTime = 8;</code>
+       * <code>optional sint64 createTime = 18;</code>
        */
       public boolean hasCreateTime() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00020000) == 0x00020000);
       }
       /**
-       * <code>optional sint64 createTime = 8;</code>
+       * <code>optional sint64 createTime = 18;</code>
        */
       public long getCreateTime() {
         return createTime_;
       }
       /**
-       * <code>optional sint64 createTime = 8;</code>
+       * <code>optional sint64 createTime = 18;</code>
        */
       public Builder setCreateTime(long value) {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00020000;
         createTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional sint64 createTime = 8;</code>
+       * <code>optional sint64 createTime = 18;</code>
        */
       public Builder clearCreateTime() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00020000);
         createTime_ = 0L;
         onChanged();
         return this;
       }
 
-      // optional bytes resource = 9;
-      private com.google.protobuf.ByteString resource_ = com.google.protobuf.ByteString.EMPTY;
+      // optional sint64 logoutTime = 19;
+      private long logoutTime_ ;
       /**
-       * <code>optional bytes resource = 9;</code>
+       * <code>optional sint64 logoutTime = 19;</code>
        */
-      public boolean hasResource() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+      public boolean hasLogoutTime() {
+        return ((bitField0_ & 0x00040000) == 0x00040000);
       }
       /**
-       * <code>optional bytes resource = 9;</code>
+       * <code>optional sint64 logoutTime = 19;</code>
+       */
+      public long getLogoutTime() {
+        return logoutTime_;
+      }
+      /**
+       * <code>optional sint64 logoutTime = 19;</code>
+       */
+      public Builder setLogoutTime(long value) {
+        bitField0_ |= 0x00040000;
+        logoutTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional sint64 logoutTime = 19;</code>
+       */
+      public Builder clearLogoutTime() {
+        bitField0_ = (bitField0_ & ~0x00040000);
+        logoutTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional bytes resource = 20;
+      private com.google.protobuf.ByteString resource_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes resource = 20;</code>
+       */
+      public boolean hasResource() {
+        return ((bitField0_ & 0x00080000) == 0x00080000);
+      }
+      /**
+       * <code>optional bytes resource = 20;</code>
        */
       public com.google.protobuf.ByteString getResource() {
         return resource_;
       }
       /**
-       * <code>optional bytes resource = 9;</code>
+       * <code>optional bytes resource = 20;</code>
        */
       public Builder setResource(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00080000;
         resource_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes resource = 9;</code>
+       * <code>optional bytes resource = 20;</code>
        */
       public Builder clearResource() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00080000);
         resource_ = getDefaultInstance().getResource();
         onChanged();
         return this;
@@ -1220,11 +2111,16 @@ public final class UserCache {
   static {
     java.lang.String[] descriptorData = {
       "\n\017UserCache.proto\022 com.game.framework.db" +
-      "cache.model\"\251\001\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n" +
+      "cache.model\"\331\002\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n" +
       "\007account\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\017\n\007grou" +
       "pId\030\004 \001(\003\022\024\n\014contribution\030\005 \001(\005\022\014\n\004gold\030" +
-      "\006 \001(\005\022\022\n\nproduction\030\007 \001(\005\022\022\n\ncreateTime\030" +
-      "\010 \001(\022\022\020\n\010resource\030\t \001(\014B\002H\001"
+      "\006 \001(\005\022\r\n\005blood\030\007 \001(\005\022\014\n\004food\030\010 \001(\005\022\r\n\005wa" +
+      "ter\030\t \001(\005\022\016\n\006health\030\n \001(\005\022\014\n\004mood\030\013 \001(\005\022" +
+      "\016\n\006attack\030\014 \001(\005\022\017\n\007defense\030\r \001(\005\022\r\n\005agil" +
+      "e\030\016 \001(\005\022\r\n\005speed\030\017 \001(\005\022\021\n\tintellect\030\020 \001(" +
+      "\005\022\022\n\nproduction\030\021 \001(\005\022\022\n\ncreateTime\030\022 \001(" +
+      "\022\022\022\n\nlogoutTime\030\023 \001(\022\022\020\n\010resource\030\024 \001(\014B",
+      "\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1236,7 +2132,7 @@ public final class UserCache {
           internal_static_com_game_framework_dbcache_model_ProtoUser_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_dbcache_model_ProtoUser_descriptor,
-              new java.lang.String[] { "Id", "Account", "Password", "GroupId", "Contribution", "Gold", "Production", "CreateTime", "Resource", });
+              new java.lang.String[] { "Id", "Account", "Password", "GroupId", "Contribution", "Gold", "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Production", "CreateTime", "LogoutTime", "Resource", });
           return null;
         }
       };

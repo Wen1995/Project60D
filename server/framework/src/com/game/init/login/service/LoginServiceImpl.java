@@ -13,10 +13,11 @@ import com.game.framework.dbcache.id.IdManager;
 import com.game.framework.dbcache.id.IdType;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.Common.Error;
-import com.game.framework.protocol.Database.ResourceInfo;
-import com.game.framework.protocol.Database.UserResource;
 import com.game.framework.protocol.Login.TSCGetUserInfo;
+import com.game.framework.protocol.Login.TSCHeart;
 import com.game.framework.protocol.Login.TSCLogin;
+import com.game.framework.protocol.User.ResourceInfo;
+import com.game.framework.protocol.User.UserResource;
 import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.resource.StaticDataManager;
 import com.game.framework.resource.data.ItemResBytes.ITEM_RES;
@@ -27,6 +28,21 @@ import com.game.framework.utils.StringUtil;
 public class LoginServiceImpl implements LoginService {
     @Resource
     private IUserDao userDao;
+    
+    @Override
+    public TPacket heart(Long uid) throws Exception {
+        Long systemCurrentTime = System.currentTimeMillis();
+        Map<Long, Long> uid2HeartTime = DynamicDataManager.GetInstance().uid2HeartTime;
+        uid2HeartTime.put(uid, systemCurrentTime);
+        
+        TSCHeart p = TSCHeart.newBuilder()
+                .setSystemCurrentTime(systemCurrentTime)
+                .build();
+        TPacket resp = new TPacket();
+        resp.setUid(uid);
+        resp.setBuffer(p.toByteArray());
+        return resp;
+    }
     
     @Override
     public TPacket login(Long uid, String account) throws Exception {
@@ -46,6 +62,18 @@ public class LoginServiceImpl implements LoginService {
             user.setAccount(account);
             user.setCreateTime(new Date());
             user.setProduction(1);
+            
+            // 初始状态
+            user.setBlood(100);
+            user.setFood(50);
+            user.setWater(30);
+            user.setHealth(50);
+            user.setMood(50);
+            user.setAttack(45);
+            user.setDefense(45);
+            user.setAgile(45);
+            user.setSpeed(45);
+            user.setIntellect(45);
             
             // 初始资源
             List<ResourceInfo> resourceInfos = new ArrayList<>();
@@ -78,6 +106,9 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public TPacket logout(Long uid) throws Exception {
+        User user = userDao.get(uid);
+        user.setLogoutTime(new Date(System.currentTimeMillis()));
+        userDao.update(user);
         return null;
     }
 

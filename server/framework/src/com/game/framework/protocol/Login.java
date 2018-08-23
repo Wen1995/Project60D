@@ -1458,28 +1458,28 @@ public final class Login {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSLogout)
   }
 
-  public interface TSCLogoutOrBuilder
+  public interface TCSHeartOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code com.game.framework.protocol.TSCLogout}
+   * Protobuf type {@code com.game.framework.protocol.TCSHeart}
    */
-  public static final class TSCLogout extends
+  public static final class TCSHeart extends
       com.google.protobuf.GeneratedMessage
-      implements TSCLogoutOrBuilder {
-    // Use TSCLogout.newBuilder() to construct.
-    private TSCLogout(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements TCSHeartOrBuilder {
+    // Use TCSHeart.newBuilder() to construct.
+    private TCSHeart(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private TSCLogout(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private TCSHeart(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final TSCLogout defaultInstance;
-    public static TSCLogout getDefaultInstance() {
+    private static final TCSHeart defaultInstance;
+    public static TCSHeart getDefaultInstance() {
       return defaultInstance;
     }
 
-    public TSCLogout getDefaultInstanceForType() {
+    public TCSHeart getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -1489,7 +1489,7 @@ public final class Login {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private TSCLogout(
+    private TCSHeart(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1525,28 +1525,28 @@ public final class Login {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TSCLogout_descriptor;
+      return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TCSHeart_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TSCLogout_fieldAccessorTable
+      return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TCSHeart_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.game.framework.protocol.Login.TSCLogout.class, com.game.framework.protocol.Login.TSCLogout.Builder.class);
+              com.game.framework.protocol.Login.TCSHeart.class, com.game.framework.protocol.Login.TCSHeart.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<TSCLogout> PARSER =
-        new com.google.protobuf.AbstractParser<TSCLogout>() {
-      public TSCLogout parsePartialFrom(
+    public static com.google.protobuf.Parser<TCSHeart> PARSER =
+        new com.google.protobuf.AbstractParser<TCSHeart>() {
+      public TCSHeart parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TSCLogout(input, extensionRegistry);
+        return new TCSHeart(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<TSCLogout> getParserForType() {
+    public com.google.protobuf.Parser<TCSHeart> getParserForType() {
       return PARSER;
     }
 
@@ -1585,53 +1585,53 @@ public final class Login {
       return super.writeReplace();
     }
 
-    public static com.game.framework.protocol.Login.TSCLogout parseFrom(
+    public static com.game.framework.protocol.Login.TCSHeart parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.framework.protocol.Login.TSCLogout parseFrom(
+    public static com.game.framework.protocol.Login.TCSHeart parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.framework.protocol.Login.TSCLogout parseFrom(byte[] data)
+    public static com.game.framework.protocol.Login.TCSHeart parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.framework.protocol.Login.TSCLogout parseFrom(
+    public static com.game.framework.protocol.Login.TCSHeart parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.framework.protocol.Login.TSCLogout parseFrom(java.io.InputStream input)
+    public static com.game.framework.protocol.Login.TCSHeart parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.framework.protocol.Login.TSCLogout parseFrom(
+    public static com.game.framework.protocol.Login.TCSHeart parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.game.framework.protocol.Login.TSCLogout parseDelimitedFrom(java.io.InputStream input)
+    public static com.game.framework.protocol.Login.TCSHeart parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.game.framework.protocol.Login.TSCLogout parseDelimitedFrom(
+    public static com.game.framework.protocol.Login.TCSHeart parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.game.framework.protocol.Login.TSCLogout parseFrom(
+    public static com.game.framework.protocol.Login.TCSHeart parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.game.framework.protocol.Login.TSCLogout parseFrom(
+    public static com.game.framework.protocol.Login.TCSHeart parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1640,7 +1640,7 @@ public final class Login {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.game.framework.protocol.Login.TSCLogout prototype) {
+    public static Builder newBuilder(com.game.framework.protocol.Login.TCSHeart prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1652,24 +1652,24 @@ public final class Login {
       return builder;
     }
     /**
-     * Protobuf type {@code com.game.framework.protocol.TSCLogout}
+     * Protobuf type {@code com.game.framework.protocol.TCSHeart}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.game.framework.protocol.Login.TSCLogoutOrBuilder {
+       implements com.game.framework.protocol.Login.TCSHeartOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TSCLogout_descriptor;
+        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TCSHeart_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TSCLogout_fieldAccessorTable
+        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TCSHeart_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.game.framework.protocol.Login.TSCLogout.class, com.game.framework.protocol.Login.TSCLogout.Builder.class);
+                com.game.framework.protocol.Login.TCSHeart.class, com.game.framework.protocol.Login.TCSHeart.Builder.class);
       }
 
-      // Construct using com.game.framework.protocol.Login.TSCLogout.newBuilder()
+      // Construct using com.game.framework.protocol.Login.TCSHeart.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1698,38 +1698,38 @@ public final class Login {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TSCLogout_descriptor;
+        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TCSHeart_descriptor;
       }
 
-      public com.game.framework.protocol.Login.TSCLogout getDefaultInstanceForType() {
-        return com.game.framework.protocol.Login.TSCLogout.getDefaultInstance();
+      public com.game.framework.protocol.Login.TCSHeart getDefaultInstanceForType() {
+        return com.game.framework.protocol.Login.TCSHeart.getDefaultInstance();
       }
 
-      public com.game.framework.protocol.Login.TSCLogout build() {
-        com.game.framework.protocol.Login.TSCLogout result = buildPartial();
+      public com.game.framework.protocol.Login.TCSHeart build() {
+        com.game.framework.protocol.Login.TCSHeart result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.game.framework.protocol.Login.TSCLogout buildPartial() {
-        com.game.framework.protocol.Login.TSCLogout result = new com.game.framework.protocol.Login.TSCLogout(this);
+      public com.game.framework.protocol.Login.TCSHeart buildPartial() {
+        com.game.framework.protocol.Login.TCSHeart result = new com.game.framework.protocol.Login.TCSHeart(this);
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.framework.protocol.Login.TSCLogout) {
-          return mergeFrom((com.game.framework.protocol.Login.TSCLogout)other);
+        if (other instanceof com.game.framework.protocol.Login.TCSHeart) {
+          return mergeFrom((com.game.framework.protocol.Login.TCSHeart)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.game.framework.protocol.Login.TSCLogout other) {
-        if (other == com.game.framework.protocol.Login.TSCLogout.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.game.framework.protocol.Login.TCSHeart other) {
+        if (other == com.game.framework.protocol.Login.TCSHeart.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -1742,11 +1742,11 @@ public final class Login {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.game.framework.protocol.Login.TSCLogout parsedMessage = null;
+        com.game.framework.protocol.Login.TCSHeart parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.framework.protocol.Login.TSCLogout) e.getUnfinishedMessage();
+          parsedMessage = (com.game.framework.protocol.Login.TCSHeart) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1756,15 +1756,443 @@ public final class Login {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCLogout)
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSHeart)
     }
 
     static {
-      defaultInstance = new TSCLogout(true);
+      defaultInstance = new TCSHeart(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCLogout)
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSHeart)
+  }
+
+  public interface TSCHeartOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int64 systemCurrentTime = 3;
+    /**
+     * <code>optional int64 systemCurrentTime = 3;</code>
+     *
+     * <pre>
+     * 服务器当前时间
+     * </pre>
+     */
+    boolean hasSystemCurrentTime();
+    /**
+     * <code>optional int64 systemCurrentTime = 3;</code>
+     *
+     * <pre>
+     * 服务器当前时间
+     * </pre>
+     */
+    long getSystemCurrentTime();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TSCHeart}
+   */
+  public static final class TSCHeart extends
+      com.google.protobuf.GeneratedMessage
+      implements TSCHeartOrBuilder {
+    // Use TSCHeart.newBuilder() to construct.
+    private TSCHeart(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TSCHeart(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TSCHeart defaultInstance;
+    public static TSCHeart getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TSCHeart getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSCHeart(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000001;
+              systemCurrentTime_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TSCHeart_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TSCHeart_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Login.TSCHeart.class, com.game.framework.protocol.Login.TSCHeart.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TSCHeart> PARSER =
+        new com.google.protobuf.AbstractParser<TSCHeart>() {
+      public TSCHeart parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSCHeart(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TSCHeart> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int64 systemCurrentTime = 3;
+    public static final int SYSTEMCURRENTTIME_FIELD_NUMBER = 3;
+    private long systemCurrentTime_;
+    /**
+     * <code>optional int64 systemCurrentTime = 3;</code>
+     *
+     * <pre>
+     * 服务器当前时间
+     * </pre>
+     */
+    public boolean hasSystemCurrentTime() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int64 systemCurrentTime = 3;</code>
+     *
+     * <pre>
+     * 服务器当前时间
+     * </pre>
+     */
+    public long getSystemCurrentTime() {
+      return systemCurrentTime_;
+    }
+
+    private void initFields() {
+      systemCurrentTime_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(3, systemCurrentTime_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, systemCurrentTime_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Login.TSCHeart parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Login.TSCHeart parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Login.TSCHeart parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Login.TSCHeart parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Login.TSCHeart parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Login.TSCHeart parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Login.TSCHeart parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Login.TSCHeart parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Login.TSCHeart parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Login.TSCHeart parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Login.TSCHeart prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TSCHeart}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Login.TSCHeartOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TSCHeart_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TSCHeart_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Login.TSCHeart.class, com.game.framework.protocol.Login.TSCHeart.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Login.TSCHeart.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        systemCurrentTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_TSCHeart_descriptor;
+      }
+
+      public com.game.framework.protocol.Login.TSCHeart getDefaultInstanceForType() {
+        return com.game.framework.protocol.Login.TSCHeart.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Login.TSCHeart build() {
+        com.game.framework.protocol.Login.TSCHeart result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Login.TSCHeart buildPartial() {
+        com.game.framework.protocol.Login.TSCHeart result = new com.game.framework.protocol.Login.TSCHeart(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.systemCurrentTime_ = systemCurrentTime_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Login.TSCHeart) {
+          return mergeFrom((com.game.framework.protocol.Login.TSCHeart)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Login.TSCHeart other) {
+        if (other == com.game.framework.protocol.Login.TSCHeart.getDefaultInstance()) return this;
+        if (other.hasSystemCurrentTime()) {
+          setSystemCurrentTime(other.getSystemCurrentTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Login.TSCHeart parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Login.TSCHeart) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int64 systemCurrentTime = 3;
+      private long systemCurrentTime_ ;
+      /**
+       * <code>optional int64 systemCurrentTime = 3;</code>
+       *
+       * <pre>
+       * 服务器当前时间
+       * </pre>
+       */
+      public boolean hasSystemCurrentTime() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int64 systemCurrentTime = 3;</code>
+       *
+       * <pre>
+       * 服务器当前时间
+       * </pre>
+       */
+      public long getSystemCurrentTime() {
+        return systemCurrentTime_;
+      }
+      /**
+       * <code>optional int64 systemCurrentTime = 3;</code>
+       *
+       * <pre>
+       * 服务器当前时间
+       * </pre>
+       */
+      public Builder setSystemCurrentTime(long value) {
+        bitField0_ |= 0x00000001;
+        systemCurrentTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 systemCurrentTime = 3;</code>
+       *
+       * <pre>
+       * 服务器当前时间
+       * </pre>
+       */
+      public Builder clearSystemCurrentTime() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        systemCurrentTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCHeart)
+    }
+
+    static {
+      defaultInstance = new TSCHeart(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCHeart)
   }
 
   public interface TCSGetUserInfoOrBuilder
@@ -2520,10 +2948,15 @@ public final class Login {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TCSLogout_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_game_framework_protocol_TSCLogout_descriptor;
+    internal_static_com_game_framework_protocol_TCSHeart_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_game_framework_protocol_TSCLogout_fieldAccessorTable;
+      internal_static_com_game_framework_protocol_TCSHeart_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TSCHeart_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TSCHeart_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_framework_protocol_TCSGetUserInfo_descriptor;
   private static
@@ -2546,9 +2979,10 @@ public final class Login {
       "\n\013login.proto\022\033com.game.framework.protoc" +
       "ol\"\033\n\010TCSLogin\022\017\n\007account\030\001 \001(\t\"C\n\010TSCLo" +
       "gin\022\013\n\003uid\030\001 \001(\003\022\017\n\007groupId\030\002 \001(\003\022\031\n\021sys" +
-      "temCurrentTime\030\003 \001(\003\"\013\n\tTCSLogout\"\013\n\tTSC" +
-      "Logout\"\020\n\016TCSGetUserInfo\"!\n\016TSCGetUserIn" +
-      "fo\022\017\n\007groupId\030\001 \001(\003B\002H\001"
+      "temCurrentTime\030\003 \001(\003\"\013\n\tTCSLogout\"\n\n\010TCS" +
+      "Heart\"%\n\010TSCHeart\022\031\n\021systemCurrentTime\030\003" +
+      " \001(\003\"\020\n\016TCSGetUserInfo\"!\n\016TSCGetUserInfo" +
+      "\022\017\n\007groupId\030\001 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2573,20 +3007,26 @@ public final class Login {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TCSLogout_descriptor,
               new java.lang.String[] { });
-          internal_static_com_game_framework_protocol_TSCLogout_descriptor =
+          internal_static_com_game_framework_protocol_TCSHeart_descriptor =
             getDescriptor().getMessageTypes().get(3);
-          internal_static_com_game_framework_protocol_TSCLogout_fieldAccessorTable = new
+          internal_static_com_game_framework_protocol_TCSHeart_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_game_framework_protocol_TSCLogout_descriptor,
+              internal_static_com_game_framework_protocol_TCSHeart_descriptor,
               new java.lang.String[] { });
-          internal_static_com_game_framework_protocol_TCSGetUserInfo_descriptor =
+          internal_static_com_game_framework_protocol_TSCHeart_descriptor =
             getDescriptor().getMessageTypes().get(4);
+          internal_static_com_game_framework_protocol_TSCHeart_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TSCHeart_descriptor,
+              new java.lang.String[] { "SystemCurrentTime", });
+          internal_static_com_game_framework_protocol_TCSGetUserInfo_descriptor =
+            getDescriptor().getMessageTypes().get(5);
           internal_static_com_game_framework_protocol_TCSGetUserInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TCSGetUserInfo_descriptor,
               new java.lang.String[] { });
           internal_static_com_game_framework_protocol_TSCGetUserInfo_descriptor =
-            getDescriptor().getMessageTypes().get(5);
+            getDescriptor().getMessageTypes().get(6);
           internal_static_com_game_framework_protocol_TSCGetUserInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetUserInfo_descriptor,

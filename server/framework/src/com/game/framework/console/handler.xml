@@ -9,6 +9,7 @@
 
 	<HandlerGroup name="Init" thread="1" clean="60">
 		<!--//////////////// 登录模块 ////////////////-->
+		<Handler model="Login" method="heart" description="心跳"/>
 		<Handler model="Login" method="login" description="登录" />
 		<Handler model="Login" method="logout" description="登出"/>
 		<Handler model="Login" method="getUserInfo" description="玩家信息"/>
@@ -36,6 +37,8 @@
 		<!--//////////////// 玩家模块 ////////////////-->
 		<Handler model="User" method="getResourceInfo" description="玩家资源信息"/>
 		<Handler model="User" method="getResourceInfoByConfigId" description="玩家某种资源数量"/>
+		<Handler model="User" method="getUserState" description="玩家状态"/>
+		<Handler model="User" method="getUserStateRegular" description="玩家状态（周期）" isInner="true"/>
 		
 	</HandlerGroup>
 	

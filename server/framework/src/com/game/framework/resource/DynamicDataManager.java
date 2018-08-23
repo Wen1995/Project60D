@@ -29,6 +29,7 @@ public class DynamicDataManager {
 
     private static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
     public Map<String, Long> account2Uid = new ConcurrentHashMap<>();
+    public Map<Long, Long> uid2HeartTime = new ConcurrentHashMap<>();
     
     public void init() {
         IUserDao userDao = (IUserDao) context.getBean("userDao");

@@ -15,9 +15,31 @@ public class User {
 
     private Integer gold;
 
+    private Integer blood;
+
+    private Integer food;
+
+    private Integer water;
+
+    private Integer health;
+
+    private Integer mood;
+
+    private Integer attack;
+
+    private Integer defense;
+
+    private Integer agile;
+
+    private Integer speed;
+
+    private Integer intellect;
+
     private Integer production;
 
     private Date createTime;
+
+    private Date logoutTime;
 
     private byte[] resource;
 
@@ -69,6 +91,86 @@ public class User {
         this.gold = gold;
     }
 
+    public Integer getBlood() {
+        return blood;
+    }
+
+    public void setBlood(Integer blood) {
+        this.blood = blood;
+    }
+
+    public Integer getFood() {
+        return food;
+    }
+
+    public void setFood(Integer food) {
+        this.food = food;
+    }
+
+    public Integer getWater() {
+        return water;
+    }
+
+    public void setWater(Integer water) {
+        this.water = water;
+    }
+
+    public Integer getHealth() {
+        return health;
+    }
+
+    public void setHealth(Integer health) {
+        this.health = health;
+    }
+
+    public Integer getMood() {
+        return mood;
+    }
+
+    public void setMood(Integer mood) {
+        this.mood = mood;
+    }
+
+    public Integer getAttack() {
+        return attack;
+    }
+
+    public void setAttack(Integer attack) {
+        this.attack = attack;
+    }
+
+    public Integer getDefense() {
+        return defense;
+    }
+
+    public void setDefense(Integer defense) {
+        this.defense = defense;
+    }
+
+    public Integer getAgile() {
+        return agile;
+    }
+
+    public void setAgile(Integer agile) {
+        this.agile = agile;
+    }
+
+    public Integer getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Integer speed) {
+        this.speed = speed;
+    }
+
+    public Integer getIntellect() {
+        return intellect;
+    }
+
+    public void setIntellect(Integer intellect) {
+        this.intellect = intellect;
+    }
+
     public Integer getProduction() {
         return production;
     }
@@ -83,6 +185,14 @@ public class User {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getLogoutTime() {
+        return logoutTime;
+    }
+
+    public void setLogoutTime(Date logoutTime) {
+        this.logoutTime = logoutTime;
     }
 
     public byte[] getResource() {

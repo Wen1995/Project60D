@@ -70,28 +70,28 @@ public class GeneratorHandlerTemplater {
      * 生成HandlerConstant.java
      */
     private void createHandlerConstantClass(Map<String, HandlerGroup> handlerGroups, Map<Short, Handler> handlers) {
-        List<String> HandlerGroup_attrs = new ArrayList<>();
-        List<String> Model_attrs = new ArrayList<>();
+        List<String> handlerGroup_attrs = new ArrayList<>();
+        List<String> model_attrs = new ArrayList<>();
 
         Iterator<HandlerGroup> handlerGroupItr = handlerGroups.values().iterator();
         Iterator<Handler> handlerItr = handlers.values().iterator();
         
         while (handlerGroupItr.hasNext()) {
             HandlerGroup handlerGroup = handlerGroupItr.next();
-            HandlerGroup_attrs.add(handlerGroup.getName());
+            handlerGroup_attrs.add(handlerGroup.getName());
         }
         while (handlerItr.hasNext()) {
             Handler handlerConfig = handlerItr.next();
-            if(!Model_attrs.contains(handlerConfig.getModel())) {
-                Model_attrs.add(handlerConfig.getModel());
+            if(!model_attrs.contains(handlerConfig.getModel())) {
+                model_attrs.add(handlerConfig.getModel());
             }
         }
 
         VelocityEngine ve = newVelocityEngine();
         Template template = ve.getTemplate("handlerconstant.vm");
         VelocityContext ctx = new VelocityContext();
-        ctx.put("HandlerGroup", HandlerGroup_attrs.toArray());
-        ctx.put("Model", Model_attrs.toArray());
+        ctx.put("HandlerGroup", handlerGroup_attrs.toArray());
+        ctx.put("Model", model_attrs.toArray());
 
         String str = merge2Str(template, ctx);
 
@@ -143,10 +143,10 @@ public class GeneratorHandlerTemplater {
             ctx.put("litModel", litModel);
             ctx.put("bigHandlerGroup", modelClass.getHandlerGroup());
             ctx.put("model", modelClass.getModel());
-            ctx.put("package", modelClass.getModel().toLowerCase());
 
             List<Object[]> methods = new ArrayList<>();
             Iterator<Object[]> it2 = modelClass.getMethods().iterator();
+            boolean haveList = false;
             while (it2.hasNext()) {
                 Object[] strings = it2.next();
                 List<String> methodParams =  (List<String>) strings[2];
@@ -156,6 +156,11 @@ public class GeneratorHandlerTemplater {
                     for (int i = 0; i < methodParams.size(); i++) {
                         String string = methodParams.get(i);
                         String[] split = string.split(":");
+                        if (!haveList) {
+                            if (split[0].contains("List")) {
+                                haveList = true;
+                            }
+                        }
                         methodParamsStr += split[0] + " " + split[1] + " = msg.get"
                                 + StringUtil.FirstLetterToUpper(split[1]) + "();\r		";
                     }
@@ -169,6 +174,7 @@ public class GeneratorHandlerTemplater {
                         strings[3]}; // 是否timer
                 methods.add(s);
             }
+            ctx.put("haveList", haveList);
             ctx.put("methods", methods.toArray());
             String str = merge2Str(template, ctx);
             String class_path = "/com/game/" + litHandlerGroup + "/" + litModel + "/handler/"
@@ -229,14 +235,22 @@ public class GeneratorHandlerTemplater {
 
             List<Object[]> methods = new ArrayList<>();
             Iterator<Object[]> it2 = modelClass.getMethods().iterator();
+            boolean haveList = false;
             while (it2.hasNext()) {
                 Object[] strings = it2.next();
                 List<String> methodParams = (List<String>) strings[2];
+                String[] ss = getMethodParamsStr(methodParams);
                 String[] s =
                         {(String) strings[1], StringUtil.FirstLetterToUpper((String) strings[0]),
-                                (String) strings[0], getMethodParamsStr(methodParams)};
+                                (String) strings[0], ss[0]};
+                if (!haveList) {
+                    if (ss[1].equals("true")) {
+                        haveList = true;
+                    }
+                }
                 methods.add(s);
             }
+            ctx.put("haveList", haveList);
             ctx.put("methods", methods.toArray());
 
             String str = merge2Str(template, ctx);
@@ -259,11 +273,17 @@ public class GeneratorHandlerTemplater {
         return writer.toString();
     }
 
-    private String getMethodParamsStr(List<String> methodParams) {
+    private String[] getMethodParamsStr(List<String> methodParams) {
         String methodParamStr = "";
+        String haveList = "false";
         if (methodParams != null) {
             for (String string : methodParams) {
                 String[] split = string.split(":");
+                if ("false".equals(haveList)) {
+                    if (split[0].contains("List")) {
+                        haveList = "true";
+                    }
+                }
                 methodParamStr += split[0] + " " + split[1] + ", ";
             }
             if (methodParamStr.length() > 0) {
@@ -271,7 +291,10 @@ public class GeneratorHandlerTemplater {
                 methodParamStr = methodParamStr.substring(0, methodParamStr.length() - 2);
             }
         }
-        return methodParamStr;
+        String[] strings = new String[2];
+        strings[0] = methodParamStr;
+        strings[1] = haveList;
+        return strings;
     }
 
     private String getCallMethodParamsStr(List<String> methodParams) {

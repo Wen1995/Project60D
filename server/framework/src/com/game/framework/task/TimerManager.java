@@ -1,19 +1,28 @@
 package com.game.framework.task;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.game.framework.console.GateServer;
 import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.dbcache.dao.ITimerDao;
+import com.game.framework.dbcache.dao.IUserDao;
 import com.game.framework.dbcache.model.Timer;
+import com.game.framework.dbcache.model.User;
+import com.game.framework.resource.DynamicDataManager;
+import io.netty.channel.Channel;
 
 public class TimerManager {
-    // 单例
+    private static Logger logger = LoggerFactory.getLogger(TimerManager.class);
+    
     private static Object obj = new Object();
     private static TimerManager instance = null;
 
@@ -28,6 +37,7 @@ public class TimerManager {
 
     private static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
     ITimerDao timerDao = (ITimerDao) context.getBean("timerDao");
+    IUserDao userDao = (IUserDao) context.getBean("userDao");
 
     ConcurrentHashMap<Long, ScheduledFuture<?>> futureMap;
     ScheduleTask scheduleTask;
@@ -47,6 +57,36 @@ public class TimerManager {
             }
         }
 
+        scheduleTask.scheduleWithFixedDelay(new Runnable() {
+            @Override
+            public void run() {
+                Map<Long, Channel> playerChannels = GateServer.GetInstance().getPlayerChannels();
+                Map<Channel, Long> hashChannels = GateServer.GetInstance().getHashChannels();
+                Iterator<Map.Entry<Long, Channel>> iterator = playerChannels.entrySet().iterator();
+                Map<Long, Long> uid2HeartTime = DynamicDataManager.GetInstance().uid2HeartTime;
+                
+                Long time = System.currentTimeMillis();
+                while (iterator.hasNext()) { 
+                    Map.Entry<Long, Channel> entry = iterator.next();
+                    
+                    // 距上次心跳时间超过60秒，自动断线
+                    if (time - uid2HeartTime.get(entry.getKey()) > 60000) {
+                        Channel channel = entry.getValue();
+                        channel.close();
+                        hashChannels.remove(channel);
+                        iterator.remove();
+                        uid2HeartTime.remove(entry.getKey());
+                        logger.info("Client Disconnect User[{}]", entry.getKey());
+                        
+                        User user = userDao.get(entry.getKey());
+                        user.setLogoutTime(new Date(time));
+                        userDao.update(user);
+                        
+                        // TODO 关闭定时任务
+                    }
+                }
+            }
+        }, 60, 60, TimeUnit.SECONDS);
     }
 
     public ScheduledFuture<?> sumbit(String key, final Long uid, final Integer cmd,

@@ -9,6 +9,7 @@ import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.console.handler.HandlerGroup;
 import com.game.framework.console.handler.HandlersConfig;
 import com.game.framework.console.handler.HandlersConfig.Handler;
+import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.socket.MessageDecodeHandler;
 import com.game.framework.socket.MessageEncodeHandler;
 import com.game.framework.socket.MessageHandler;
@@ -51,6 +52,15 @@ public class GateServer {
         open(ServerConfig.getServerPort());
         isStop = false;
     }
+    
+    public Map<Long, Channel> getPlayerChannels() {
+        return playerChannels;
+    }
+    
+    public Map<Channel, Long> getHashChannels() {
+        return hashChannels;
+    }
+    
     public Channel getChannel(Long uid) {
         return playerChannels.get(uid);
     }
@@ -67,8 +77,8 @@ public class GateServer {
         hashChannels.put(channel, uid);
     }
 
-    public Object removeChannelData(Channel channel) {
-        Long uid = (Long) hashChannels.remove(channel);
+    public Long removeChannelData(Channel channel) {
+        Long uid = hashChannels.remove(channel);
         if (uid != null) {
             playerChannels.remove(uid);
         }
@@ -91,6 +101,7 @@ public class GateServer {
         for (TPacket tPacket : tPackets) {
             try {
                 tPacket.setInner(true);
+                logger.info("[Inner TPacket CMD] {}", Cmd.valueOf(tPacket.getCmd()));
                 produce(tPacket);
             } catch (Exception e) {
                 logger.error("", e);

@@ -1,5 +1,8 @@
 package com.game.${litHandlerGroup}.${litModel}.service;
 
+#if(${haveList} == "true")
+import java.util.List;
+#end
 import com.game.framework.console.disruptor.TPacket;
 
 public interface ${model}Service {

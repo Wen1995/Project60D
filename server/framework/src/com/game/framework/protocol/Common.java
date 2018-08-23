@@ -18,14 +18,22 @@ public final class Common {
      */
     ERROR(0, -1),
     /**
-     * <code>LOGIN = 1;</code>
+     * <code>HEART = 0;</code>
      *
      * <pre>
      *&#47;///////////////登录模块 1-10///////////////////
+     * 心跳
+     * </pre>
+     */
+    HEART(1, 0),
+    /**
+     * <code>LOGIN = 1;</code>
+     *
+     * <pre>
      * 登录
      * </pre>
      */
-    LOGIN(1, 1),
+    LOGIN(2, 1),
     /**
      * <code>LOGOUT = 2;</code>
      *
@@ -33,7 +41,7 @@ public final class Common {
      * 玩家登出
      * </pre>
      */
-    LOGOUT(2, 2),
+    LOGOUT(3, 2),
     /**
      * <code>GETUSERINFO = 3;</code>
      *
@@ -41,7 +49,7 @@ public final class Common {
      * 玩家信息
      * </pre>
      */
-    GETUSERINFO(3, 3),
+    GETUSERINFO(4, 3),
     /**
      * <code>CREATEGROUP = 11;</code>
      *
@@ -50,7 +58,7 @@ public final class Common {
      * 创建房间
      * </pre>
      */
-    CREATEGROUP(4, 11),
+    CREATEGROUP(5, 11),
     /**
      * <code>APPLYGROUP = 12;</code>
      *
@@ -58,7 +66,7 @@ public final class Common {
      * 申请加入
      * </pre>
      */
-    APPLYGROUP(5, 12),
+    APPLYGROUP(6, 12),
     /**
      * <code>GETSCENEINFO = 31;</code>
      *
@@ -67,7 +75,7 @@ public final class Common {
      * 场景信息
      * </pre>
      */
-    GETSCENEINFO(6, 31),
+    GETSCENEINFO(7, 31),
     /**
      * <code>GETBUILDINGINFO = 32;</code>
      *
@@ -75,7 +83,7 @@ public final class Common {
      * 建筑信息
      * </pre>
      */
-    GETBUILDINGINFO(7, 32),
+    GETBUILDINGINFO(8, 32),
     /**
      * <code>UPGRADE = 33;</code>
      *
@@ -83,7 +91,7 @@ public final class Common {
      * 建筑升级
      * </pre>
      */
-    UPGRADE(8, 33),
+    UPGRADE(9, 33),
     /**
      * <code>FINISHUPGRADE = 34;</code>
      *
@@ -91,7 +99,7 @@ public final class Common {
      * 完成升级
      * </pre>
      */
-    FINISHUPGRADE(9, 34),
+    FINISHUPGRADE(10, 34),
     /**
      * <code>UNLOCK = 35;</code>
      *
@@ -99,7 +107,7 @@ public final class Common {
      * 解锁建筑
      * </pre>
      */
-    UNLOCK(10, 35),
+    UNLOCK(11, 35),
     /**
      * <code>FINISHUNLOCK = 36;</code>
      *
@@ -107,7 +115,7 @@ public final class Common {
      * 完成解锁
      * </pre>
      */
-    FINISHUNLOCK(11, 36),
+    FINISHUNLOCK(12, 36),
     /**
      * <code>RECEIVE = 37;</code>
      *
@@ -115,7 +123,7 @@ public final class Common {
      * 领取物品
      * </pre>
      */
-    RECEIVE(12, 37),
+    RECEIVE(13, 37),
     /**
      * <code>PROCESS = 38;</code>
      *
@@ -123,7 +131,7 @@ public final class Common {
      * 加工物品
      * </pre>
      */
-    PROCESS(13, 38),
+    PROCESS(14, 38),
     /**
      * <code>INTERRUPTPROCESS = 40;</code>
      *
@@ -131,7 +139,7 @@ public final class Common {
      * 中断加工
      * </pre>
      */
-    INTERRUPTPROCESS(14, 40),
+    INTERRUPTPROCESS(15, 40),
     /**
      * <code>ZOMBIEINVADE = 61;</code>
      *
@@ -140,24 +148,40 @@ public final class Common {
      * 僵尸入侵
      * </pre>
      */
-    ZOMBIEINVADE(15, 61),
+    ZOMBIEINVADE(16, 61),
     /**
      * <code>GETRESOURCEINFO = 81;</code>
      *
      * <pre>
      *&#47;///////////////玩家模块 81-100//////////////////
-     * 玩家资源信息
+     * 玩家所有资源信息
      * </pre>
      */
-    GETRESOURCEINFO(16, 81),
+    GETRESOURCEINFO(17, 81),
     /**
      * <code>GETRESOURCEINFOBYCONFIGID = 82;</code>
      *
      * <pre>
-     * 玩家某种资源数量
+     * 玩家某些资源信息
      * </pre>
      */
-    GETRESOURCEINFOBYCONFIGID(17, 82),
+    GETRESOURCEINFOBYCONFIGID(18, 82),
+    /**
+     * <code>GETUSERSTATE = 83;</code>
+     *
+     * <pre>
+     * 玩家状态
+     * </pre>
+     */
+    GETUSERSTATE(19, 83),
+    /**
+     * <code>GETUSERSTATEREGULAR = 84;</code>
+     *
+     * <pre>
+     * 玩家状态（周期）
+     * </pre>
+     */
+    GETUSERSTATEREGULAR(20, 84),
     ;
 
     /**
@@ -165,10 +189,18 @@ public final class Common {
      */
     public static final int ERROR_VALUE = -1;
     /**
-     * <code>LOGIN = 1;</code>
+     * <code>HEART = 0;</code>
      *
      * <pre>
      *&#47;///////////////登录模块 1-10///////////////////
+     * 心跳
+     * </pre>
+     */
+    public static final int HEART_VALUE = 0;
+    /**
+     * <code>LOGIN = 1;</code>
+     *
+     * <pre>
      * 登录
      * </pre>
      */
@@ -293,7 +325,7 @@ public final class Common {
      *
      * <pre>
      *&#47;///////////////玩家模块 81-100//////////////////
-     * 玩家资源信息
+     * 玩家所有资源信息
      * </pre>
      */
     public static final int GETRESOURCEINFO_VALUE = 81;
@@ -301,10 +333,26 @@ public final class Common {
      * <code>GETRESOURCEINFOBYCONFIGID = 82;</code>
      *
      * <pre>
-     * 玩家某种资源数量
+     * 玩家某些资源信息
      * </pre>
      */
     public static final int GETRESOURCEINFOBYCONFIGID_VALUE = 82;
+    /**
+     * <code>GETUSERSTATE = 83;</code>
+     *
+     * <pre>
+     * 玩家状态
+     * </pre>
+     */
+    public static final int GETUSERSTATE_VALUE = 83;
+    /**
+     * <code>GETUSERSTATEREGULAR = 84;</code>
+     *
+     * <pre>
+     * 玩家状态（周期）
+     * </pre>
+     */
+    public static final int GETUSERSTATEREGULAR_VALUE = 84;
 
 
     public final int getNumber() { return value; }
@@ -312,6 +360,7 @@ public final class Common {
     public static Cmd valueOf(int value) {
       switch (value) {
         case -1: return ERROR;
+        case 0: return HEART;
         case 1: return LOGIN;
         case 2: return LOGOUT;
         case 3: return GETUSERINFO;
@@ -329,6 +378,8 @@ public final class Common {
         case 61: return ZOMBIEINVADE;
         case 81: return GETRESOURCEINFO;
         case 82: return GETRESOURCEINFOBYCONFIGID;
+        case 83: return GETUSERSTATE;
+        case 84: return GETUSERSTATEREGULAR;
         default: return null;
       }
     }
@@ -803,22 +854,23 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\275\002\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005LOGIN" +
-      "\020\001\022\n\n\006LOGOUT\020\002\022\017\n\013GETUSERINFO\020\003\022\017\n\013CREAT" +
-      "EGROUP\020\013\022\016\n\nAPPLYGROUP\020\014\022\020\n\014GETSCENEINFO" +
-      "\020\037\022\023\n\017GETBUILDINGINFO\020 \022\013\n\007UPGRADE\020!\022\021\n\r" +
-      "FINISHUPGRADE\020\"\022\n\n\006UNLOCK\020#\022\020\n\014FINISHUNL" +
-      "OCK\020$\022\013\n\007RECEIVE\020%\022\013\n\007PROCESS\020&\022\024\n\020INTER" +
-      "RUPTPROCESS\020(\022\020\n\014ZOMBIEINVADE\020=\022\023\n\017GETRE" +
-      "SOURCEINFO\020Q\022\035\n\031GETRESOURCEINFOBYCONFIGI" +
-      "D\020R*\252\001\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_H",
-      "ANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLEVEL_OVER\020\004" +
-      "\022\025\n\021BUILDING_TYPE_ERR\020\005\022\020\n\014RESOURCE_ERR\020" +
-      "\006\022\014\n\010TIME_ERR\020\007\022\021\n\rLEFT_RESOURCE\020\010\022\024\n\020NO" +
-      "_MORE_CAPACITY\020\n*:\n\014BuildingType\022\024\n\020RECE" +
-      "IVE_BUILDING\020\001\022\024\n\020PROCESS_BUILDING\020\002*1\n\013" +
-      "MessageType\022\017\n\013ZOMBIE_INFO\020\002\022\021\n\rFIGHTING" +
-      "_INFO\020\003B\002H\001"
+      "col*\363\002\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005HEART" +
+      "\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGOUT\020\002\022\017\n\013GETUSERINFO" +
+      "\020\003\022\017\n\013CREATEGROUP\020\013\022\016\n\nAPPLYGROUP\020\014\022\020\n\014G" +
+      "ETSCENEINFO\020\037\022\023\n\017GETBUILDINGINFO\020 \022\013\n\007UP" +
+      "GRADE\020!\022\021\n\rFINISHUPGRADE\020\"\022\n\n\006UNLOCK\020#\022\020" +
+      "\n\014FINISHUNLOCK\020$\022\013\n\007RECEIVE\020%\022\013\n\007PROCESS" +
+      "\020&\022\024\n\020INTERRUPTPROCESS\020(\022\020\n\014ZOMBIEINVADE" +
+      "\020=\022\023\n\017GETRESOURCEINFO\020Q\022\035\n\031GETRESOURCEIN" +
+      "FOBYCONFIGID\020R\022\020\n\014GETUSERSTATE\020S\022\027\n\023GETU",
+      "SERSTATEREGULAR\020T*\252\001\n\005Error\022\016\n\nSERVER_ER" +
+      "R\020\001\022\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016" +
+      "\n\nLEVEL_OVER\020\004\022\025\n\021BUILDING_TYPE_ERR\020\005\022\020\n" +
+      "\014RESOURCE_ERR\020\006\022\014\n\010TIME_ERR\020\007\022\021\n\rLEFT_RE" +
+      "SOURCE\020\010\022\024\n\020NO_MORE_CAPACITY\020\n*:\n\014Buildi" +
+      "ngType\022\024\n\020RECEIVE_BUILDING\020\001\022\024\n\020PROCESS_" +
+      "BUILDING\020\002*1\n\013MessageType\022\017\n\013ZOMBIE_INFO" +
+      "\020\002\022\021\n\rFIGHTING_INFO\020\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

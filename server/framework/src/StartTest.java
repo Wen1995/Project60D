@@ -5,25 +5,38 @@ import com.game.framework.console.exception.BaseException;
 import com.game.framework.console.factory.ServiceFactory;
 import com.game.framework.dbcache.dao.IBuildingDao;
 import com.game.framework.dbcache.dao.IGroupDao;
+import com.game.framework.dbcache.dao.IUserDao;
 import com.game.framework.dbcache.dao.impl.BuildingDao;
 import com.game.framework.dbcache.dao.impl.GroupDao;
+import com.game.framework.dbcache.dao.impl.UserDao;
 import com.game.framework.dbcache.model.Building;
+import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.Common.Error;
 import com.game.framework.protocol.Database.BuildingState;
 import com.game.framework.protocol.Database.ProcessInfo;
 import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Database.UpgradeInfo;
+import com.game.framework.protocol.User.ResourceInfo;
+import com.game.framework.protocol.User.UserResource;
 import com.game.framework.utils.BuildingUtil;
 import com.game.framework.utils.DateTimeUtils;
 import com.game.framework.utils.ExternalStorageUtil;
+import com.jcraft.jsch.UserInfo;
 
 public class StartTest {
     
     static IBuildingDao buildingDao = ServiceFactory.getProxy(BuildingDao.class);
     static IGroupDao groupDao = ServiceFactory.getProxy(GroupDao.class);
+    static IUserDao userDao = ServiceFactory.getProxy(UserDao.class);
     
     public static void main(String[] args) throws Exception {
-        getBuildingInfo(146800641L);
+        User user = userDao.get(1212153857L);
+        System.out.println(user.getGroupId());
+        System.out.println(user.getResource().length);
+        /*UserResource userResource = UserResource.parseFrom(user.getResource());
+        for (ResourceInfo u : userResource.getResourceInfosList()) {
+            System.out.println(u.getConfigId());
+        }*/
     }
     
     static void getBuildingInfo(Long buildingId) throws Exception {

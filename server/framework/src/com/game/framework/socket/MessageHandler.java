@@ -44,7 +44,7 @@ public class MessageHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        Long uid = (Long) GateServer.GetInstance().removeChannelData(ctx.channel());
+        Long uid = GateServer.GetInstance().removeChannelData(ctx.channel());
         logger.info("Client Disconnect Ip[{}]", getIP(ctx.channel()));
         if (uid != null) {
             logger.info("Client Disconnect User[{}]", uid);

@@ -8,8 +8,19 @@
     <result column="group_id" property="groupId" jdbcType="BIGINT" />
     <result column="contribution" property="contribution" jdbcType="INTEGER" />
     <result column="gold" property="gold" jdbcType="INTEGER" />
+    <result column="blood" property="blood" jdbcType="INTEGER" />
+    <result column="food" property="food" jdbcType="INTEGER" />
+    <result column="water" property="water" jdbcType="INTEGER" />
+    <result column="health" property="health" jdbcType="INTEGER" />
+    <result column="mood" property="mood" jdbcType="INTEGER" />
+    <result column="attack" property="attack" jdbcType="INTEGER" />
+    <result column="defense" property="defense" jdbcType="INTEGER" />
+    <result column="agile" property="agile" jdbcType="INTEGER" />
+    <result column="speed" property="speed" jdbcType="INTEGER" />
+    <result column="intellect" property="intellect" jdbcType="INTEGER" />
     <result column="production" property="production" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="logout_time" property="logoutTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.game.framework.dbcache.model.User" extends="BaseResultMap" >
     <result column="resource" property="resource" jdbcType="LONGVARBINARY" />
@@ -73,7 +84,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, account, password, group_id, contribution, gold, production, create_time
+    id, account, password, group_id, contribution, gold, blood, food, water, health, 
+    mood, attack, defense, agile, speed, intellect, production, create_time, logout_time
   </sql>
   <sql id="Blob_Column_List" >
     resource
@@ -129,12 +141,18 @@
   <insert id="insert" parameterType="com.game.framework.dbcache.model.User" >
     insert into t_user (id, account, password, 
       group_id, contribution, gold, 
-      production, create_time, resource
-      )
+      blood, food, water, 
+      health, mood, attack, 
+      defense, agile, speed, 
+      intellect, production, create_time, 
+      logout_time, resource)
     values (#{id,jdbcType=BIGINT}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{groupId,jdbcType=BIGINT}, #{contribution,jdbcType=INTEGER}, #{gold,jdbcType=INTEGER}, 
-      #{production,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{resource,jdbcType=LONGVARBINARY}
-      )
+      #{blood,jdbcType=INTEGER}, #{food,jdbcType=INTEGER}, #{water,jdbcType=INTEGER}, 
+      #{health,jdbcType=INTEGER}, #{mood,jdbcType=INTEGER}, #{attack,jdbcType=INTEGER}, 
+      #{defense,jdbcType=INTEGER}, #{agile,jdbcType=INTEGER}, #{speed,jdbcType=INTEGER}, 
+      #{intellect,jdbcType=INTEGER}, #{production,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{logoutTime,jdbcType=TIMESTAMP}, #{resource,jdbcType=LONGVARBINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.game.framework.dbcache.model.User" >
     insert into t_user
@@ -157,11 +175,44 @@
       <if test="gold != null" >
         gold,
       </if>
+      <if test="blood != null" >
+        blood,
+      </if>
+      <if test="food != null" >
+        food,
+      </if>
+      <if test="water != null" >
+        water,
+      </if>
+      <if test="health != null" >
+        health,
+      </if>
+      <if test="mood != null" >
+        mood,
+      </if>
+      <if test="attack != null" >
+        attack,
+      </if>
+      <if test="defense != null" >
+        defense,
+      </if>
+      <if test="agile != null" >
+        agile,
+      </if>
+      <if test="speed != null" >
+        speed,
+      </if>
+      <if test="intellect != null" >
+        intellect,
+      </if>
       <if test="production != null" >
         production,
       </if>
       <if test="createTime != null" >
         create_time,
+      </if>
+      <if test="logoutTime != null" >
+        logout_time,
       </if>
       <if test="resource != null" >
         resource,
@@ -186,11 +237,44 @@
       <if test="gold != null" >
         #{gold,jdbcType=INTEGER},
       </if>
+      <if test="blood != null" >
+        #{blood,jdbcType=INTEGER},
+      </if>
+      <if test="food != null" >
+        #{food,jdbcType=INTEGER},
+      </if>
+      <if test="water != null" >
+        #{water,jdbcType=INTEGER},
+      </if>
+      <if test="health != null" >
+        #{health,jdbcType=INTEGER},
+      </if>
+      <if test="mood != null" >
+        #{mood,jdbcType=INTEGER},
+      </if>
+      <if test="attack != null" >
+        #{attack,jdbcType=INTEGER},
+      </if>
+      <if test="defense != null" >
+        #{defense,jdbcType=INTEGER},
+      </if>
+      <if test="agile != null" >
+        #{agile,jdbcType=INTEGER},
+      </if>
+      <if test="speed != null" >
+        #{speed,jdbcType=INTEGER},
+      </if>
+      <if test="intellect != null" >
+        #{intellect,jdbcType=INTEGER},
+      </if>
       <if test="production != null" >
         #{production,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoutTime != null" >
+        #{logoutTime,jdbcType=TIMESTAMP},
       </if>
       <if test="resource != null" >
         #{resource,jdbcType=LONGVARBINARY},
@@ -224,11 +308,44 @@
       <if test="record.gold != null" >
         gold = #{record.gold,jdbcType=INTEGER},
       </if>
+      <if test="record.blood != null" >
+        blood = #{record.blood,jdbcType=INTEGER},
+      </if>
+      <if test="record.food != null" >
+        food = #{record.food,jdbcType=INTEGER},
+      </if>
+      <if test="record.water != null" >
+        water = #{record.water,jdbcType=INTEGER},
+      </if>
+      <if test="record.health != null" >
+        health = #{record.health,jdbcType=INTEGER},
+      </if>
+      <if test="record.mood != null" >
+        mood = #{record.mood,jdbcType=INTEGER},
+      </if>
+      <if test="record.attack != null" >
+        attack = #{record.attack,jdbcType=INTEGER},
+      </if>
+      <if test="record.defense != null" >
+        defense = #{record.defense,jdbcType=INTEGER},
+      </if>
+      <if test="record.agile != null" >
+        agile = #{record.agile,jdbcType=INTEGER},
+      </if>
+      <if test="record.speed != null" >
+        speed = #{record.speed,jdbcType=INTEGER},
+      </if>
+      <if test="record.intellect != null" >
+        intellect = #{record.intellect,jdbcType=INTEGER},
+      </if>
       <if test="record.production != null" >
         production = #{record.production,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.logoutTime != null" >
+        logout_time = #{record.logoutTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.resource != null" >
         resource = #{record.resource,jdbcType=LONGVARBINARY},
@@ -246,8 +363,19 @@
       group_id = #{record.groupId,jdbcType=BIGINT},
       contribution = #{record.contribution,jdbcType=INTEGER},
       gold = #{record.gold,jdbcType=INTEGER},
+      blood = #{record.blood,jdbcType=INTEGER},
+      food = #{record.food,jdbcType=INTEGER},
+      water = #{record.water,jdbcType=INTEGER},
+      health = #{record.health,jdbcType=INTEGER},
+      mood = #{record.mood,jdbcType=INTEGER},
+      attack = #{record.attack,jdbcType=INTEGER},
+      defense = #{record.defense,jdbcType=INTEGER},
+      agile = #{record.agile,jdbcType=INTEGER},
+      speed = #{record.speed,jdbcType=INTEGER},
+      intellect = #{record.intellect,jdbcType=INTEGER},
       production = #{record.production,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      logout_time = #{record.logoutTime,jdbcType=TIMESTAMP},
       resource = #{record.resource,jdbcType=LONGVARBINARY}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -261,8 +389,19 @@
       group_id = #{record.groupId,jdbcType=BIGINT},
       contribution = #{record.contribution,jdbcType=INTEGER},
       gold = #{record.gold,jdbcType=INTEGER},
+      blood = #{record.blood,jdbcType=INTEGER},
+      food = #{record.food,jdbcType=INTEGER},
+      water = #{record.water,jdbcType=INTEGER},
+      health = #{record.health,jdbcType=INTEGER},
+      mood = #{record.mood,jdbcType=INTEGER},
+      attack = #{record.attack,jdbcType=INTEGER},
+      defense = #{record.defense,jdbcType=INTEGER},
+      agile = #{record.agile,jdbcType=INTEGER},
+      speed = #{record.speed,jdbcType=INTEGER},
+      intellect = #{record.intellect,jdbcType=INTEGER},
       production = #{record.production,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      logout_time = #{record.logoutTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -285,11 +424,44 @@
       <if test="gold != null" >
         gold = #{gold,jdbcType=INTEGER},
       </if>
+      <if test="blood != null" >
+        blood = #{blood,jdbcType=INTEGER},
+      </if>
+      <if test="food != null" >
+        food = #{food,jdbcType=INTEGER},
+      </if>
+      <if test="water != null" >
+        water = #{water,jdbcType=INTEGER},
+      </if>
+      <if test="health != null" >
+        health = #{health,jdbcType=INTEGER},
+      </if>
+      <if test="mood != null" >
+        mood = #{mood,jdbcType=INTEGER},
+      </if>
+      <if test="attack != null" >
+        attack = #{attack,jdbcType=INTEGER},
+      </if>
+      <if test="defense != null" >
+        defense = #{defense,jdbcType=INTEGER},
+      </if>
+      <if test="agile != null" >
+        agile = #{agile,jdbcType=INTEGER},
+      </if>
+      <if test="speed != null" >
+        speed = #{speed,jdbcType=INTEGER},
+      </if>
+      <if test="intellect != null" >
+        intellect = #{intellect,jdbcType=INTEGER},
+      </if>
       <if test="production != null" >
         production = #{production,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoutTime != null" >
+        logout_time = #{logoutTime,jdbcType=TIMESTAMP},
       </if>
       <if test="resource != null" >
         resource = #{resource,jdbcType=LONGVARBINARY},
@@ -304,8 +476,19 @@
       group_id = #{groupId,jdbcType=BIGINT},
       contribution = #{contribution,jdbcType=INTEGER},
       gold = #{gold,jdbcType=INTEGER},
+      blood = #{blood,jdbcType=INTEGER},
+      food = #{food,jdbcType=INTEGER},
+      water = #{water,jdbcType=INTEGER},
+      health = #{health,jdbcType=INTEGER},
+      mood = #{mood,jdbcType=INTEGER},
+      attack = #{attack,jdbcType=INTEGER},
+      defense = #{defense,jdbcType=INTEGER},
+      agile = #{agile,jdbcType=INTEGER},
+      speed = #{speed,jdbcType=INTEGER},
+      intellect = #{intellect,jdbcType=INTEGER},
       production = #{production,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
+      logout_time = #{logoutTime,jdbcType=TIMESTAMP},
       resource = #{resource,jdbcType=LONGVARBINARY}
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -316,8 +499,19 @@
       group_id = #{groupId,jdbcType=BIGINT},
       contribution = #{contribution,jdbcType=INTEGER},
       gold = #{gold,jdbcType=INTEGER},
+      blood = #{blood,jdbcType=INTEGER},
+      food = #{food,jdbcType=INTEGER},
+      water = #{water,jdbcType=INTEGER},
+      health = #{health,jdbcType=INTEGER},
+      mood = #{mood,jdbcType=INTEGER},
+      attack = #{attack,jdbcType=INTEGER},
+      defense = #{defense,jdbcType=INTEGER},
+      agile = #{agile,jdbcType=INTEGER},
+      speed = #{speed,jdbcType=INTEGER},
+      intellect = #{intellect,jdbcType=INTEGER},
       production = #{production,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      logout_time = #{logoutTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

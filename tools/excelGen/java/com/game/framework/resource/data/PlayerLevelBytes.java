@@ -13,21 +13,21 @@ public final class PlayerLevelBytes {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int32 player_level = 1 [default = 0];</code>
+     * <code>optional int32 id = 1 [default = 0];</code>
      *
      * <pre>
      ** 玩家等级 
      * </pre>
      */
-    boolean hasPlayerLevel();
+    boolean hasId();
     /**
-     * <code>optional int32 player_level = 1 [default = 0];</code>
+     * <code>optional int32 id = 1 [default = 0];</code>
      *
      * <pre>
      ** 玩家等级 
      * </pre>
      */
-    int getPlayerLevel();
+    int getId();
 
     /**
      * <code>optional int32 player_cap = 2 [default = 0];</code>
@@ -100,7 +100,7 @@ public final class PlayerLevelBytes {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              playerLevel_ = input.readInt32();
+              id_ = input.readInt32();
               break;
             }
             case 16: {
@@ -148,27 +148,27 @@ public final class PlayerLevelBytes {
     }
 
     private int bitField0_;
-    public static final int PLAYER_LEVEL_FIELD_NUMBER = 1;
-    private int playerLevel_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
     /**
-     * <code>optional int32 player_level = 1 [default = 0];</code>
+     * <code>optional int32 id = 1 [default = 0];</code>
      *
      * <pre>
      ** 玩家等级 
      * </pre>
      */
-    public boolean hasPlayerLevel() {
+    public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional int32 player_level = 1 [default = 0];</code>
+     * <code>optional int32 id = 1 [default = 0];</code>
      *
      * <pre>
      ** 玩家等级 
      * </pre>
      */
-    public int getPlayerLevel() {
-      return playerLevel_;
+    public int getId() {
+      return id_;
     }
 
     public static final int PLAYER_CAP_FIELD_NUMBER = 2;
@@ -195,7 +195,7 @@ public final class PlayerLevelBytes {
     }
 
     private void initFields() {
-      playerLevel_ = 0;
+      id_ = 0;
       playerCap_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -212,7 +212,7 @@ public final class PlayerLevelBytes {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, playerLevel_);
+        output.writeInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, playerCap_);
@@ -228,7 +228,7 @@ public final class PlayerLevelBytes {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, playerLevel_);
+          .computeInt32Size(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -351,7 +351,7 @@ public final class PlayerLevelBytes {
 
       public Builder clear() {
         super.clear();
-        playerLevel_ = 0;
+        id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         playerCap_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -386,7 +386,7 @@ public final class PlayerLevelBytes {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.playerLevel_ = playerLevel_;
+        result.id_ = id_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -407,8 +407,8 @@ public final class PlayerLevelBytes {
 
       public Builder mergeFrom(com.game.framework.resource.data.PlayerLevelBytes.PLAYER_LEVEL other) {
         if (other == com.game.framework.resource.data.PlayerLevelBytes.PLAYER_LEVEL.getDefaultInstance()) return this;
-        if (other.hasPlayerLevel()) {
-          setPlayerLevel(other.getPlayerLevel());
+        if (other.hasId()) {
+          setId(other.getId());
         }
         if (other.hasPlayerCap()) {
           setPlayerCap(other.getPlayerCap());
@@ -440,50 +440,50 @@ public final class PlayerLevelBytes {
       }
       private int bitField0_;
 
-      private int playerLevel_ ;
+      private int id_ ;
       /**
-       * <code>optional int32 player_level = 1 [default = 0];</code>
+       * <code>optional int32 id = 1 [default = 0];</code>
        *
        * <pre>
        ** 玩家等级 
        * </pre>
        */
-      public boolean hasPlayerLevel() {
+      public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional int32 player_level = 1 [default = 0];</code>
+       * <code>optional int32 id = 1 [default = 0];</code>
        *
        * <pre>
        ** 玩家等级 
        * </pre>
        */
-      public int getPlayerLevel() {
-        return playerLevel_;
+      public int getId() {
+        return id_;
       }
       /**
-       * <code>optional int32 player_level = 1 [default = 0];</code>
+       * <code>optional int32 id = 1 [default = 0];</code>
        *
        * <pre>
        ** 玩家等级 
        * </pre>
        */
-      public Builder setPlayerLevel(int value) {
+      public Builder setId(int value) {
         bitField0_ |= 0x00000001;
-        playerLevel_ = value;
+        id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 player_level = 1 [default = 0];</code>
+       * <code>optional int32 id = 1 [default = 0];</code>
        *
        * <pre>
        ** 玩家等级 
        * </pre>
        */
-      public Builder clearPlayerLevel() {
+      public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        playerLevel_ = 0;
+        id_ = 0;
         onChanged();
         return this;
       }
@@ -1243,11 +1243,11 @@ public final class PlayerLevelBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\036proto/player_level_bytes.proto\022 com.ga" +
-      "me.framework.resource.data\">\n\014PLAYER_LEV" +
-      "EL\022\027\n\014player_level\030\001 \001(\005:\0010\022\025\n\nplayer_ca" +
-      "p\030\002 \001(\005:\0010\"S\n\022PLAYER_LEVEL_ARRAY\022=\n\005item" +
-      "s\030\001 \003(\0132..com.game.framework.resource.da" +
-      "ta.PLAYER_LEVEL"
+      "me.framework.resource.data\"4\n\014PLAYER_LEV" +
+      "EL\022\r\n\002id\030\001 \001(\005:\0010\022\025\n\nplayer_cap\030\002 \001(\005:\0010" +
+      "\"S\n\022PLAYER_LEVEL_ARRAY\022=\n\005items\030\001 \003(\0132.." +
+      "com.game.framework.resource.data.PLAYER_" +
+      "LEVEL"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1266,7 +1266,7 @@ public final class PlayerLevelBytes {
     internal_static_com_game_framework_resource_data_PLAYER_LEVEL_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_PLAYER_LEVEL_descriptor,
-        new java.lang.String[] { "PlayerLevel", "PlayerCap", });
+        new java.lang.String[] { "Id", "PlayerCap", });
     internal_static_com_game_framework_resource_data_PLAYER_LEVEL_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_PLAYER_LEVEL_ARRAY_fieldAccessorTable = new

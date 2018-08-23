@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/manor_level_bytes.proto',
   package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x1dproto/manor_level_bytes.proto\x12 com.game.framework.resource.data\";\n\x0bMANOR_LEVEL\x12\x16\n\x0bmanor_level\x18\x01 \x02(\x05:\x01\x30\x12\x14\n\tmanor_cap\x18\x02 \x01(\x05:\x01\x30\"Q\n\x11MANOR_LEVEL_ARRAY\x12<\n\x05items\x18\x01 \x03(\x0b\x32-.com.game.framework.resource.data.MANOR_LEVEL')
+  serialized_pb=_b('\n\x1dproto/manor_level_bytes.proto\x12 com.game.framework.resource.data\"2\n\x0bMANOR_LEVEL\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x14\n\tmanor_cap\x18\x02 \x01(\x05:\x01\x30\"Q\n\x11MANOR_LEVEL_ARRAY\x12<\n\x05items\x18\x01 \x03(\x0b\x32-.com.game.framework.resource.data.MANOR_LEVEL')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -33,7 +33,7 @@ _MANOR_LEVEL = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='manor_level', full_name='com.game.framework.resource.data.MANOR_LEVEL.manor_level', index=0,
+      name='id', full_name='com.game.framework.resource.data.MANOR_LEVEL.id', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -58,7 +58,7 @@ _MANOR_LEVEL = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=67,
-  serialized_end=126,
+  serialized_end=117,
 )
 
 
@@ -87,8 +87,8 @@ _MANOR_LEVEL_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=128,
-  serialized_end=209,
+  serialized_start=119,
+  serialized_end=200,
 )
 
 _MANOR_LEVEL_ARRAY.fields_by_name['items'].message_type = _MANOR_LEVEL

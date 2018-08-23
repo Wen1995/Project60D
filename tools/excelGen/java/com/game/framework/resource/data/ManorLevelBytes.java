@@ -13,21 +13,21 @@ public final class ManorLevelBytes {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 manor_level = 1 [default = 0];</code>
+     * <code>required int32 id = 1 [default = 0];</code>
      *
      * <pre>
      ** 庄园等级 
      * </pre>
      */
-    boolean hasManorLevel();
+    boolean hasId();
     /**
-     * <code>required int32 manor_level = 1 [default = 0];</code>
+     * <code>required int32 id = 1 [default = 0];</code>
      *
      * <pre>
      ** 庄园等级 
      * </pre>
      */
-    int getManorLevel();
+    int getId();
 
     /**
      * <code>optional int32 manor_cap = 2 [default = 0];</code>
@@ -100,7 +100,7 @@ public final class ManorLevelBytes {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              manorLevel_ = input.readInt32();
+              id_ = input.readInt32();
               break;
             }
             case 16: {
@@ -148,27 +148,27 @@ public final class ManorLevelBytes {
     }
 
     private int bitField0_;
-    public static final int MANOR_LEVEL_FIELD_NUMBER = 1;
-    private int manorLevel_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
     /**
-     * <code>required int32 manor_level = 1 [default = 0];</code>
+     * <code>required int32 id = 1 [default = 0];</code>
      *
      * <pre>
      ** 庄园等级 
      * </pre>
      */
-    public boolean hasManorLevel() {
+    public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 manor_level = 1 [default = 0];</code>
+     * <code>required int32 id = 1 [default = 0];</code>
      *
      * <pre>
      ** 庄园等级 
      * </pre>
      */
-    public int getManorLevel() {
-      return manorLevel_;
+    public int getId() {
+      return id_;
     }
 
     public static final int MANOR_CAP_FIELD_NUMBER = 2;
@@ -195,7 +195,7 @@ public final class ManorLevelBytes {
     }
 
     private void initFields() {
-      manorLevel_ = 0;
+      id_ = 0;
       manorCap_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -204,7 +204,7 @@ public final class ManorLevelBytes {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasManorLevel()) {
+      if (!hasId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -216,7 +216,7 @@ public final class ManorLevelBytes {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, manorLevel_);
+        output.writeInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, manorCap_);
@@ -232,7 +232,7 @@ public final class ManorLevelBytes {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, manorLevel_);
+          .computeInt32Size(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -355,7 +355,7 @@ public final class ManorLevelBytes {
 
       public Builder clear() {
         super.clear();
-        manorLevel_ = 0;
+        id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         manorCap_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -390,7 +390,7 @@ public final class ManorLevelBytes {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.manorLevel_ = manorLevel_;
+        result.id_ = id_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -411,8 +411,8 @@ public final class ManorLevelBytes {
 
       public Builder mergeFrom(com.game.framework.resource.data.ManorLevelBytes.MANOR_LEVEL other) {
         if (other == com.game.framework.resource.data.ManorLevelBytes.MANOR_LEVEL.getDefaultInstance()) return this;
-        if (other.hasManorLevel()) {
-          setManorLevel(other.getManorLevel());
+        if (other.hasId()) {
+          setId(other.getId());
         }
         if (other.hasManorCap()) {
           setManorCap(other.getManorCap());
@@ -422,7 +422,7 @@ public final class ManorLevelBytes {
       }
 
       public final boolean isInitialized() {
-        if (!hasManorLevel()) {
+        if (!hasId()) {
           
           return false;
         }
@@ -448,50 +448,50 @@ public final class ManorLevelBytes {
       }
       private int bitField0_;
 
-      private int manorLevel_ ;
+      private int id_ ;
       /**
-       * <code>required int32 manor_level = 1 [default = 0];</code>
+       * <code>required int32 id = 1 [default = 0];</code>
        *
        * <pre>
        ** 庄园等级 
        * </pre>
        */
-      public boolean hasManorLevel() {
+      public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 manor_level = 1 [default = 0];</code>
+       * <code>required int32 id = 1 [default = 0];</code>
        *
        * <pre>
        ** 庄园等级 
        * </pre>
        */
-      public int getManorLevel() {
-        return manorLevel_;
+      public int getId() {
+        return id_;
       }
       /**
-       * <code>required int32 manor_level = 1 [default = 0];</code>
+       * <code>required int32 id = 1 [default = 0];</code>
        *
        * <pre>
        ** 庄园等级 
        * </pre>
        */
-      public Builder setManorLevel(int value) {
+      public Builder setId(int value) {
         bitField0_ |= 0x00000001;
-        manorLevel_ = value;
+        id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 manor_level = 1 [default = 0];</code>
+       * <code>required int32 id = 1 [default = 0];</code>
        *
        * <pre>
        ** 庄园等级 
        * </pre>
        */
-      public Builder clearManorLevel() {
+      public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        manorLevel_ = 0;
+        id_ = 0;
         onChanged();
         return this;
       }
@@ -1263,11 +1263,10 @@ public final class ManorLevelBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\035proto/manor_level_bytes.proto\022 com.gam" +
-      "e.framework.resource.data\";\n\013MANOR_LEVEL" +
-      "\022\026\n\013manor_level\030\001 \002(\005:\0010\022\024\n\tmanor_cap\030\002 " +
-      "\001(\005:\0010\"Q\n\021MANOR_LEVEL_ARRAY\022<\n\005items\030\001 \003" +
-      "(\0132-.com.game.framework.resource.data.MA" +
-      "NOR_LEVEL"
+      "e.framework.resource.data\"2\n\013MANOR_LEVEL" +
+      "\022\r\n\002id\030\001 \002(\005:\0010\022\024\n\tmanor_cap\030\002 \001(\005:\0010\"Q\n" +
+      "\021MANOR_LEVEL_ARRAY\022<\n\005items\030\001 \003(\0132-.com." +
+      "game.framework.resource.data.MANOR_LEVEL"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1286,7 +1285,7 @@ public final class ManorLevelBytes {
     internal_static_com_game_framework_resource_data_MANOR_LEVEL_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_MANOR_LEVEL_descriptor,
-        new java.lang.String[] { "ManorLevel", "ManorCap", });
+        new java.lang.String[] { "Id", "ManorCap", });
     internal_static_com_game_framework_resource_data_MANOR_LEVEL_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_MANOR_LEVEL_ARRAY_fieldAccessorTable = new

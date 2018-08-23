@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class MANOR_LEVEL : pb::GeneratedMessageLite<MANOR_LEVEL, MANOR_LEVEL.Builder> {
     private MANOR_LEVEL() { }
     private static readonly MANOR_LEVEL defaultInstance = new MANOR_LEVEL().MakeReadOnly();
-    private static readonly string[] _mANORLEVELFieldNames = new string[] { "manor_cap", "manor_level" };
-    private static readonly uint[] _mANORLEVELFieldTags = new uint[] { 16, 8 };
+    private static readonly string[] _mANORLEVELFieldNames = new string[] { "id", "manor_cap" };
+    private static readonly uint[] _mANORLEVELFieldTags = new uint[] { 8, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -51,14 +51,14 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ManorLevelFieldNumber = 1;
-    private bool hasManorLevel;
-    private int manorLevel_;
-    public bool HasManorLevel {
-      get { return hasManorLevel; }
+    public const int IdFieldNumber = 1;
+    private bool hasId;
+    private int id_;
+    public bool HasId {
+      get { return hasId; }
     }
-    public int ManorLevel {
-      get { return manorLevel_; }
+    public int Id {
+      get { return id_; }
     }
     
     #if UNITY_EDITOR
@@ -79,7 +79,7 @@ namespace com.game.framework.resource.data {
      #endif//
     public override bool IsInitialized {
       get {
-        if (!hasManorLevel) return false;
+        if (!hasId) return false;
         return true;
       }
     }
@@ -90,11 +90,11 @@ namespace com.game.framework.resource.data {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _mANORLEVELFieldNames;
-      if (hasManorLevel) {
-        output.WriteInt32(1, field_names[1], ManorLevel);
+      if (hasId) {
+        output.WriteInt32(1, field_names[0], Id);
       }
       if (hasManorCap) {
-        output.WriteInt32(2, field_names[0], ManorCap);
+        output.WriteInt32(2, field_names[1], ManorCap);
       }
     }
     
@@ -108,8 +108,8 @@ namespace com.game.framework.resource.data {
         if (size != -1) return size;
         
         size = 0;
-        if (hasManorLevel) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, ManorLevel);
+        if (hasId) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
         }
         if (hasManorCap) {
           size += pb::CodedOutputStream.ComputeInt32Size(2, ManorCap);
@@ -122,7 +122,7 @@ namespace com.game.framework.resource.data {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasManorLevel) hash ^= manorLevel_.GetHashCode();
+      if (hasId) hash ^= id_.GetHashCode();
       if (hasManorCap) hash ^= manorCap_.GetHashCode();
       return hash;
     }
@@ -130,7 +130,7 @@ namespace com.game.framework.resource.data {
     public override bool Equals(object obj) {
       MANOR_LEVEL other = obj as MANOR_LEVEL;
       if (other == null) return false;
-      if (hasManorLevel != other.hasManorLevel || (hasManorLevel && !manorLevel_.Equals(other.manorLevel_))) return false;
+      if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
       if (hasManorCap != other.hasManorCap || (hasManorCap && !manorCap_.Equals(other.manorCap_))) return false;
       return true;
     }
@@ -292,8 +292,8 @@ namespace com.game.framework.resource.data {
       public override Builder MergeFrom(MANOR_LEVEL other) {
         if (other == global::com.game.framework.resource.data.MANOR_LEVEL.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasManorLevel) {
-          ManorLevel = other.ManorLevel;
+        if (other.HasId) {
+          Id = other.Id;
         }
         if (other.HasManorCap) {
           ManorCap = other.ManorCap;
@@ -331,7 +331,7 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 8: {
-              result.hasManorLevel = input.ReadInt32(ref result.manorLevel_);
+              result.hasId = input.ReadInt32(ref result.id_);
               break;
             }
             case 16: {
@@ -345,23 +345,23 @@ namespace com.game.framework.resource.data {
       }
       
       
-      public bool HasManorLevel {
-        get { return result.hasManorLevel; }
+      public bool HasId {
+        get { return result.hasId; }
       }
-      public int ManorLevel {
-        get { return result.ManorLevel; }
-        set { SetManorLevel(value); }
+      public int Id {
+        get { return result.Id; }
+        set { SetId(value); }
       }
-      public Builder SetManorLevel(int value) {
+      public Builder SetId(int value) {
         PrepareBuilder();
-        result.hasManorLevel = true;
-        result.manorLevel_ = value;
+        result.hasId = true;
+        result.id_ = value;
         return this;
       }
-      public Builder ClearManorLevel() {
+      public Builder ClearId() {
         PrepareBuilder();
-        result.hasManorLevel = false;
-        result.manorLevel_ = 0;
+        result.hasId = false;
+        result.id_ = 0;
         return this;
       }
       

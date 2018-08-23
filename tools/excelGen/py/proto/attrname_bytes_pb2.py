@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/attrname_bytes.proto',
   package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x1aproto/attrname_bytes.proto\x12 com.game.framework.resource.data\".\n\x08\x41TTRNAME\x12\r\n\x03key\x18\x01 \x02(\t:\x00\x12\x13\n\tATTR_name\x18\x02 \x02(\t:\x00\"K\n\x0e\x41TTRNAME_ARRAY\x12\x39\n\x05items\x18\x01 \x03(\x0b\x32*.com.game.framework.resource.data.ATTRNAME')
+  serialized_pb=_b('\n\x1aproto/attrname_bytes.proto\x12 com.game.framework.resource.data\"-\n\x08\x41TTRNAME\x12\x0c\n\x02id\x18\x01 \x02(\t:\x00\x12\x13\n\tATTR_name\x18\x02 \x02(\t:\x00\"K\n\x0e\x41TTRNAME_ARRAY\x12\x39\n\x05items\x18\x01 \x03(\x0b\x32*.com.game.framework.resource.data.ATTRNAME')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -33,7 +33,7 @@ _ATTRNAME = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='com.game.framework.resource.data.ATTRNAME.key', index=0,
+      name='id', full_name='com.game.framework.resource.data.ATTRNAME.id', index=0,
       number=1, type=9, cpp_type=9, label=2,
       has_default_value=True, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -58,7 +58,7 @@ _ATTRNAME = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=64,
-  serialized_end=110,
+  serialized_end=109,
 )
 
 
@@ -87,8 +87,8 @@ _ATTRNAME_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=112,
-  serialized_end=187,
+  serialized_start=111,
+  serialized_end=186,
 )
 
 _ATTRNAME_ARRAY.fields_by_name['items'].message_type = _ATTRNAME

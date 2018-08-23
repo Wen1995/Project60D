@@ -16,6 +16,7 @@ public enum BuildingState
 public class Building : Controller {
 
     public BuildingType buildingType;
+    public BuildingFunc funcType;
     private long buildingID = 0;        //stay 0 if the building is locked
     private BuildingState mState = BuildingState.Idle;
     private Transform floatingIconTrans = null;
@@ -105,8 +106,9 @@ public class Building : Controller {
     {
         buildingID = info.buildingID;
     }
-    #region State Changing
 
+
+    #region State Changing
 
     void AddRemindIcon()
     {

@@ -16,6 +16,11 @@ public class ResCostListCell : NListCell {
 	public override void DrawCell(int index, int count = 0)
 	{
 		int dataIndex = index;
-		//TODO
+		UICostResPanel panel = FacadeSingleton.Instance.RetrievePanel("UICostResPanel") as UICostResPanel;
+		List<NItemInfo> costInfoList = panel.GetCostInfoList();
+		NItemInfo info = costInfoList[dataIndex];
+		ItemPackage itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage; 
+		nameLabel.text = itemPackage.GetItemDataByConfigID(info.configID).MinName;
+		valueLabel.text = info.number.ToString();
 	}
 }

@@ -26,15 +26,16 @@ public class UIPlayerMenuPanel : PanelBase {
 		hungerProgressBar = transform.Find("status/hunger").GetComponent<UIProgressBar>();
 		thirstProgressBar = transform.Find("status/thirst").GetComponent<UIProgressBar>();
 		expProgressBar = transform.Find("player/exp").GetComponent<UIProgressBar>();
+		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 		//bind event
 		UIButton button = transform.Find("player").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnPlayerInfo));
+		RegisterEvent("RefreshUserState", RefreshUserState);
 	}
 
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
-		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 		InitView();
 	}
 
@@ -45,19 +46,25 @@ public class UIPlayerMenuPanel : PanelBase {
 
 	void InitView()
 	{
+		RefreshUserState();
+	}
+
+	void RefreshUserState(NDictionary data = null)
+	{
+		PlayerState playerState = userPackage.GetPlayerState();
+		if(playerState == null) return;
 		coinLabel.text = "0";
 		resLabel.text = "0";
 		elecLabel.text = "0";
 		taskLabel.text = "空闲";
-		healthProgressBar.value = 0;
-		hungerProgressBar.value = 0;
-		thirstProgressBar.value = 0;
-		expProgressBar.value = 0;
+		healthProgressBar.value = (float)(playerState.blood / (20 + 2 * playerState.health));
+		hungerProgressBar.value = (float)(playerState.hunger / (20 + 2 * playerState.health));
+		thirstProgressBar.value = (float)(playerState.thirst / (20 + 2 * playerState.health));
+		expProgressBar.value = 0.4f;
 	}
 
 	void OnPlayerInfo()
 	{
 		FacadeSingleton.Instance.OverlayerPanel("UIPlayerInfoPanel");
 	}
-
 }

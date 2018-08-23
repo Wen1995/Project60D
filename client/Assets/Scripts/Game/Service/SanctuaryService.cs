@@ -86,6 +86,12 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETRESOURCEINFO, getResInfo.ToByteArray());
     }
 
+    public void RPCGetUserState()
+    {
+        TCSGetUserState getState = TCSGetUserState.CreateBuilder().Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETUSERSTATE, getState.ToByteArray());
+    }
+
     /// <summary>
     /// Use a extra camera to render the object you give
     /// Normally used to render a 3d model in UI
@@ -108,5 +114,26 @@ public class SanctuaryService : ServiceBase {
     public void UpgradeBuilding(NDictionary args)
     {
         if (args == null) return;
+    }
+
+    public List<NItemInfo> GetBuildingUpgradeCost(NDictionary args)
+    {
+        if(args == null) return null;
+        int fromConfigID = args.Value<int>("configID");
+        uint TYPE_MASK = args.Value<uint>("mask");
+        List<NItemInfo> costInfoList = new List<NItemInfo>();
+        var buildingConfigDataMap = ConfigDataStatic.GetConfigDataTable("BUILDING");
+        BUILDING buildingConfigData = buildingConfigDataMap[fromConfigID] as BUILDING;
+        for(int i=0;i<buildingConfigData.CostTableCount;i++)
+        {
+            var costData = buildingConfigData.GetCostTable(i);
+            int configID = costData.CostId;
+            int number = costData.CostQty;
+            NItemInfo info = new NItemInfo();
+            info.configID = configID;
+            info.number = number;
+            costInfoList.Add(info);
+        }
+        return costInfoList;
     }
 }

@@ -93,6 +93,8 @@ public class NetSingleton : Singleton<NetSingleton> {
     {
         while(true)
         {
+            TCSHeart heart = TCSHeart.CreateBuilder().Build();
+            SendNetMsg(NetType.Netty, (short)Cmd.HEART, heart.ToByteArray());
             //SendNetMsg()
             yield return new WaitForSeconds(60.0f);
         }

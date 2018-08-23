@@ -1,0 +1,18 @@
+/**
+* @file:   proto/leida_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message LEIDA{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 探测距离 */
+    optional int32 leida_dis = 2 [default = 0];
+}
+
+message LEIDA_ARRAY {
+    repeated LEIDA items = 1;
+}

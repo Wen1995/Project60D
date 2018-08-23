@@ -28,7 +28,7 @@ namespace com.game.framework.resource.data {
   public sealed partial class SILIAO : pb::GeneratedMessageLite<SILIAO, SILIAO.Builder> {
     private SILIAO() { }
     private static readonly SILIAO defaultInstance = new SILIAO().MakeReadOnly();
-    private static readonly string[] _sILIAOFieldNames = new string[] { "id", "siliao_cap", "siliao_spd_coeff" };
+    private static readonly string[] _sILIAOFieldNames = new string[] { "id", "siliao_cap", "siliao_spd" };
     private static readonly uint[] _sILIAOFieldTags = new uint[] { 8, 24, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -64,14 +64,14 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SiliaoSpdCoeffFieldNumber = 2;
-    private bool hasSiliaoSpdCoeff;
-    private int siliaoSpdCoeff_;
-    public bool HasSiliaoSpdCoeff {
-      get { return hasSiliaoSpdCoeff; }
+    public const int SiliaoSpdFieldNumber = 2;
+    private bool hasSiliaoSpd;
+    private int siliaoSpd_;
+    public bool HasSiliaoSpd {
+      get { return hasSiliaoSpd; }
     }
-    public int SiliaoSpdCoeff {
-      get { return siliaoSpdCoeff_; }
+    public int SiliaoSpd {
+      get { return siliaoSpd_; }
     }
     
     #if UNITY_EDITOR
@@ -106,8 +106,8 @@ namespace com.game.framework.resource.data {
       if (hasId) {
         output.WriteInt32(1, field_names[0], Id);
       }
-      if (hasSiliaoSpdCoeff) {
-        output.WriteInt32(2, field_names[2], SiliaoSpdCoeff);
+      if (hasSiliaoSpd) {
+        output.WriteInt32(2, field_names[2], SiliaoSpd);
       }
       if (hasSiliaoCap) {
         output.WriteInt32(3, field_names[1], SiliaoCap);
@@ -127,8 +127,8 @@ namespace com.game.framework.resource.data {
         if (hasId) {
           size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
         }
-        if (hasSiliaoSpdCoeff) {
-          size += pb::CodedOutputStream.ComputeInt32Size(2, SiliaoSpdCoeff);
+        if (hasSiliaoSpd) {
+          size += pb::CodedOutputStream.ComputeInt32Size(2, SiliaoSpd);
         }
         if (hasSiliaoCap) {
           size += pb::CodedOutputStream.ComputeInt32Size(3, SiliaoCap);
@@ -142,7 +142,7 @@ namespace com.game.framework.resource.data {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasId) hash ^= id_.GetHashCode();
-      if (hasSiliaoSpdCoeff) hash ^= siliaoSpdCoeff_.GetHashCode();
+      if (hasSiliaoSpd) hash ^= siliaoSpd_.GetHashCode();
       if (hasSiliaoCap) hash ^= siliaoCap_.GetHashCode();
       return hash;
     }
@@ -151,7 +151,7 @@ namespace com.game.framework.resource.data {
       SILIAO other = obj as SILIAO;
       if (other == null) return false;
       if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
-      if (hasSiliaoSpdCoeff != other.hasSiliaoSpdCoeff || (hasSiliaoSpdCoeff && !siliaoSpdCoeff_.Equals(other.siliaoSpdCoeff_))) return false;
+      if (hasSiliaoSpd != other.hasSiliaoSpd || (hasSiliaoSpd && !siliaoSpd_.Equals(other.siliaoSpd_))) return false;
       if (hasSiliaoCap != other.hasSiliaoCap || (hasSiliaoCap && !siliaoCap_.Equals(other.siliaoCap_))) return false;
       return true;
     }
@@ -316,8 +316,8 @@ namespace com.game.framework.resource.data {
         if (other.HasId) {
           Id = other.Id;
         }
-        if (other.HasSiliaoSpdCoeff) {
-          SiliaoSpdCoeff = other.SiliaoSpdCoeff;
+        if (other.HasSiliaoSpd) {
+          SiliaoSpd = other.SiliaoSpd;
         }
         if (other.HasSiliaoCap) {
           SiliaoCap = other.SiliaoCap;
@@ -359,7 +359,7 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 16: {
-              result.hasSiliaoSpdCoeff = input.ReadInt32(ref result.siliaoSpdCoeff_);
+              result.hasSiliaoSpd = input.ReadInt32(ref result.siliaoSpd_);
               break;
             }
             case 24: {
@@ -393,23 +393,23 @@ namespace com.game.framework.resource.data {
         return this;
       }
       
-      public bool HasSiliaoSpdCoeff {
-        get { return result.hasSiliaoSpdCoeff; }
+      public bool HasSiliaoSpd {
+        get { return result.hasSiliaoSpd; }
       }
-      public int SiliaoSpdCoeff {
-        get { return result.SiliaoSpdCoeff; }
-        set { SetSiliaoSpdCoeff(value); }
+      public int SiliaoSpd {
+        get { return result.SiliaoSpd; }
+        set { SetSiliaoSpd(value); }
       }
-      public Builder SetSiliaoSpdCoeff(int value) {
+      public Builder SetSiliaoSpd(int value) {
         PrepareBuilder();
-        result.hasSiliaoSpdCoeff = true;
-        result.siliaoSpdCoeff_ = value;
+        result.hasSiliaoSpd = true;
+        result.siliaoSpd_ = value;
         return this;
       }
-      public Builder ClearSiliaoSpdCoeff() {
+      public Builder ClearSiliaoSpd() {
         PrepareBuilder();
-        result.hasSiliaoSpdCoeff = false;
-        result.siliaoSpdCoeff_ = 0;
+        result.hasSiliaoSpd = false;
+        result.siliaoSpd_ = 0;
         return this;
       }
       

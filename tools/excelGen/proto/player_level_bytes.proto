@@ -1,0 +1,18 @@
+/**
+* @file:   proto/player_level_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message PLAYER_LEVEL{
+    /** 玩家等级 */
+    optional int32 player_level = 1 [default = 0];
+    /** 玩家实力 */
+    optional int32 player_cap = 2 [default = 0];
+}
+
+message PLAYER_LEVEL_ARRAY {
+    repeated PLAYER_LEVEL items = 1;
+}

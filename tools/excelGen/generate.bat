@@ -8,8 +8,17 @@ del /s /q .\py\*.*
 
 
 python tool.py BUILDING xls\Core_Sys.xlsm
-python tool.py ITEM_RES xls\Core_Sys.xlsm
+python tool.py PLAYER_LEVEL xls\Core_Sys.xlsm
+python tool.py MANOR_LEVEL xls\Core_Sys.xlsm
+python tool.py PLAYER_ATTR  xls\Core_Sys.xlsm
+python tool.py ZOMBIE_ATTR xls\Core_Sys.xlsm
+python tool.py ARITHMETIC_COEFFICIENT xls\Core_Sys.xlsm
 
+
+
+
+python tool.py ATTRNAME xls\Bldg_Func.xlsm
+python tool.py DAMI xls\Bldg_Func.xlsm
 python tool.py DAMI xls\Bldg_Func.xlsm
 python tool.py SHUCAI xls\Bldg_Func.xlsm
 python tool.py HUAFEI xls\Bldg_Func.xlsm
@@ -20,6 +29,7 @@ python tool.py JING xls\Bldg_Func.xlsm
 python tool.py LUSHUI xls\Bldg_Func.xlsm
 python tool.py KUANGQUANSHUI xls\Bldg_Func.xlsm
 python tool.py WUXIANDIAN xls\Bldg_Func.xlsm
+python tool.py LEIDA xls\Bldg_Func.xlsm
 python tool.py CANGKU xls\Bldg_Func.xlsm
 python tool.py DIANCHIZU xls\Bldg_Func.xlsm
 python tool.py JIANSHENFANG xls\Bldg_Func.xlsm

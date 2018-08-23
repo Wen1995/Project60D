@@ -28,7 +28,7 @@ namespace com.game.framework.resource.data {
   public sealed partial class MUCAIJIAGONG : pb::GeneratedMessageLite<MUCAIJIAGONG, MUCAIJIAGONG.Builder> {
     private MUCAIJIAGONG() { }
     private static readonly MUCAIJIAGONG defaultInstance = new MUCAIJIAGONG().MakeReadOnly();
-    private static readonly string[] _mUCAIJIAGONGFieldNames = new string[] { "id", "mucai_cap", "mucai_spd" };
+    private static readonly string[] _mUCAIJIAGONGFieldNames = new string[] { "id", "mucaijiagong_cap", "mucaijiagong_spd" };
     private static readonly uint[] _mUCAIJIAGONGFieldTags = new uint[] { 8, 24, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -64,27 +64,27 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int MucaiSpdFieldNumber = 2;
-    private bool hasMucaiSpd;
-    private int mucaiSpd_;
-    public bool HasMucaiSpd {
-      get { return hasMucaiSpd; }
+    public const int MucaijiagongSpdFieldNumber = 2;
+    private bool hasMucaijiagongSpd;
+    private int mucaijiagongSpd_;
+    public bool HasMucaijiagongSpd {
+      get { return hasMucaijiagongSpd; }
     }
-    public int MucaiSpd {
-      get { return mucaiSpd_; }
+    public int MucaijiagongSpd {
+      get { return mucaijiagongSpd_; }
     }
     
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int MucaiCapFieldNumber = 3;
-    private bool hasMucaiCap;
-    private int mucaiCap_;
-    public bool HasMucaiCap {
-      get { return hasMucaiCap; }
+    public const int MucaijiagongCapFieldNumber = 3;
+    private bool hasMucaijiagongCap;
+    private int mucaijiagongCap_;
+    public bool HasMucaijiagongCap {
+      get { return hasMucaijiagongCap; }
     }
-    public int MucaiCap {
-      get { return mucaiCap_; }
+    public int MucaijiagongCap {
+      get { return mucaijiagongCap_; }
     }
     
     #if UNITY_EDITOR
@@ -106,11 +106,11 @@ namespace com.game.framework.resource.data {
       if (hasId) {
         output.WriteInt32(1, field_names[0], Id);
       }
-      if (hasMucaiSpd) {
-        output.WriteInt32(2, field_names[2], MucaiSpd);
+      if (hasMucaijiagongSpd) {
+        output.WriteInt32(2, field_names[2], MucaijiagongSpd);
       }
-      if (hasMucaiCap) {
-        output.WriteInt32(3, field_names[1], MucaiCap);
+      if (hasMucaijiagongCap) {
+        output.WriteInt32(3, field_names[1], MucaijiagongCap);
       }
     }
     
@@ -127,11 +127,11 @@ namespace com.game.framework.resource.data {
         if (hasId) {
           size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
         }
-        if (hasMucaiSpd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(2, MucaiSpd);
+        if (hasMucaijiagongSpd) {
+          size += pb::CodedOutputStream.ComputeInt32Size(2, MucaijiagongSpd);
         }
-        if (hasMucaiCap) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, MucaiCap);
+        if (hasMucaijiagongCap) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, MucaijiagongCap);
         }
         memoizedSerializedSize = size;
         return size;
@@ -142,8 +142,8 @@ namespace com.game.framework.resource.data {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasId) hash ^= id_.GetHashCode();
-      if (hasMucaiSpd) hash ^= mucaiSpd_.GetHashCode();
-      if (hasMucaiCap) hash ^= mucaiCap_.GetHashCode();
+      if (hasMucaijiagongSpd) hash ^= mucaijiagongSpd_.GetHashCode();
+      if (hasMucaijiagongCap) hash ^= mucaijiagongCap_.GetHashCode();
       return hash;
     }
     
@@ -151,8 +151,8 @@ namespace com.game.framework.resource.data {
       MUCAIJIAGONG other = obj as MUCAIJIAGONG;
       if (other == null) return false;
       if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
-      if (hasMucaiSpd != other.hasMucaiSpd || (hasMucaiSpd && !mucaiSpd_.Equals(other.mucaiSpd_))) return false;
-      if (hasMucaiCap != other.hasMucaiCap || (hasMucaiCap && !mucaiCap_.Equals(other.mucaiCap_))) return false;
+      if (hasMucaijiagongSpd != other.hasMucaijiagongSpd || (hasMucaijiagongSpd && !mucaijiagongSpd_.Equals(other.mucaijiagongSpd_))) return false;
+      if (hasMucaijiagongCap != other.hasMucaijiagongCap || (hasMucaijiagongCap && !mucaijiagongCap_.Equals(other.mucaijiagongCap_))) return false;
       return true;
     }
     
@@ -316,11 +316,11 @@ namespace com.game.framework.resource.data {
         if (other.HasId) {
           Id = other.Id;
         }
-        if (other.HasMucaiSpd) {
-          MucaiSpd = other.MucaiSpd;
+        if (other.HasMucaijiagongSpd) {
+          MucaijiagongSpd = other.MucaijiagongSpd;
         }
-        if (other.HasMucaiCap) {
-          MucaiCap = other.MucaiCap;
+        if (other.HasMucaijiagongCap) {
+          MucaijiagongCap = other.MucaijiagongCap;
         }
         return this;
       }
@@ -359,11 +359,11 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 16: {
-              result.hasMucaiSpd = input.ReadInt32(ref result.mucaiSpd_);
+              result.hasMucaijiagongSpd = input.ReadInt32(ref result.mucaijiagongSpd_);
               break;
             }
             case 24: {
-              result.hasMucaiCap = input.ReadInt32(ref result.mucaiCap_);
+              result.hasMucaijiagongCap = input.ReadInt32(ref result.mucaijiagongCap_);
               break;
             }
           }
@@ -393,43 +393,43 @@ namespace com.game.framework.resource.data {
         return this;
       }
       
-      public bool HasMucaiSpd {
-        get { return result.hasMucaiSpd; }
+      public bool HasMucaijiagongSpd {
+        get { return result.hasMucaijiagongSpd; }
       }
-      public int MucaiSpd {
-        get { return result.MucaiSpd; }
-        set { SetMucaiSpd(value); }
+      public int MucaijiagongSpd {
+        get { return result.MucaijiagongSpd; }
+        set { SetMucaijiagongSpd(value); }
       }
-      public Builder SetMucaiSpd(int value) {
+      public Builder SetMucaijiagongSpd(int value) {
         PrepareBuilder();
-        result.hasMucaiSpd = true;
-        result.mucaiSpd_ = value;
+        result.hasMucaijiagongSpd = true;
+        result.mucaijiagongSpd_ = value;
         return this;
       }
-      public Builder ClearMucaiSpd() {
+      public Builder ClearMucaijiagongSpd() {
         PrepareBuilder();
-        result.hasMucaiSpd = false;
-        result.mucaiSpd_ = 0;
+        result.hasMucaijiagongSpd = false;
+        result.mucaijiagongSpd_ = 0;
         return this;
       }
       
-      public bool HasMucaiCap {
-        get { return result.hasMucaiCap; }
+      public bool HasMucaijiagongCap {
+        get { return result.hasMucaijiagongCap; }
       }
-      public int MucaiCap {
-        get { return result.MucaiCap; }
-        set { SetMucaiCap(value); }
+      public int MucaijiagongCap {
+        get { return result.MucaijiagongCap; }
+        set { SetMucaijiagongCap(value); }
       }
-      public Builder SetMucaiCap(int value) {
+      public Builder SetMucaijiagongCap(int value) {
         PrepareBuilder();
-        result.hasMucaiCap = true;
-        result.mucaiCap_ = value;
+        result.hasMucaijiagongCap = true;
+        result.mucaijiagongCap_ = value;
         return this;
       }
-      public Builder ClearMucaiCap() {
+      public Builder ClearMucaijiagongCap() {
         PrepareBuilder();
-        result.hasMucaiCap = false;
-        result.mucaiCap_ = 0;
+        result.hasMucaijiagongCap = false;
+        result.mucaijiagongCap_ = 0;
         return this;
       }
     }

@@ -28,7 +28,7 @@ namespace com.game.framework.resource.data {
   public sealed partial class JSFADIANZHAN : pb::GeneratedMessageLite<JSFADIANZHAN, JSFADIANZHAN.Builder> {
     private JSFADIANZHAN() { }
     private static readonly JSFADIANZHAN defaultInstance = new JSFADIANZHAN().MakeReadOnly();
-    private static readonly string[] _jSFADIANZHANFieldNames = new string[] { "id", "js_cap", "js_spd" };
+    private static readonly string[] _jSFADIANZHANFieldNames = new string[] { "id", "jsfadianzhan_cap", "jsfadianzhan_spd" };
     private static readonly uint[] _jSFADIANZHANFieldTags = new uint[] { 8, 24, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -64,27 +64,27 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JsSpdFieldNumber = 2;
-    private bool hasJsSpd;
-    private int jsSpd_;
-    public bool HasJsSpd {
-      get { return hasJsSpd; }
+    public const int JsfadianzhanSpdFieldNumber = 2;
+    private bool hasJsfadianzhanSpd;
+    private int jsfadianzhanSpd_;
+    public bool HasJsfadianzhanSpd {
+      get { return hasJsfadianzhanSpd; }
     }
-    public int JsSpd {
-      get { return jsSpd_; }
+    public int JsfadianzhanSpd {
+      get { return jsfadianzhanSpd_; }
     }
     
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JsCapFieldNumber = 3;
-    private bool hasJsCap;
-    private int jsCap_;
-    public bool HasJsCap {
-      get { return hasJsCap; }
+    public const int JsfadianzhanCapFieldNumber = 3;
+    private bool hasJsfadianzhanCap;
+    private int jsfadianzhanCap_;
+    public bool HasJsfadianzhanCap {
+      get { return hasJsfadianzhanCap; }
     }
-    public int JsCap {
-      get { return jsCap_; }
+    public int JsfadianzhanCap {
+      get { return jsfadianzhanCap_; }
     }
     
     #if UNITY_EDITOR
@@ -106,11 +106,11 @@ namespace com.game.framework.resource.data {
       if (hasId) {
         output.WriteInt32(1, field_names[0], Id);
       }
-      if (hasJsSpd) {
-        output.WriteInt32(2, field_names[2], JsSpd);
+      if (hasJsfadianzhanSpd) {
+        output.WriteInt32(2, field_names[2], JsfadianzhanSpd);
       }
-      if (hasJsCap) {
-        output.WriteInt32(3, field_names[1], JsCap);
+      if (hasJsfadianzhanCap) {
+        output.WriteInt32(3, field_names[1], JsfadianzhanCap);
       }
     }
     
@@ -127,11 +127,11 @@ namespace com.game.framework.resource.data {
         if (hasId) {
           size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
         }
-        if (hasJsSpd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(2, JsSpd);
+        if (hasJsfadianzhanSpd) {
+          size += pb::CodedOutputStream.ComputeInt32Size(2, JsfadianzhanSpd);
         }
-        if (hasJsCap) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, JsCap);
+        if (hasJsfadianzhanCap) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, JsfadianzhanCap);
         }
         memoizedSerializedSize = size;
         return size;
@@ -142,8 +142,8 @@ namespace com.game.framework.resource.data {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasId) hash ^= id_.GetHashCode();
-      if (hasJsSpd) hash ^= jsSpd_.GetHashCode();
-      if (hasJsCap) hash ^= jsCap_.GetHashCode();
+      if (hasJsfadianzhanSpd) hash ^= jsfadianzhanSpd_.GetHashCode();
+      if (hasJsfadianzhanCap) hash ^= jsfadianzhanCap_.GetHashCode();
       return hash;
     }
     
@@ -151,8 +151,8 @@ namespace com.game.framework.resource.data {
       JSFADIANZHAN other = obj as JSFADIANZHAN;
       if (other == null) return false;
       if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
-      if (hasJsSpd != other.hasJsSpd || (hasJsSpd && !jsSpd_.Equals(other.jsSpd_))) return false;
-      if (hasJsCap != other.hasJsCap || (hasJsCap && !jsCap_.Equals(other.jsCap_))) return false;
+      if (hasJsfadianzhanSpd != other.hasJsfadianzhanSpd || (hasJsfadianzhanSpd && !jsfadianzhanSpd_.Equals(other.jsfadianzhanSpd_))) return false;
+      if (hasJsfadianzhanCap != other.hasJsfadianzhanCap || (hasJsfadianzhanCap && !jsfadianzhanCap_.Equals(other.jsfadianzhanCap_))) return false;
       return true;
     }
     
@@ -316,11 +316,11 @@ namespace com.game.framework.resource.data {
         if (other.HasId) {
           Id = other.Id;
         }
-        if (other.HasJsSpd) {
-          JsSpd = other.JsSpd;
+        if (other.HasJsfadianzhanSpd) {
+          JsfadianzhanSpd = other.JsfadianzhanSpd;
         }
-        if (other.HasJsCap) {
-          JsCap = other.JsCap;
+        if (other.HasJsfadianzhanCap) {
+          JsfadianzhanCap = other.JsfadianzhanCap;
         }
         return this;
       }
@@ -359,11 +359,11 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 16: {
-              result.hasJsSpd = input.ReadInt32(ref result.jsSpd_);
+              result.hasJsfadianzhanSpd = input.ReadInt32(ref result.jsfadianzhanSpd_);
               break;
             }
             case 24: {
-              result.hasJsCap = input.ReadInt32(ref result.jsCap_);
+              result.hasJsfadianzhanCap = input.ReadInt32(ref result.jsfadianzhanCap_);
               break;
             }
           }
@@ -393,43 +393,43 @@ namespace com.game.framework.resource.data {
         return this;
       }
       
-      public bool HasJsSpd {
-        get { return result.hasJsSpd; }
+      public bool HasJsfadianzhanSpd {
+        get { return result.hasJsfadianzhanSpd; }
       }
-      public int JsSpd {
-        get { return result.JsSpd; }
-        set { SetJsSpd(value); }
+      public int JsfadianzhanSpd {
+        get { return result.JsfadianzhanSpd; }
+        set { SetJsfadianzhanSpd(value); }
       }
-      public Builder SetJsSpd(int value) {
+      public Builder SetJsfadianzhanSpd(int value) {
         PrepareBuilder();
-        result.hasJsSpd = true;
-        result.jsSpd_ = value;
+        result.hasJsfadianzhanSpd = true;
+        result.jsfadianzhanSpd_ = value;
         return this;
       }
-      public Builder ClearJsSpd() {
+      public Builder ClearJsfadianzhanSpd() {
         PrepareBuilder();
-        result.hasJsSpd = false;
-        result.jsSpd_ = 0;
+        result.hasJsfadianzhanSpd = false;
+        result.jsfadianzhanSpd_ = 0;
         return this;
       }
       
-      public bool HasJsCap {
-        get { return result.hasJsCap; }
+      public bool HasJsfadianzhanCap {
+        get { return result.hasJsfadianzhanCap; }
       }
-      public int JsCap {
-        get { return result.JsCap; }
-        set { SetJsCap(value); }
+      public int JsfadianzhanCap {
+        get { return result.JsfadianzhanCap; }
+        set { SetJsfadianzhanCap(value); }
       }
-      public Builder SetJsCap(int value) {
+      public Builder SetJsfadianzhanCap(int value) {
         PrepareBuilder();
-        result.hasJsCap = true;
-        result.jsCap_ = value;
+        result.hasJsfadianzhanCap = true;
+        result.jsfadianzhanCap_ = value;
         return this;
       }
-      public Builder ClearJsCap() {
+      public Builder ClearJsfadianzhanCap() {
         PrepareBuilder();
-        result.hasJsCap = false;
-        result.jsCap_ = 0;
+        result.hasJsfadianzhanCap = false;
+        result.jsfadianzhanCap_ = 0;
         return this;
       }
     }

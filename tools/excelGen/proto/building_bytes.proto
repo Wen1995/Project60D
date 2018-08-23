@@ -44,7 +44,7 @@ message BUILDING{
     optional string bldg_func_table_name = 13 [default = ""];
     /** 建筑功能表索引ID */
     optional int32 bldg_func_table_id = 14 [default = 0];
-    /** 庄园势力限制 */
+    /** 庄园实力限制 */
     optional int32 bldg_strength_lim = 15 [default = 0];
     /** 每级消耗资源价值 */
     optional int32 bldg_strength_add = 16 [default = 0];

@@ -1,0 +1,18 @@
+/**
+* @file:   proto/manor_level_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message MANOR_LEVEL{
+    /** 庄园等级 */
+    required int32 manor_level = 1 [default = 0];
+    /** 庄园实力 */
+    optional int32 manor_cap = 2 [default = 0];
+}
+
+message MANOR_LEVEL_ARRAY {
+    repeated MANOR_LEVEL items = 1;
+}

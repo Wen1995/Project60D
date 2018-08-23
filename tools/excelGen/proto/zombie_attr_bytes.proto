@@ -1,0 +1,26 @@
+/**
+* @file:   proto/zombie_attr_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message ZOMBIE_ATTR{
+    /** 属性id */
+    required int32 id = 1 [default = 0];
+    /** 僵尸入侵匹配值 */
+    optional int32 manorcap_zombie = 2 [default = 0];
+    /** 攻击 */
+    optional int32 zombie_atk = 3 [default = 0];
+    /** 防御 */
+    optional int32 zombie_def = 4 [default = 0];
+    /** 血量 */
+    optional int32 zombie_hp = 5 [default = 0];
+    /** 僵尸数量 */
+    optional int32 zombie_num = 6 [default = 0];
+}
+
+message ZOMBIE_ATTR_ARRAY {
+    repeated ZOMBIE_ATTR items = 1;
+}

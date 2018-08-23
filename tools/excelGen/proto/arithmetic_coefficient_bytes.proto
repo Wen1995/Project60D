@@ -1,0 +1,26 @@
+/**
+* @file:   proto/arithmetic_coefficient_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message ARITHMETIC_COEFFICIENT{
+    /** 属性id */
+    required int32 id = 1 [default = 0];
+    /** 算法系数k1 */
+    optional int32 ac_k1 = 2 [default = 0];
+    /** 算法系数k2 */
+    optional int32 ac_k2 = 3 [default = 0];
+    /** 算法系数k3 */
+    optional int32 ac_k3 = 4 [default = 0];
+    /** 算法系数k4 */
+    optional int32 ac_k4 = 5 [default = 0];
+    /** 算法系数k5 */
+    optional int32 ac_k5 = 6 [default = 0];
+}
+
+message ARITHMETIC_COEFFICIENT_ARRAY {
+    repeated ARITHMETIC_COEFFICIENT items = 1;
+}

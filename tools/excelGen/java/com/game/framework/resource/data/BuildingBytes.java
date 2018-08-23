@@ -313,7 +313,7 @@ public final class BuildingBytes {
      * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
      *
      * <pre>
-     ** 庄园势力限制 
+     ** 庄园实力限制 
      * </pre>
      */
     boolean hasBldgStrengthLim();
@@ -321,7 +321,7 @@ public final class BuildingBytes {
      * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
      *
      * <pre>
-     ** 庄园势力限制 
+     ** 庄园实力限制 
      * </pre>
      */
     int getBldgStrengthLim();
@@ -1667,7 +1667,7 @@ public final class BuildingBytes {
      * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
      *
      * <pre>
-     ** 庄园势力限制 
+     ** 庄园实力限制 
      * </pre>
      */
     public boolean hasBldgStrengthLim() {
@@ -1677,7 +1677,7 @@ public final class BuildingBytes {
      * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
      *
      * <pre>
-     ** 庄园势力限制 
+     ** 庄园实力限制 
      * </pre>
      */
     public int getBldgStrengthLim() {
@@ -3381,7 +3381,7 @@ public final class BuildingBytes {
        * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
        *
        * <pre>
-       ** 庄园势力限制 
+       ** 庄园实力限制 
        * </pre>
        */
       public boolean hasBldgStrengthLim() {
@@ -3391,7 +3391,7 @@ public final class BuildingBytes {
        * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
        *
        * <pre>
-       ** 庄园势力限制 
+       ** 庄园实力限制 
        * </pre>
        */
       public int getBldgStrengthLim() {
@@ -3401,7 +3401,7 @@ public final class BuildingBytes {
        * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
        *
        * <pre>
-       ** 庄园势力限制 
+       ** 庄园实力限制 
        * </pre>
        */
       public Builder setBldgStrengthLim(int value) {
@@ -3414,7 +3414,7 @@ public final class BuildingBytes {
        * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
        *
        * <pre>
-       ** 庄园势力限制 
+       ** 庄园实力限制 
        * </pre>
        */
       public Builder clearBldgStrengthLim() {

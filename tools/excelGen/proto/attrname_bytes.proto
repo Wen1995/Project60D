@@ -1,0 +1,18 @@
+/**
+* @file:   proto/attrname_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message ATTRNAME{
+    /** key */
+    required string key = 1 [default = ""];
+    /** 属性名称 */
+    required string ATTR_name = 2 [default = ""];
+}
+
+message ATTRNAME_ARRAY {
+    repeated ATTRNAME items = 1;
+}

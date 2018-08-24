@@ -9,7 +9,7 @@ package com.game.framework.resource.data;
 message LEIDA{
     /** 索引 */
     required int32 id = 1 [default = 0];
-    /** 探测距离 */
+    /** 接收时间（秒） */
     optional int32 leida_dis = 2 [default = 0];
 }
 

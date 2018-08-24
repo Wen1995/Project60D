@@ -46,7 +46,7 @@ message BUILDING{
     optional int32 bldg_func_table_id = 14 [default = 0];
     /** 庄园实力限制 */
     optional int32 bldg_strength_lim = 15 [default = 0];
-    /** 每级消耗资源价值 */
+    /** 每级消耗资源价值（每级增加实力） */
     optional int32 bldg_strength_add = 16 [default = 0];
     /** 消耗时间
 (秒) */

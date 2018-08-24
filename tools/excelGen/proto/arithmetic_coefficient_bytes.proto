@@ -17,7 +17,7 @@ message ARITHMETIC_COEFFICIENT{
     optional int32 ac_k3 = 4 [default = 0];
     /** 算法系数k4 */
     optional int32 ac_k4 = 5 [default = 0];
-    /** 算法系数k5 */
+    /** 算法系数k5*10000 */
     optional int32 ac_k5 = 6 [default = 0];
 }
 

@@ -18,11 +18,12 @@ import com.game.framework.dbcache.dao.IUserDao;
 import com.game.framework.dbcache.model.Timer;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.resource.DynamicDataManager;
+import com.game.framework.socket.MessageHandler;
 import io.netty.channel.Channel;
 
 public class TimerManager {
     private static Logger logger = LoggerFactory.getLogger(TimerManager.class);
-    
+
     private static Object obj = new Object();
     private static TimerManager instance = null;
 
@@ -40,11 +41,13 @@ public class TimerManager {
     IUserDao userDao = (IUserDao) context.getBean("userDao");
 
     ConcurrentHashMap<Long, ScheduledFuture<?>> futureMap;
+    ConcurrentHashMap<Long, ScheduledFuture<?>> uid2FutureMap;
     ScheduleTask scheduleTask;
 
     public void init() {
         scheduleTask = new ScheduleTask();
         futureMap = new ConcurrentHashMap<Long, ScheduledFuture<?>>();
+        uid2FutureMap = new ConcurrentHashMap<Long, ScheduledFuture<?>>();
         revert();
     }
 
@@ -64,25 +67,28 @@ public class TimerManager {
                 Map<Channel, Long> hashChannels = GateServer.GetInstance().getHashChannels();
                 Iterator<Map.Entry<Long, Channel>> iterator = playerChannels.entrySet().iterator();
                 Map<Long, Long> uid2HeartTime = DynamicDataManager.GetInstance().uid2HeartTime;
-                
+
                 Long time = System.currentTimeMillis();
-                while (iterator.hasNext()) { 
+                while (iterator.hasNext()) {
                     Map.Entry<Long, Channel> entry = iterator.next();
-                    
+
                     // 距上次心跳时间超过60秒，自动断线
-                    if (time - uid2HeartTime.get(entry.getKey()) > 60000) {
+                    Long uid = entry.getKey();
+                    if (time - uid2HeartTime.get(uid) > 60000) {
                         Channel channel = entry.getValue();
                         channel.close();
                         hashChannels.remove(channel);
                         iterator.remove();
                         uid2HeartTime.remove(entry.getKey());
-                        logger.info("Client Disconnect User[{}]", entry.getKey());
-                        
-                        User user = userDao.get(entry.getKey());
+                        logger.info("Client Disconnect Ip[{}]", MessageHandler.getIP(channel));
+                        logger.info("Client Disconnect User[{}]", uid);
+
+                        User user = userDao.get(uid);
                         user.setLogoutTime(new Date(time));
                         userDao.update(user);
-                        
-                        // TODO 关闭定时任务
+
+                        // 关闭周期任务
+                        cancel2Uid(uid);
                     }
                 }
             }
@@ -105,19 +111,21 @@ public class TimerManager {
         return future;
     }
 
-    public ScheduledFuture<?> scheduleAtFixedRate(final Integer cmd, final byte[] buffer, int delay,
-            int period) {
+    // 该定时任务只用来更新用户状态
+    public ScheduledFuture<?> scheduleAtFixedRate(final Long uid, final Integer cmd,
+            final byte[] buffer, int delay, int period) {
         ScheduledFuture<?> future = scheduleTask.scheduleWithFixedDelay(new Runnable() {
-
             @Override
             public void run() {
                 TPacket p = new TPacket();
+                p.setUid(uid);
                 p.setCmd(cmd);
                 p.setReceiveTime(System.currentTimeMillis());
                 p.setBuffer(buffer);
                 GateServer.GetInstance().sendInner(p);
             }
         }, delay, period, TimeUnit.SECONDS);
+        uid2FutureMap.put(uid, future);
         return future;
     }
 
@@ -167,6 +175,14 @@ public class TimerManager {
 
     private boolean cancel(Long id) {
         ScheduledFuture<?> scheduledFuture = futureMap.remove(id);
+        if (scheduledFuture != null) {
+            return scheduledFuture.cancel(true);
+        }
+        return false;
+    }
+    
+    public boolean cancel2Uid(Long id) {
+        ScheduledFuture<?> scheduledFuture = uid2FutureMap.remove(id);
         if (scheduledFuture != null) {
             return scheduledFuture.cancel(true);
         }

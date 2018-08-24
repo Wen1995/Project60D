@@ -64,7 +64,7 @@ public class MessageHandler extends ChannelInboundHandlerAdapter {
         super.exceptionCaught(ctx, cause);
     }
 
-    private String getIP(Channel channel) {
+    public static String getIP(Channel channel) {
         SocketAddress address = channel.remoteAddress();
         String ip = "";
         if (address != null) {

@@ -21,6 +21,7 @@ import com.game.framework.protocol.User.UserResource;
 import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.resource.StaticDataManager;
 import com.game.framework.resource.data.ItemResBytes.ITEM_RES;
+import com.game.framework.task.TimerManager;
 import com.game.framework.utils.ReadOnlyMap;
 import com.game.framework.utils.StringUtil;
 
@@ -63,18 +64,6 @@ public class LoginServiceImpl implements LoginService {
             user.setCreateTime(new Date());
             user.setProduction(1);
             
-            // 初始状态
-            user.setBlood(100);
-            user.setFood(50);
-            user.setWater(30);
-            user.setHealth(50);
-            user.setMood(50);
-            user.setAttack(45);
-            user.setDefense(45);
-            user.setAgile(45);
-            user.setSpeed(45);
-            user.setIntellect(45);
-            
             // 初始资源
             List<ResourceInfo> resourceInfos = new ArrayList<>();
             ReadOnlyMap<Integer, ITEM_RES> itemResMap = StaticDataManager.GetInstance().itemResMap;
@@ -109,6 +98,8 @@ public class LoginServiceImpl implements LoginService {
         User user = userDao.get(uid);
         user.setLogoutTime(new Date(System.currentTimeMillis()));
         userDao.update(user);
+        // 关闭周期任务
+        TimerManager.GetInstance().cancel2Uid(uid);
         return null;
     }
 

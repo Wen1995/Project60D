@@ -11,9 +11,9 @@ message PLAYER_ATTR{
     required int32 id = 1 [default = 0];
     /** 初始 */
     optional int32 begin_num = 2 [default = 0];
-    /** 算法k1*100 */
+    /** 值算法k1*100 */
     optional int32 attr_k1 = 3 [default = 0];
-    /** 算法k2*100 */
+    /** 值算法k2*100 */
     optional int32 attr_k2 = 4 [default = 0];
     /** 系数k1 */
     optional int32 rec_k1 = 5 [default = 0];

@@ -8,7 +8,7 @@ package com.game.framework.resource.data;
 
 message ATTRNAME{
     /** key */
-    required string key = 1 [default = ""];
+    required string id = 1 [default = ""];
     /** 属性名称 */
     required string ATTR_name = 2 [default = ""];
 }

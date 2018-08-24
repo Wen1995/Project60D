@@ -8,7 +8,7 @@ package com.game.framework.resource.data;
 
 message PLAYER_LEVEL{
     /** 玩家等级 */
-    optional int32 player_level = 1 [default = 0];
+    optional int32 id = 1 [default = 0];
     /** 玩家实力 */
     optional int32 player_cap = 2 [default = 0];
 }

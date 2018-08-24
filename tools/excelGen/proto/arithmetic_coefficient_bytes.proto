@@ -9,11 +9,11 @@ package com.game.framework.resource.data;
 message ARITHMETIC_COEFFICIENT{
     /** 属性id */
     required int32 id = 1 [default = 0];
-    /** 算法系数k1 */
+    /** 算法系数k1*100 */
     optional int32 ac_k1 = 2 [default = 0];
-    /** 算法系数k2 */
+    /** 算法系数k2*100 */
     optional int32 ac_k2 = 3 [default = 0];
-    /** 算法系数k3 */
+    /** 算法系数k3*100 */
     optional int32 ac_k3 = 4 [default = 0];
     /** 算法系数k4 */
     optional int32 ac_k4 = 5 [default = 0];

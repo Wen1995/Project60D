@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class ITEM_RES : pb::GeneratedMessageLite<ITEM_RES, ITEM_RES.Builder> {
     private ITEM_RES() { }
     private static readonly ITEM_RES defaultInstance = new ITEM_RES().MakeReadOnly();
-    private static readonly string[] _iTEMRESFieldNames = new string[] { "cost_qty1", "cost_qty2", "desc", "ele_cost1", "ele_cost2", "gold_conv", "icon_name", "id", "item_lvl", "min_name", "multiplier", "result_id1", "result_id2", "small_icon_name", "stor_unit", "time_cost1", "time_cost2" };
-    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 88, 120, 50, 80, 112, 58, 34, 8, 16, 26, 64, 96, 128, 42, 136, 72, 104 };
+    private static readonly string[] _iTEMRESFieldNames = new string[] { "desc", "gold_conv", "icon_name", "id", "item_lvl", "min_name", "small_icon_name", "stor_unit" };
+    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 50, 58, 34, 8, 16, 26, 42, 64 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -142,124 +142,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int MultiplierFieldNumber = 8;
-    private bool hasMultiplier;
-    private int multiplier_;
-    public bool HasMultiplier {
-      get { return hasMultiplier; }
-    }
-    public int Multiplier {
-      get { return multiplier_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int TimeCost1FieldNumber = 9;
-    private bool hasTimeCost1;
-    private int timeCost1_;
-    public bool HasTimeCost1 {
-      get { return hasTimeCost1; }
-    }
-    public int TimeCost1 {
-      get { return timeCost1_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int EleCost1FieldNumber = 10;
-    private bool hasEleCost1;
-    private int eleCost1_;
-    public bool HasEleCost1 {
-      get { return hasEleCost1; }
-    }
-    public int EleCost1 {
-      get { return eleCost1_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int CostQty1FieldNumber = 11;
-    private bool hasCostQty1;
-    private int costQty1_;
-    public bool HasCostQty1 {
-      get { return hasCostQty1; }
-    }
-    public int CostQty1 {
-      get { return costQty1_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ResultId1FieldNumber = 12;
-    private bool hasResultId1;
-    private int resultId1_;
-    public bool HasResultId1 {
-      get { return hasResultId1; }
-    }
-    public int ResultId1 {
-      get { return resultId1_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int TimeCost2FieldNumber = 13;
-    private bool hasTimeCost2;
-    private int timeCost2_;
-    public bool HasTimeCost2 {
-      get { return hasTimeCost2; }
-    }
-    public int TimeCost2 {
-      get { return timeCost2_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int EleCost2FieldNumber = 14;
-    private bool hasEleCost2;
-    private int eleCost2_;
-    public bool HasEleCost2 {
-      get { return hasEleCost2; }
-    }
-    public int EleCost2 {
-      get { return eleCost2_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int CostQty2FieldNumber = 15;
-    private bool hasCostQty2;
-    private int costQty2_;
-    public bool HasCostQty2 {
-      get { return hasCostQty2; }
-    }
-    public int CostQty2 {
-      get { return costQty2_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ResultId2FieldNumber = 16;
-    private bool hasResultId2;
-    private int resultId2_;
-    public bool HasResultId2 {
-      get { return hasResultId2; }
-    }
-    public int ResultId2 {
-      get { return resultId2_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int StorUnitFieldNumber = 17;
+    public const int StorUnitFieldNumber = 8;
     private bool hasStorUnit;
     private int storUnit_;
     public bool HasStorUnit {
@@ -286,55 +169,28 @@ namespace com.game.framework.resource.data {
       int size = SerializedSize;
       string[] field_names = _iTEMRESFieldNames;
       if (hasId) {
-        output.WriteInt32(1, field_names[7], Id);
+        output.WriteInt32(1, field_names[3], Id);
       }
       if (hasItemLvl) {
-        output.WriteInt32(2, field_names[8], ItemLvl);
+        output.WriteInt32(2, field_names[4], ItemLvl);
       }
       if (hasMinName) {
-        output.WriteString(3, field_names[9], MinName);
+        output.WriteString(3, field_names[5], MinName);
       }
       if (hasIconName) {
-        output.WriteString(4, field_names[6], IconName);
+        output.WriteString(4, field_names[2], IconName);
       }
       if (hasSmallIconName) {
-        output.WriteString(5, field_names[13], SmallIconName);
+        output.WriteString(5, field_names[6], SmallIconName);
       }
       if (hasDesc) {
-        output.WriteString(6, field_names[2], Desc);
+        output.WriteString(6, field_names[0], Desc);
       }
       if (hasGoldConv) {
-        output.WriteString(7, field_names[5], GoldConv);
-      }
-      if (hasMultiplier) {
-        output.WriteInt32(8, field_names[10], Multiplier);
-      }
-      if (hasTimeCost1) {
-        output.WriteInt32(9, field_names[15], TimeCost1);
-      }
-      if (hasEleCost1) {
-        output.WriteInt32(10, field_names[3], EleCost1);
-      }
-      if (hasCostQty1) {
-        output.WriteInt32(11, field_names[0], CostQty1);
-      }
-      if (hasResultId1) {
-        output.WriteInt32(12, field_names[11], ResultId1);
-      }
-      if (hasTimeCost2) {
-        output.WriteInt32(13, field_names[16], TimeCost2);
-      }
-      if (hasEleCost2) {
-        output.WriteInt32(14, field_names[4], EleCost2);
-      }
-      if (hasCostQty2) {
-        output.WriteInt32(15, field_names[1], CostQty2);
-      }
-      if (hasResultId2) {
-        output.WriteInt32(16, field_names[12], ResultId2);
+        output.WriteString(7, field_names[1], GoldConv);
       }
       if (hasStorUnit) {
-        output.WriteInt32(17, field_names[14], StorUnit);
+        output.WriteInt32(8, field_names[7], StorUnit);
       }
     }
     
@@ -369,35 +225,8 @@ namespace com.game.framework.resource.data {
         if (hasGoldConv) {
           size += pb::CodedOutputStream.ComputeStringSize(7, GoldConv);
         }
-        if (hasMultiplier) {
-          size += pb::CodedOutputStream.ComputeInt32Size(8, Multiplier);
-        }
-        if (hasTimeCost1) {
-          size += pb::CodedOutputStream.ComputeInt32Size(9, TimeCost1);
-        }
-        if (hasEleCost1) {
-          size += pb::CodedOutputStream.ComputeInt32Size(10, EleCost1);
-        }
-        if (hasCostQty1) {
-          size += pb::CodedOutputStream.ComputeInt32Size(11, CostQty1);
-        }
-        if (hasResultId1) {
-          size += pb::CodedOutputStream.ComputeInt32Size(12, ResultId1);
-        }
-        if (hasTimeCost2) {
-          size += pb::CodedOutputStream.ComputeInt32Size(13, TimeCost2);
-        }
-        if (hasEleCost2) {
-          size += pb::CodedOutputStream.ComputeInt32Size(14, EleCost2);
-        }
-        if (hasCostQty2) {
-          size += pb::CodedOutputStream.ComputeInt32Size(15, CostQty2);
-        }
-        if (hasResultId2) {
-          size += pb::CodedOutputStream.ComputeInt32Size(16, ResultId2);
-        }
         if (hasStorUnit) {
-          size += pb::CodedOutputStream.ComputeInt32Size(17, StorUnit);
+          size += pb::CodedOutputStream.ComputeInt32Size(8, StorUnit);
         }
         memoizedSerializedSize = size;
         return size;
@@ -414,15 +243,6 @@ namespace com.game.framework.resource.data {
       if (hasSmallIconName) hash ^= smallIconName_.GetHashCode();
       if (hasDesc) hash ^= desc_.GetHashCode();
       if (hasGoldConv) hash ^= goldConv_.GetHashCode();
-      if (hasMultiplier) hash ^= multiplier_.GetHashCode();
-      if (hasTimeCost1) hash ^= timeCost1_.GetHashCode();
-      if (hasEleCost1) hash ^= eleCost1_.GetHashCode();
-      if (hasCostQty1) hash ^= costQty1_.GetHashCode();
-      if (hasResultId1) hash ^= resultId1_.GetHashCode();
-      if (hasTimeCost2) hash ^= timeCost2_.GetHashCode();
-      if (hasEleCost2) hash ^= eleCost2_.GetHashCode();
-      if (hasCostQty2) hash ^= costQty2_.GetHashCode();
-      if (hasResultId2) hash ^= resultId2_.GetHashCode();
       if (hasStorUnit) hash ^= storUnit_.GetHashCode();
       return hash;
     }
@@ -437,15 +257,6 @@ namespace com.game.framework.resource.data {
       if (hasSmallIconName != other.hasSmallIconName || (hasSmallIconName && !smallIconName_.Equals(other.smallIconName_))) return false;
       if (hasDesc != other.hasDesc || (hasDesc && !desc_.Equals(other.desc_))) return false;
       if (hasGoldConv != other.hasGoldConv || (hasGoldConv && !goldConv_.Equals(other.goldConv_))) return false;
-      if (hasMultiplier != other.hasMultiplier || (hasMultiplier && !multiplier_.Equals(other.multiplier_))) return false;
-      if (hasTimeCost1 != other.hasTimeCost1 || (hasTimeCost1 && !timeCost1_.Equals(other.timeCost1_))) return false;
-      if (hasEleCost1 != other.hasEleCost1 || (hasEleCost1 && !eleCost1_.Equals(other.eleCost1_))) return false;
-      if (hasCostQty1 != other.hasCostQty1 || (hasCostQty1 && !costQty1_.Equals(other.costQty1_))) return false;
-      if (hasResultId1 != other.hasResultId1 || (hasResultId1 && !resultId1_.Equals(other.resultId1_))) return false;
-      if (hasTimeCost2 != other.hasTimeCost2 || (hasTimeCost2 && !timeCost2_.Equals(other.timeCost2_))) return false;
-      if (hasEleCost2 != other.hasEleCost2 || (hasEleCost2 && !eleCost2_.Equals(other.eleCost2_))) return false;
-      if (hasCostQty2 != other.hasCostQty2 || (hasCostQty2 && !costQty2_.Equals(other.costQty2_))) return false;
-      if (hasResultId2 != other.hasResultId2 || (hasResultId2 && !resultId2_.Equals(other.resultId2_))) return false;
       if (hasStorUnit != other.hasStorUnit || (hasStorUnit && !storUnit_.Equals(other.storUnit_))) return false;
       return true;
     }
@@ -628,33 +439,6 @@ namespace com.game.framework.resource.data {
         if (other.HasGoldConv) {
           GoldConv = other.GoldConv;
         }
-        if (other.HasMultiplier) {
-          Multiplier = other.Multiplier;
-        }
-        if (other.HasTimeCost1) {
-          TimeCost1 = other.TimeCost1;
-        }
-        if (other.HasEleCost1) {
-          EleCost1 = other.EleCost1;
-        }
-        if (other.HasCostQty1) {
-          CostQty1 = other.CostQty1;
-        }
-        if (other.HasResultId1) {
-          ResultId1 = other.ResultId1;
-        }
-        if (other.HasTimeCost2) {
-          TimeCost2 = other.TimeCost2;
-        }
-        if (other.HasEleCost2) {
-          EleCost2 = other.EleCost2;
-        }
-        if (other.HasCostQty2) {
-          CostQty2 = other.CostQty2;
-        }
-        if (other.HasResultId2) {
-          ResultId2 = other.ResultId2;
-        }
         if (other.HasStorUnit) {
           StorUnit = other.StorUnit;
         }
@@ -719,42 +503,6 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 64: {
-              result.hasMultiplier = input.ReadInt32(ref result.multiplier_);
-              break;
-            }
-            case 72: {
-              result.hasTimeCost1 = input.ReadInt32(ref result.timeCost1_);
-              break;
-            }
-            case 80: {
-              result.hasEleCost1 = input.ReadInt32(ref result.eleCost1_);
-              break;
-            }
-            case 88: {
-              result.hasCostQty1 = input.ReadInt32(ref result.costQty1_);
-              break;
-            }
-            case 96: {
-              result.hasResultId1 = input.ReadInt32(ref result.resultId1_);
-              break;
-            }
-            case 104: {
-              result.hasTimeCost2 = input.ReadInt32(ref result.timeCost2_);
-              break;
-            }
-            case 112: {
-              result.hasEleCost2 = input.ReadInt32(ref result.eleCost2_);
-              break;
-            }
-            case 120: {
-              result.hasCostQty2 = input.ReadInt32(ref result.costQty2_);
-              break;
-            }
-            case 128: {
-              result.hasResultId2 = input.ReadInt32(ref result.resultId2_);
-              break;
-            }
-            case 136: {
               result.hasStorUnit = input.ReadInt32(ref result.storUnit_);
               break;
             }
@@ -907,186 +655,6 @@ namespace com.game.framework.resource.data {
         PrepareBuilder();
         result.hasGoldConv = false;
         result.goldConv_ = "";
-        return this;
-      }
-      
-      public bool HasMultiplier {
-        get { return result.hasMultiplier; }
-      }
-      public int Multiplier {
-        get { return result.Multiplier; }
-        set { SetMultiplier(value); }
-      }
-      public Builder SetMultiplier(int value) {
-        PrepareBuilder();
-        result.hasMultiplier = true;
-        result.multiplier_ = value;
-        return this;
-      }
-      public Builder ClearMultiplier() {
-        PrepareBuilder();
-        result.hasMultiplier = false;
-        result.multiplier_ = 0;
-        return this;
-      }
-      
-      public bool HasTimeCost1 {
-        get { return result.hasTimeCost1; }
-      }
-      public int TimeCost1 {
-        get { return result.TimeCost1; }
-        set { SetTimeCost1(value); }
-      }
-      public Builder SetTimeCost1(int value) {
-        PrepareBuilder();
-        result.hasTimeCost1 = true;
-        result.timeCost1_ = value;
-        return this;
-      }
-      public Builder ClearTimeCost1() {
-        PrepareBuilder();
-        result.hasTimeCost1 = false;
-        result.timeCost1_ = 0;
-        return this;
-      }
-      
-      public bool HasEleCost1 {
-        get { return result.hasEleCost1; }
-      }
-      public int EleCost1 {
-        get { return result.EleCost1; }
-        set { SetEleCost1(value); }
-      }
-      public Builder SetEleCost1(int value) {
-        PrepareBuilder();
-        result.hasEleCost1 = true;
-        result.eleCost1_ = value;
-        return this;
-      }
-      public Builder ClearEleCost1() {
-        PrepareBuilder();
-        result.hasEleCost1 = false;
-        result.eleCost1_ = 0;
-        return this;
-      }
-      
-      public bool HasCostQty1 {
-        get { return result.hasCostQty1; }
-      }
-      public int CostQty1 {
-        get { return result.CostQty1; }
-        set { SetCostQty1(value); }
-      }
-      public Builder SetCostQty1(int value) {
-        PrepareBuilder();
-        result.hasCostQty1 = true;
-        result.costQty1_ = value;
-        return this;
-      }
-      public Builder ClearCostQty1() {
-        PrepareBuilder();
-        result.hasCostQty1 = false;
-        result.costQty1_ = 0;
-        return this;
-      }
-      
-      public bool HasResultId1 {
-        get { return result.hasResultId1; }
-      }
-      public int ResultId1 {
-        get { return result.ResultId1; }
-        set { SetResultId1(value); }
-      }
-      public Builder SetResultId1(int value) {
-        PrepareBuilder();
-        result.hasResultId1 = true;
-        result.resultId1_ = value;
-        return this;
-      }
-      public Builder ClearResultId1() {
-        PrepareBuilder();
-        result.hasResultId1 = false;
-        result.resultId1_ = 0;
-        return this;
-      }
-      
-      public bool HasTimeCost2 {
-        get { return result.hasTimeCost2; }
-      }
-      public int TimeCost2 {
-        get { return result.TimeCost2; }
-        set { SetTimeCost2(value); }
-      }
-      public Builder SetTimeCost2(int value) {
-        PrepareBuilder();
-        result.hasTimeCost2 = true;
-        result.timeCost2_ = value;
-        return this;
-      }
-      public Builder ClearTimeCost2() {
-        PrepareBuilder();
-        result.hasTimeCost2 = false;
-        result.timeCost2_ = 0;
-        return this;
-      }
-      
-      public bool HasEleCost2 {
-        get { return result.hasEleCost2; }
-      }
-      public int EleCost2 {
-        get { return result.EleCost2; }
-        set { SetEleCost2(value); }
-      }
-      public Builder SetEleCost2(int value) {
-        PrepareBuilder();
-        result.hasEleCost2 = true;
-        result.eleCost2_ = value;
-        return this;
-      }
-      public Builder ClearEleCost2() {
-        PrepareBuilder();
-        result.hasEleCost2 = false;
-        result.eleCost2_ = 0;
-        return this;
-      }
-      
-      public bool HasCostQty2 {
-        get { return result.hasCostQty2; }
-      }
-      public int CostQty2 {
-        get { return result.CostQty2; }
-        set { SetCostQty2(value); }
-      }
-      public Builder SetCostQty2(int value) {
-        PrepareBuilder();
-        result.hasCostQty2 = true;
-        result.costQty2_ = value;
-        return this;
-      }
-      public Builder ClearCostQty2() {
-        PrepareBuilder();
-        result.hasCostQty2 = false;
-        result.costQty2_ = 0;
-        return this;
-      }
-      
-      public bool HasResultId2 {
-        get { return result.hasResultId2; }
-      }
-      public int ResultId2 {
-        get { return result.ResultId2; }
-        set { SetResultId2(value); }
-      }
-      public Builder SetResultId2(int value) {
-        PrepareBuilder();
-        result.hasResultId2 = true;
-        result.resultId2_ = value;
-        return this;
-      }
-      public Builder ClearResultId2() {
-        PrepareBuilder();
-        result.hasResultId2 = false;
-        result.resultId2_ = 0;
         return this;
       }
       

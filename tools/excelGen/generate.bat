@@ -8,8 +8,10 @@ del /s /q .\py\*.*
 
 
 python tool.py BUILDING xls\Core_Sys.xlsm
+python tool.py ITEM_RES xls\Core_Sys.xlsm
 python tool.py PLAYER_LEVEL xls\Core_Sys.xlsm
 python tool.py MANOR_LEVEL xls\Core_Sys.xlsm
+python tool.py ROB_PROPORTIONL xls\Core_Sys.xlsm
 python tool.py PLAYER_ATTR  xls\Core_Sys.xlsm
 python tool.py ZOMBIE_ATTR xls\Core_Sys.xlsm
 python tool.py ARITHMETIC_COEFFICIENT xls\Core_Sys.xlsm

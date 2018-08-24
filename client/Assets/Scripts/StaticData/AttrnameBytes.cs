@@ -28,7 +28,7 @@ namespace com.game.framework.resource.data {
   public sealed partial class ATTRNAME : pb::GeneratedMessageLite<ATTRNAME, ATTRNAME.Builder> {
     private ATTRNAME() { }
     private static readonly ATTRNAME defaultInstance = new ATTRNAME().MakeReadOnly();
-    private static readonly string[] _aTTRNAMEFieldNames = new string[] { "ATTR_name", "key" };
+    private static readonly string[] _aTTRNAMEFieldNames = new string[] { "ATTR_name", "id" };
     private static readonly uint[] _aTTRNAMEFieldTags = new uint[] { 18, 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -51,14 +51,14 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int KeyFieldNumber = 1;
-    private bool hasKey;
-    private string key_ = "";
-    public bool HasKey {
-      get { return hasKey; }
+    public const int IdFieldNumber = 1;
+    private bool hasId;
+    private string id_ = "";
+    public bool HasId {
+      get { return hasId; }
     }
-    public string Key {
-      get { return key_; }
+    public string Id {
+      get { return id_; }
     }
     
     #if UNITY_EDITOR
@@ -79,7 +79,7 @@ namespace com.game.framework.resource.data {
      #endif//
     public override bool IsInitialized {
       get {
-        if (!hasKey) return false;
+        if (!hasId) return false;
         if (!hasATTRName) return false;
         return true;
       }
@@ -91,8 +91,8 @@ namespace com.game.framework.resource.data {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _aTTRNAMEFieldNames;
-      if (hasKey) {
-        output.WriteString(1, field_names[1], Key);
+      if (hasId) {
+        output.WriteString(1, field_names[1], Id);
       }
       if (hasATTRName) {
         output.WriteString(2, field_names[0], ATTRName);
@@ -109,8 +109,8 @@ namespace com.game.framework.resource.data {
         if (size != -1) return size;
         
         size = 0;
-        if (hasKey) {
-          size += pb::CodedOutputStream.ComputeStringSize(1, Key);
+        if (hasId) {
+          size += pb::CodedOutputStream.ComputeStringSize(1, Id);
         }
         if (hasATTRName) {
           size += pb::CodedOutputStream.ComputeStringSize(2, ATTRName);
@@ -123,7 +123,7 @@ namespace com.game.framework.resource.data {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasKey) hash ^= key_.GetHashCode();
+      if (hasId) hash ^= id_.GetHashCode();
       if (hasATTRName) hash ^= aTTRName_.GetHashCode();
       return hash;
     }
@@ -131,7 +131,7 @@ namespace com.game.framework.resource.data {
     public override bool Equals(object obj) {
       ATTRNAME other = obj as ATTRNAME;
       if (other == null) return false;
-      if (hasKey != other.hasKey || (hasKey && !key_.Equals(other.key_))) return false;
+      if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
       if (hasATTRName != other.hasATTRName || (hasATTRName && !aTTRName_.Equals(other.aTTRName_))) return false;
       return true;
     }
@@ -293,8 +293,8 @@ namespace com.game.framework.resource.data {
       public override Builder MergeFrom(ATTRNAME other) {
         if (other == global::com.game.framework.resource.data.ATTRNAME.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasKey) {
-          Key = other.Key;
+        if (other.HasId) {
+          Id = other.Id;
         }
         if (other.HasATTRName) {
           ATTRName = other.ATTRName;
@@ -332,7 +332,7 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 10: {
-              result.hasKey = input.ReadString(ref result.key_);
+              result.hasId = input.ReadString(ref result.id_);
               break;
             }
             case 18: {
@@ -346,24 +346,24 @@ namespace com.game.framework.resource.data {
       }
       
       
-      public bool HasKey {
-        get { return result.hasKey; }
+      public bool HasId {
+        get { return result.hasId; }
       }
-      public string Key {
-        get { return result.Key; }
-        set { SetKey(value); }
+      public string Id {
+        get { return result.Id; }
+        set { SetId(value); }
       }
-      public Builder SetKey(string value) {
+      public Builder SetId(string value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.hasKey = true;
-        result.key_ = value;
+        result.hasId = true;
+        result.id_ = value;
         return this;
       }
-      public Builder ClearKey() {
+      public Builder ClearId() {
         PrepareBuilder();
-        result.hasKey = false;
-        result.key_ = "";
+        result.hasId = false;
+        result.id_ = "";
         return this;
       }
       

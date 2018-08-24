@@ -8,7 +8,7 @@ package com.game.framework.resource.data;
 
 message MANOR_LEVEL{
     /** 庄园等级 */
-    required int32 manor_level = 1 [default = 0];
+    required int32 id = 1 [default = 0];
     /** 庄园实力 */
     optional int32 manor_cap = 2 [default = 0];
 }

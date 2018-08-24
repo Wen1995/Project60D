@@ -13,30 +13,30 @@ public final class AttrnameBytes {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required string key = 1 [default = ""];</code>
+     * <code>required string id = 1 [default = ""];</code>
      *
      * <pre>
      ** key 
      * </pre>
      */
-    boolean hasKey();
+    boolean hasId();
     /**
-     * <code>required string key = 1 [default = ""];</code>
+     * <code>required string id = 1 [default = ""];</code>
      *
      * <pre>
      ** key 
      * </pre>
      */
-    java.lang.String getKey();
+    java.lang.String getId();
     /**
-     * <code>required string key = 1 [default = ""];</code>
+     * <code>required string id = 1 [default = ""];</code>
      *
      * <pre>
      ** key 
      * </pre>
      */
     com.google.protobuf.ByteString
-        getKeyBytes();
+        getIdBytes();
 
     /**
      * <code>required string ATTR_name = 2 [default = ""];</code>
@@ -119,7 +119,7 @@ public final class AttrnameBytes {
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              key_ = bs;
+              id_ = bs;
               break;
             }
             case 18: {
@@ -168,27 +168,27 @@ public final class AttrnameBytes {
     }
 
     private int bitField0_;
-    public static final int KEY_FIELD_NUMBER = 1;
-    private java.lang.Object key_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private java.lang.Object id_;
     /**
-     * <code>required string key = 1 [default = ""];</code>
+     * <code>required string id = 1 [default = ""];</code>
      *
      * <pre>
      ** key 
      * </pre>
      */
-    public boolean hasKey() {
+    public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string key = 1 [default = ""];</code>
+     * <code>required string id = 1 [default = ""];</code>
      *
      * <pre>
      ** key 
      * </pre>
      */
-    public java.lang.String getKey() {
-      java.lang.Object ref = key_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -196,26 +196,26 @@ public final class AttrnameBytes {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          key_ = s;
+          id_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>required string key = 1 [default = ""];</code>
+     * <code>required string id = 1 [default = ""];</code>
      *
      * <pre>
      ** key 
      * </pre>
      */
     public com.google.protobuf.ByteString
-        getKeyBytes() {
-      java.lang.Object ref = key_;
+        getIdBytes() {
+      java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        key_ = b;
+        id_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -277,7 +277,7 @@ public final class AttrnameBytes {
     }
 
     private void initFields() {
-      key_ = "";
+      id_ = "";
       aTTRName_ = "";
     }
     private byte memoizedIsInitialized = -1;
@@ -286,7 +286,7 @@ public final class AttrnameBytes {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasKey()) {
+      if (!hasId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -302,7 +302,7 @@ public final class AttrnameBytes {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getKeyBytes());
+        output.writeBytes(1, getIdBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, getATTRNameBytes());
@@ -318,7 +318,7 @@ public final class AttrnameBytes {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getKeyBytes());
+          .computeBytesSize(1, getIdBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -441,7 +441,7 @@ public final class AttrnameBytes {
 
       public Builder clear() {
         super.clear();
-        key_ = "";
+        id_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         aTTRName_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -476,7 +476,7 @@ public final class AttrnameBytes {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.key_ = key_;
+        result.id_ = id_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -497,9 +497,9 @@ public final class AttrnameBytes {
 
       public Builder mergeFrom(com.game.framework.resource.data.AttrnameBytes.ATTRNAME other) {
         if (other == com.game.framework.resource.data.AttrnameBytes.ATTRNAME.getDefaultInstance()) return this;
-        if (other.hasKey()) {
+        if (other.hasId()) {
           bitField0_ |= 0x00000001;
-          key_ = other.key_;
+          id_ = other.id_;
           onChanged();
         }
         if (other.hasATTRName()) {
@@ -512,7 +512,7 @@ public final class AttrnameBytes {
       }
 
       public final boolean isInitialized() {
-        if (!hasKey()) {
+        if (!hasId()) {
           
           return false;
         }
@@ -542,32 +542,32 @@ public final class AttrnameBytes {
       }
       private int bitField0_;
 
-      private java.lang.Object key_ = "";
+      private java.lang.Object id_ = "";
       /**
-       * <code>required string key = 1 [default = ""];</code>
+       * <code>required string id = 1 [default = ""];</code>
        *
        * <pre>
        ** key 
        * </pre>
        */
-      public boolean hasKey() {
+      public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string key = 1 [default = ""];</code>
+       * <code>required string id = 1 [default = ""];</code>
        *
        * <pre>
        ** key 
        * </pre>
        */
-      public java.lang.String getKey() {
-        java.lang.Object ref = key_;
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            key_ = s;
+            id_ = s;
           }
           return s;
         } else {
@@ -575,69 +575,69 @@ public final class AttrnameBytes {
         }
       }
       /**
-       * <code>required string key = 1 [default = ""];</code>
+       * <code>required string id = 1 [default = ""];</code>
        *
        * <pre>
        ** key 
        * </pre>
        */
       public com.google.protobuf.ByteString
-          getKeyBytes() {
-        java.lang.Object ref = key_;
+          getIdBytes() {
+        java.lang.Object ref = id_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          key_ = b;
+          id_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>required string key = 1 [default = ""];</code>
+       * <code>required string id = 1 [default = ""];</code>
        *
        * <pre>
        ** key 
        * </pre>
        */
-      public Builder setKey(
+      public Builder setId(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        key_ = value;
+        id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string key = 1 [default = ""];</code>
+       * <code>required string id = 1 [default = ""];</code>
        *
        * <pre>
        ** key 
        * </pre>
        */
-      public Builder clearKey() {
+      public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        key_ = getDefaultInstance().getKey();
+        id_ = getDefaultInstance().getId();
         onChanged();
         return this;
       }
       /**
-       * <code>required string key = 1 [default = ""];</code>
+       * <code>required string id = 1 [default = ""];</code>
        *
        * <pre>
        ** key 
        * </pre>
        */
-      public Builder setKeyBytes(
+      public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        key_ = value;
+        id_ = value;
         onChanged();
         return this;
       }
@@ -1461,10 +1461,10 @@ public final class AttrnameBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\032proto/attrname_bytes.proto\022 com.game.f" +
-      "ramework.resource.data\".\n\010ATTRNAME\022\r\n\003ke" +
-      "y\030\001 \002(\t:\000\022\023\n\tATTR_name\030\002 \002(\t:\000\"K\n\016ATTRNA" +
-      "ME_ARRAY\0229\n\005items\030\001 \003(\0132*.com.game.frame" +
-      "work.resource.data.ATTRNAME"
+      "ramework.resource.data\"-\n\010ATTRNAME\022\014\n\002id" +
+      "\030\001 \002(\t:\000\022\023\n\tATTR_name\030\002 \002(\t:\000\"K\n\016ATTRNAM" +
+      "E_ARRAY\0229\n\005items\030\001 \003(\0132*.com.game.framew" +
+      "ork.resource.data.ATTRNAME"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1483,7 +1483,7 @@ public final class AttrnameBytes {
     internal_static_com_game_framework_resource_data_ATTRNAME_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_ATTRNAME_descriptor,
-        new java.lang.String[] { "Key", "ATTRName", });
+        new java.lang.String[] { "Id", "ATTRName", });
     internal_static_com_game_framework_resource_data_ATTRNAME_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_ATTRNAME_ARRAY_fieldAccessorTable = new

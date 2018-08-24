@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class PLAYER_LEVEL : pb::GeneratedMessageLite<PLAYER_LEVEL, PLAYER_LEVEL.Builder> {
     private PLAYER_LEVEL() { }
     private static readonly PLAYER_LEVEL defaultInstance = new PLAYER_LEVEL().MakeReadOnly();
-    private static readonly string[] _pLAYERLEVELFieldNames = new string[] { "player_cap", "player_level" };
-    private static readonly uint[] _pLAYERLEVELFieldTags = new uint[] { 16, 8 };
+    private static readonly string[] _pLAYERLEVELFieldNames = new string[] { "id", "player_cap" };
+    private static readonly uint[] _pLAYERLEVELFieldTags = new uint[] { 8, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -51,14 +51,14 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int PlayerLevelFieldNumber = 1;
-    private bool hasPlayerLevel;
-    private int playerLevel_;
-    public bool HasPlayerLevel {
-      get { return hasPlayerLevel; }
+    public const int IdFieldNumber = 1;
+    private bool hasId;
+    private int id_;
+    public bool HasId {
+      get { return hasId; }
     }
-    public int PlayerLevel {
-      get { return playerLevel_; }
+    public int Id {
+      get { return id_; }
     }
     
     #if UNITY_EDITOR
@@ -89,11 +89,11 @@ namespace com.game.framework.resource.data {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _pLAYERLEVELFieldNames;
-      if (hasPlayerLevel) {
-        output.WriteInt32(1, field_names[1], PlayerLevel);
+      if (hasId) {
+        output.WriteInt32(1, field_names[0], Id);
       }
       if (hasPlayerCap) {
-        output.WriteInt32(2, field_names[0], PlayerCap);
+        output.WriteInt32(2, field_names[1], PlayerCap);
       }
     }
     
@@ -107,8 +107,8 @@ namespace com.game.framework.resource.data {
         if (size != -1) return size;
         
         size = 0;
-        if (hasPlayerLevel) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, PlayerLevel);
+        if (hasId) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
         }
         if (hasPlayerCap) {
           size += pb::CodedOutputStream.ComputeInt32Size(2, PlayerCap);
@@ -121,7 +121,7 @@ namespace com.game.framework.resource.data {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasPlayerLevel) hash ^= playerLevel_.GetHashCode();
+      if (hasId) hash ^= id_.GetHashCode();
       if (hasPlayerCap) hash ^= playerCap_.GetHashCode();
       return hash;
     }
@@ -129,7 +129,7 @@ namespace com.game.framework.resource.data {
     public override bool Equals(object obj) {
       PLAYER_LEVEL other = obj as PLAYER_LEVEL;
       if (other == null) return false;
-      if (hasPlayerLevel != other.hasPlayerLevel || (hasPlayerLevel && !playerLevel_.Equals(other.playerLevel_))) return false;
+      if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
       if (hasPlayerCap != other.hasPlayerCap || (hasPlayerCap && !playerCap_.Equals(other.playerCap_))) return false;
       return true;
     }
@@ -291,8 +291,8 @@ namespace com.game.framework.resource.data {
       public override Builder MergeFrom(PLAYER_LEVEL other) {
         if (other == global::com.game.framework.resource.data.PLAYER_LEVEL.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasPlayerLevel) {
-          PlayerLevel = other.PlayerLevel;
+        if (other.HasId) {
+          Id = other.Id;
         }
         if (other.HasPlayerCap) {
           PlayerCap = other.PlayerCap;
@@ -330,7 +330,7 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 8: {
-              result.hasPlayerLevel = input.ReadInt32(ref result.playerLevel_);
+              result.hasId = input.ReadInt32(ref result.id_);
               break;
             }
             case 16: {
@@ -344,23 +344,23 @@ namespace com.game.framework.resource.data {
       }
       
       
-      public bool HasPlayerLevel {
-        get { return result.hasPlayerLevel; }
+      public bool HasId {
+        get { return result.hasId; }
       }
-      public int PlayerLevel {
-        get { return result.PlayerLevel; }
-        set { SetPlayerLevel(value); }
+      public int Id {
+        get { return result.Id; }
+        set { SetId(value); }
       }
-      public Builder SetPlayerLevel(int value) {
+      public Builder SetId(int value) {
         PrepareBuilder();
-        result.hasPlayerLevel = true;
-        result.playerLevel_ = value;
+        result.hasId = true;
+        result.id_ = value;
         return this;
       }
-      public Builder ClearPlayerLevel() {
+      public Builder ClearId() {
         PrepareBuilder();
-        result.hasPlayerLevel = false;
-        result.playerLevel_ = 0;
+        result.hasId = false;
+        result.id_ = 0;
         return this;
       }
       

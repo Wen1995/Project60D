@@ -10,6 +10,7 @@ import com.game.framework.utils.ExternalStorageUtil;
 import com.game.framework.utils.ReadOnlyMap;
 import com.game.framework.utils.StringUtil;
 import com.google.common.base.CaseFormat;
+import com.game.framework.resource.data.ArithmeticCoefficientBytes.ARITHMETIC_COEFFICIENT;
 import com.game.framework.resource.data.BuildingBytes.BUILDING;
 import com.game.framework.resource.data.CangkuBytes.CANGKU;
 import com.game.framework.resource.data.DamenBytes.DAMEN;
@@ -22,10 +23,14 @@ import com.game.framework.resource.data.JianshenfangBytes.JIANSHENFANG;
 import com.game.framework.resource.data.JingBytes.JING;
 import com.game.framework.resource.data.JsfadianzhanBytes.JSFADIANZHAN;
 import com.game.framework.resource.data.KuangquanshuiBytes.KUANGQUANSHUI;
+import com.game.framework.resource.data.LeidaBytes.LEIDA;
 import com.game.framework.resource.data.LiangangBytes.LIANGANG;
 import com.game.framework.resource.data.LianyouBytes.LIANYOU;
 import com.game.framework.resource.data.LushuiBytes.LUSHUI;
+import com.game.framework.resource.data.ManorLevelBytes.MANOR_LEVEL;
 import com.game.framework.resource.data.MucaijiagongBytes.MUCAIJIAGONG;
+import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
+import com.game.framework.resource.data.PlayerLevelBytes.PLAYER_LEVEL;
 import com.game.framework.resource.data.QiangBytes.QIANG;
 import com.game.framework.resource.data.ShucaiBytes.SHUCAI;
 import com.game.framework.resource.data.ShuiguoBytes.SHUIGUO;
@@ -34,6 +39,7 @@ import com.game.framework.resource.data.SongshuBytes.SONGSHU;
 import com.game.framework.resource.data.TaiyangnengBytes.TAIYANGNENG;
 import com.game.framework.resource.data.WuxiandianBytes.WUXIANDIAN;
 import com.game.framework.resource.data.ZhujuanBytes.ZHUJUAN;
+import com.game.framework.resource.data.ZombieAttrBytes.ZOMBIE_ATTR;
 
 public class StaticDataManager {
 	private static Logger logger = LoggerFactory.getLogger(StaticDataManager.class);
@@ -52,6 +58,7 @@ public class StaticDataManager {
 
     private static final String DIR = "config/data/";
 
+	public ReadOnlyMap<Integer, ARITHMETIC_COEFFICIENT> arithmeticCoefficientMap;
 	public ReadOnlyMap<Integer, BUILDING> buildingMap;
 	public ReadOnlyMap<Integer, CANGKU> cangkuMap;
 	public ReadOnlyMap<Integer, DAMEN> damenMap;
@@ -64,10 +71,14 @@ public class StaticDataManager {
 	public ReadOnlyMap<Integer, JING> jingMap;
 	public ReadOnlyMap<Integer, JSFADIANZHAN> jsfadianzhanMap;
 	public ReadOnlyMap<Integer, KUANGQUANSHUI> kuangquanshuiMap;
+	public ReadOnlyMap<Integer, LEIDA> leidaMap;
 	public ReadOnlyMap<Integer, LIANGANG> liangangMap;
 	public ReadOnlyMap<Integer, LIANYOU> lianyouMap;
 	public ReadOnlyMap<Integer, LUSHUI> lushuiMap;
+	public ReadOnlyMap<Integer, MANOR_LEVEL> manorLevelMap;
 	public ReadOnlyMap<Integer, MUCAIJIAGONG> mucaijiagongMap;
+	public ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap;
+	public ReadOnlyMap<Integer, PLAYER_LEVEL> playerLevelMap;
 	public ReadOnlyMap<Integer, QIANG> qiangMap;
 	public ReadOnlyMap<Integer, SHUCAI> shucaiMap;
 	public ReadOnlyMap<Integer, SHUIGUO> shuiguoMap;
@@ -76,9 +87,11 @@ public class StaticDataManager {
 	public ReadOnlyMap<Integer, TAIYANGNENG> taiyangnengMap;
 	public ReadOnlyMap<Integer, WUXIANDIAN> wuxiandianMap;
 	public ReadOnlyMap<Integer, ZHUJUAN> zhujuanMap;
+	public ReadOnlyMap<Integer, ZOMBIE_ATTR> zombieAttrMap;
 
 	public void init() {
-	    buildingMap = load(BUILDING.class);
+	    arithmeticCoefficientMap = load(ARITHMETIC_COEFFICIENT.class);
+        buildingMap = load(BUILDING.class);
         cangkuMap = load(CANGKU.class);
         damenMap = load(DAMEN.class);
         damiMap = load(DAMI.class);
@@ -90,10 +103,14 @@ public class StaticDataManager {
         jingMap = load(JING.class);
         jsfadianzhanMap = load(JSFADIANZHAN.class);
         kuangquanshuiMap = load(KUANGQUANSHUI.class);
+        leidaMap = load(LEIDA.class);
         liangangMap = load(LIANGANG.class);
         lianyouMap = load(LIANYOU.class);
         lushuiMap = load(LUSHUI.class);
+        manorLevelMap = load(MANOR_LEVEL.class);
         mucaijiagongMap = load(MUCAIJIAGONG.class);
+        playerAttrMap = load(PLAYER_ATTR.class);
+        playerLevelMap = load(PLAYER_LEVEL.class);
         qiangMap = load(QIANG.class);
         shucaiMap = load(SHUCAI.class);
         shuiguoMap = load(SHUIGUO.class);
@@ -102,6 +119,7 @@ public class StaticDataManager {
         taiyangnengMap = load(TAIYANGNENG.class);
         wuxiandianMap = load(WUXIANDIAN.class);
         zhujuanMap = load(ZHUJUAN.class);
+        zombieAttrMap = load(ZOMBIE_ATTR.class);
     }
 
     @SuppressWarnings("unchecked")

@@ -388,7 +388,7 @@ public class SanctuaryPackage : ModelBase {
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("SILIAO");
                 SILIAO data = dataMap[level] as SILIAO;
-                dataList.Add(new BuildingAttributeData("加工速度", data.SiliaoSpdCoeff));
+                dataList.Add(new BuildingAttributeData("加工速度", data.SiliaoSpd));
                 dataList.Add(new BuildingAttributeData("最大加工量", data.SiliaoCap));
                 break;
             }

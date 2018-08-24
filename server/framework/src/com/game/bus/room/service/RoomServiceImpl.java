@@ -1,5 +1,6 @@
 package com.game.bus.room.service;
 
+import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,10 @@ import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Database.UpgradeInfo;
 import com.game.framework.protocol.Room.TSCApplyGroup;
 import com.game.framework.protocol.Room.TSCCreateGroup;
+import com.game.framework.resource.StaticDataManager;
+import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.game.framework.utils.BuildingUtil;
+import com.game.framework.utils.ReadOnlyMap;
 
 @Service
 public class RoomServiceImpl implements RoomService {
@@ -43,6 +47,8 @@ public class RoomServiceImpl implements RoomService {
         
         User user = userDao.get(uid);
         user.setGroupId(id);
+        
+        initUserState(user);
         userDao.bindWithGroupId(uid, id);
         userDao.update(user);
         
@@ -87,6 +93,8 @@ public class RoomServiceImpl implements RoomService {
                 
                 User user = userDao.get(uid);
                 user.setGroupId(groupId);
+                
+                initUserState(user);
                 userDao.bindWithGroupId(uid, groupId);
                 userDao.update(user);
                 
@@ -129,6 +137,26 @@ public class RoomServiceImpl implements RoomService {
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());
         return resp;
+    }
+    
+    private void initUserState(User user) {
+        ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap = StaticDataManager.GetInstance().playerAttrMap;
+        user.setBlood(playerAttrMap.get(11010001).getBeginNum());
+        user.setFood(playerAttrMap.get(11020001).getBeginNum());
+        user.setWater(playerAttrMap.get(11030001).getBeginNum());
+        user.setHealth(playerAttrMap.get(10010001).getBeginNum());
+        user.setMood(playerAttrMap.get(10020001).getBeginNum());
+        PLAYER_ATTR attackAttr = playerAttrMap.get(12010001);
+        user.setAttack(attackAttr.getBeginNum() + user.getHealth()*100/attackAttr.getAttrK1());
+        PLAYER_ATTR defenseAttr = playerAttrMap.get(12020001);
+        user.setDefense(defenseAttr.getBeginNum() + user.getHealth()*100/defenseAttr.getAttrK1());
+        PLAYER_ATTR agileAttr = playerAttrMap.get(12030001);
+        user.setAgile(agileAttr.getBeginNum() + user.getHealth()*100/agileAttr.getAttrK1() + user.getMood()*100/agileAttr.getAttrK2());
+        PLAYER_ATTR speedAtrr = playerAttrMap.get(12040001);
+        user.setSpeed(speedAtrr.getBeginNum() + user.getHealth()*100/speedAtrr.getAttrK1());
+        PLAYER_ATTR intellectAttr = playerAttrMap.get(12050001);
+        user.setIntellect(intellectAttr.getBeginNum() + user.getMood()*100/intellectAttr.getAttrK1());
+        user.setLogoutTime(new Date(System.currentTimeMillis()));
     }
 
 }

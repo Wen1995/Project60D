@@ -37,8 +37,15 @@ public class UIBuildingInteractionPanel : PanelBase{
     public override void OpenPanel()
     {
         base.OpenPanel();
+        SendEvent("HideMenu");
         selectBuilding = sanctuaryPackage.GetSelectionBuilding();
         InitView();
+    }
+
+    public override void ClosePanel()
+    {
+        base.ClosePanel();
+        SendEvent("ShowMenu");
     }
 
     void InitView()
@@ -49,8 +56,6 @@ public class UIBuildingInteractionPanel : PanelBase{
         BuildingFunc funcType = BuildingFunc.Collect;
         if(info != null)
             funcType = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
-        print(info.configID);
-        print(funcType.ToString());
         switch (selectBuilding.State)
         {
             case (BuildingState.Locked):
@@ -121,10 +126,20 @@ public class UIBuildingInteractionPanel : PanelBase{
 
     void OnUpgrade()
     {
-        FacadeSingleton.Instance.BackPanel();
         NDictionary args = new NDictionary();
-        args.Add("buildingID", selectBuilding.BuildingID);
-        FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, args);
+        NBuildingInfo buildingInfo = sanctuaryPackage.GetBuildingInfo(selectBuilding.BuildingID);
+        args.Add("configID", buildingInfo.configID);
+        List<NItemInfo> costInfoList = FacadeSingleton.Instance.InvokeService("GetBuildingUpgradeCost", ConstVal.Service_Sanctuary, args) as List<NItemInfo>;
+        FacadeSingleton.Instance.OverlayerPanel("UICostResPanel");
+        args.Clear();
+        args.Add("infolist", costInfoList);
+        args.Add("callback", new EventDelegate(()=>{
+            FacadeSingleton.Instance.BackPanel();
+            NDictionary data = new NDictionary();
+            args.Add("buildingID", selectBuilding.BuildingID);
+            FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, args);
+        }));
+        FacadeSingleton.Instance.SendEvent("OpenCostRes", args);
     }
 
     void OnUnlock()

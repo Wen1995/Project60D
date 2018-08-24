@@ -19,13 +19,13 @@ public class StoreListCellItem : NListCellItem {
 	public override void DrawCell(int i, int index, int count = 0)
 	{
 		base.DrawCell(i, index, count);
-		// int dataCount = mIndex;
-		// List<NItemInfo> itemInfoList = itemPackage.GetItemInfoList();
-		// NItemInfo info = itemInfoList[dataCount];
-		// var itemDataMap = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
-		// ITEM_RES itemConfigData = itemDataMap[info.configID] as ITEM_RES;
-		// nameLabel.text = itemConfigData.MinName;
-		// numLabel.text = info.number.ToString();
+		int dataCount = mIndex;
+		List<NItemInfo> itemInfoList = itemPackage.GetItemFilterInfoList();
+		NItemInfo info = itemInfoList[dataCount];
+		var itemDataMap = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
+		ITEM_RES itemConfigData = itemDataMap[info.configID] as ITEM_RES;
+		nameLabel.text = itemConfigData.MinName;
+		numLabel.text = info.number.ToString();
 	}
 
 	void OnClick()

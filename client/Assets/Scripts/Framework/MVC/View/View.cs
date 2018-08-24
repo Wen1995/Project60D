@@ -44,6 +44,11 @@ public class View {
     {
         mUIContainer.CloseUtilityPanel(name);
     }
+    
+    public PanelBase RetrievePanel(string name)
+    {
+        return mUIContainer.RetrievePanel(name);
+    }
 
     public void Clear()
     {

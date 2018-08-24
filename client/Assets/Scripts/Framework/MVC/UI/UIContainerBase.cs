@@ -106,6 +106,16 @@ public class UIContainerBase : MonoBehaviour {
         ClosePanelByName(panel.PanelName);
     }
 
+    public PanelBase RetrievePanel(string name)
+    {
+        if(!mPanelMap.ContainsKey(name))
+        {
+            Debug.Log(string.Format("panel name={0} not exist", name));
+            return null;
+        }
+        return mPanelMap[name];
+    }
+
     #endregion
 
     #region UI Management
@@ -137,7 +147,7 @@ public class UIContainerBase : MonoBehaviour {
                 }
             case PanelRunMode.Back:
                 {
-                    PanelBase panel = GetTopPanelData();
+                    PanelBase panel = GetTopPanelData();;
                     if (panel)
                     {
                         ClosePanelByName(panel.PanelName);

@@ -32,12 +32,12 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UIManorMenuPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Top);
         FacadeSingleton.Instance.RegisterUIPanel("UIFuncMenuPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Bottom);
         FacadeSingleton.Instance.RegisterUIPanel("UIPlayerInfoPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UICostResPanel", "Prefabs/UI/Common", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UIExploreMapPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
-        //register package
-        FacadeSingleton.Instance.RegisterData(ConstVal.Package_Sanctuary, typeof(SanctuaryPackage));
-        FacadeSingleton.Instance.RegisterData(ConstVal.Package_Item, typeof(ItemPackage));
+        
         //register event
         RegisterEvent("SelectBuilding", OnSelectBuilding);
         //bind event
@@ -50,6 +50,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.PROCESS, OnCraft);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.INTERRUPTPROCESS, OnCancelCraft);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETRESOURCEINFO, OnGetResourceInfo);
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETUSERSTATE, OnGetUserState);
 
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
@@ -109,9 +110,21 @@ public class SSanctuaryController : SceneController
     {
         //print("Get Resource Info, item Count=");
         TSCGetResourceInfo resInfos = TSCGetResourceInfo.ParseFrom(msg.mBtsData);
-        for(int i=0;i<resInfos.MyResourceInfosCount;i++)
-            itemPackage.AddItem(resInfos.GetMyResourceInfos(i));
+
+        for(int i=0;i<resInfos.ResourceInfosCount;i++)
+            itemPackage.AddItem(resInfos.GetResourceInfos(i));
+        FacadeSingleton.Instance.InvokeService("RPCGetUserState", ConstVal.Service_Sanctuary);
         BuildSanctuary();
+    }
+
+    void OnGetUserState(NetMsgDef msg)
+    {
+        print("get user state");
+        TSCGetUserState userState = TSCGetUserState.ParseFrom(msg.mBtsData);
+        userPackage.SetPlayerState(userState);
+        print(userState.Blood);
+        print(userState.Health);
+        SendEvent("RefreshUserState");
     }
 
     void OnBuildingUnlock(NetMsgDef msg)

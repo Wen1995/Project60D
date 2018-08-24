@@ -127,6 +127,11 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
     {
         mView.CloseUtilityPanel(name);
     }
+
+    public PanelBase RetrievePanel(string name)
+    {
+        return mView.RetrievePanel(name);
+    }
     #endregion
 
     #region Scene

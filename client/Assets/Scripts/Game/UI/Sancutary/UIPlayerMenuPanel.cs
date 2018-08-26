@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIPlayerMenuPanel : PanelBase {
 
 	UserPackage userPackage = null;
+	ItemPackage itemPackage = null;
 	UILabel coinLabel = null;
 	UILabel resLabel = null;
 	UILabel elecLabel = null;
@@ -27,6 +28,7 @@ public class UIPlayerMenuPanel : PanelBase {
 		thirstProgressBar = transform.Find("status/thirst").GetComponent<UIProgressBar>();
 		expProgressBar = transform.Find("player/exp").GetComponent<UIProgressBar>();
 		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
 		//bind event
 		UIButton button = transform.Find("player").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnPlayerInfo));
@@ -53,9 +55,9 @@ public class UIPlayerMenuPanel : PanelBase {
 	{
 		PlayerState playerState = userPackage.GetPlayerState();
 		if(playerState == null) return;
-		coinLabel.text = "0";
-		resLabel.text = "0";
-		elecLabel.text = "0";
+		coinLabel.text = itemPackage.GetGoldNumber().ToString();
+		resLabel.text = itemPackage.GetResourceTotolNumber().ToString();
+		elecLabel.text = itemPackage.GetElecNumber().ToString();
 		taskLabel.text = "空闲";
 		healthProgressBar.value = (float)20 / (float)(20 + 2 * playerState.health);
 		hungerProgressBar.value = (float)playerState.hunger / (float)(20 + 2 * playerState.health);

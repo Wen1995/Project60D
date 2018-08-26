@@ -28,6 +28,10 @@ public class CameraController : MonoBehaviour {
     private GameObject hitGo;
     private int layerMask;
 
+    Vector2 oldTouchPos0;
+    Vector2 oldTouchPos1;
+
+
     private void Awake()
     {
         cameraOrigin = transform.position;
@@ -39,7 +43,7 @@ public class CameraController : MonoBehaviour {
         isOverUI = UICamera.isOverUI;
 
         #if UNITY_ANDROID || UNITY_IOS
-            ProcessMouse();
+            ProcessTouch();
         #else
             ProcessMouse();
         #endif
@@ -87,6 +91,56 @@ public class CameraController : MonoBehaviour {
     void ProcessTouch()
     {
         if(isOverUI) return;
+        if (Input.GetMouseButtonDown(0))
+        {
+            mouseOrigin = Input.mousePosition;
+            isPress = true;
+            OnClickDown();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            OnClickUp();
+            ClearState();
+        }
+
+        if (isPress)
+        {
+            Vector3 diff = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
+            if (diff.x != 0 || diff.y != 0)
+            {
+                if(!isDragging) isDragging = true;
+                CameraDragging(diff);
+            }
+        }
+        
+        if(Input.touchCount > 1)
+        {
+            if(Input.GetTouch(0).phase ==  TouchPhase.Moved || Input.GetTouch(1).phase == TouchPhase.Moved)
+            {
+                var touchPos0 = Input.GetTouch(0).position;
+                var touchPos1 = Input.GetTouch(1).position;
+                if(IsEnlarge(oldTouchPos0, oldTouchPos1, touchPos0, touchPos1))
+                {
+                    CameraZomming(0.1f);
+                }
+                else
+                {
+                    CameraZomming(-0.1f);
+                }
+            }
+        }
+    }
+
+    bool IsEnlarge(Vector2 oldPos0, Vector2 oldPos1, Vector2 newPos0, Vector2 newPos1)
+    {
+        float oldLen = (oldPos0.x - oldPos1.x) * (oldPos0.x - oldPos1.x) + (oldPos0.y - oldPos1.y) * (oldPos0.y - oldPos1.y);
+        float newLen = (newPos0.x - newPos1.x) * (newPos0.x - newPos1.x) + (newPos0.y - newPos1.y) * (newPos0.y - newPos1.y);
+
+        if(newLen > oldLen)
+            return true;
+        else
+            return false;
     }
 
     void ClearState()

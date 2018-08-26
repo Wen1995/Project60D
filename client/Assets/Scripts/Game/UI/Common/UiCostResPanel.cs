@@ -29,6 +29,7 @@ public class UICostResPanel : PanelBase {
 	void InitView()
 	{
 		tableView.DataCount = costResInfoList.Count;
+		print("DataCount = " + costResInfoList.Count);
 		tableView.TableChange();
 	}
 	void OpenCostRes(NDictionary data = null)

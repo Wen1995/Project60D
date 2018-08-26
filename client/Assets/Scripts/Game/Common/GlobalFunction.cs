@@ -27,7 +27,7 @@ public static class GlobalFunction {
 
     public static bool GetRemainTime(long finishTime, out long remainTime)
     {
-        long curTime = GetTimeStamp() + DeltaTime;
+        long curTime = GetTimeStamp() - DeltaTime;
         if(finishTime <= 0 || finishTime <= curTime)
         {
             remainTime = 0;

@@ -40,6 +40,9 @@ public class UIPlayerInfoPanel : PanelBase {
 		healthLabel = transform.Find("property/panel/grid/health/value").GetComponent<UILabel>();
 		moodLabel = transform.Find("property/panel/grid/mood/value").GetComponent<UILabel>();
 		loadLabel = transform.Find("property/panel/grid/load/value").GetComponent<UILabel>();
+		resLabel = transform.Find("playerinfo/res/resouce/label").GetComponent<UILabel>();
+		moneyLabel = transform.Find("playerinfo/res/money/label").GetComponent<UILabel>();
+		elecLabel = transform.Find("playerinfo/res/elec/label").GetComponent<UILabel>();
 		//equip
 		//item
 		tableView = transform.Find("store/itemview/tableview").GetComponent<NTableView>();
@@ -48,6 +51,7 @@ public class UIPlayerInfoPanel : PanelBase {
 		button.onClick.Add(new EventDelegate(Close));
 		
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
+		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 	}
 
 	public  override void OpenPanel()
@@ -92,7 +96,7 @@ public class UIPlayerInfoPanel : PanelBase {
 
 	void InitStoreHouse()
 	{
-		uint sortMask = (uint)ItemSortType.Food | (uint)ItemSortType.Product;
+		uint sortMask = (uint)ItemSortType.Food;
 		itemPackage.SortItemFilterInfoList(sortMask);
 		tableView.DataCount = itemPackage.GetItemFilterInfoList().Count;
 		print("datacount = " + tableView.DataCount);

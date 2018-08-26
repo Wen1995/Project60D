@@ -36,13 +36,13 @@ public class UILoginPanel : PanelBase {
 
     void OnLoginSuccussed(NetMsgDef msg)
     {
-        NetSingleton.Instance.StartHeartBeat();
         userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
         PlayerPrefs.SetString("username", userName.value);
         TSCLogin login = TSCLogin.ParseFrom(msg.mBtsData);
         print("login successed , userid = " + login.Uid);
         userPackage.SetUserID(login.Uid);
         GlobalFunction.GetTimeDelta(login.SystemCurrentTime);
+        NetSingleton.Instance.StartHeartBeat();
         //check if need to create or join a sanctuary
         if(login.GroupId == 0)
         {

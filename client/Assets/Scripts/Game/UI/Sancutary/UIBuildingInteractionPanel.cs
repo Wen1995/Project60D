@@ -156,12 +156,10 @@ public class UIBuildingInteractionPanel : PanelBase{
             FacadeSingleton.Instance.BackPanel();
             NDictionary data = new NDictionary();
             data.Add("configID", newConfigID);
-            FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, args);
+            FacadeSingleton.Instance.InvokeService("RPCUnlockBuilding", ConstVal.Service_Sanctuary, data);
+            print(string.Format("unlock building type={0}, config={1}", selectBuilding.buildingType, newConfigID));
         }));
-        print(string.Format("unlock building type={0}, config={1}", selectBuilding.buildingType, newConfigID));
-        
-        
-        FacadeSingleton.Instance.InvokeService("RPCUnlockBuilding", ConstVal.Service_Sanctuary, args);
+        FacadeSingleton.Instance.SendEvent("OpenCostRes", args);
     }
 
     void OnCollect()

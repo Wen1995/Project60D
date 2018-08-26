@@ -106,7 +106,7 @@ public class UIBuildingCraftPanel : PanelBase {
 		var itemDataMap = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
 		ITEM_RES itemData = itemDataMap[fromConfigID] as ITEM_RES;
 		fromItemName.text = itemData.MinName;
-		ratio = itemData.CostQty1;
+		ratio = buildingData.ConPro;
 		itemData = itemDataMap[toConfigID] as ITEM_RES;
 		toItemName.text = itemData.MinName;
 

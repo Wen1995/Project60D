@@ -62,6 +62,10 @@ public class SSanctuaryController : SceneController
     {
         //Init all building
         FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
+
+        var buildingMap = ConfigDataStatic.GetConfigDataTable("BUILDING");
+        BUILDING data = buildingMap[111030001] as BUILDING;
+        print(data.BldgName);
     }
 
     /// <summary>
@@ -122,8 +126,6 @@ public class SSanctuaryController : SceneController
         print("get user state");
         TSCGetUserState userState = TSCGetUserState.ParseFrom(msg.mBtsData);
         userPackage.SetPlayerState(userState);
-        print(userState.Blood);
-        print(userState.Health);
         BuildSanctuary();
         //SendEvent("RefreshUserState"); 
     }

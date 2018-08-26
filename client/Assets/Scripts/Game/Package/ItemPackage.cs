@@ -29,6 +29,7 @@ public enum ItemType
     Weapon,
     Chest,
     Pants,
+
     Shoes,
     Book =      301,
     Error =     0x7fffffff,
@@ -79,11 +80,26 @@ public class ItemPackage : ModelBase
         foreach(var pair in mItemInfoMap)
         {
             NItemInfo info = pair.Value;
-            //TODO
-            sum += info.number;
+            ItemType type = GetItemTypeByConfigID(info.configID);
+            if(type == ItemType.Food || type == ItemType.Product)
+                sum += info.number;
         }
         return sum;
     }
+
+    public int GetGoldNumber()
+    {
+        //TODO
+        return 0;
+    }
+
+    public int GetElecNumber()
+    {
+        //TODO
+        return 0;
+    }
+
+    
     #region Acess Data
     public int GetPlayerItemNum(int configID)
     {

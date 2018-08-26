@@ -36,6 +36,7 @@ public class SanctuaryService : ServiceBase {
         int configID = args.Value<int>("configID");
         var builder = TCSUnlock.CreateBuilder();
         builder.ConfigId = configID;
+        Debug.Log(builder.ConfigId);
         TCSUnlock unlock = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.UNLOCK, unlock.ToByteArray());
     }
@@ -120,7 +121,6 @@ public class SanctuaryService : ServiceBase {
     {
         if(args == null) return null;
         int fromConfigID = args.Value<int>("configID");
-        uint TYPE_MASK = args.Value<uint>("mask");
         List<NItemInfo> costInfoList = new List<NItemInfo>();
         var buildingConfigDataMap = ConfigDataStatic.GetConfigDataTable("BUILDING");
         BUILDING buildingConfigData = buildingConfigDataMap[fromConfigID + 1] as BUILDING;

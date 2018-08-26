@@ -18,6 +18,7 @@ public class ResCostListCell : NListCell {
 		int dataIndex = index;
 		UICostResPanel panel = FacadeSingleton.Instance.RetrievePanel("UICostResPanel") as UICostResPanel;
 		List<NItemInfo> costInfoList = panel.GetCostInfoList();
+		if(costInfoList == null) return;
 		NItemInfo info = costInfoList[dataIndex];
 		ItemPackage itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage; 
 		nameLabel.text = itemPackage.GetItemDataByConfigID(info.configID).MinName;

@@ -51,6 +51,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.INTERRUPTPROCESS, OnCancelCraft);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETRESOURCEINFO, OnGetResourceInfo);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETUSERSTATE, OnGetUserState);
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETUSERSTATEREGULAR, OnGetUserStateRegular);
 
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
@@ -114,7 +115,6 @@ public class SSanctuaryController : SceneController
         for(int i=0;i<resInfos.ResourceInfosCount;i++)
             itemPackage.AddItem(resInfos.GetResourceInfos(i));
         FacadeSingleton.Instance.InvokeService("RPCGetUserState", ConstVal.Service_Sanctuary);
-        BuildSanctuary();
     }
 
     void OnGetUserState(NetMsgDef msg)
@@ -124,7 +124,16 @@ public class SSanctuaryController : SceneController
         userPackage.SetPlayerState(userState);
         print(userState.Blood);
         print(userState.Health);
-        SendEvent("RefreshUserState");
+        BuildSanctuary();
+        //SendEvent("RefreshUserState"); 
+    }
+
+    void OnGetUserStateRegular(NetMsgDef msg)
+    {
+        print("User State Refresh");
+        TSCGetUserState userState = TSCGetUserState.ParseFrom(msg.mBtsData);
+        userPackage.SetPlayerState(userState);
+        SendEvent("RefreshUserState"); 
     }
 
     void OnBuildingUnlock(NetMsgDef msg)

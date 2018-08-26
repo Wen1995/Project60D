@@ -23,4 +23,6 @@ public class Constant {
 	
 	public static final double P  = 0.95;
 	
+	public static final int REGULAR_SCHEDULE = 300;
+	
 }

@@ -60,6 +60,12 @@ public class RPCNetwork{
         mTcpClient.BeginConnect(IPAddress.Parse(host), port, new AsyncCallback(OnConnected), null);
     }
 
+    public void CutOff()
+    {
+        mTcpClient.GetStream().Close();
+        mTcpClient.Close();
+    }
+
     void OnConnected(IAsyncResult ar)
     {
         Debug.Log("RPCNetwork Connected");

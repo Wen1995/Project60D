@@ -123,7 +123,7 @@ public class SanctuaryService : ServiceBase {
         uint TYPE_MASK = args.Value<uint>("mask");
         List<NItemInfo> costInfoList = new List<NItemInfo>();
         var buildingConfigDataMap = ConfigDataStatic.GetConfigDataTable("BUILDING");
-        BUILDING buildingConfigData = buildingConfigDataMap[fromConfigID] as BUILDING;
+        BUILDING buildingConfigData = buildingConfigDataMap[fromConfigID + 1] as BUILDING;
         for(int i=0;i<buildingConfigData.CostTableCount;i++)
         {
             var costData = buildingConfigData.GetCostTable(i);

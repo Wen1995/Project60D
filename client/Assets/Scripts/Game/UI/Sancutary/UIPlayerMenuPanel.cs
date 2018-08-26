@@ -57,9 +57,9 @@ public class UIPlayerMenuPanel : PanelBase {
 		resLabel.text = "0";
 		elecLabel.text = "0";
 		taskLabel.text = "空闲";
-		healthProgressBar.value = (float)(playerState.blood / (20 + 2 * playerState.health));
-		hungerProgressBar.value = (float)(playerState.hunger / (20 + 2 * playerState.health));
-		thirstProgressBar.value = (float)(playerState.thirst / (20 + 2 * playerState.health));
+		healthProgressBar.value = (float)20 / (float)(20 + 2 * playerState.health);
+		hungerProgressBar.value = (float)playerState.hunger / (float)(20 + 2 * playerState.health);
+		thirstProgressBar.value = (float)playerState.thirst / (float)(20 + 2 * playerState.health);
 		expProgressBar.value = 0.4f;
 	}
 

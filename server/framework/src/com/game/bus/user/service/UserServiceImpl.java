@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
+import com.game.framework.console.constant.Constant;
 import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.dbcache.dao.IUserDao;
 import com.game.framework.dbcache.model.User;
@@ -14,7 +15,10 @@ import com.game.framework.protocol.User.TSCGetResourceInfo;
 import com.game.framework.protocol.User.TSCGetResourceInfoByConfigId;
 import com.game.framework.protocol.User.TSCGetUserState;
 import com.game.framework.protocol.User.UserResource;
+import com.game.framework.resource.StaticDataManager;
+import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.game.framework.task.TimerManager;
+import com.game.framework.utils.ReadOnlyMap;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -64,18 +68,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public TPacket getUserState(Long uid) throws Exception {
+        ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap = StaticDataManager.GetInstance().playerAttrMap;
         User user = userDao.get(uid);
         int time4FiveMinute =  (int) ((user.getLogoutTime().getTime() - System.currentTimeMillis())/1000/300);
         Integer mood = user.getMood();
         Integer health = user.getHealth();
-        Integer upLine = 20 + 2*health;
+        
+        PLAYER_ATTR bloodAttr = playerAttrMap.get(11010001);
+        Integer bloodUpLine = (bloodAttr.getLimK1() + health*bloodAttr.getLimK2())/100;
+        PLAYER_ATTR foodAttr = playerAttrMap.get(11020001);
+        Integer foodUpLine = (foodAttr.getLimK1() + health*foodAttr.getLimK2())/100;
+        PLAYER_ATTR waterAttr = playerAttrMap.get(11030001);
+        Integer waterUpLine = (waterAttr.getLimK1() + health*waterAttr.getLimK2())/100;
         
         Integer food = user.getFood();
         int foodTime4FiveMinute = time4FiveMinute;
         Integer water = user.getWater();
         int waterTime4FiveMinute = time4FiveMinute;
         
-        int foodChangeRate = mood/200 - 1;
+        int foodChangeRate = mood/foodAttr.getRecK1() - 1;
         if (foodChangeRate < 0) {
             foodChangeRate *= -1;
             foodTime4FiveMinute = food/foodChangeRate;
@@ -87,13 +98,13 @@ public class UserServiceImpl implements UserService {
             }
         } else {
             food += foodChangeRate*time4FiveMinute;
-            if (food > upLine) {
-                food = upLine;
+            if (food > foodUpLine) {
+                food = foodUpLine;
             }
             user.setFood(food);
         }
         
-        int waterChangeRate = mood/200 - 1;
+        int waterChangeRate = mood/waterAttr.getRecK1() - 1;
         if (waterChangeRate < 0) {
             waterChangeRate *= -1;
             waterTime4FiveMinute = water/waterChangeRate;
@@ -105,28 +116,29 @@ public class UserServiceImpl implements UserService {
             }
         } else {
             water += waterChangeRate*time4FiveMinute;
-            if (water > upLine) {
-                water = upLine;
+            if (water > waterUpLine) {
+                water = waterUpLine;
             }
             user.setWater(water);
         }
         
         int bloodTime4FiveMinute = Math.min(foodTime4FiveMinute, waterTime4FiveMinute);
-        int bloodChangeRate = 1 + mood/50;
+        int bloodChangeRate = 1 + mood/bloodAttr.getRecK1();
         Integer blood = user.getBlood() + bloodChangeRate*bloodTime4FiveMinute - 
                 (time4FiveMinute - foodTime4FiveMinute) - 
                 (time4FiveMinute - waterTime4FiveMinute);
-        if (blood > upLine) {
-            blood = upLine;
+        if (blood > bloodUpLine) {
+            blood = bloodUpLine;
         } else if (blood < 0) {
             blood = 0;
         }
         user.setBlood(blood);
         userDao.update(user);
         
-        // 开启定时任务，5分钟执行一次
+        // 开启周期任务
         TCSGetUserStateRegular pp = TCSGetUserStateRegular.newBuilder().build();
-        TimerManager.GetInstance().scheduleAtFixedRate(Cmd.GETUSERSTATEREGULAR_VALUE, pp.toByteArray(), 300, 300);
+        TimerManager.GetInstance().scheduleAtFixedRate(uid, Cmd.GETUSERSTATEREGULAR_VALUE, pp.toByteArray(), 
+                Constant.REGULAR_SCHEDULE, Constant.REGULAR_SCHEDULE);
         
         TSCGetUserState p = TSCGetUserState.newBuilder()
                 .setBlood(user.getBlood())
@@ -148,26 +160,34 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public TPacket getUserStateRegular(Long uid) throws Exception {
+        ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap = StaticDataManager.GetInstance().playerAttrMap;
         User user = userDao.get(uid);
         Integer mood = user.getMood();
         Integer health = user.getHealth();
-        Integer upLine = 20 + 2*health;
+        
+        PLAYER_ATTR bloodAttr = playerAttrMap.get(11010001);
+        Integer bloodUpLine = (bloodAttr.getLimK1() + health*bloodAttr.getLimK2())/100;
+        PLAYER_ATTR foodAttr = playerAttrMap.get(11020001);
+        Integer foodUpLine = (foodAttr.getLimK1() + health*foodAttr.getLimK2())/100;
+        PLAYER_ATTR waterAttr = playerAttrMap.get(11030001);
+        Integer waterUpLine = (waterAttr.getLimK1() + health*waterAttr.getLimK2())/100;
+        
         Integer food = user.getFood();
         Integer water = user.getWater();
         
-        int foodChangeRate = mood/200 - 1;
-        int waterChangeRate = mood/200 - 1;
+        int foodChangeRate = mood/foodAttr.getRecK1() - 1;
+        int waterChangeRate = mood/waterAttr.getRecK1() - 1;
         food += foodChangeRate;
         water += waterChangeRate;
         if (food < 0) {
             food = 0;
-        } else if (food > upLine) {
-            food = upLine;
+        } else if (food > foodUpLine) {
+            food = foodUpLine;
         }
         if (water < 0) {
             water = 0;
-        } else if (water > upLine) {
-            water = upLine;
+        } else if (water > waterUpLine) {
+            water = waterUpLine;
         }
         user.setFood(food);
         user.setWater(water);
@@ -180,8 +200,14 @@ public class UserServiceImpl implements UserService {
             if (water == 0) {
                 blood--;
             }
+            if (blood < 0) {
+                blood = 0;
+            }
         } else {
-            blood += 1 + mood/50;
+            blood += 1 + mood/bloodAttr.getRecK1();
+            if (blood > bloodUpLine ) {
+                blood = bloodUpLine;
+            }
         }
         user.setBlood(blood);
         userDao.update(user);

@@ -136,8 +136,8 @@ public class UIBuildingInteractionPanel : PanelBase{
         args.Add("callback", new EventDelegate(()=>{
             FacadeSingleton.Instance.BackPanel();
             NDictionary data = new NDictionary();
-            args.Add("buildingID", selectBuilding.BuildingID);
-            FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, args);
+            data.Add("buildingID", selectBuilding.BuildingID);
+            FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, data);
         }));
         FacadeSingleton.Instance.SendEvent("OpenCostRes", args);
     }
@@ -146,9 +146,21 @@ public class UIBuildingInteractionPanel : PanelBase{
     {
         FacadeSingleton.Instance.BackPanel();
         int newConfigID = sanctuaryPackage.GetConfigIDByBuildingType(selectBuilding.buildingType);
-        print(string.Format("unlock building type={0}, config={1}", selectBuilding.buildingType, newConfigID));
+        FacadeSingleton.Instance.OverlayerPanel("UICostResPanel");
         NDictionary args = new NDictionary();
         args.Add("configID", newConfigID);
+        List<NItemInfo> costInfoList = FacadeSingleton.Instance.InvokeService("GetBuildingUpgradeCost", ConstVal.Service_Sanctuary, args) as List<NItemInfo>;
+        args.Clear();
+        args.Add("infolist", costInfoList);
+        args.Add("callback", new EventDelegate(()=>{
+            FacadeSingleton.Instance.BackPanel();
+            NDictionary data = new NDictionary();
+            data.Add("configID", newConfigID);
+            FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, args);
+        }));
+        print(string.Format("unlock building type={0}, config={1}", selectBuilding.buildingType, newConfigID));
+        
+        
         FacadeSingleton.Instance.InvokeService("RPCUnlockBuilding", ConstVal.Service_Sanctuary, args);
     }
 

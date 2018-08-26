@@ -108,4 +108,12 @@ public class NetSingleton : Singleton<NetSingleton> {
         int errorCode = BitConverter.ToInt32(data, 0);
         print(string.Format("Caught error code={0}", errorCode));
     }
+
+    void OnDestroy() {
+        foreach(var pair in networkMap)
+        {
+            RPCNetwork network = pair.Value;
+            network.CutOff();
+        }
+    }
 }

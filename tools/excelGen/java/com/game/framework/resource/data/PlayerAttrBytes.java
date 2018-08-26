@@ -50,7 +50,7 @@ public final class PlayerAttrBytes {
      * <code>optional int32 attr_k1 = 3 [default = 0];</code>
      *
      * <pre>
-     ** 算法k1*100 
+     ** 值算法k1*100 
      * </pre>
      */
     boolean hasAttrK1();
@@ -58,7 +58,7 @@ public final class PlayerAttrBytes {
      * <code>optional int32 attr_k1 = 3 [default = 0];</code>
      *
      * <pre>
-     ** 算法k1*100 
+     ** 值算法k1*100 
      * </pre>
      */
     int getAttrK1();
@@ -67,7 +67,7 @@ public final class PlayerAttrBytes {
      * <code>optional int32 attr_k2 = 4 [default = 0];</code>
      *
      * <pre>
-     ** 算法k2*100 
+     ** 值算法k2*100 
      * </pre>
      */
     boolean hasAttrK2();
@@ -75,7 +75,7 @@ public final class PlayerAttrBytes {
      * <code>optional int32 attr_k2 = 4 [default = 0];</code>
      *
      * <pre>
-     ** 算法k2*100 
+     ** 值算法k2*100 
      * </pre>
      */
     int getAttrK2();
@@ -376,7 +376,7 @@ public final class PlayerAttrBytes {
      * <code>optional int32 attr_k1 = 3 [default = 0];</code>
      *
      * <pre>
-     ** 算法k1*100 
+     ** 值算法k1*100 
      * </pre>
      */
     public boolean hasAttrK1() {
@@ -386,7 +386,7 @@ public final class PlayerAttrBytes {
      * <code>optional int32 attr_k1 = 3 [default = 0];</code>
      *
      * <pre>
-     ** 算法k1*100 
+     ** 值算法k1*100 
      * </pre>
      */
     public int getAttrK1() {
@@ -399,7 +399,7 @@ public final class PlayerAttrBytes {
      * <code>optional int32 attr_k2 = 4 [default = 0];</code>
      *
      * <pre>
-     ** 算法k2*100 
+     ** 值算法k2*100 
      * </pre>
      */
     public boolean hasAttrK2() {
@@ -409,7 +409,7 @@ public final class PlayerAttrBytes {
      * <code>optional int32 attr_k2 = 4 [default = 0];</code>
      *
      * <pre>
-     ** 算法k2*100 
+     ** 值算法k2*100 
      * </pre>
      */
     public int getAttrK2() {
@@ -1045,7 +1045,7 @@ public final class PlayerAttrBytes {
        * <code>optional int32 attr_k1 = 3 [default = 0];</code>
        *
        * <pre>
-       ** 算法k1*100 
+       ** 值算法k1*100 
        * </pre>
        */
       public boolean hasAttrK1() {
@@ -1055,7 +1055,7 @@ public final class PlayerAttrBytes {
        * <code>optional int32 attr_k1 = 3 [default = 0];</code>
        *
        * <pre>
-       ** 算法k1*100 
+       ** 值算法k1*100 
        * </pre>
        */
       public int getAttrK1() {
@@ -1065,7 +1065,7 @@ public final class PlayerAttrBytes {
        * <code>optional int32 attr_k1 = 3 [default = 0];</code>
        *
        * <pre>
-       ** 算法k1*100 
+       ** 值算法k1*100 
        * </pre>
        */
       public Builder setAttrK1(int value) {
@@ -1078,7 +1078,7 @@ public final class PlayerAttrBytes {
        * <code>optional int32 attr_k1 = 3 [default = 0];</code>
        *
        * <pre>
-       ** 算法k1*100 
+       ** 值算法k1*100 
        * </pre>
        */
       public Builder clearAttrK1() {
@@ -1093,7 +1093,7 @@ public final class PlayerAttrBytes {
        * <code>optional int32 attr_k2 = 4 [default = 0];</code>
        *
        * <pre>
-       ** 算法k2*100 
+       ** 值算法k2*100 
        * </pre>
        */
       public boolean hasAttrK2() {
@@ -1103,7 +1103,7 @@ public final class PlayerAttrBytes {
        * <code>optional int32 attr_k2 = 4 [default = 0];</code>
        *
        * <pre>
-       ** 算法k2*100 
+       ** 值算法k2*100 
        * </pre>
        */
       public int getAttrK2() {
@@ -1113,7 +1113,7 @@ public final class PlayerAttrBytes {
        * <code>optional int32 attr_k2 = 4 [default = 0];</code>
        *
        * <pre>
-       ** 算法k2*100 
+       ** 值算法k2*100 
        * </pre>
        */
       public Builder setAttrK2(int value) {
@@ -1126,7 +1126,7 @@ public final class PlayerAttrBytes {
        * <code>optional int32 attr_k2 = 4 [default = 0];</code>
        *
        * <pre>
-       ** 算法k2*100 
+       ** 值算法k2*100 
        * </pre>
        */
       public Builder clearAttrK2() {

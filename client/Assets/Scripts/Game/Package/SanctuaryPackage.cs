@@ -405,4 +405,11 @@ public class SanctuaryPackage : ModelBase {
         attributeDataList = dataList;
         return attributeDataList.Count;
     }
+
+    public void GenerateAnimation()
+    {
+        AnimationClip ani = new AnimationClip();
+        
+        
+    }
 }

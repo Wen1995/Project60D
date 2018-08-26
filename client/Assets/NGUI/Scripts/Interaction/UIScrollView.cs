@@ -1060,4 +1060,43 @@ public class UIScrollView : MonoBehaviour
 		}
 	}
 #endif
+
+	public void ResetPositionToBottom()
+	{
+  		if (NGUITools.GetActive(this))
+  		{
+
+			Bounds b = bounds;
+			Vector2 bmin = b.min;
+			Vector2 bmax = b.max;
+
+			Vector4 clip = mPanel.finalClipRegion;
+			int intViewSize = Mathf.RoundToInt(clip.z);
+			if ((intViewSize & 1) != 0) intViewSize -= 1;
+			float halfViewSize = intViewSize * 0.5f;
+			halfViewSize = Mathf.Round(halfViewSize);
+			
+			if (mPanel.clipping == UIDrawCall.Clipping.SoftClip)
+				halfViewSize -= mPanel.clipSoftness.x;
+			
+			float contentSize = bmax.y - bmin.y;
+			float viewSize = halfViewSize * 2f;
+
+			// Invalidate the bounds
+			mCalculatedBounds = false;
+			Vector2 pv = Vector2.one;
+
+			// only trigger the auto–scroll–to–bottom if contents size if bigger than the view size
+			if(contentSize>viewSize)
+				pv = NGUIMath.GetPivotOffset(UIWidget.Pivot.Bottom);
+			else 
+				pv = NGUIMath.GetPivotOffset(contentPivot);
+			
+			// First move the position back to where it would be if the scroll bars got reset to zero
+			SetDragAmount(pv.x, 1.0f - pv.y, false);
+			
+			// Next move the clipping area back and update the scroll bars
+			SetDragAmount(pv.x, 1.0f - pv.y, true);
+     	}
+	}
 }

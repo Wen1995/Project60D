@@ -38,6 +38,17 @@ public class CameraController : MonoBehaviour {
     {
         isOverUI = UICamera.isOverUI;
 
+        #if UNITY_ANDROID || UNITY_IOS
+            ProcessMouse();
+        #else
+            ProcessMouse();
+        #endif
+        
+    }
+
+
+    void ProcessMouse()
+    {
         if (!isOverUI)
         {
             if (Input.GetMouseButtonDown(0))
@@ -71,6 +82,11 @@ public class CameraController : MonoBehaviour {
         }
 
         CameraRestriant();
+    }
+
+    void ProcessTouch()
+    {
+        if(isOverUI) return;
     }
 
     void ClearState()

@@ -19,7 +19,7 @@ public class PlayerState
     public PlayerState()
     {}
 
-    public PlayerState(TSCGetUserState state)
+    public void SetPlayerState(TSCGetUserState state)
     {
         blood = state.Blood;
         hunger = state.Food;
@@ -39,7 +39,7 @@ public class UserPackage : ModelBase {
     private long mGroupID;
     private long mUserID;
     private long mTimeDelta;
-    PlayerState playerState = null;
+    PlayerState playerState = new PlayerState();
 
     //state
     int blood = 0;
@@ -92,7 +92,7 @@ public class UserPackage : ModelBase {
 
     public void SetPlayerState(TSCGetUserState userState)
     {
-        playerState = new PlayerState(userState);
+        playerState.SetPlayerState(userState);
     }
 
     

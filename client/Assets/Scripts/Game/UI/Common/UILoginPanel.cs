@@ -54,9 +54,6 @@ public class UILoginPanel : PanelBase {
             userPackage.SetGroupID(login.GroupId);
             LoadNextScene();
         }
-            
-            
-            
     }
 
     /// <summary>

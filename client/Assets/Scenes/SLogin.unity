@@ -885,96 +885,6 @@ MonoBehaviour:
   relativeOffset: {x: 0, y: 0}
   pixelOffset: {x: 0, y: 0}
   widgetContainer: {fileID: 0}
---- !u!1001 &1868759827
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1894373308}
-    m_Modifications:
-    - target: {fileID: 4458332657515752, guid: 1ab7de175e128f7498d8cb33a4bd35e9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458332657515752, guid: 1ab7de175e128f7498d8cb33a4bd35e9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458332657515752, guid: 1ab7de175e128f7498d8cb33a4bd35e9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458332657515752, guid: 1ab7de175e128f7498d8cb33a4bd35e9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458332657515752, guid: 1ab7de175e128f7498d8cb33a4bd35e9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458332657515752, guid: 1ab7de175e128f7498d8cb33a4bd35e9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458332657515752, guid: 1ab7de175e128f7498d8cb33a4bd35e9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458332657515752, guid: 1ab7de175e128f7498d8cb33a4bd35e9, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114175998561694686, guid: 1ab7de175e128f7498d8cb33a4bd35e9,
-        type: 2}
-      propertyPath: mAlpha
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1358715416830674, guid: 1ab7de175e128f7498d8cb33a4bd35e9, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 1ab7de175e128f7498d8cb33a4bd35e9, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1868759828 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4458332657515752, guid: 1ab7de175e128f7498d8cb33a4bd35e9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1868759827}
---- !u!1 &1868759829 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1994763416551562, guid: 1ab7de175e128f7498d8cb33a4bd35e9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1868759827}
---- !u!114 &1868759830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1868759829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: 1
-  dragEffect: 2
-  restrictWithinPanel: 1
-  constrainOnDrag: 0
-  disableDragIfFits: 0
-  smoothDragStart: 1
-  iOSDragEmulation: 1
-  scrollWheelFactor: 0.25
-  momentumAmount: 35
-  dampenStrength: 9
-  horizontalScrollBar: {fileID: 0}
-  verticalScrollBar: {fileID: 0}
-  showScrollBars: 1
-  customMovement: {x: 1, y: 0}
-  contentPivot: 0
-  scale: {x: 0, y: 0, z: 0}
-  relativePositionOnReset: {x: 0, y: 0}
-  centerOnChild: {fileID: 0}
 --- !u!1 &1894373307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,8 +912,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.99968004, y: 0.99968004, z: 0.99968004}
-  m_Children:
-  - {fileID: 1868759828}
+  m_Children: []
   m_Father: {fileID: 297939143}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

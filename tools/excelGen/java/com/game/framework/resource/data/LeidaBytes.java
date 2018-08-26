@@ -33,7 +33,7 @@ public final class LeidaBytes {
      * <code>optional int32 leida_dis = 2 [default = 0];</code>
      *
      * <pre>
-     ** 探测距离 
+     ** 接收时间（秒） 
      * </pre>
      */
     boolean hasLeidaDis();
@@ -41,7 +41,7 @@ public final class LeidaBytes {
      * <code>optional int32 leida_dis = 2 [default = 0];</code>
      *
      * <pre>
-     ** 探测距离 
+     ** 接收时间（秒） 
      * </pre>
      */
     int getLeidaDis();
@@ -177,7 +177,7 @@ public final class LeidaBytes {
      * <code>optional int32 leida_dis = 2 [default = 0];</code>
      *
      * <pre>
-     ** 探测距离 
+     ** 接收时间（秒） 
      * </pre>
      */
     public boolean hasLeidaDis() {
@@ -187,7 +187,7 @@ public final class LeidaBytes {
      * <code>optional int32 leida_dis = 2 [default = 0];</code>
      *
      * <pre>
-     ** 探测距离 
+     ** 接收时间（秒） 
      * </pre>
      */
     public int getLeidaDis() {
@@ -501,7 +501,7 @@ public final class LeidaBytes {
        * <code>optional int32 leida_dis = 2 [default = 0];</code>
        *
        * <pre>
-       ** 探测距离 
+       ** 接收时间（秒） 
        * </pre>
        */
       public boolean hasLeidaDis() {
@@ -511,7 +511,7 @@ public final class LeidaBytes {
        * <code>optional int32 leida_dis = 2 [default = 0];</code>
        *
        * <pre>
-       ** 探测距离 
+       ** 接收时间（秒） 
        * </pre>
        */
       public int getLeidaDis() {
@@ -521,7 +521,7 @@ public final class LeidaBytes {
        * <code>optional int32 leida_dis = 2 [default = 0];</code>
        *
        * <pre>
-       ** 探测距离 
+       ** 接收时间（秒） 
        * </pre>
        */
       public Builder setLeidaDis(int value) {
@@ -534,7 +534,7 @@ public final class LeidaBytes {
        * <code>optional int32 leida_dis = 2 [default = 0];</code>
        *
        * <pre>
-       ** 探测距离 
+       ** 接收时间（秒） 
        * </pre>
        */
       public Builder clearLeidaDis() {

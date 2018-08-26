@@ -1075,7 +1075,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 100
   mHeight: 100
-  mDepth: 0
+  mDepth: 1
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -1113,7 +1113,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 100
   mHeight: 100
-  mDepth: 0
+  mDepth: 1
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -1363,7 +1363,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 100
   mHeight: 100
-  mDepth: 0
+  mDepth: 1
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -1931,7 +1931,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 100
   mHeight: 100
-  mDepth: 0
+  mDepth: 1
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -2173,7 +2173,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 100
   mHeight: 100
-  mDepth: 0
+  mDepth: 1
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0

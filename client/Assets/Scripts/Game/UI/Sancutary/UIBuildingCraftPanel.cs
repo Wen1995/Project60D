@@ -155,7 +155,6 @@ public class UIBuildingCraftPanel : PanelBase {
 
 	void OnRefresh(NDictionary data = null)
 	{
-		print("Refresh Panel!!!!");
 		InitView();
 	}
 

@@ -62,6 +62,8 @@ public class SSanctuaryController : SceneController
     {
         //Init all building
         FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
+        FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
+        FacadeSingleton.Instance.InvokeService("RPCGetUserState", ConstVal.Service_Sanctuary);
     }
 
     /// <summary>
@@ -95,6 +97,12 @@ public class SSanctuaryController : SceneController
     /// <summary>
     /// Get SceneData and start building scene
     /// </summary>
+    void OnReadyToBuild(NetMsgDef msg)
+    {
+            //TODO
+    }
+
+    
     void OnGetSceneInfo(NetMsgDef msg)
     {
         //print("Get Scene Info");
@@ -104,7 +112,6 @@ public class SSanctuaryController : SceneController
             BuildingInfo info = sceneInfo.BuildingInfosList[i];
             sanctuaryPackage.AddBuilding(info);
         }
-        FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
     }
 
     void OnGetResourceInfo(NetMsgDef msg)
@@ -114,7 +121,6 @@ public class SSanctuaryController : SceneController
 
         for(int i=0;i<resInfos.ResourceInfosCount;i++)
             itemPackage.AddItem(resInfos.GetResourceInfos(i));
-        FacadeSingleton.Instance.InvokeService("RPCGetUserState", ConstVal.Service_Sanctuary);
         SendEvent("RefreshUserState");
     }
 
@@ -132,7 +138,7 @@ public class SSanctuaryController : SceneController
         //print("User State Refresh");
         TSCGetUserState userState = TSCGetUserState.ParseFrom(msg.mBtsData);
         userPackage.SetPlayerState(userState);
-        SendEvent("RefreshUserState"); 
+        SendEvent("RefreshUserState");
     }
 
     void OnBuildingUnlock(NetMsgDef msg)
@@ -209,7 +215,7 @@ public class SSanctuaryController : SceneController
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         if(sanctuaryPackage.GetBuildingFuncByConfigID(info.configID) == BuildingFunc.Craft)
             SendEvent("RefreshCraftPanel");
-        Debug.Log(string.Format("buildingID{0} collect res type={1}, num={2}", buildingID, configID, num));
+        Debug.Log(string.Format("buildingID{0} collect res type={1}, num={2}", buildingID, itemPackage.GetItemTypeByConfigID(configID), num));
         FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
     }
 
@@ -224,7 +230,7 @@ public class SSanctuaryController : SceneController
         {
             print("crafting start, remainTime=" + remainTime.ToString());
             StartCoroutine(CraftTimer(process.BuildingId, remainTime));
-            SendEvent("RefreshCraftPanel");
+            //SendEvent("RefreshCraftPanel");
         }
         FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
     }

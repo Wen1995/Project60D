@@ -96,10 +96,9 @@ public class UIPlayerInfoPanel : PanelBase {
 
 	void InitStoreHouse()
 	{
-		uint sortMask = (uint)ItemSortType.Food;
+		uint sortMask = (uint)ItemSortType.Food | (uint)ItemSortType.Product;
 		itemPackage.SortItemFilterInfoList(sortMask);
 		tableView.DataCount = itemPackage.GetItemFilterInfoList().Count;
-		print("datacount = " + tableView.DataCount);
 		tableView.TableChange();
 	}
 }

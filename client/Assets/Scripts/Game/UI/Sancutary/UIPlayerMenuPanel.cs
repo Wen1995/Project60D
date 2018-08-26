@@ -59,7 +59,7 @@ public class UIPlayerMenuPanel : PanelBase {
 		resLabel.text = itemPackage.GetResourceTotolNumber().ToString();
 		elecLabel.text = itemPackage.GetElecNumber().ToString();
 		taskLabel.text = "空闲";
-		healthProgressBar.value = (float)20 / (float)(20 + 2 * playerState.health);
+		healthProgressBar.value = (float)playerState.health / (float)(20 + 2 * playerState.health);
 		hungerProgressBar.value = (float)playerState.hunger / (float)(20 + 2 * playerState.health);
 		thirstProgressBar.value = (float)playerState.thirst / (float)(20 + 2 * playerState.health);
 		expProgressBar.value = 0.4f;

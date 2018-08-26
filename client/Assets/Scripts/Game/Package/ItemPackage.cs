@@ -127,10 +127,17 @@ public class ItemPackage : ModelBase
 
     public void AddItem(ResourceInfo resInfo)
     {
-        NItemInfo info = new NItemInfo(resInfo);
-        ITEM_RES itemData = GetItemDataByConfigID(resInfo.ConfigId);
-        //Debug.Log(string.Format("add item tpye={0}, num={1}", itemData.MinName, resInfo.Number));
-        mItemInfoMap[info.configID] = info;
+        if(mItemInfoMap.ContainsKey(resInfo.ConfigId))
+        {
+            NItemInfo info = mItemInfoMap[resInfo.ConfigId];
+            info.number = resInfo.Number;
+        }
+        else
+        {
+            NItemInfo info = new NItemInfo(resInfo);
+            ITEM_RES itemData = GetItemDataByConfigID(resInfo.ConfigId);
+            mItemInfoMap[info.configID] = info;
+        }
     }
 
     #endregion

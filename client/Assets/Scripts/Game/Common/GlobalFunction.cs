@@ -41,5 +41,6 @@ public static class GlobalFunction {
     {
         long curTime = GetTimeStamp();
         DeltaTime =  curTime - serverTime;
+        Debug.Log(DeltaTime);
     }
 }

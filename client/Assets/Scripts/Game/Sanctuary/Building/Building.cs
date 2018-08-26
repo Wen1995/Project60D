@@ -63,8 +63,7 @@ public class Building : Controller {
             mState = BuildingState.Craft;
         }
         else if(info.number > 0)
-            mState = BuildingState.Idle;
-            //mState = BuildingState.Collect;
+            mState = BuildingState.Collect;
         else
             mState = BuildingState.Idle;
 

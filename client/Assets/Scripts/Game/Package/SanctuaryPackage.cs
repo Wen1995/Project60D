@@ -237,7 +237,7 @@ public class SanctuaryPackage : ModelBase {
             case (BuildingType.Rice):
                 return parent.Find("grainfarm").GetComponent<Building>();
             case (BuildingType.Fertilizer):
-                return null;
+                return parent.Find("fertilizer").GetComponent<Building>();
             case (BuildingType.Well):
                 return parent.Find("well").GetComponent<Building>();
             case (BuildingType.WaterCollector):

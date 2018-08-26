@@ -248,7 +248,7 @@ public class SanctuaryPackage : ModelBase {
             case (BuildingType.PowerPlant):
                 return null;
             case (BuildingType.PineWood):
-                return parent.Find("forest0").GetComponent<Building>();
+                return parent.Find("pinewood").GetComponent<Building>();
 
             case (BuildingType.StockHouse):
                 return parent.Find("stockhouse").GetComponent<Building>();

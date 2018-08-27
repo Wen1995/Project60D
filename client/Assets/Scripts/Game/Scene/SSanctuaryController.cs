@@ -230,7 +230,7 @@ public class SSanctuaryController : SceneController
         {
             print("crafting start, remainTime=" + remainTime.ToString());
             StartCoroutine(CraftTimer(process.BuildingId, remainTime));
-            //SendEvent("RefreshCraftPanel");
+            SendEvent("RefreshCraftPanel");
         }
         FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
     }
@@ -238,6 +238,7 @@ public class SSanctuaryController : SceneController
     IEnumerator CraftTimer(long buildingID, long remainTime)
     {
         yield return new WaitForSeconds(remainTime);
+        print("end craft!!!!!!!!!!!!!");
         sanctuaryPackage.EndCraft(buildingID);
         SendEvent("RefreshCraftPanel");
     }

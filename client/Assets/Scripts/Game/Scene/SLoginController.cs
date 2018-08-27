@@ -14,6 +14,8 @@ public class SLoginController : SceneController {
 
     private void Start()
     {
+        //set resolution
+        Screen.SetResolution(640, 1136, true);
         SetUIContainer();
         //register package
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_User, typeof(UserPackage));

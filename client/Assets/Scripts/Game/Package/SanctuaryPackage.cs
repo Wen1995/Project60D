@@ -188,6 +188,7 @@ public class SanctuaryPackage : ModelBase {
             Debug.Log(string.Format("buidingID={0} not exist"));
             return;
         }
+        info.processFinishTime = 0;
         info.building.RefreshView();
     }
 

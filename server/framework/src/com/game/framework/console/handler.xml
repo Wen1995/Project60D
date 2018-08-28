@@ -33,6 +33,8 @@
 		
 		<!--//////////////// 战斗模块 ////////////////-->
 		<Handler model="Fighting" method="zombieInvade" description="僵尸入侵" isInner="true"/>
+		<Handler model="Fighting" method="receiveZombieMessage" description="僵尸入侵消息推送" isInner="true"/>
+		<Handler model="Fighting" method="zombieInvadeResult" description="僵尸入侵结果推送" isInner="true"/>
 		
 		<!--//////////////// 玩家模块 ////////////////-->
 		<Handler model="User" method="getResourceInfo" description="玩家资源信息"/>

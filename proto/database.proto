@@ -37,19 +37,3 @@ message ProcessInfo {
 	// 加工人
 	optional int64 uid = 3;
 }
-
-message FightingProcedure {
-	// 战斗信息
-	repeated FightingInfo fightingInfos = 1;
-}
-
-message FightingInfo {
-	// 战斗阶段
-	optional int32 stage = 1;
-	// uid
-	optional int64 uid = 2;
-	// 武器ID
-	optional int64 buildingId = 3;
-	// 打死僵尸数量
-	optional int32 number = 4;
-}

@@ -1,6 +1,9 @@
 import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.console.exception.BaseException;
 import com.game.framework.console.factory.ServiceFactory;
 import com.game.framework.dbcache.dao.IBuildingDao;
@@ -16,11 +19,18 @@ import com.game.framework.protocol.Database.BuildingState;
 import com.game.framework.protocol.Database.ProcessInfo;
 import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Database.UpgradeInfo;
+import com.game.framework.protocol.Fighting.LossInfo;
 import com.game.framework.protocol.User.ResourceInfo;
 import com.game.framework.protocol.User.UserResource;
+import com.game.framework.resource.StaticDataManager;
+import com.game.framework.resource.data.BuildingBytes.BUILDING;
+import com.game.framework.resource.data.ItemResBytes.ITEM_RES;
+import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.game.framework.utils.BuildingUtil;
 import com.game.framework.utils.DateTimeUtils;
 import com.game.framework.utils.ExternalStorageUtil;
+import com.game.framework.utils.MapUtil;
+import com.game.framework.utils.ReadOnlyMap;
 import com.jcraft.jsch.UserInfo;
 
 public class StartTest {
@@ -30,9 +40,11 @@ public class StartTest {
     static IUserDao userDao = ServiceFactory.getProxy(UserDao.class);
     
     public static void main(String[] args) throws Exception {
-        User user = userDao.get(1212153857L);
-        System.out.println(user.getGroupId());
-        System.out.println(user.getResource().length);
+        /*StaticDataManager.GetInstance().init();
+        ReadOnlyMap<Integer, ITEM_RES> itemResMap = StaticDataManager.GetInstance().itemResMap;
+        for (Integer key : itemResMap.keySet()) {
+            System.out.println(key);
+        }*/
         /*UserResource userResource = UserResource.parseFrom(user.getResource());
         for (ResourceInfo u : userResource.getResourceInfosList()) {
             System.out.println(u.getConfigId());

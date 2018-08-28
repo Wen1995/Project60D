@@ -25,4 +25,8 @@ public class Constant {
 	
 	public static final int REGULAR_SCHEDULE = 300;
 	
+	public static final long TIME_DAY = 1000*3600*24;
+	
+	public static final long TIME_HOUR = 1000*3600;
+	
 }

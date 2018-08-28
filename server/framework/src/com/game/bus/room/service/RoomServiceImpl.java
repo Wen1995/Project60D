@@ -43,6 +43,7 @@ public class RoomServiceImpl implements RoomService {
         group.setPeopleNumber(1);
         group.setTotalContribution(0);
         group.setStorehouseId(buildingId);
+        group.setInvadeTime(new Date(System.currentTimeMillis()));
         groupDao.insert(group);
         
         User user = userDao.get(uid);

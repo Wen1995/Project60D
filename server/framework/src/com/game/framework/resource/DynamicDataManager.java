@@ -7,7 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.game.framework.dbcache.dao.IGroupDao;
 import com.game.framework.dbcache.dao.IUserDao;
+import com.game.framework.dbcache.model.Group;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.utils.StringUtil;
 
@@ -28,11 +30,14 @@ public class DynamicDataManager {
     }
 
     private static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+    private IUserDao userDao = (IUserDao) context.getBean("userDao");
+    private IGroupDao groupDao = (IGroupDao) context.getBean("groupDao");
+    
     public Map<String, Long> account2Uid = new ConcurrentHashMap<>();
     public Map<Long, Long> uid2HeartTime = new ConcurrentHashMap<>();
+    public Map<Long, Long> groupId2InvadeTime = new ConcurrentHashMap<>();
     
     public void init() {
-        IUserDao userDao = (IUserDao) context.getBean("userDao");
         long startTime = System.currentTimeMillis();
         int pageCount = userDao.getPageCount();
         for (int currentPage = 1; currentPage <= pageCount; currentPage++) {
@@ -41,6 +46,13 @@ public class DynamicDataManager {
                 if (!StringUtil.isNullOrEmpty(user.getAccount())) {
                     account2Uid.put(user.getAccount(), user.getId());
                 }
+            }
+        }
+        pageCount = groupDao.getPageCount();
+        for (int currentPage = 1; currentPage <= pageCount; currentPage++) {
+            List<Group> groups = groupDao.getPageList(currentPage);
+            for (Group group : groups) {
+                groupId2InvadeTime.put(group.getId(), group.getInvadeTime().getTime());
             }
         }
         long endTime = System.currentTimeMillis();

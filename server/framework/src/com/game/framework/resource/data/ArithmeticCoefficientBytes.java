@@ -33,7 +33,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k1 = 2 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k1 
+     ** 算法系数k1*100 
      * </pre>
      */
     boolean hasAcK1();
@@ -41,7 +41,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k1 = 2 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k1 
+     ** 算法系数k1*100 
      * </pre>
      */
     int getAcK1();
@@ -50,7 +50,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k2 = 3 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k2 
+     ** 算法系数k2*100 
      * </pre>
      */
     boolean hasAcK2();
@@ -58,7 +58,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k2 = 3 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k2 
+     ** 算法系数k2*100 
      * </pre>
      */
     int getAcK2();
@@ -67,7 +67,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k3 = 4 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k3 
+     ** 算法系数k3*100 
      * </pre>
      */
     boolean hasAcK3();
@@ -75,7 +75,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k3 = 4 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k3 
+     ** 算法系数k3*100 
      * </pre>
      */
     int getAcK3();
@@ -101,7 +101,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k5 = 6 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k5 
+     ** 算法系数k5*10000 
      * </pre>
      */
     boolean hasAcK5();
@@ -109,7 +109,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k5 = 6 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k5 
+     ** 算法系数k5*10000 
      * </pre>
      */
     int getAcK5();
@@ -265,7 +265,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k1 = 2 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k1 
+     ** 算法系数k1*100 
      * </pre>
      */
     public boolean hasAcK1() {
@@ -275,7 +275,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k1 = 2 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k1 
+     ** 算法系数k1*100 
      * </pre>
      */
     public int getAcK1() {
@@ -288,7 +288,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k2 = 3 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k2 
+     ** 算法系数k2*100 
      * </pre>
      */
     public boolean hasAcK2() {
@@ -298,7 +298,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k2 = 3 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k2 
+     ** 算法系数k2*100 
      * </pre>
      */
     public int getAcK2() {
@@ -311,7 +311,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k3 = 4 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k3 
+     ** 算法系数k3*100 
      * </pre>
      */
     public boolean hasAcK3() {
@@ -321,7 +321,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k3 = 4 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k3 
+     ** 算法系数k3*100 
      * </pre>
      */
     public int getAcK3() {
@@ -357,7 +357,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k5 = 6 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k5 
+     ** 算法系数k5*10000 
      * </pre>
      */
     public boolean hasAcK5() {
@@ -367,7 +367,7 @@ public final class ArithmeticCoefficientBytes {
      * <code>optional int32 ac_k5 = 6 [default = 0];</code>
      *
      * <pre>
-     ** 算法系数k5 
+     ** 算法系数k5*10000 
      * </pre>
      */
     public int getAcK5() {
@@ -749,7 +749,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k1 = 2 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k1 
+       ** 算法系数k1*100 
        * </pre>
        */
       public boolean hasAcK1() {
@@ -759,7 +759,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k1 = 2 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k1 
+       ** 算法系数k1*100 
        * </pre>
        */
       public int getAcK1() {
@@ -769,7 +769,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k1 = 2 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k1 
+       ** 算法系数k1*100 
        * </pre>
        */
       public Builder setAcK1(int value) {
@@ -782,7 +782,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k1 = 2 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k1 
+       ** 算法系数k1*100 
        * </pre>
        */
       public Builder clearAcK1() {
@@ -797,7 +797,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k2 = 3 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k2 
+       ** 算法系数k2*100 
        * </pre>
        */
       public boolean hasAcK2() {
@@ -807,7 +807,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k2 = 3 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k2 
+       ** 算法系数k2*100 
        * </pre>
        */
       public int getAcK2() {
@@ -817,7 +817,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k2 = 3 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k2 
+       ** 算法系数k2*100 
        * </pre>
        */
       public Builder setAcK2(int value) {
@@ -830,7 +830,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k2 = 3 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k2 
+       ** 算法系数k2*100 
        * </pre>
        */
       public Builder clearAcK2() {
@@ -845,7 +845,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k3 = 4 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k3 
+       ** 算法系数k3*100 
        * </pre>
        */
       public boolean hasAcK3() {
@@ -855,7 +855,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k3 = 4 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k3 
+       ** 算法系数k3*100 
        * </pre>
        */
       public int getAcK3() {
@@ -865,7 +865,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k3 = 4 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k3 
+       ** 算法系数k3*100 
        * </pre>
        */
       public Builder setAcK3(int value) {
@@ -878,7 +878,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k3 = 4 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k3 
+       ** 算法系数k3*100 
        * </pre>
        */
       public Builder clearAcK3() {
@@ -941,7 +941,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k5 = 6 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k5 
+       ** 算法系数k5*10000 
        * </pre>
        */
       public boolean hasAcK5() {
@@ -951,7 +951,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k5 = 6 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k5 
+       ** 算法系数k5*10000 
        * </pre>
        */
       public int getAcK5() {
@@ -961,7 +961,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k5 = 6 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k5 
+       ** 算法系数k5*10000 
        * </pre>
        */
       public Builder setAcK5(int value) {
@@ -974,7 +974,7 @@ public final class ArithmeticCoefficientBytes {
        * <code>optional int32 ac_k5 = 6 [default = 0];</code>
        *
        * <pre>
-       ** 算法系数k5 
+       ** 算法系数k5*10000 
        * </pre>
        */
       public Builder clearAcK5() {

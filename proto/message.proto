@@ -2,9 +2,3 @@ package com.game.framework.protocol;
 
 option optimize_for = SPEED;
 
-message TCSGetMessage {
-	
-}
-message TSCGetMessage {
-
-}

@@ -32,6 +32,7 @@ import com.game.framework.resource.data.MucaijiagongBytes.MUCAIJIAGONG;
 import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.game.framework.resource.data.PlayerLevelBytes.PLAYER_LEVEL;
 import com.game.framework.resource.data.QiangBytes.QIANG;
+import com.game.framework.resource.data.RobProportionBytes.ROB_PROPORTION;
 import com.game.framework.resource.data.ShucaiBytes.SHUCAI;
 import com.game.framework.resource.data.ShuiguoBytes.SHUIGUO;
 import com.game.framework.resource.data.SiliaoBytes.SILIAO;
@@ -80,6 +81,7 @@ public class StaticDataManager {
 	public ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap;
 	public ReadOnlyMap<Integer, PLAYER_LEVEL> playerLevelMap;
 	public ReadOnlyMap<Integer, QIANG> qiangMap;
+	public ReadOnlyMap<Integer, ROB_PROPORTION> robProportionMap;
 	public ReadOnlyMap<Integer, SHUCAI> shucaiMap;
 	public ReadOnlyMap<Integer, SHUIGUO> shuiguoMap;
 	public ReadOnlyMap<Integer, SILIAO> siliaoMap;
@@ -112,6 +114,7 @@ public class StaticDataManager {
         playerAttrMap = load(PLAYER_ATTR.class);
         playerLevelMap = load(PLAYER_LEVEL.class);
         qiangMap = load(QIANG.class);
+        robProportionMap = load(ROB_PROPORTION.class);
         shucaiMap = load(SHUCAI.class);
         shuiguoMap = load(SHUIGUO.class);
         siliaoMap = load(SILIAO.class);

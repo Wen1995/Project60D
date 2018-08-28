@@ -1,0 +1,26 @@
+/**
+* @file:   proto/rob_proportion_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message ROB_PROPORTION{
+    /** 庄园等级 */
+    required int32 id = 1 [default = 0];
+    /** 领取类比例*100 */
+    optional int32 transit_depot = 2 [default = 0];
+    /** 大仓库比例*100 */
+    optional int32 big_warehouse = 3 [default = 0];
+    /** 上限 */
+    optional int32 bw_lim = 4 [default = 0];
+    /** 黄金比例*100 */
+    optional int32 gold_prop = 5 [default = 0];
+    /** 上限 */
+    optional int32 gold_lim = 6 [default = 0];
+}
+
+message ROB_PROPORTION_ARRAY {
+    repeated ROB_PROPORTION items = 1;
+}

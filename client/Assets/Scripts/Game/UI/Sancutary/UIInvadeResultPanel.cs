@@ -52,8 +52,9 @@ public class UIInvadeResultPanel : PanelBase {
 			yield return new WaitForSeconds(0.5f);
 		}
 	}
-	public void PrintTime(float time)
+	IEnumerator ProcessAnimData()
 	{
-		Debug.Log(time);
+		
+		yield return null;
 	}
 }

@@ -20,10 +20,10 @@ public class UIBuildingInfoPanel : PanelBase {
     private GameObject modelGo = null;
     private Building selecttionBuilding = null;
     private SanctuaryPackage sanctuarytPackage = null;
-    
 
     //view component
     UILabel titleLabel = null;
+    UILabel contentLable = null;
     private NTableView tableView = null;
 
     protected override void Awake()
@@ -36,7 +36,9 @@ public class UIBuildingInfoPanel : PanelBase {
         listener.onDrag += OnModelRotete;
         tableView = transform.Find("inbox/panel/tableview").GetComponent<NTableView>();
 
+        //find component
         titleLabel = transform.Find("inbox/title").GetComponent<UILabel>();
+        contentLable = transform.Find("inbox/describe/content").GetComponent<UILabel>();
     }
 
 
@@ -61,6 +63,7 @@ public class UIBuildingInfoPanel : PanelBase {
         BUILDING buildingData = buildingDataMap[info.configID] as BUILDING;
         int level = sanctuarytPackage.GetBulidingLevelByConfigID(info.configID);
         titleLabel.text = string.Format("{0} Lv.{1}", buildingData.BldgName, level);
+        contentLable.text = buildingData.BldgInfo;
         //render 3d model
         NDictionary data = new NDictionary();
         data.Add("model", Resources.Load("Prefabs/Building/car"));

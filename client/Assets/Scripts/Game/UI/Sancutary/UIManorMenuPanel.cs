@@ -8,6 +8,7 @@ public class UIManorMenuPanel : PanelBase {
 	UIProgressBar invadeProgress = null;
 	UIProgressBar manorExpProgress = null;
 	UILabel levelLabel = null;
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -49,7 +50,7 @@ public class UIManorMenuPanel : PanelBase {
 
 	void OnMail()
 	{
-		//TODO
+		FacadeSingleton.Instance.OverlayerPanel("UIMailBoxPanel");
 	}
 
 	void OnRanking()

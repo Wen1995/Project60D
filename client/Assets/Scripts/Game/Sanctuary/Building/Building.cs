@@ -53,21 +53,35 @@ public class Building : Controller {
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         long remainTime = 0;
         if(info == null)
-            mState = BuildingState.Locked;
-        else if(info.upgradeFinishTime > 0 && GlobalFunction.GetRemainTime(info.upgradeFinishTime, out remainTime))
-        {    
-            mState = BuildingState.Upgrade;
-        }
-        else if(GlobalFunction.GetRemainTime(info.processFinishTime, out remainTime) && info.number > 0)
         {
-            mState = BuildingState.Craft;
+            mState = BuildingState.Locked;
         }
-        else if(info.number > 0)
-            mState = BuildingState.Collect;
         else
-            mState = BuildingState.Idle;
+        {
+            BuildingFunc funcType = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
+            if(info.upgradeFinishTime > 0 && GlobalFunction.GetRemainTime(info.upgradeFinishTime, out remainTime))
+            {    
+                mState = BuildingState.Upgrade;
+            }
+            else if(GlobalFunction.GetRemainTime(info.processFinishTime, out remainTime) && info.number > 0)
+            {
+                mState = BuildingState.Craft;
+            }
+            else if(info.number > 0)
+            {
+                mState = BuildingState.Collect;
+                if(funcType == BuildingFunc.Collect)
+                    StopCoroutine(CollectTimer());
+            }
+            else
+            {
+                mState = BuildingState.Idle;
+                if(funcType == BuildingFunc.Collect)
+                    StartCoroutine(CollectTimer());
+            }
+        }
 
-        if(mState == BuildingState.Locked)
+        if(mState == BuildingState.Locked || (mState == BuildingState.Upgrade))
         {
             transform.Find("building").gameObject.SetActive(false);
             transform.Find("lock").gameObject.SetActive(true);
@@ -106,6 +120,12 @@ public class Building : Controller {
         buildingID = info.buildingID;
     }
 
+    IEnumerator CollectTimer()
+    {
+        yield return new WaitForSeconds(60.0f);
+        sanctuaryPackage.SetBuildingCollectable(BuildingID);
+    }
+
 
     #region State Changing
 
@@ -119,7 +139,7 @@ public class Building : Controller {
     }
 
     void AddConstructionIcon()
-    {
+    { 
         ISubPool remindPool = ObjectPoolSingleton.Instance.GetPool<ConstructionIcon>();
         FloatingIcon icon = remindPool.Take() as FloatingIcon;
         GameObject go = icon.gameObject;

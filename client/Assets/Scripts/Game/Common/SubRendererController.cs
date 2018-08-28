@@ -16,6 +16,7 @@ public class SubRendererController : MonoBehaviour {
         targetGo = Instantiate(prefab);
         targetGo.transform.parent = ModelPos;
         targetGo.transform.localPosition = Vector3.zero;
+        targetGo.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         return targetGo;
     }
 

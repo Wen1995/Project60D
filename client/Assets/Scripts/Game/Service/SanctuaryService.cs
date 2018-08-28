@@ -123,11 +123,12 @@ public class SanctuaryService : ServiceBase {
         int fromConfigID = args.Value<int>("configID");
         List<NItemInfo> costInfoList = new List<NItemInfo>();
         var buildingConfigDataMap = ConfigDataStatic.GetConfigDataTable("BUILDING");
-        BUILDING buildingConfigData = buildingConfigDataMap[fromConfigID + 1] as BUILDING;
+        BUILDING buildingConfigData = buildingConfigDataMap[fromConfigID] as BUILDING;
         for(int i=0;i<buildingConfigData.CostTableCount;i++)
         {
             var costData = buildingConfigData.GetCostTable(i);
             int configID = costData.CostId;
+            if(configID == 0) continue;
             int number = costData.CostQty;
             NItemInfo info = new NItemInfo();
             info.configID = configID;

@@ -20,15 +20,15 @@ public class UIBuildingInteractionPanel : PanelBase{
         //bind event
         UIButton button = transform.Find("bkgnd").GetComponent<UIButton>();
         button.onClick.Add(new EventDelegate(OnClose));
-        infoBtn = transform.Find("group/info").GetComponent<UIButton>();
+        infoBtn = transform.Find("group/01info").GetComponent<UIButton>();
         infoBtn.onClick.Add(new EventDelegate(OnInfo));
-        upgradeBtn = transform.Find("group/upgrade").GetComponent<UIButton>();
+        upgradeBtn = transform.Find("group/02upgrade").GetComponent<UIButton>();
         upgradeBtn.onClick.Add(new EventDelegate(OnUpgrade));
-        unlockBtn = transform.Find("group/unlock").GetComponent<UIButton>();
+        unlockBtn = transform.Find("group/03unlock").GetComponent<UIButton>();
         unlockBtn.onClick.Add(new EventDelegate(OnUnlock));
-        collectBtn = transform.Find("group/collect").GetComponent<UIButton>();
+        collectBtn = transform.Find("group/04collect").GetComponent<UIButton>();
         collectBtn.onClick.Add(new EventDelegate(OnCollect));
-        craftBtn = transform.Find("group/craft").GetComponent<UIButton>();
+        craftBtn = transform.Find("group/05craft").GetComponent<UIButton>();
         craftBtn.onClick.Add(new EventDelegate(OnCraft));
 
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
@@ -128,7 +128,7 @@ public class UIBuildingInteractionPanel : PanelBase{
     {
         NDictionary args = new NDictionary();
         NBuildingInfo buildingInfo = sanctuaryPackage.GetBuildingInfo(selectBuilding.BuildingID);
-        args.Add("configID", buildingInfo.configID);
+        args.Add("configID", buildingInfo.configID + 1);
         List<NItemInfo> costInfoList = FacadeSingleton.Instance.InvokeService("GetBuildingUpgradeCost", ConstVal.Service_Sanctuary, args) as List<NItemInfo>;
         FacadeSingleton.Instance.OverlayerPanel("UICostResPanel");
         args.Clear();

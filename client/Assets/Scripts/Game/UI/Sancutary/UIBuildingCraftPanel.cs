@@ -26,6 +26,7 @@ public class UIBuildingCraftPanel : PanelBase {
 	UIButton cancelButton = null;
 	UIButton collectButton = null;
 
+	Coroutine TimerCo = null;
 	
 	//values
 	int craftNum = 0;
@@ -92,8 +93,6 @@ public class UIBuildingCraftPanel : PanelBase {
 		}
 		else
 		{
-			print("time up");
-			print(info.number);
 			if(info.number > 0)
 				isCollect = true;
 		}
@@ -118,14 +117,22 @@ public class UIBuildingCraftPanel : PanelBase {
 			{
 				stateLabel.text = "你正在使用";
 				cancelButton.gameObject.SetActive(true);
+				collectButton.gameObject.SetActive(false);
 			}
 			else
 			{
 				stateLabel.text = string.Format("玩家Uid{0}正在使用", info.processUID);
+				cancelButton.gameObject.SetActive(false);
+				collectButton.gameObject.SetActive(false);
 			}
 			//set time
 			if(remainTime > 0)
-				StartCoroutine(Timer(remainTime));
+			{
+				if(TimerCo != null)
+					StopCoroutine(TimerCo);
+				TimerCo = StartCoroutine(Timer(remainTime));
+			}
+				
 		}
 		else if(isCollect)
 		{
@@ -134,15 +141,23 @@ public class UIBuildingCraftPanel : PanelBase {
 				
 				stateLabel.text = string.Format("可以领取{0}", info.number);
 				collectButton.gameObject.SetActive(true);
+				cancelButton.gameObject.SetActive(false);
 			}
 			else
 			{
 				stateLabel.text = string.Format("等待玩家Uid{0}领取", info.processUID);
+				collectButton.gameObject.SetActive(false);
+				cancelButton.gameObject.SetActive(false);
 			}
 			timeLabel.text = "00:00";
 		}
 		else
+		{
 			stateLabel.text = "该工厂处于空闲状态";
+			collectButton.gameObject.SetActive(false);
+			cancelButton.gameObject.SetActive(false);
+		}
+			
 
 		UpdateView();
 	}

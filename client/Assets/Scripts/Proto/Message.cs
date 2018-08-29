@@ -902,8 +902,8 @@ namespace com.game.framework.protocol {
   public sealed partial class FightingInfo : pb::GeneratedMessageLite<FightingInfo, FightingInfo.Builder> {
     private FightingInfo() { }
     private static readonly FightingInfo defaultInstance = new FightingInfo().MakeReadOnly();
-    private static readonly string[] _fightingInfoFieldNames = new string[] { "invadeResultInfos", "lossInfos" };
-    private static readonly uint[] _fightingInfoFieldTags = new uint[] { 10, 18 };
+    private static readonly string[] _fightingInfoFieldNames = new string[] { "invadeResultInfos", "lossInfo", "lossInfos", "userInfos" };
+    private static readonly uint[] _fightingInfoFieldTags = new uint[] { 10, 34, 18, 26 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -953,6 +953,34 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int UserInfosFieldNumber = 3;
+    private pbc::PopsicleList<global::com.game.framework.protocol.UserInfo> userInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.UserInfo>();
+    public scg::IList<global::com.game.framework.protocol.UserInfo> UserInfosList {
+      get { return userInfos_; }
+    }
+    public int UserInfosCount {
+      get { return userInfos_.Count; }
+    }
+    public global::com.game.framework.protocol.UserInfo GetUserInfos(int index) {
+      return userInfos_[index];
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int LossInfoFieldNumber = 4;
+    private bool hasLossInfo;
+    private global::com.game.framework.protocol.LossInfo lossInfo_;
+    public bool HasLossInfo {
+      get { return hasLossInfo; }
+    }
+    public global::com.game.framework.protocol.LossInfo LossInfo {
+      get { return lossInfo_ ?? global::com.game.framework.protocol.LossInfo.DefaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -971,7 +999,13 @@ namespace com.game.framework.protocol {
         output.WriteMessageArray(1, field_names[0], invadeResultInfos_);
       }
       if (lossInfos_.Count > 0) {
-        output.WriteMessageArray(2, field_names[1], lossInfos_);
+        output.WriteMessageArray(2, field_names[2], lossInfos_);
+      }
+      if (userInfos_.Count > 0) {
+        output.WriteMessageArray(3, field_names[3], userInfos_);
+      }
+      if (hasLossInfo) {
+        output.WriteMessage(4, field_names[1], LossInfo);
       }
     }
     
@@ -991,6 +1025,12 @@ namespace com.game.framework.protocol {
         foreach (global::com.game.framework.protocol.LossInfo element in LossInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(2, element);
         }
+        foreach (global::com.game.framework.protocol.UserInfo element in UserInfosList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(3, element);
+        }
+        if (hasLossInfo) {
+          size += pb::CodedOutputStream.ComputeMessageSize(4, LossInfo);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -1003,6 +1043,9 @@ namespace com.game.framework.protocol {
         hash ^= i.GetHashCode();
       foreach(global::com.game.framework.protocol.LossInfo i in lossInfos_)
         hash ^= i.GetHashCode();
+      foreach(global::com.game.framework.protocol.UserInfo i in userInfos_)
+        hash ^= i.GetHashCode();
+      if (hasLossInfo) hash ^= lossInfo_.GetHashCode();
       return hash;
     }
     
@@ -1015,6 +1058,10 @@ namespace com.game.framework.protocol {
       if(lossInfos_.Count != other.lossInfos_.Count) return false;
       for(int ix=0; ix < lossInfos_.Count; ix++)
         if(!lossInfos_[ix].Equals(other.lossInfos_[ix])) return false;
+      if(userInfos_.Count != other.userInfos_.Count) return false;
+      for(int ix=0; ix < userInfos_.Count; ix++)
+        if(!userInfos_[ix].Equals(other.userInfos_[ix])) return false;
+      if (hasLossInfo != other.hasLossInfo || (hasLossInfo && !lossInfo_.Equals(other.lossInfo_))) return false;
       return true;
     }
     
@@ -1083,6 +1130,7 @@ namespace com.game.framework.protocol {
     private FightingInfo MakeReadOnly() {
       invadeResultInfos_.MakeReadOnly();
       lossInfos_.MakeReadOnly();
+      userInfos_.MakeReadOnly();
       return this;
     }
     
@@ -1183,6 +1231,12 @@ namespace com.game.framework.protocol {
         if (other.lossInfos_.Count != 0) {
           result.lossInfos_.Add(other.lossInfos_);
         }
+        if (other.userInfos_.Count != 0) {
+          result.userInfos_.Add(other.userInfos_);
+        }
+        if (other.HasLossInfo) {
+          MergeLossInfo(other.LossInfo);
+        }
         return this;
       }
       
@@ -1221,6 +1275,19 @@ namespace com.game.framework.protocol {
             }
             case 18: {
               input.ReadMessageArray(tag, field_name, result.lossInfos_, global::com.game.framework.protocol.LossInfo.DefaultInstance, extensionRegistry);
+              break;
+            }
+            case 26: {
+              input.ReadMessageArray(tag, field_name, result.userInfos_, global::com.game.framework.protocol.UserInfo.DefaultInstance, extensionRegistry);
+              break;
+            }
+            case 34: {
+              global::com.game.framework.protocol.LossInfo.Builder subBuilder = global::com.game.framework.protocol.LossInfo.CreateBuilder();
+              if (result.hasLossInfo) {
+                subBuilder.MergeFrom(LossInfo);
+              }
+              input.ReadMessage(subBuilder, extensionRegistry);
+              LossInfo = subBuilder.BuildPartial();
               break;
             }
           }
@@ -1315,6 +1382,90 @@ namespace com.game.framework.protocol {
       public Builder ClearLossInfos() {
         PrepareBuilder();
         result.lossInfos_.Clear();
+        return this;
+      }
+      
+      public pbc::IPopsicleList<global::com.game.framework.protocol.UserInfo> UserInfosList {
+        get { return PrepareBuilder().userInfos_; }
+      }
+      public int UserInfosCount {
+        get { return result.UserInfosCount; }
+      }
+      public global::com.game.framework.protocol.UserInfo GetUserInfos(int index) {
+        return result.GetUserInfos(index);
+      }
+      public Builder SetUserInfos(int index, global::com.game.framework.protocol.UserInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.userInfos_[index] = value;
+        return this;
+      }
+      public Builder SetUserInfos(int index, global::com.game.framework.protocol.UserInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.userInfos_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddUserInfos(global::com.game.framework.protocol.UserInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.userInfos_.Add(value);
+        return this;
+      }
+      public Builder AddUserInfos(global::com.game.framework.protocol.UserInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.userInfos_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeUserInfos(scg::IEnumerable<global::com.game.framework.protocol.UserInfo> values) {
+        PrepareBuilder();
+        result.userInfos_.Add(values);
+        return this;
+      }
+      public Builder ClearUserInfos() {
+        PrepareBuilder();
+        result.userInfos_.Clear();
+        return this;
+      }
+      
+      public bool HasLossInfo {
+       get { return result.hasLossInfo; }
+      }
+      public global::com.game.framework.protocol.LossInfo LossInfo {
+        get { return result.LossInfo; }
+        set { SetLossInfo(value); }
+      }
+      public Builder SetLossInfo(global::com.game.framework.protocol.LossInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasLossInfo = true;
+        result.lossInfo_ = value;
+        return this;
+      }
+      public Builder SetLossInfo(global::com.game.framework.protocol.LossInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.hasLossInfo = true;
+        result.lossInfo_ = builderForValue.Build();
+        return this;
+      }
+      public Builder MergeLossInfo(global::com.game.framework.protocol.LossInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        if (result.hasLossInfo &&
+            result.lossInfo_ != global::com.game.framework.protocol.LossInfo.DefaultInstance) {
+            result.lossInfo_ = global::com.game.framework.protocol.LossInfo.CreateBuilder(result.lossInfo_).MergeFrom(value).BuildPartial();
+        } else {
+          result.lossInfo_ = value;
+        }
+        result.hasLossInfo = true;
+        return this;
+      }
+      public Builder ClearLossInfo() {
+        PrepareBuilder();
+        result.hasLossInfo = false;
+        result.lossInfo_ = null;
         return this;
       }
     }
@@ -2668,8 +2819,8 @@ namespace com.game.framework.protocol {
   public sealed partial class MessageInfo : pb::GeneratedMessageLite<MessageInfo, MessageInfo.Builder> {
     private MessageInfo() { }
     private static readonly MessageInfo defaultInstance = new MessageInfo().MakeReadOnly();
-    private static readonly string[] _messageInfoFieldNames = new string[] { "fightingInfo", "time", "type", "zombieInfo" };
-    private static readonly uint[] _messageInfoFieldTags = new uint[] { 26, 32, 8, 18 };
+    private static readonly string[] _messageInfoFieldNames = new string[] { "fightingInfo", "isRead", "time", "type", "zombieInfo" };
+    private static readonly uint[] _messageInfoFieldTags = new uint[] { 26, 40, 32, 8, 18 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -2741,6 +2892,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int IsReadFieldNumber = 5;
+    private bool hasIsRead;
+    private bool isRead_;
+    public bool HasIsRead {
+      get { return hasIsRead; }
+    }
+    public bool IsRead {
+      get { return isRead_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -2756,16 +2920,19 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _messageInfoFieldNames;
       if (hasType) {
-        output.WriteInt32(1, field_names[2], Type);
+        output.WriteInt32(1, field_names[3], Type);
       }
       if (hasZombieInfo) {
-        output.WriteMessage(2, field_names[3], ZombieInfo);
+        output.WriteMessage(2, field_names[4], ZombieInfo);
       }
       if (hasFightingInfo) {
         output.WriteMessage(3, field_names[0], FightingInfo);
       }
       if (hasTime) {
-        output.WriteInt64(4, field_names[1], Time);
+        output.WriteInt64(4, field_names[2], Time);
+      }
+      if (hasIsRead) {
+        output.WriteBool(5, field_names[1], IsRead);
       }
     }
     
@@ -2791,6 +2958,9 @@ namespace com.game.framework.protocol {
         if (hasTime) {
           size += pb::CodedOutputStream.ComputeInt64Size(4, Time);
         }
+        if (hasIsRead) {
+          size += pb::CodedOutputStream.ComputeBoolSize(5, IsRead);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -2803,6 +2973,7 @@ namespace com.game.framework.protocol {
       if (hasZombieInfo) hash ^= zombieInfo_.GetHashCode();
       if (hasFightingInfo) hash ^= fightingInfo_.GetHashCode();
       if (hasTime) hash ^= time_.GetHashCode();
+      if (hasIsRead) hash ^= isRead_.GetHashCode();
       return hash;
     }
     
@@ -2813,6 +2984,7 @@ namespace com.game.framework.protocol {
       if (hasZombieInfo != other.hasZombieInfo || (hasZombieInfo && !zombieInfo_.Equals(other.zombieInfo_))) return false;
       if (hasFightingInfo != other.hasFightingInfo || (hasFightingInfo && !fightingInfo_.Equals(other.fightingInfo_))) return false;
       if (hasTime != other.hasTime || (hasTime && !time_.Equals(other.time_))) return false;
+      if (hasIsRead != other.hasIsRead || (hasIsRead && !isRead_.Equals(other.isRead_))) return false;
       return true;
     }
     
@@ -2985,6 +3157,9 @@ namespace com.game.framework.protocol {
         if (other.HasTime) {
           Time = other.Time;
         }
+        if (other.HasIsRead) {
+          IsRead = other.IsRead;
+        }
         return this;
       }
       
@@ -3041,6 +3216,10 @@ namespace com.game.framework.protocol {
             }
             case 32: {
               result.hasTime = input.ReadInt64(ref result.time_);
+              break;
+            }
+            case 40: {
+              result.hasIsRead = input.ReadBool(ref result.isRead_);
               break;
             }
           }
@@ -3169,8 +3348,928 @@ namespace com.game.framework.protocol {
         result.time_ = 0L;
         return this;
       }
+      
+      public bool HasIsRead {
+        get { return result.hasIsRead; }
+      }
+      public bool IsRead {
+        get { return result.IsRead; }
+        set { SetIsRead(value); }
+      }
+      public Builder SetIsRead(bool value) {
+        PrepareBuilder();
+        result.hasIsRead = true;
+        result.isRead_ = value;
+        return this;
+      }
+      public Builder ClearIsRead() {
+        PrepareBuilder();
+        result.hasIsRead = false;
+        result.isRead_ = false;
+        return this;
+      }
     }
     static MessageInfo() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TCSGetMessageTag : pb::GeneratedMessageLite<TCSGetMessageTag, TCSGetMessageTag.Builder> {
+    private TCSGetMessageTag() { }
+    private static readonly TCSGetMessageTag defaultInstance = new TCSGetMessageTag().MakeReadOnly();
+    private static readonly string[] _tCSGetMessageTagFieldNames = new string[] {  };
+    private static readonly uint[] _tCSGetMessageTagFieldTags = new uint[] {  };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TCSGetMessageTag DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TCSGetMessageTag ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tCSGetMessageTagFieldNames;
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TCSGetMessageTag other = obj as TCSGetMessageTag;
+      if (other == null) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetMessageTag ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TCSGetMessageTag MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TCSGetMessageTag prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSGetMessageTag, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TCSGetMessageTag cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TCSGetMessageTag result;
+      
+      private TCSGetMessageTag PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TCSGetMessageTag original = result;
+          result = new TCSGetMessageTag();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TCSGetMessageTag MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TCSGetMessageTag DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TCSGetMessageTag.DefaultInstance; }
+      }
+      
+      public override TCSGetMessageTag BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TCSGetMessageTag) {
+          return MergeFrom((TCSGetMessageTag) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TCSGetMessageTag other) {
+        if (other == global::com.game.framework.protocol.TCSGetMessageTag.DefaultInstance) return this;
+        PrepareBuilder();
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tCSGetMessageTagFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tCSGetMessageTagFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+    }
+    static TCSGetMessageTag() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TSCGetMessageTag : pb::GeneratedMessageLite<TSCGetMessageTag, TSCGetMessageTag.Builder> {
+    private TSCGetMessageTag() { }
+    private static readonly TSCGetMessageTag defaultInstance = new TSCGetMessageTag().MakeReadOnly();
+    private static readonly string[] _tSCGetMessageTagFieldNames = new string[] { "haveRead" };
+    private static readonly uint[] _tSCGetMessageTagFieldTags = new uint[] { 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TSCGetMessageTag DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TSCGetMessageTag ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int HaveReadFieldNumber = 1;
+    private bool hasHaveRead;
+    private bool haveRead_;
+    public bool HasHaveRead {
+      get { return hasHaveRead; }
+    }
+    public bool HaveRead {
+      get { return haveRead_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tSCGetMessageTagFieldNames;
+      if (hasHaveRead) {
+        output.WriteBool(1, field_names[0], HaveRead);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasHaveRead) {
+          size += pb::CodedOutputStream.ComputeBoolSize(1, HaveRead);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasHaveRead) hash ^= haveRead_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TSCGetMessageTag other = obj as TSCGetMessageTag;
+      if (other == null) return false;
+      if (hasHaveRead != other.hasHaveRead || (hasHaveRead && !haveRead_.Equals(other.haveRead_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetMessageTag ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TSCGetMessageTag MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TSCGetMessageTag prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCGetMessageTag, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TSCGetMessageTag cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TSCGetMessageTag result;
+      
+      private TSCGetMessageTag PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TSCGetMessageTag original = result;
+          result = new TSCGetMessageTag();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TSCGetMessageTag MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TSCGetMessageTag DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TSCGetMessageTag.DefaultInstance; }
+      }
+      
+      public override TSCGetMessageTag BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TSCGetMessageTag) {
+          return MergeFrom((TSCGetMessageTag) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TSCGetMessageTag other) {
+        if (other == global::com.game.framework.protocol.TSCGetMessageTag.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasHaveRead) {
+          HaveRead = other.HaveRead;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tSCGetMessageTagFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tSCGetMessageTagFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasHaveRead = input.ReadBool(ref result.haveRead_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasHaveRead {
+        get { return result.hasHaveRead; }
+      }
+      public bool HaveRead {
+        get { return result.HaveRead; }
+        set { SetHaveRead(value); }
+      }
+      public Builder SetHaveRead(bool value) {
+        PrepareBuilder();
+        result.hasHaveRead = true;
+        result.haveRead_ = value;
+        return this;
+      }
+      public Builder ClearHaveRead() {
+        PrepareBuilder();
+        result.hasHaveRead = false;
+        result.haveRead_ = false;
+        return this;
+      }
+    }
+    static TSCGetMessageTag() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TCSSendMessageTag : pb::GeneratedMessageLite<TCSSendMessageTag, TCSSendMessageTag.Builder> {
+    private TCSSendMessageTag() { }
+    private static readonly TCSSendMessageTag defaultInstance = new TCSSendMessageTag().MakeReadOnly();
+    private static readonly string[] _tCSSendMessageTagFieldNames = new string[] { "messageId" };
+    private static readonly uint[] _tCSSendMessageTagFieldTags = new uint[] { 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TCSSendMessageTag DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TCSSendMessageTag ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int MessageIdFieldNumber = 1;
+    private bool hasMessageId;
+    private long messageId_;
+    public bool HasMessageId {
+      get { return hasMessageId; }
+    }
+    public long MessageId {
+      get { return messageId_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tCSSendMessageTagFieldNames;
+      if (hasMessageId) {
+        output.WriteInt64(1, field_names[0], MessageId);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasMessageId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, MessageId);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasMessageId) hash ^= messageId_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TCSSendMessageTag other = obj as TCSSendMessageTag;
+      if (other == null) return false;
+      if (hasMessageId != other.hasMessageId || (hasMessageId && !messageId_.Equals(other.messageId_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSSendMessageTag ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TCSSendMessageTag MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TCSSendMessageTag prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSSendMessageTag, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TCSSendMessageTag cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TCSSendMessageTag result;
+      
+      private TCSSendMessageTag PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TCSSendMessageTag original = result;
+          result = new TCSSendMessageTag();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TCSSendMessageTag MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TCSSendMessageTag DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TCSSendMessageTag.DefaultInstance; }
+      }
+      
+      public override TCSSendMessageTag BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TCSSendMessageTag) {
+          return MergeFrom((TCSSendMessageTag) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TCSSendMessageTag other) {
+        if (other == global::com.game.framework.protocol.TCSSendMessageTag.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasMessageId) {
+          MessageId = other.MessageId;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tCSSendMessageTagFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tCSSendMessageTagFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasMessageId = input.ReadInt64(ref result.messageId_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasMessageId {
+        get { return result.hasMessageId; }
+      }
+      public long MessageId {
+        get { return result.MessageId; }
+        set { SetMessageId(value); }
+      }
+      public Builder SetMessageId(long value) {
+        PrepareBuilder();
+        result.hasMessageId = true;
+        result.messageId_ = value;
+        return this;
+      }
+      public Builder ClearMessageId() {
+        PrepareBuilder();
+        result.hasMessageId = false;
+        result.messageId_ = 0L;
+        return this;
+      }
+    }
+    static TCSSendMessageTag() {
       object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
     }
   }

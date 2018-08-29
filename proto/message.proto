@@ -24,8 +24,12 @@ message ZombieInfo {
 message FightingInfo {
 	// 战斗结果
 	repeated InvadeResultInfo invadeResultInfos = 1;
-	// 损失信息
+	// 全部损失信息
 	repeated LossInfo lossInfos = 2;
+	// 开始时玩家信息
+	repeated UserInfo userInfos = 3;
+	// 损失信息
+	optional LossInfo lossInfo = 4;
 }
 
 message TCSGetPageCount {
@@ -57,4 +61,18 @@ message MessageInfo {
 	optional FightingInfo fightingInfo = 3;
 	// 发送时间
 	optional int64 time = 4;
+	// 是否读过
+	optional bool isRead = 5;
+}
+
+message TCSGetMessageTag {
+}
+message TSCGetMessageTag {
+	// 是否有未读邮件
+	optional bool haveRead = 1;
+}
+
+message TCSSendMessageTag {
+	// 邮件Id
+	optional int64 messageId = 1;
 }

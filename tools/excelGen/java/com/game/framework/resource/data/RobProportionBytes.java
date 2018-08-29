@@ -67,7 +67,7 @@ public final class RobProportionBytes {
      * <code>optional int32 bw_lim = 4 [default = 0];</code>
      *
      * <pre>
-     ** 上限 
+     ** 上限(单个资源） 
      * </pre>
      */
     boolean hasBwLim();
@@ -75,7 +75,7 @@ public final class RobProportionBytes {
      * <code>optional int32 bw_lim = 4 [default = 0];</code>
      *
      * <pre>
-     ** 上限 
+     ** 上限(单个资源） 
      * </pre>
      */
     int getBwLim();
@@ -101,7 +101,7 @@ public final class RobProportionBytes {
      * <code>optional int32 gold_lim = 6 [default = 0];</code>
      *
      * <pre>
-     ** 上限 
+     ** 黄金上限 
      * </pre>
      */
     boolean hasGoldLim();
@@ -109,7 +109,7 @@ public final class RobProportionBytes {
      * <code>optional int32 gold_lim = 6 [default = 0];</code>
      *
      * <pre>
-     ** 上限 
+     ** 黄金上限 
      * </pre>
      */
     int getGoldLim();
@@ -311,7 +311,7 @@ public final class RobProportionBytes {
      * <code>optional int32 bw_lim = 4 [default = 0];</code>
      *
      * <pre>
-     ** 上限 
+     ** 上限(单个资源） 
      * </pre>
      */
     public boolean hasBwLim() {
@@ -321,7 +321,7 @@ public final class RobProportionBytes {
      * <code>optional int32 bw_lim = 4 [default = 0];</code>
      *
      * <pre>
-     ** 上限 
+     ** 上限(单个资源） 
      * </pre>
      */
     public int getBwLim() {
@@ -357,7 +357,7 @@ public final class RobProportionBytes {
      * <code>optional int32 gold_lim = 6 [default = 0];</code>
      *
      * <pre>
-     ** 上限 
+     ** 黄金上限 
      * </pre>
      */
     public boolean hasGoldLim() {
@@ -367,7 +367,7 @@ public final class RobProportionBytes {
      * <code>optional int32 gold_lim = 6 [default = 0];</code>
      *
      * <pre>
-     ** 上限 
+     ** 黄金上限 
      * </pre>
      */
     public int getGoldLim() {
@@ -845,7 +845,7 @@ public final class RobProportionBytes {
        * <code>optional int32 bw_lim = 4 [default = 0];</code>
        *
        * <pre>
-       ** 上限 
+       ** 上限(单个资源） 
        * </pre>
        */
       public boolean hasBwLim() {
@@ -855,7 +855,7 @@ public final class RobProportionBytes {
        * <code>optional int32 bw_lim = 4 [default = 0];</code>
        *
        * <pre>
-       ** 上限 
+       ** 上限(单个资源） 
        * </pre>
        */
       public int getBwLim() {
@@ -865,7 +865,7 @@ public final class RobProportionBytes {
        * <code>optional int32 bw_lim = 4 [default = 0];</code>
        *
        * <pre>
-       ** 上限 
+       ** 上限(单个资源） 
        * </pre>
        */
       public Builder setBwLim(int value) {
@@ -878,7 +878,7 @@ public final class RobProportionBytes {
        * <code>optional int32 bw_lim = 4 [default = 0];</code>
        *
        * <pre>
-       ** 上限 
+       ** 上限(单个资源） 
        * </pre>
        */
       public Builder clearBwLim() {
@@ -941,7 +941,7 @@ public final class RobProportionBytes {
        * <code>optional int32 gold_lim = 6 [default = 0];</code>
        *
        * <pre>
-       ** 上限 
+       ** 黄金上限 
        * </pre>
        */
       public boolean hasGoldLim() {
@@ -951,7 +951,7 @@ public final class RobProportionBytes {
        * <code>optional int32 gold_lim = 6 [default = 0];</code>
        *
        * <pre>
-       ** 上限 
+       ** 黄金上限 
        * </pre>
        */
       public int getGoldLim() {
@@ -961,7 +961,7 @@ public final class RobProportionBytes {
        * <code>optional int32 gold_lim = 6 [default = 0];</code>
        *
        * <pre>
-       ** 上限 
+       ** 黄金上限 
        * </pre>
        */
       public Builder setGoldLim(int value) {
@@ -974,7 +974,7 @@ public final class RobProportionBytes {
        * <code>optional int32 gold_lim = 6 [default = 0];</code>
        *
        * <pre>
-       ** 上限 
+       ** 黄金上限 
        * </pre>
        */
       public Builder clearGoldLim() {

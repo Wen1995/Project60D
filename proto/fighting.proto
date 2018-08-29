@@ -12,10 +12,14 @@ message TCSReceiveZombieMessage {
 	optional int64 groupId = 1;
 	// 僵尸configId
 	optional int32 configId = 2;
+	// 入侵时间
+	optional int64 zombieInvadeTime = 3;
 }
 message TSCReceiveZombieMessage {
 	// 僵尸configId
 	optional int32 configId = 1;
+	// 入侵时间
+	optional int64 zombieInvadeTime = 2;
 }
 
 message TCSZombieInvadeResult {
@@ -27,7 +31,7 @@ message TCSZombieInvadeResult {
 	optional int64 doorId = 3; 
 }
 message TSCZombieInvadeResult {
-	// 结果数组
+	// 战斗结果
 	repeated InvadeResultInfo invadeResultInfos = 1;
 	// 损失信息
 	optional LossInfo lossInfo = 2;

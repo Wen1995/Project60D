@@ -49,6 +49,9 @@ namespace com.game.framework.protocol {
     GETRESOURCEINFOBYCONFIGID = 82,
     GETUSERSTATE = 83,
     GETUSERSTATEREGULAR = 84,
+    SAVEMESSAGE = 101,
+    GETPAGECOUNT = 102,
+    GETPAGELIST = 103,
   }
   
   public enum Error {

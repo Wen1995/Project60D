@@ -344,8 +344,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TCSReceiveZombieMessage : pb::GeneratedMessageLite<TCSReceiveZombieMessage, TCSReceiveZombieMessage.Builder> {
     private TCSReceiveZombieMessage() { }
     private static readonly TCSReceiveZombieMessage defaultInstance = new TCSReceiveZombieMessage().MakeReadOnly();
-    private static readonly string[] _tCSReceiveZombieMessageFieldNames = new string[] { "configId", "groupId" };
-    private static readonly uint[] _tCSReceiveZombieMessageFieldTags = new uint[] { 16, 8 };
+    private static readonly string[] _tCSReceiveZombieMessageFieldNames = new string[] { "configId", "groupId", "zombieInvadeTime" };
+    private static readonly uint[] _tCSReceiveZombieMessageFieldTags = new uint[] { 16, 8, 24 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -391,6 +391,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ZombieInvadeTimeFieldNumber = 3;
+    private bool hasZombieInvadeTime;
+    private long zombieInvadeTime_;
+    public bool HasZombieInvadeTime {
+      get { return hasZombieInvadeTime; }
+    }
+    public long ZombieInvadeTime {
+      get { return zombieInvadeTime_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -411,6 +424,9 @@ namespace com.game.framework.protocol {
       if (hasConfigId) {
         output.WriteInt32(2, field_names[0], ConfigId);
       }
+      if (hasZombieInvadeTime) {
+        output.WriteInt64(3, field_names[2], ZombieInvadeTime);
+      }
     }
     
     private int memoizedSerializedSize = -1;
@@ -429,6 +445,9 @@ namespace com.game.framework.protocol {
         if (hasConfigId) {
           size += pb::CodedOutputStream.ComputeInt32Size(2, ConfigId);
         }
+        if (hasZombieInvadeTime) {
+          size += pb::CodedOutputStream.ComputeInt64Size(3, ZombieInvadeTime);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -439,6 +458,7 @@ namespace com.game.framework.protocol {
       int hash = GetType().GetHashCode();
       if (hasGroupId) hash ^= groupId_.GetHashCode();
       if (hasConfigId) hash ^= configId_.GetHashCode();
+      if (hasZombieInvadeTime) hash ^= zombieInvadeTime_.GetHashCode();
       return hash;
     }
     
@@ -447,6 +467,7 @@ namespace com.game.framework.protocol {
       if (other == null) return false;
       if (hasGroupId != other.hasGroupId || (hasGroupId && !groupId_.Equals(other.groupId_))) return false;
       if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
+      if (hasZombieInvadeTime != other.hasZombieInvadeTime || (hasZombieInvadeTime && !zombieInvadeTime_.Equals(other.zombieInvadeTime_))) return false;
       return true;
     }
     
@@ -613,6 +634,9 @@ namespace com.game.framework.protocol {
         if (other.HasConfigId) {
           ConfigId = other.ConfigId;
         }
+        if (other.HasZombieInvadeTime) {
+          ZombieInvadeTime = other.ZombieInvadeTime;
+        }
         return this;
       }
       
@@ -651,6 +675,10 @@ namespace com.game.framework.protocol {
             }
             case 16: {
               result.hasConfigId = input.ReadInt32(ref result.configId_);
+              break;
+            }
+            case 24: {
+              result.hasZombieInvadeTime = input.ReadInt64(ref result.zombieInvadeTime_);
               break;
             }
           }
@@ -699,6 +727,26 @@ namespace com.game.framework.protocol {
         result.configId_ = 0;
         return this;
       }
+      
+      public bool HasZombieInvadeTime {
+        get { return result.hasZombieInvadeTime; }
+      }
+      public long ZombieInvadeTime {
+        get { return result.ZombieInvadeTime; }
+        set { SetZombieInvadeTime(value); }
+      }
+      public Builder SetZombieInvadeTime(long value) {
+        PrepareBuilder();
+        result.hasZombieInvadeTime = true;
+        result.zombieInvadeTime_ = value;
+        return this;
+      }
+      public Builder ClearZombieInvadeTime() {
+        PrepareBuilder();
+        result.hasZombieInvadeTime = false;
+        result.zombieInvadeTime_ = 0L;
+        return this;
+      }
     }
     static TCSReceiveZombieMessage() {
       object.ReferenceEquals(global::com.game.framework.protocol.Fighting.Descriptor, null);
@@ -708,8 +756,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCReceiveZombieMessage : pb::GeneratedMessageLite<TSCReceiveZombieMessage, TSCReceiveZombieMessage.Builder> {
     private TSCReceiveZombieMessage() { }
     private static readonly TSCReceiveZombieMessage defaultInstance = new TSCReceiveZombieMessage().MakeReadOnly();
-    private static readonly string[] _tSCReceiveZombieMessageFieldNames = new string[] { "configId" };
-    private static readonly uint[] _tSCReceiveZombieMessageFieldTags = new uint[] { 8 };
+    private static readonly string[] _tSCReceiveZombieMessageFieldNames = new string[] { "configId", "zombieInvadeTime" };
+    private static readonly uint[] _tSCReceiveZombieMessageFieldTags = new uint[] { 8, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -742,6 +790,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ZombieInvadeTimeFieldNumber = 2;
+    private bool hasZombieInvadeTime;
+    private long zombieInvadeTime_;
+    public bool HasZombieInvadeTime {
+      get { return hasZombieInvadeTime; }
+    }
+    public long ZombieInvadeTime {
+      get { return zombieInvadeTime_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -759,6 +820,9 @@ namespace com.game.framework.protocol {
       if (hasConfigId) {
         output.WriteInt32(1, field_names[0], ConfigId);
       }
+      if (hasZombieInvadeTime) {
+        output.WriteInt64(2, field_names[1], ZombieInvadeTime);
+      }
     }
     
     private int memoizedSerializedSize = -1;
@@ -774,6 +838,9 @@ namespace com.game.framework.protocol {
         if (hasConfigId) {
           size += pb::CodedOutputStream.ComputeInt32Size(1, ConfigId);
         }
+        if (hasZombieInvadeTime) {
+          size += pb::CodedOutputStream.ComputeInt64Size(2, ZombieInvadeTime);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -783,6 +850,7 @@ namespace com.game.framework.protocol {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasConfigId) hash ^= configId_.GetHashCode();
+      if (hasZombieInvadeTime) hash ^= zombieInvadeTime_.GetHashCode();
       return hash;
     }
     
@@ -790,6 +858,7 @@ namespace com.game.framework.protocol {
       TSCReceiveZombieMessage other = obj as TSCReceiveZombieMessage;
       if (other == null) return false;
       if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
+      if (hasZombieInvadeTime != other.hasZombieInvadeTime || (hasZombieInvadeTime && !zombieInvadeTime_.Equals(other.zombieInvadeTime_))) return false;
       return true;
     }
     
@@ -953,6 +1022,9 @@ namespace com.game.framework.protocol {
         if (other.HasConfigId) {
           ConfigId = other.ConfigId;
         }
+        if (other.HasZombieInvadeTime) {
+          ZombieInvadeTime = other.ZombieInvadeTime;
+        }
         return this;
       }
       
@@ -989,6 +1061,10 @@ namespace com.game.framework.protocol {
               result.hasConfigId = input.ReadInt32(ref result.configId_);
               break;
             }
+            case 16: {
+              result.hasZombieInvadeTime = input.ReadInt64(ref result.zombieInvadeTime_);
+              break;
+            }
           }
         }
         
@@ -1013,6 +1089,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasConfigId = false;
         result.configId_ = 0;
+        return this;
+      }
+      
+      public bool HasZombieInvadeTime {
+        get { return result.hasZombieInvadeTime; }
+      }
+      public long ZombieInvadeTime {
+        get { return result.ZombieInvadeTime; }
+        set { SetZombieInvadeTime(value); }
+      }
+      public Builder SetZombieInvadeTime(long value) {
+        PrepareBuilder();
+        result.hasZombieInvadeTime = true;
+        result.zombieInvadeTime_ = value;
+        return this;
+      }
+      public Builder ClearZombieInvadeTime() {
+        PrepareBuilder();
+        result.hasZombieInvadeTime = false;
+        result.zombieInvadeTime_ = 0L;
         return this;
       }
     }

@@ -1,4 +1,60 @@
+import "fighting.proto";
 package com.game.framework.protocol;
 
 option optimize_for = SPEED;
 
+message TCSSaveMessage {
+	// 工会Id
+	optional int64 groupId = 1;
+	// 消息类型
+	optional int32 type = 2;
+	// 僵尸入侵消息
+	optional ZombieInfo zombieInfo = 3;
+	// 入侵结果消息
+	optional FightingInfo fightingInfo = 4;
+}
+
+message ZombieInfo {
+	// 僵尸configId
+	optional int32 configId = 1;
+	// 入侵时间
+	optional int64 zombieInvadeTime = 2;
+}
+
+message FightingInfo {
+	// 战斗结果
+	repeated InvadeResultInfo invadeResultInfos = 1;
+	// 损失信息
+	repeated LossInfo lossInfos = 2;
+}
+
+message TCSGetPageCount {
+	// 工会Id
+	optional int64 groupId = 1;
+}
+message TSCGetPageCount {
+	// 页数
+	optional int32 pageCount = 1;
+}
+
+message TCSGetPageList {
+	// 第几页
+	optional int32 currentPage = 1;
+	// 工会Id
+	optional int64 groupId = 2;
+}
+message TSCGetPageList {
+	// 消息内容
+	repeated MessageInfo messageInfo = 1;
+}
+
+message MessageInfo {
+	// 消息类型
+	optional int32 type = 1;
+	// 僵尸入侵消息
+	optional ZombieInfo zombieInfo = 2;
+	// 入侵结果消息
+	optional FightingInfo fightingInfo = 3;
+	// 发送时间
+	optional int64 time = 4;
+}

@@ -35,6 +35,8 @@ message TSCZombieInvadeResult {
 	repeated InvadeResultInfo invadeResultInfos = 1;
 	// 损失信息
 	optional LossInfo lossInfo = 2;
+	// 开始时玩家信息
+	repeated UserInfo userInfos = 3;
 }
 
 message InvadeResultInfo {
@@ -55,8 +57,13 @@ message LossInfo {
 	optional int32 resource = 2;
 	// 金币损失
 	optional int32 gold = 3;
+}
+
+message UserInfo {
+	// 玩家Id
+	optional int64 uid = 1;
 	// 血量
-	optional int32 blood = 4;
+	optional int32 blood = 2;
 	// 健康
-	optional int32 health = 5;
+	optional int32 health = 3;
 }

@@ -65,8 +65,10 @@ enum Cmd {
 	GETPAGECOUNT = 102;
 	// 得到消息
 	GETPAGELIST = 103;
+	// 是否有未读邮件
+	GETMESSAGETAG = 104;
 	// 消息已读
-	SENDREADTAG = 104;
+	SENDMESSAGETAG = 105;
 }
 
 enum Error {

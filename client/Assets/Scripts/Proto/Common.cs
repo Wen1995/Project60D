@@ -52,7 +52,8 @@ namespace com.game.framework.protocol {
     SAVEMESSAGE = 101,
     GETPAGECOUNT = 102,
     GETPAGELIST = 103,
-    SENDREADTAG = 104,
+    GETMESSAGETAG = 104,
+    SENDMESSAGETAG = 105,
   }
   
   public enum Error {

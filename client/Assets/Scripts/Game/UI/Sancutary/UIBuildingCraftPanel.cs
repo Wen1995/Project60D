@@ -22,6 +22,7 @@ public class UIBuildingCraftPanel : PanelBase {
 	UILabel toItemName = null;
 	UILabel toItemNum = null;
 	UILabel craftNumLabel = null;
+	UILabel describeLabel = null;
 
 	UIButton cancelButton = null;
 	UIButton collectButton = null;
@@ -43,6 +44,7 @@ public class UIBuildingCraftPanel : PanelBase {
 		title = transform.Find("inbox/title").GetComponent<UILabel>();
 		stateLabel = transform.Find("inbox/production/text").GetComponent<UILabel>();
 		timeLabel = transform.Find("inbox/production/timelabel").GetComponent<UILabel>();
+		describeLabel = transform.Find("inbox/ingredient/describe").GetComponent<UILabel>();
 
 		UIButton button = transform.Find("inbox/ingredient/valuebar/plusbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnPlus));
@@ -108,22 +110,22 @@ public class UIBuildingCraftPanel : PanelBase {
 		ratio = buildingData.ConPro;
 		itemData = itemDataMap[toConfigID] as ITEM_RES;
 		toItemName.text = itemData.MinName;
+		describeLabel.text = itemData.Desc;
 
 		//text
 		title.text = string.Format("{0} Lv.{1}", buildingData.BldgName, level);
+		collectButton.gameObject.SetActive(false);
+		cancelButton.gameObject.SetActive(false);
 		if(isCrafting)
 		{
 			if(isSelf)
 			{
 				stateLabel.text = "你正在使用";
 				cancelButton.gameObject.SetActive(true);
-				collectButton.gameObject.SetActive(false);
 			}
 			else
 			{
 				stateLabel.text = string.Format("玩家Uid{0}正在使用", info.processUID);
-				cancelButton.gameObject.SetActive(false);
-				collectButton.gameObject.SetActive(false);
 			}
 			//set time
 			if(remainTime > 0)
@@ -141,13 +143,10 @@ public class UIBuildingCraftPanel : PanelBase {
 				
 				stateLabel.text = string.Format("可以领取{0}", info.number);
 				collectButton.gameObject.SetActive(true);
-				cancelButton.gameObject.SetActive(false);
 			}
 			else
 			{
 				stateLabel.text = string.Format("等待玩家Uid{0}领取", info.processUID);
-				collectButton.gameObject.SetActive(false);
-				cancelButton.gameObject.SetActive(false);
 			}
 			timeLabel.text = "00:00";
 		}

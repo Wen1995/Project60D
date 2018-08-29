@@ -616,7 +616,7 @@ public class SceneServiceImpl implements SceneService {
                 }
                 
                 // 更新生产类建筑状态
-                receiveInfoBuilder.setLastReceiveTime(thisTime).setUid(uid).setNumber(leftNumber);
+                receiveInfoBuilder.setLastReceiveTime(thisTime).setNumber(leftNumber);
                 buildingStateBuilder.setReceiveInfos(stateIndex, receiveInfoBuilder);
                 
                 building.setState(buildingStateBuilder.build().toByteArray());

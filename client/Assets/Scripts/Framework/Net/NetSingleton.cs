@@ -107,6 +107,60 @@ public class NetSingleton : Singleton<NetSingleton> {
             Array.Copy(msg.mBtsData, 0, data, 0, msg.mBtsData.Length);
         int errorCode = BitConverter.ToInt32(data, 0);
         print(string.Format("Caught error code={0}", errorCode));
+        string content = null;
+        switch(errorCode)
+        {
+            case(1):
+            {
+                content = "服务器内部错误";
+                break;
+            }
+            case(2):
+            {
+                content = "没有权限操作";
+                break;
+            }
+            case(3):
+            {
+                content = "建筑不存在";
+                break;
+            }
+            case(4):
+            {
+                content = "等级超过上限";
+                break;
+            }
+            case(5):
+            {
+                content = "建筑类型错误";
+                break;
+            }
+            case(6):
+            {
+                content = "资源错误";
+                break;
+            }
+            case(7):
+            {
+                content = "时间错误";
+                break;
+            }
+            case(8):
+            {
+                content = "还有资源未领取";
+                break;
+            }
+            case(10):
+            {
+                content = "仓库容量不足";
+                break;
+            }
+        }
+        NDictionary args = new NDictionary();
+        args.Add("title", "发生错误");
+        args.Add("content", content);
+        FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+        FacadeSingleton.Instance.SendEvent("OpenMsgBox", args);
     }
 
     void OnDestroy() {

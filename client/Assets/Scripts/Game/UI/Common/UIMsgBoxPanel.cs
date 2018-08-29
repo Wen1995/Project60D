@@ -18,7 +18,7 @@ public class UIMsgBoxPanel : PanelBase {
         titleLabel = transform.Find("inbox/title").GetComponent<UILabel>();
         contentLabel = transform.Find("inbox/content/view/text").GetComponent<UILabel>();
 
-        RegisterEvent("RefreshMsgBox", OnRefresh);
+        RegisterEvent("OpenMsgBox", OnRefresh);
     }
 
     public override void OpenPanel()
@@ -33,10 +33,10 @@ public class UIMsgBoxPanel : PanelBase {
 
     void OnRefresh(NDictionary data = null)
     {
-        if(data == null)
-            return;
         string titleStr = data.Value<string>("title");
         string contentStr = data.Value<string>("content");
+        titleLabel.text = titleStr;
+        contentLabel.text = contentStr;
         if(!string.IsNullOrEmpty(titleStr))
             titleLabel.text = titleStr;
         if(!string.IsNullOrEmpty(contentStr))
@@ -45,11 +45,16 @@ public class UIMsgBoxPanel : PanelBase {
     
     public void OnConfirm()
     {
-        FacadeSingleton.Instance.BackPanel();
+        Close();
     }
 
     public void OnCancel()
     {
-        FacadeSingleton.Instance.BackPanel();
+        Close();
+    }
+
+    void Close()
+    {
+        FacadeSingleton.Instance.CloseUtilityPanel("UIMsgBoxPanel");
     }
 }

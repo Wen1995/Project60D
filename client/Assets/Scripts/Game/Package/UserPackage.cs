@@ -95,6 +95,5 @@ public class UserPackage : ModelBase {
         playerState.SetPlayerState(userState);
     }
 
-    
     #endregion
 }

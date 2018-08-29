@@ -34,6 +34,8 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UIPlayerInfoPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UICostResPanel", "Prefabs/UI/Common", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIExploreMapPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UIItemInfoPanel", "Prefabs/UI/Common", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UIMailBoxPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
@@ -112,6 +114,7 @@ public class SSanctuaryController : SceneController
             BuildingInfo info = sceneInfo.BuildingInfosList[i];
             sanctuaryPackage.AddBuilding(info);
         }
+        SendEvent("RefreshBuildingView");
     }
 
     void OnGetResourceInfo(NetMsgDef msg)
@@ -144,54 +147,50 @@ public class SSanctuaryController : SceneController
     void OnBuildingUnlock(NetMsgDef msg)
     {
         TSCUnlock unlock = TSCUnlock.ParseFrom(msg.mBtsData);
-        if (!unlock.IsGroup)
+        if(unlock.IsGroup && unlock.IsResource && unlock.IsProduction)
         {
-            print("group not satisfied");
-            return;
+            long buildingID = unlock.BuildingId;
+            long finishTime = unlock.FinishTime;
+            Building building  = sanctuaryPackage.GetSelectionBuilding();
+            sanctuaryPackage.UnlockBuilding(buildingID, building, finishTime);
+            building.RefreshView();
+            FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
         }
-        if (!unlock.IsResource)
+        else
         {
-            print("resource not satisfied");
-            return;
+            NDictionary data = new NDictionary();
+            data.Add("title", "解锁失败");
+            string content = "";
+            if(!unlock.IsGroup) content += content == "" ? "庄园等级低于要求" : "\n庄园等级低于要求";
+            else if(!unlock.IsResource) content += content == "" ? "资源数量不足" : "\n资源数量不足";
+            else if(!unlock.IsProduction) content += content == "" ? "其他建筑正在升级或解锁中" : "\n其他建筑正在升级或解锁中";
+            data.Add("content", content);
+            FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+            SendEvent("OpenMsgBox", data);
         }
-        if (!unlock.IsProduction)
-        {
-            print("production line is full");
-            return;
-        }
-        long buildingID = unlock.BuildingId;
-        long finishTime = unlock.FinishTime;
-        Building building  = sanctuaryPackage.GetSelectionBuilding();
-        sanctuaryPackage.UnlockBuilding(buildingID, building, finishTime);
-        building.RefreshView();
-        FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
     }
 
     void OnBuildingUpgrade(NetMsgDef msg)
     {
         Debug.Log("building upgrade get responce");
         TSCUpgrade upgrade = TSCUpgrade.ParseFrom(msg.mBtsData);
-        if (upgrade.IsState)
+        if(!upgrade.IsState && upgrade.IsGroup && upgrade.IsResource && upgrade.IsProduction)
         {
-            Debug.Log("building is upgrading");
-            return;
+            sanctuaryPackage.StartUpgrade(upgrade);FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
         }
-        if (!upgrade.IsGroup)
+        else
         {
-            Debug.Log("group not satisfied");
-            return;
+            NDictionary data = new NDictionary();
+            data.Add("title", "升级失败");
+            string content = "";
+            if(upgrade.IsState) content += content == "" ? "建筑正在升级中" : "\n建筑正在升级中";
+            else if(!upgrade.IsGroup) content += content == "" ? "庄园等级低于要求" : "\n庄园等级低于要求";
+            else if(!upgrade.IsResource) content += content == "" ? "资源数量不足" : "\n资源数量不足";
+            else if(!upgrade.IsProduction) content += content == "" ? "其他建筑正在升级或解锁中" : "\n其他建筑正在升级或解锁中";
+            data.Add("content", content);
+            FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+            SendEvent("OpenMsgBox", data);
         }
-        if (!upgrade.IsResource)
-        {
-            print("resource not satisfied");
-            return;
-        }
-        if (!upgrade.IsProduction)
-        {
-            print("production line is full");
-            return;
-        }
-        sanctuaryPackage.StartUpgrade(upgrade);FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
     }
 
     void OnBuildingUnlockFinish(NetMsgDef msg)
@@ -216,14 +215,20 @@ public class SSanctuaryController : SceneController
         if(sanctuaryPackage.GetBuildingFuncByConfigID(info.configID) == BuildingFunc.Craft)
             SendEvent("RefreshCraftPanel");
         Debug.Log(string.Format("buildingID{0} collect res type={1}, num={2}", buildingID, itemPackage.GetItemTypeByConfigID(configID), num));
+        ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(configID);
+        string title = "获得资源";
+        string content = string.Format("获得{0}x{1}", itemConfig.MinName, num);
+        NDictionary data = new NDictionary();
+        data.Add("title", title);
+        data.Add("content", content);
+        FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+        FacadeSingleton.Instance.SendEvent("OpenMsgBox", data);
         FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
     }
 
     void OnCraft(NetMsgDef msg)
     {
         TSCProcess process = TSCProcess.ParseFrom(msg.mBtsData);
-        print("start craft");
-        print(process.Number);
         sanctuaryPackage.StartCraft(process);
         long remainTime = 0;
         if(GlobalFunction.GetRemainTime(process.FinishTime, out remainTime))
@@ -238,7 +243,6 @@ public class SSanctuaryController : SceneController
     IEnumerator CraftTimer(long buildingID, long remainTime)
     {
         yield return new WaitForSeconds(remainTime);
-        print("end craft!!!!!!!!!!!!!");
         sanctuaryPackage.EndCraft(buildingID);
         SendEvent("RefreshCraftPanel");
     }

@@ -1,6 +1,7 @@
 package com.game.framework.dbcache.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class GroupExample {
@@ -471,6 +472,66 @@ public class GroupExample {
 
         public Criteria andStorehouseIdNotBetween(Long value1, Long value2) {
             addCriterion("storehouse_id not between", value1, value2, "storehouseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeIsNull() {
+            addCriterion("invade_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeIsNotNull() {
+            addCriterion("invade_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeEqualTo(Date value) {
+            addCriterion("invade_time =", value, "invadeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeNotEqualTo(Date value) {
+            addCriterion("invade_time <>", value, "invadeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeGreaterThan(Date value) {
+            addCriterion("invade_time >", value, "invadeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("invade_time >=", value, "invadeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeLessThan(Date value) {
+            addCriterion("invade_time <", value, "invadeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeLessThanOrEqualTo(Date value) {
+            addCriterion("invade_time <=", value, "invadeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeIn(List<Date> values) {
+            addCriterion("invade_time in", values, "invadeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeNotIn(List<Date> values) {
+            addCriterion("invade_time not in", values, "invadeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeBetween(Date value1, Date value2) {
+            addCriterion("invade_time between", value1, value2, "invadeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInvadeTimeNotBetween(Date value1, Date value2) {
+            addCriterion("invade_time not between", value1, value2, "invadeTime");
             return (Criteria) this;
         }
     }

@@ -4,17 +4,45 @@ import com.game.framework.dbcache.model.Building;
 import com.game.framework.protocol.Common.BuildingType;
 
 public class BuildingUtil {
-    /** 是否领取类建筑 */
-    public static Boolean isReceiveBuilding(Building building) {
+    
+    /** 
+     * 是否领取类建筑 
+     */
+    public static boolean isReceiveBuilding(Building building) {
         if (building.getConfigId()/1000000%10 == BuildingType.RECEIVE_BUILDING_VALUE) {
             return true;
         } 
         return false;
     }
     
-    /** 是否加工类建筑 */
-    public static Boolean isProcessBuilding(Building building) {
+    /** 
+     * 是否加工类建筑 
+     */
+    public static boolean isProcessBuilding(Building building) {
         if (building.getConfigId()/1000000%10 == BuildingType.PROCESS_BUILDING_VALUE) {
+            return true;
+        } 
+        return false;
+    }
+    
+    /** 
+     * 是否领取、加工、功能类建筑 
+     */
+    public static boolean isResourceBuilding(Building building) {
+        int type = building.getConfigId()/1000000%10;
+        if (type == BuildingType.PROCESS_BUILDING_VALUE 
+                || type == BuildingType.RECEIVE_BUILDING_VALUE
+                || type == BuildingType.FUNCTION_BUILDING_VALUE) {
+            return true;
+        } 
+        return false;
+    }
+    
+    /** 
+     * 是否武器类建筑 
+     */
+    public static boolean isWeaponBuilding(Building building) {
+        if (building.getConfigId()/1000000%10 == BuildingType.WEAPON_BUILDING_VALUE) {
             return true;
         } 
         return false;

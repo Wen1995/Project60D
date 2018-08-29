@@ -180,164 +180,7 @@ public final class ItemResBytes {
         getGoldConvBytes();
 
     /**
-     * <code>optional int32 multiplier = 8 [default = 0];</code>
-     *
-     * <pre>
-     ** 倍率 
-     * </pre>
-     */
-    boolean hasMultiplier();
-    /**
-     * <code>optional int32 multiplier = 8 [default = 0];</code>
-     *
-     * <pre>
-     ** 倍率 
-     * </pre>
-     */
-    int getMultiplier();
-
-    /**
-     * <code>optional int32 time_cost1 = 9 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗时间1
-     *(秒) 
-     * </pre>
-     */
-    boolean hasTimeCost1();
-    /**
-     * <code>optional int32 time_cost1 = 9 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗时间1
-     *(秒) 
-     * </pre>
-     */
-    int getTimeCost1();
-
-    /**
-     * <code>optional int32 ele_cost1 = 10 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗电力1 
-     * </pre>
-     */
-    boolean hasEleCost1();
-    /**
-     * <code>optional int32 ele_cost1 = 10 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗电力1 
-     * </pre>
-     */
-    int getEleCost1();
-
-    /**
-     * <code>optional int32 cost_qty1 = 11 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗数量1 
-     * </pre>
-     */
-    boolean hasCostQty1();
-    /**
-     * <code>optional int32 cost_qty1 = 11 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗数量1 
-     * </pre>
-     */
-    int getCostQty1();
-
-    /**
-     * <code>optional int32 result_id1 = 12 [default = 0];</code>
-     *
-     * <pre>
-     ** 结果ID1 
-     * </pre>
-     */
-    boolean hasResultId1();
-    /**
-     * <code>optional int32 result_id1 = 12 [default = 0];</code>
-     *
-     * <pre>
-     ** 结果ID1 
-     * </pre>
-     */
-    int getResultId1();
-
-    /**
-     * <code>optional int32 time_cost2 = 13 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗时间2
-     *(秒) 
-     * </pre>
-     */
-    boolean hasTimeCost2();
-    /**
-     * <code>optional int32 time_cost2 = 13 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗时间2
-     *(秒) 
-     * </pre>
-     */
-    int getTimeCost2();
-
-    /**
-     * <code>optional int32 ele_cost2 = 14 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗电力2 
-     * </pre>
-     */
-    boolean hasEleCost2();
-    /**
-     * <code>optional int32 ele_cost2 = 14 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗电力2 
-     * </pre>
-     */
-    int getEleCost2();
-
-    /**
-     * <code>optional int32 cost_qty2 = 15 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗数量2 
-     * </pre>
-     */
-    boolean hasCostQty2();
-    /**
-     * <code>optional int32 cost_qty2 = 15 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗数量2 
-     * </pre>
-     */
-    int getCostQty2();
-
-    /**
-     * <code>optional int32 result_id2 = 16 [default = 0];</code>
-     *
-     * <pre>
-     ** 结果ID2 
-     * </pre>
-     */
-    boolean hasResultId2();
-    /**
-     * <code>optional int32 result_id2 = 16 [default = 0];</code>
-     *
-     * <pre>
-     ** 结果ID2 
-     * </pre>
-     */
-    int getResultId2();
-
-    /**
-     * <code>optional int32 stor_unit = 17 [default = 0];</code>
+     * <code>optional int32 stor_unit = 8 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -346,7 +189,7 @@ public final class ItemResBytes {
      */
     boolean hasStorUnit();
     /**
-     * <code>optional int32 stor_unit = 17 [default = 0];</code>
+     * <code>optional int32 stor_unit = 8 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -449,51 +292,6 @@ public final class ItemResBytes {
             }
             case 64: {
               bitField0_ |= 0x00000080;
-              multiplier_ = input.readInt32();
-              break;
-            }
-            case 72: {
-              bitField0_ |= 0x00000100;
-              timeCost1_ = input.readInt32();
-              break;
-            }
-            case 80: {
-              bitField0_ |= 0x00000200;
-              eleCost1_ = input.readInt32();
-              break;
-            }
-            case 88: {
-              bitField0_ |= 0x00000400;
-              costQty1_ = input.readInt32();
-              break;
-            }
-            case 96: {
-              bitField0_ |= 0x00000800;
-              resultId1_ = input.readInt32();
-              break;
-            }
-            case 104: {
-              bitField0_ |= 0x00001000;
-              timeCost2_ = input.readInt32();
-              break;
-            }
-            case 112: {
-              bitField0_ |= 0x00002000;
-              eleCost2_ = input.readInt32();
-              break;
-            }
-            case 120: {
-              bitField0_ |= 0x00004000;
-              costQty2_ = input.readInt32();
-              break;
-            }
-            case 128: {
-              bitField0_ |= 0x00008000;
-              resultId2_ = input.readInt32();
-              break;
-            }
-            case 136: {
-              bitField0_ |= 0x00010000;
               storUnit_ = input.readInt32();
               break;
             }
@@ -856,221 +654,10 @@ public final class ItemResBytes {
       }
     }
 
-    public static final int MULTIPLIER_FIELD_NUMBER = 8;
-    private int multiplier_;
-    /**
-     * <code>optional int32 multiplier = 8 [default = 0];</code>
-     *
-     * <pre>
-     ** 倍率 
-     * </pre>
-     */
-    public boolean hasMultiplier() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
-    }
-    /**
-     * <code>optional int32 multiplier = 8 [default = 0];</code>
-     *
-     * <pre>
-     ** 倍率 
-     * </pre>
-     */
-    public int getMultiplier() {
-      return multiplier_;
-    }
-
-    public static final int TIME_COST1_FIELD_NUMBER = 9;
-    private int timeCost1_;
-    /**
-     * <code>optional int32 time_cost1 = 9 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗时间1
-     *(秒) 
-     * </pre>
-     */
-    public boolean hasTimeCost1() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
-    }
-    /**
-     * <code>optional int32 time_cost1 = 9 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗时间1
-     *(秒) 
-     * </pre>
-     */
-    public int getTimeCost1() {
-      return timeCost1_;
-    }
-
-    public static final int ELE_COST1_FIELD_NUMBER = 10;
-    private int eleCost1_;
-    /**
-     * <code>optional int32 ele_cost1 = 10 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗电力1 
-     * </pre>
-     */
-    public boolean hasEleCost1() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
-    }
-    /**
-     * <code>optional int32 ele_cost1 = 10 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗电力1 
-     * </pre>
-     */
-    public int getEleCost1() {
-      return eleCost1_;
-    }
-
-    public static final int COST_QTY1_FIELD_NUMBER = 11;
-    private int costQty1_;
-    /**
-     * <code>optional int32 cost_qty1 = 11 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗数量1 
-     * </pre>
-     */
-    public boolean hasCostQty1() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
-    }
-    /**
-     * <code>optional int32 cost_qty1 = 11 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗数量1 
-     * </pre>
-     */
-    public int getCostQty1() {
-      return costQty1_;
-    }
-
-    public static final int RESULT_ID1_FIELD_NUMBER = 12;
-    private int resultId1_;
-    /**
-     * <code>optional int32 result_id1 = 12 [default = 0];</code>
-     *
-     * <pre>
-     ** 结果ID1 
-     * </pre>
-     */
-    public boolean hasResultId1() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
-    }
-    /**
-     * <code>optional int32 result_id1 = 12 [default = 0];</code>
-     *
-     * <pre>
-     ** 结果ID1 
-     * </pre>
-     */
-    public int getResultId1() {
-      return resultId1_;
-    }
-
-    public static final int TIME_COST2_FIELD_NUMBER = 13;
-    private int timeCost2_;
-    /**
-     * <code>optional int32 time_cost2 = 13 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗时间2
-     *(秒) 
-     * </pre>
-     */
-    public boolean hasTimeCost2() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
-    }
-    /**
-     * <code>optional int32 time_cost2 = 13 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗时间2
-     *(秒) 
-     * </pre>
-     */
-    public int getTimeCost2() {
-      return timeCost2_;
-    }
-
-    public static final int ELE_COST2_FIELD_NUMBER = 14;
-    private int eleCost2_;
-    /**
-     * <code>optional int32 ele_cost2 = 14 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗电力2 
-     * </pre>
-     */
-    public boolean hasEleCost2() {
-      return ((bitField0_ & 0x00002000) == 0x00002000);
-    }
-    /**
-     * <code>optional int32 ele_cost2 = 14 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗电力2 
-     * </pre>
-     */
-    public int getEleCost2() {
-      return eleCost2_;
-    }
-
-    public static final int COST_QTY2_FIELD_NUMBER = 15;
-    private int costQty2_;
-    /**
-     * <code>optional int32 cost_qty2 = 15 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗数量2 
-     * </pre>
-     */
-    public boolean hasCostQty2() {
-      return ((bitField0_ & 0x00004000) == 0x00004000);
-    }
-    /**
-     * <code>optional int32 cost_qty2 = 15 [default = 0];</code>
-     *
-     * <pre>
-     ** 消耗数量2 
-     * </pre>
-     */
-    public int getCostQty2() {
-      return costQty2_;
-    }
-
-    public static final int RESULT_ID2_FIELD_NUMBER = 16;
-    private int resultId2_;
-    /**
-     * <code>optional int32 result_id2 = 16 [default = 0];</code>
-     *
-     * <pre>
-     ** 结果ID2 
-     * </pre>
-     */
-    public boolean hasResultId2() {
-      return ((bitField0_ & 0x00008000) == 0x00008000);
-    }
-    /**
-     * <code>optional int32 result_id2 = 16 [default = 0];</code>
-     *
-     * <pre>
-     ** 结果ID2 
-     * </pre>
-     */
-    public int getResultId2() {
-      return resultId2_;
-    }
-
-    public static final int STOR_UNIT_FIELD_NUMBER = 17;
+    public static final int STOR_UNIT_FIELD_NUMBER = 8;
     private int storUnit_;
     /**
-     * <code>optional int32 stor_unit = 17 [default = 0];</code>
+     * <code>optional int32 stor_unit = 8 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -1078,10 +665,10 @@ public final class ItemResBytes {
      * </pre>
      */
     public boolean hasStorUnit() {
-      return ((bitField0_ & 0x00010000) == 0x00010000);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional int32 stor_unit = 17 [default = 0];</code>
+     * <code>optional int32 stor_unit = 8 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -1100,15 +687,6 @@ public final class ItemResBytes {
       smallIconName_ = "";
       desc_ = "";
       goldConv_ = "";
-      multiplier_ = 0;
-      timeCost1_ = 0;
-      eleCost1_ = 0;
-      costQty1_ = 0;
-      resultId1_ = 0;
-      timeCost2_ = 0;
-      eleCost2_ = 0;
-      costQty2_ = 0;
-      resultId2_ = 0;
       storUnit_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -1150,34 +728,7 @@ public final class ItemResBytes {
         output.writeBytes(7, getGoldConvBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeInt32(8, multiplier_);
-      }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeInt32(9, timeCost1_);
-      }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeInt32(10, eleCost1_);
-      }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeInt32(11, costQty1_);
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(12, resultId1_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeInt32(13, timeCost2_);
-      }
-      if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        output.writeInt32(14, eleCost2_);
-      }
-      if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        output.writeInt32(15, costQty2_);
-      }
-      if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        output.writeInt32(16, resultId2_);
-      }
-      if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        output.writeInt32(17, storUnit_);
+        output.writeInt32(8, storUnit_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1218,43 +769,7 @@ public final class ItemResBytes {
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, multiplier_);
-      }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, timeCost1_);
-      }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, eleCost1_);
-      }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(11, costQty1_);
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, resultId1_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(13, timeCost2_);
-      }
-      if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(14, eleCost2_);
-      }
-      if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(15, costQty2_);
-      }
-      if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(16, resultId2_);
-      }
-      if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(17, storUnit_);
+          .computeInt32Size(8, storUnit_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1387,26 +902,8 @@ public final class ItemResBytes {
         bitField0_ = (bitField0_ & ~0x00000020);
         goldConv_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
-        multiplier_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000080);
-        timeCost1_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000100);
-        eleCost1_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000200);
-        costQty1_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000400);
-        resultId1_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000800);
-        timeCost2_ = 0;
-        bitField0_ = (bitField0_ & ~0x00001000);
-        eleCost2_ = 0;
-        bitField0_ = (bitField0_ & ~0x00002000);
-        costQty2_ = 0;
-        bitField0_ = (bitField0_ & ~0x00004000);
-        resultId2_ = 0;
-        bitField0_ = (bitField0_ & ~0x00008000);
         storUnit_ = 0;
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -1466,42 +963,6 @@ public final class ItemResBytes {
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.multiplier_ = multiplier_;
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
-          to_bitField0_ |= 0x00000100;
-        }
-        result.timeCost1_ = timeCost1_;
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
-          to_bitField0_ |= 0x00000200;
-        }
-        result.eleCost1_ = eleCost1_;
-        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
-          to_bitField0_ |= 0x00000400;
-        }
-        result.costQty1_ = costQty1_;
-        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
-          to_bitField0_ |= 0x00000800;
-        }
-        result.resultId1_ = resultId1_;
-        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
-          to_bitField0_ |= 0x00001000;
-        }
-        result.timeCost2_ = timeCost2_;
-        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
-          to_bitField0_ |= 0x00002000;
-        }
-        result.eleCost2_ = eleCost2_;
-        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
-          to_bitField0_ |= 0x00004000;
-        }
-        result.costQty2_ = costQty2_;
-        if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
-          to_bitField0_ |= 0x00008000;
-        }
-        result.resultId2_ = resultId2_;
-        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
-          to_bitField0_ |= 0x00010000;
-        }
         result.storUnit_ = storUnit_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -1549,33 +1010,6 @@ public final class ItemResBytes {
           bitField0_ |= 0x00000040;
           goldConv_ = other.goldConv_;
           onChanged();
-        }
-        if (other.hasMultiplier()) {
-          setMultiplier(other.getMultiplier());
-        }
-        if (other.hasTimeCost1()) {
-          setTimeCost1(other.getTimeCost1());
-        }
-        if (other.hasEleCost1()) {
-          setEleCost1(other.getEleCost1());
-        }
-        if (other.hasCostQty1()) {
-          setCostQty1(other.getCostQty1());
-        }
-        if (other.hasResultId1()) {
-          setResultId1(other.getResultId1());
-        }
-        if (other.hasTimeCost2()) {
-          setTimeCost2(other.getTimeCost2());
-        }
-        if (other.hasEleCost2()) {
-          setEleCost2(other.getEleCost2());
-        }
-        if (other.hasCostQty2()) {
-          setCostQty2(other.getCostQty2());
-        }
-        if (other.hasResultId2()) {
-          setResultId2(other.getResultId2());
         }
         if (other.hasStorUnit()) {
           setStorUnit(other.getStorUnit());
@@ -2213,449 +1647,9 @@ public final class ItemResBytes {
         return this;
       }
 
-      private int multiplier_ ;
-      /**
-       * <code>optional int32 multiplier = 8 [default = 0];</code>
-       *
-       * <pre>
-       ** 倍率 
-       * </pre>
-       */
-      public boolean hasMultiplier() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
-      }
-      /**
-       * <code>optional int32 multiplier = 8 [default = 0];</code>
-       *
-       * <pre>
-       ** 倍率 
-       * </pre>
-       */
-      public int getMultiplier() {
-        return multiplier_;
-      }
-      /**
-       * <code>optional int32 multiplier = 8 [default = 0];</code>
-       *
-       * <pre>
-       ** 倍率 
-       * </pre>
-       */
-      public Builder setMultiplier(int value) {
-        bitField0_ |= 0x00000080;
-        multiplier_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 multiplier = 8 [default = 0];</code>
-       *
-       * <pre>
-       ** 倍率 
-       * </pre>
-       */
-      public Builder clearMultiplier() {
-        bitField0_ = (bitField0_ & ~0x00000080);
-        multiplier_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int timeCost1_ ;
-      /**
-       * <code>optional int32 time_cost1 = 9 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗时间1
-       *(秒) 
-       * </pre>
-       */
-      public boolean hasTimeCost1() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
-      }
-      /**
-       * <code>optional int32 time_cost1 = 9 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗时间1
-       *(秒) 
-       * </pre>
-       */
-      public int getTimeCost1() {
-        return timeCost1_;
-      }
-      /**
-       * <code>optional int32 time_cost1 = 9 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗时间1
-       *(秒) 
-       * </pre>
-       */
-      public Builder setTimeCost1(int value) {
-        bitField0_ |= 0x00000100;
-        timeCost1_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 time_cost1 = 9 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗时间1
-       *(秒) 
-       * </pre>
-       */
-      public Builder clearTimeCost1() {
-        bitField0_ = (bitField0_ & ~0x00000100);
-        timeCost1_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int eleCost1_ ;
-      /**
-       * <code>optional int32 ele_cost1 = 10 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗电力1 
-       * </pre>
-       */
-      public boolean hasEleCost1() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
-      }
-      /**
-       * <code>optional int32 ele_cost1 = 10 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗电力1 
-       * </pre>
-       */
-      public int getEleCost1() {
-        return eleCost1_;
-      }
-      /**
-       * <code>optional int32 ele_cost1 = 10 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗电力1 
-       * </pre>
-       */
-      public Builder setEleCost1(int value) {
-        bitField0_ |= 0x00000200;
-        eleCost1_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 ele_cost1 = 10 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗电力1 
-       * </pre>
-       */
-      public Builder clearEleCost1() {
-        bitField0_ = (bitField0_ & ~0x00000200);
-        eleCost1_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int costQty1_ ;
-      /**
-       * <code>optional int32 cost_qty1 = 11 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗数量1 
-       * </pre>
-       */
-      public boolean hasCostQty1() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
-      }
-      /**
-       * <code>optional int32 cost_qty1 = 11 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗数量1 
-       * </pre>
-       */
-      public int getCostQty1() {
-        return costQty1_;
-      }
-      /**
-       * <code>optional int32 cost_qty1 = 11 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗数量1 
-       * </pre>
-       */
-      public Builder setCostQty1(int value) {
-        bitField0_ |= 0x00000400;
-        costQty1_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 cost_qty1 = 11 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗数量1 
-       * </pre>
-       */
-      public Builder clearCostQty1() {
-        bitField0_ = (bitField0_ & ~0x00000400);
-        costQty1_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int resultId1_ ;
-      /**
-       * <code>optional int32 result_id1 = 12 [default = 0];</code>
-       *
-       * <pre>
-       ** 结果ID1 
-       * </pre>
-       */
-      public boolean hasResultId1() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
-      }
-      /**
-       * <code>optional int32 result_id1 = 12 [default = 0];</code>
-       *
-       * <pre>
-       ** 结果ID1 
-       * </pre>
-       */
-      public int getResultId1() {
-        return resultId1_;
-      }
-      /**
-       * <code>optional int32 result_id1 = 12 [default = 0];</code>
-       *
-       * <pre>
-       ** 结果ID1 
-       * </pre>
-       */
-      public Builder setResultId1(int value) {
-        bitField0_ |= 0x00000800;
-        resultId1_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 result_id1 = 12 [default = 0];</code>
-       *
-       * <pre>
-       ** 结果ID1 
-       * </pre>
-       */
-      public Builder clearResultId1() {
-        bitField0_ = (bitField0_ & ~0x00000800);
-        resultId1_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int timeCost2_ ;
-      /**
-       * <code>optional int32 time_cost2 = 13 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗时间2
-       *(秒) 
-       * </pre>
-       */
-      public boolean hasTimeCost2() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
-      }
-      /**
-       * <code>optional int32 time_cost2 = 13 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗时间2
-       *(秒) 
-       * </pre>
-       */
-      public int getTimeCost2() {
-        return timeCost2_;
-      }
-      /**
-       * <code>optional int32 time_cost2 = 13 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗时间2
-       *(秒) 
-       * </pre>
-       */
-      public Builder setTimeCost2(int value) {
-        bitField0_ |= 0x00001000;
-        timeCost2_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 time_cost2 = 13 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗时间2
-       *(秒) 
-       * </pre>
-       */
-      public Builder clearTimeCost2() {
-        bitField0_ = (bitField0_ & ~0x00001000);
-        timeCost2_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int eleCost2_ ;
-      /**
-       * <code>optional int32 ele_cost2 = 14 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗电力2 
-       * </pre>
-       */
-      public boolean hasEleCost2() {
-        return ((bitField0_ & 0x00002000) == 0x00002000);
-      }
-      /**
-       * <code>optional int32 ele_cost2 = 14 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗电力2 
-       * </pre>
-       */
-      public int getEleCost2() {
-        return eleCost2_;
-      }
-      /**
-       * <code>optional int32 ele_cost2 = 14 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗电力2 
-       * </pre>
-       */
-      public Builder setEleCost2(int value) {
-        bitField0_ |= 0x00002000;
-        eleCost2_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 ele_cost2 = 14 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗电力2 
-       * </pre>
-       */
-      public Builder clearEleCost2() {
-        bitField0_ = (bitField0_ & ~0x00002000);
-        eleCost2_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int costQty2_ ;
-      /**
-       * <code>optional int32 cost_qty2 = 15 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗数量2 
-       * </pre>
-       */
-      public boolean hasCostQty2() {
-        return ((bitField0_ & 0x00004000) == 0x00004000);
-      }
-      /**
-       * <code>optional int32 cost_qty2 = 15 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗数量2 
-       * </pre>
-       */
-      public int getCostQty2() {
-        return costQty2_;
-      }
-      /**
-       * <code>optional int32 cost_qty2 = 15 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗数量2 
-       * </pre>
-       */
-      public Builder setCostQty2(int value) {
-        bitField0_ |= 0x00004000;
-        costQty2_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 cost_qty2 = 15 [default = 0];</code>
-       *
-       * <pre>
-       ** 消耗数量2 
-       * </pre>
-       */
-      public Builder clearCostQty2() {
-        bitField0_ = (bitField0_ & ~0x00004000);
-        costQty2_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int resultId2_ ;
-      /**
-       * <code>optional int32 result_id2 = 16 [default = 0];</code>
-       *
-       * <pre>
-       ** 结果ID2 
-       * </pre>
-       */
-      public boolean hasResultId2() {
-        return ((bitField0_ & 0x00008000) == 0x00008000);
-      }
-      /**
-       * <code>optional int32 result_id2 = 16 [default = 0];</code>
-       *
-       * <pre>
-       ** 结果ID2 
-       * </pre>
-       */
-      public int getResultId2() {
-        return resultId2_;
-      }
-      /**
-       * <code>optional int32 result_id2 = 16 [default = 0];</code>
-       *
-       * <pre>
-       ** 结果ID2 
-       * </pre>
-       */
-      public Builder setResultId2(int value) {
-        bitField0_ |= 0x00008000;
-        resultId2_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 result_id2 = 16 [default = 0];</code>
-       *
-       * <pre>
-       ** 结果ID2 
-       * </pre>
-       */
-      public Builder clearResultId2() {
-        bitField0_ = (bitField0_ & ~0x00008000);
-        resultId2_ = 0;
-        onChanged();
-        return this;
-      }
-
       private int storUnit_ ;
       /**
-       * <code>optional int32 stor_unit = 17 [default = 0];</code>
+       * <code>optional int32 stor_unit = 8 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -2663,10 +1657,10 @@ public final class ItemResBytes {
        * </pre>
        */
       public boolean hasStorUnit() {
-        return ((bitField0_ & 0x00010000) == 0x00010000);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional int32 stor_unit = 17 [default = 0];</code>
+       * <code>optional int32 stor_unit = 8 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -2677,7 +1671,7 @@ public final class ItemResBytes {
         return storUnit_;
       }
       /**
-       * <code>optional int32 stor_unit = 17 [default = 0];</code>
+       * <code>optional int32 stor_unit = 8 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -2685,13 +1679,13 @@ public final class ItemResBytes {
        * </pre>
        */
       public Builder setStorUnit(int value) {
-        bitField0_ |= 0x00010000;
+        bitField0_ |= 0x00000080;
         storUnit_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 stor_unit = 17 [default = 0];</code>
+       * <code>optional int32 stor_unit = 8 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -2699,7 +1693,7 @@ public final class ItemResBytes {
        * </pre>
        */
       public Builder clearStorUnit() {
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00000080);
         storUnit_ = 0;
         onChanged();
         return this;
@@ -3424,18 +2418,13 @@ public final class ItemResBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\032proto/item_res_bytes.proto\022 com.game.f" +
-      "ramework.resource.data\"\370\002\n\010ITEM_RES\022\r\n\002i" +
+      "ramework.resource.data\"\255\001\n\010ITEM_RES\022\r\n\002i" +
       "d\030\001 \002(\005:\0010\022\023\n\010item_lvl\030\002 \001(\005:\0010\022\022\n\010min_n" +
       "ame\030\003 \001(\t:\000\022\023\n\ticon_name\030\004 \001(\t:\000\022\031\n\017smal" +
       "l_icon_name\030\005 \001(\t:\000\022\016\n\004desc\030\006 \001(\t:\000\022\023\n\tg" +
-      "old_conv\030\007 \001(\t:\000\022\025\n\nmultiplier\030\010 \001(\005:\0010\022" +
-      "\025\n\ntime_cost1\030\t \001(\005:\0010\022\024\n\tele_cost1\030\n \001(" +
-      "\005:\0010\022\024\n\tcost_qty1\030\013 \001(\005:\0010\022\025\n\nresult_id1" +
-      "\030\014 \001(\005:\0010\022\025\n\ntime_cost2\030\r \001(\005:\0010\022\024\n\tele_" +
-      "cost2\030\016 \001(\005:\0010\022\024\n\tcost_qty2\030\017 \001(\005:\0010\022\025\n\n",
-      "result_id2\030\020 \001(\005:\0010\022\024\n\tstor_unit\030\021 \001(\005:\001" +
-      "0\"K\n\016ITEM_RES_ARRAY\0229\n\005items\030\001 \003(\0132*.com" +
-      ".game.framework.resource.data.ITEM_RES"
+      "old_conv\030\007 \001(\t:\000\022\024\n\tstor_unit\030\010 \001(\005:\0010\"K" +
+      "\n\016ITEM_RES_ARRAY\0229\n\005items\030\001 \003(\0132*.com.ga" +
+      "me.framework.resource.data.ITEM_RES"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3454,7 +2443,7 @@ public final class ItemResBytes {
     internal_static_com_game_framework_resource_data_ITEM_RES_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_ITEM_RES_descriptor,
-        new java.lang.String[] { "Id", "ItemLvl", "MinName", "IconName", "SmallIconName", "Desc", "GoldConv", "Multiplier", "TimeCost1", "EleCost1", "CostQty1", "ResultId1", "TimeCost2", "EleCost2", "CostQty2", "ResultId2", "StorUnit", });
+        new java.lang.String[] { "Id", "ItemLvl", "MinName", "IconName", "SmallIconName", "Desc", "GoldConv", "StorUnit", });
     internal_static_com_game_framework_resource_data_ITEM_RES_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_ITEM_RES_ARRAY_fieldAccessorTable = new

@@ -33,7 +33,7 @@ public final class WuxiandianBytes {
      * <code>optional int32 wuxiandian_dis = 2 [default = 0];</code>
      *
      * <pre>
-     ** 接收距离 
+     ** 接收时间（秒） 
      * </pre>
      */
     boolean hasWuxiandianDis();
@@ -41,7 +41,7 @@ public final class WuxiandianBytes {
      * <code>optional int32 wuxiandian_dis = 2 [default = 0];</code>
      *
      * <pre>
-     ** 接收距离 
+     ** 接收时间（秒） 
      * </pre>
      */
     int getWuxiandianDis();
@@ -177,7 +177,7 @@ public final class WuxiandianBytes {
      * <code>optional int32 wuxiandian_dis = 2 [default = 0];</code>
      *
      * <pre>
-     ** 接收距离 
+     ** 接收时间（秒） 
      * </pre>
      */
     public boolean hasWuxiandianDis() {
@@ -187,7 +187,7 @@ public final class WuxiandianBytes {
      * <code>optional int32 wuxiandian_dis = 2 [default = 0];</code>
      *
      * <pre>
-     ** 接收距离 
+     ** 接收时间（秒） 
      * </pre>
      */
     public int getWuxiandianDis() {
@@ -501,7 +501,7 @@ public final class WuxiandianBytes {
        * <code>optional int32 wuxiandian_dis = 2 [default = 0];</code>
        *
        * <pre>
-       ** 接收距离 
+       ** 接收时间（秒） 
        * </pre>
        */
       public boolean hasWuxiandianDis() {
@@ -511,7 +511,7 @@ public final class WuxiandianBytes {
        * <code>optional int32 wuxiandian_dis = 2 [default = 0];</code>
        *
        * <pre>
-       ** 接收距离 
+       ** 接收时间（秒） 
        * </pre>
        */
       public int getWuxiandianDis() {
@@ -521,7 +521,7 @@ public final class WuxiandianBytes {
        * <code>optional int32 wuxiandian_dis = 2 [default = 0];</code>
        *
        * <pre>
-       ** 接收距离 
+       ** 接收时间（秒） 
        * </pre>
        */
       public Builder setWuxiandianDis(int value) {
@@ -534,7 +534,7 @@ public final class WuxiandianBytes {
        * <code>optional int32 wuxiandian_dis = 2 [default = 0];</code>
        *
        * <pre>
-       ** 接收距离 
+       ** 接收时间（秒） 
        * </pre>
        */
       public Builder clearWuxiandianDis() {

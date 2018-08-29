@@ -33,6 +33,12 @@ public enum BuildingType {
     Gate,
 
     Turret0 = 501,
+    Turret1,
+    Turret2,
+    Turret3,
+    Turret4,
+    Turret5,
+    Turret6,
 }
 
 public enum BuildingFunc
@@ -215,6 +221,15 @@ public class SanctuaryPackage : ModelBase {
         info.number = 0;
         info.building.RefreshView();
     }
+
+    public void SetBuildingCollectable(long buildingID)
+    {
+        if(!mBuildingInfoMap.ContainsKey(buildingID))
+            return;
+        NBuildingInfo info = mBuildingInfoMap[buildingID];
+        info.number = 1;
+        info.building.RefreshView();
+    }
     #endregion
 
     public override void Release()
@@ -280,6 +295,20 @@ public class SanctuaryPackage : ModelBase {
                 return null;
             case (BuildingType.Gate):
                 return parent.Find("gate").GetComponent<Building>();
+            case (BuildingType.Turret0):
+                return parent.Find("turret1").GetComponent<Building>();
+            case (BuildingType.Turret1):
+                return parent.Find("turret2").GetComponent<Building>();
+            case (BuildingType.Turret2):
+                return parent.Find("turret3").GetComponent<Building>();
+            case (BuildingType.Turret3):
+                return parent.Find("turret4").GetComponent<Building>();
+            case (BuildingType.Turret4):
+                return parent.Find("turret5").GetComponent<Building>();
+            case (BuildingType.Turret5):
+                return parent.Find("turret6").GetComponent<Building>();
+            case (BuildingType.Turret6):
+                return parent.Find("turret7").GetComponent<Building>();
         }
         return null;
     }
@@ -401,7 +430,22 @@ public class SanctuaryPackage : ModelBase {
                 dataList.Add(new BuildingAttributeData("容量", data.JingCap));
                 break;
             }
-            
+            case(BuildingType.WaterCollector):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("LUSHUI");
+                LUSHUI data = dataMap[level] as LUSHUI;
+                dataList.Add(new BuildingAttributeData("收集速度", data.LushuiSpd));
+                dataList.Add(new BuildingAttributeData("单次最大收集量", data.LushuiCap));
+                break;
+            }
+            case(BuildingType.WaterFactory):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("KUANGQUANSHUI");
+                KUANGQUANSHUI data = dataMap[level] as KUANGQUANSHUI;
+                dataList.Add(new BuildingAttributeData("加工速度", data.KuangquanshuiSpd));
+                dataList.Add(new BuildingAttributeData("最大加工量", data.KuangquanshuiCap));
+                break;
+            }
         } 
         attributeDataList = dataList;
         return attributeDataList.Count;

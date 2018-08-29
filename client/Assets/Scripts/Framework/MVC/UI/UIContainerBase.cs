@@ -63,6 +63,11 @@ public class UIContainerBase : MonoBehaviour {
     /// </summary>
     public void RegisterPanel(string name, string resPath, int depth, PanelAnchor anchor)
     {
+        if(mPanelInfoMap.ContainsKey(name))
+        {
+            Debug.Log("panel name={0} already registered");
+            return;
+        }
         PanelInfo info = new PanelInfo(name, resPath, depth, anchor);
         mPanelInfoMap.Add(name, info);
     }

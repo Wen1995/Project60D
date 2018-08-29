@@ -136,9 +136,11 @@ public class UserServiceImpl implements UserService {
         userDao.update(user);
         
         // 开启周期任务
-        TCSGetUserStateRegular pp = TCSGetUserStateRegular.newBuilder().build();
-        TimerManager.GetInstance().scheduleAtFixedRate(uid, Cmd.GETUSERSTATEREGULAR_VALUE, pp.toByteArray(), 
-                Constant.REGULAR_SCHEDULE, Constant.REGULAR_SCHEDULE);
+        if (!TimerManager.GetInstance().uid2FutureMap.containsKey(uid)) {
+            TCSGetUserStateRegular pp = TCSGetUserStateRegular.newBuilder().build();
+            TimerManager.GetInstance().scheduleAtFixedRate(uid, Cmd.GETUSERSTATEREGULAR_VALUE, pp.toByteArray(), 
+                    Constant.REGULAR_SCHEDULE, Constant.REGULAR_SCHEDULE);
+        }
         
         TSCGetUserState p = TSCGetUserState.newBuilder()
                 .setBlood(user.getBlood())

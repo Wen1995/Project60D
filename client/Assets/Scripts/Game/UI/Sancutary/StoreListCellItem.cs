@@ -9,6 +9,7 @@ public class StoreListCellItem : NListCellItem {
 	UILabel numLabel = null;
 	UILabel nameLabel = null;
 	ItemPackage itemPackage = null;
+	NItemInfo info;
 	void Awake()
 	{
 		iconSprite = transform.Find("icon").GetComponent<UISprite>();
@@ -21,8 +22,13 @@ public class StoreListCellItem : NListCellItem {
 		base.DrawCell(i, index, count);
 		int dataCount = mIndex;
 		List<NItemInfo> itemInfoList = itemPackage.GetItemFilterInfoList();
-		NItemInfo info = itemInfoList[dataCount];
+		info = itemInfoList[dataCount];
 		var itemDataMap = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
+		if(!itemDataMap.ContainsKey(info.configID))
+		{
+			Debug.Log(string.Format("itme configID={0} cant find config", info.configID));
+			return;
+		}
 		ITEM_RES itemConfigData = itemDataMap[info.configID] as ITEM_RES;
 		nameLabel.text = itemConfigData.MinName;
 		numLabel.text = info.number.ToString();
@@ -30,6 +36,7 @@ public class StoreListCellItem : NListCellItem {
 
 	void OnClick()
 	{
-		print(string.Format("Index={0} clicked", mIndex));
+		itemPackage.SetSelectionItem(info);
+		FacadeSingleton.Instance.OverlayerPanel("UIItemInfoPanel");
 	}
 }

@@ -43,10 +43,15 @@ namespace com.game.framework.protocol {
     PROCESS = 38,
     INTERRUPTPROCESS = 40,
     ZOMBIEINVADE = 61,
+    RECEIVEZOMBIEMESSAGE = 62,
+    ZOMBIEINVADERESULT = 63,
     GETRESOURCEINFO = 81,
     GETRESOURCEINFOBYCONFIGID = 82,
     GETUSERSTATE = 83,
     GETUSERSTATEREGULAR = 84,
+    SAVEMESSAGE = 101,
+    GETPAGECOUNT = 102,
+    GETPAGELIST = 103,
   }
   
   public enum Error {
@@ -64,6 +69,19 @@ namespace com.game.framework.protocol {
   public enum BuildingType {
     RECEIVE_BUILDING = 1,
     PROCESS_BUILDING = 2,
+    FUNCTION_BUILDING = 3,
+    WEAPON_BUILDING = 5,
+  }
+  
+  public enum ItemType {
+    RESOURCE_ITEM = 1,
+    EQUIPMENT_ITEM = 2,
+    SPECIAL_ITEM = 3,
+  }
+  
+  public enum InvadeResultType {
+    PLAYER = 1,
+    BUILDING = 2,
   }
   
   public enum MessageType {

@@ -150,6 +150,22 @@ public final class Common {
      */
     ZOMBIEINVADE(16, 61),
     /**
+     * <code>RECEIVEZOMBIEMESSAGE = 62;</code>
+     *
+     * <pre>
+     * 僵尸入侵消息推送
+     * </pre>
+     */
+    RECEIVEZOMBIEMESSAGE(17, 62),
+    /**
+     * <code>ZOMBIEINVADERESULT = 63;</code>
+     *
+     * <pre>
+     * 僵尸入侵结果推送
+     * </pre>
+     */
+    ZOMBIEINVADERESULT(18, 63),
+    /**
      * <code>GETRESOURCEINFO = 81;</code>
      *
      * <pre>
@@ -157,7 +173,7 @@ public final class Common {
      * 玩家所有资源信息
      * </pre>
      */
-    GETRESOURCEINFO(17, 81),
+    GETRESOURCEINFO(19, 81),
     /**
      * <code>GETRESOURCEINFOBYCONFIGID = 82;</code>
      *
@@ -165,7 +181,7 @@ public final class Common {
      * 玩家某些资源信息
      * </pre>
      */
-    GETRESOURCEINFOBYCONFIGID(18, 82),
+    GETRESOURCEINFOBYCONFIGID(20, 82),
     /**
      * <code>GETUSERSTATE = 83;</code>
      *
@@ -173,7 +189,7 @@ public final class Common {
      * 玩家状态
      * </pre>
      */
-    GETUSERSTATE(19, 83),
+    GETUSERSTATE(21, 83),
     /**
      * <code>GETUSERSTATEREGULAR = 84;</code>
      *
@@ -181,7 +197,7 @@ public final class Common {
      * 玩家状态（周期）
      * </pre>
      */
-    GETUSERSTATEREGULAR(20, 84),
+    GETUSERSTATEREGULAR(22, 84),
     ;
 
     /**
@@ -321,6 +337,22 @@ public final class Common {
      */
     public static final int ZOMBIEINVADE_VALUE = 61;
     /**
+     * <code>RECEIVEZOMBIEMESSAGE = 62;</code>
+     *
+     * <pre>
+     * 僵尸入侵消息推送
+     * </pre>
+     */
+    public static final int RECEIVEZOMBIEMESSAGE_VALUE = 62;
+    /**
+     * <code>ZOMBIEINVADERESULT = 63;</code>
+     *
+     * <pre>
+     * 僵尸入侵结果推送
+     * </pre>
+     */
+    public static final int ZOMBIEINVADERESULT_VALUE = 63;
+    /**
      * <code>GETRESOURCEINFO = 81;</code>
      *
      * <pre>
@@ -376,6 +408,8 @@ public final class Common {
         case 38: return PROCESS;
         case 40: return INTERRUPTPROCESS;
         case 61: return ZOMBIEINVADE;
+        case 62: return RECEIVEZOMBIEMESSAGE;
+        case 63: return ZOMBIEINVADERESULT;
         case 81: return GETRESOURCEINFO;
         case 82: return GETRESOURCEINFOBYCONFIGID;
         case 83: return GETUSERSTATE;
@@ -669,6 +703,22 @@ public final class Common {
      * </pre>
      */
     PROCESS_BUILDING(1, 2),
+    /**
+     * <code>FUNCTION_BUILDING = 3;</code>
+     *
+     * <pre>
+     * 功能类
+     * </pre>
+     */
+    FUNCTION_BUILDING(2, 3),
+    /**
+     * <code>WEAPON_BUILDING = 5;</code>
+     *
+     * <pre>
+     * 武器类
+     * </pre>
+     */
+    WEAPON_BUILDING(3, 5),
     ;
 
     /**
@@ -687,6 +737,22 @@ public final class Common {
      * </pre>
      */
     public static final int PROCESS_BUILDING_VALUE = 2;
+    /**
+     * <code>FUNCTION_BUILDING = 3;</code>
+     *
+     * <pre>
+     * 功能类
+     * </pre>
+     */
+    public static final int FUNCTION_BUILDING_VALUE = 3;
+    /**
+     * <code>WEAPON_BUILDING = 5;</code>
+     *
+     * <pre>
+     * 武器类
+     * </pre>
+     */
+    public static final int WEAPON_BUILDING_VALUE = 5;
 
 
     public final int getNumber() { return value; }
@@ -695,6 +761,8 @@ public final class Common {
       switch (value) {
         case 1: return RECEIVE_BUILDING;
         case 2: return PROCESS_BUILDING;
+        case 3: return FUNCTION_BUILDING;
+        case 5: return WEAPON_BUILDING;
         default: return null;
       }
     }
@@ -744,6 +812,219 @@ public final class Common {
     }
 
     // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.BuildingType)
+  }
+
+  /**
+   * Protobuf enum {@code com.game.framework.protocol.ItemType}
+   */
+  public enum ItemType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>RESOURCE_ITEM = 1;</code>
+     *
+     * <pre>
+     * 资源
+     * </pre>
+     */
+    RESOURCE_ITEM(0, 1),
+    /**
+     * <code>EQUIPMENT_ITEM = 2;</code>
+     *
+     * <pre>
+     * 装备
+     * </pre>
+     */
+    EQUIPMENT_ITEM(1, 2),
+    /**
+     * <code>SPECIAL_ITEM = 3;</code>
+     *
+     * <pre>
+     * 特殊
+     * </pre>
+     */
+    SPECIAL_ITEM(2, 3),
+    ;
+
+    /**
+     * <code>RESOURCE_ITEM = 1;</code>
+     *
+     * <pre>
+     * 资源
+     * </pre>
+     */
+    public static final int RESOURCE_ITEM_VALUE = 1;
+    /**
+     * <code>EQUIPMENT_ITEM = 2;</code>
+     *
+     * <pre>
+     * 装备
+     * </pre>
+     */
+    public static final int EQUIPMENT_ITEM_VALUE = 2;
+    /**
+     * <code>SPECIAL_ITEM = 3;</code>
+     *
+     * <pre>
+     * 特殊
+     * </pre>
+     */
+    public static final int SPECIAL_ITEM_VALUE = 3;
+
+
+    public final int getNumber() { return value; }
+
+    public static ItemType valueOf(int value) {
+      switch (value) {
+        case 1: return RESOURCE_ITEM;
+        case 2: return EQUIPMENT_ITEM;
+        case 3: return SPECIAL_ITEM;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ItemType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<ItemType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ItemType>() {
+            public ItemType findValueByNumber(int number) {
+              return ItemType.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(3);
+    }
+
+    private static final ItemType[] VALUES = values();
+
+    public static ItemType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private ItemType(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.ItemType)
+  }
+
+  /**
+   * Protobuf enum {@code com.game.framework.protocol.InvadeResultType}
+   */
+  public enum InvadeResultType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>PLAYER = 1;</code>
+     *
+     * <pre>
+     * 玩家
+     * </pre>
+     */
+    PLAYER(0, 1),
+    /**
+     * <code>BUILDING = 2;</code>
+     *
+     * <pre>
+     * 建筑
+     * </pre>
+     */
+    BUILDING(1, 2),
+    ;
+
+    /**
+     * <code>PLAYER = 1;</code>
+     *
+     * <pre>
+     * 玩家
+     * </pre>
+     */
+    public static final int PLAYER_VALUE = 1;
+    /**
+     * <code>BUILDING = 2;</code>
+     *
+     * <pre>
+     * 建筑
+     * </pre>
+     */
+    public static final int BUILDING_VALUE = 2;
+
+
+    public final int getNumber() { return value; }
+
+    public static InvadeResultType valueOf(int value) {
+      switch (value) {
+        case 1: return PLAYER;
+        case 2: return BUILDING;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<InvadeResultType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<InvadeResultType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<InvadeResultType>() {
+            public InvadeResultType findValueByNumber(int number) {
+              return InvadeResultType.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(4);
+    }
+
+    private static final InvadeResultType[] VALUES = values();
+
+    public static InvadeResultType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private InvadeResultType(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.InvadeResultType)
   }
 
   /**
@@ -819,7 +1100,7 @@ public final class Common {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(3);
+      return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(5);
     }
 
     private static final MessageType[] VALUES = values();
@@ -854,23 +1135,28 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\363\002\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005HEART" +
+      "col*\245\003\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005HEART" +
       "\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGOUT\020\002\022\017\n\013GETUSERINFO" +
       "\020\003\022\017\n\013CREATEGROUP\020\013\022\016\n\nAPPLYGROUP\020\014\022\020\n\014G" +
       "ETSCENEINFO\020\037\022\023\n\017GETBUILDINGINFO\020 \022\013\n\007UP" +
       "GRADE\020!\022\021\n\rFINISHUPGRADE\020\"\022\n\n\006UNLOCK\020#\022\020" +
       "\n\014FINISHUNLOCK\020$\022\013\n\007RECEIVE\020%\022\013\n\007PROCESS" +
       "\020&\022\024\n\020INTERRUPTPROCESS\020(\022\020\n\014ZOMBIEINVADE" +
-      "\020=\022\023\n\017GETRESOURCEINFO\020Q\022\035\n\031GETRESOURCEIN" +
-      "FOBYCONFIGID\020R\022\020\n\014GETUSERSTATE\020S\022\027\n\023GETU",
-      "SERSTATEREGULAR\020T*\252\001\n\005Error\022\016\n\nSERVER_ER" +
-      "R\020\001\022\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016" +
-      "\n\nLEVEL_OVER\020\004\022\025\n\021BUILDING_TYPE_ERR\020\005\022\020\n" +
-      "\014RESOURCE_ERR\020\006\022\014\n\010TIME_ERR\020\007\022\021\n\rLEFT_RE" +
-      "SOURCE\020\010\022\024\n\020NO_MORE_CAPACITY\020\n*:\n\014Buildi" +
-      "ngType\022\024\n\020RECEIVE_BUILDING\020\001\022\024\n\020PROCESS_" +
-      "BUILDING\020\002*1\n\013MessageType\022\017\n\013ZOMBIE_INFO" +
-      "\020\002\022\021\n\rFIGHTING_INFO\020\003B\002H\001"
+      "\020=\022\030\n\024RECEIVEZOMBIEMESSAGE\020>\022\026\n\022ZOMBIEIN" +
+      "VADERESULT\020?\022\023\n\017GETRESOURCEINFO\020Q\022\035\n\031GET",
+      "RESOURCEINFOBYCONFIGID\020R\022\020\n\014GETUSERSTATE" +
+      "\020S\022\027\n\023GETUSERSTATEREGULAR\020T*\252\001\n\005Error\022\016\n" +
+      "\nSERVER_ERR\020\001\022\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BU" +
+      "ILDING\020\003\022\016\n\nLEVEL_OVER\020\004\022\025\n\021BUILDING_TYP" +
+      "E_ERR\020\005\022\020\n\014RESOURCE_ERR\020\006\022\014\n\010TIME_ERR\020\007\022" +
+      "\021\n\rLEFT_RESOURCE\020\010\022\024\n\020NO_MORE_CAPACITY\020\n" +
+      "*f\n\014BuildingType\022\024\n\020RECEIVE_BUILDING\020\001\022\024" +
+      "\n\020PROCESS_BUILDING\020\002\022\025\n\021FUNCTION_BUILDIN" +
+      "G\020\003\022\023\n\017WEAPON_BUILDING\020\005*C\n\010ItemType\022\021\n\r" +
+      "RESOURCE_ITEM\020\001\022\022\n\016EQUIPMENT_ITEM\020\002\022\020\n\014S",
+      "PECIAL_ITEM\020\003*,\n\020InvadeResultType\022\n\n\006PLA" +
+      "YER\020\001\022\014\n\010BUILDING\020\002*1\n\013MessageType\022\017\n\013ZO" +
+      "MBIE_INFO\020\002\022\021\n\rFIGHTING_INFO\020\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

@@ -43,6 +43,10 @@ enum Cmd {
 	//////////////////战斗模块 61-80//////////////////
 	// 僵尸入侵
 	ZOMBIEINVADE = 61;
+	// 僵尸入侵消息推送
+	RECEIVEZOMBIEMESSAGE = 62;
+	// 僵尸入侵结果推送
+	ZOMBIEINVADERESULT = 63;
 
 	//////////////////玩家模块 81-100//////////////////
 	// 玩家所有资源信息
@@ -53,6 +57,14 @@ enum Cmd {
 	GETUSERSTATE = 83;
 	// 玩家状态（周期）
 	GETUSERSTATEREGULAR = 84;
+
+	//////////////////消息模块 101-110//////////////////
+	// 保存消息
+	SAVEMESSAGE = 101;
+	// 消息页数
+	GETPAGECOUNT = 102;
+	// 得到消息
+	GETPAGELIST = 103;
 }
 
 enum Error {
@@ -81,6 +93,26 @@ enum BuildingType {
 	RECEIVE_BUILDING = 1;
 	// 加工类
 	PROCESS_BUILDING = 2;
+	// 功能类
+	FUNCTION_BUILDING = 3;
+	// 武器类
+	WEAPON_BUILDING = 5;
+}
+
+enum ItemType {
+	// 资源
+	RESOURCE_ITEM = 1;
+	// 装备
+	EQUIPMENT_ITEM = 2;
+	// 特殊
+	SPECIAL_ITEM = 3;
+}
+
+enum InvadeResultType {
+	// 玩家
+	PLAYER = 1;
+	// 建筑
+	BUILDING = 2;
 }
 
 enum MessageType {

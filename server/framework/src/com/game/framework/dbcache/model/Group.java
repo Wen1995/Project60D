@@ -1,5 +1,7 @@
 package com.game.framework.dbcache.model;
 
+import java.util.Date;
+
 public class Group {
     private Long id;
 
@@ -12,6 +14,8 @@ public class Group {
     private Integer groupGold;
 
     private Long storehouseId;
+
+    private Date invadeTime;
 
     public Long getId() {
         return id;
@@ -59,5 +63,13 @@ public class Group {
 
     public void setStorehouseId(Long storehouseId) {
         this.storehouseId = storehouseId;
+    }
+
+    public Date getInvadeTime() {
+        return invadeTime;
+    }
+
+    public void setInvadeTime(Date invadeTime) {
+        this.invadeTime = invadeTime;
     }
 }

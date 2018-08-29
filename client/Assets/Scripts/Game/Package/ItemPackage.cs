@@ -52,9 +52,15 @@ public class ItemPackage : ModelBase
     Dictionary<int, NItemInfo> mItemInfoMap = new Dictionary<int, NItemInfo>();
     List<NItemInfo> mItemFilterInfoList = new List<NItemInfo>();
 
+    NItemInfo selectionItem = null;
     public ITEM_RES GetItemDataByConfigID(int configID)
     {
         var itemConfigTable = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
+        if(!itemConfigTable.ContainsKey(configID))
+        {
+            Debug.Log(string.Format("item configID={0} cant find config", configID));
+            return null;
+        }
         return itemConfigTable[configID] as ITEM_RES;
     }
 
@@ -121,6 +127,11 @@ public class ItemPackage : ModelBase
     {
         return (ItemType)(configID / 10000 % 1000);
     }
+
+    public NItemInfo GetSelectionItem()
+    {
+        return selectionItem;
+    }
     #endregion
 
     #region Set Data
@@ -138,6 +149,11 @@ public class ItemPackage : ModelBase
             ITEM_RES itemData = GetItemDataByConfigID(resInfo.ConfigId);
             mItemInfoMap[info.configID] = info;
         }
+    }
+
+    public void SetSelectionItem(NItemInfo info)
+    {
+        selectionItem = info;
     }
 
     #endregion

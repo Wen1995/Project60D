@@ -31,7 +31,8 @@ public class ${model}Handler {
 	public void ${attr[2]}(TPacket p) throws Exception {
 		TCS${attr[1]} msg = TCS${attr[1]}.parseFrom(p.getBuffer());
 		${attr[3]}
-#if(${attr[2]} != "logout" && ${attr[2]} != "zombieInvade")
+#if(${attr[2]} != "logout" && ${attr[2]} != "zombieInvade" 
+&& ${attr[2]} != "receiveZombieMessage" && ${attr[2]} != "zombieInvadeResult")
 		TPacket resp = service.${attr[2]}(p.getUid()${attr[4]});
 		resp.setCmd(Cmd.${attr[5]}_VALUE + 1000);
 #else
@@ -46,7 +47,7 @@ public class ${model}Handler {
 		}
 		GateServer.GetInstance().setChannelData(p.getChannel(), resp.getUid());
 	#end
-#if(${attr[2]} != "logout" && ${attr[2]} != "zombieInvade")
+#if(${attr[2]} != "logout" && ${attr[2]} != "zombieInvade" && ${attr[2]} != "receiveZombieMessage" && ${attr[2]} != "zombieInvadeResult")
 	GateServer.GetInstance().send(resp);
 	}
 #else

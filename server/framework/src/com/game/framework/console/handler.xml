@@ -32,7 +32,7 @@
 		<Handler model="Scene" method="interruptProcess" description="中断加工"/>
 		
 		<!--//////////////// 战斗模块 ////////////////-->
-		<Handler model="Fighting" method="zombieInvade" description="僵尸入侵" isInner="true"/>
+		<Handler model="Fighting" method="zombieInvade" description="僵尸入侵"/>
 		<Handler model="Fighting" method="receiveZombieMessage" description="僵尸入侵消息推送" isInner="true"/>
 		<Handler model="Fighting" method="zombieInvadeResult" description="僵尸入侵结果推送" isInner="true"/>
 		
@@ -42,6 +42,15 @@
 		<Handler model="User" method="getUserState" description="玩家状态"/>
 		<Handler model="User" method="getUserStateRegular" description="玩家状态（周期）" isInner="true"/>
 		
+	</HandlerGroup>
+	
+	<HandlerGroup name="Msg" thread="1" clean="60">
+		<!--//////////////// 消息模块 ////////////////-->
+		<Handler model="Message" method="saveMessage" description="保存消息" isInner="true"/>
+		<Handler model="Message" method="getPageCount" description="消息页数"/>
+		<Handler model="Message" method="getPageList" description="得到消息"/>
+		<Handler model="Message" method="getMessageTag" description="未读数量"/>
+		<Handler model="Message" method="sendMessageTag" description="消息已读"/>
 	</HandlerGroup>
 	
 </HandlerGroups>

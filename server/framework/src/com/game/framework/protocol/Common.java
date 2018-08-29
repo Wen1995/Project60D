@@ -198,6 +198,47 @@ public final class Common {
      * </pre>
      */
     GETUSERSTATEREGULAR(22, 84),
+    /**
+     * <code>SAVEMESSAGE = 101;</code>
+     *
+     * <pre>
+     *&#47;///////////////消息模块 101-110//////////////////
+     * 保存消息
+     * </pre>
+     */
+    SAVEMESSAGE(23, 101),
+    /**
+     * <code>GETPAGECOUNT = 102;</code>
+     *
+     * <pre>
+     * 消息页数
+     * </pre>
+     */
+    GETPAGECOUNT(24, 102),
+    /**
+     * <code>GETPAGELIST = 103;</code>
+     *
+     * <pre>
+     * 得到消息
+     * </pre>
+     */
+    GETPAGELIST(25, 103),
+    /**
+     * <code>GETMESSAGETAG = 104;</code>
+     *
+     * <pre>
+     * 未读数量
+     * </pre>
+     */
+    GETMESSAGETAG(26, 104),
+    /**
+     * <code>SENDMESSAGETAG = 105;</code>
+     *
+     * <pre>
+     * 消息已读
+     * </pre>
+     */
+    SENDMESSAGETAG(27, 105),
     ;
 
     /**
@@ -385,6 +426,47 @@ public final class Common {
      * </pre>
      */
     public static final int GETUSERSTATEREGULAR_VALUE = 84;
+    /**
+     * <code>SAVEMESSAGE = 101;</code>
+     *
+     * <pre>
+     *&#47;///////////////消息模块 101-110//////////////////
+     * 保存消息
+     * </pre>
+     */
+    public static final int SAVEMESSAGE_VALUE = 101;
+    /**
+     * <code>GETPAGECOUNT = 102;</code>
+     *
+     * <pre>
+     * 消息页数
+     * </pre>
+     */
+    public static final int GETPAGECOUNT_VALUE = 102;
+    /**
+     * <code>GETPAGELIST = 103;</code>
+     *
+     * <pre>
+     * 得到消息
+     * </pre>
+     */
+    public static final int GETPAGELIST_VALUE = 103;
+    /**
+     * <code>GETMESSAGETAG = 104;</code>
+     *
+     * <pre>
+     * 未读数量
+     * </pre>
+     */
+    public static final int GETMESSAGETAG_VALUE = 104;
+    /**
+     * <code>SENDMESSAGETAG = 105;</code>
+     *
+     * <pre>
+     * 消息已读
+     * </pre>
+     */
+    public static final int SENDMESSAGETAG_VALUE = 105;
 
 
     public final int getNumber() { return value; }
@@ -414,6 +496,11 @@ public final class Common {
         case 82: return GETRESOURCEINFOBYCONFIGID;
         case 83: return GETUSERSTATE;
         case 84: return GETUSERSTATEREGULAR;
+        case 101: return SAVEMESSAGE;
+        case 102: return GETPAGECOUNT;
+        case 103: return GETPAGELIST;
+        case 104: return GETMESSAGETAG;
+        case 105: return SENDMESSAGETAG;
         default: return null;
       }
     }
@@ -1135,7 +1222,7 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\245\003\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005HEART" +
+      "col*\200\004\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005HEART" +
       "\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGOUT\020\002\022\017\n\013GETUSERINFO" +
       "\020\003\022\017\n\013CREATEGROUP\020\013\022\016\n\nAPPLYGROUP\020\014\022\020\n\014G" +
       "ETSCENEINFO\020\037\022\023\n\017GETBUILDINGINFO\020 \022\013\n\007UP" +
@@ -1145,18 +1232,21 @@ public final class Common {
       "\020=\022\030\n\024RECEIVEZOMBIEMESSAGE\020>\022\026\n\022ZOMBIEIN" +
       "VADERESULT\020?\022\023\n\017GETRESOURCEINFO\020Q\022\035\n\031GET",
       "RESOURCEINFOBYCONFIGID\020R\022\020\n\014GETUSERSTATE" +
-      "\020S\022\027\n\023GETUSERSTATEREGULAR\020T*\252\001\n\005Error\022\016\n" +
-      "\nSERVER_ERR\020\001\022\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BU" +
-      "ILDING\020\003\022\016\n\nLEVEL_OVER\020\004\022\025\n\021BUILDING_TYP" +
-      "E_ERR\020\005\022\020\n\014RESOURCE_ERR\020\006\022\014\n\010TIME_ERR\020\007\022" +
-      "\021\n\rLEFT_RESOURCE\020\010\022\024\n\020NO_MORE_CAPACITY\020\n" +
-      "*f\n\014BuildingType\022\024\n\020RECEIVE_BUILDING\020\001\022\024" +
-      "\n\020PROCESS_BUILDING\020\002\022\025\n\021FUNCTION_BUILDIN" +
-      "G\020\003\022\023\n\017WEAPON_BUILDING\020\005*C\n\010ItemType\022\021\n\r" +
-      "RESOURCE_ITEM\020\001\022\022\n\016EQUIPMENT_ITEM\020\002\022\020\n\014S",
-      "PECIAL_ITEM\020\003*,\n\020InvadeResultType\022\n\n\006PLA" +
-      "YER\020\001\022\014\n\010BUILDING\020\002*1\n\013MessageType\022\017\n\013ZO" +
-      "MBIE_INFO\020\002\022\021\n\rFIGHTING_INFO\020\003B\002H\001"
+      "\020S\022\027\n\023GETUSERSTATEREGULAR\020T\022\017\n\013SAVEMESSA" +
+      "GE\020e\022\020\n\014GETPAGECOUNT\020f\022\017\n\013GETPAGELIST\020g\022" +
+      "\021\n\rGETMESSAGETAG\020h\022\022\n\016SENDMESSAGETAG\020i*\252" +
+      "\001\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_HANDLE" +
+      "\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLEVEL_OVER\020\004\022\025\n\021B" +
+      "UILDING_TYPE_ERR\020\005\022\020\n\014RESOURCE_ERR\020\006\022\014\n\010" +
+      "TIME_ERR\020\007\022\021\n\rLEFT_RESOURCE\020\010\022\024\n\020NO_MORE" +
+      "_CAPACITY\020\n*f\n\014BuildingType\022\024\n\020RECEIVE_B" +
+      "UILDING\020\001\022\024\n\020PROCESS_BUILDING\020\002\022\025\n\021FUNCT",
+      "ION_BUILDING\020\003\022\023\n\017WEAPON_BUILDING\020\005*C\n\010I" +
+      "temType\022\021\n\rRESOURCE_ITEM\020\001\022\022\n\016EQUIPMENT_" +
+      "ITEM\020\002\022\020\n\014SPECIAL_ITEM\020\003*,\n\020InvadeResult" +
+      "Type\022\n\n\006PLAYER\020\001\022\014\n\010BUILDING\020\002*1\n\013Messag" +
+      "eType\022\017\n\013ZOMBIE_INFO\020\002\022\021\n\rFIGHTING_INFO\020" +
+      "\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

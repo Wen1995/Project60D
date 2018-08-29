@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import com.game.framework.console.GateServer;
 import com.game.bus.scene.service.SceneService;
+import com.game.framework.protocol.Scene.TCSGetSceneInfo;
 import com.game.framework.protocol.Scene.TCSGetBuildingInfo;
 import com.game.framework.protocol.Scene.TCSUpgrade;
 import com.game.framework.protocol.Scene.TCSFinishUpgrade;
@@ -17,13 +18,22 @@ import com.game.framework.protocol.Scene.TCSFinishUnlock;
 import com.game.framework.protocol.Scene.TCSReceive;
 import com.game.framework.protocol.Scene.TCSProcess;
 import com.game.framework.protocol.Scene.TCSInterruptProcess;
-import com.game.framework.protocol.Scene.TCSGetSceneInfo;
 
 @Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Bus, module = HandlerConstant.Model_Scene)
 public class SceneHandler {
 	@Resource
 	private SceneService service;
+
+	/** 场景信息 */
+	@HandlerMethodMapping(cmd = Cmd.GETSCENEINFO_VALUE)
+	public void getSceneInfo(TPacket p) throws Exception {
+		TCSGetSceneInfo msg = TCSGetSceneInfo.parseFrom(p.getBuffer());
+		
+		TPacket resp = service.getSceneInfo(p.getUid());
+		resp.setCmd(Cmd.GETSCENEINFO_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
 
 	/** 建筑信息 */
 	@HandlerMethodMapping(cmd = Cmd.GETBUILDINGINFO_VALUE)
@@ -102,16 +112,6 @@ public class SceneHandler {
 		Long buildingId = msg.getBuildingId();		
 		TPacket resp = service.interruptProcess(p.getUid(), buildingId);
 		resp.setCmd(Cmd.INTERRUPTPROCESS_VALUE + 1000);
-		GateServer.GetInstance().send(resp);
-	}
-
-	/** 场景信息 */
-	@HandlerMethodMapping(cmd = Cmd.GETSCENEINFO_VALUE)
-	public void getSceneInfo(TPacket p) throws Exception {
-		TCSGetSceneInfo msg = TCSGetSceneInfo.parseFrom(p.getBuffer());
-		
-		TPacket resp = service.getSceneInfo(p.getUid());
-		resp.setCmd(Cmd.GETSCENEINFO_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}
 

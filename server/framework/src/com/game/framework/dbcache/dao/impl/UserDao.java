@@ -32,4 +32,10 @@ public class UserDao extends BaseDao<User, UserMapper, UserExample> implements I
         String redisKey = getGroupIdCacheKey(pojoClazz.getSimpleName(), groupId);
         redisUtil.hashSet(redisKey, id.toString(), "");
     }
+    
+    @Override
+    public void unbindWithGroupId(Long id, Long groupId) {
+        String redisKey = getGroupIdCacheKey(pojoClazz.getSimpleName(), groupId);
+        redisUtil.hashDel(redisKey, id.toString());
+    }
 }

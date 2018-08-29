@@ -1474,6 +1474,1290 @@ namespace com.game.framework.protocol {
     }
   }
   
+  public sealed partial class InvadeResultInfo : pb::GeneratedMessageLite<InvadeResultInfo, InvadeResultInfo.Builder> {
+    private InvadeResultInfo() { }
+    private static readonly InvadeResultInfo defaultInstance = new InvadeResultInfo().MakeReadOnly();
+    private static readonly string[] _invadeResultInfoFieldNames = new string[] { "blood", "id", "num", "type" };
+    private static readonly uint[] _invadeResultInfoFieldTags = new uint[] { 32, 16, 24, 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override InvadeResultInfo DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override InvadeResultInfo ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int TypeFieldNumber = 1;
+    private bool hasType;
+    private int type_;
+    public bool HasType {
+      get { return hasType; }
+    }
+    public int Type {
+      get { return type_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int IdFieldNumber = 2;
+    private bool hasId;
+    private long id_;
+    public bool HasId {
+      get { return hasId; }
+    }
+    public long Id {
+      get { return id_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int NumFieldNumber = 3;
+    private bool hasNum;
+    private int num_;
+    public bool HasNum {
+      get { return hasNum; }
+    }
+    public int Num {
+      get { return num_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BloodFieldNumber = 4;
+    private bool hasBlood;
+    private int blood_;
+    public bool HasBlood {
+      get { return hasBlood; }
+    }
+    public int Blood {
+      get { return blood_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _invadeResultInfoFieldNames;
+      if (hasType) {
+        output.WriteInt32(1, field_names[3], Type);
+      }
+      if (hasId) {
+        output.WriteInt64(2, field_names[1], Id);
+      }
+      if (hasNum) {
+        output.WriteInt32(3, field_names[2], Num);
+      }
+      if (hasBlood) {
+        output.WriteInt32(4, field_names[0], Blood);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasType) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, Type);
+        }
+        if (hasId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(2, Id);
+        }
+        if (hasNum) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, Num);
+        }
+        if (hasBlood) {
+          size += pb::CodedOutputStream.ComputeInt32Size(4, Blood);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasType) hash ^= type_.GetHashCode();
+      if (hasId) hash ^= id_.GetHashCode();
+      if (hasNum) hash ^= num_.GetHashCode();
+      if (hasBlood) hash ^= blood_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      InvadeResultInfo other = obj as InvadeResultInfo;
+      if (other == null) return false;
+      if (hasType != other.hasType || (hasType && !type_.Equals(other.type_))) return false;
+      if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
+      if (hasNum != other.hasNum || (hasNum && !num_.Equals(other.num_))) return false;
+      if (hasBlood != other.hasBlood || (hasBlood && !blood_.Equals(other.blood_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static InvadeResultInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private InvadeResultInfo MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(InvadeResultInfo prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<InvadeResultInfo, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(InvadeResultInfo cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private InvadeResultInfo result;
+      
+      private InvadeResultInfo PrepareBuilder() {
+        if (resultIsReadOnly) {
+          InvadeResultInfo original = result;
+          result = new InvadeResultInfo();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override InvadeResultInfo MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override InvadeResultInfo DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.InvadeResultInfo.DefaultInstance; }
+      }
+      
+      public override InvadeResultInfo BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is InvadeResultInfo) {
+          return MergeFrom((InvadeResultInfo) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(InvadeResultInfo other) {
+        if (other == global::com.game.framework.protocol.InvadeResultInfo.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasType) {
+          Type = other.Type;
+        }
+        if (other.HasId) {
+          Id = other.Id;
+        }
+        if (other.HasNum) {
+          Num = other.Num;
+        }
+        if (other.HasBlood) {
+          Blood = other.Blood;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_invadeResultInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _invadeResultInfoFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasType = input.ReadInt32(ref result.type_);
+              break;
+            }
+            case 16: {
+              result.hasId = input.ReadInt64(ref result.id_);
+              break;
+            }
+            case 24: {
+              result.hasNum = input.ReadInt32(ref result.num_);
+              break;
+            }
+            case 32: {
+              result.hasBlood = input.ReadInt32(ref result.blood_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasType {
+        get { return result.hasType; }
+      }
+      public int Type {
+        get { return result.Type; }
+        set { SetType(value); }
+      }
+      public Builder SetType(int value) {
+        PrepareBuilder();
+        result.hasType = true;
+        result.type_ = value;
+        return this;
+      }
+      public Builder ClearType() {
+        PrepareBuilder();
+        result.hasType = false;
+        result.type_ = 0;
+        return this;
+      }
+      
+      public bool HasId {
+        get { return result.hasId; }
+      }
+      public long Id {
+        get { return result.Id; }
+        set { SetId(value); }
+      }
+      public Builder SetId(long value) {
+        PrepareBuilder();
+        result.hasId = true;
+        result.id_ = value;
+        return this;
+      }
+      public Builder ClearId() {
+        PrepareBuilder();
+        result.hasId = false;
+        result.id_ = 0L;
+        return this;
+      }
+      
+      public bool HasNum {
+        get { return result.hasNum; }
+      }
+      public int Num {
+        get { return result.Num; }
+        set { SetNum(value); }
+      }
+      public Builder SetNum(int value) {
+        PrepareBuilder();
+        result.hasNum = true;
+        result.num_ = value;
+        return this;
+      }
+      public Builder ClearNum() {
+        PrepareBuilder();
+        result.hasNum = false;
+        result.num_ = 0;
+        return this;
+      }
+      
+      public bool HasBlood {
+        get { return result.hasBlood; }
+      }
+      public int Blood {
+        get { return result.Blood; }
+        set { SetBlood(value); }
+      }
+      public Builder SetBlood(int value) {
+        PrepareBuilder();
+        result.hasBlood = true;
+        result.blood_ = value;
+        return this;
+      }
+      public Builder ClearBlood() {
+        PrepareBuilder();
+        result.hasBlood = false;
+        result.blood_ = 0;
+        return this;
+      }
+    }
+    static InvadeResultInfo() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class LossInfo : pb::GeneratedMessageLite<LossInfo, LossInfo.Builder> {
+    private LossInfo() { }
+    private static readonly LossInfo defaultInstance = new LossInfo().MakeReadOnly();
+    private static readonly string[] _lossInfoFieldNames = new string[] { "gold", "resource", "uid" };
+    private static readonly uint[] _lossInfoFieldTags = new uint[] { 24, 16, 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override LossInfo DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override LossInfo ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int UidFieldNumber = 1;
+    private bool hasUid;
+    private long uid_;
+    public bool HasUid {
+      get { return hasUid; }
+    }
+    public long Uid {
+      get { return uid_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ResourceFieldNumber = 2;
+    private bool hasResource;
+    private int resource_;
+    public bool HasResource {
+      get { return hasResource; }
+    }
+    public int Resource {
+      get { return resource_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int GoldFieldNumber = 3;
+    private bool hasGold;
+    private int gold_;
+    public bool HasGold {
+      get { return hasGold; }
+    }
+    public int Gold {
+      get { return gold_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _lossInfoFieldNames;
+      if (hasUid) {
+        output.WriteInt64(1, field_names[2], Uid);
+      }
+      if (hasResource) {
+        output.WriteInt32(2, field_names[1], Resource);
+      }
+      if (hasGold) {
+        output.WriteInt32(3, field_names[0], Gold);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasUid) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, Uid);
+        }
+        if (hasResource) {
+          size += pb::CodedOutputStream.ComputeInt32Size(2, Resource);
+        }
+        if (hasGold) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, Gold);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasUid) hash ^= uid_.GetHashCode();
+      if (hasResource) hash ^= resource_.GetHashCode();
+      if (hasGold) hash ^= gold_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      LossInfo other = obj as LossInfo;
+      if (other == null) return false;
+      if (hasUid != other.hasUid || (hasUid && !uid_.Equals(other.uid_))) return false;
+      if (hasResource != other.hasResource || (hasResource && !resource_.Equals(other.resource_))) return false;
+      if (hasGold != other.hasGold || (hasGold && !gold_.Equals(other.gold_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static LossInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private LossInfo MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(LossInfo prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<LossInfo, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(LossInfo cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private LossInfo result;
+      
+      private LossInfo PrepareBuilder() {
+        if (resultIsReadOnly) {
+          LossInfo original = result;
+          result = new LossInfo();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override LossInfo MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override LossInfo DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.LossInfo.DefaultInstance; }
+      }
+      
+      public override LossInfo BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is LossInfo) {
+          return MergeFrom((LossInfo) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(LossInfo other) {
+        if (other == global::com.game.framework.protocol.LossInfo.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasUid) {
+          Uid = other.Uid;
+        }
+        if (other.HasResource) {
+          Resource = other.Resource;
+        }
+        if (other.HasGold) {
+          Gold = other.Gold;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_lossInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _lossInfoFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasUid = input.ReadInt64(ref result.uid_);
+              break;
+            }
+            case 16: {
+              result.hasResource = input.ReadInt32(ref result.resource_);
+              break;
+            }
+            case 24: {
+              result.hasGold = input.ReadInt32(ref result.gold_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasUid {
+        get { return result.hasUid; }
+      }
+      public long Uid {
+        get { return result.Uid; }
+        set { SetUid(value); }
+      }
+      public Builder SetUid(long value) {
+        PrepareBuilder();
+        result.hasUid = true;
+        result.uid_ = value;
+        return this;
+      }
+      public Builder ClearUid() {
+        PrepareBuilder();
+        result.hasUid = false;
+        result.uid_ = 0L;
+        return this;
+      }
+      
+      public bool HasResource {
+        get { return result.hasResource; }
+      }
+      public int Resource {
+        get { return result.Resource; }
+        set { SetResource(value); }
+      }
+      public Builder SetResource(int value) {
+        PrepareBuilder();
+        result.hasResource = true;
+        result.resource_ = value;
+        return this;
+      }
+      public Builder ClearResource() {
+        PrepareBuilder();
+        result.hasResource = false;
+        result.resource_ = 0;
+        return this;
+      }
+      
+      public bool HasGold {
+        get { return result.hasGold; }
+      }
+      public int Gold {
+        get { return result.Gold; }
+        set { SetGold(value); }
+      }
+      public Builder SetGold(int value) {
+        PrepareBuilder();
+        result.hasGold = true;
+        result.gold_ = value;
+        return this;
+      }
+      public Builder ClearGold() {
+        PrepareBuilder();
+        result.hasGold = false;
+        result.gold_ = 0;
+        return this;
+      }
+    }
+    static LossInfo() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class UserInfo : pb::GeneratedMessageLite<UserInfo, UserInfo.Builder> {
+    private UserInfo() { }
+    private static readonly UserInfo defaultInstance = new UserInfo().MakeReadOnly();
+    private static readonly string[] _userInfoFieldNames = new string[] { "blood", "health", "uid" };
+    private static readonly uint[] _userInfoFieldTags = new uint[] { 16, 24, 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override UserInfo DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override UserInfo ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int UidFieldNumber = 1;
+    private bool hasUid;
+    private long uid_;
+    public bool HasUid {
+      get { return hasUid; }
+    }
+    public long Uid {
+      get { return uid_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BloodFieldNumber = 2;
+    private bool hasBlood;
+    private int blood_;
+    public bool HasBlood {
+      get { return hasBlood; }
+    }
+    public int Blood {
+      get { return blood_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int HealthFieldNumber = 3;
+    private bool hasHealth;
+    private int health_;
+    public bool HasHealth {
+      get { return hasHealth; }
+    }
+    public int Health {
+      get { return health_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _userInfoFieldNames;
+      if (hasUid) {
+        output.WriteInt64(1, field_names[2], Uid);
+      }
+      if (hasBlood) {
+        output.WriteInt32(2, field_names[0], Blood);
+      }
+      if (hasHealth) {
+        output.WriteInt32(3, field_names[1], Health);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasUid) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, Uid);
+        }
+        if (hasBlood) {
+          size += pb::CodedOutputStream.ComputeInt32Size(2, Blood);
+        }
+        if (hasHealth) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, Health);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasUid) hash ^= uid_.GetHashCode();
+      if (hasBlood) hash ^= blood_.GetHashCode();
+      if (hasHealth) hash ^= health_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      UserInfo other = obj as UserInfo;
+      if (other == null) return false;
+      if (hasUid != other.hasUid || (hasUid && !uid_.Equals(other.uid_))) return false;
+      if (hasBlood != other.hasBlood || (hasBlood && !blood_.Equals(other.blood_))) return false;
+      if (hasHealth != other.hasHealth || (hasHealth && !health_.Equals(other.health_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static UserInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private UserInfo MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(UserInfo prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<UserInfo, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(UserInfo cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private UserInfo result;
+      
+      private UserInfo PrepareBuilder() {
+        if (resultIsReadOnly) {
+          UserInfo original = result;
+          result = new UserInfo();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override UserInfo MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override UserInfo DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.UserInfo.DefaultInstance; }
+      }
+      
+      public override UserInfo BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is UserInfo) {
+          return MergeFrom((UserInfo) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(UserInfo other) {
+        if (other == global::com.game.framework.protocol.UserInfo.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasUid) {
+          Uid = other.Uid;
+        }
+        if (other.HasBlood) {
+          Blood = other.Blood;
+        }
+        if (other.HasHealth) {
+          Health = other.Health;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_userInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _userInfoFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasUid = input.ReadInt64(ref result.uid_);
+              break;
+            }
+            case 16: {
+              result.hasBlood = input.ReadInt32(ref result.blood_);
+              break;
+            }
+            case 24: {
+              result.hasHealth = input.ReadInt32(ref result.health_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasUid {
+        get { return result.hasUid; }
+      }
+      public long Uid {
+        get { return result.Uid; }
+        set { SetUid(value); }
+      }
+      public Builder SetUid(long value) {
+        PrepareBuilder();
+        result.hasUid = true;
+        result.uid_ = value;
+        return this;
+      }
+      public Builder ClearUid() {
+        PrepareBuilder();
+        result.hasUid = false;
+        result.uid_ = 0L;
+        return this;
+      }
+      
+      public bool HasBlood {
+        get { return result.hasBlood; }
+      }
+      public int Blood {
+        get { return result.Blood; }
+        set { SetBlood(value); }
+      }
+      public Builder SetBlood(int value) {
+        PrepareBuilder();
+        result.hasBlood = true;
+        result.blood_ = value;
+        return this;
+      }
+      public Builder ClearBlood() {
+        PrepareBuilder();
+        result.hasBlood = false;
+        result.blood_ = 0;
+        return this;
+      }
+      
+      public bool HasHealth {
+        get { return result.hasHealth; }
+      }
+      public int Health {
+        get { return result.Health; }
+        set { SetHealth(value); }
+      }
+      public Builder SetHealth(int value) {
+        PrepareBuilder();
+        result.hasHealth = true;
+        result.health_ = value;
+        return this;
+      }
+      public Builder ClearHealth() {
+        PrepareBuilder();
+        result.hasHealth = false;
+        result.health_ = 0;
+        return this;
+      }
+    }
+    static UserInfo() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+    }
+  }
+  
   public sealed partial class TCSGetPageCount : pb::GeneratedMessageLite<TCSGetPageCount, TCSGetPageCount.Builder> {
     private TCSGetPageCount() { }
     private static readonly TCSGetPageCount defaultInstance = new TCSGetPageCount().MakeReadOnly();
@@ -3645,7 +4929,7 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetMessageTag : pb::GeneratedMessageLite<TSCGetMessageTag, TSCGetMessageTag.Builder> {
     private TSCGetMessageTag() { }
     private static readonly TSCGetMessageTag defaultInstance = new TSCGetMessageTag().MakeReadOnly();
-    private static readonly string[] _tSCGetMessageTagFieldNames = new string[] { "messageNumber" };
+    private static readonly string[] _tSCGetMessageTagFieldNames = new string[] { "messageNum" };
     private static readonly uint[] _tSCGetMessageTagFieldTags = new uint[] { 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -3668,14 +4952,14 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int MessageNumberFieldNumber = 1;
-    private bool hasMessageNumber;
-    private int messageNumber_;
-    public bool HasMessageNumber {
-      get { return hasMessageNumber; }
+    public const int MessageNumFieldNumber = 1;
+    private bool hasMessageNum;
+    private int messageNum_;
+    public bool HasMessageNum {
+      get { return hasMessageNum; }
     }
-    public int MessageNumber {
-      get { return messageNumber_; }
+    public int MessageNum {
+      get { return messageNum_; }
     }
     
     #if UNITY_EDITOR
@@ -3693,8 +4977,8 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _tSCGetMessageTagFieldNames;
-      if (hasMessageNumber) {
-        output.WriteInt32(1, field_names[0], MessageNumber);
+      if (hasMessageNum) {
+        output.WriteInt32(1, field_names[0], MessageNum);
       }
     }
     
@@ -3708,8 +4992,8 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasMessageNumber) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, MessageNumber);
+        if (hasMessageNum) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, MessageNum);
         }
         memoizedSerializedSize = size;
         return size;
@@ -3719,14 +5003,14 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasMessageNumber) hash ^= messageNumber_.GetHashCode();
+      if (hasMessageNum) hash ^= messageNum_.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
       TSCGetMessageTag other = obj as TSCGetMessageTag;
       if (other == null) return false;
-      if (hasMessageNumber != other.hasMessageNumber || (hasMessageNumber && !messageNumber_.Equals(other.messageNumber_))) return false;
+      if (hasMessageNum != other.hasMessageNum || (hasMessageNum && !messageNum_.Equals(other.messageNum_))) return false;
       return true;
     }
     
@@ -3887,8 +5171,8 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(TSCGetMessageTag other) {
         if (other == global::com.game.framework.protocol.TSCGetMessageTag.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasMessageNumber) {
-          MessageNumber = other.MessageNumber;
+        if (other.HasMessageNum) {
+          MessageNum = other.MessageNum;
         }
         return this;
       }
@@ -3923,7 +5207,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 8: {
-              result.hasMessageNumber = input.ReadInt32(ref result.messageNumber_);
+              result.hasMessageNum = input.ReadInt32(ref result.messageNum_);
               break;
             }
           }
@@ -3933,23 +5217,23 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasMessageNumber {
-        get { return result.hasMessageNumber; }
+      public bool HasMessageNum {
+        get { return result.hasMessageNum; }
       }
-      public int MessageNumber {
-        get { return result.MessageNumber; }
-        set { SetMessageNumber(value); }
+      public int MessageNum {
+        get { return result.MessageNum; }
+        set { SetMessageNum(value); }
       }
-      public Builder SetMessageNumber(int value) {
+      public Builder SetMessageNum(int value) {
         PrepareBuilder();
-        result.hasMessageNumber = true;
-        result.messageNumber_ = value;
+        result.hasMessageNum = true;
+        result.messageNum_ = value;
         return this;
       }
-      public Builder ClearMessageNumber() {
+      public Builder ClearMessageNum() {
         PrepareBuilder();
-        result.hasMessageNumber = false;
-        result.messageNumber_ = 0;
+        result.hasMessageNum = false;
+        result.messageNum_ = 0;
         return this;
       }
     }

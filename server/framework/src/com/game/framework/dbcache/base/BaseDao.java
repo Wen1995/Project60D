@@ -165,6 +165,18 @@ public abstract class BaseDao<Pojo, Mapper, Example> implements IBaseDao<Pojo, M
     }
     
     @Override
+    public int countByUID(long uid) {
+        String redisKey = getGroupIdCacheKey(pojoClazz.getSimpleName(), uid);
+        return redisUtil.hashLen(redisKey);
+    }
+    
+    @Override
+    public int countByGroupId(long groupId) {
+        String redisKey = getGroupIdCacheKey(pojoClazz.getSimpleName(), groupId);
+        return redisUtil.hashLen(redisKey);
+    }
+    
+    @Override
     public int sqlCountByExample(Example example) {
         SqlSession session = db.getSession();
         try {

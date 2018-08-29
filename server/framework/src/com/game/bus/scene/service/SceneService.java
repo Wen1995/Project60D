@@ -4,6 +4,9 @@ import com.game.framework.console.disruptor.TPacket;
 
 public interface SceneService {
 
+	/** 场景信息 */
+	TPacket getSceneInfo(Long uid) throws Exception;
+
 	/** 建筑信息 */
 	TPacket getBuildingInfo(Long uid, Long buildingId) throws Exception;
 
@@ -27,7 +30,4 @@ public interface SceneService {
 
 	/** 中断加工 */
 	TPacket interruptProcess(Long uid, Long buildingId) throws Exception;
-
-	/** 场景信息 */
-	TPacket getSceneInfo(Long uid) throws Exception;
 }

@@ -1,4 +1,3 @@
-import "fighting.proto";
 package com.game.framework.protocol;
 
 option optimize_for = SPEED;
@@ -30,6 +29,35 @@ message FightingInfo {
 	repeated UserInfo userInfos = 3;
 	// 损失信息
 	optional LossInfo lossInfo = 4;
+}
+
+message InvadeResultInfo {
+	// Id类型
+	optional int32 type = 1;
+	// 玩家或建筑Id
+	optional int64 id = 2;
+	// 杀死僵尸数量
+	optional int32 num = 3;
+	// 大门的耐久或玩家的血量
+	optional int32 blood = 4;
+}
+
+message LossInfo {
+	// 玩家Id
+	optional int64 uid = 1;
+	// 资源损失
+	optional int32 resource = 2;
+	// 金币损失
+	optional int32 gold = 3;
+}
+
+message UserInfo {
+	// 玩家Id
+	optional int64 uid = 1;
+	// 血量
+	optional int32 blood = 2;
+	// 健康
+	optional int32 health = 3;
 }
 
 message TCSGetPageCount {
@@ -66,10 +94,11 @@ message MessageInfo {
 }
 
 message TCSGetMessageTag {
+
 }
 message TSCGetMessageTag {
 	// 未读数量
-	optional int32 messageNumber = 1;
+	optional int32 messageNum = 1;
 }
 
 message TCSSendMessageTag {

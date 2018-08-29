@@ -56,6 +56,14 @@ public interface IBaseDao <Pojo, Mapper, Example>{
     void deleteByUID(Pojo pojo);
     
     void deleteByGroupId(Pojo pojo);
+    
+    /**
+     * 统计数据,根据UID缓存,必须有uid字段
+     * 包含delete(Pojo pojo)
+     */
+    int countByUID(long uid);
+    
+    int countByGroupId(long groupId);
 
 	/**
      * 根据条件查询记录数量,只操作mysql数据库

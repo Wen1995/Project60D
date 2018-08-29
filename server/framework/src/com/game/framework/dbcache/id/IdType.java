@@ -12,7 +12,9 @@ public enum IdType {
     /** 工会 */
     GROUP(2),
     /** 建筑 */
-    BUILDING(3);
+    BUILDING(3),
+    /** 消息 */
+    MESSAGE(4);
 
     private byte val;
 

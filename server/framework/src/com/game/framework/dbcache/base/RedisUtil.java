@@ -214,7 +214,7 @@ public class RedisUtil {
     }
 
     public int hashLen(String key) {
-        Long len = 0l;
+        Long len = 0L;
         Jedis jedis = null;
         try {
             jedis = pool.getResource();

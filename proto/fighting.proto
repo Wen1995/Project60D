@@ -55,4 +55,8 @@ message LossInfo {
 	optional int32 resource = 2;
 	// 金币损失
 	optional int32 gold = 3;
+	// 血量
+	optional int32 blood = 4;
+	// 健康
+	optional int32 health = 5;
 }

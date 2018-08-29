@@ -2411,8 +2411,8 @@ namespace com.game.framework.protocol {
   public sealed partial class LossInfo : pb::GeneratedMessageLite<LossInfo, LossInfo.Builder> {
     private LossInfo() { }
     private static readonly LossInfo defaultInstance = new LossInfo().MakeReadOnly();
-    private static readonly string[] _lossInfoFieldNames = new string[] { "gold", "resource", "uid" };
-    private static readonly uint[] _lossInfoFieldTags = new uint[] { 24, 16, 8 };
+    private static readonly string[] _lossInfoFieldNames = new string[] { "blood", "gold", "health", "resource", "uid" };
+    private static readonly uint[] _lossInfoFieldTags = new uint[] { 32, 24, 40, 16, 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -2471,6 +2471,32 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BloodFieldNumber = 4;
+    private bool hasBlood;
+    private int blood_;
+    public bool HasBlood {
+      get { return hasBlood; }
+    }
+    public int Blood {
+      get { return blood_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int HealthFieldNumber = 5;
+    private bool hasHealth;
+    private int health_;
+    public bool HasHealth {
+      get { return hasHealth; }
+    }
+    public int Health {
+      get { return health_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -2486,13 +2512,19 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _lossInfoFieldNames;
       if (hasUid) {
-        output.WriteInt64(1, field_names[2], Uid);
+        output.WriteInt64(1, field_names[4], Uid);
       }
       if (hasResource) {
-        output.WriteInt32(2, field_names[1], Resource);
+        output.WriteInt32(2, field_names[3], Resource);
       }
       if (hasGold) {
-        output.WriteInt32(3, field_names[0], Gold);
+        output.WriteInt32(3, field_names[1], Gold);
+      }
+      if (hasBlood) {
+        output.WriteInt32(4, field_names[0], Blood);
+      }
+      if (hasHealth) {
+        output.WriteInt32(5, field_names[2], Health);
       }
     }
     
@@ -2515,6 +2547,12 @@ namespace com.game.framework.protocol {
         if (hasGold) {
           size += pb::CodedOutputStream.ComputeInt32Size(3, Gold);
         }
+        if (hasBlood) {
+          size += pb::CodedOutputStream.ComputeInt32Size(4, Blood);
+        }
+        if (hasHealth) {
+          size += pb::CodedOutputStream.ComputeInt32Size(5, Health);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -2526,6 +2564,8 @@ namespace com.game.framework.protocol {
       if (hasUid) hash ^= uid_.GetHashCode();
       if (hasResource) hash ^= resource_.GetHashCode();
       if (hasGold) hash ^= gold_.GetHashCode();
+      if (hasBlood) hash ^= blood_.GetHashCode();
+      if (hasHealth) hash ^= health_.GetHashCode();
       return hash;
     }
     
@@ -2535,6 +2575,8 @@ namespace com.game.framework.protocol {
       if (hasUid != other.hasUid || (hasUid && !uid_.Equals(other.uid_))) return false;
       if (hasResource != other.hasResource || (hasResource && !resource_.Equals(other.resource_))) return false;
       if (hasGold != other.hasGold || (hasGold && !gold_.Equals(other.gold_))) return false;
+      if (hasBlood != other.hasBlood || (hasBlood && !blood_.Equals(other.blood_))) return false;
+      if (hasHealth != other.hasHealth || (hasHealth && !health_.Equals(other.health_))) return false;
       return true;
     }
     
@@ -2704,6 +2746,12 @@ namespace com.game.framework.protocol {
         if (other.HasGold) {
           Gold = other.Gold;
         }
+        if (other.HasBlood) {
+          Blood = other.Blood;
+        }
+        if (other.HasHealth) {
+          Health = other.Health;
+        }
         return this;
       }
       
@@ -2746,6 +2794,14 @@ namespace com.game.framework.protocol {
             }
             case 24: {
               result.hasGold = input.ReadInt32(ref result.gold_);
+              break;
+            }
+            case 32: {
+              result.hasBlood = input.ReadInt32(ref result.blood_);
+              break;
+            }
+            case 40: {
+              result.hasHealth = input.ReadInt32(ref result.health_);
               break;
             }
           }
@@ -2812,6 +2868,46 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasGold = false;
         result.gold_ = 0;
+        return this;
+      }
+      
+      public bool HasBlood {
+        get { return result.hasBlood; }
+      }
+      public int Blood {
+        get { return result.Blood; }
+        set { SetBlood(value); }
+      }
+      public Builder SetBlood(int value) {
+        PrepareBuilder();
+        result.hasBlood = true;
+        result.blood_ = value;
+        return this;
+      }
+      public Builder ClearBlood() {
+        PrepareBuilder();
+        result.hasBlood = false;
+        result.blood_ = 0;
+        return this;
+      }
+      
+      public bool HasHealth {
+        get { return result.hasHealth; }
+      }
+      public int Health {
+        get { return result.Health; }
+        set { SetHealth(value); }
+      }
+      public Builder SetHealth(int value) {
+        PrepareBuilder();
+        result.hasHealth = true;
+        result.health_ = value;
+        return this;
+      }
+      public Builder ClearHealth() {
+        PrepareBuilder();
+        result.hasHealth = false;
+        result.health_ = 0;
         return this;
       }
     }

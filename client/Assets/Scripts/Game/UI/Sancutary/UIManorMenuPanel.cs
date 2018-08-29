@@ -5,9 +5,11 @@ using UnityEngine;
 public class UIManorMenuPanel : PanelBase {
 
 	SanctuaryPackage sanctuaryPackage = null;
+	UserPackage userPackage = null;
 	UIProgressBar invadeProgress = null;
 	UIProgressBar manorExpProgress = null;
 	UILabel levelLabel = null;
+	UILabel IDLabel = null;
 
 	protected override void Awake()
 	{
@@ -16,6 +18,7 @@ public class UIManorMenuPanel : PanelBase {
 		invadeProgress = transform.Find("Eventinfo/Invade/bar").GetComponent<UIProgressBar>();
 		manorExpProgress = transform.Find("Manor/exp").GetComponent<UIProgressBar>();
 		levelLabel = transform.Find("Manor/level").GetComponent<UILabel>();
+		IDLabel = transform.Find("Manor/idlabel").GetComponent<UILabel>();
 		//bind event
 		UIButton button = transform.Find("News").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnNews));
@@ -23,6 +26,8 @@ public class UIManorMenuPanel : PanelBase {
 		button.onClick.Add(new EventDelegate(OnMail));
 		button = transform.Find("ranking").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnRanking));
+
+		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 	}
 
 	public override void OpenPanel()
@@ -41,6 +46,7 @@ public class UIManorMenuPanel : PanelBase {
 	{
 		invadeProgress.value = 0;
 		manorExpProgress.value = 0;
+		IDLabel.text = userPackage.GroupID.ToString();
 	}
 
 	void OnNews()
@@ -50,7 +56,8 @@ public class UIManorMenuPanel : PanelBase {
 
 	void OnMail()
 	{
-		FacadeSingleton.Instance.OverlayerPanel("UIMailBoxPanel");
+		//FacadeSingleton.Instance.OverlayerPanel("UIMailBoxPanel");
+		FacadeSingleton.Instance.OverlayerPanel("UIInvadeResultPanel");
 	}
 
 	void OnRanking()

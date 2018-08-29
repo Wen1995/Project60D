@@ -65,9 +65,19 @@ public class UIBuildingInfoPanel : PanelBase {
         titleLabel.text = string.Format("{0} Lv.{1}", buildingData.BldgName, level);
         contentLable.text = buildingData.BldgInfo;
         //render 3d model
-        NDictionary data = new NDictionary();
-        data.Add("model", Resources.Load("Prefabs/Building/car"));
-        modelGo = FacadeSingleton.Instance.InvokeService("OpenSubRenderer", ConstVal.Service_Sanctuary, data) as GameObject;
+        string prefabName = buildingData.PrefabName;
+        if(!string.IsNullOrEmpty(prefabName))
+        {
+            NDictionary data = new NDictionary();
+            prefabName = prefabName.Substring(0, prefabName.IndexOf("."));
+            print(prefabName);
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/Building/" + prefabName);
+            if(prefab != null)
+            {
+                data.Add("model", prefab);
+                modelGo = FacadeSingleton.Instance.InvokeService("OpenSubRenderer", ConstVal.Service_Sanctuary, data) as GameObject;
+            }
+        }
         //get attribute data
         int count = sanctuarytPackage.GetBuildingAttribute(selecttionBuilding, level);
 
@@ -84,6 +94,7 @@ public class UIBuildingInfoPanel : PanelBase {
 
     void OnModelRotete(GameObject go, Vector2 pos)
     {
-        modelGo.transform.Rotate(new Vector3(0, -pos.x, 0));
+        if(modelGo != null)
+            modelGo.transform.Rotate(new Vector3(0, -pos.x, 0));
     }
 }

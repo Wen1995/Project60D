@@ -41,18 +41,7 @@ public class UserPackage : ModelBase {
     private long mTimeDelta;
     PlayerState playerState = new PlayerState();
 
-    //state
-    int blood = 0;
-    int hunger = 0;
-    int thirst = 0;
-    int health = 0;
-    int mood = 0;
-    int attack = 0;
-    int defence = 0;
-    int agile = 0;
-
-
-    public long GourpID
+    public long GroupID
     {
         get{return mGroupID;}
     }

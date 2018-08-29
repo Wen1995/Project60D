@@ -42,7 +42,7 @@ public class UIFuncMenuPanel : PanelBase {
 
     void OnTrade()
     {
-        //TODO
+        FacadeSingleton.Instance.OverlayerPanel("UITradePanel");
     }
 
     void OnChat()

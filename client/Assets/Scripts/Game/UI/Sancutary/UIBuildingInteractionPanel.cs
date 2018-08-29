@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using com.game.framework.resource.data;
 using UnityEngine;
 
 public class UIBuildingInteractionPanel : PanelBase{
@@ -13,6 +14,7 @@ public class UIBuildingInteractionPanel : PanelBase{
     UIButton collectBtn = null;
     UIButton unlockBtn = null;
     UIButton craftBtn = null;
+    UILabel nameLabel = null;
     protected override void Awake()
     {
         base.Awake();
@@ -30,6 +32,7 @@ public class UIBuildingInteractionPanel : PanelBase{
         collectBtn.onClick.Add(new EventDelegate(OnCollect));
         craftBtn = transform.Find("group/05craft").GetComponent<UIButton>();
         craftBtn.onClick.Add(new EventDelegate(OnCraft));
+        nameLabel = transform.Find("namelabel").GetComponent<UILabel>();
 
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
     }
@@ -54,6 +57,7 @@ public class UIBuildingInteractionPanel : PanelBase{
         HideAllButton();
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(selectBuilding.BuildingID);
         BuildingFunc funcType = BuildingFunc.Collect;
+        nameLabel.text = sanctuaryPackage.GetBuildingNameByType(selectBuilding.buildingType);
         if(info != null)
             funcType = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
         switch (selectBuilding.State)

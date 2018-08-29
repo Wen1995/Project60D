@@ -49,6 +49,13 @@ public class UIPlayerInfoPanel : PanelBase {
 		//bind event
 		UIButton button = transform.Find("closebtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
+		button = transform.Find("store/tabgroup/grid/tab0").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnTab0));
+		button = transform.Find("store/tabgroup/grid/tab1").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnTab1));
+		button = transform.Find("store/tabgroup/grid/tab2").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnTab2));
+		
 		
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
 		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
@@ -97,6 +104,54 @@ public class UIPlayerInfoPanel : PanelBase {
 	void InitStoreHouse()
 	{
 		uint sortMask = (uint)ItemSortType.Food | (uint)ItemSortType.Product;
+		itemPackage.SortItemFilterInfoList(sortMask);
+		tableView.DataCount = itemPackage.GetItemFilterInfoList().Count;
+		tableView.TableChange();
+	}
+
+	void OnTab0()
+	{
+		OnTabChange(0);
+	}
+
+	void OnTab1()
+	{
+		OnTabChange(1);
+	}
+	void OnTab2()
+	{
+		OnTabChange(2);
+	}
+	
+	void OnTabChange(int index)
+	{
+		uint sortMask = 0;
+		switch(index)
+		{
+			case(0):
+			{
+				sortMask = 	(uint)ItemSortType.Food		|
+				 			(uint)ItemSortType.Product;
+				break;
+			}
+			case(1):
+			{
+				sortMask =  (uint)ItemSortType.Head 	| 
+							(uint)ItemSortType.Chest	|
+							(uint)ItemSortType.Pants 	|
+							(uint)ItemSortType.Shoes 	|
+							(uint)ItemSortType.Weapon;
+				break;
+			}
+			case(2):
+			{
+				sortMask = 	(uint)ItemSortType.Book;
+				break;
+			}
+			default:
+				sortMask = (uint)ItemSortType.Food | (uint)ItemSortType.Product;
+				break;
+		}
 		itemPackage.SortItemFilterInfoList(sortMask);
 		tableView.DataCount = itemPackage.GetItemFilterInfoList().Count;
 		tableView.TableChange();

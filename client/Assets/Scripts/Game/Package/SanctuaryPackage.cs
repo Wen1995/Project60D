@@ -25,6 +25,7 @@ public enum BuildingType {
     WoodFactory,
 
     RadioStation = 301,
+    Radar,
     StoreHouse,
     Battery,
     PowerGym,
@@ -110,6 +111,13 @@ public class SanctuaryPackage : ModelBase {
         return buildingDataMap[configID] as BUILDING;
     }
 
+    public string GetBuildingNameByType(BuildingType type)
+    {
+        int configID = GetConfigIDByBuildingType(type);
+        BUILDING data = GetBuildingConfigDataByConfigID(configID);
+        return data.BldgName;
+    }
+
     #region Acess Data
     public Building GetSelectionBuilding()
     {
@@ -146,6 +154,11 @@ public class SanctuaryPackage : ModelBase {
     { 
         NBuildingInfo info = new NBuildingInfo(buildingInfo);
         info.building = GetTypeBuilding(GetBuildingTypeByConfigID(buildingInfo.ConfigId));
+        if(info.building == null)
+        {
+            Debug.Log(string.Format("building{0} prefab missing!!!!!!", GetBuildingTypeByConfigID(info.configID)));
+            return;
+        }
         info.building.SetBuildingID(info.buildingID);
         mBuildingInfoMap[info.buildingID] = info;
     }

@@ -128,6 +128,8 @@ public class CameraController : MonoBehaviour {
                 {
                     CameraZomming(-0.1f);
                 }
+                oldTouchPos0 = touchPos0;
+                oldTouchPos1 = touchPos1;
             }
         }
     }

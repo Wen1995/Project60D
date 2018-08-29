@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 65783293064838576}
   - component: {fileID: 114432105982730538}
   m_Layer: 5
-  m_Name: tab0 (2)
+  m_Name: tab2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 65220463582477132}
   - component: {fileID: 114836437974036158}
   m_Layer: 5
-  m_Name: tab0 (1)
+  m_Name: tab1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -946,7 +946,7 @@ GameObject:
   - component: {fileID: 65531266482451408}
   - component: {fileID: 114924007490629466}
   m_Layer: 5
-  m_Name: tab0 (3)
+  m_Name: tab3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4695,8 +4695,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
+  mWidth: 2
+  mHeight: 2
   mDepth: 0
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
@@ -4966,7 +4966,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: "\u4E66\u7C4D"
+  mText: "\u88C5\u5907"
   mFontSize: 33
   mFontStyle: 0
   mAlignment: 0
@@ -7972,8 +7972,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
+  mWidth: 2
+  mHeight: 2
   mDepth: 0
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
@@ -10188,7 +10188,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: "\u88C5\u5907"
+  mText: "\u7279\u6B8A"
   mFontSize: 33
   mFontStyle: 0
   mAlignment: 0

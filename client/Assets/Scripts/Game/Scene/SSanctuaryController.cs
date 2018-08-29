@@ -36,6 +36,8 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UIExploreMapPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIItemInfoPanel", "Prefabs/UI/Common", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIMailBoxPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UITradePanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UIInvadeResultPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
@@ -253,6 +255,7 @@ public class SSanctuaryController : SceneController
         sanctuaryPackage.CancelCraft(process.BuildingId);
         SendEvent("RefreshCraftPanel");
     }
+
     #endregion
 
 

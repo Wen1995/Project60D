@@ -5,17 +5,18 @@ using UnityEngine;
 
 public class StoreListCellItem : NListCellItem {
 
-	UISprite iconSprite = null;
-	UILabel numLabel = null;
-	UILabel nameLabel = null;
-	ItemPackage itemPackage = null;
-	NItemInfo info;
+	protected UISprite iconSprite = null;
+	protected UILabel numLabel = null;
+	protected UILabel nameLabel = null;
+	protected ItemPackage itemPackage = null;
+	protected NItemInfo info;
 	void Awake()
 	{
 		iconSprite = transform.Find("icon").GetComponent<UISprite>();
 		numLabel = transform.Find("num").GetComponent<UILabel>();
 		nameLabel = transform.Find("name").GetComponent<UILabel>();
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
+		FacadeSingleton.Instance.RegisterEvent("RefreshItemView", Refresh);
 	}
 	public override void DrawCell(int i, int index, int count = 0)
 	{
@@ -34,9 +35,14 @@ public class StoreListCellItem : NListCellItem {
 		numLabel.text = info.number.ToString();
 	}
 
-	void OnClick()
+	protected virtual void OnClick()
 	{
 		itemPackage.SetSelectionItem(info);
 		FacadeSingleton.Instance.OverlayerPanel("UIItemInfoPanel");
+	}
+
+	void Refresh(NDictionary data = null)
+	{
+		numLabel.text = info.number.ToString();
 	}
 }

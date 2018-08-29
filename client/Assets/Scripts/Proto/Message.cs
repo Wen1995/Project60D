@@ -3645,7 +3645,7 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetMessageTag : pb::GeneratedMessageLite<TSCGetMessageTag, TSCGetMessageTag.Builder> {
     private TSCGetMessageTag() { }
     private static readonly TSCGetMessageTag defaultInstance = new TSCGetMessageTag().MakeReadOnly();
-    private static readonly string[] _tSCGetMessageTagFieldNames = new string[] { "haveRead" };
+    private static readonly string[] _tSCGetMessageTagFieldNames = new string[] { "messageNumber" };
     private static readonly uint[] _tSCGetMessageTagFieldTags = new uint[] { 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -3668,14 +3668,14 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HaveReadFieldNumber = 1;
-    private bool hasHaveRead;
-    private bool haveRead_;
-    public bool HasHaveRead {
-      get { return hasHaveRead; }
+    public const int MessageNumberFieldNumber = 1;
+    private bool hasMessageNumber;
+    private int messageNumber_;
+    public bool HasMessageNumber {
+      get { return hasMessageNumber; }
     }
-    public bool HaveRead {
-      get { return haveRead_; }
+    public int MessageNumber {
+      get { return messageNumber_; }
     }
     
     #if UNITY_EDITOR
@@ -3693,8 +3693,8 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _tSCGetMessageTagFieldNames;
-      if (hasHaveRead) {
-        output.WriteBool(1, field_names[0], HaveRead);
+      if (hasMessageNumber) {
+        output.WriteInt32(1, field_names[0], MessageNumber);
       }
     }
     
@@ -3708,8 +3708,8 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasHaveRead) {
-          size += pb::CodedOutputStream.ComputeBoolSize(1, HaveRead);
+        if (hasMessageNumber) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, MessageNumber);
         }
         memoizedSerializedSize = size;
         return size;
@@ -3719,14 +3719,14 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasHaveRead) hash ^= haveRead_.GetHashCode();
+      if (hasMessageNumber) hash ^= messageNumber_.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
       TSCGetMessageTag other = obj as TSCGetMessageTag;
       if (other == null) return false;
-      if (hasHaveRead != other.hasHaveRead || (hasHaveRead && !haveRead_.Equals(other.haveRead_))) return false;
+      if (hasMessageNumber != other.hasMessageNumber || (hasMessageNumber && !messageNumber_.Equals(other.messageNumber_))) return false;
       return true;
     }
     
@@ -3887,8 +3887,8 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(TSCGetMessageTag other) {
         if (other == global::com.game.framework.protocol.TSCGetMessageTag.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasHaveRead) {
-          HaveRead = other.HaveRead;
+        if (other.HasMessageNumber) {
+          MessageNumber = other.MessageNumber;
         }
         return this;
       }
@@ -3923,7 +3923,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 8: {
-              result.hasHaveRead = input.ReadBool(ref result.haveRead_);
+              result.hasMessageNumber = input.ReadInt32(ref result.messageNumber_);
               break;
             }
           }
@@ -3933,23 +3933,23 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasHaveRead {
-        get { return result.hasHaveRead; }
+      public bool HasMessageNumber {
+        get { return result.hasMessageNumber; }
       }
-      public bool HaveRead {
-        get { return result.HaveRead; }
-        set { SetHaveRead(value); }
+      public int MessageNumber {
+        get { return result.MessageNumber; }
+        set { SetMessageNumber(value); }
       }
-      public Builder SetHaveRead(bool value) {
+      public Builder SetMessageNumber(int value) {
         PrepareBuilder();
-        result.hasHaveRead = true;
-        result.haveRead_ = value;
+        result.hasMessageNumber = true;
+        result.messageNumber_ = value;
         return this;
       }
-      public Builder ClearHaveRead() {
+      public Builder ClearMessageNumber() {
         PrepareBuilder();
-        result.hasHaveRead = false;
-        result.haveRead_ = false;
+        result.hasMessageNumber = false;
+        result.messageNumber_ = 0;
         return this;
       }
     }

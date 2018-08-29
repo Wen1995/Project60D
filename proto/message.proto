@@ -68,8 +68,8 @@ message MessageInfo {
 message TCSGetMessageTag {
 }
 message TSCGetMessageTag {
-	// 是否有未读邮件
-	optional bool haveRead = 1;
+	// 未读数量
+	optional int32 messageNumber = 1;
 }
 
 message TCSSendMessageTag {

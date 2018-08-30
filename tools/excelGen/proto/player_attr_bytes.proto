@@ -9,24 +9,26 @@ package com.game.framework.resource.data;
 message PLAYER_ATTR{
     /** 属性ID */
     required int32 id = 1 [default = 0];
+    /**  */
+    optional string player_attrkey = 2 [default = ""];
     /** 初始 */
-    optional int32 begin_num = 2 [default = 0];
+    optional int32 begin_num = 3 [default = 0];
     /** 值算法k1*100 */
-    optional int32 attr_k1 = 3 [default = 0];
+    optional int32 attr_k1 = 4 [default = 0];
     /** 值算法k2*100 */
-    optional int32 attr_k2 = 4 [default = 0];
+    optional int32 attr_k2 = 5 [default = 0];
     /** 系数k1 */
-    optional int32 rec_k1 = 5 [default = 0];
+    optional int32 rec_k1 = 6 [default = 0];
     /** 上限*100 */
-    optional int32 lim_real = 6 [default = 0];
+    optional int32 lim_real = 7 [default = 0];
     /** 系数k1*100 */
-    optional int32 lim_k1 = 7 [default = 0];
+    optional int32 lim_k1 = 8 [default = 0];
     /** 系数k2*100 */
-    optional int32 lim_k2 = 8 [default = 0];
+    optional int32 lim_k2 = 9 [default = 0];
     /** 系数k1*100 */
-    optional int32 spc_k1 = 9 [default = 0];
+    optional int32 spc_k1 = 10 [default = 0];
     /** 系数k2*100 */
-    optional int32 spc_k2 = 10 [default = 0];
+    optional int32 spc_k2 = 11 [default = 0];
 }
 
 message PLAYER_ATTR_ARRAY {

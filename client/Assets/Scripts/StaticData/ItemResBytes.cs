@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class ITEM_RES : pb::GeneratedMessageLite<ITEM_RES, ITEM_RES.Builder> {
     private ITEM_RES() { }
     private static readonly ITEM_RES defaultInstance = new ITEM_RES().MakeReadOnly();
-    private static readonly string[] _iTEMRESFieldNames = new string[] { "desc", "gold_conv", "icon_name", "id", "item_lvl", "min_name", "small_icon_name", "stor_unit" };
-    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 50, 58, 34, 8, 16, 26, 42, 64 };
+    private static readonly string[] _iTEMRESFieldNames = new string[] { "desc", "gold_conv", "icon_name", "id", "item_lvl", "key_name", "min_name", "small_icon_name", "stor_unit" };
+    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 58, 64, 42, 8, 16, 34, 26, 50, 72 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -90,7 +90,20 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int IconNameFieldNumber = 4;
+    public const int KeyNameFieldNumber = 4;
+    private bool hasKeyName;
+    private string keyName_ = "";
+    public bool HasKeyName {
+      get { return hasKeyName; }
+    }
+    public string KeyName {
+      get { return keyName_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int IconNameFieldNumber = 5;
     private bool hasIconName;
     private string iconName_ = "";
     public bool HasIconName {
@@ -103,7 +116,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SmallIconNameFieldNumber = 5;
+    public const int SmallIconNameFieldNumber = 6;
     private bool hasSmallIconName;
     private string smallIconName_ = "";
     public bool HasSmallIconName {
@@ -116,7 +129,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int DescFieldNumber = 6;
+    public const int DescFieldNumber = 7;
     private bool hasDesc;
     private string desc_ = "";
     public bool HasDesc {
@@ -129,20 +142,20 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int GoldConvFieldNumber = 7;
+    public const int GoldConvFieldNumber = 8;
     private bool hasGoldConv;
-    private string goldConv_ = "";
+    private int goldConv_;
     public bool HasGoldConv {
       get { return hasGoldConv; }
     }
-    public string GoldConv {
+    public int GoldConv {
       get { return goldConv_; }
     }
     
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int StorUnitFieldNumber = 8;
+    public const int StorUnitFieldNumber = 9;
     private bool hasStorUnit;
     private int storUnit_;
     public bool HasStorUnit {
@@ -175,22 +188,25 @@ namespace com.game.framework.resource.data {
         output.WriteInt32(2, field_names[4], ItemLvl);
       }
       if (hasMinName) {
-        output.WriteString(3, field_names[5], MinName);
+        output.WriteString(3, field_names[6], MinName);
+      }
+      if (hasKeyName) {
+        output.WriteString(4, field_names[5], KeyName);
       }
       if (hasIconName) {
-        output.WriteString(4, field_names[2], IconName);
+        output.WriteString(5, field_names[2], IconName);
       }
       if (hasSmallIconName) {
-        output.WriteString(5, field_names[6], SmallIconName);
+        output.WriteString(6, field_names[7], SmallIconName);
       }
       if (hasDesc) {
-        output.WriteString(6, field_names[0], Desc);
+        output.WriteString(7, field_names[0], Desc);
       }
       if (hasGoldConv) {
-        output.WriteString(7, field_names[1], GoldConv);
+        output.WriteInt32(8, field_names[1], GoldConv);
       }
       if (hasStorUnit) {
-        output.WriteInt32(8, field_names[7], StorUnit);
+        output.WriteInt32(9, field_names[8], StorUnit);
       }
     }
     
@@ -213,20 +229,23 @@ namespace com.game.framework.resource.data {
         if (hasMinName) {
           size += pb::CodedOutputStream.ComputeStringSize(3, MinName);
         }
+        if (hasKeyName) {
+          size += pb::CodedOutputStream.ComputeStringSize(4, KeyName);
+        }
         if (hasIconName) {
-          size += pb::CodedOutputStream.ComputeStringSize(4, IconName);
+          size += pb::CodedOutputStream.ComputeStringSize(5, IconName);
         }
         if (hasSmallIconName) {
-          size += pb::CodedOutputStream.ComputeStringSize(5, SmallIconName);
+          size += pb::CodedOutputStream.ComputeStringSize(6, SmallIconName);
         }
         if (hasDesc) {
-          size += pb::CodedOutputStream.ComputeStringSize(6, Desc);
+          size += pb::CodedOutputStream.ComputeStringSize(7, Desc);
         }
         if (hasGoldConv) {
-          size += pb::CodedOutputStream.ComputeStringSize(7, GoldConv);
+          size += pb::CodedOutputStream.ComputeInt32Size(8, GoldConv);
         }
         if (hasStorUnit) {
-          size += pb::CodedOutputStream.ComputeInt32Size(8, StorUnit);
+          size += pb::CodedOutputStream.ComputeInt32Size(9, StorUnit);
         }
         memoizedSerializedSize = size;
         return size;
@@ -239,6 +258,7 @@ namespace com.game.framework.resource.data {
       if (hasId) hash ^= id_.GetHashCode();
       if (hasItemLvl) hash ^= itemLvl_.GetHashCode();
       if (hasMinName) hash ^= minName_.GetHashCode();
+      if (hasKeyName) hash ^= keyName_.GetHashCode();
       if (hasIconName) hash ^= iconName_.GetHashCode();
       if (hasSmallIconName) hash ^= smallIconName_.GetHashCode();
       if (hasDesc) hash ^= desc_.GetHashCode();
@@ -253,6 +273,7 @@ namespace com.game.framework.resource.data {
       if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
       if (hasItemLvl != other.hasItemLvl || (hasItemLvl && !itemLvl_.Equals(other.itemLvl_))) return false;
       if (hasMinName != other.hasMinName || (hasMinName && !minName_.Equals(other.minName_))) return false;
+      if (hasKeyName != other.hasKeyName || (hasKeyName && !keyName_.Equals(other.keyName_))) return false;
       if (hasIconName != other.hasIconName || (hasIconName && !iconName_.Equals(other.iconName_))) return false;
       if (hasSmallIconName != other.hasSmallIconName || (hasSmallIconName && !smallIconName_.Equals(other.smallIconName_))) return false;
       if (hasDesc != other.hasDesc || (hasDesc && !desc_.Equals(other.desc_))) return false;
@@ -427,6 +448,9 @@ namespace com.game.framework.resource.data {
         if (other.HasMinName) {
           MinName = other.MinName;
         }
+        if (other.HasKeyName) {
+          KeyName = other.KeyName;
+        }
         if (other.HasIconName) {
           IconName = other.IconName;
         }
@@ -487,22 +511,26 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 34: {
-              result.hasIconName = input.ReadString(ref result.iconName_);
+              result.hasKeyName = input.ReadString(ref result.keyName_);
               break;
             }
             case 42: {
-              result.hasSmallIconName = input.ReadString(ref result.smallIconName_);
+              result.hasIconName = input.ReadString(ref result.iconName_);
               break;
             }
             case 50: {
-              result.hasDesc = input.ReadString(ref result.desc_);
+              result.hasSmallIconName = input.ReadString(ref result.smallIconName_);
               break;
             }
             case 58: {
-              result.hasGoldConv = input.ReadString(ref result.goldConv_);
+              result.hasDesc = input.ReadString(ref result.desc_);
               break;
             }
             case 64: {
+              result.hasGoldConv = input.ReadInt32(ref result.goldConv_);
+              break;
+            }
+            case 72: {
               result.hasStorUnit = input.ReadInt32(ref result.storUnit_);
               break;
             }
@@ -574,6 +602,27 @@ namespace com.game.framework.resource.data {
         return this;
       }
       
+      public bool HasKeyName {
+        get { return result.hasKeyName; }
+      }
+      public string KeyName {
+        get { return result.KeyName; }
+        set { SetKeyName(value); }
+      }
+      public Builder SetKeyName(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasKeyName = true;
+        result.keyName_ = value;
+        return this;
+      }
+      public Builder ClearKeyName() {
+        PrepareBuilder();
+        result.hasKeyName = false;
+        result.keyName_ = "";
+        return this;
+      }
+      
       public bool HasIconName {
         get { return result.hasIconName; }
       }
@@ -640,12 +689,11 @@ namespace com.game.framework.resource.data {
       public bool HasGoldConv {
         get { return result.hasGoldConv; }
       }
-      public string GoldConv {
+      public int GoldConv {
         get { return result.GoldConv; }
         set { SetGoldConv(value); }
       }
-      public Builder SetGoldConv(string value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
+      public Builder SetGoldConv(int value) {
         PrepareBuilder();
         result.hasGoldConv = true;
         result.goldConv_ = value;
@@ -654,7 +702,7 @@ namespace com.game.framework.resource.data {
       public Builder ClearGoldConv() {
         PrepareBuilder();
         result.hasGoldConv = false;
-        result.goldConv_ = "";
+        result.goldConv_ = 0;
         return this;
       }
       

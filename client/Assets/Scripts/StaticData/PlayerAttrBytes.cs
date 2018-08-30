@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class PLAYER_ATTR : pb::GeneratedMessageLite<PLAYER_ATTR, PLAYER_ATTR.Builder> {
     private PLAYER_ATTR() { }
     private static readonly PLAYER_ATTR defaultInstance = new PLAYER_ATTR().MakeReadOnly();
-    private static readonly string[] _pLAYERATTRFieldNames = new string[] { "attr_k1", "attr_k2", "begin_num", "id", "lim_k1", "lim_k2", "lim_real", "rec_k1", "spc_k1", "spc_k2" };
-    private static readonly uint[] _pLAYERATTRFieldTags = new uint[] { 24, 32, 16, 8, 56, 64, 48, 40, 72, 80 };
+    private static readonly string[] _pLAYERATTRFieldNames = new string[] { "attr_k1", "attr_k2", "begin_num", "id", "lim_k1", "lim_k2", "lim_real", "player_attrkey", "rec_k1", "spc_k1", "spc_k2" };
+    private static readonly uint[] _pLAYERATTRFieldTags = new uint[] { 32, 40, 24, 8, 64, 72, 56, 18, 48, 80, 88 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -64,7 +64,20 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int BeginNumFieldNumber = 2;
+    public const int PlayerAttrkeyFieldNumber = 2;
+    private bool hasPlayerAttrkey;
+    private string playerAttrkey_ = "";
+    public bool HasPlayerAttrkey {
+      get { return hasPlayerAttrkey; }
+    }
+    public string PlayerAttrkey {
+      get { return playerAttrkey_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BeginNumFieldNumber = 3;
     private bool hasBeginNum;
     private int beginNum_;
     public bool HasBeginNum {
@@ -77,7 +90,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int AttrK1FieldNumber = 3;
+    public const int AttrK1FieldNumber = 4;
     private bool hasAttrK1;
     private int attrK1_;
     public bool HasAttrK1 {
@@ -90,7 +103,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int AttrK2FieldNumber = 4;
+    public const int AttrK2FieldNumber = 5;
     private bool hasAttrK2;
     private int attrK2_;
     public bool HasAttrK2 {
@@ -103,7 +116,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int RecK1FieldNumber = 5;
+    public const int RecK1FieldNumber = 6;
     private bool hasRecK1;
     private int recK1_;
     public bool HasRecK1 {
@@ -116,7 +129,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int LimRealFieldNumber = 6;
+    public const int LimRealFieldNumber = 7;
     private bool hasLimReal;
     private int limReal_;
     public bool HasLimReal {
@@ -129,7 +142,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int LimK1FieldNumber = 7;
+    public const int LimK1FieldNumber = 8;
     private bool hasLimK1;
     private int limK1_;
     public bool HasLimK1 {
@@ -142,7 +155,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int LimK2FieldNumber = 8;
+    public const int LimK2FieldNumber = 9;
     private bool hasLimK2;
     private int limK2_;
     public bool HasLimK2 {
@@ -155,7 +168,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SpcK1FieldNumber = 9;
+    public const int SpcK1FieldNumber = 10;
     private bool hasSpcK1;
     private int spcK1_;
     public bool HasSpcK1 {
@@ -168,7 +181,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SpcK2FieldNumber = 10;
+    public const int SpcK2FieldNumber = 11;
     private bool hasSpcK2;
     private int spcK2_;
     public bool HasSpcK2 {
@@ -197,32 +210,35 @@ namespace com.game.framework.resource.data {
       if (hasId) {
         output.WriteInt32(1, field_names[3], Id);
       }
+      if (hasPlayerAttrkey) {
+        output.WriteString(2, field_names[7], PlayerAttrkey);
+      }
       if (hasBeginNum) {
-        output.WriteInt32(2, field_names[2], BeginNum);
+        output.WriteInt32(3, field_names[2], BeginNum);
       }
       if (hasAttrK1) {
-        output.WriteInt32(3, field_names[0], AttrK1);
+        output.WriteInt32(4, field_names[0], AttrK1);
       }
       if (hasAttrK2) {
-        output.WriteInt32(4, field_names[1], AttrK2);
+        output.WriteInt32(5, field_names[1], AttrK2);
       }
       if (hasRecK1) {
-        output.WriteInt32(5, field_names[7], RecK1);
+        output.WriteInt32(6, field_names[8], RecK1);
       }
       if (hasLimReal) {
-        output.WriteInt32(6, field_names[6], LimReal);
+        output.WriteInt32(7, field_names[6], LimReal);
       }
       if (hasLimK1) {
-        output.WriteInt32(7, field_names[4], LimK1);
+        output.WriteInt32(8, field_names[4], LimK1);
       }
       if (hasLimK2) {
-        output.WriteInt32(8, field_names[5], LimK2);
+        output.WriteInt32(9, field_names[5], LimK2);
       }
       if (hasSpcK1) {
-        output.WriteInt32(9, field_names[8], SpcK1);
+        output.WriteInt32(10, field_names[9], SpcK1);
       }
       if (hasSpcK2) {
-        output.WriteInt32(10, field_names[9], SpcK2);
+        output.WriteInt32(11, field_names[10], SpcK2);
       }
     }
     
@@ -239,32 +255,35 @@ namespace com.game.framework.resource.data {
         if (hasId) {
           size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
         }
+        if (hasPlayerAttrkey) {
+          size += pb::CodedOutputStream.ComputeStringSize(2, PlayerAttrkey);
+        }
         if (hasBeginNum) {
-          size += pb::CodedOutputStream.ComputeInt32Size(2, BeginNum);
+          size += pb::CodedOutputStream.ComputeInt32Size(3, BeginNum);
         }
         if (hasAttrK1) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, AttrK1);
+          size += pb::CodedOutputStream.ComputeInt32Size(4, AttrK1);
         }
         if (hasAttrK2) {
-          size += pb::CodedOutputStream.ComputeInt32Size(4, AttrK2);
+          size += pb::CodedOutputStream.ComputeInt32Size(5, AttrK2);
         }
         if (hasRecK1) {
-          size += pb::CodedOutputStream.ComputeInt32Size(5, RecK1);
+          size += pb::CodedOutputStream.ComputeInt32Size(6, RecK1);
         }
         if (hasLimReal) {
-          size += pb::CodedOutputStream.ComputeInt32Size(6, LimReal);
+          size += pb::CodedOutputStream.ComputeInt32Size(7, LimReal);
         }
         if (hasLimK1) {
-          size += pb::CodedOutputStream.ComputeInt32Size(7, LimK1);
+          size += pb::CodedOutputStream.ComputeInt32Size(8, LimK1);
         }
         if (hasLimK2) {
-          size += pb::CodedOutputStream.ComputeInt32Size(8, LimK2);
+          size += pb::CodedOutputStream.ComputeInt32Size(9, LimK2);
         }
         if (hasSpcK1) {
-          size += pb::CodedOutputStream.ComputeInt32Size(9, SpcK1);
+          size += pb::CodedOutputStream.ComputeInt32Size(10, SpcK1);
         }
         if (hasSpcK2) {
-          size += pb::CodedOutputStream.ComputeInt32Size(10, SpcK2);
+          size += pb::CodedOutputStream.ComputeInt32Size(11, SpcK2);
         }
         memoizedSerializedSize = size;
         return size;
@@ -275,6 +294,7 @@ namespace com.game.framework.resource.data {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasId) hash ^= id_.GetHashCode();
+      if (hasPlayerAttrkey) hash ^= playerAttrkey_.GetHashCode();
       if (hasBeginNum) hash ^= beginNum_.GetHashCode();
       if (hasAttrK1) hash ^= attrK1_.GetHashCode();
       if (hasAttrK2) hash ^= attrK2_.GetHashCode();
@@ -291,6 +311,7 @@ namespace com.game.framework.resource.data {
       PLAYER_ATTR other = obj as PLAYER_ATTR;
       if (other == null) return false;
       if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
+      if (hasPlayerAttrkey != other.hasPlayerAttrkey || (hasPlayerAttrkey && !playerAttrkey_.Equals(other.playerAttrkey_))) return false;
       if (hasBeginNum != other.hasBeginNum || (hasBeginNum && !beginNum_.Equals(other.beginNum_))) return false;
       if (hasAttrK1 != other.hasAttrK1 || (hasAttrK1 && !attrK1_.Equals(other.attrK1_))) return false;
       if (hasAttrK2 != other.hasAttrK2 || (hasAttrK2 && !attrK2_.Equals(other.attrK2_))) return false;
@@ -463,6 +484,9 @@ namespace com.game.framework.resource.data {
         if (other.HasId) {
           Id = other.Id;
         }
+        if (other.HasPlayerAttrkey) {
+          PlayerAttrkey = other.PlayerAttrkey;
+        }
         if (other.HasBeginNum) {
           BeginNum = other.BeginNum;
         }
@@ -526,39 +550,43 @@ namespace com.game.framework.resource.data {
               result.hasId = input.ReadInt32(ref result.id_);
               break;
             }
-            case 16: {
-              result.hasBeginNum = input.ReadInt32(ref result.beginNum_);
+            case 18: {
+              result.hasPlayerAttrkey = input.ReadString(ref result.playerAttrkey_);
               break;
             }
             case 24: {
-              result.hasAttrK1 = input.ReadInt32(ref result.attrK1_);
+              result.hasBeginNum = input.ReadInt32(ref result.beginNum_);
               break;
             }
             case 32: {
-              result.hasAttrK2 = input.ReadInt32(ref result.attrK2_);
+              result.hasAttrK1 = input.ReadInt32(ref result.attrK1_);
               break;
             }
             case 40: {
-              result.hasRecK1 = input.ReadInt32(ref result.recK1_);
+              result.hasAttrK2 = input.ReadInt32(ref result.attrK2_);
               break;
             }
             case 48: {
-              result.hasLimReal = input.ReadInt32(ref result.limReal_);
+              result.hasRecK1 = input.ReadInt32(ref result.recK1_);
               break;
             }
             case 56: {
-              result.hasLimK1 = input.ReadInt32(ref result.limK1_);
+              result.hasLimReal = input.ReadInt32(ref result.limReal_);
               break;
             }
             case 64: {
-              result.hasLimK2 = input.ReadInt32(ref result.limK2_);
+              result.hasLimK1 = input.ReadInt32(ref result.limK1_);
               break;
             }
             case 72: {
-              result.hasSpcK1 = input.ReadInt32(ref result.spcK1_);
+              result.hasLimK2 = input.ReadInt32(ref result.limK2_);
               break;
             }
             case 80: {
+              result.hasSpcK1 = input.ReadInt32(ref result.spcK1_);
+              break;
+            }
+            case 88: {
               result.hasSpcK2 = input.ReadInt32(ref result.spcK2_);
               break;
             }
@@ -586,6 +614,27 @@ namespace com.game.framework.resource.data {
         PrepareBuilder();
         result.hasId = false;
         result.id_ = 0;
+        return this;
+      }
+      
+      public bool HasPlayerAttrkey {
+        get { return result.hasPlayerAttrkey; }
+      }
+      public string PlayerAttrkey {
+        get { return result.PlayerAttrkey; }
+        set { SetPlayerAttrkey(value); }
+      }
+      public Builder SetPlayerAttrkey(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasPlayerAttrkey = true;
+        result.playerAttrkey_ = value;
+        return this;
+      }
+      public Builder ClearPlayerAttrkey() {
+        PrepareBuilder();
+        result.hasPlayerAttrkey = false;
+        result.playerAttrkey_ = "";
         return this;
       }
       

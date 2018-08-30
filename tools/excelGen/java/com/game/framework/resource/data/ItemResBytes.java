@@ -73,7 +73,33 @@ public final class ItemResBytes {
         getMinNameBytes();
 
     /**
-     * <code>optional string icon_name = 4 [default = ""];</code>
+     * <code>optional string key_name = 4 [default = ""];</code>
+     *
+     * <pre>
+     ** 对应key 
+     * </pre>
+     */
+    boolean hasKeyName();
+    /**
+     * <code>optional string key_name = 4 [default = ""];</code>
+     *
+     * <pre>
+     ** 对应key 
+     * </pre>
+     */
+    java.lang.String getKeyName();
+    /**
+     * <code>optional string key_name = 4 [default = ""];</code>
+     *
+     * <pre>
+     ** 对应key 
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getKeyNameBytes();
+
+    /**
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -81,7 +107,7 @@ public final class ItemResBytes {
      */
     boolean hasIconName();
     /**
-     * <code>optional string icon_name = 4 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -89,7 +115,7 @@ public final class ItemResBytes {
      */
     java.lang.String getIconName();
     /**
-     * <code>optional string icon_name = 4 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -99,7 +125,7 @@ public final class ItemResBytes {
         getIconNameBytes();
 
     /**
-     * <code>optional string small_icon_name = 5 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
@@ -107,7 +133,7 @@ public final class ItemResBytes {
      */
     boolean hasSmallIconName();
     /**
-     * <code>optional string small_icon_name = 5 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
@@ -115,7 +141,7 @@ public final class ItemResBytes {
      */
     java.lang.String getSmallIconName();
     /**
-     * <code>optional string small_icon_name = 5 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
@@ -125,7 +151,7 @@ public final class ItemResBytes {
         getSmallIconNameBytes();
 
     /**
-     * <code>optional string desc = 6 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
@@ -133,7 +159,7 @@ public final class ItemResBytes {
      */
     boolean hasDesc();
     /**
-     * <code>optional string desc = 6 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
@@ -141,7 +167,7 @@ public final class ItemResBytes {
      */
     java.lang.String getDesc();
     /**
-     * <code>optional string desc = 6 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
@@ -151,7 +177,7 @@ public final class ItemResBytes {
         getDescBytes();
 
     /**
-     * <code>optional string gold_conv = 7 [default = ""];</code>
+     * <code>optional int32 gold_conv = 8 [default = 0];</code>
      *
      * <pre>
      ** x/黄金
@@ -160,27 +186,17 @@ public final class ItemResBytes {
      */
     boolean hasGoldConv();
     /**
-     * <code>optional string gold_conv = 7 [default = ""];</code>
+     * <code>optional int32 gold_conv = 8 [default = 0];</code>
      *
      * <pre>
      ** x/黄金
      *未来读表 
      * </pre>
      */
-    java.lang.String getGoldConv();
-    /**
-     * <code>optional string gold_conv = 7 [default = ""];</code>
-     *
-     * <pre>
-     ** x/黄金
-     *未来读表 
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getGoldConvBytes();
+    int getGoldConv();
 
     /**
-     * <code>optional int32 stor_unit = 8 [default = 0];</code>
+     * <code>optional int32 stor_unit = 9 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -189,7 +205,7 @@ public final class ItemResBytes {
      */
     boolean hasStorUnit();
     /**
-     * <code>optional int32 stor_unit = 8 [default = 0];</code>
+     * <code>optional int32 stor_unit = 9 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -269,29 +285,34 @@ public final class ItemResBytes {
             case 34: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              iconName_ = bs;
+              keyName_ = bs;
               break;
             }
             case 42: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              smallIconName_ = bs;
+              iconName_ = bs;
               break;
             }
             case 50: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
-              desc_ = bs;
+              smallIconName_ = bs;
               break;
             }
             case 58: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000040;
-              goldConv_ = bs;
+              desc_ = bs;
               break;
             }
             case 64: {
               bitField0_ |= 0x00000080;
+              goldConv_ = input.readInt32();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
               storUnit_ = input.readInt32();
               break;
             }
@@ -435,20 +456,74 @@ public final class ItemResBytes {
       }
     }
 
-    public static final int ICON_NAME_FIELD_NUMBER = 4;
+    public static final int KEY_NAME_FIELD_NUMBER = 4;
+    private java.lang.Object keyName_;
+    /**
+     * <code>optional string key_name = 4 [default = ""];</code>
+     *
+     * <pre>
+     ** 对应key 
+     * </pre>
+     */
+    public boolean hasKeyName() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional string key_name = 4 [default = ""];</code>
+     *
+     * <pre>
+     ** 对应key 
+     * </pre>
+     */
+    public java.lang.String getKeyName() {
+      java.lang.Object ref = keyName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          keyName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string key_name = 4 [default = ""];</code>
+     *
+     * <pre>
+     ** 对应key 
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getKeyNameBytes() {
+      java.lang.Object ref = keyName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ICON_NAME_FIELD_NUMBER = 5;
     private java.lang.Object iconName_;
     /**
-     * <code>optional string icon_name = 4 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
      * </pre>
      */
     public boolean hasIconName() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional string icon_name = 4 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -469,7 +544,7 @@ public final class ItemResBytes {
       }
     }
     /**
-     * <code>optional string icon_name = 4 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -489,20 +564,20 @@ public final class ItemResBytes {
       }
     }
 
-    public static final int SMALL_ICON_NAME_FIELD_NUMBER = 5;
+    public static final int SMALL_ICON_NAME_FIELD_NUMBER = 6;
     private java.lang.Object smallIconName_;
     /**
-     * <code>optional string small_icon_name = 5 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
      * </pre>
      */
     public boolean hasSmallIconName() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional string small_icon_name = 5 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
@@ -523,7 +598,7 @@ public final class ItemResBytes {
       }
     }
     /**
-     * <code>optional string small_icon_name = 5 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
@@ -543,20 +618,20 @@ public final class ItemResBytes {
       }
     }
 
-    public static final int DESC_FIELD_NUMBER = 6;
+    public static final int DESC_FIELD_NUMBER = 7;
     private java.lang.Object desc_;
     /**
-     * <code>optional string desc = 6 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
      * </pre>
      */
     public boolean hasDesc() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional string desc = 6 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
@@ -577,7 +652,7 @@ public final class ItemResBytes {
       }
     }
     /**
-     * <code>optional string desc = 6 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
@@ -597,10 +672,10 @@ public final class ItemResBytes {
       }
     }
 
-    public static final int GOLD_CONV_FIELD_NUMBER = 7;
-    private java.lang.Object goldConv_;
+    public static final int GOLD_CONV_FIELD_NUMBER = 8;
+    private int goldConv_;
     /**
-     * <code>optional string gold_conv = 7 [default = ""];</code>
+     * <code>optional int32 gold_conv = 8 [default = 0];</code>
      *
      * <pre>
      ** x/黄金
@@ -608,56 +683,24 @@ public final class ItemResBytes {
      * </pre>
      */
     public boolean hasGoldConv() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional string gold_conv = 7 [default = ""];</code>
+     * <code>optional int32 gold_conv = 8 [default = 0];</code>
      *
      * <pre>
      ** x/黄金
      *未来读表 
      * </pre>
      */
-    public java.lang.String getGoldConv() {
-      java.lang.Object ref = goldConv_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          goldConv_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string gold_conv = 7 [default = ""];</code>
-     *
-     * <pre>
-     ** x/黄金
-     *未来读表 
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getGoldConvBytes() {
-      java.lang.Object ref = goldConv_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        goldConv_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getGoldConv() {
+      return goldConv_;
     }
 
-    public static final int STOR_UNIT_FIELD_NUMBER = 8;
+    public static final int STOR_UNIT_FIELD_NUMBER = 9;
     private int storUnit_;
     /**
-     * <code>optional int32 stor_unit = 8 [default = 0];</code>
+     * <code>optional int32 stor_unit = 9 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -665,10 +708,10 @@ public final class ItemResBytes {
      * </pre>
      */
     public boolean hasStorUnit() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional int32 stor_unit = 8 [default = 0];</code>
+     * <code>optional int32 stor_unit = 9 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -683,10 +726,11 @@ public final class ItemResBytes {
       id_ = 0;
       itemLvl_ = 0;
       minName_ = "";
+      keyName_ = "";
       iconName_ = "";
       smallIconName_ = "";
       desc_ = "";
-      goldConv_ = "";
+      goldConv_ = 0;
       storUnit_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -716,19 +760,22 @@ public final class ItemResBytes {
         output.writeBytes(3, getMinNameBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getIconNameBytes());
+        output.writeBytes(4, getKeyNameBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, getSmallIconNameBytes());
+        output.writeBytes(5, getIconNameBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(6, getDescBytes());
+        output.writeBytes(6, getSmallIconNameBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, getGoldConvBytes());
+        output.writeBytes(7, getDescBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeInt32(8, storUnit_);
+        output.writeInt32(8, goldConv_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeInt32(9, storUnit_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -753,23 +800,27 @@ public final class ItemResBytes {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getIconNameBytes());
+          .computeBytesSize(4, getKeyNameBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getSmallIconNameBytes());
+          .computeBytesSize(5, getIconNameBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getDescBytes());
+          .computeBytesSize(6, getSmallIconNameBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getGoldConvBytes());
+          .computeBytesSize(7, getDescBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, storUnit_);
+          .computeInt32Size(8, goldConv_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, storUnit_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -894,16 +945,18 @@ public final class ItemResBytes {
         bitField0_ = (bitField0_ & ~0x00000002);
         minName_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        iconName_ = "";
+        keyName_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        smallIconName_ = "";
+        iconName_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
-        desc_ = "";
+        smallIconName_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
-        goldConv_ = "";
+        desc_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
-        storUnit_ = 0;
+        goldConv_ = 0;
         bitField0_ = (bitField0_ & ~0x00000080);
+        storUnit_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -947,21 +1000,25 @@ public final class ItemResBytes {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.iconName_ = iconName_;
+        result.keyName_ = keyName_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.smallIconName_ = smallIconName_;
+        result.iconName_ = iconName_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.desc_ = desc_;
+        result.smallIconName_ = smallIconName_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.goldConv_ = goldConv_;
+        result.desc_ = desc_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
+        }
+        result.goldConv_ = goldConv_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
         }
         result.storUnit_ = storUnit_;
         result.bitField0_ = to_bitField0_;
@@ -991,25 +1048,28 @@ public final class ItemResBytes {
           minName_ = other.minName_;
           onChanged();
         }
-        if (other.hasIconName()) {
+        if (other.hasKeyName()) {
           bitField0_ |= 0x00000008;
+          keyName_ = other.keyName_;
+          onChanged();
+        }
+        if (other.hasIconName()) {
+          bitField0_ |= 0x00000010;
           iconName_ = other.iconName_;
           onChanged();
         }
         if (other.hasSmallIconName()) {
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000020;
           smallIconName_ = other.smallIconName_;
           onChanged();
         }
         if (other.hasDesc()) {
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000040;
           desc_ = other.desc_;
           onChanged();
         }
         if (other.hasGoldConv()) {
-          bitField0_ |= 0x00000040;
-          goldConv_ = other.goldConv_;
-          onChanged();
+          setGoldConv(other.getGoldConv());
         }
         if (other.hasStorUnit()) {
           setStorUnit(other.getStorUnit());
@@ -1241,19 +1301,119 @@ public final class ItemResBytes {
         return this;
       }
 
+      private java.lang.Object keyName_ = "";
+      /**
+       * <code>optional string key_name = 4 [default = ""];</code>
+       *
+       * <pre>
+       ** 对应key 
+       * </pre>
+       */
+      public boolean hasKeyName() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string key_name = 4 [default = ""];</code>
+       *
+       * <pre>
+       ** 对应key 
+       * </pre>
+       */
+      public java.lang.String getKeyName() {
+        java.lang.Object ref = keyName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            keyName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string key_name = 4 [default = ""];</code>
+       *
+       * <pre>
+       ** 对应key 
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getKeyNameBytes() {
+        java.lang.Object ref = keyName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string key_name = 4 [default = ""];</code>
+       *
+       * <pre>
+       ** 对应key 
+       * </pre>
+       */
+      public Builder setKeyName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        keyName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string key_name = 4 [default = ""];</code>
+       *
+       * <pre>
+       ** 对应key 
+       * </pre>
+       */
+      public Builder clearKeyName() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        keyName_ = getDefaultInstance().getKeyName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string key_name = 4 [default = ""];</code>
+       *
+       * <pre>
+       ** 对应key 
+       * </pre>
+       */
+      public Builder setKeyNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        keyName_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object iconName_ = "";
       /**
-       * <code>optional string icon_name = 4 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
        * </pre>
        */
       public boolean hasIconName() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional string icon_name = 4 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -1274,7 +1434,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string icon_name = 4 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -1294,7 +1454,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string icon_name = 4 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -1305,26 +1465,26 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         iconName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string icon_name = 4 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
        * </pre>
        */
       public Builder clearIconName() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         iconName_ = getDefaultInstance().getIconName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string icon_name = 4 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -1335,7 +1495,7 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         iconName_ = value;
         onChanged();
         return this;
@@ -1343,17 +1503,17 @@ public final class ItemResBytes {
 
       private java.lang.Object smallIconName_ = "";
       /**
-       * <code>optional string small_icon_name = 5 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
        * </pre>
        */
       public boolean hasSmallIconName() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional string small_icon_name = 5 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
@@ -1374,7 +1534,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string small_icon_name = 5 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
@@ -1394,7 +1554,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string small_icon_name = 5 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
@@ -1405,26 +1565,26 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000020;
         smallIconName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string small_icon_name = 5 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
        * </pre>
        */
       public Builder clearSmallIconName() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         smallIconName_ = getDefaultInstance().getSmallIconName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string small_icon_name = 5 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
@@ -1435,7 +1595,7 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  bitField0_ |= 0x00000020;
         smallIconName_ = value;
         onChanged();
         return this;
@@ -1443,17 +1603,17 @@ public final class ItemResBytes {
 
       private java.lang.Object desc_ = "";
       /**
-       * <code>optional string desc = 6 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
        * </pre>
        */
       public boolean hasDesc() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional string desc = 6 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
@@ -1474,7 +1634,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string desc = 6 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
@@ -1494,7 +1654,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string desc = 6 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
@@ -1505,26 +1665,26 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000040;
         desc_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string desc = 6 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
        * </pre>
        */
       public Builder clearDesc() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         desc_ = getDefaultInstance().getDesc();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string desc = 6 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
@@ -1535,15 +1695,15 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000040;
         desc_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object goldConv_ = "";
+      private int goldConv_ ;
       /**
-       * <code>optional string gold_conv = 7 [default = ""];</code>
+       * <code>optional int32 gold_conv = 8 [default = 0];</code>
        *
        * <pre>
        ** x/黄金
@@ -1551,71 +1711,35 @@ public final class ItemResBytes {
        * </pre>
        */
       public boolean hasGoldConv() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional string gold_conv = 7 [default = ""];</code>
+       * <code>optional int32 gold_conv = 8 [default = 0];</code>
        *
        * <pre>
        ** x/黄金
        *未来读表 
        * </pre>
        */
-      public java.lang.String getGoldConv() {
-        java.lang.Object ref = goldConv_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            goldConv_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getGoldConv() {
+        return goldConv_;
       }
       /**
-       * <code>optional string gold_conv = 7 [default = ""];</code>
+       * <code>optional int32 gold_conv = 8 [default = 0];</code>
        *
        * <pre>
        ** x/黄金
        *未来读表 
        * </pre>
        */
-      public com.google.protobuf.ByteString
-          getGoldConvBytes() {
-        java.lang.Object ref = goldConv_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          goldConv_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string gold_conv = 7 [default = ""];</code>
-       *
-       * <pre>
-       ** x/黄金
-       *未来读表 
-       * </pre>
-       */
-      public Builder setGoldConv(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      public Builder setGoldConv(int value) {
+        bitField0_ |= 0x00000080;
         goldConv_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string gold_conv = 7 [default = ""];</code>
+       * <code>optional int32 gold_conv = 8 [default = 0];</code>
        *
        * <pre>
        ** x/黄金
@@ -1623,33 +1747,15 @@ public final class ItemResBytes {
        * </pre>
        */
       public Builder clearGoldConv() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        goldConv_ = getDefaultInstance().getGoldConv();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string gold_conv = 7 [default = ""];</code>
-       *
-       * <pre>
-       ** x/黄金
-       *未来读表 
-       * </pre>
-       */
-      public Builder setGoldConvBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
-        goldConv_ = value;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        goldConv_ = 0;
         onChanged();
         return this;
       }
 
       private int storUnit_ ;
       /**
-       * <code>optional int32 stor_unit = 8 [default = 0];</code>
+       * <code>optional int32 stor_unit = 9 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -1657,10 +1763,10 @@ public final class ItemResBytes {
        * </pre>
        */
       public boolean hasStorUnit() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional int32 stor_unit = 8 [default = 0];</code>
+       * <code>optional int32 stor_unit = 9 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -1671,7 +1777,7 @@ public final class ItemResBytes {
         return storUnit_;
       }
       /**
-       * <code>optional int32 stor_unit = 8 [default = 0];</code>
+       * <code>optional int32 stor_unit = 9 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -1679,13 +1785,13 @@ public final class ItemResBytes {
        * </pre>
        */
       public Builder setStorUnit(int value) {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         storUnit_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 stor_unit = 8 [default = 0];</code>
+       * <code>optional int32 stor_unit = 9 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -1693,7 +1799,7 @@ public final class ItemResBytes {
        * </pre>
        */
       public Builder clearStorUnit() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         storUnit_ = 0;
         onChanged();
         return this;
@@ -2418,13 +2524,14 @@ public final class ItemResBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\032proto/item_res_bytes.proto\022 com.game.f" +
-      "ramework.resource.data\"\255\001\n\010ITEM_RES\022\r\n\002i" +
+      "ramework.resource.data\"\302\001\n\010ITEM_RES\022\r\n\002i" +
       "d\030\001 \002(\005:\0010\022\023\n\010item_lvl\030\002 \001(\005:\0010\022\022\n\010min_n" +
-      "ame\030\003 \001(\t:\000\022\023\n\ticon_name\030\004 \001(\t:\000\022\031\n\017smal" +
-      "l_icon_name\030\005 \001(\t:\000\022\016\n\004desc\030\006 \001(\t:\000\022\023\n\tg" +
-      "old_conv\030\007 \001(\t:\000\022\024\n\tstor_unit\030\010 \001(\005:\0010\"K" +
-      "\n\016ITEM_RES_ARRAY\0229\n\005items\030\001 \003(\0132*.com.ga" +
-      "me.framework.resource.data.ITEM_RES"
+      "ame\030\003 \001(\t:\000\022\022\n\010key_name\030\004 \001(\t:\000\022\023\n\ticon_" +
+      "name\030\005 \001(\t:\000\022\031\n\017small_icon_name\030\006 \001(\t:\000\022" +
+      "\016\n\004desc\030\007 \001(\t:\000\022\024\n\tgold_conv\030\010 \001(\005:\0010\022\024\n" +
+      "\tstor_unit\030\t \001(\005:\0010\"K\n\016ITEM_RES_ARRAY\0229\n" +
+      "\005items\030\001 \003(\0132*.com.game.framework.resour" +
+      "ce.data.ITEM_RES"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2443,7 +2550,7 @@ public final class ItemResBytes {
     internal_static_com_game_framework_resource_data_ITEM_RES_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_ITEM_RES_descriptor,
-        new java.lang.String[] { "Id", "ItemLvl", "MinName", "IconName", "SmallIconName", "Desc", "GoldConv", "StorUnit", });
+        new java.lang.String[] { "Id", "ItemLvl", "MinName", "KeyName", "IconName", "SmallIconName", "Desc", "GoldConv", "StorUnit", });
     internal_static_com_game_framework_resource_data_ITEM_RES_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_ITEM_RES_ARRAY_fieldAccessorTable = new

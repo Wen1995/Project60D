@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/player_attr_bytes.proto',
   package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x1dproto/player_attr_bytes.proto\x12 com.game.framework.resource.data\"\xce\x01\n\x0bPLAYER_ATTR\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x14\n\tbegin_num\x18\x02 \x01(\x05:\x01\x30\x12\x12\n\x07\x61ttr_k1\x18\x03 \x01(\x05:\x01\x30\x12\x12\n\x07\x61ttr_k2\x18\x04 \x01(\x05:\x01\x30\x12\x11\n\x06rec_k1\x18\x05 \x01(\x05:\x01\x30\x12\x13\n\x08lim_real\x18\x06 \x01(\x05:\x01\x30\x12\x11\n\x06lim_k1\x18\x07 \x01(\x05:\x01\x30\x12\x11\n\x06lim_k2\x18\x08 \x01(\x05:\x01\x30\x12\x11\n\x06spc_k1\x18\t \x01(\x05:\x01\x30\x12\x11\n\x06spc_k2\x18\n \x01(\x05:\x01\x30\"Q\n\x11PLAYER_ATTR_ARRAY\x12<\n\x05items\x18\x01 \x03(\x0b\x32-.com.game.framework.resource.data.PLAYER_ATTR')
+  serialized_pb=_b('\n\x1dproto/player_attr_bytes.proto\x12 com.game.framework.resource.data\"\xe8\x01\n\x0bPLAYER_ATTR\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x18\n\x0eplayer_attrkey\x18\x02 \x01(\t:\x00\x12\x14\n\tbegin_num\x18\x03 \x01(\x05:\x01\x30\x12\x12\n\x07\x61ttr_k1\x18\x04 \x01(\x05:\x01\x30\x12\x12\n\x07\x61ttr_k2\x18\x05 \x01(\x05:\x01\x30\x12\x11\n\x06rec_k1\x18\x06 \x01(\x05:\x01\x30\x12\x13\n\x08lim_real\x18\x07 \x01(\x05:\x01\x30\x12\x11\n\x06lim_k1\x18\x08 \x01(\x05:\x01\x30\x12\x11\n\x06lim_k2\x18\t \x01(\x05:\x01\x30\x12\x11\n\x06spc_k1\x18\n \x01(\x05:\x01\x30\x12\x11\n\x06spc_k2\x18\x0b \x01(\x05:\x01\x30\"Q\n\x11PLAYER_ATTR_ARRAY\x12<\n\x05items\x18\x01 \x03(\x0b\x32-.com.game.framework.resource.data.PLAYER_ATTR')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -40,64 +40,71 @@ _PLAYER_ATTR = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='begin_num', full_name='com.game.framework.resource.data.PLAYER_ATTR.begin_num', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=True, default_value=0,
+      name='player_attrkey', full_name='com.game.framework.resource.data.PLAYER_ATTR.player_attrkey', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=True, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='attr_k1', full_name='com.game.framework.resource.data.PLAYER_ATTR.attr_k1', index=2,
+      name='begin_num', full_name='com.game.framework.resource.data.PLAYER_ATTR.begin_num', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='attr_k2', full_name='com.game.framework.resource.data.PLAYER_ATTR.attr_k2', index=3,
+      name='attr_k1', full_name='com.game.framework.resource.data.PLAYER_ATTR.attr_k1', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='rec_k1', full_name='com.game.framework.resource.data.PLAYER_ATTR.rec_k1', index=4,
+      name='attr_k2', full_name='com.game.framework.resource.data.PLAYER_ATTR.attr_k2', index=4,
       number=5, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='lim_real', full_name='com.game.framework.resource.data.PLAYER_ATTR.lim_real', index=5,
+      name='rec_k1', full_name='com.game.framework.resource.data.PLAYER_ATTR.rec_k1', index=5,
       number=6, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='lim_k1', full_name='com.game.framework.resource.data.PLAYER_ATTR.lim_k1', index=6,
+      name='lim_real', full_name='com.game.framework.resource.data.PLAYER_ATTR.lim_real', index=6,
       number=7, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='lim_k2', full_name='com.game.framework.resource.data.PLAYER_ATTR.lim_k2', index=7,
+      name='lim_k1', full_name='com.game.framework.resource.data.PLAYER_ATTR.lim_k1', index=7,
       number=8, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='spc_k1', full_name='com.game.framework.resource.data.PLAYER_ATTR.spc_k1', index=8,
+      name='lim_k2', full_name='com.game.framework.resource.data.PLAYER_ATTR.lim_k2', index=8,
       number=9, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='spc_k2', full_name='com.game.framework.resource.data.PLAYER_ATTR.spc_k2', index=9,
+      name='spc_k1', full_name='com.game.framework.resource.data.PLAYER_ATTR.spc_k1', index=9,
       number=10, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='spc_k2', full_name='com.game.framework.resource.data.PLAYER_ATTR.spc_k2', index=10,
+      number=11, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -114,7 +121,7 @@ _PLAYER_ATTR = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=68,
-  serialized_end=274,
+  serialized_end=300,
 )
 
 
@@ -143,8 +150,8 @@ _PLAYER_ATTR_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=276,
-  serialized_end=357,
+  serialized_start=302,
+  serialized_end=383,
 )
 
 _PLAYER_ATTR_ARRAY.fields_by_name['items'].message_type = _PLAYER_ATTR

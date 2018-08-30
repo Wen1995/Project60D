@@ -1,0 +1,162 @@
+/**
+* @file:   proto/world_events_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message WORLD_EVENTS{
+    /** id */
+    required int32 id = 1 [default = 0];
+    /** 事件名称 */
+    optional string event_name = 2 [default = ""];
+    /** 事件描述 */
+    optional string event_desc = 3 [default = ""];
+    /** 持续时间（min） */
+    optional int32 event_duration = 4 [default = 0];
+    /** 图标名称 */
+    optional string event_icon = 5 [default = ""];
+    /** 每分钟概率*100000 */
+    optional int32 event_prob = 6 [default = 0];
+    /** 攻击 */
+    optional int32 zombie_atk = 7 [default = 0];
+    /** 防御 */
+    optional int32 zombie_def = 8 [default = 0];
+    /** 血量 */
+    optional int32 zombie_hp = 9 [default = 0];
+    /** 僵尸数量 */
+    optional int32 zombie_num = 10 [default = 0];
+    /** 健康 */
+    optional int32 healthkey = 11 [default = 0];
+    /** 心情 */
+    optional int32 moodkey = 12 [default = 0];
+    /** 水稻种植场 */
+    optional int32 dami_bldg = 13 [default = 0];
+    /** 蔬菜种植场 */
+    optional int32 shucai_bldg = 14 [default = 0];
+    /** 水果园 */
+    optional int32 shuiguo_bldg = 15 [default = 0];
+    /** 井 */
+    optional int32 jing_bldg = 16 [default = 0];
+    /** 露水收集器 */
+    optional int32 lushui_bldg = 17 [default = 0];
+    /** 松树林 */
+    optional int32 songshu_bldg = 18 [default = 0];
+    /**  */
+    optional int32 wuxiandian_bldg = 19 [default = 0];
+    /**  */
+    optional int32 leida_bldg = 20 [default = 0];
+    /**  */
+    optional int32 fengneng_bldg = 21 [default = 0];
+    /** 交易税率系数 */
+    optional int32 tax_coeff = 22 [default = 0];
+    /** 大米 */
+    optional int32 damikey = 23 [default = 0];
+    /** 蔬菜 */
+    optional int32 shucaikey = 24 [default = 0];
+    /** 水果 */
+    optional int32 shuiguokey = 25 [default = 0];
+    /** 化肥 */
+    optional int32 huafeikey = 26 [default = 0];
+    /** 纯净水 */
+    optional int32 shuikey = 27 [default = 0];
+    /** 松木 */
+    optional int32 songmukey = 28 [default = 0];
+    /** 水泥 */
+    optional int32 shuinikey = 29 [default = 0];
+    /** 草 */
+    optional int32 caokey = 30 [default = 0];
+    /** 原油 */
+    optional int32 yuanyoukey = 31 [default = 0];
+    /** 铁 */
+    optional int32 tiekey = 32 [default = 0];
+    /** 急救包 */
+    optional int32 jijiubaokey = 33 [default = 0];
+    /** 庄园日志 */
+    optional int32 rizhikey = 34 [default = 0];
+    /** 重机枪图纸 */
+    optional int32 jiqiangtuzhikey = 35 [default = 0];
+    /** 狙击枪图纸 */
+    optional int32 jujituzhikey = 36 [default = 0];
+    /** 机炮设计图 */
+    optional int32 jipaotuzhikey = 37 [default = 0];
+    /** 《袁隆平传》 */
+    optional int32 yuanlongpingkey = 38 [default = 0];
+    /** 《化肥工业概论》 */
+    optional int32 huafeigongyekey = 39 [default = 0];
+    /** 《论如何养猪》 */
+    optional int32 yangzhukey = 40 [default = 0];
+    /** 《仓储管理》 */
+    optional int32 cangchukey = 41 [default = 0];
+    /** 《特斯拉传》 */
+    optional int32 tesilakey = 42 [default = 0];
+    /** 《洛克菲勒传》 */
+    optional int32 luokefeilekey = 43 [default = 0];
+    /** 《卡耐基传》 */
+    optional int32 kanaijikey = 44 [default = 0];
+    /** 《鲁班传》 */
+    optional int32 lubankey = 45 [default = 0];
+    /** 《土木工程概论》 */
+    optional int32 tumukey = 46 [default = 0];
+    /** 《防盗门技术》 */
+    optional int32 fangdaokey = 47 [default = 0];
+    /** 《马克沁传》 */
+    optional int32 makeqinkey = 48 [default = 0];
+    /** 《我的奋斗》 */
+    optional int32 wodefendoukey = 49 [default = 0];
+    /** 《加特林传》 */
+    optional int32 jiatelinkey = 50 [default = 0];
+    /** 《巴雷特的笔记》 */
+    optional int32 wbaleitekey = 51 [default = 0];
+    /** 《官人吃鸡指南》 */
+    optional int32 guanrenkey = 52 [default = 0];
+    /** 1级头盔 */
+    optional int32 toukui1key = 53 [default = 0];
+    /** 2级头盔 */
+    optional int32 toukui2key = 54 [default = 0];
+    /** 3级头盔 */
+    optional int32 toukui3key = 55 [default = 0];
+    /** 手枪 */
+    optional int32 shouqiang1key = 56 [default = 0];
+    /** 步枪 */
+    optional int32 buqiang1key = 57 [default = 0];
+    /** 轻机枪 */
+    optional int32 qingjiqiang1key = 58 [default = 0];
+    /** 1级防弹衣 */
+    optional int32 fangdanyi1key = 59 [default = 0];
+    /** 2级防弹衣 */
+    optional int32 fangdanyi2key = 60 [default = 0];
+    /** 3级防弹衣 */
+    optional int32 fangdanyi3key = 61 [default = 0];
+    /** 1级作训裤 */
+    optional int32 kuzi1key = 62 [default = 0];
+    /** 2级作训裤 */
+    optional int32 kuzi2key = 63 [default = 0];
+    /** 3级作训裤 */
+    optional int32 kuzi3key = 64 [default = 0];
+    /** 1级越野靴 */
+    optional int32 xiezi1key = 65 [default = 0];
+    /** 2级越野靴 */
+    optional int32 xiezi2key = 66 [default = 0];
+    /** 3级越野靴 */
+    optional int32 xiezi3key = 67 [default = 0];
+    /** 矿物质水 */
+    optional int32 kuangquanshuikey = 68 [default = 0];
+    /** 饲料 */
+    optional int32 siliaokey = 69 [default = 0];
+    /** 猪肉 */
+    optional int32 zhuroukey = 70 [default = 0];
+    /** 汽油 */
+    optional int32 qiyoukey = 71 [default = 0];
+    /** 钢 */
+    optional int32 gangkey = 72 [default = 0];
+    /** 松木板 */
+    optional int32 songmubankey = 73 [default = 0];
+    /** 混凝土 */
+    optional int32 hunningtukey = 74 [default = 0];
+}
+
+message WORLD_EVENTS_ARRAY {
+    repeated WORLD_EVENTS items = 1;
+}

@@ -15,7 +15,7 @@ python tool.py ROB_PROPORTION xls\Core_Sys.xlsm
 python tool.py PLAYER_ATTR  xls\Core_Sys.xlsm
 python tool.py ZOMBIE_ATTR xls\Core_Sys.xlsm
 python tool.py ARITHMETIC_COEFFICIENT xls\Core_Sys.xlsm
-
+python tool.py WORLD_EVENTS xls\Core_Sys.xlsm
 
 
 

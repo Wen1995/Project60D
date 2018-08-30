@@ -16,4 +16,10 @@ public interface UserService {
 
 	/** 玩家状态（周期） */
 	TPacket getUserStateRegular(Long uid) throws Exception;
+
+	/** 世界事件 */
+	TPacket getWorldEvent(Long uid) throws Exception;
+
+	/** 卖出商品 */
+	TPacket sellGoods(Long uid, Integer configId, Integer number, List<Integer> worldEventIdsList) throws Exception;
 }

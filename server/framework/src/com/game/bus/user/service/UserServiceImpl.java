@@ -14,6 +14,7 @@ import com.game.framework.protocol.User.TCSGetUserStateRegular;
 import com.game.framework.protocol.User.TSCGetResourceInfo;
 import com.game.framework.protocol.User.TSCGetResourceInfoByConfigId;
 import com.game.framework.protocol.User.TSCGetUserState;
+import com.game.framework.protocol.User.TSCGetUserStateRegular;
 import com.game.framework.protocol.User.UserResource;
 import com.game.framework.resource.StaticDataManager;
 import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
@@ -214,7 +215,7 @@ public class UserServiceImpl implements UserService {
         user.setBlood(blood);
         userDao.update(user);
         
-        TSCGetUserState p = TSCGetUserState.newBuilder()
+        TSCGetUserStateRegular p = TSCGetUserStateRegular.newBuilder()
                 .setBlood(user.getBlood())
                 .setFood(user.getFood())
                 .setWater(user.getWater())
@@ -230,5 +231,18 @@ public class UserServiceImpl implements UserService {
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());
         return resp;
+    }
+
+    @Override
+    public TPacket getWorldEvent(Long uid) throws Exception {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public TPacket sellGoods(Long uid, Integer configId, Integer number,
+            List<Integer> worldEventIdsList) throws Exception {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

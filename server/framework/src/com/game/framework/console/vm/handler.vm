@@ -10,7 +10,9 @@ import java.util.List;
 #end
 import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
+#if(${haveServer} == "true")
 import com.game.framework.console.GateServer;
+#end
 import com.game.${litHandlerGroup}.${litModel}.service.${model}Service;
 #foreach ($attr in ${methods})
 #if(${attr[2]} == "login")
@@ -31,9 +33,7 @@ public class ${model}Handler {
 	public void ${attr[2]}(TPacket p) throws Exception {
 		TCS${attr[1]} msg = TCS${attr[1]}.parseFrom(p.getBuffer());
 		${attr[3]}
-#if(${attr[2]} != "logout" && ${attr[2]} != "zombieInvade" 
-&& ${attr[2]} != "receiveZombieMessage" && ${attr[2]} != "zombieInvadeResult"
-&& ${attr[2]} != "saveMessage" && ${attr[2]} != "sendMessageTag")
+#if(${attr[6]} == "true")
 		TPacket resp = service.${attr[2]}(p.getUid()${attr[4]});
 		resp.setCmd(Cmd.${attr[5]}_VALUE + 1000);
 #else
@@ -48,9 +48,7 @@ public class ${model}Handler {
 		}
 		GateServer.GetInstance().setChannelData(p.getChannel(), resp.getUid());
 	#end
-#if(${attr[2]} != "logout" && ${attr[2]} != "zombieInvade" 
-&& ${attr[2]} != "receiveZombieMessage" && ${attr[2]} != "zombieInvadeResult" 
-&& ${attr[2]} != "saveMessage" && ${attr[2]} != "sendMessageTag")
+#if(${attr[6]} == "true")
 	GateServer.GetInstance().send(resp);
 	}
 #else

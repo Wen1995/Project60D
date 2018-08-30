@@ -37,6 +37,8 @@
 		<Handler model="User" method="getResourceInfoByConfigId" description="玩家某种资源数量"/>
 		<Handler model="User" method="getUserState" description="玩家状态"/>
 		<Handler model="User" method="getUserStateRegular" description="玩家状态（周期）" isInner="true"/>
+		<Handler model="User" method="getWorldEvent" description="世界事件"/>
+		<Handler model="User" method="sellGoods" description="卖出商品"/>
 		
 	</HandlerGroup>
 	

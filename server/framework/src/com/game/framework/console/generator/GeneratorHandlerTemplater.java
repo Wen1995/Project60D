@@ -1,6 +1,7 @@
 package com.game.framework.console.generator;
 
 import java.io.StringWriter;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -39,6 +40,34 @@ public class GeneratorHandlerTemplater {
         logger.info("--------- Auto Start ---------");
         createStaticDataManagerClass();
         logger.info("--------- Auto Success ---------");
+    }
+    
+    /**
+     * 获得有tsc方法的方法列表
+     */
+    private List<String> getTSCHandleXML() {
+        List<String> fileNames = ExternalStorageUtil.getFileName("src/com/game/framework/protocol");
+        List<String> tscMethods = new ArrayList<>();
+        try {
+            for (String name : fileNames) {
+                if (!name.equals("Common") && !name.equals("Database")) {
+                    String classPath = "com.game.framework.protocol." + name;
+                    Class<?> clazz;
+                    clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
+                    Field[] fields = clazz.getDeclaredFields();
+                    for (Field f : fields) {
+                        name = f.getName();
+                        if (name.startsWith("internal_static_com_game_framework_protocol_TSC") && name.endsWith("_descriptor")) {
+                            String tscMethod = name.substring(47, name.lastIndexOf("_descriptor"));
+                            tscMethods.add(StringUtil.FirstLetterToLower(tscMethod));
+                        }
+                    }
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            logger.error("");
+        }
+        return tscMethods;
     }
     
     /**
@@ -107,6 +136,7 @@ public class GeneratorHandlerTemplater {
     private void createHandlerClass(Map<String, HandlerGroup> handlerGroups, Map<Short, Handler> handlers) {
         Map<String, ModelClass> models = new HashMap<>();
         Iterator<HandlerGroup> handlerGroupItr = handlerGroups.values().iterator();
+        List<String> tscMethods = getTSCHandleXML();
         
         while (handlerGroupItr.hasNext()) {
             HandlerGroup handlerGroup = handlerGroupItr.next();
@@ -122,8 +152,16 @@ public class GeneratorHandlerTemplater {
                         modelClass.setModel(handler.getModel());
                         models.put(handler.getModel(), modelClass);
                     }
-                    Object[] s = {handler.getMethod(), handler.getDescription(),
-                            handler.getMethodParams(), handler.isInner()};
+                    boolean existTsc = false;
+                    String method = handler.getMethod();
+                    for (String tscMethod : tscMethods) {
+                        if (tscMethod.equals(method)) {
+                            existTsc = true;
+                            break;
+                        }
+                    }
+                    Object[] s = {method, handler.getDescription(),
+                            handler.getMethodParams(), existTsc};
                     modelClass.getMethods().add(s);
                 }
             }
@@ -147,11 +185,14 @@ public class GeneratorHandlerTemplater {
             List<Object[]> methods = new ArrayList<>();
             Iterator<Object[]> it2 = modelClass.getMethods().iterator();
             boolean haveList = false;
+            boolean haveServer = false;
             while (it2.hasNext()) {
                 Object[] strings = it2.next();
                 List<String> methodParams =  (List<String>) strings[2];
                 String methodParamsStr = "";
-
+                if (!haveServer) {
+                    haveServer = (boolean) strings[3];
+                }
                 if (methodParams != null) {
                     for (int i = 0; i < methodParams.size(); i++) {
                         String string = methodParams.get(i);
@@ -171,9 +212,10 @@ public class GeneratorHandlerTemplater {
                         methodParamsStr, // 方法调用字串
                         getCallMethodParamsStr(methodParams), // 方法实参
                         StringUtil.AllLetterToUpper((String) strings[0]), // 方法名大写
-                        strings[3]}; // 是否timer
+                        strings[3]}; // 是否有tsc方法
                 methods.add(s);
             }
+            ctx.put("haveServer", haveServer);
             ctx.put("haveList", haveList);
             ctx.put("methods", methods.toArray());
             String str = merge2Str(template, ctx);

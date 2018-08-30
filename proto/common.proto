@@ -61,6 +61,10 @@ enum Cmd {
 	GETUSERSTATE = 83;
 	// 玩家状态（周期）
 	GETUSERSTATEREGULAR = 84;
+	// 世界事件
+	GETWORLDEVENT = 90;
+	// 卖出商品
+	SELLGOODS = 91;
 
 	//////////////////消息模块 101-110//////////////////
 	// 保存消息

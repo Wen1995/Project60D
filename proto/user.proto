@@ -34,9 +34,6 @@ message ResourceInfo {
 message TCSGetUserState {
 
 }
-message TCSGetUserStateRegular {
-
-}
 message TSCGetUserState {
 	// 血量
 	optional int32 blood = 1;
@@ -58,4 +55,53 @@ message TSCGetUserState {
 	optional int32 speed = 9;
 	// 智力
 	optional int32 intellect = 10;
+}
+
+message TCSGetUserStateRegular {
+
+}
+message TSCGetUserStateRegular {
+	// 血量
+	optional int32 blood = 1;
+	// 食物
+	optional int32 food = 2;
+	// 水
+	optional int32 water = 3;
+	// 健康
+	optional int32 health = 4;
+	// 心情
+	optional int32 mood = 5;
+	// 攻击
+	optional int32 attack = 6;
+	// 防御
+	optional int32 defense = 7;
+	// 敏捷
+	optional int32 agile = 8;
+	// 移速
+	optional int32 speed = 9;
+	// 智力
+	optional int32 intellect = 10;
+}
+
+message TCSGetWorldEvent {
+	
+}
+message TSCGetWorldEvent {
+	// 世界事件
+	repeated int32 configIds = 1;
+}
+
+message TCSSellGoods {
+	// 商品Id
+	optional int32 configId = 1;
+	// 商品数量
+	optional int32 number = 2;
+	// 世界事件
+	repeated int32 worldEventIds = 3;
+}
+message TSCSellGoods {
+	// 是否世界事件改变
+	optional bool isWorldEvent = 1;
+	// 获得金币
+	optional int32 gold = 2;
 }

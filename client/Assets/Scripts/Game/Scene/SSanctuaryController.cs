@@ -41,7 +41,8 @@ public class SSanctuaryController : SceneController
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
-        
+        //register data
+        FacadeSingleton.Instance.RegisterData(ConstVal.Package_Mail, typeof(MailPackage));
         //register event
         RegisterEvent("SelectBuilding", OnSelectBuilding);
         //bind event
@@ -79,6 +80,8 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.OverlayerPanel("UIFuncMenuPanel");
         FacadeSingleton.Instance.OverlayerPanel("UIManorMenuPanel");
         FacadeSingleton.Instance.OverlayerPanel("UIPlayerMenuPanel");
+        FacadeSingleton.Instance.InvokeService("RPCGetMailTag", ConstVal.Service_Sanctuary);
+        
         SendEvent("RefreshBuildingView");
     }
 
@@ -97,15 +100,6 @@ public class SSanctuaryController : SceneController
     }
 
     #region RPC responce
-
-    /// <summary>
-    /// Get SceneData and start building scene
-    /// </summary>
-    void OnReadyToBuild(NetMsgDef msg)
-    {
-            //TODO
-    }
-
     
     void OnGetSceneInfo(NetMsgDef msg)
     {

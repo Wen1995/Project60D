@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using com.game.framework.protocol;
 using UnityEngine;
 
 public class UIManorMenuPanel : PanelBase {
 
 	SanctuaryPackage sanctuaryPackage = null;
 	UserPackage userPackage = null;
+	MailPackage mailPackage = null;
 	UIProgressBar invadeProgress = null;
 	UIProgressBar manorExpProgress = null;
 	UILabel levelLabel = null;
 	UILabel IDLabel = null;
+	UILabel mailTagLabel = null;
+	GameObject mailTagGo = null;
 
 	protected override void Awake()
 	{
@@ -19,6 +23,8 @@ public class UIManorMenuPanel : PanelBase {
 		manorExpProgress = transform.Find("Manor/exp").GetComponent<UIProgressBar>();
 		levelLabel = transform.Find("Manor/level").GetComponent<UILabel>();
 		IDLabel = transform.Find("Manor/idlabel").GetComponent<UILabel>();
+		mailTagLabel = transform.Find("Mail/point/num").GetComponent<UILabel>();
+		mailTagGo = transform.Find("Mail/point").gameObject;
 		//bind event
 		UIButton button = transform.Find("News").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnNews));
@@ -28,6 +34,10 @@ public class UIManorMenuPanel : PanelBase {
 		button.onClick.Add(new EventDelegate(OnRanking));
 
 		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+		mailPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Mail) as MailPackage;
+
+		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETMESSAGETAG, OnGetMessgeTag);
+		FacadeSingleton.Instance.RegisterEvent("RefreshMailTag", RefreshMailTag);
 	}
 
 	public override void OpenPanel()
@@ -56,12 +66,33 @@ public class UIManorMenuPanel : PanelBase {
 
 	void OnMail()
 	{
-		//FacadeSingleton.Instance.OverlayerPanel("UIMailBoxPanel");
-		FacadeSingleton.Instance.OverlayerPanel("UIInvadeResultPanel");
+		FacadeSingleton.Instance.OverlayerPanel("UIMailBoxPanel");
+		//FacadeSingleton.Instance.OverlayerPanel("UIInvadeResultPanel");
 	}
 
 	void OnRanking()
 	{
 		//TODO
+	}
+
+	void OnGetMessgeTag(NetMsgDef msg)
+	{
+		TSCGetMessageTag res = TSCGetMessageTag.ParseFrom(msg.mBtsData);
+		mailPackage.SetUnreadMailCount(res.MessageNum);
+		RefreshMailTag();
+	}
+
+	void RefreshMailTag(NDictionary data = null)
+	{
+		int count = mailPackage.GetUnreadMailCount();
+		if(count <= 0)
+		{
+			mailTagGo.SetActive(false);
+		}
+		else
+		{
+			mailTagGo.SetActive(true);
+			mailTagLabel.text = count.ToString();
+		}
 	}
 }

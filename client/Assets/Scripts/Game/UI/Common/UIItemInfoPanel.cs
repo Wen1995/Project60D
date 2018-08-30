@@ -17,6 +17,8 @@ public class UIItemInfoPanel : PanelBase {
 
 		UIButton button = transform.Find("mask").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
+		button = transform.Find("usebtn").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnUseItem));
 	}
 
 	public override void OpenPanel()
@@ -36,6 +38,11 @@ public class UIItemInfoPanel : PanelBase {
 		ITEM_RES configData = itemPackage.GetItemDataByConfigID(info.configID);
 		nameLabel.text = configData.MinName;
 		descLabel.text = configData.Desc;
+	}
+
+	void OnUseItem()
+	{
+		//TODO
 	}
 
 	void Close()

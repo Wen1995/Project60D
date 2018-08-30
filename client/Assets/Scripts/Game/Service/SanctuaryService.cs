@@ -93,6 +93,43 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETUSERSTATE, getState.ToByteArray());
     }
 
+    public void RPCGetMailCount(NDictionary args)
+    {
+        if(args == null) return;
+        long groupID = args.Value<long>("groupid");
+        var builder = TCSGetPageCount.CreateBuilder();
+        builder.GroupId = groupID;
+        TCSGetPageCount msg = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETPAGECOUNT, msg.ToByteArray());
+    }
+
+    public void RPCGetMailPageList(NDictionary args)
+    {
+        if(args == null) return;
+        int idx = args.Value<int>("pageidx");
+        long groupID = args.Value<long>("groupid");
+        var builder = TCSGetPageList.CreateBuilder();
+        builder.CurrentPage = idx;
+        builder.GroupId = groupID;
+        TCSGetPageList msg = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETPAGELIST, msg.ToByteArray());
+    }
+
+    public void RPCGetMailTag()
+    {
+        TCSGetMessageTag msg = TCSGetMessageTag.CreateBuilder().Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETMESSAGETAG, msg.ToByteArray());
+    }
+
+    public void RPCReadMail(NDictionary args)
+    {
+        var builder = TCSSendMessageTag.CreateBuilder();
+        long id = args.Value<long>("id");
+        builder.MessageId = id;
+        TCSSendMessageTag msg = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.SENDMESSAGETAG, msg.ToByteArray());
+    }
+
     /// <summary>
     /// Use a extra camera to render the object you give
     /// Normally used to render a 3d model in UI

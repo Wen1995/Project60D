@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class UIInvadeResultPanel : PanelBase {
 
+	MailPackage mailPackage = null;
 	SanctuaryPackage sanctuaryPackage = null;
 	Animator anim = null;
 	UILabel contentLabel = null;
@@ -27,6 +28,7 @@ public class UIInvadeResultPanel : PanelBase {
 		contentLabel = transform.Find("board/panel/label").GetComponent<UILabel>();
 		scrollView = transform.Find("board/panel").GetComponent<UIScrollView>();
 		sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
+		mailPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Mail) as MailPackage;
 		playerViewList[0].name = transform.Find("grid/player0/name").GetComponent<UILabel>();
 		playerViewList[1].name = transform.Find("grid/player1/name").GetComponent<UILabel>();
 		playerViewList[2].name = transform.Find("grid/player2/name").GetComponent<UILabel>();
@@ -38,7 +40,7 @@ public class UIInvadeResultPanel : PanelBase {
 		//bind event
 		UIButton button = transform.Find("closebtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
-		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.ZOMBIEINVADERESULT, OnGetResult);
+		FacadeSingleton.Instance.RegisterEvent("OpenInvadeResult", OpenInvadeResult);
 	}
 
 	public override void OpenPanel()
@@ -61,13 +63,16 @@ public class UIInvadeResultPanel : PanelBase {
 		NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.ZOMBIEINVADE, invade.ToByteArray());
 	}
 
-	void OnGetResult(NetMsgDef msg)
+	void OpenInvadeResult(NDictionary args)
 	{
-		TSCZombieInvadeResult result = TSCZombieInvadeResult.ParseFrom(msg.mBtsData);
-		StartCoroutine(PlayInvadeAnimation(result));
+		int idx = args.Value<int>("index");
+		var list = mailPackage.GetMailList();
+		if(idx >= list.Count) return;
+		FightingInfo res = list[idx].fightingInfo;
+		StartCoroutine(PlayInvadeAnimation(res));
 	}
 
-	IEnumerator PlayInvadeAnimation(TSCZombieInvadeResult result)
+	IEnumerator PlayInvadeAnimation(FightingInfo result)
 	{
 		//init player view
 		for(int i=0;i<result.UserInfosCount;i++)

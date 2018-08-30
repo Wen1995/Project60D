@@ -105,6 +105,13 @@ public class ItemPackage : ModelBase
         return 0;
     }
 
+    //can item be used directly
+    public bool IsItemUsable(int configID)
+    {
+        //TODO
+        return true;
+    }
+
     
     #region Acess Data
     public int GetPlayerItemNum(int configID)

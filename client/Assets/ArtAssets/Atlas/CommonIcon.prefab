@@ -66,9 +66,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Arrow-Right-Icon
+  - name: Arrow-Left-Icon
     x: 976
     y: 961
+    width: 37
+    height: 63
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Arrow-Right-Icon
+    x: 571
+    y: 584
     width: 37
     height: 63
     borderLeft: 0
@@ -159,7 +172,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Close-Icon-Small
     x: 571
-    y: 565
+    y: 501
     width: 35
     height: 35
     borderLeft: 0
@@ -236,8 +249,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Mail-Icon-Small
-    x: 571
-    y: 500
+    x: 627
+    y: 790
     width: 36
     height: 28
     borderLeft: 0
@@ -328,7 +341,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Trash-Icon-Small
     x: 571
-    y: 601
+    y: 537
     width: 42
     height: 46
     borderLeft: 0
@@ -341,7 +354,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Unlock-Icon-Small
     x: 571
-    y: 529
+    y: 465
     width: 30
     height: 35
     borderLeft: 0

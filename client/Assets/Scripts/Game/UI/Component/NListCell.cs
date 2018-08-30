@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NListCell : MonoBehaviour {
 
-	int mIndex;
+	protected int mIndex;
 
 	List<NListCellItem> mItemList = new List<NListCellItem>();
 

@@ -11,6 +11,10 @@ public class UITradePanel : PanelBase {
 	UILabel avgPriceLabel = null;
 	UILabel taxLabel = null;
 	UILabel nameLabel = null;
+	UILabel resNumLabel = null;
+	UILabel goldNumLabel = null;
+	UILabel elecNumLabel = null;
+	UILabel dateLabel = null;
 
 	NTableView tableView = null;
 	protected override void Awake()
@@ -21,6 +25,10 @@ public class UITradePanel : PanelBase {
 		taxLabel = transform.Find("iteminfo/price/tax/value").GetComponent<UILabel>();
 		nameLabel = transform.Find("iteminfo/item/name").GetComponent<UILabel>();
 		tableView = transform.Find("store/itemview/panel/tableview").GetComponent<NTableView>();
+		resNumLabel = transform.Find("resinfo/res/resouce/label").GetComponent<UILabel>();
+		goldNumLabel = transform.Find("resinfo/res/money/label").GetComponent<UILabel>();
+		elecNumLabel = transform.Find("resinfo/res/elec/label").GetComponent<UILabel>();
+		dateLabel = transform.Find("timelabel").GetComponent<UILabel>();
 		//bind event
 		UIButton button = transform.Find("iteminfo/sellbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnSellItem));
@@ -47,6 +55,7 @@ public class UITradePanel : PanelBase {
 
 	public override void ClosePanel()
 	{
+		StopCoroutine(RefreshDate());
 		base.ClosePanel();
 	}
 
@@ -54,8 +63,16 @@ public class UITradePanel : PanelBase {
 	{
 		OnTabChange(0);
 		RefreshItemInfo();
+		RefreshResinfo();
+		StartCoroutine(RefreshDate());
 	}
 
+	void RefreshResinfo()
+	{
+		resNumLabel.text = itemPackage.GetResourceTotolNumber().ToString();
+		goldNumLabel.text = itemPackage.GetGoldNumber().ToString();
+		elecNumLabel.text = itemPackage.GetElecNumber().ToString();
+	}
 	void OnSelectItem(NDictionary data = null)
 	{
 		NItemInfo info = data.Value<NItemInfo>("info");
@@ -73,6 +90,17 @@ public class UITradePanel : PanelBase {
 		ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(selectionItem.configID);
 		nameLabel.text = itemConfig.MinName;
 	}
+
+	IEnumerator RefreshDate()
+	{
+		while(true)
+		{
+			var now = System.DateTime.Now;
+			dateLabel.text = string.Format("{0:D4}年{1:D2}月{2:D2}日 {3:D2}:{4:D2}:{5:D2}", now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
+			yield return new WaitForSeconds(1.0f);
+		}
+	}
+
 
 	void OnSellItem()
 	{

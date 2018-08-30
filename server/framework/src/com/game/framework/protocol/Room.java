@@ -1714,6 +1714,2934 @@ public final class Room {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCApplyGroup)
   }
 
+  public interface TCSGetGroupPageCountOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int64 groupId = 1;
+    /**
+     * <code>optional int64 groupId = 1;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    boolean hasGroupId();
+    /**
+     * <code>optional int64 groupId = 1;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    long getGroupId();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TCSGetGroupPageCount}
+   */
+  public static final class TCSGetGroupPageCount extends
+      com.google.protobuf.GeneratedMessage
+      implements TCSGetGroupPageCountOrBuilder {
+    // Use TCSGetGroupPageCount.newBuilder() to construct.
+    private TCSGetGroupPageCount(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TCSGetGroupPageCount(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TCSGetGroupPageCount defaultInstance;
+    public static TCSGetGroupPageCount getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TCSGetGroupPageCount getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TCSGetGroupPageCount(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              groupId_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TCSGetGroupPageCount_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TCSGetGroupPageCount_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Room.TCSGetGroupPageCount.class, com.game.framework.protocol.Room.TCSGetGroupPageCount.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TCSGetGroupPageCount> PARSER =
+        new com.google.protobuf.AbstractParser<TCSGetGroupPageCount>() {
+      public TCSGetGroupPageCount parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TCSGetGroupPageCount(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TCSGetGroupPageCount> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int64 groupId = 1;
+    public static final int GROUPID_FIELD_NUMBER = 1;
+    private long groupId_;
+    /**
+     * <code>optional int64 groupId = 1;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    public boolean hasGroupId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int64 groupId = 1;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    public long getGroupId() {
+      return groupId_;
+    }
+
+    private void initFields() {
+      groupId_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, groupId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, groupId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Room.TCSGetGroupPageCount parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupPageCount parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupPageCount parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupPageCount parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupPageCount parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupPageCount parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupPageCount parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupPageCount parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupPageCount parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupPageCount parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Room.TCSGetGroupPageCount prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TCSGetGroupPageCount}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Room.TCSGetGroupPageCountOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TCSGetGroupPageCount_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TCSGetGroupPageCount_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Room.TCSGetGroupPageCount.class, com.game.framework.protocol.Room.TCSGetGroupPageCount.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Room.TCSGetGroupPageCount.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        groupId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TCSGetGroupPageCount_descriptor;
+      }
+
+      public com.game.framework.protocol.Room.TCSGetGroupPageCount getDefaultInstanceForType() {
+        return com.game.framework.protocol.Room.TCSGetGroupPageCount.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Room.TCSGetGroupPageCount build() {
+        com.game.framework.protocol.Room.TCSGetGroupPageCount result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Room.TCSGetGroupPageCount buildPartial() {
+        com.game.framework.protocol.Room.TCSGetGroupPageCount result = new com.game.framework.protocol.Room.TCSGetGroupPageCount(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.groupId_ = groupId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Room.TCSGetGroupPageCount) {
+          return mergeFrom((com.game.framework.protocol.Room.TCSGetGroupPageCount)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Room.TCSGetGroupPageCount other) {
+        if (other == com.game.framework.protocol.Room.TCSGetGroupPageCount.getDefaultInstance()) return this;
+        if (other.hasGroupId()) {
+          setGroupId(other.getGroupId());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Room.TCSGetGroupPageCount parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Room.TCSGetGroupPageCount) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int64 groupId = 1;
+      private long groupId_ ;
+      /**
+       * <code>optional int64 groupId = 1;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public boolean hasGroupId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int64 groupId = 1;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public long getGroupId() {
+        return groupId_;
+      }
+      /**
+       * <code>optional int64 groupId = 1;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public Builder setGroupId(long value) {
+        bitField0_ |= 0x00000001;
+        groupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 groupId = 1;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public Builder clearGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        groupId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSGetGroupPageCount)
+    }
+
+    static {
+      defaultInstance = new TCSGetGroupPageCount(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSGetGroupPageCount)
+  }
+
+  public interface TSCGetGroupPageCountOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int32 pageCount = 1;
+    /**
+     * <code>optional int32 pageCount = 1;</code>
+     *
+     * <pre>
+     * 页数
+     * </pre>
+     */
+    boolean hasPageCount();
+    /**
+     * <code>optional int32 pageCount = 1;</code>
+     *
+     * <pre>
+     * 页数
+     * </pre>
+     */
+    int getPageCount();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TSCGetGroupPageCount}
+   */
+  public static final class TSCGetGroupPageCount extends
+      com.google.protobuf.GeneratedMessage
+      implements TSCGetGroupPageCountOrBuilder {
+    // Use TSCGetGroupPageCount.newBuilder() to construct.
+    private TSCGetGroupPageCount(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TSCGetGroupPageCount(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TSCGetGroupPageCount defaultInstance;
+    public static TSCGetGroupPageCount getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TSCGetGroupPageCount getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSCGetGroupPageCount(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              pageCount_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TSCGetGroupPageCount_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TSCGetGroupPageCount_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Room.TSCGetGroupPageCount.class, com.game.framework.protocol.Room.TSCGetGroupPageCount.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TSCGetGroupPageCount> PARSER =
+        new com.google.protobuf.AbstractParser<TSCGetGroupPageCount>() {
+      public TSCGetGroupPageCount parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSCGetGroupPageCount(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TSCGetGroupPageCount> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int32 pageCount = 1;
+    public static final int PAGECOUNT_FIELD_NUMBER = 1;
+    private int pageCount_;
+    /**
+     * <code>optional int32 pageCount = 1;</code>
+     *
+     * <pre>
+     * 页数
+     * </pre>
+     */
+    public boolean hasPageCount() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 pageCount = 1;</code>
+     *
+     * <pre>
+     * 页数
+     * </pre>
+     */
+    public int getPageCount() {
+      return pageCount_;
+    }
+
+    private void initFields() {
+      pageCount_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, pageCount_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, pageCount_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Room.TSCGetGroupPageCount parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupPageCount parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupPageCount parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupPageCount parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupPageCount parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupPageCount parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupPageCount parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupPageCount parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupPageCount parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupPageCount parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Room.TSCGetGroupPageCount prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TSCGetGroupPageCount}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Room.TSCGetGroupPageCountOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TSCGetGroupPageCount_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TSCGetGroupPageCount_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Room.TSCGetGroupPageCount.class, com.game.framework.protocol.Room.TSCGetGroupPageCount.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Room.TSCGetGroupPageCount.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        pageCount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TSCGetGroupPageCount_descriptor;
+      }
+
+      public com.game.framework.protocol.Room.TSCGetGroupPageCount getDefaultInstanceForType() {
+        return com.game.framework.protocol.Room.TSCGetGroupPageCount.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Room.TSCGetGroupPageCount build() {
+        com.game.framework.protocol.Room.TSCGetGroupPageCount result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Room.TSCGetGroupPageCount buildPartial() {
+        com.game.framework.protocol.Room.TSCGetGroupPageCount result = new com.game.framework.protocol.Room.TSCGetGroupPageCount(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.pageCount_ = pageCount_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Room.TSCGetGroupPageCount) {
+          return mergeFrom((com.game.framework.protocol.Room.TSCGetGroupPageCount)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Room.TSCGetGroupPageCount other) {
+        if (other == com.game.framework.protocol.Room.TSCGetGroupPageCount.getDefaultInstance()) return this;
+        if (other.hasPageCount()) {
+          setPageCount(other.getPageCount());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Room.TSCGetGroupPageCount parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Room.TSCGetGroupPageCount) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int32 pageCount = 1;
+      private int pageCount_ ;
+      /**
+       * <code>optional int32 pageCount = 1;</code>
+       *
+       * <pre>
+       * 页数
+       * </pre>
+       */
+      public boolean hasPageCount() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 pageCount = 1;</code>
+       *
+       * <pre>
+       * 页数
+       * </pre>
+       */
+      public int getPageCount() {
+        return pageCount_;
+      }
+      /**
+       * <code>optional int32 pageCount = 1;</code>
+       *
+       * <pre>
+       * 页数
+       * </pre>
+       */
+      public Builder setPageCount(int value) {
+        bitField0_ |= 0x00000001;
+        pageCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 pageCount = 1;</code>
+       *
+       * <pre>
+       * 页数
+       * </pre>
+       */
+      public Builder clearPageCount() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        pageCount_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetGroupPageCount)
+    }
+
+    static {
+      defaultInstance = new TSCGetGroupPageCount(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetGroupPageCount)
+  }
+
+  public interface TCSGetGroupRankingOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int32 currentPage = 1;
+    /**
+     * <code>optional int32 currentPage = 1;</code>
+     *
+     * <pre>
+     * 第几页
+     * </pre>
+     */
+    boolean hasCurrentPage();
+    /**
+     * <code>optional int32 currentPage = 1;</code>
+     *
+     * <pre>
+     * 第几页
+     * </pre>
+     */
+    int getCurrentPage();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TCSGetGroupRanking}
+   */
+  public static final class TCSGetGroupRanking extends
+      com.google.protobuf.GeneratedMessage
+      implements TCSGetGroupRankingOrBuilder {
+    // Use TCSGetGroupRanking.newBuilder() to construct.
+    private TCSGetGroupRanking(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TCSGetGroupRanking(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TCSGetGroupRanking defaultInstance;
+    public static TCSGetGroupRanking getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TCSGetGroupRanking getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TCSGetGroupRanking(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              currentPage_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TCSGetGroupRanking_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TCSGetGroupRanking_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Room.TCSGetGroupRanking.class, com.game.framework.protocol.Room.TCSGetGroupRanking.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TCSGetGroupRanking> PARSER =
+        new com.google.protobuf.AbstractParser<TCSGetGroupRanking>() {
+      public TCSGetGroupRanking parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TCSGetGroupRanking(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TCSGetGroupRanking> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int32 currentPage = 1;
+    public static final int CURRENTPAGE_FIELD_NUMBER = 1;
+    private int currentPage_;
+    /**
+     * <code>optional int32 currentPage = 1;</code>
+     *
+     * <pre>
+     * 第几页
+     * </pre>
+     */
+    public boolean hasCurrentPage() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 currentPage = 1;</code>
+     *
+     * <pre>
+     * 第几页
+     * </pre>
+     */
+    public int getCurrentPage() {
+      return currentPage_;
+    }
+
+    private void initFields() {
+      currentPage_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, currentPage_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, currentPage_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Room.TCSGetGroupRanking parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupRanking parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupRanking parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupRanking parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupRanking parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupRanking parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupRanking parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupRanking parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupRanking parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TCSGetGroupRanking parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Room.TCSGetGroupRanking prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TCSGetGroupRanking}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Room.TCSGetGroupRankingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TCSGetGroupRanking_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TCSGetGroupRanking_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Room.TCSGetGroupRanking.class, com.game.framework.protocol.Room.TCSGetGroupRanking.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Room.TCSGetGroupRanking.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        currentPage_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TCSGetGroupRanking_descriptor;
+      }
+
+      public com.game.framework.protocol.Room.TCSGetGroupRanking getDefaultInstanceForType() {
+        return com.game.framework.protocol.Room.TCSGetGroupRanking.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Room.TCSGetGroupRanking build() {
+        com.game.framework.protocol.Room.TCSGetGroupRanking result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Room.TCSGetGroupRanking buildPartial() {
+        com.game.framework.protocol.Room.TCSGetGroupRanking result = new com.game.framework.protocol.Room.TCSGetGroupRanking(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.currentPage_ = currentPage_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Room.TCSGetGroupRanking) {
+          return mergeFrom((com.game.framework.protocol.Room.TCSGetGroupRanking)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Room.TCSGetGroupRanking other) {
+        if (other == com.game.framework.protocol.Room.TCSGetGroupRanking.getDefaultInstance()) return this;
+        if (other.hasCurrentPage()) {
+          setCurrentPage(other.getCurrentPage());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Room.TCSGetGroupRanking parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Room.TCSGetGroupRanking) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int32 currentPage = 1;
+      private int currentPage_ ;
+      /**
+       * <code>optional int32 currentPage = 1;</code>
+       *
+       * <pre>
+       * 第几页
+       * </pre>
+       */
+      public boolean hasCurrentPage() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 currentPage = 1;</code>
+       *
+       * <pre>
+       * 第几页
+       * </pre>
+       */
+      public int getCurrentPage() {
+        return currentPage_;
+      }
+      /**
+       * <code>optional int32 currentPage = 1;</code>
+       *
+       * <pre>
+       * 第几页
+       * </pre>
+       */
+      public Builder setCurrentPage(int value) {
+        bitField0_ |= 0x00000001;
+        currentPage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 currentPage = 1;</code>
+       *
+       * <pre>
+       * 第几页
+       * </pre>
+       */
+      public Builder clearCurrentPage() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        currentPage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSGetGroupRanking)
+    }
+
+    static {
+      defaultInstance = new TCSGetGroupRanking(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSGetGroupRanking)
+  }
+
+  public interface TSCGetGroupRankingOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;
+    /**
+     * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+     *
+     * <pre>
+     * 工会信息
+     * </pre>
+     */
+    java.util.List<com.game.framework.protocol.Room.GroupInfo> 
+        getGroupInfosList();
+    /**
+     * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+     *
+     * <pre>
+     * 工会信息
+     * </pre>
+     */
+    com.game.framework.protocol.Room.GroupInfo getGroupInfos(int index);
+    /**
+     * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+     *
+     * <pre>
+     * 工会信息
+     * </pre>
+     */
+    int getGroupInfosCount();
+    /**
+     * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+     *
+     * <pre>
+     * 工会信息
+     * </pre>
+     */
+    java.util.List<? extends com.game.framework.protocol.Room.GroupInfoOrBuilder> 
+        getGroupInfosOrBuilderList();
+    /**
+     * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+     *
+     * <pre>
+     * 工会信息
+     * </pre>
+     */
+    com.game.framework.protocol.Room.GroupInfoOrBuilder getGroupInfosOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TSCGetGroupRanking}
+   */
+  public static final class TSCGetGroupRanking extends
+      com.google.protobuf.GeneratedMessage
+      implements TSCGetGroupRankingOrBuilder {
+    // Use TSCGetGroupRanking.newBuilder() to construct.
+    private TSCGetGroupRanking(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TSCGetGroupRanking(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TSCGetGroupRanking defaultInstance;
+    public static TSCGetGroupRanking getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TSCGetGroupRanking getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSCGetGroupRanking(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                groupInfos_ = new java.util.ArrayList<com.game.framework.protocol.Room.GroupInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              groupInfos_.add(input.readMessage(com.game.framework.protocol.Room.GroupInfo.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          groupInfos_ = java.util.Collections.unmodifiableList(groupInfos_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TSCGetGroupRanking_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TSCGetGroupRanking_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Room.TSCGetGroupRanking.class, com.game.framework.protocol.Room.TSCGetGroupRanking.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TSCGetGroupRanking> PARSER =
+        new com.google.protobuf.AbstractParser<TSCGetGroupRanking>() {
+      public TSCGetGroupRanking parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSCGetGroupRanking(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TSCGetGroupRanking> getParserForType() {
+      return PARSER;
+    }
+
+    // repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;
+    public static final int GROUPINFOS_FIELD_NUMBER = 1;
+    private java.util.List<com.game.framework.protocol.Room.GroupInfo> groupInfos_;
+    /**
+     * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+     *
+     * <pre>
+     * 工会信息
+     * </pre>
+     */
+    public java.util.List<com.game.framework.protocol.Room.GroupInfo> getGroupInfosList() {
+      return groupInfos_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+     *
+     * <pre>
+     * 工会信息
+     * </pre>
+     */
+    public java.util.List<? extends com.game.framework.protocol.Room.GroupInfoOrBuilder> 
+        getGroupInfosOrBuilderList() {
+      return groupInfos_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+     *
+     * <pre>
+     * 工会信息
+     * </pre>
+     */
+    public int getGroupInfosCount() {
+      return groupInfos_.size();
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+     *
+     * <pre>
+     * 工会信息
+     * </pre>
+     */
+    public com.game.framework.protocol.Room.GroupInfo getGroupInfos(int index) {
+      return groupInfos_.get(index);
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+     *
+     * <pre>
+     * 工会信息
+     * </pre>
+     */
+    public com.game.framework.protocol.Room.GroupInfoOrBuilder getGroupInfosOrBuilder(
+        int index) {
+      return groupInfos_.get(index);
+    }
+
+    private void initFields() {
+      groupInfos_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < groupInfos_.size(); i++) {
+        output.writeMessage(1, groupInfos_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < groupInfos_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, groupInfos_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Room.TSCGetGroupRanking parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupRanking parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupRanking parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupRanking parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupRanking parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupRanking parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupRanking parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupRanking parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupRanking parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Room.TSCGetGroupRanking parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Room.TSCGetGroupRanking prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TSCGetGroupRanking}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Room.TSCGetGroupRankingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TSCGetGroupRanking_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TSCGetGroupRanking_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Room.TSCGetGroupRanking.class, com.game.framework.protocol.Room.TSCGetGroupRanking.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Room.TSCGetGroupRanking.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getGroupInfosFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (groupInfosBuilder_ == null) {
+          groupInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          groupInfosBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_TSCGetGroupRanking_descriptor;
+      }
+
+      public com.game.framework.protocol.Room.TSCGetGroupRanking getDefaultInstanceForType() {
+        return com.game.framework.protocol.Room.TSCGetGroupRanking.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Room.TSCGetGroupRanking build() {
+        com.game.framework.protocol.Room.TSCGetGroupRanking result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Room.TSCGetGroupRanking buildPartial() {
+        com.game.framework.protocol.Room.TSCGetGroupRanking result = new com.game.framework.protocol.Room.TSCGetGroupRanking(this);
+        int from_bitField0_ = bitField0_;
+        if (groupInfosBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            groupInfos_ = java.util.Collections.unmodifiableList(groupInfos_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.groupInfos_ = groupInfos_;
+        } else {
+          result.groupInfos_ = groupInfosBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Room.TSCGetGroupRanking) {
+          return mergeFrom((com.game.framework.protocol.Room.TSCGetGroupRanking)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Room.TSCGetGroupRanking other) {
+        if (other == com.game.framework.protocol.Room.TSCGetGroupRanking.getDefaultInstance()) return this;
+        if (groupInfosBuilder_ == null) {
+          if (!other.groupInfos_.isEmpty()) {
+            if (groupInfos_.isEmpty()) {
+              groupInfos_ = other.groupInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureGroupInfosIsMutable();
+              groupInfos_.addAll(other.groupInfos_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.groupInfos_.isEmpty()) {
+            if (groupInfosBuilder_.isEmpty()) {
+              groupInfosBuilder_.dispose();
+              groupInfosBuilder_ = null;
+              groupInfos_ = other.groupInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              groupInfosBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getGroupInfosFieldBuilder() : null;
+            } else {
+              groupInfosBuilder_.addAllMessages(other.groupInfos_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Room.TSCGetGroupRanking parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Room.TSCGetGroupRanking) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;
+      private java.util.List<com.game.framework.protocol.Room.GroupInfo> groupInfos_ =
+        java.util.Collections.emptyList();
+      private void ensureGroupInfosIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          groupInfos_ = new java.util.ArrayList<com.game.framework.protocol.Room.GroupInfo>(groupInfos_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.Room.GroupInfo, com.game.framework.protocol.Room.GroupInfo.Builder, com.game.framework.protocol.Room.GroupInfoOrBuilder> groupInfosBuilder_;
+
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public java.util.List<com.game.framework.protocol.Room.GroupInfo> getGroupInfosList() {
+        if (groupInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(groupInfos_);
+        } else {
+          return groupInfosBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public int getGroupInfosCount() {
+        if (groupInfosBuilder_ == null) {
+          return groupInfos_.size();
+        } else {
+          return groupInfosBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Room.GroupInfo getGroupInfos(int index) {
+        if (groupInfosBuilder_ == null) {
+          return groupInfos_.get(index);
+        } else {
+          return groupInfosBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public Builder setGroupInfos(
+          int index, com.game.framework.protocol.Room.GroupInfo value) {
+        if (groupInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureGroupInfosIsMutable();
+          groupInfos_.set(index, value);
+          onChanged();
+        } else {
+          groupInfosBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public Builder setGroupInfos(
+          int index, com.game.framework.protocol.Room.GroupInfo.Builder builderForValue) {
+        if (groupInfosBuilder_ == null) {
+          ensureGroupInfosIsMutable();
+          groupInfos_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          groupInfosBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public Builder addGroupInfos(com.game.framework.protocol.Room.GroupInfo value) {
+        if (groupInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureGroupInfosIsMutable();
+          groupInfos_.add(value);
+          onChanged();
+        } else {
+          groupInfosBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public Builder addGroupInfos(
+          int index, com.game.framework.protocol.Room.GroupInfo value) {
+        if (groupInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureGroupInfosIsMutable();
+          groupInfos_.add(index, value);
+          onChanged();
+        } else {
+          groupInfosBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public Builder addGroupInfos(
+          com.game.framework.protocol.Room.GroupInfo.Builder builderForValue) {
+        if (groupInfosBuilder_ == null) {
+          ensureGroupInfosIsMutable();
+          groupInfos_.add(builderForValue.build());
+          onChanged();
+        } else {
+          groupInfosBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public Builder addGroupInfos(
+          int index, com.game.framework.protocol.Room.GroupInfo.Builder builderForValue) {
+        if (groupInfosBuilder_ == null) {
+          ensureGroupInfosIsMutable();
+          groupInfos_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          groupInfosBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public Builder addAllGroupInfos(
+          java.lang.Iterable<? extends com.game.framework.protocol.Room.GroupInfo> values) {
+        if (groupInfosBuilder_ == null) {
+          ensureGroupInfosIsMutable();
+          super.addAll(values, groupInfos_);
+          onChanged();
+        } else {
+          groupInfosBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public Builder clearGroupInfos() {
+        if (groupInfosBuilder_ == null) {
+          groupInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          groupInfosBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public Builder removeGroupInfos(int index) {
+        if (groupInfosBuilder_ == null) {
+          ensureGroupInfosIsMutable();
+          groupInfos_.remove(index);
+          onChanged();
+        } else {
+          groupInfosBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Room.GroupInfo.Builder getGroupInfosBuilder(
+          int index) {
+        return getGroupInfosFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Room.GroupInfoOrBuilder getGroupInfosOrBuilder(
+          int index) {
+        if (groupInfosBuilder_ == null) {
+          return groupInfos_.get(index);  } else {
+          return groupInfosBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public java.util.List<? extends com.game.framework.protocol.Room.GroupInfoOrBuilder> 
+           getGroupInfosOrBuilderList() {
+        if (groupInfosBuilder_ != null) {
+          return groupInfosBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(groupInfos_);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Room.GroupInfo.Builder addGroupInfosBuilder() {
+        return getGroupInfosFieldBuilder().addBuilder(
+            com.game.framework.protocol.Room.GroupInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Room.GroupInfo.Builder addGroupInfosBuilder(
+          int index) {
+        return getGroupInfosFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.Room.GroupInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.GroupInfo groupInfos = 1;</code>
+       *
+       * <pre>
+       * 工会信息
+       * </pre>
+       */
+      public java.util.List<com.game.framework.protocol.Room.GroupInfo.Builder> 
+           getGroupInfosBuilderList() {
+        return getGroupInfosFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.Room.GroupInfo, com.game.framework.protocol.Room.GroupInfo.Builder, com.game.framework.protocol.Room.GroupInfoOrBuilder> 
+          getGroupInfosFieldBuilder() {
+        if (groupInfosBuilder_ == null) {
+          groupInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.Room.GroupInfo, com.game.framework.protocol.Room.GroupInfo.Builder, com.game.framework.protocol.Room.GroupInfoOrBuilder>(
+                  groupInfos_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          groupInfos_ = null;
+        }
+        return groupInfosBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetGroupRanking)
+    }
+
+    static {
+      defaultInstance = new TSCGetGroupRanking(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetGroupRanking)
+  }
+
+  public interface GroupInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int64 id = 1;
+    /**
+     * <code>optional int64 id = 1;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    boolean hasId();
+    /**
+     * <code>optional int64 id = 1;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    long getId();
+
+    // optional string name = 2;
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     * 工会名
+     * </pre>
+     */
+    boolean hasName();
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     * 工会名
+     * </pre>
+     */
+    java.lang.String getName();
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     * 工会名
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    // optional int32 peopleNumber = 3;
+    /**
+     * <code>optional int32 peopleNumber = 3;</code>
+     *
+     * <pre>
+     * 人数
+     * </pre>
+     */
+    boolean hasPeopleNumber();
+    /**
+     * <code>optional int32 peopleNumber = 3;</code>
+     *
+     * <pre>
+     * 人数
+     * </pre>
+     */
+    int getPeopleNumber();
+
+    // optional int32 totalContribution = 4;
+    /**
+     * <code>optional int32 totalContribution = 4;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    boolean hasTotalContribution();
+    /**
+     * <code>optional int32 totalContribution = 4;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    int getTotalContribution();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.GroupInfo}
+   */
+  public static final class GroupInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements GroupInfoOrBuilder {
+    // Use GroupInfo.newBuilder() to construct.
+    private GroupInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private GroupInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final GroupInfo defaultInstance;
+    public static GroupInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public GroupInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GroupInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              name_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              peopleNumber_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              totalContribution_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_GroupInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_GroupInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Room.GroupInfo.class, com.game.framework.protocol.Room.GroupInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<GroupInfo> PARSER =
+        new com.google.protobuf.AbstractParser<GroupInfo>() {
+      public GroupInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GroupInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GroupInfo> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int64 id = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>optional int64 id = 1;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int64 id = 1;</code>
+     *
+     * <pre>
+     * 工会Id
+     * </pre>
+     */
+    public long getId() {
+      return id_;
+    }
+
+    // optional string name = 2;
+    public static final int NAME_FIELD_NUMBER = 2;
+    private java.lang.Object name_;
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     * 工会名
+     * </pre>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     * 工会名
+     * </pre>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string name = 2;</code>
+     *
+     * <pre>
+     * 工会名
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional int32 peopleNumber = 3;
+    public static final int PEOPLENUMBER_FIELD_NUMBER = 3;
+    private int peopleNumber_;
+    /**
+     * <code>optional int32 peopleNumber = 3;</code>
+     *
+     * <pre>
+     * 人数
+     * </pre>
+     */
+    public boolean hasPeopleNumber() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 peopleNumber = 3;</code>
+     *
+     * <pre>
+     * 人数
+     * </pre>
+     */
+    public int getPeopleNumber() {
+      return peopleNumber_;
+    }
+
+    // optional int32 totalContribution = 4;
+    public static final int TOTALCONTRIBUTION_FIELD_NUMBER = 4;
+    private int totalContribution_;
+    /**
+     * <code>optional int32 totalContribution = 4;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    public boolean hasTotalContribution() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 totalContribution = 4;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    public int getTotalContribution() {
+      return totalContribution_;
+    }
+
+    private void initFields() {
+      id_ = 0L;
+      name_ = "";
+      peopleNumber_ = 0;
+      totalContribution_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, peopleNumber_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, totalContribution_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, peopleNumber_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, totalContribution_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Room.GroupInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Room.GroupInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.GroupInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Room.GroupInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.GroupInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Room.GroupInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.GroupInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Room.GroupInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Room.GroupInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Room.GroupInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Room.GroupInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.GroupInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Room.GroupInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_GroupInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_GroupInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Room.GroupInfo.class, com.game.framework.protocol.Room.GroupInfo.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Room.GroupInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        peopleNumber_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        totalContribution_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Room.internal_static_com_game_framework_protocol_GroupInfo_descriptor;
+      }
+
+      public com.game.framework.protocol.Room.GroupInfo getDefaultInstanceForType() {
+        return com.game.framework.protocol.Room.GroupInfo.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Room.GroupInfo build() {
+        com.game.framework.protocol.Room.GroupInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Room.GroupInfo buildPartial() {
+        com.game.framework.protocol.Room.GroupInfo result = new com.game.framework.protocol.Room.GroupInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.id_ = id_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.peopleNumber_ = peopleNumber_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.totalContribution_ = totalContribution_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Room.GroupInfo) {
+          return mergeFrom((com.game.framework.protocol.Room.GroupInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Room.GroupInfo other) {
+        if (other == com.game.framework.protocol.Room.GroupInfo.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
+        if (other.hasName()) {
+          bitField0_ |= 0x00000002;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasPeopleNumber()) {
+          setPeopleNumber(other.getPeopleNumber());
+        }
+        if (other.hasTotalContribution()) {
+          setTotalContribution(other.getTotalContribution());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Room.GroupInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Room.GroupInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int64 id = 1;
+      private long id_ ;
+      /**
+       * <code>optional int64 id = 1;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int64 id = 1;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>optional int64 id = 1;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public Builder setId(long value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 id = 1;</code>
+       *
+       * <pre>
+       * 工会Id
+       * </pre>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional string name = 2;
+      private java.lang.Object name_ = "";
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       * 工会名
+       * </pre>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       * 工会名
+       * </pre>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       * 工会名
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       * 工会名
+       * </pre>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       * 工会名
+       * </pre>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string name = 2;</code>
+       *
+       * <pre>
+       * 工会名
+       * </pre>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 peopleNumber = 3;
+      private int peopleNumber_ ;
+      /**
+       * <code>optional int32 peopleNumber = 3;</code>
+       *
+       * <pre>
+       * 人数
+       * </pre>
+       */
+      public boolean hasPeopleNumber() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 peopleNumber = 3;</code>
+       *
+       * <pre>
+       * 人数
+       * </pre>
+       */
+      public int getPeopleNumber() {
+        return peopleNumber_;
+      }
+      /**
+       * <code>optional int32 peopleNumber = 3;</code>
+       *
+       * <pre>
+       * 人数
+       * </pre>
+       */
+      public Builder setPeopleNumber(int value) {
+        bitField0_ |= 0x00000004;
+        peopleNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 peopleNumber = 3;</code>
+       *
+       * <pre>
+       * 人数
+       * </pre>
+       */
+      public Builder clearPeopleNumber() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        peopleNumber_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 totalContribution = 4;
+      private int totalContribution_ ;
+      /**
+       * <code>optional int32 totalContribution = 4;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public boolean hasTotalContribution() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 totalContribution = 4;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public int getTotalContribution() {
+        return totalContribution_;
+      }
+      /**
+       * <code>optional int32 totalContribution = 4;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public Builder setTotalContribution(int value) {
+        bitField0_ |= 0x00000008;
+        totalContribution_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 totalContribution = 4;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public Builder clearTotalContribution() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        totalContribution_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.GroupInfo)
+    }
+
+    static {
+      defaultInstance = new GroupInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.GroupInfo)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_framework_protocol_TCSCreateGroup_descriptor;
   private static
@@ -1734,6 +4662,31 @@ public final class Room {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TSCApplyGroup_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TCSGetGroupPageCount_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TCSGetGroupPageCount_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TSCGetGroupPageCount_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TSCGetGroupPageCount_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TCSGetGroupRanking_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TCSGetGroupRanking_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TSCGetGroupRanking_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TSCGetGroupRanking_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_GroupInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_GroupInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1747,7 +4700,14 @@ public final class Room {
       "l\"\020\n\016TCSCreateGroup\"!\n\016TSCCreateGroup\022\017\n" +
       "\007groupId\030\001 \001(\003\" \n\rTCSApplyGroup\022\017\n\007group" +
       "Id\030\001 \001(\003\",\n\rTSCApplyGroup\022\r\n\005exist\030\001 \001(\010" +
-      "\022\014\n\004full\030\002 \001(\010B\002H\001"
+      "\022\014\n\004full\030\002 \001(\010\"\'\n\024TCSGetGroupPageCount\022\017" +
+      "\n\007groupId\030\001 \001(\003\")\n\024TSCGetGroupPageCount\022" +
+      "\021\n\tpageCount\030\001 \001(\005\")\n\022TCSGetGroupRanking" +
+      "\022\023\n\013currentPage\030\001 \001(\005\"P\n\022TSCGetGroupRank" +
+      "ing\022:\n\ngroupInfos\030\001 \003(\0132&.com.game.frame" +
+      "work.protocol.GroupInfo\"V\n\tGroupInfo\022\n\n\002",
+      "id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\024\n\014peopleNumber\030\003" +
+      " \001(\005\022\031\n\021totalContribution\030\004 \001(\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1778,6 +4738,36 @@ public final class Room {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCApplyGroup_descriptor,
               new java.lang.String[] { "Exist", "Full", });
+          internal_static_com_game_framework_protocol_TCSGetGroupPageCount_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_com_game_framework_protocol_TCSGetGroupPageCount_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TCSGetGroupPageCount_descriptor,
+              new java.lang.String[] { "GroupId", });
+          internal_static_com_game_framework_protocol_TSCGetGroupPageCount_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_com_game_framework_protocol_TSCGetGroupPageCount_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TSCGetGroupPageCount_descriptor,
+              new java.lang.String[] { "PageCount", });
+          internal_static_com_game_framework_protocol_TCSGetGroupRanking_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_com_game_framework_protocol_TCSGetGroupRanking_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TCSGetGroupRanking_descriptor,
+              new java.lang.String[] { "CurrentPage", });
+          internal_static_com_game_framework_protocol_TSCGetGroupRanking_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_com_game_framework_protocol_TSCGetGroupRanking_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TSCGetGroupRanking_descriptor,
+              new java.lang.String[] { "GroupInfos", });
+          internal_static_com_game_framework_protocol_GroupInfo_descriptor =
+            getDescriptor().getMessageTypes().get(8);
+          internal_static_com_game_framework_protocol_GroupInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_GroupInfo_descriptor,
+              new java.lang.String[] { "Id", "Name", "PeopleNumber", "TotalContribution", });
           return null;
         }
       };

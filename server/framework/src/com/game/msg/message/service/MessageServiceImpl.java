@@ -76,7 +76,7 @@ public class MessageServiceImpl implements MessageService {
                     .setId(m.getId())
                     .setType(type)
                     .setTime(m.getTime().getTime());
-            if (messageDao.isExistUid2MessageId(m.getId(), uid)) {
+            if (!messageDao.isExistUid2MessageId(m.getId(), uid)) {
                 mBuilder.setIsRead(true);
             }
             switch (type) {

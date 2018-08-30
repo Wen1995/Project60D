@@ -1,4 +1,4 @@
-package com.game.bus.room.handler;
+package com.game.match.room.handler;
 
 import com.game.framework.console.handler.HandlerMapping;
 import com.game.framework.console.handler.HandlerMethodMapping;
@@ -8,12 +8,14 @@ import com.game.framework.console.disruptor.TPacket;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import com.game.framework.console.GateServer;
-import com.game.bus.room.service.RoomService;
+import com.game.match.room.service.RoomService;
 import com.game.framework.protocol.Room.TCSCreateGroup;
 import com.game.framework.protocol.Room.TCSApplyGroup;
+import com.game.framework.protocol.Room.TCSGetGroupPageCount;
+import com.game.framework.protocol.Room.TCSGetGroupRanking;
 
 @Controller
-@HandlerMapping(group = HandlerConstant.HandlerGroup_Bus, module = HandlerConstant.Model_Room)
+@HandlerMapping(group = HandlerConstant.HandlerGroup_Match, module = HandlerConstant.Model_Room)
 public class RoomHandler {
 	@Resource
 	private RoomService service;
@@ -35,6 +37,26 @@ public class RoomHandler {
 		Long groupId = msg.getGroupId();		
 		TPacket resp = service.applyGroup(p.getUid(), groupId);
 		resp.setCmd(Cmd.APPLYGROUP_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 工会总数 */
+	@HandlerMethodMapping(cmd = Cmd.GETGROUPPAGECOUNT_VALUE)
+	public void getGroupPageCount(TPacket p) throws Exception {
+		TCSGetGroupPageCount msg = TCSGetGroupPageCount.parseFrom(p.getBuffer());
+		Long groupId = msg.getGroupId();		
+		TPacket resp = service.getGroupPageCount(p.getUid(), groupId);
+		resp.setCmd(Cmd.GETGROUPPAGECOUNT_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 工会排名 */
+	@HandlerMethodMapping(cmd = Cmd.GETGROUPRANKING_VALUE)
+	public void getGroupRanking(TPacket p) throws Exception {
+		TCSGetGroupRanking msg = TCSGetGroupRanking.parseFrom(p.getBuffer());
+		Integer currentPage = msg.getCurrentPage();		
+		TPacket resp = service.getGroupRanking(p.getUid(), currentPage);
+		resp.setCmd(Cmd.GETGROUPRANKING_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}
 

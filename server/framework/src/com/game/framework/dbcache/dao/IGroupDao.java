@@ -16,4 +16,9 @@ public interface IGroupDao extends IBaseDao<Group, GroupMapper, GroupExample> {
      * 当前页的数据
      */
     List<Group> getPageList(int currentPage);
+    
+    /**
+     * 排名
+     */
+    List<Group> getRanking(int currentPage);
 }

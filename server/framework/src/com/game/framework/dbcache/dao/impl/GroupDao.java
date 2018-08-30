@@ -26,4 +26,12 @@ public class GroupDao extends BaseDao<Group, GroupMapper, GroupExample> implemen
         GroupExample example = new GroupExample();
         return sqlSelectByExample(example);
     }
+
+    @Override
+    public List<Group> getRanking(int currentPage) {
+        PageHelper.startPage(currentPage, Constant.GROUP_RECORD_COUNT);
+        GroupExample example = new GroupExample();
+        example.setOrderByClause("total_contribution desc");
+        return sqlSelectByExample(example);
+    }
 }

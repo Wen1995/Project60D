@@ -1,5 +1,6 @@
-package com.game.bus.room.service;
+package com.game.match.room.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
@@ -17,8 +18,11 @@ import com.game.framework.protocol.Database.BuildingState;
 import com.game.framework.protocol.Database.ProcessInfo;
 import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Database.UpgradeInfo;
+import com.game.framework.protocol.Room.GroupInfo;
 import com.game.framework.protocol.Room.TSCApplyGroup;
 import com.game.framework.protocol.Room.TSCCreateGroup;
+import com.game.framework.protocol.Room.TSCGetGroupPageCount;
+import com.game.framework.protocol.Room.TSCGetGroupRanking;
 import com.game.framework.resource.StaticDataManager;
 import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.game.framework.utils.BuildingUtil;
@@ -158,6 +162,38 @@ public class RoomServiceImpl implements RoomService {
         PLAYER_ATTR intellectAttr = playerAttrMap.get(12050001);
         user.setIntellect(intellectAttr.getBeginNum() + user.getMood()*100/intellectAttr.getAttrK1());
         user.setLogoutTime(new Date(System.currentTimeMillis()));
+    }
+
+    @Override
+    public TPacket getGroupPageCount(Long uid, Long groupId) throws Exception {
+        TSCGetGroupPageCount p = TSCGetGroupPageCount.newBuilder()
+                .setPageCount(groupDao.getPageCount())
+                .build();
+        TPacket resp = new TPacket();
+        resp.setUid(uid);
+        resp.setBuffer(p.toByteArray());
+        return resp;
+    }
+
+    @Override
+    public TPacket getGroupRanking(Long uid, Integer currentPage) throws Exception {
+        List<GroupInfo> groupInfos = new ArrayList<>();
+        List<Group> groups = groupDao.getRanking(currentPage);
+        for (Group g : groups) {
+            GroupInfo.Builder gBuilder = GroupInfo.newBuilder()
+                    .setId(g.getId())
+                    .setName(g.getName())
+                    .setPeopleNumber(g.getPeopleNumber())
+                    .setTotalContribution(g.getTotalContribution());
+            groupInfos.add(gBuilder.build());
+        }
+        TSCGetGroupRanking p = TSCGetGroupRanking.newBuilder()
+                .addAllGroupInfos(groupInfos)
+                .build();
+        TPacket resp = new TPacket();
+        resp.setUid(uid);
+        resp.setBuffer(p.toByteArray());
+        return resp;
     }
 
 }

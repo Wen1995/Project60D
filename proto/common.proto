@@ -19,6 +19,10 @@ enum Cmd {
 	CREATEGROUP = 11;
 	// 申请加入
 	APPLYGROUP = 12;
+	// 工会总数
+	GETGROUPPAGECOUNT = 20;
+	// 工会排名
+	GETGROUPRANKING = 21;
 
 	//////////////////场景模块 31-60//////////////////
 	// 场景信息

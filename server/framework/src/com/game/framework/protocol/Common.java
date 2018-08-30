@@ -68,6 +68,22 @@ public final class Common {
      */
     APPLYGROUP(6, 12),
     /**
+     * <code>GETGROUPPAGECOUNT = 20;</code>
+     *
+     * <pre>
+     * 工会总数
+     * </pre>
+     */
+    GETGROUPPAGECOUNT(7, 20),
+    /**
+     * <code>GETGROUPRANKING = 21;</code>
+     *
+     * <pre>
+     * 工会排名
+     * </pre>
+     */
+    GETGROUPRANKING(8, 21),
+    /**
      * <code>GETSCENEINFO = 31;</code>
      *
      * <pre>
@@ -75,7 +91,7 @@ public final class Common {
      * 场景信息
      * </pre>
      */
-    GETSCENEINFO(7, 31),
+    GETSCENEINFO(9, 31),
     /**
      * <code>GETBUILDINGINFO = 32;</code>
      *
@@ -83,7 +99,7 @@ public final class Common {
      * 建筑信息
      * </pre>
      */
-    GETBUILDINGINFO(8, 32),
+    GETBUILDINGINFO(10, 32),
     /**
      * <code>UPGRADE = 33;</code>
      *
@@ -91,7 +107,7 @@ public final class Common {
      * 建筑升级
      * </pre>
      */
-    UPGRADE(9, 33),
+    UPGRADE(11, 33),
     /**
      * <code>FINISHUPGRADE = 34;</code>
      *
@@ -99,7 +115,7 @@ public final class Common {
      * 完成升级
      * </pre>
      */
-    FINISHUPGRADE(10, 34),
+    FINISHUPGRADE(12, 34),
     /**
      * <code>UNLOCK = 35;</code>
      *
@@ -107,7 +123,7 @@ public final class Common {
      * 解锁建筑
      * </pre>
      */
-    UNLOCK(11, 35),
+    UNLOCK(13, 35),
     /**
      * <code>FINISHUNLOCK = 36;</code>
      *
@@ -115,7 +131,7 @@ public final class Common {
      * 完成解锁
      * </pre>
      */
-    FINISHUNLOCK(12, 36),
+    FINISHUNLOCK(14, 36),
     /**
      * <code>RECEIVE = 37;</code>
      *
@@ -123,7 +139,7 @@ public final class Common {
      * 领取物品
      * </pre>
      */
-    RECEIVE(13, 37),
+    RECEIVE(15, 37),
     /**
      * <code>PROCESS = 38;</code>
      *
@@ -131,7 +147,7 @@ public final class Common {
      * 加工物品
      * </pre>
      */
-    PROCESS(14, 38),
+    PROCESS(16, 38),
     /**
      * <code>INTERRUPTPROCESS = 40;</code>
      *
@@ -139,7 +155,7 @@ public final class Common {
      * 中断加工
      * </pre>
      */
-    INTERRUPTPROCESS(15, 40),
+    INTERRUPTPROCESS(17, 40),
     /**
      * <code>ZOMBIEINVADE = 61;</code>
      *
@@ -148,7 +164,7 @@ public final class Common {
      * 僵尸入侵
      * </pre>
      */
-    ZOMBIEINVADE(16, 61),
+    ZOMBIEINVADE(18, 61),
     /**
      * <code>RECEIVEZOMBIEMESSAGE = 62;</code>
      *
@@ -156,7 +172,7 @@ public final class Common {
      * 僵尸入侵消息推送
      * </pre>
      */
-    RECEIVEZOMBIEMESSAGE(17, 62),
+    RECEIVEZOMBIEMESSAGE(19, 62),
     /**
      * <code>ZOMBIEINVADERESULT = 63;</code>
      *
@@ -164,7 +180,7 @@ public final class Common {
      * 僵尸入侵结果推送
      * </pre>
      */
-    ZOMBIEINVADERESULT(18, 63),
+    ZOMBIEINVADERESULT(20, 63),
     /**
      * <code>GETRESOURCEINFO = 81;</code>
      *
@@ -173,7 +189,7 @@ public final class Common {
      * 玩家所有资源信息
      * </pre>
      */
-    GETRESOURCEINFO(19, 81),
+    GETRESOURCEINFO(21, 81),
     /**
      * <code>GETRESOURCEINFOBYCONFIGID = 82;</code>
      *
@@ -181,7 +197,7 @@ public final class Common {
      * 玩家某些资源信息
      * </pre>
      */
-    GETRESOURCEINFOBYCONFIGID(20, 82),
+    GETRESOURCEINFOBYCONFIGID(22, 82),
     /**
      * <code>GETUSERSTATE = 83;</code>
      *
@@ -189,7 +205,7 @@ public final class Common {
      * 玩家状态
      * </pre>
      */
-    GETUSERSTATE(21, 83),
+    GETUSERSTATE(23, 83),
     /**
      * <code>GETUSERSTATEREGULAR = 84;</code>
      *
@@ -197,7 +213,7 @@ public final class Common {
      * 玩家状态（周期）
      * </pre>
      */
-    GETUSERSTATEREGULAR(22, 84),
+    GETUSERSTATEREGULAR(24, 84),
     /**
      * <code>SAVEMESSAGE = 101;</code>
      *
@@ -206,7 +222,7 @@ public final class Common {
      * 保存消息
      * </pre>
      */
-    SAVEMESSAGE(23, 101),
+    SAVEMESSAGE(25, 101),
     /**
      * <code>GETPAGECOUNT = 102;</code>
      *
@@ -214,7 +230,7 @@ public final class Common {
      * 消息页数
      * </pre>
      */
-    GETPAGECOUNT(24, 102),
+    GETPAGECOUNT(26, 102),
     /**
      * <code>GETPAGELIST = 103;</code>
      *
@@ -222,7 +238,7 @@ public final class Common {
      * 得到消息
      * </pre>
      */
-    GETPAGELIST(25, 103),
+    GETPAGELIST(27, 103),
     /**
      * <code>GETMESSAGETAG = 104;</code>
      *
@@ -230,7 +246,7 @@ public final class Common {
      * 未读数量
      * </pre>
      */
-    GETMESSAGETAG(26, 104),
+    GETMESSAGETAG(28, 104),
     /**
      * <code>SENDMESSAGETAG = 105;</code>
      *
@@ -238,7 +254,7 @@ public final class Common {
      * 消息已读
      * </pre>
      */
-    SENDMESSAGETAG(27, 105),
+    SENDMESSAGETAG(29, 105),
     ;
 
     /**
@@ -295,6 +311,22 @@ public final class Common {
      * </pre>
      */
     public static final int APPLYGROUP_VALUE = 12;
+    /**
+     * <code>GETGROUPPAGECOUNT = 20;</code>
+     *
+     * <pre>
+     * 工会总数
+     * </pre>
+     */
+    public static final int GETGROUPPAGECOUNT_VALUE = 20;
+    /**
+     * <code>GETGROUPRANKING = 21;</code>
+     *
+     * <pre>
+     * 工会排名
+     * </pre>
+     */
+    public static final int GETGROUPRANKING_VALUE = 21;
     /**
      * <code>GETSCENEINFO = 31;</code>
      *
@@ -480,6 +512,8 @@ public final class Common {
         case 3: return GETUSERINFO;
         case 11: return CREATEGROUP;
         case 12: return APPLYGROUP;
+        case 20: return GETGROUPPAGECOUNT;
+        case 21: return GETGROUPRANKING;
         case 31: return GETSCENEINFO;
         case 32: return GETBUILDINGINFO;
         case 33: return UPGRADE;
@@ -1222,31 +1256,32 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\200\004\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005HEART" +
+      "col*\254\004\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005HEART" +
       "\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGOUT\020\002\022\017\n\013GETUSERINFO" +
-      "\020\003\022\017\n\013CREATEGROUP\020\013\022\016\n\nAPPLYGROUP\020\014\022\020\n\014G" +
-      "ETSCENEINFO\020\037\022\023\n\017GETBUILDINGINFO\020 \022\013\n\007UP" +
-      "GRADE\020!\022\021\n\rFINISHUPGRADE\020\"\022\n\n\006UNLOCK\020#\022\020" +
-      "\n\014FINISHUNLOCK\020$\022\013\n\007RECEIVE\020%\022\013\n\007PROCESS" +
-      "\020&\022\024\n\020INTERRUPTPROCESS\020(\022\020\n\014ZOMBIEINVADE" +
-      "\020=\022\030\n\024RECEIVEZOMBIEMESSAGE\020>\022\026\n\022ZOMBIEIN" +
-      "VADERESULT\020?\022\023\n\017GETRESOURCEINFO\020Q\022\035\n\031GET",
-      "RESOURCEINFOBYCONFIGID\020R\022\020\n\014GETUSERSTATE" +
-      "\020S\022\027\n\023GETUSERSTATEREGULAR\020T\022\017\n\013SAVEMESSA" +
-      "GE\020e\022\020\n\014GETPAGECOUNT\020f\022\017\n\013GETPAGELIST\020g\022" +
-      "\021\n\rGETMESSAGETAG\020h\022\022\n\016SENDMESSAGETAG\020i*\252" +
-      "\001\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_HANDLE" +
-      "\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLEVEL_OVER\020\004\022\025\n\021B" +
-      "UILDING_TYPE_ERR\020\005\022\020\n\014RESOURCE_ERR\020\006\022\014\n\010" +
-      "TIME_ERR\020\007\022\021\n\rLEFT_RESOURCE\020\010\022\024\n\020NO_MORE" +
-      "_CAPACITY\020\n*f\n\014BuildingType\022\024\n\020RECEIVE_B" +
-      "UILDING\020\001\022\024\n\020PROCESS_BUILDING\020\002\022\025\n\021FUNCT",
-      "ION_BUILDING\020\003\022\023\n\017WEAPON_BUILDING\020\005*C\n\010I" +
-      "temType\022\021\n\rRESOURCE_ITEM\020\001\022\022\n\016EQUIPMENT_" +
-      "ITEM\020\002\022\020\n\014SPECIAL_ITEM\020\003*,\n\020InvadeResult" +
-      "Type\022\n\n\006PLAYER\020\001\022\014\n\010BUILDING\020\002*1\n\013Messag" +
-      "eType\022\017\n\013ZOMBIE_INFO\020\002\022\021\n\rFIGHTING_INFO\020" +
-      "\003B\002H\001"
+      "\020\003\022\017\n\013CREATEGROUP\020\013\022\016\n\nAPPLYGROUP\020\014\022\025\n\021G" +
+      "ETGROUPPAGECOUNT\020\024\022\023\n\017GETGROUPRANKING\020\025\022" +
+      "\020\n\014GETSCENEINFO\020\037\022\023\n\017GETBUILDINGINFO\020 \022\013" +
+      "\n\007UPGRADE\020!\022\021\n\rFINISHUPGRADE\020\"\022\n\n\006UNLOCK" +
+      "\020#\022\020\n\014FINISHUNLOCK\020$\022\013\n\007RECEIVE\020%\022\013\n\007PRO" +
+      "CESS\020&\022\024\n\020INTERRUPTPROCESS\020(\022\020\n\014ZOMBIEIN" +
+      "VADE\020=\022\030\n\024RECEIVEZOMBIEMESSAGE\020>\022\026\n\022ZOMB",
+      "IEINVADERESULT\020?\022\023\n\017GETRESOURCEINFO\020Q\022\035\n" +
+      "\031GETRESOURCEINFOBYCONFIGID\020R\022\020\n\014GETUSERS" +
+      "TATE\020S\022\027\n\023GETUSERSTATEREGULAR\020T\022\017\n\013SAVEM" +
+      "ESSAGE\020e\022\020\n\014GETPAGECOUNT\020f\022\017\n\013GETPAGELIS" +
+      "T\020g\022\021\n\rGETMESSAGETAG\020h\022\022\n\016SENDMESSAGETAG" +
+      "\020i*\252\001\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RIGHT_HA" +
+      "NDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLEVEL_OVER\020\004\022" +
+      "\025\n\021BUILDING_TYPE_ERR\020\005\022\020\n\014RESOURCE_ERR\020\006" +
+      "\022\014\n\010TIME_ERR\020\007\022\021\n\rLEFT_RESOURCE\020\010\022\024\n\020NO_" +
+      "MORE_CAPACITY\020\n*f\n\014BuildingType\022\024\n\020RECEI",
+      "VE_BUILDING\020\001\022\024\n\020PROCESS_BUILDING\020\002\022\025\n\021F" +
+      "UNCTION_BUILDING\020\003\022\023\n\017WEAPON_BUILDING\020\005*" +
+      "C\n\010ItemType\022\021\n\rRESOURCE_ITEM\020\001\022\022\n\016EQUIPM" +
+      "ENT_ITEM\020\002\022\020\n\014SPECIAL_ITEM\020\003*,\n\020InvadeRe" +
+      "sultType\022\n\n\006PLAYER\020\001\022\014\n\010BUILDING\020\002*1\n\013Me" +
+      "ssageType\022\017\n\013ZOMBIE_INFO\020\002\022\021\n\rFIGHTING_I" +
+      "NFO\020\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

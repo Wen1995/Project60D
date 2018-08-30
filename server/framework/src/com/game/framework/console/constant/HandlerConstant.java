@@ -6,6 +6,7 @@ public class HandlerConstant {
 	public static final String HandlerGroup_Msg = "Msg";
 	public static final String HandlerGroup_Bus = "Bus";
 	public static final String HandlerGroup_Init = "Init";
+	public static final String HandlerGroup_Match = "Match";
 	
 	/************* Model *************/
 	public static final String Model_Login = "Login";

@@ -19,6 +19,8 @@ public class Constant {
 	
 	public static final int MESSAGE_RECORD_COUNT = 20;
 	
+	public static final int GROUP_RECORD_COUNT = 50;
+	
 	public static final int MAX_LEVEL = 20;
 	
 	public static final int K = 100000;

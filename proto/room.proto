@@ -20,3 +20,33 @@ message TSCApplyGroup {
 	// 房间是否满
 	optional bool full = 2;
 }
+
+message TCSGetGroupPageCount {
+	// 工会Id
+	optional int64 groupId = 1;
+}
+message TSCGetGroupPageCount {
+	// 页数
+	optional int32 pageCount = 1;
+}
+
+message TCSGetGroupRanking {
+	// 第几页
+	optional int32 currentPage = 1;
+}
+message TSCGetGroupRanking {
+	// 工会信息
+	repeated GroupInfo groupInfos = 1;
+}
+
+message GroupInfo {
+	// 工会Id
+	optional int64 id = 1;
+	// 工会名
+	optional string name = 2;
+	// 人数
+	optional int32 peopleNumber = 3;
+	// 贡献
+	optional int32 totalContribution = 4;
+}
+

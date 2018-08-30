@@ -33,6 +33,8 @@ namespace com.game.framework.protocol {
     GETUSERINFO = 3,
     CREATEGROUP = 11,
     APPLYGROUP = 12,
+    GETGROUPPAGECOUNT = 20,
+    GETGROUPRANKING = 21,
     GETSCENEINFO = 31,
     GETBUILDINGINFO = 32,
     UPGRADE = 33,

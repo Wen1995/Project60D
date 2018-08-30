@@ -1289,6 +1289,1761 @@ namespace com.game.framework.protocol {
     }
   }
   
+  public sealed partial class TCSGetGroupPageCount : pb::GeneratedMessageLite<TCSGetGroupPageCount, TCSGetGroupPageCount.Builder> {
+    private TCSGetGroupPageCount() { }
+    private static readonly TCSGetGroupPageCount defaultInstance = new TCSGetGroupPageCount().MakeReadOnly();
+    private static readonly string[] _tCSGetGroupPageCountFieldNames = new string[] { "groupId" };
+    private static readonly uint[] _tCSGetGroupPageCountFieldTags = new uint[] { 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TCSGetGroupPageCount DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TCSGetGroupPageCount ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int GroupIdFieldNumber = 1;
+    private bool hasGroupId;
+    private long groupId_;
+    public bool HasGroupId {
+      get { return hasGroupId; }
+    }
+    public long GroupId {
+      get { return groupId_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tCSGetGroupPageCountFieldNames;
+      if (hasGroupId) {
+        output.WriteInt64(1, field_names[0], GroupId);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasGroupId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, GroupId);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasGroupId) hash ^= groupId_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TCSGetGroupPageCount other = obj as TCSGetGroupPageCount;
+      if (other == null) return false;
+      if (hasGroupId != other.hasGroupId || (hasGroupId && !groupId_.Equals(other.groupId_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupPageCount ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TCSGetGroupPageCount MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TCSGetGroupPageCount prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSGetGroupPageCount, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TCSGetGroupPageCount cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TCSGetGroupPageCount result;
+      
+      private TCSGetGroupPageCount PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TCSGetGroupPageCount original = result;
+          result = new TCSGetGroupPageCount();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TCSGetGroupPageCount MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TCSGetGroupPageCount DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TCSGetGroupPageCount.DefaultInstance; }
+      }
+      
+      public override TCSGetGroupPageCount BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TCSGetGroupPageCount) {
+          return MergeFrom((TCSGetGroupPageCount) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TCSGetGroupPageCount other) {
+        if (other == global::com.game.framework.protocol.TCSGetGroupPageCount.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasGroupId) {
+          GroupId = other.GroupId;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tCSGetGroupPageCountFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tCSGetGroupPageCountFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasGroupId = input.ReadInt64(ref result.groupId_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasGroupId {
+        get { return result.hasGroupId; }
+      }
+      public long GroupId {
+        get { return result.GroupId; }
+        set { SetGroupId(value); }
+      }
+      public Builder SetGroupId(long value) {
+        PrepareBuilder();
+        result.hasGroupId = true;
+        result.groupId_ = value;
+        return this;
+      }
+      public Builder ClearGroupId() {
+        PrepareBuilder();
+        result.hasGroupId = false;
+        result.groupId_ = 0L;
+        return this;
+      }
+    }
+    static TCSGetGroupPageCount() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TSCGetGroupPageCount : pb::GeneratedMessageLite<TSCGetGroupPageCount, TSCGetGroupPageCount.Builder> {
+    private TSCGetGroupPageCount() { }
+    private static readonly TSCGetGroupPageCount defaultInstance = new TSCGetGroupPageCount().MakeReadOnly();
+    private static readonly string[] _tSCGetGroupPageCountFieldNames = new string[] { "pageCount" };
+    private static readonly uint[] _tSCGetGroupPageCountFieldTags = new uint[] { 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TSCGetGroupPageCount DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TSCGetGroupPageCount ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int PageCountFieldNumber = 1;
+    private bool hasPageCount;
+    private int pageCount_;
+    public bool HasPageCount {
+      get { return hasPageCount; }
+    }
+    public int PageCount {
+      get { return pageCount_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tSCGetGroupPageCountFieldNames;
+      if (hasPageCount) {
+        output.WriteInt32(1, field_names[0], PageCount);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasPageCount) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, PageCount);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasPageCount) hash ^= pageCount_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TSCGetGroupPageCount other = obj as TSCGetGroupPageCount;
+      if (other == null) return false;
+      if (hasPageCount != other.hasPageCount || (hasPageCount && !pageCount_.Equals(other.pageCount_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupPageCount ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TSCGetGroupPageCount MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TSCGetGroupPageCount prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCGetGroupPageCount, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TSCGetGroupPageCount cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TSCGetGroupPageCount result;
+      
+      private TSCGetGroupPageCount PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TSCGetGroupPageCount original = result;
+          result = new TSCGetGroupPageCount();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TSCGetGroupPageCount MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TSCGetGroupPageCount DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TSCGetGroupPageCount.DefaultInstance; }
+      }
+      
+      public override TSCGetGroupPageCount BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TSCGetGroupPageCount) {
+          return MergeFrom((TSCGetGroupPageCount) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TSCGetGroupPageCount other) {
+        if (other == global::com.game.framework.protocol.TSCGetGroupPageCount.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasPageCount) {
+          PageCount = other.PageCount;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tSCGetGroupPageCountFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tSCGetGroupPageCountFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasPageCount = input.ReadInt32(ref result.pageCount_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasPageCount {
+        get { return result.hasPageCount; }
+      }
+      public int PageCount {
+        get { return result.PageCount; }
+        set { SetPageCount(value); }
+      }
+      public Builder SetPageCount(int value) {
+        PrepareBuilder();
+        result.hasPageCount = true;
+        result.pageCount_ = value;
+        return this;
+      }
+      public Builder ClearPageCount() {
+        PrepareBuilder();
+        result.hasPageCount = false;
+        result.pageCount_ = 0;
+        return this;
+      }
+    }
+    static TSCGetGroupPageCount() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TCSGetGroupRanking : pb::GeneratedMessageLite<TCSGetGroupRanking, TCSGetGroupRanking.Builder> {
+    private TCSGetGroupRanking() { }
+    private static readonly TCSGetGroupRanking defaultInstance = new TCSGetGroupRanking().MakeReadOnly();
+    private static readonly string[] _tCSGetGroupRankingFieldNames = new string[] { "currentPage" };
+    private static readonly uint[] _tCSGetGroupRankingFieldTags = new uint[] { 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TCSGetGroupRanking DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TCSGetGroupRanking ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int CurrentPageFieldNumber = 1;
+    private bool hasCurrentPage;
+    private int currentPage_;
+    public bool HasCurrentPage {
+      get { return hasCurrentPage; }
+    }
+    public int CurrentPage {
+      get { return currentPage_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tCSGetGroupRankingFieldNames;
+      if (hasCurrentPage) {
+        output.WriteInt32(1, field_names[0], CurrentPage);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasCurrentPage) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, CurrentPage);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasCurrentPage) hash ^= currentPage_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TCSGetGroupRanking other = obj as TCSGetGroupRanking;
+      if (other == null) return false;
+      if (hasCurrentPage != other.hasCurrentPage || (hasCurrentPage && !currentPage_.Equals(other.currentPage_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetGroupRanking ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TCSGetGroupRanking MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TCSGetGroupRanking prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSGetGroupRanking, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TCSGetGroupRanking cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TCSGetGroupRanking result;
+      
+      private TCSGetGroupRanking PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TCSGetGroupRanking original = result;
+          result = new TCSGetGroupRanking();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TCSGetGroupRanking MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TCSGetGroupRanking DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TCSGetGroupRanking.DefaultInstance; }
+      }
+      
+      public override TCSGetGroupRanking BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TCSGetGroupRanking) {
+          return MergeFrom((TCSGetGroupRanking) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TCSGetGroupRanking other) {
+        if (other == global::com.game.framework.protocol.TCSGetGroupRanking.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasCurrentPage) {
+          CurrentPage = other.CurrentPage;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tCSGetGroupRankingFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tCSGetGroupRankingFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasCurrentPage = input.ReadInt32(ref result.currentPage_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasCurrentPage {
+        get { return result.hasCurrentPage; }
+      }
+      public int CurrentPage {
+        get { return result.CurrentPage; }
+        set { SetCurrentPage(value); }
+      }
+      public Builder SetCurrentPage(int value) {
+        PrepareBuilder();
+        result.hasCurrentPage = true;
+        result.currentPage_ = value;
+        return this;
+      }
+      public Builder ClearCurrentPage() {
+        PrepareBuilder();
+        result.hasCurrentPage = false;
+        result.currentPage_ = 0;
+        return this;
+      }
+    }
+    static TCSGetGroupRanking() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TSCGetGroupRanking : pb::GeneratedMessageLite<TSCGetGroupRanking, TSCGetGroupRanking.Builder> {
+    private TSCGetGroupRanking() { }
+    private static readonly TSCGetGroupRanking defaultInstance = new TSCGetGroupRanking().MakeReadOnly();
+    private static readonly string[] _tSCGetGroupRankingFieldNames = new string[] { "groupInfos" };
+    private static readonly uint[] _tSCGetGroupRankingFieldTags = new uint[] { 10 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TSCGetGroupRanking DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TSCGetGroupRanking ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int GroupInfosFieldNumber = 1;
+    private pbc::PopsicleList<global::com.game.framework.protocol.GroupInfo> groupInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.GroupInfo>();
+    public scg::IList<global::com.game.framework.protocol.GroupInfo> GroupInfosList {
+      get { return groupInfos_; }
+    }
+    public int GroupInfosCount {
+      get { return groupInfos_.Count; }
+    }
+    public global::com.game.framework.protocol.GroupInfo GetGroupInfos(int index) {
+      return groupInfos_[index];
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tSCGetGroupRankingFieldNames;
+      if (groupInfos_.Count > 0) {
+        output.WriteMessageArray(1, field_names[0], groupInfos_);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        foreach (global::com.game.framework.protocol.GroupInfo element in GroupInfosList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(1, element);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      foreach(global::com.game.framework.protocol.GroupInfo i in groupInfos_)
+        hash ^= i.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TSCGetGroupRanking other = obj as TSCGetGroupRanking;
+      if (other == null) return false;
+      if(groupInfos_.Count != other.groupInfos_.Count) return false;
+      for(int ix=0; ix < groupInfos_.Count; ix++)
+        if(!groupInfos_[ix].Equals(other.groupInfos_[ix])) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetGroupRanking ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TSCGetGroupRanking MakeReadOnly() {
+      groupInfos_.MakeReadOnly();
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TSCGetGroupRanking prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCGetGroupRanking, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TSCGetGroupRanking cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TSCGetGroupRanking result;
+      
+      private TSCGetGroupRanking PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TSCGetGroupRanking original = result;
+          result = new TSCGetGroupRanking();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TSCGetGroupRanking MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TSCGetGroupRanking DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.TSCGetGroupRanking.DefaultInstance; }
+      }
+      
+      public override TSCGetGroupRanking BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TSCGetGroupRanking) {
+          return MergeFrom((TSCGetGroupRanking) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TSCGetGroupRanking other) {
+        if (other == global::com.game.framework.protocol.TSCGetGroupRanking.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.groupInfos_.Count != 0) {
+          result.groupInfos_.Add(other.groupInfos_);
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tSCGetGroupRankingFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tSCGetGroupRankingFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 10: {
+              input.ReadMessageArray(tag, field_name, result.groupInfos_, global::com.game.framework.protocol.GroupInfo.DefaultInstance, extensionRegistry);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public pbc::IPopsicleList<global::com.game.framework.protocol.GroupInfo> GroupInfosList {
+        get { return PrepareBuilder().groupInfos_; }
+      }
+      public int GroupInfosCount {
+        get { return result.GroupInfosCount; }
+      }
+      public global::com.game.framework.protocol.GroupInfo GetGroupInfos(int index) {
+        return result.GetGroupInfos(index);
+      }
+      public Builder SetGroupInfos(int index, global::com.game.framework.protocol.GroupInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.groupInfos_[index] = value;
+        return this;
+      }
+      public Builder SetGroupInfos(int index, global::com.game.framework.protocol.GroupInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.groupInfos_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddGroupInfos(global::com.game.framework.protocol.GroupInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.groupInfos_.Add(value);
+        return this;
+      }
+      public Builder AddGroupInfos(global::com.game.framework.protocol.GroupInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.groupInfos_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeGroupInfos(scg::IEnumerable<global::com.game.framework.protocol.GroupInfo> values) {
+        PrepareBuilder();
+        result.groupInfos_.Add(values);
+        return this;
+      }
+      public Builder ClearGroupInfos() {
+        PrepareBuilder();
+        result.groupInfos_.Clear();
+        return this;
+      }
+    }
+    static TSCGetGroupRanking() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class GroupInfo : pb::GeneratedMessageLite<GroupInfo, GroupInfo.Builder> {
+    private GroupInfo() { }
+    private static readonly GroupInfo defaultInstance = new GroupInfo().MakeReadOnly();
+    private static readonly string[] _groupInfoFieldNames = new string[] { "id", "name", "peopleNumber", "totalContribution" };
+    private static readonly uint[] _groupInfoFieldTags = new uint[] { 8, 18, 24, 32 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override GroupInfo DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override GroupInfo ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int IdFieldNumber = 1;
+    private bool hasId;
+    private long id_;
+    public bool HasId {
+      get { return hasId; }
+    }
+    public long Id {
+      get { return id_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int NameFieldNumber = 2;
+    private bool hasName;
+    private string name_ = "";
+    public bool HasName {
+      get { return hasName; }
+    }
+    public string Name {
+      get { return name_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int PeopleNumberFieldNumber = 3;
+    private bool hasPeopleNumber;
+    private int peopleNumber_;
+    public bool HasPeopleNumber {
+      get { return hasPeopleNumber; }
+    }
+    public int PeopleNumber {
+      get { return peopleNumber_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int TotalContributionFieldNumber = 4;
+    private bool hasTotalContribution;
+    private int totalContribution_;
+    public bool HasTotalContribution {
+      get { return hasTotalContribution; }
+    }
+    public int TotalContribution {
+      get { return totalContribution_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _groupInfoFieldNames;
+      if (hasId) {
+        output.WriteInt64(1, field_names[0], Id);
+      }
+      if (hasName) {
+        output.WriteString(2, field_names[1], Name);
+      }
+      if (hasPeopleNumber) {
+        output.WriteInt32(3, field_names[2], PeopleNumber);
+      }
+      if (hasTotalContribution) {
+        output.WriteInt32(4, field_names[3], TotalContribution);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, Id);
+        }
+        if (hasName) {
+          size += pb::CodedOutputStream.ComputeStringSize(2, Name);
+        }
+        if (hasPeopleNumber) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, PeopleNumber);
+        }
+        if (hasTotalContribution) {
+          size += pb::CodedOutputStream.ComputeInt32Size(4, TotalContribution);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasId) hash ^= id_.GetHashCode();
+      if (hasName) hash ^= name_.GetHashCode();
+      if (hasPeopleNumber) hash ^= peopleNumber_.GetHashCode();
+      if (hasTotalContribution) hash ^= totalContribution_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      GroupInfo other = obj as GroupInfo;
+      if (other == null) return false;
+      if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
+      if (hasName != other.hasName || (hasName && !name_.Equals(other.name_))) return false;
+      if (hasPeopleNumber != other.hasPeopleNumber || (hasPeopleNumber && !peopleNumber_.Equals(other.peopleNumber_))) return false;
+      if (hasTotalContribution != other.hasTotalContribution || (hasTotalContribution && !totalContribution_.Equals(other.totalContribution_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static GroupInfo ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private GroupInfo MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(GroupInfo prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<GroupInfo, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(GroupInfo cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private GroupInfo result;
+      
+      private GroupInfo PrepareBuilder() {
+        if (resultIsReadOnly) {
+          GroupInfo original = result;
+          result = new GroupInfo();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override GroupInfo MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override GroupInfo DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.GroupInfo.DefaultInstance; }
+      }
+      
+      public override GroupInfo BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is GroupInfo) {
+          return MergeFrom((GroupInfo) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(GroupInfo other) {
+        if (other == global::com.game.framework.protocol.GroupInfo.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasId) {
+          Id = other.Id;
+        }
+        if (other.HasName) {
+          Name = other.Name;
+        }
+        if (other.HasPeopleNumber) {
+          PeopleNumber = other.PeopleNumber;
+        }
+        if (other.HasTotalContribution) {
+          TotalContribution = other.TotalContribution;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_groupInfoFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _groupInfoFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasId = input.ReadInt64(ref result.id_);
+              break;
+            }
+            case 18: {
+              result.hasName = input.ReadString(ref result.name_);
+              break;
+            }
+            case 24: {
+              result.hasPeopleNumber = input.ReadInt32(ref result.peopleNumber_);
+              break;
+            }
+            case 32: {
+              result.hasTotalContribution = input.ReadInt32(ref result.totalContribution_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasId {
+        get { return result.hasId; }
+      }
+      public long Id {
+        get { return result.Id; }
+        set { SetId(value); }
+      }
+      public Builder SetId(long value) {
+        PrepareBuilder();
+        result.hasId = true;
+        result.id_ = value;
+        return this;
+      }
+      public Builder ClearId() {
+        PrepareBuilder();
+        result.hasId = false;
+        result.id_ = 0L;
+        return this;
+      }
+      
+      public bool HasName {
+        get { return result.hasName; }
+      }
+      public string Name {
+        get { return result.Name; }
+        set { SetName(value); }
+      }
+      public Builder SetName(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasName = true;
+        result.name_ = value;
+        return this;
+      }
+      public Builder ClearName() {
+        PrepareBuilder();
+        result.hasName = false;
+        result.name_ = "";
+        return this;
+      }
+      
+      public bool HasPeopleNumber {
+        get { return result.hasPeopleNumber; }
+      }
+      public int PeopleNumber {
+        get { return result.PeopleNumber; }
+        set { SetPeopleNumber(value); }
+      }
+      public Builder SetPeopleNumber(int value) {
+        PrepareBuilder();
+        result.hasPeopleNumber = true;
+        result.peopleNumber_ = value;
+        return this;
+      }
+      public Builder ClearPeopleNumber() {
+        PrepareBuilder();
+        result.hasPeopleNumber = false;
+        result.peopleNumber_ = 0;
+        return this;
+      }
+      
+      public bool HasTotalContribution {
+        get { return result.hasTotalContribution; }
+      }
+      public int TotalContribution {
+        get { return result.TotalContribution; }
+        set { SetTotalContribution(value); }
+      }
+      public Builder SetTotalContribution(int value) {
+        PrepareBuilder();
+        result.hasTotalContribution = true;
+        result.totalContribution_ = value;
+        return this;
+      }
+      public Builder ClearTotalContribution() {
+        PrepareBuilder();
+        result.hasTotalContribution = false;
+        result.totalContribution_ = 0;
+        return this;
+      }
+    }
+    static GroupInfo() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+    }
+  }
+  
   #endregion
   
 }

@@ -16,10 +16,6 @@
 	</HandlerGroup>
 	
 	<HandlerGroup name="Bus" thread="4" clean="60">
-		<!--//////////////// 房间模块 ////////////////-->
-		<Handler model="Room" method="createGroup" description="创建房间"/>
-		<Handler model="Room" method="applyGroup" description="申请加入"/>
-		
 		<!--//////////////// 场景模块 ////////////////-->
 		<Handler model="Scene" method="getSceneInfo" description="场景信息"/>
 		<Handler model="Scene" method="getBuildingInfo" description="建筑信息"/>
@@ -42,6 +38,14 @@
 		<Handler model="User" method="getUserState" description="玩家状态"/>
 		<Handler model="User" method="getUserStateRegular" description="玩家状态（周期）" isInner="true"/>
 		
+	</HandlerGroup>
+	
+	<HandlerGroup name="Match" thread="1" clean="60">
+		<!--//////////////// 房间模块 ////////////////-->
+		<Handler model="Room" method="createGroup" description="创建房间"/>
+		<Handler model="Room" method="applyGroup" description="申请加入"/>
+		<Handler model="Room" method="getGroupPageCount" description="工会总数"/>
+		<Handler model="Room" method="getGroupRanking" description="工会排名"/>
 	</HandlerGroup>
 	
 	<HandlerGroup name="Msg" thread="1" clean="60">

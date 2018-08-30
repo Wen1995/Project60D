@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class ITEM_RES : pb::GeneratedMessageLite<ITEM_RES, ITEM_RES.Builder> {
     private ITEM_RES() { }
     private static readonly ITEM_RES defaultInstance = new ITEM_RES().MakeReadOnly();
-    private static readonly string[] _iTEMRESFieldNames = new string[] { "desc", "gold_conv", "icon_name", "id", "item_lvl", "key_name", "min_name", "small_icon_name", "stor_unit" };
-    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 58, 64, 42, 8, 16, 34, 26, 50, 72 };
+    private static readonly string[] _iTEMRESFieldNames = new string[] { "desc", "gold_conv", "icon_name", "id", "item_lvl", "key_name", "min_name", "serviceable_rate", "small_icon_name", "stor_unit" };
+    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 66, 72, 50, 8, 16, 34, 26, 40, 58, 80 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -103,7 +103,20 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int IconNameFieldNumber = 5;
+    public const int ServiceableRateFieldNumber = 5;
+    private bool hasServiceableRate;
+    private int serviceableRate_;
+    public bool HasServiceableRate {
+      get { return hasServiceableRate; }
+    }
+    public int ServiceableRate {
+      get { return serviceableRate_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int IconNameFieldNumber = 6;
     private bool hasIconName;
     private string iconName_ = "";
     public bool HasIconName {
@@ -116,7 +129,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SmallIconNameFieldNumber = 6;
+    public const int SmallIconNameFieldNumber = 7;
     private bool hasSmallIconName;
     private string smallIconName_ = "";
     public bool HasSmallIconName {
@@ -129,7 +142,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int DescFieldNumber = 7;
+    public const int DescFieldNumber = 8;
     private bool hasDesc;
     private string desc_ = "";
     public bool HasDesc {
@@ -142,7 +155,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int GoldConvFieldNumber = 8;
+    public const int GoldConvFieldNumber = 9;
     private bool hasGoldConv;
     private int goldConv_;
     public bool HasGoldConv {
@@ -155,7 +168,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int StorUnitFieldNumber = 9;
+    public const int StorUnitFieldNumber = 10;
     private bool hasStorUnit;
     private int storUnit_;
     public bool HasStorUnit {
@@ -193,20 +206,23 @@ namespace com.game.framework.resource.data {
       if (hasKeyName) {
         output.WriteString(4, field_names[5], KeyName);
       }
+      if (hasServiceableRate) {
+        output.WriteInt32(5, field_names[7], ServiceableRate);
+      }
       if (hasIconName) {
-        output.WriteString(5, field_names[2], IconName);
+        output.WriteString(6, field_names[2], IconName);
       }
       if (hasSmallIconName) {
-        output.WriteString(6, field_names[7], SmallIconName);
+        output.WriteString(7, field_names[8], SmallIconName);
       }
       if (hasDesc) {
-        output.WriteString(7, field_names[0], Desc);
+        output.WriteString(8, field_names[0], Desc);
       }
       if (hasGoldConv) {
-        output.WriteInt32(8, field_names[1], GoldConv);
+        output.WriteInt32(9, field_names[1], GoldConv);
       }
       if (hasStorUnit) {
-        output.WriteInt32(9, field_names[8], StorUnit);
+        output.WriteInt32(10, field_names[9], StorUnit);
       }
     }
     
@@ -232,20 +248,23 @@ namespace com.game.framework.resource.data {
         if (hasKeyName) {
           size += pb::CodedOutputStream.ComputeStringSize(4, KeyName);
         }
+        if (hasServiceableRate) {
+          size += pb::CodedOutputStream.ComputeInt32Size(5, ServiceableRate);
+        }
         if (hasIconName) {
-          size += pb::CodedOutputStream.ComputeStringSize(5, IconName);
+          size += pb::CodedOutputStream.ComputeStringSize(6, IconName);
         }
         if (hasSmallIconName) {
-          size += pb::CodedOutputStream.ComputeStringSize(6, SmallIconName);
+          size += pb::CodedOutputStream.ComputeStringSize(7, SmallIconName);
         }
         if (hasDesc) {
-          size += pb::CodedOutputStream.ComputeStringSize(7, Desc);
+          size += pb::CodedOutputStream.ComputeStringSize(8, Desc);
         }
         if (hasGoldConv) {
-          size += pb::CodedOutputStream.ComputeInt32Size(8, GoldConv);
+          size += pb::CodedOutputStream.ComputeInt32Size(9, GoldConv);
         }
         if (hasStorUnit) {
-          size += pb::CodedOutputStream.ComputeInt32Size(9, StorUnit);
+          size += pb::CodedOutputStream.ComputeInt32Size(10, StorUnit);
         }
         memoizedSerializedSize = size;
         return size;
@@ -259,6 +278,7 @@ namespace com.game.framework.resource.data {
       if (hasItemLvl) hash ^= itemLvl_.GetHashCode();
       if (hasMinName) hash ^= minName_.GetHashCode();
       if (hasKeyName) hash ^= keyName_.GetHashCode();
+      if (hasServiceableRate) hash ^= serviceableRate_.GetHashCode();
       if (hasIconName) hash ^= iconName_.GetHashCode();
       if (hasSmallIconName) hash ^= smallIconName_.GetHashCode();
       if (hasDesc) hash ^= desc_.GetHashCode();
@@ -274,6 +294,7 @@ namespace com.game.framework.resource.data {
       if (hasItemLvl != other.hasItemLvl || (hasItemLvl && !itemLvl_.Equals(other.itemLvl_))) return false;
       if (hasMinName != other.hasMinName || (hasMinName && !minName_.Equals(other.minName_))) return false;
       if (hasKeyName != other.hasKeyName || (hasKeyName && !keyName_.Equals(other.keyName_))) return false;
+      if (hasServiceableRate != other.hasServiceableRate || (hasServiceableRate && !serviceableRate_.Equals(other.serviceableRate_))) return false;
       if (hasIconName != other.hasIconName || (hasIconName && !iconName_.Equals(other.iconName_))) return false;
       if (hasSmallIconName != other.hasSmallIconName || (hasSmallIconName && !smallIconName_.Equals(other.smallIconName_))) return false;
       if (hasDesc != other.hasDesc || (hasDesc && !desc_.Equals(other.desc_))) return false;
@@ -451,6 +472,9 @@ namespace com.game.framework.resource.data {
         if (other.HasKeyName) {
           KeyName = other.KeyName;
         }
+        if (other.HasServiceableRate) {
+          ServiceableRate = other.ServiceableRate;
+        }
         if (other.HasIconName) {
           IconName = other.IconName;
         }
@@ -514,23 +538,27 @@ namespace com.game.framework.resource.data {
               result.hasKeyName = input.ReadString(ref result.keyName_);
               break;
             }
-            case 42: {
-              result.hasIconName = input.ReadString(ref result.iconName_);
+            case 40: {
+              result.hasServiceableRate = input.ReadInt32(ref result.serviceableRate_);
               break;
             }
             case 50: {
-              result.hasSmallIconName = input.ReadString(ref result.smallIconName_);
+              result.hasIconName = input.ReadString(ref result.iconName_);
               break;
             }
             case 58: {
+              result.hasSmallIconName = input.ReadString(ref result.smallIconName_);
+              break;
+            }
+            case 66: {
               result.hasDesc = input.ReadString(ref result.desc_);
               break;
             }
-            case 64: {
+            case 72: {
               result.hasGoldConv = input.ReadInt32(ref result.goldConv_);
               break;
             }
-            case 72: {
+            case 80: {
               result.hasStorUnit = input.ReadInt32(ref result.storUnit_);
               break;
             }
@@ -620,6 +648,26 @@ namespace com.game.framework.resource.data {
         PrepareBuilder();
         result.hasKeyName = false;
         result.keyName_ = "";
+        return this;
+      }
+      
+      public bool HasServiceableRate {
+        get { return result.hasServiceableRate; }
+      }
+      public int ServiceableRate {
+        get { return result.ServiceableRate; }
+        set { SetServiceableRate(value); }
+      }
+      public Builder SetServiceableRate(int value) {
+        PrepareBuilder();
+        result.hasServiceableRate = true;
+        result.serviceableRate_ = value;
+        return this;
+      }
+      public Builder ClearServiceableRate() {
+        PrepareBuilder();
+        result.hasServiceableRate = false;
+        result.serviceableRate_ = 0;
         return this;
       }
       

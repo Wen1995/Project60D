@@ -15,18 +15,19 @@ message ITEM_RES{
     optional string min_name = 3 [default = ""];
     /** 对应key */
     optional string key_name = 4 [default = ""];
+    /** 玩家可购买等级（玩家等级）（0代表不可用） */
+    optional int32 serviceable_rate = 5 [default = 0];
     /** 图标名称 */
-    optional string icon_name = 5 [default = ""];
+    optional string icon_name = 6 [default = ""];
     /** 小图标名称 */
-    optional string small_icon_name = 6 [default = ""];
+    optional string small_icon_name = 7 [default = ""];
     /** 描述 */
-    optional string desc = 7 [default = ""];
-    /** x/黄金
-未来读表 */
-    optional int32 gold_conv = 8 [default = 0];
+    optional string desc = 8 [default = ""];
+    /** 价格*1000 */
+    optional int32 gold_conv = 9 [default = 0];
     /** 储存体积
 占用 */
-    optional int32 stor_unit = 9 [default = 0];
+    optional int32 stor_unit = 10 [default = 0];
 }
 
 message ITEM_RES_ARRAY {

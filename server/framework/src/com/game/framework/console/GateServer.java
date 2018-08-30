@@ -101,7 +101,6 @@ public class GateServer {
         for (TPacket tPacket : tPackets) {
             try {
                 tPacket.setInner(true);
-                logger.info("[Inner TPacket CMD] {}", Cmd.valueOf(tPacket.getCmd()));
                 produce(tPacket);
             } catch (Exception e) {
                 logger.error("", e);
@@ -120,7 +119,7 @@ public class GateServer {
         if (p == null) {
             return;
         }
-
+        
         Handler handler = HandlersConfig.GetInstance().getHandlers().get(p.getCmd());
         if (handler == null) {
             logger.error("TPacket's handler not found = {}", p.getCmd());
@@ -135,6 +134,7 @@ public class GateServer {
 
         HandlerGroup handlerGroup =
                 HandlersConfig.GetInstance().getHandlerGroups().get(handler.getHandlerGroup());
+        logger.info("[TPacket CMD] {}", Cmd.valueOf(p.getCmd()));
         handlerGroup.produce(p);
     }
     

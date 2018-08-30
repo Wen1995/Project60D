@@ -28,9 +28,7 @@ public class MessageHandler {
 	public void saveMessage(TPacket p) throws Exception {
 		TCSSaveMessage msg = TCSSaveMessage.parseFrom(p.getBuffer());
 		Long groupId = msg.getGroupId();		Integer type = msg.getType();		ZombieInfo zombieInfo = msg.getZombieInfo();		FightingInfo fightingInfo = msg.getFightingInfo();		
-		TPacket resp = service.saveMessage(p.getUid(), groupId, type, zombieInfo, fightingInfo);
-		resp.setCmd(Cmd.SAVEMESSAGE_VALUE + 1000);
-		GateServer.GetInstance().send(resp);
+		service.saveMessage(p.getUid(), groupId, type, zombieInfo, fightingInfo);
 	}
 
 	/** 消息页数 */
@@ -68,9 +66,7 @@ public class MessageHandler {
 	public void sendMessageTag(TPacket p) throws Exception {
 		TCSSendMessageTag msg = TCSSendMessageTag.parseFrom(p.getBuffer());
 		Long messageId = msg.getMessageId();		
-		TPacket resp = service.sendMessageTag(p.getUid(), messageId);
-		resp.setCmd(Cmd.SENDMESSAGETAG_VALUE + 1000);
-		GateServer.GetInstance().send(resp);
+		service.sendMessageTag(p.getUid(), messageId);
 	}
 
 }

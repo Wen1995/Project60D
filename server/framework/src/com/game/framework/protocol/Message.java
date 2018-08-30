@@ -7844,9 +7844,27 @@ public final class Message {
   public interface MessageInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional int32 type = 1;
+    // optional int64 id = 1;
     /**
-     * <code>optional int32 type = 1;</code>
+     * <code>optional int64 id = 1;</code>
+     *
+     * <pre>
+     * 消息Id
+     * </pre>
+     */
+    boolean hasId();
+    /**
+     * <code>optional int64 id = 1;</code>
+     *
+     * <pre>
+     * 消息Id
+     * </pre>
+     */
+    long getId();
+
+    // optional int32 type = 2;
+    /**
+     * <code>optional int32 type = 2;</code>
      *
      * <pre>
      * 消息类型
@@ -7854,7 +7872,7 @@ public final class Message {
      */
     boolean hasType();
     /**
-     * <code>optional int32 type = 1;</code>
+     * <code>optional int32 type = 2;</code>
      *
      * <pre>
      * 消息类型
@@ -7862,9 +7880,9 @@ public final class Message {
      */
     int getType();
 
-    // optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;
+    // optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;
     /**
-     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
      *
      * <pre>
      * 僵尸入侵消息
@@ -7872,7 +7890,7 @@ public final class Message {
      */
     boolean hasZombieInfo();
     /**
-     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
      *
      * <pre>
      * 僵尸入侵消息
@@ -7880,7 +7898,7 @@ public final class Message {
      */
     com.game.framework.protocol.Message.ZombieInfo getZombieInfo();
     /**
-     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
      *
      * <pre>
      * 僵尸入侵消息
@@ -7888,9 +7906,9 @@ public final class Message {
      */
     com.game.framework.protocol.Message.ZombieInfoOrBuilder getZombieInfoOrBuilder();
 
-    // optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;
+    // optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;
     /**
-     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
      *
      * <pre>
      * 入侵结果消息
@@ -7898,7 +7916,7 @@ public final class Message {
      */
     boolean hasFightingInfo();
     /**
-     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
      *
      * <pre>
      * 入侵结果消息
@@ -7906,7 +7924,7 @@ public final class Message {
      */
     com.game.framework.protocol.Message.FightingInfo getFightingInfo();
     /**
-     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
      *
      * <pre>
      * 入侵结果消息
@@ -7914,9 +7932,9 @@ public final class Message {
      */
     com.game.framework.protocol.Message.FightingInfoOrBuilder getFightingInfoOrBuilder();
 
-    // optional int64 time = 4;
+    // optional int64 time = 5;
     /**
-     * <code>optional int64 time = 4;</code>
+     * <code>optional int64 time = 5;</code>
      *
      * <pre>
      * 发送时间
@@ -7924,7 +7942,7 @@ public final class Message {
      */
     boolean hasTime();
     /**
-     * <code>optional int64 time = 4;</code>
+     * <code>optional int64 time = 5;</code>
      *
      * <pre>
      * 发送时间
@@ -7932,9 +7950,9 @@ public final class Message {
      */
     long getTime();
 
-    // optional bool isRead = 5;
+    // optional bool isRead = 6;
     /**
-     * <code>optional bool isRead = 5;</code>
+     * <code>optional bool isRead = 6;</code>
      *
      * <pre>
      * 是否读过
@@ -7942,7 +7960,7 @@ public final class Message {
      */
     boolean hasIsRead();
     /**
-     * <code>optional bool isRead = 5;</code>
+     * <code>optional bool isRead = 6;</code>
      *
      * <pre>
      * 是否读过
@@ -8003,12 +8021,17 @@ public final class Message {
             }
             case 8: {
               bitField0_ |= 0x00000001;
+              id_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
               type_ = input.readInt32();
               break;
             }
-            case 18: {
+            case 26: {
               com.game.framework.protocol.Message.ZombieInfo.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = zombieInfo_.toBuilder();
               }
               zombieInfo_ = input.readMessage(com.game.framework.protocol.Message.ZombieInfo.PARSER, extensionRegistry);
@@ -8016,12 +8039,12 @@ public final class Message {
                 subBuilder.mergeFrom(zombieInfo_);
                 zombieInfo_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000004;
               break;
             }
-            case 26: {
+            case 34: {
               com.game.framework.protocol.Message.FightingInfo.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = fightingInfo_.toBuilder();
               }
               fightingInfo_ = input.readMessage(com.game.framework.protocol.Message.FightingInfo.PARSER, extensionRegistry);
@@ -8029,16 +8052,16 @@ public final class Message {
                 subBuilder.mergeFrom(fightingInfo_);
                 fightingInfo_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            case 32: {
               bitField0_ |= 0x00000008;
-              time_ = input.readInt64();
               break;
             }
             case 40: {
               bitField0_ |= 0x00000010;
+              time_ = input.readInt64();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
               isRead_ = input.readBool();
               break;
             }
@@ -8082,21 +8105,45 @@ public final class Message {
     }
 
     private int bitField0_;
-    // optional int32 type = 1;
-    public static final int TYPE_FIELD_NUMBER = 1;
+    // optional int64 id = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>optional int64 id = 1;</code>
+     *
+     * <pre>
+     * 消息Id
+     * </pre>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int64 id = 1;</code>
+     *
+     * <pre>
+     * 消息Id
+     * </pre>
+     */
+    public long getId() {
+      return id_;
+    }
+
+    // optional int32 type = 2;
+    public static final int TYPE_FIELD_NUMBER = 2;
     private int type_;
     /**
-     * <code>optional int32 type = 1;</code>
+     * <code>optional int32 type = 2;</code>
      *
      * <pre>
      * 消息类型
      * </pre>
      */
     public boolean hasType() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 type = 1;</code>
+     * <code>optional int32 type = 2;</code>
      *
      * <pre>
      * 消息类型
@@ -8106,21 +8153,21 @@ public final class Message {
       return type_;
     }
 
-    // optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;
-    public static final int ZOMBIEINFO_FIELD_NUMBER = 2;
+    // optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;
+    public static final int ZOMBIEINFO_FIELD_NUMBER = 3;
     private com.game.framework.protocol.Message.ZombieInfo zombieInfo_;
     /**
-     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
      *
      * <pre>
      * 僵尸入侵消息
      * </pre>
      */
     public boolean hasZombieInfo() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
      *
      * <pre>
      * 僵尸入侵消息
@@ -8130,7 +8177,7 @@ public final class Message {
       return zombieInfo_;
     }
     /**
-     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+     * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
      *
      * <pre>
      * 僵尸入侵消息
@@ -8140,21 +8187,21 @@ public final class Message {
       return zombieInfo_;
     }
 
-    // optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;
-    public static final int FIGHTINGINFO_FIELD_NUMBER = 3;
+    // optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;
+    public static final int FIGHTINGINFO_FIELD_NUMBER = 4;
     private com.game.framework.protocol.Message.FightingInfo fightingInfo_;
     /**
-     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
      *
      * <pre>
      * 入侵结果消息
      * </pre>
      */
     public boolean hasFightingInfo() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
      *
      * <pre>
      * 入侵结果消息
@@ -8164,7 +8211,7 @@ public final class Message {
       return fightingInfo_;
     }
     /**
-     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+     * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
      *
      * <pre>
      * 入侵结果消息
@@ -8174,21 +8221,21 @@ public final class Message {
       return fightingInfo_;
     }
 
-    // optional int64 time = 4;
-    public static final int TIME_FIELD_NUMBER = 4;
+    // optional int64 time = 5;
+    public static final int TIME_FIELD_NUMBER = 5;
     private long time_;
     /**
-     * <code>optional int64 time = 4;</code>
+     * <code>optional int64 time = 5;</code>
      *
      * <pre>
      * 发送时间
      * </pre>
      */
     public boolean hasTime() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional int64 time = 4;</code>
+     * <code>optional int64 time = 5;</code>
      *
      * <pre>
      * 发送时间
@@ -8198,21 +8245,21 @@ public final class Message {
       return time_;
     }
 
-    // optional bool isRead = 5;
-    public static final int ISREAD_FIELD_NUMBER = 5;
+    // optional bool isRead = 6;
+    public static final int ISREAD_FIELD_NUMBER = 6;
     private boolean isRead_;
     /**
-     * <code>optional bool isRead = 5;</code>
+     * <code>optional bool isRead = 6;</code>
      *
      * <pre>
      * 是否读过
      * </pre>
      */
     public boolean hasIsRead() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional bool isRead = 5;</code>
+     * <code>optional bool isRead = 6;</code>
      *
      * <pre>
      * 是否读过
@@ -8223,6 +8270,7 @@ public final class Message {
     }
 
     private void initFields() {
+      id_ = 0L;
       type_ = 0;
       zombieInfo_ = com.game.framework.protocol.Message.ZombieInfo.getDefaultInstance();
       fightingInfo_ = com.game.framework.protocol.Message.FightingInfo.getDefaultInstance();
@@ -8242,19 +8290,22 @@ public final class Message {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, type_);
+        output.writeInt64(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, zombieInfo_);
+        output.writeInt32(2, type_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, fightingInfo_);
+        output.writeMessage(3, zombieInfo_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt64(4, time_);
+        output.writeMessage(4, fightingInfo_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBool(5, isRead_);
+        output.writeInt64(5, time_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBool(6, isRead_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -8267,23 +8318,27 @@ public final class Message {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, type_);
+          .computeInt64Size(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, zombieInfo_);
+          .computeInt32Size(2, type_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, fightingInfo_);
+          .computeMessageSize(3, zombieInfo_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, time_);
+          .computeMessageSize(4, fightingInfo_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, isRead_);
+          .computeInt64Size(5, time_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, isRead_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -8403,24 +8458,26 @@ public final class Message {
 
       public Builder clear() {
         super.clear();
-        type_ = 0;
+        id_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (zombieInfoBuilder_ == null) {
           zombieInfo_ = com.game.framework.protocol.Message.ZombieInfo.getDefaultInstance();
         } else {
           zombieInfoBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (fightingInfoBuilder_ == null) {
           fightingInfo_ = com.game.framework.protocol.Message.FightingInfo.getDefaultInstance();
         } else {
           fightingInfoBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        time_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
-        isRead_ = false;
+        time_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000010);
+        isRead_ = false;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -8452,29 +8509,33 @@ public final class Message {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.type_ = type_;
+        result.id_ = id_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
+        }
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
         }
         if (zombieInfoBuilder_ == null) {
           result.zombieInfo_ = zombieInfo_;
         } else {
           result.zombieInfo_ = zombieInfoBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
         }
         if (fightingInfoBuilder_ == null) {
           result.fightingInfo_ = fightingInfo_;
         } else {
           result.fightingInfo_ = fightingInfoBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.time_ = time_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
+        }
+        result.time_ = time_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
         }
         result.isRead_ = isRead_;
         result.bitField0_ = to_bitField0_;
@@ -8493,6 +8554,9 @@ public final class Message {
 
       public Builder mergeFrom(com.game.framework.protocol.Message.MessageInfo other) {
         if (other == com.game.framework.protocol.Message.MessageInfo.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
         if (other.hasType()) {
           setType(other.getType());
         }
@@ -8535,20 +8599,69 @@ public final class Message {
       }
       private int bitField0_;
 
-      // optional int32 type = 1;
+      // optional int64 id = 1;
+      private long id_ ;
+      /**
+       * <code>optional int64 id = 1;</code>
+       *
+       * <pre>
+       * 消息Id
+       * </pre>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int64 id = 1;</code>
+       *
+       * <pre>
+       * 消息Id
+       * </pre>
+       */
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>optional int64 id = 1;</code>
+       *
+       * <pre>
+       * 消息Id
+       * </pre>
+       */
+      public Builder setId(long value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 id = 1;</code>
+       *
+       * <pre>
+       * 消息Id
+       * </pre>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 type = 2;
       private int type_ ;
       /**
-       * <code>optional int32 type = 1;</code>
+       * <code>optional int32 type = 2;</code>
        *
        * <pre>
        * 消息类型
        * </pre>
        */
       public boolean hasType() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 type = 1;</code>
+       * <code>optional int32 type = 2;</code>
        *
        * <pre>
        * 消息类型
@@ -8558,48 +8671,48 @@ public final class Message {
         return type_;
       }
       /**
-       * <code>optional int32 type = 1;</code>
+       * <code>optional int32 type = 2;</code>
        *
        * <pre>
        * 消息类型
        * </pre>
        */
       public Builder setType(int value) {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 type = 1;</code>
+       * <code>optional int32 type = 2;</code>
        *
        * <pre>
        * 消息类型
        * </pre>
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         type_ = 0;
         onChanged();
         return this;
       }
 
-      // optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;
+      // optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;
       private com.game.framework.protocol.Message.ZombieInfo zombieInfo_ = com.game.framework.protocol.Message.ZombieInfo.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.game.framework.protocol.Message.ZombieInfo, com.game.framework.protocol.Message.ZombieInfo.Builder, com.game.framework.protocol.Message.ZombieInfoOrBuilder> zombieInfoBuilder_;
       /**
-       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
        *
        * <pre>
        * 僵尸入侵消息
        * </pre>
        */
       public boolean hasZombieInfo() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
        *
        * <pre>
        * 僵尸入侵消息
@@ -8613,7 +8726,7 @@ public final class Message {
         }
       }
       /**
-       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
        *
        * <pre>
        * 僵尸入侵消息
@@ -8629,11 +8742,11 @@ public final class Message {
         } else {
           zombieInfoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
        *
        * <pre>
        * 僵尸入侵消息
@@ -8647,11 +8760,11 @@ public final class Message {
         } else {
           zombieInfoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
        *
        * <pre>
        * 僵尸入侵消息
@@ -8659,7 +8772,7 @@ public final class Message {
        */
       public Builder mergeZombieInfo(com.game.framework.protocol.Message.ZombieInfo value) {
         if (zombieInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
               zombieInfo_ != com.game.framework.protocol.Message.ZombieInfo.getDefaultInstance()) {
             zombieInfo_ =
               com.game.framework.protocol.Message.ZombieInfo.newBuilder(zombieInfo_).mergeFrom(value).buildPartial();
@@ -8670,11 +8783,11 @@ public final class Message {
         } else {
           zombieInfoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
        *
        * <pre>
        * 僵尸入侵消息
@@ -8687,23 +8800,23 @@ public final class Message {
         } else {
           zombieInfoBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
        *
        * <pre>
        * 僵尸入侵消息
        * </pre>
        */
       public com.game.framework.protocol.Message.ZombieInfo.Builder getZombieInfoBuilder() {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
         return getZombieInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
        *
        * <pre>
        * 僵尸入侵消息
@@ -8717,7 +8830,7 @@ public final class Message {
         }
       }
       /**
-       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 2;</code>
+       * <code>optional .com.game.framework.protocol.ZombieInfo zombieInfo = 3;</code>
        *
        * <pre>
        * 僵尸入侵消息
@@ -8737,22 +8850,22 @@ public final class Message {
         return zombieInfoBuilder_;
       }
 
-      // optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;
+      // optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;
       private com.game.framework.protocol.Message.FightingInfo fightingInfo_ = com.game.framework.protocol.Message.FightingInfo.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.game.framework.protocol.Message.FightingInfo, com.game.framework.protocol.Message.FightingInfo.Builder, com.game.framework.protocol.Message.FightingInfoOrBuilder> fightingInfoBuilder_;
       /**
-       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
        *
        * <pre>
        * 入侵结果消息
        * </pre>
        */
       public boolean hasFightingInfo() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
        *
        * <pre>
        * 入侵结果消息
@@ -8766,7 +8879,7 @@ public final class Message {
         }
       }
       /**
-       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
        *
        * <pre>
        * 入侵结果消息
@@ -8782,11 +8895,11 @@ public final class Message {
         } else {
           fightingInfoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
        *
        * <pre>
        * 入侵结果消息
@@ -8800,11 +8913,11 @@ public final class Message {
         } else {
           fightingInfoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
        *
        * <pre>
        * 入侵结果消息
@@ -8812,7 +8925,7 @@ public final class Message {
        */
       public Builder mergeFightingInfo(com.game.framework.protocol.Message.FightingInfo value) {
         if (fightingInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
               fightingInfo_ != com.game.framework.protocol.Message.FightingInfo.getDefaultInstance()) {
             fightingInfo_ =
               com.game.framework.protocol.Message.FightingInfo.newBuilder(fightingInfo_).mergeFrom(value).buildPartial();
@@ -8823,11 +8936,11 @@ public final class Message {
         } else {
           fightingInfoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
        *
        * <pre>
        * 入侵结果消息
@@ -8840,23 +8953,23 @@ public final class Message {
         } else {
           fightingInfoBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
       /**
-       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
        *
        * <pre>
        * 入侵结果消息
        * </pre>
        */
       public com.game.framework.protocol.Message.FightingInfo.Builder getFightingInfoBuilder() {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
         return getFightingInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
        *
        * <pre>
        * 入侵结果消息
@@ -8870,7 +8983,7 @@ public final class Message {
         }
       }
       /**
-       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 3;</code>
+       * <code>optional .com.game.framework.protocol.FightingInfo fightingInfo = 4;</code>
        *
        * <pre>
        * 入侵结果消息
@@ -8890,20 +9003,20 @@ public final class Message {
         return fightingInfoBuilder_;
       }
 
-      // optional int64 time = 4;
+      // optional int64 time = 5;
       private long time_ ;
       /**
-       * <code>optional int64 time = 4;</code>
+       * <code>optional int64 time = 5;</code>
        *
        * <pre>
        * 发送时间
        * </pre>
        */
       public boolean hasTime() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional int64 time = 4;</code>
+       * <code>optional int64 time = 5;</code>
        *
        * <pre>
        * 发送时间
@@ -8913,46 +9026,46 @@ public final class Message {
         return time_;
       }
       /**
-       * <code>optional int64 time = 4;</code>
+       * <code>optional int64 time = 5;</code>
        *
        * <pre>
        * 发送时间
        * </pre>
        */
       public Builder setTime(long value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         time_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 time = 4;</code>
+       * <code>optional int64 time = 5;</code>
        *
        * <pre>
        * 发送时间
        * </pre>
        */
       public Builder clearTime() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         time_ = 0L;
         onChanged();
         return this;
       }
 
-      // optional bool isRead = 5;
+      // optional bool isRead = 6;
       private boolean isRead_ ;
       /**
-       * <code>optional bool isRead = 5;</code>
+       * <code>optional bool isRead = 6;</code>
        *
        * <pre>
        * 是否读过
        * </pre>
        */
       public boolean hasIsRead() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional bool isRead = 5;</code>
+       * <code>optional bool isRead = 6;</code>
        *
        * <pre>
        * 是否读过
@@ -8962,27 +9075,27 @@ public final class Message {
         return isRead_;
       }
       /**
-       * <code>optional bool isRead = 5;</code>
+       * <code>optional bool isRead = 6;</code>
        *
        * <pre>
        * 是否读过
        * </pre>
        */
       public Builder setIsRead(boolean value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         isRead_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool isRead = 5;</code>
+       * <code>optional bool isRead = 6;</code>
        *
        * <pre>
        * 是否读过
        * </pre>
        */
       public Builder clearIsRead() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         isRead_ = false;
         onChanged();
         return this;
@@ -10266,14 +10379,15 @@ public final class Message {
       "\001(\005\"6\n\016TCSGetPageList\022\023\n\013currentPage\030\001 \001" +
       "(\005\022\017\n\007groupId\030\002 \001(\003\"O\n\016TSCGetPageList\022=\n" +
       "\013messageInfo\030\001 \003(\0132(.com.game.framework." +
-      "protocol.MessageInfo\"\267\001\n\013MessageInfo\022\014\n\004" +
-      "type\030\001 \001(\005\022;\n\nzombieInfo\030\002 \001(\0132\'.com.gam" +
-      "e.framework.protocol.ZombieInfo\022?\n\014fight" +
-      "ingInfo\030\003 \001(\0132).com.game.framework.proto" +
-      "col.FightingInfo\022\014\n\004time\030\004 \001(\003\022\016\n\006isRead" +
-      "\030\005 \001(\010\"\022\n\020TCSGetMessageTag\"&\n\020TSCGetMess" +
-      "ageTag\022\022\n\nmessageNum\030\001 \001(\005\"&\n\021TCSSendMes",
-      "sageTag\022\021\n\tmessageId\030\001 \001(\003B\002H\001"
+      "protocol.MessageInfo\"\303\001\n\013MessageInfo\022\n\n\002" +
+      "id\030\001 \001(\003\022\014\n\004type\030\002 \001(\005\022;\n\nzombieInfo\030\003 \001" +
+      "(\0132\'.com.game.framework.protocol.ZombieI" +
+      "nfo\022?\n\014fightingInfo\030\004 \001(\0132).com.game.fra" +
+      "mework.protocol.FightingInfo\022\014\n\004time\030\005 \001" +
+      "(\003\022\016\n\006isRead\030\006 \001(\010\"\022\n\020TCSGetMessageTag\"&" +
+      "\n\020TSCGetMessageTag\022\022\n\nmessageNum\030\001 \001(\005\"&",
+      "\n\021TCSSendMessageTag\022\021\n\tmessageId\030\001 \001(\003B\002" +
+      "H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -10345,7 +10459,7 @@ public final class Message {
           internal_static_com_game_framework_protocol_MessageInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_MessageInfo_descriptor,
-              new java.lang.String[] { "Type", "ZombieInfo", "FightingInfo", "Time", "IsRead", });
+              new java.lang.String[] { "Id", "Type", "ZombieInfo", "FightingInfo", "Time", "IsRead", });
           internal_static_com_game_framework_protocol_TCSGetMessageTag_descriptor =
             getDescriptor().getMessageTypes().get(11);
           internal_static_com_game_framework_protocol_TCSGetMessageTag_fieldAccessorTable = new

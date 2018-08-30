@@ -43,14 +43,14 @@ public class TimerManager {
         return instance;
     }
 
-    private static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+    private static ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     private ITimerDao timerDao = (ITimerDao) context.getBean("timerDao");
     private IUserDao userDao = (IUserDao) context.getBean("userDao");
 
     public ConcurrentHashMap<Long, ScheduledFuture<?>> futureMap;
     public ConcurrentHashMap<Long, ScheduledFuture<?>> uid2FutureMap;
     ScheduleTask scheduleTask;
-    
+
     public void init() {
         scheduleTask = new ScheduleTask();
         futureMap = new ConcurrentHashMap<Long, ScheduledFuture<?>>();
@@ -100,38 +100,38 @@ public class TimerManager {
                 }
             }
         }, 60, 60, TimeUnit.SECONDS);
-        
+
         // 选取一定比例的庄园被打
-        scheduleTask.scheduleWithFixedDelay(new Runnable() {
+        /*scheduleTask.scheduleWithFixedDelay(new Runnable() {
             @Override
             public void run() {
                 Random rand = new Random();
-                ReadOnlyMap<Integer, ARITHMETIC_COEFFICIENT> arithmeticCoefficientMap = StaticDataManager.GetInstance().arithmeticCoefficientMap;
+                ReadOnlyMap<Integer, ARITHMETIC_COEFFICIENT> arithmeticCoefficientMap =
+                        StaticDataManager.GetInstance().arithmeticCoefficientMap;
                 int rate = arithmeticCoefficientMap.get(30110000).getAcK5();
                 int day = arithmeticCoefficientMap.get(30130000).getAcK4();
-                int hour = 24/arithmeticCoefficientMap.get(30120000).getAcK4();
-                Map<Long, Long> groupId2InvadeTime = DynamicDataManager.GetInstance().groupId2InvadeTime;
+                int hour = 24 / arithmeticCoefficientMap.get(30120000).getAcK4();
+                Map<Long, Long> groupId2InvadeTime =
+                        DynamicDataManager.GetInstance().groupId2InvadeTime;
                 for (Map.Entry<Long, Long> entry : groupId2InvadeTime.entrySet()) {
                     Long groupId = entry.getKey();
                     long currentTime = System.currentTimeMillis();
                     // 是否多天未被进攻
-                    if (currentTime - entry.getValue() > Constant.TIME_DAY*day) {
-                        TCSZombieInvade pInvade = TCSZombieInvade.newBuilder()
-                                .setGroupId(groupId)
-                                .build();
-                        
+                    if (currentTime - entry.getValue() > Constant.TIME_DAY * day) {
+                        TCSZombieInvade pInvade =
+                                TCSZombieInvade.newBuilder().setGroupId(groupId).build();
+
                         TPacket p = new TPacket();
                         p.setCmd(Cmd.ZOMBIEINVADE_VALUE);
                         p.setReceiveTime(currentTime);
                         p.setBuffer(pInvade.toByteArray());
                         GateServer.GetInstance().sendInner(p);
                     } else if (rand.nextInt(10000) < rate) {
-                    // 是否可以进攻
-                        if (entry.getValue() + Constant.TIME_HOUR*hour < currentTime) {
-                            TCSZombieInvade pInvade = TCSZombieInvade.newBuilder()
-                                    .setGroupId(groupId)
-                                    .build();
-                            
+                        // 是否可以进攻
+                        if (entry.getValue() + Constant.TIME_HOUR * hour < currentTime) {
+                            TCSZombieInvade pInvade =
+                                    TCSZombieInvade.newBuilder().setGroupId(groupId).build();
+
                             TPacket p = new TPacket();
                             p.setCmd(Cmd.ZOMBIEINVADE_VALUE);
                             p.setReceiveTime(currentTime);
@@ -141,7 +141,7 @@ public class TimerManager {
                     }
                 }
             }
-        }, 60, 60, TimeUnit.SECONDS);
+        }, 60, 60, TimeUnit.SECONDS);*/
     }
 
     public ScheduledFuture<?> sumbit(String key, final Long uid, final Integer cmd,
@@ -229,7 +229,7 @@ public class TimerManager {
         }
         return false;
     }
-    
+
     public boolean cancel2Uid(Long id) {
         ScheduledFuture<?> scheduledFuture = uid2FutureMap.remove(id);
         if (scheduledFuture != null) {

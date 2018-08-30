@@ -165,63 +165,63 @@ public class MessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andGroupidIsNull() {
-            addCriterion("groupId is null");
+        public Criteria andGroupIdIsNull() {
+            addCriterion("group_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidIsNotNull() {
-            addCriterion("groupId is not null");
+        public Criteria andGroupIdIsNotNull() {
+            addCriterion("group_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidEqualTo(Long value) {
-            addCriterion("groupId =", value, "groupid");
+        public Criteria andGroupIdEqualTo(Long value) {
+            addCriterion("group_id =", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidNotEqualTo(Long value) {
-            addCriterion("groupId <>", value, "groupid");
+        public Criteria andGroupIdNotEqualTo(Long value) {
+            addCriterion("group_id <>", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidGreaterThan(Long value) {
-            addCriterion("groupId >", value, "groupid");
+        public Criteria andGroupIdGreaterThan(Long value) {
+            addCriterion("group_id >", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidGreaterThanOrEqualTo(Long value) {
-            addCriterion("groupId >=", value, "groupid");
+        public Criteria andGroupIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("group_id >=", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidLessThan(Long value) {
-            addCriterion("groupId <", value, "groupid");
+        public Criteria andGroupIdLessThan(Long value) {
+            addCriterion("group_id <", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidLessThanOrEqualTo(Long value) {
-            addCriterion("groupId <=", value, "groupid");
+        public Criteria andGroupIdLessThanOrEqualTo(Long value) {
+            addCriterion("group_id <=", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidIn(List<Long> values) {
-            addCriterion("groupId in", values, "groupid");
+        public Criteria andGroupIdIn(List<Long> values) {
+            addCriterion("group_id in", values, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidNotIn(List<Long> values) {
-            addCriterion("groupId not in", values, "groupid");
+        public Criteria andGroupIdNotIn(List<Long> values) {
+            addCriterion("group_id not in", values, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidBetween(Long value1, Long value2) {
-            addCriterion("groupId between", value1, value2, "groupid");
+        public Criteria andGroupIdBetween(Long value1, Long value2) {
+            addCriterion("group_id between", value1, value2, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupidNotBetween(Long value1, Long value2) {
-            addCriterion("groupId not between", value1, value2, "groupid");
+        public Criteria andGroupIdNotBetween(Long value1, Long value2) {
+            addCriterion("group_id not between", value1, value2, "groupId");
             return (Criteria) this;
         }
 

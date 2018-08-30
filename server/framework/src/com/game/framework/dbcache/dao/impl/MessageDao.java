@@ -18,7 +18,7 @@ public class MessageDao extends BaseDao<Message, MessageMapper, MessageExample> 
         PageHelper.startPage(currentPage, Constant.MESSAGE_RECORD_COUNT);
         MessageExample example = new MessageExample();
         example.setOrderByClause("time desc");
-        example.createCriteria().andGroupidEqualTo(groupId);
+        example.createCriteria().andGroupIdEqualTo(groupId);
         return sqlSelectByExample(example);
     }
     

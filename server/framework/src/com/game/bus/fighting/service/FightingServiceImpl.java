@@ -26,6 +26,7 @@ import com.game.framework.protocol.Database.BuildingState;
 import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Message.InvadeResultInfo;
 import com.game.framework.protocol.Message.LossInfo;
+import com.game.framework.protocol.Message.TCSGetMessageTag;
 import com.game.framework.protocol.Fighting.TCSReceiveZombieMessage;
 import com.game.framework.protocol.Fighting.TCSZombieInvadeResult;
 import com.game.framework.protocol.Message.UserInfo;
@@ -201,6 +202,7 @@ public class FightingServiceImpl implements FightingService {
                 resp.setUid(uid);
                 resp.setCmd(Cmd.GETMESSAGETAG_VALUE);
                 resp.setReceiveTime(System.currentTimeMillis());
+                resp.setBuffer(TCSGetMessageTag.newBuilder().build().toByteArray());
                 GateServer.GetInstance().produce(resp);
             }
         }
@@ -445,6 +447,7 @@ public class FightingServiceImpl implements FightingService {
                 resp.setUid(uid);
                 resp.setCmd(Cmd.GETMESSAGETAG_VALUE);
                 resp.setReceiveTime(System.currentTimeMillis());
+                resp.setBuffer(TCSGetMessageTag.newBuilder().build().toByteArray());
                 GateServer.GetInstance().produce(resp);
             }
         }
@@ -463,22 +466,24 @@ public class FightingServiceImpl implements FightingService {
                 invadeResultInfoMap.put(u, killZombieNum);
             }
         }
-        int leftZombieNum = zombieNum - alreadyKillZombieNum;
-        Map<User, Integer> resultMap = MapUtil.sortMapByValue(invadeResultInfoMap);
-        Iterator<Map.Entry<User, Integer>> entries = resultMap.entrySet().iterator();
-        while (leftZombieNum > 0 && entries.hasNext()) {
-            Map.Entry<User, Integer> entry = entries.next();
-            entry.setValue(entry.getValue() + 1);
-            leftZombieNum--;
-        }
-        for (Map.Entry<User, Integer> entry : resultMap.entrySet()) {
-            // TODO 根据Id区分类型
-            InvadeResultInfo.Builder invadeResultInfoBuilder = InvadeResultInfo.newBuilder()
-                    .setType(InvadeResultType.PLAYER_VALUE)
-                    .setId(entry.getKey().getId())
-                    .setNum(entry.getValue())
-                    .setBlood(entry.getKey().getBlood());
-            invadeResultInfos.add(invadeResultInfoBuilder.build());
+        if (invadeResultInfoMap.size() > 0) {
+            int leftZombieNum = zombieNum - alreadyKillZombieNum;
+            Map<User, Integer> resultMap = MapUtil.sortMapByValue(invadeResultInfoMap);
+            Iterator<Map.Entry<User, Integer>> entries = resultMap.entrySet().iterator();
+            while (leftZombieNum > 0 && entries.hasNext()) {
+                Map.Entry<User, Integer> entry = entries.next();
+                entry.setValue(entry.getValue() + 1);
+                leftZombieNum--;
+            }
+            for (Map.Entry<User, Integer> entry : resultMap.entrySet()) {
+                // TODO 根据Id区分类型
+                InvadeResultInfo.Builder invadeResultInfoBuilder = InvadeResultInfo.newBuilder()
+                        .setType(InvadeResultType.PLAYER_VALUE)
+                        .setId(entry.getKey().getId())
+                        .setNum(entry.getValue())
+                        .setBlood(entry.getKey().getBlood());
+                invadeResultInfos.add(invadeResultInfoBuilder.build());
+            }
         }
     }
 

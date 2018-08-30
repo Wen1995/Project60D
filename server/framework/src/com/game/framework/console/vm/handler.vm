@@ -32,7 +32,8 @@ public class ${model}Handler {
 		TCS${attr[1]} msg = TCS${attr[1]}.parseFrom(p.getBuffer());
 		${attr[3]}
 #if(${attr[2]} != "logout" && ${attr[2]} != "zombieInvade" 
-&& ${attr[2]} != "receiveZombieMessage" && ${attr[2]} != "zombieInvadeResult")
+&& ${attr[2]} != "receiveZombieMessage" && ${attr[2]} != "zombieInvadeResult"
+&& ${attr[2]} != "saveMessage" && ${attr[2]} != "sendMessageTag")
 		TPacket resp = service.${attr[2]}(p.getUid()${attr[4]});
 		resp.setCmd(Cmd.${attr[5]}_VALUE + 1000);
 #else
@@ -47,7 +48,9 @@ public class ${model}Handler {
 		}
 		GateServer.GetInstance().setChannelData(p.getChannel(), resp.getUid());
 	#end
-#if(${attr[2]} != "logout" && ${attr[2]} != "zombieInvade" && ${attr[2]} != "receiveZombieMessage" && ${attr[2]} != "zombieInvadeResult")
+#if(${attr[2]} != "logout" && ${attr[2]} != "zombieInvade" 
+&& ${attr[2]} != "receiveZombieMessage" && ${attr[2]} != "zombieInvadeResult" 
+&& ${attr[2]} != "saveMessage" && ${attr[2]} != "sendMessageTag")
 	GateServer.GetInstance().send(resp);
 	}
 #else

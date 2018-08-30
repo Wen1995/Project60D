@@ -21,15 +21,15 @@ public final class MessageCache {
      */
     long getId();
 
-    // optional int64 groupid = 2;
+    // optional int64 groupId = 2;
     /**
-     * <code>optional int64 groupid = 2;</code>
+     * <code>optional int64 groupId = 2;</code>
      */
-    boolean hasGroupid();
+    boolean hasGroupId();
     /**
-     * <code>optional int64 groupid = 2;</code>
+     * <code>optional int64 groupId = 2;</code>
      */
-    long getGroupid();
+    long getGroupId();
 
     // optional int32 type = 3;
     /**
@@ -119,7 +119,7 @@ public final class MessageCache {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              groupid_ = input.readInt64();
+              groupId_ = input.readInt64();
               break;
             }
             case 24: {
@@ -193,20 +193,20 @@ public final class MessageCache {
       return id_;
     }
 
-    // optional int64 groupid = 2;
+    // optional int64 groupId = 2;
     public static final int GROUPID_FIELD_NUMBER = 2;
-    private long groupid_;
+    private long groupId_;
     /**
-     * <code>optional int64 groupid = 2;</code>
+     * <code>optional int64 groupId = 2;</code>
      */
-    public boolean hasGroupid() {
+    public boolean hasGroupId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int64 groupid = 2;</code>
+     * <code>optional int64 groupId = 2;</code>
      */
-    public long getGroupid() {
-      return groupid_;
+    public long getGroupId() {
+      return groupId_;
     }
 
     // optional int32 type = 3;
@@ -259,7 +259,7 @@ public final class MessageCache {
 
     private void initFields() {
       id_ = 0L;
-      groupid_ = 0L;
+      groupId_ = 0L;
       type_ = 0;
       time_ = 0L;
       data_ = com.google.protobuf.ByteString.EMPTY;
@@ -280,7 +280,7 @@ public final class MessageCache {
         output.writeInt64(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt64(2, groupid_);
+        output.writeInt64(2, groupId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, type_);
@@ -306,7 +306,7 @@ public final class MessageCache {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, groupid_);
+          .computeInt64Size(2, groupId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -438,7 +438,7 @@ public final class MessageCache {
         super.clear();
         id_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        groupid_ = 0L;
+        groupId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
         type_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -481,7 +481,7 @@ public final class MessageCache {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.groupid_ = groupid_;
+        result.groupId_ = groupId_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -513,8 +513,8 @@ public final class MessageCache {
         if (other.hasId()) {
           setId(other.getId());
         }
-        if (other.hasGroupid()) {
-          setGroupid(other.getGroupid());
+        if (other.hasGroupId()) {
+          setGroupId(other.getGroupId());
         }
         if (other.hasType()) {
           setType(other.getType());
@@ -585,35 +585,35 @@ public final class MessageCache {
         return this;
       }
 
-      // optional int64 groupid = 2;
-      private long groupid_ ;
+      // optional int64 groupId = 2;
+      private long groupId_ ;
       /**
-       * <code>optional int64 groupid = 2;</code>
+       * <code>optional int64 groupId = 2;</code>
        */
-      public boolean hasGroupid() {
+      public boolean hasGroupId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int64 groupid = 2;</code>
+       * <code>optional int64 groupId = 2;</code>
        */
-      public long getGroupid() {
-        return groupid_;
+      public long getGroupId() {
+        return groupId_;
       }
       /**
-       * <code>optional int64 groupid = 2;</code>
+       * <code>optional int64 groupId = 2;</code>
        */
-      public Builder setGroupid(long value) {
+      public Builder setGroupId(long value) {
         bitField0_ |= 0x00000002;
-        groupid_ = value;
+        groupId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 groupid = 2;</code>
+       * <code>optional int64 groupId = 2;</code>
        */
-      public Builder clearGroupid() {
+      public Builder clearGroupId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        groupid_ = 0L;
+        groupId_ = 0L;
         onChanged();
         return this;
       }
@@ -747,7 +747,7 @@ public final class MessageCache {
     java.lang.String[] descriptorData = {
       "\n\022MessageCache.proto\022 com.game.framework" +
       ".dbcache.model\"U\n\014ProtoMessage\022\n\n\002id\030\001 \001" +
-      "(\003\022\017\n\007groupid\030\002 \001(\003\022\014\n\004type\030\003 \001(\005\022\014\n\004tim" +
+      "(\003\022\017\n\007groupId\030\002 \001(\003\022\014\n\004type\030\003 \001(\005\022\014\n\004tim" +
       "e\030\004 \001(\022\022\014\n\004data\030\005 \001(\014B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
@@ -760,7 +760,7 @@ public final class MessageCache {
           internal_static_com_game_framework_dbcache_model_ProtoMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_dbcache_model_ProtoMessage_descriptor,
-              new java.lang.String[] { "Id", "Groupid", "Type", "Time", "Data", });
+              new java.lang.String[] { "Id", "GroupId", "Type", "Time", "Data", });
           return null;
         }
       };

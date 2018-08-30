@@ -29,7 +29,7 @@ public class DynamicDataManager {
         return instance;
     }
 
-    private static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+    private static ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     private IUserDao userDao = (IUserDao) context.getBean("userDao");
     private IGroupDao groupDao = (IGroupDao) context.getBean("groupDao");
     

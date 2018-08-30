@@ -15,7 +15,7 @@ import com.game.framework.dbcache.model.Server;
 public class ServerConfig {
     private static Logger logger = LoggerFactory.getLogger(ServerConfig.class);
     
-    private static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+    private static ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     private static Properties prop = new Properties();
     private static int restartTimes;
 

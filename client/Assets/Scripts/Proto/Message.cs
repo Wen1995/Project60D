@@ -4103,8 +4103,8 @@ namespace com.game.framework.protocol {
   public sealed partial class MessageInfo : pb::GeneratedMessageLite<MessageInfo, MessageInfo.Builder> {
     private MessageInfo() { }
     private static readonly MessageInfo defaultInstance = new MessageInfo().MakeReadOnly();
-    private static readonly string[] _messageInfoFieldNames = new string[] { "fightingInfo", "isRead", "time", "type", "zombieInfo" };
-    private static readonly uint[] _messageInfoFieldTags = new uint[] { 26, 40, 32, 8, 18 };
+    private static readonly string[] _messageInfoFieldNames = new string[] { "fightingInfo", "id", "isRead", "time", "type", "zombieInfo" };
+    private static readonly uint[] _messageInfoFieldTags = new uint[] { 34, 8, 48, 40, 16, 26 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -4126,7 +4126,20 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int TypeFieldNumber = 1;
+    public const int IdFieldNumber = 1;
+    private bool hasId;
+    private long id_;
+    public bool HasId {
+      get { return hasId; }
+    }
+    public long Id {
+      get { return id_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int TypeFieldNumber = 2;
     private bool hasType;
     private int type_;
     public bool HasType {
@@ -4139,7 +4152,7 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ZombieInfoFieldNumber = 2;
+    public const int ZombieInfoFieldNumber = 3;
     private bool hasZombieInfo;
     private global::com.game.framework.protocol.ZombieInfo zombieInfo_;
     public bool HasZombieInfo {
@@ -4152,7 +4165,7 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int FightingInfoFieldNumber = 3;
+    public const int FightingInfoFieldNumber = 4;
     private bool hasFightingInfo;
     private global::com.game.framework.protocol.FightingInfo fightingInfo_;
     public bool HasFightingInfo {
@@ -4165,7 +4178,7 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int TimeFieldNumber = 4;
+    public const int TimeFieldNumber = 5;
     private bool hasTime;
     private long time_;
     public bool HasTime {
@@ -4178,7 +4191,7 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int IsReadFieldNumber = 5;
+    public const int IsReadFieldNumber = 6;
     private bool hasIsRead;
     private bool isRead_;
     public bool HasIsRead {
@@ -4203,20 +4216,23 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _messageInfoFieldNames;
+      if (hasId) {
+        output.WriteInt64(1, field_names[1], Id);
+      }
       if (hasType) {
-        output.WriteInt32(1, field_names[3], Type);
+        output.WriteInt32(2, field_names[4], Type);
       }
       if (hasZombieInfo) {
-        output.WriteMessage(2, field_names[4], ZombieInfo);
+        output.WriteMessage(3, field_names[5], ZombieInfo);
       }
       if (hasFightingInfo) {
-        output.WriteMessage(3, field_names[0], FightingInfo);
+        output.WriteMessage(4, field_names[0], FightingInfo);
       }
       if (hasTime) {
-        output.WriteInt64(4, field_names[2], Time);
+        output.WriteInt64(5, field_names[3], Time);
       }
       if (hasIsRead) {
-        output.WriteBool(5, field_names[1], IsRead);
+        output.WriteBool(6, field_names[2], IsRead);
       }
     }
     
@@ -4230,20 +4246,23 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
+        if (hasId) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, Id);
+        }
         if (hasType) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, Type);
+          size += pb::CodedOutputStream.ComputeInt32Size(2, Type);
         }
         if (hasZombieInfo) {
-          size += pb::CodedOutputStream.ComputeMessageSize(2, ZombieInfo);
+          size += pb::CodedOutputStream.ComputeMessageSize(3, ZombieInfo);
         }
         if (hasFightingInfo) {
-          size += pb::CodedOutputStream.ComputeMessageSize(3, FightingInfo);
+          size += pb::CodedOutputStream.ComputeMessageSize(4, FightingInfo);
         }
         if (hasTime) {
-          size += pb::CodedOutputStream.ComputeInt64Size(4, Time);
+          size += pb::CodedOutputStream.ComputeInt64Size(5, Time);
         }
         if (hasIsRead) {
-          size += pb::CodedOutputStream.ComputeBoolSize(5, IsRead);
+          size += pb::CodedOutputStream.ComputeBoolSize(6, IsRead);
         }
         memoizedSerializedSize = size;
         return size;
@@ -4253,6 +4272,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
+      if (hasId) hash ^= id_.GetHashCode();
       if (hasType) hash ^= type_.GetHashCode();
       if (hasZombieInfo) hash ^= zombieInfo_.GetHashCode();
       if (hasFightingInfo) hash ^= fightingInfo_.GetHashCode();
@@ -4264,6 +4284,7 @@ namespace com.game.framework.protocol {
     public override bool Equals(object obj) {
       MessageInfo other = obj as MessageInfo;
       if (other == null) return false;
+      if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
       if (hasType != other.hasType || (hasType && !type_.Equals(other.type_))) return false;
       if (hasZombieInfo != other.hasZombieInfo || (hasZombieInfo && !zombieInfo_.Equals(other.zombieInfo_))) return false;
       if (hasFightingInfo != other.hasFightingInfo || (hasFightingInfo && !fightingInfo_.Equals(other.fightingInfo_))) return false;
@@ -4429,6 +4450,9 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(MessageInfo other) {
         if (other == global::com.game.framework.protocol.MessageInfo.DefaultInstance) return this;
         PrepareBuilder();
+        if (other.HasId) {
+          Id = other.Id;
+        }
         if (other.HasType) {
           Type = other.Type;
         }
@@ -4477,10 +4501,14 @@ namespace com.game.framework.protocol {
               break;
             }
             case 8: {
+              result.hasId = input.ReadInt64(ref result.id_);
+              break;
+            }
+            case 16: {
               result.hasType = input.ReadInt32(ref result.type_);
               break;
             }
-            case 18: {
+            case 26: {
               global::com.game.framework.protocol.ZombieInfo.Builder subBuilder = global::com.game.framework.protocol.ZombieInfo.CreateBuilder();
               if (result.hasZombieInfo) {
                 subBuilder.MergeFrom(ZombieInfo);
@@ -4489,7 +4517,7 @@ namespace com.game.framework.protocol {
               ZombieInfo = subBuilder.BuildPartial();
               break;
             }
-            case 26: {
+            case 34: {
               global::com.game.framework.protocol.FightingInfo.Builder subBuilder = global::com.game.framework.protocol.FightingInfo.CreateBuilder();
               if (result.hasFightingInfo) {
                 subBuilder.MergeFrom(FightingInfo);
@@ -4498,11 +4526,11 @@ namespace com.game.framework.protocol {
               FightingInfo = subBuilder.BuildPartial();
               break;
             }
-            case 32: {
+            case 40: {
               result.hasTime = input.ReadInt64(ref result.time_);
               break;
             }
-            case 40: {
+            case 48: {
               result.hasIsRead = input.ReadBool(ref result.isRead_);
               break;
             }
@@ -4512,6 +4540,26 @@ namespace com.game.framework.protocol {
         return this;
       }
       
+      
+      public bool HasId {
+        get { return result.hasId; }
+      }
+      public long Id {
+        get { return result.Id; }
+        set { SetId(value); }
+      }
+      public Builder SetId(long value) {
+        PrepareBuilder();
+        result.hasId = true;
+        result.id_ = value;
+        return this;
+      }
+      public Builder ClearId() {
+        PrepareBuilder();
+        result.hasId = false;
+        result.id_ = 0L;
+        return this;
+      }
       
       public bool HasType {
         get { return result.hasType; }

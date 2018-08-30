@@ -5,7 +5,7 @@ import java.util.Date;
 public class Message {
     private Long id;
 
-    private Long groupid;
+    private Long groupId;
 
     private Integer type;
 
@@ -21,12 +21,12 @@ public class Message {
         this.id = id;
     }
 
-    public Long getGroupid() {
-        return groupid;
+    public Long getGroupId() {
+        return groupId;
     }
 
-    public void setGroupid(Long groupid) {
-        this.groupid = groupid;
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
 
     public Integer getType() {

@@ -27,7 +27,7 @@ public class HandlerMappingManager {
         return instance;
     }
 
-    private static ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+    private static ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     private Map<Short, HandlerInvoker> invokerMap = new HashMap<>();
     private Map<String, HandlerRoute> routeMap = new HashMap<>();
     public void init() {

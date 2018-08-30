@@ -3,7 +3,7 @@
 <mapper namespace="com.game.framework.dbcache.model.MessageMapper" >
   <resultMap id="BaseResultMap" type="com.game.framework.dbcache.model.Message" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="groupId" property="groupid" jdbcType="BIGINT" />
+    <result column="group_id" property="groupId" jdbcType="BIGINT" />
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, groupId, type, time
+    id, group_id, type, time
   </sql>
   <sql id="Blob_Column_List" >
     data
@@ -123,9 +123,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.game.framework.dbcache.model.Message" >
-    insert into t_message (id, groupId, type, 
+    insert into t_message (id, group_id, type, 
       time, data)
-    values (#{id,jdbcType=BIGINT}, #{groupid,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, 
       #{time,jdbcType=TIMESTAMP}, #{data,jdbcType=LONGVARBINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.game.framework.dbcache.model.Message" >
@@ -134,8 +134,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="groupid != null" >
-        groupId,
+      <if test="groupId != null" >
+        group_id,
       </if>
       <if test="type != null" >
         type,
@@ -151,8 +151,8 @@
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="groupid != null" >
-        #{groupid,jdbcType=BIGINT},
+      <if test="groupId != null" >
+        #{groupId,jdbcType=BIGINT},
       </if>
       <if test="type != null" >
         #{type,jdbcType=INTEGER},
@@ -177,8 +177,8 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.groupid != null" >
-        groupId = #{record.groupid,jdbcType=BIGINT},
+      <if test="record.groupId != null" >
+        group_id = #{record.groupId,jdbcType=BIGINT},
       </if>
       <if test="record.type != null" >
         type = #{record.type,jdbcType=INTEGER},
@@ -197,7 +197,7 @@
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update t_message
     set id = #{record.id,jdbcType=BIGINT},
-      groupId = #{record.groupid,jdbcType=BIGINT},
+      group_id = #{record.groupId,jdbcType=BIGINT},
       type = #{record.type,jdbcType=INTEGER},
       time = #{record.time,jdbcType=TIMESTAMP},
       data = #{record.data,jdbcType=LONGVARBINARY}
@@ -208,7 +208,7 @@
   <update id="updateByExample" parameterType="map" >
     update t_message
     set id = #{record.id,jdbcType=BIGINT},
-      groupId = #{record.groupid,jdbcType=BIGINT},
+      group_id = #{record.groupId,jdbcType=BIGINT},
       type = #{record.type,jdbcType=INTEGER},
       time = #{record.time,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -218,8 +218,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.game.framework.dbcache.model.Message" >
     update t_message
     <set >
-      <if test="groupid != null" >
-        groupId = #{groupid,jdbcType=BIGINT},
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=BIGINT},
       </if>
       <if test="type != null" >
         type = #{type,jdbcType=INTEGER},
@@ -235,7 +235,7 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.game.framework.dbcache.model.Message" >
     update t_message
-    set groupId = #{groupid,jdbcType=BIGINT},
+    set group_id = #{groupId,jdbcType=BIGINT},
       type = #{type,jdbcType=INTEGER},
       time = #{time,jdbcType=TIMESTAMP},
       data = #{data,jdbcType=LONGVARBINARY}
@@ -243,7 +243,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.game.framework.dbcache.model.Message" >
     update t_message
-    set groupId = #{groupid,jdbcType=BIGINT},
+    set group_id = #{groupId,jdbcType=BIGINT},
       type = #{type,jdbcType=INTEGER},
       time = #{time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

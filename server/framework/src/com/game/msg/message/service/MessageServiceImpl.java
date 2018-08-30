@@ -35,7 +35,7 @@ public class MessageServiceImpl implements MessageService {
         Long id = IdManager.GetInstance().genId(IdType.MESSAGE);
         Message message = new Message();
         message.setId(id);
-        message.setGroupid(groupId);
+        message.setGroupId(groupId);
         message.setType(type);
         message.setTime(new Date(System.currentTimeMillis()));
         switch (type) {
@@ -73,6 +73,7 @@ public class MessageServiceImpl implements MessageService {
         for (Message m : messages) {
             int type = m.getType();
             MessageInfo.Builder mBuilder = MessageInfo.newBuilder()
+                    .setId(m.getId())
                     .setType(type)
                     .setTime(m.getTime().getTime());
             if (messageDao.isExistUid2MessageId(m.getId(), uid)) {

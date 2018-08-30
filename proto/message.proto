@@ -81,16 +81,18 @@ message TSCGetPageList {
 }
 
 message MessageInfo {
+	// 消息Id
+	optional int64 id = 1;
 	// 消息类型
-	optional int32 type = 1;
+	optional int32 type = 2;
 	// 僵尸入侵消息
-	optional ZombieInfo zombieInfo = 2;
+	optional ZombieInfo zombieInfo = 3;
 	// 入侵结果消息
-	optional FightingInfo fightingInfo = 3;
+	optional FightingInfo fightingInfo = 4;
 	// 发送时间
-	optional int64 time = 4;
+	optional int64 time = 5;
 	// 是否读过
-	optional bool isRead = 5;
+	optional bool isRead = 6;
 }
 
 message TCSGetMessageTag {

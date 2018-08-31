@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 65950963062161276}
   - component: {fileID: 114058276231013640}
   m_Layer: 5
-  m_Name: searchgroup
+  m_Name: joingroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4559735998507138}
   - component: {fileID: 114101701782298798}
+  - component: {fileID: 114987993088030714}
   m_Layer: 5
   m_Name: UISelectGroupPanel
   m_TagString: Untagged
@@ -368,7 +369,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: "\u641C\u7D22\u5E84\u56ED"
+  mText: "\u52A0\u5165\u5E84\u56ED"
   mFontSize: 60
   mFontStyle: 0
   mAlignment: 0
@@ -539,7 +540,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: "\u6B22\u8FCE\u6765\u5230ZombieManor\n\n\u8981\u548C\u5176\u4ED6\u5E78\u5B58\u8005\u4E00\u8D77\u751F\u5B58\uFF0C\u8FD8\u662F\u9009\u62E9\u81EA\u5DF1\u53E6\u8D77\u7089\u7076\uFF0C\u7531\u4F60\u9009\u62E9\u3002"
+  mText: "\u6B22\u8FCE\u6765\u5230ZombieManor\n\n\u52A0\u5165\u5176\u4ED6\u4EBA\u4E00\u8D77\u751F\u5B58\n\u8FD8\u662F\u81EA\u5DF1\u53E6\u8D77\u7089\u7076\n\u7531\u4F60\u9009\u62E9\u3002"
   mFontSize: 42
   mFontStyle: 0
   mAlignment: 0
@@ -720,3 +721,14 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick: []
+--- !u!114 &114987993088030714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402809092590854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe51f14f2186364fa7eff27b7786299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

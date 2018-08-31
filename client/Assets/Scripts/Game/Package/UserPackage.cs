@@ -32,6 +32,20 @@ public class PlayerState
         speed = state.Speed;
         intellect = state.Intellect;
     }
+
+    public void SetPlayerState(TSCGetUserStateRegular state)
+    {
+        blood = state.Blood;
+        hunger = state.Food;
+        thirst = state.Water;
+        health = state.Health;
+        mood = state.Mood;
+        attack = state.Attack;
+        defense = state.Defense;
+        agile = state.Agile;
+        speed = state.Speed;
+        intellect = state.Intellect;
+    }
 }
 
 public class UserPackage : ModelBase {
@@ -77,6 +91,11 @@ public class UserPackage : ModelBase {
     public void SetUserID(long userID)
     {
         mUserID = userID;
+    }
+
+    public void SetPlayerState(TSCGetUserStateRegular userState)
+    {
+        playerState.SetPlayerState(userState);
     }
 
     public void SetPlayerState(TSCGetUserState userState)

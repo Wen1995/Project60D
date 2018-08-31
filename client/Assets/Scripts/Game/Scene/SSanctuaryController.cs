@@ -135,7 +135,7 @@ public class SSanctuaryController : SceneController
     void OnGetUserStateRegular(NetMsgDef msg)
     {
         //print("User State Refresh");
-        TSCGetUserState userState = TSCGetUserState.ParseFrom(msg.mBtsData);
+        TSCGetUserStateRegular userState = TSCGetUserStateRegular.ParseFrom(msg.mBtsData);
         userPackage.SetPlayerState(userState);
         SendEvent("RefreshUserState");
     }

@@ -17,7 +17,7 @@ public class UILoginPanel : PanelBase {
         //bind event
         RegisterRPCResponce((short)Cmd.LOGIN, OnLoginSuccussed);
         RegisterRPCResponce((short)Cmd.CREATEGROUP, OnCreateGroup);
-        RegisterRPCResponce((short)Cmd.APPLYGROUP, OnJoinGroup);
+        //RegisterRPCResponce((short)Cmd.APPLYGROUP, OnJoinGroup);
         //RegisterRPCResponce((short)Cmd.LOGIN, OnGetUserData);
         InitView();
     }
@@ -39,15 +39,14 @@ public class UILoginPanel : PanelBase {
         userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
         PlayerPrefs.SetString("username", userName.value);
         TSCLogin login = TSCLogin.ParseFrom(msg.mBtsData);
-        print("login successed , userid = " + login.Uid);
         userPackage.SetUserID(login.Uid);
         GlobalFunction.GetTimeDelta(login.SystemCurrentTime);
         NetSingleton.Instance.StartHeartBeat();
         //check if need to create or join a sanctuary
         if(login.GroupId == 0)
         {
-            //for now just create a new group
-            FacadeSingleton.Instance.InvokeService("CreateGroup", ConstVal.Service_Common);
+            //new player
+            FacadeSingleton.Instance.OverlayerPanel("UISelectGroupPanel");
         }
         else
         {
@@ -62,7 +61,6 @@ public class UILoginPanel : PanelBase {
     void OnCreateGroup(NetMsgDef msg)
     {
         TSCCreateGroup res = TSCCreateGroup.ParseFrom(msg.mBtsData);
-        print("New group id = " + res.GroupId);
         userPackage.SetGroupID(res.GroupId);
         LoadNextScene();
     }

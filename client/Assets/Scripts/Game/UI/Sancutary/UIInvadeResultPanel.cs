@@ -46,23 +46,15 @@ public class UIInvadeResultPanel : PanelBase {
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
-		SendMsg();
+		contentLabel.text = "";
 	}
 
 	public override void ClosePanel()
 	{
+		PlayerIndexMap.Clear();
 		base.ClosePanel();
 	}
-
-	void SendMsg()
-	{
-		UserPackage userPackge = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
-		var builder = TCSZombieInvade.CreateBuilder();
-		builder.GroupId = userPackge.GroupID;
-		TCSZombieInvade invade = builder.Build();
-		NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.ZOMBIEINVADE, invade.ToByteArray());
-	}
-
+	
 	void OpenInvadeResult(NDictionary args)
 	{
 		int idx = args.Value<int>("index");

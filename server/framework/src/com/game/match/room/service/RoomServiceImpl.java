@@ -63,7 +63,7 @@ public class RoomServiceImpl implements RoomService {
         building.setGroupId(user.getGroupId());
         building.setPositionX(0);
         building.setPositionY(0);
-        building.setConfigId(113020001);    // 仓库ID
+        building.setConfigId(113030001);    // 仓库ID
         UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
                 .setUid(uid)
                 .setFinishTime(0)
@@ -105,29 +105,25 @@ public class RoomServiceImpl implements RoomService {
                 
                 List<Building> buildings = buildingDao.getAllByGroupId(groupId);
                 BuildingState.Builder buildingStateBuilder;
-                List<ReceiveInfo> receiveInfos;
                 ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder();
                 ProcessInfo.Builder processInfoBuilder = ProcessInfo.newBuilder();
                 long time = System.currentTimeMillis();
                 for (Building b : buildings) {
                     if (BuildingUtil.isReceiveBuilding(b)) {                // 领取类建筑领取状态初始化
                         buildingStateBuilder = BuildingState.parseFrom(b.getState()).toBuilder();
-                        receiveInfos = buildingStateBuilder.getReceiveInfosList();
-                        receiveInfoBuilder.setLastReceiveTime(time);
-                        receiveInfoBuilder.setUid(uid).setNumber(0);
-                        receiveInfos.add(receiveInfoBuilder.build());
-                        buildingStateBuilder.addAllReceiveInfos(receiveInfos);
+                        receiveInfoBuilder.setLastReceiveTime(time).setUid(uid).setNumber(0);
+                        buildingStateBuilder.addReceiveInfos(receiveInfoBuilder);
+                        
                         b.setState(buildingStateBuilder.build().toByteArray());
                         buildingDao.update(b);
                     } else if (BuildingUtil.isProcessBuilding(b)) {         // 加工类建筑领取状态初始化
                         buildingStateBuilder = BuildingState.parseFrom(b.getState()).toBuilder();
-                        receiveInfos = buildingStateBuilder.getReceiveInfosList();
                         receiveInfoBuilder.setUid(uid).setNumber(0);
-                        receiveInfos.add(receiveInfoBuilder.build());
-                        buildingStateBuilder.addAllReceiveInfos(receiveInfos);
+                        buildingStateBuilder.addReceiveInfos(receiveInfoBuilder);
                         
                         processInfoBuilder.setStartTime(0).setEndTime(0);
                         buildingStateBuilder.setProcessInfo(processInfoBuilder);
+                        
                         b.setState(buildingStateBuilder.build().toByteArray());
                         buildingDao.update(b);
                     }

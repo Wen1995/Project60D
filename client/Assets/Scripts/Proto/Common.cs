@@ -30,7 +30,6 @@ namespace com.game.framework.protocol {
     HEART = 0,
     LOGIN = 1,
     LOGOUT = 2,
-    GETUSERINFO = 3,
     CREATEGROUP = 11,
     APPLYGROUP = 12,
     GETGROUPPAGECOUNT = 20,

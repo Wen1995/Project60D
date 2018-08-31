@@ -55,6 +55,8 @@ message TSCGetUserState {
 	optional int32 speed = 9;
 	// 智力
 	optional int32 intellect = 10;
+	// 贡献
+	optional int32 contribution = 11;
 }
 
 message TCSGetUserStateRegular {
@@ -81,6 +83,8 @@ message TSCGetUserStateRegular {
 	optional int32 speed = 9;
 	// 智力
 	optional int32 intellect = 10;
+	// 贡献
+	optional int32 contribution = 11;
 }
 
 message TCSGetWorldEvent {

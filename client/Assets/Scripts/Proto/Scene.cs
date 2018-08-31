@@ -296,8 +296,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetSceneInfo : pb::GeneratedMessageLite<TSCGetSceneInfo, TSCGetSceneInfo.Builder> {
     private TSCGetSceneInfo() { }
     private static readonly TSCGetSceneInfo defaultInstance = new TSCGetSceneInfo().MakeReadOnly();
-    private static readonly string[] _tSCGetSceneInfoFieldNames = new string[] { "buildingInfos" };
-    private static readonly uint[] _tSCGetSceneInfoFieldTags = new uint[] { 10 };
+    private static readonly string[] _tSCGetSceneInfoFieldNames = new string[] { "buildingInfos", "totalContribution" };
+    private static readonly uint[] _tSCGetSceneInfoFieldTags = new uint[] { 10, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -332,6 +332,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int TotalContributionFieldNumber = 2;
+    private bool hasTotalContribution;
+    private int totalContribution_;
+    public bool HasTotalContribution {
+      get { return hasTotalContribution; }
+    }
+    public int TotalContribution {
+      get { return totalContribution_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -349,6 +362,9 @@ namespace com.game.framework.protocol {
       if (buildingInfos_.Count > 0) {
         output.WriteMessageArray(1, field_names[0], buildingInfos_);
       }
+      if (hasTotalContribution) {
+        output.WriteInt32(2, field_names[1], TotalContribution);
+      }
     }
     
     private int memoizedSerializedSize = -1;
@@ -364,6 +380,9 @@ namespace com.game.framework.protocol {
         foreach (global::com.game.framework.protocol.BuildingInfo element in BuildingInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
+        if (hasTotalContribution) {
+          size += pb::CodedOutputStream.ComputeInt32Size(2, TotalContribution);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -374,6 +393,7 @@ namespace com.game.framework.protocol {
       int hash = GetType().GetHashCode();
       foreach(global::com.game.framework.protocol.BuildingInfo i in buildingInfos_)
         hash ^= i.GetHashCode();
+      if (hasTotalContribution) hash ^= totalContribution_.GetHashCode();
       return hash;
     }
     
@@ -383,6 +403,7 @@ namespace com.game.framework.protocol {
       if(buildingInfos_.Count != other.buildingInfos_.Count) return false;
       for(int ix=0; ix < buildingInfos_.Count; ix++)
         if(!buildingInfos_[ix].Equals(other.buildingInfos_[ix])) return false;
+      if (hasTotalContribution != other.hasTotalContribution || (hasTotalContribution && !totalContribution_.Equals(other.totalContribution_))) return false;
       return true;
     }
     
@@ -547,6 +568,9 @@ namespace com.game.framework.protocol {
         if (other.buildingInfos_.Count != 0) {
           result.buildingInfos_.Add(other.buildingInfos_);
         }
+        if (other.HasTotalContribution) {
+          TotalContribution = other.TotalContribution;
+        }
         return this;
       }
       
@@ -581,6 +605,10 @@ namespace com.game.framework.protocol {
             }
             case 10: {
               input.ReadMessageArray(tag, field_name, result.buildingInfos_, global::com.game.framework.protocol.BuildingInfo.DefaultInstance, extensionRegistry);
+              break;
+            }
+            case 16: {
+              result.hasTotalContribution = input.ReadInt32(ref result.totalContribution_);
               break;
             }
           }
@@ -631,6 +659,26 @@ namespace com.game.framework.protocol {
       public Builder ClearBuildingInfos() {
         PrepareBuilder();
         result.buildingInfos_.Clear();
+        return this;
+      }
+      
+      public bool HasTotalContribution {
+        get { return result.hasTotalContribution; }
+      }
+      public int TotalContribution {
+        get { return result.TotalContribution; }
+        set { SetTotalContribution(value); }
+      }
+      public Builder SetTotalContribution(int value) {
+        PrepareBuilder();
+        result.hasTotalContribution = true;
+        result.totalContribution_ = value;
+        return this;
+      }
+      public Builder ClearTotalContribution() {
+        PrepareBuilder();
+        result.hasTotalContribution = false;
+        result.totalContribution_ = 0;
         return this;
       }
     }

@@ -15,8 +15,14 @@ public class UITradePanel : PanelBase {
 	UILabel goldNumLabel = null;
 	UILabel elecNumLabel = null;
 	UILabel dateLabel = null;
+	UILabel itemNumLabel = null;
 
 	NTableView tableView = null;
+
+
+	//
+	int curNum = 0;
+	int ratio = 1;
 	protected override void Awake()
 	{
 		//get component
@@ -28,12 +34,20 @@ public class UITradePanel : PanelBase {
 		resNumLabel = transform.Find("resinfo/res/resouce/label").GetComponent<UILabel>();
 		goldNumLabel = transform.Find("resinfo/res/money/label").GetComponent<UILabel>();
 		elecNumLabel = transform.Find("resinfo/res/elec/label").GetComponent<UILabel>();
+		itemNumLabel = transform.Find("iteminfo/value/num").GetComponent<UILabel>();
 		dateLabel = transform.Find("timelabel").GetComponent<UILabel>();
 		//bind event
 		UIButton button = transform.Find("iteminfo/sellbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnSellItem));
+		button = transform.Find("iteminfo/buybtn").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnBuyItem));
 		button = transform.Find("closebtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
+		button = transform.Find("iteminfo/value/plus").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnPlus));
+		button = transform.Find("iteminfo/value/minus").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnMinus));
+		
 		button = transform.Find("store/tabgroup/grid/tab0").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnTab0));
 		button = transform.Find("store/tabgroup/grid/tab1").GetComponent<UIButton>();
@@ -84,11 +98,13 @@ public class UITradePanel : PanelBase {
 	void RefreshItemInfo()
 	{
 		if(selectionItem == null) return;
-		curPriceLabel.text = "0";
+		ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(selectionItem.configID);
+		curPriceLabel.text = ((float)itemConfig.GoldConv / 1000).ToString(); 
 		avgPriceLabel.text = "0";
 		taxLabel.text = "5%";
-		ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(selectionItem.configID);
 		nameLabel.text = itemConfig.MinName;
+		curNum = 0;
+		UpdateNum();
 	}
 
 	IEnumerator RefreshDate()
@@ -96,7 +112,7 @@ public class UITradePanel : PanelBase {
 		while(true)
 		{
 			var now = System.DateTime.Now;
-			dateLabel.text = string.Format("{0:D4}年{1:D2}月{2:D2}日 {3:D2}:{4:D2}:{5:D2}", now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
+			dateLabel.text = string.Format("{0:D4}年{1:D2}月{2:D2}日 {3:D2}:{4:D2}:{5:D2}", now.Year + 20, now.Month, now.Day, now.Hour, now.Minute, now.Second);
 			yield return new WaitForSeconds(1.0f);
 		}
 	}
@@ -107,9 +123,32 @@ public class UITradePanel : PanelBase {
 		//TODO
 	}
 
+	void OnBuyItem()
+	{
+		//TODO
+	}
+
 	void Close()
 	{
 		FacadeSingleton.Instance.BackPanel();
+	}
+
+	void UpdateNum()
+	{
+		itemNumLabel.text = curNum.ToString();
+	}
+
+	void OnPlus()
+	{
+		curNum += ratio;
+		UpdateNum();
+	}
+
+	void OnMinus()
+	{
+		if(curNum - ratio < 0) return;
+		curNum -= ratio;
+		UpdateNum();
 	}
 
 	void OnTab0()
@@ -157,7 +196,6 @@ public class UITradePanel : PanelBase {
 		}
 		itemPackage.SortItemFilterInfoList(sortMask);
 		tableView.DataCount = itemPackage.GetItemFilterInfoList().Count;
-		print(tableView.DataCount);
 		tableView.TableChange();
 	}
 }

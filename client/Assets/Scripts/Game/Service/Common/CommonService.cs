@@ -19,18 +19,23 @@ public class CommonService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.LOGIN, login.ToByteArray());
     }
 
-    public void CreateGroup()
+    public void RPCCreateGroup()
     {
         var builder = TCSCreateGroup.CreateBuilder();
         TCSCreateGroup createGroup = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.CREATEGROUP, createGroup.ToByteArray());
     }
 
-    public void JoinGroup(NDictionary args)
+    public void RPCJoinGroup(NDictionary args)
     {
-        //TODO
+        if(args == null) return;
+        long id = args.Value<long>("id");
+        var builder = TCSApplyGroup.CreateBuilder();
+        builder.GroupId = id;
+        TCSApplyGroup msg = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.APPLYGROUP, msg.ToByteArray());
     }
-
+    
     public int GetTime()
     {
         var epochStart = new System.DateTime(1970, 1, 1, 8, 0, 0, System.DateTimeKind.Utc);

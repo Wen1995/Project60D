@@ -126,9 +126,19 @@ public class SanctuaryService : ServiceBase {
         var builder = TCSSendMessageTag.CreateBuilder();
         long id = args.Value<long>("id");
         builder.MessageId = id;
+        Debug.Log(builder.MessageId);
         TCSSendMessageTag msg = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.SENDMESSAGETAG, msg.ToByteArray());
     }
+
+    public void RPCGetGroupRanking(NDictionary args)
+    {
+        var builder = TCSGetGroupRanking.CreateBuilder();
+        builder.CurrentPage = 1;
+        TCSGetGroupRanking msg = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETGROUPRANKING, msg.ToByteArray());
+    }
+
 
     /// <summary>
     /// Use a extra camera to render the object you give

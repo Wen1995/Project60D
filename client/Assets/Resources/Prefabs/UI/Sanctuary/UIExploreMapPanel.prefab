@@ -2165,9 +2165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: 2
-  dragEffect: 2
+  dragEffect: 1
   restrictWithinPanel: 1
-  constrainOnDrag: 0
+  constrainOnDrag: 1
   disableDragIfFits: 0
   smoothDragStart: 1
   iOSDragEmulation: 1

@@ -6,6 +6,7 @@ public class UIMsgBoxPanel : PanelBase {
 
     UILabel contentLabel = null;
     UILabel titleLabel = null;
+    EventDelegate callback;
     protected override void Awake()
     {
         base.Awake();

@@ -141,12 +141,9 @@ public class ProtoBeanUtil {
         Descriptor descriptor = (Descriptor) getDescriptorMethod.invoke(tcsMsgClazz);
         List<FieldDescriptor> fields = descriptor.getFields();
 
-        List<String> list = new ArrayList<String>();
-
+        List<String> list = new ArrayList<>();
         for (FieldDescriptor fieldDescriptor : fields) {
-
             String s = "";
-
             if (fieldDescriptor.getJavaType().name().equals(JavaType.INT.name())) {
                 s += "Integer:" + fieldDescriptor.getName();
             } else if (fieldDescriptor.getJavaType().name().equals(JavaType.BOOLEAN.name())) {

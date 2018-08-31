@@ -1,8 +1,8 @@
 package com.game.msg.message.service;
 
 import com.game.framework.console.disruptor.TPacket;
-import com.game.framework.protocol.Message.FightingInfo;
 import com.game.framework.protocol.Message.ZombieInfo;
+import com.game.framework.protocol.Message.FightingInfo;
 
 public interface MessageService {
 

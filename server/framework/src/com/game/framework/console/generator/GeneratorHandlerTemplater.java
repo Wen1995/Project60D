@@ -183,6 +183,7 @@ public class GeneratorHandlerTemplater {
             ctx.put("model", modelClass.getModel());
 
             List<Object[]> methods = new ArrayList<>();
+            List<String> infos = new ArrayList<>();
             Iterator<Object[]> it2 = modelClass.getMethods().iterator();
             boolean haveList = false;
             boolean haveServer = false;
@@ -190,6 +191,7 @@ public class GeneratorHandlerTemplater {
                 Object[] strings = it2.next();
                 List<String> methodParams =  (List<String>) strings[2];
                 String methodParamsStr = "";
+                String methodParamStr2 = "";
                 if (!haveServer) {
                     haveServer = (boolean) strings[3];
                 }
@@ -197,20 +199,29 @@ public class GeneratorHandlerTemplater {
                     for (int i = 0; i < methodParams.size(); i++) {
                         String string = methodParams.get(i);
                         String[] split = string.split(":");
+                        String split0 = split[0];
+                        String split1 = split[1];
+                        
                         if (!haveList) {
-                            if (split[0].contains("List")) {
+                            if (split0.contains("List")) {
                                 haveList = true;
                             }
                         }
-                        methodParamsStr += split[0] + " " + split[1] + " = msg.get"
-                                + StringUtil.FirstLetterToUpper(split[1]) + "();\r		";
+                        if (split0.contains("com.game.framework.protocol.")) {
+                            split0 = split0.substring(28);
+                            infos.add(split0);
+                        }
+                        
+                        methodParamsStr += split0 + " " + split1 + " = msg.get"
+                                + StringUtil.FirstLetterToUpper(split1) + "();\r		";
+                        methodParamStr2 += ", " + split[1];
                     }
                 }
                 Object[] s = {strings[1], // 描述
                         StringUtil.FirstLetterToUpper((String) strings[0]), // 方法名首字大写
                         strings[0], // 方法名
                         methodParamsStr, // 方法调用字串
-                        getCallMethodParamsStr(methodParams), // 方法实参
+                        methodParamStr2, // 方法实参
                         StringUtil.AllLetterToUpper((String) strings[0]), // 方法名大写
                         strings[3]}; // 是否有tsc方法
                 methods.add(s);
@@ -218,6 +229,8 @@ public class GeneratorHandlerTemplater {
             ctx.put("haveServer", haveServer);
             ctx.put("haveList", haveList);
             ctx.put("methods", methods.toArray());
+            ctx.put("infos", infos.toArray());
+            
             String str = merge2Str(template, ctx);
             String class_path = "/com/game/" + litHandlerGroup + "/" + litModel + "/handler/"
                     + modelClass.getModel() + "Handler.java";
@@ -276,24 +289,41 @@ public class GeneratorHandlerTemplater {
             ctx.put("model", modelClass.getModel());
 
             List<Object[]> methods = new ArrayList<>();
+            List<String> infos = new ArrayList<>();
             Iterator<Object[]> it2 = modelClass.getMethods().iterator();
             boolean haveList = false;
             while (it2.hasNext()) {
                 Object[] strings = it2.next();
                 List<String> methodParams = (List<String>) strings[2];
-                String[] ss = getMethodParamsStr(methodParams);
-                String[] s =
-                        {(String) strings[1], StringUtil.FirstLetterToUpper((String) strings[0]),
-                                (String) strings[0], ss[0]};
-                if (!haveList) {
-                    if (ss[1].equals("true")) {
-                        haveList = true;
+                String methodParamsStr = "";
+                if (methodParams != null) {
+                    for (int i = 0; i < methodParams.size(); i++) {
+                        String string = methodParams.get(i);
+                        String[] split = string.split(":");
+                        String split0 = split[0];
+                        String split1 = split[1];
+                        
+                        if (!haveList) {
+                            if (split0.contains("List")) {
+                                haveList = true;
+                            }
+                        }
+                        if (split0.contains("com.game.framework.protocol.")) {
+                            split0 = split0.substring(28);
+                            infos.add(split0);
+                        }
+                        
+                        methodParamsStr +=  ", " + split0 + " " + split1;
                     }
                 }
+                String[] s =
+                        {(String) strings[1], StringUtil.FirstLetterToUpper((String) strings[0]),
+                                (String) strings[0], methodParamsStr};
                 methods.add(s);
             }
             ctx.put("haveList", haveList);
             ctx.put("methods", methods.toArray());
+            ctx.put("infos", infos.toArray());
 
             String str = merge2Str(template, ctx);
             String class_path = "/com/game/" + litHandlerGroup + "/" + litModel + "/service/"
@@ -313,45 +343,6 @@ public class GeneratorHandlerTemplater {
         StringWriter writer = new StringWriter();
         template.merge(ctx, writer);
         return writer.toString();
-    }
-
-    private String[] getMethodParamsStr(List<String> methodParams) {
-        String methodParamStr = "";
-        String haveList = "false";
-        if (methodParams != null) {
-            for (String string : methodParams) {
-                String[] split = string.split(":");
-                if ("false".equals(haveList)) {
-                    if (split[0].contains("List")) {
-                        haveList = "true";
-                    }
-                }
-                methodParamStr += split[0] + " " + split[1] + ", ";
-            }
-            if (methodParamStr.length() > 0) {
-                methodParamStr = ", " + methodParamStr;
-                methodParamStr = methodParamStr.substring(0, methodParamStr.length() - 2);
-            }
-        }
-        String[] strings = new String[2];
-        strings[0] = methodParamStr;
-        strings[1] = haveList;
-        return strings;
-    }
-
-    private String getCallMethodParamsStr(List<String> methodParams) {
-        String methodParamStr = "";
-        if (methodParams != null) {
-            for (String string : methodParams) {
-                String[] split = string.split(":");
-                methodParamStr += split[1] + ", ";
-            }
-            if (methodParamStr.length() > 0) {
-                methodParamStr = ", " + methodParamStr;
-                methodParamStr = methodParamStr.substring(0, methodParamStr.length() - 2);
-            }
-        }
-        return methodParamStr;
     }
 
     private VelocityEngine newVelocityEngine() {

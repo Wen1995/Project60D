@@ -20,6 +20,9 @@ import io.netty.channel.Channel;
 #end
 import com.game.framework.protocol.${model}.TCS${attr[1]};
 #end
+#foreach ($attr in ${infos})
+import com.game.framework.protocol.${model}.${attr};
+#end
 
 @Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_${bigHandlerGroup}, module = HandlerConstant.Model_${model})

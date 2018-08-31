@@ -8,7 +8,7 @@ using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
 namespace com.game.framework.resource.data {
   
-  public static partial class WorldEventsBytes {
+  public static partial class PurchaseLimBytes {
   
     #region Extension registration
     public static void RegisterAllExtensions(pb::ExtensionRegistry registry) {
@@ -18,33 +18,33 @@ namespace com.game.framework.resource.data {
     #endregion
     #region Extensions
     internal static readonly object Descriptor;
-    static WorldEventsBytes() {
+    static PurchaseLimBytes() {
       Descriptor = null;
     }
     #endregion
     
   }
   #region Messages
-  public sealed partial class WORLD_EVENTS : pb::GeneratedMessageLite<WORLD_EVENTS, WORLD_EVENTS.Builder> {
-    private WORLD_EVENTS() { }
-    private static readonly WORLD_EVENTS defaultInstance = new WORLD_EVENTS().MakeReadOnly();
-    private static readonly string[] _wORLDEVENTSFieldNames = new string[] { "buqiang1key", "cangchukey", "caokey", "con_prob", "dami_bldgcap", "dami_bldgspd", "damikey", "event_desc", "event_duration", "event_icon", "event_name", "event_news", "event_newsdetail", "event_prob", "event_unlock", "fangdanyi1key", "fangdanyi2key", "fangdanyi3key", "fangdaokey", "fengli_bldgspd", "gangkey", "guanrenkey", "healthkey", "huafeigongyekey", "huafeikey", "hunningtukey", "id", "inva_prob", "jiatelinkey", "jijiubaokey", "jing_bldgcap", "jing_bldgspd", "jipaotuzhikey", "jiqiangtuzhikey", "jujituzhikey", "kanaijikey", "kuangquanshuikey", "kuzi1key", "kuzi2key", "kuzi3key", "leida_bldg", "lubankey", "luokefeilekey", "lushui_bldgcap", "lushui_bldgspd", "makeqinkey", "moodkey", "qingjiqiang1key", "qiyoukey", "rizhikey", "shouqiang1key", "shucai_bldgcap", "shucai_bldgspd", "shucaikey", "shuiguo_bldgcap", "shuiguo_bldgspd", "shuiguokey", "shuikey", "shuinikey", "siliaokey", "songmubankey", "songmukey", "songshu_bldgcap", "songshu_bldgspd", "tax_coeff", "tesilakey", "tiekey", "toukui1key", "toukui2key", "toukui3key", "tumukey", "wbaleitekey", "wodefendoukey", "wuxiandian_bldg", "xiezi1key", "xiezi2key", "xiezi3key", "yangzhukey", "yuanlongpingkey", "yuanyoukey", "zhuroukey", "zombie_atk", "zombie_def", "zombie_hp", "zombie_num" };
-    private static readonly uint[] _wORLDEVENTSFieldTags = new uint[] { 544, 416, 328, 80, 144, 192, 272, 34, 56, 66, 18, 42, 50, 72, 24, 560, 568, 576, 464, 240, 664, 504, 128, 400, 296, 680, 8, 88, 488, 352, 168, 216, 384, 368, 376, 440, 632, 584, 592, 600, 256, 448, 432, 176, 224, 472, 136, 552, 656, 360, 536, 152, 200, 280, 160, 208, 288, 304, 320, 640, 672, 312, 184, 232, 264, 424, 344, 512, 520, 528, 456, 496, 480, 248, 608, 616, 624, 408, 392, 336, 648, 96, 104, 112, 120 };
+  public sealed partial class PURCHASE_LIM : pb::GeneratedMessageLite<PURCHASE_LIM, PURCHASE_LIM.Builder> {
+    private PURCHASE_LIM() { }
+    private static readonly PURCHASE_LIM defaultInstance = new PURCHASE_LIM().MakeReadOnly();
+    private static readonly string[] _pURCHASELIMFieldNames = new string[] { "buqiang1key", "cangchukey", "caokey", "damikey", "fangdanyi1key", "fangdanyi2key", "fangdanyi3key", "fangdaokey", "gangkey", "guanrenkey", "huafeigongyekey", "huafeikey", "hunningtukey", "id", "jiatelinkey", "jijiubaokey", "jipaotuzhikey", "jiqiangtuzhikey", "jujituzhikey", "kanaijikey", "kuangquanshuikey", "kuzi1key", "kuzi2key", "kuzi3key", "lubankey", "luokefeilekey", "makeqinkey", "qingjiqiang1key", "qiyoukey", "rizhikey", "shouqiang1key", "shucaikey", "shuiguokey", "shuikey", "shuinikey", "siliaokey", "songmubankey", "songmukey", "tesilakey", "tiekey", "toukui1key", "toukui2key", "toukui3key", "tumukey", "wbaleitekey", "wodefendoukey", "xiezi1key", "xiezi2key", "xiezi3key", "yangzhukey", "yuanlongpingkey", "yuanyoukey", "zhuroukey" };
+    private static readonly uint[] _pURCHASELIMFieldTags = new uint[] { 288, 160, 72, 16, 304, 312, 320, 208, 408, 248, 144, 40, 424, 8, 232, 96, 128, 112, 120, 184, 376, 328, 336, 344, 192, 176, 216, 296, 400, 104, 280, 24, 32, 48, 64, 384, 416, 56, 168, 88, 256, 264, 272, 200, 240, 224, 352, 360, 368, 152, 136, 80, 392 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS DefaultInstance {
+    public static PURCHASE_LIM DefaultInstance {
       get { return defaultInstance; }
     }
     
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public override WORLD_EVENTS DefaultInstanceForType {
+    public override PURCHASE_LIM DefaultInstanceForType {
       get { return DefaultInstance; }
     }
     
-    protected override WORLD_EVENTS ThisMessage {
+    protected override PURCHASE_LIM ThisMessage {
       get { return this; }
     }
     
@@ -64,423 +64,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int EventNameFieldNumber = 2;
-    private bool hasEventName;
-    private string eventName_ = "";
-    public bool HasEventName {
-      get { return hasEventName; }
-    }
-    public string EventName {
-      get { return eventName_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int EventUnlockFieldNumber = 3;
-    private bool hasEventUnlock;
-    private int eventUnlock_;
-    public bool HasEventUnlock {
-      get { return hasEventUnlock; }
-    }
-    public int EventUnlock {
-      get { return eventUnlock_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int EventDescFieldNumber = 4;
-    private bool hasEventDesc;
-    private string eventDesc_ = "";
-    public bool HasEventDesc {
-      get { return hasEventDesc; }
-    }
-    public string EventDesc {
-      get { return eventDesc_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int EventNewsFieldNumber = 5;
-    private bool hasEventNews;
-    private string eventNews_ = "";
-    public bool HasEventNews {
-      get { return hasEventNews; }
-    }
-    public string EventNews {
-      get { return eventNews_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int EventNewsdetailFieldNumber = 6;
-    private bool hasEventNewsdetail;
-    private string eventNewsdetail_ = "";
-    public bool HasEventNewsdetail {
-      get { return hasEventNewsdetail; }
-    }
-    public string EventNewsdetail {
-      get { return eventNewsdetail_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int EventDurationFieldNumber = 7;
-    private bool hasEventDuration;
-    private int eventDuration_;
-    public bool HasEventDuration {
-      get { return hasEventDuration; }
-    }
-    public int EventDuration {
-      get { return eventDuration_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int EventIconFieldNumber = 8;
-    private bool hasEventIcon;
-    private string eventIcon_ = "";
-    public bool HasEventIcon {
-      get { return hasEventIcon; }
-    }
-    public string EventIcon {
-      get { return eventIcon_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int EventProbFieldNumber = 9;
-    private bool hasEventProb;
-    private int eventProb_;
-    public bool HasEventProb {
-      get { return hasEventProb; }
-    }
-    public int EventProb {
-      get { return eventProb_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ConProbFieldNumber = 10;
-    private bool hasConProb;
-    private int conProb_;
-    public bool HasConProb {
-      get { return hasConProb; }
-    }
-    public int ConProb {
-      get { return conProb_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int InvaProbFieldNumber = 11;
-    private bool hasInvaProb;
-    private int invaProb_;
-    public bool HasInvaProb {
-      get { return hasInvaProb; }
-    }
-    public int InvaProb {
-      get { return invaProb_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ZombieAtkFieldNumber = 12;
-    private bool hasZombieAtk;
-    private int zombieAtk_;
-    public bool HasZombieAtk {
-      get { return hasZombieAtk; }
-    }
-    public int ZombieAtk {
-      get { return zombieAtk_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ZombieDefFieldNumber = 13;
-    private bool hasZombieDef;
-    private int zombieDef_;
-    public bool HasZombieDef {
-      get { return hasZombieDef; }
-    }
-    public int ZombieDef {
-      get { return zombieDef_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ZombieHpFieldNumber = 14;
-    private bool hasZombieHp;
-    private int zombieHp_;
-    public bool HasZombieHp {
-      get { return hasZombieHp; }
-    }
-    public int ZombieHp {
-      get { return zombieHp_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ZombieNumFieldNumber = 15;
-    private bool hasZombieNum;
-    private int zombieNum_;
-    public bool HasZombieNum {
-      get { return hasZombieNum; }
-    }
-    public int ZombieNum {
-      get { return zombieNum_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int HealthkeyFieldNumber = 16;
-    private bool hasHealthkey;
-    private int healthkey_;
-    public bool HasHealthkey {
-      get { return hasHealthkey; }
-    }
-    public int Healthkey {
-      get { return healthkey_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int MoodkeyFieldNumber = 17;
-    private bool hasMoodkey;
-    private int moodkey_;
-    public bool HasMoodkey {
-      get { return hasMoodkey; }
-    }
-    public int Moodkey {
-      get { return moodkey_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int DamiBldgcapFieldNumber = 18;
-    private bool hasDamiBldgcap;
-    private int damiBldgcap_;
-    public bool HasDamiBldgcap {
-      get { return hasDamiBldgcap; }
-    }
-    public int DamiBldgcap {
-      get { return damiBldgcap_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ShucaiBldgcapFieldNumber = 19;
-    private bool hasShucaiBldgcap;
-    private int shucaiBldgcap_;
-    public bool HasShucaiBldgcap {
-      get { return hasShucaiBldgcap; }
-    }
-    public int ShucaiBldgcap {
-      get { return shucaiBldgcap_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ShuiguoBldgcapFieldNumber = 20;
-    private bool hasShuiguoBldgcap;
-    private int shuiguoBldgcap_;
-    public bool HasShuiguoBldgcap {
-      get { return hasShuiguoBldgcap; }
-    }
-    public int ShuiguoBldgcap {
-      get { return shuiguoBldgcap_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int JingBldgcapFieldNumber = 21;
-    private bool hasJingBldgcap;
-    private int jingBldgcap_;
-    public bool HasJingBldgcap {
-      get { return hasJingBldgcap; }
-    }
-    public int JingBldgcap {
-      get { return jingBldgcap_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int LushuiBldgcapFieldNumber = 22;
-    private bool hasLushuiBldgcap;
-    private int lushuiBldgcap_;
-    public bool HasLushuiBldgcap {
-      get { return hasLushuiBldgcap; }
-    }
-    public int LushuiBldgcap {
-      get { return lushuiBldgcap_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int SongshuBldgcapFieldNumber = 23;
-    private bool hasSongshuBldgcap;
-    private int songshuBldgcap_;
-    public bool HasSongshuBldgcap {
-      get { return hasSongshuBldgcap; }
-    }
-    public int SongshuBldgcap {
-      get { return songshuBldgcap_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int DamiBldgspdFieldNumber = 24;
-    private bool hasDamiBldgspd;
-    private int damiBldgspd_;
-    public bool HasDamiBldgspd {
-      get { return hasDamiBldgspd; }
-    }
-    public int DamiBldgspd {
-      get { return damiBldgspd_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ShucaiBldgspdFieldNumber = 25;
-    private bool hasShucaiBldgspd;
-    private int shucaiBldgspd_;
-    public bool HasShucaiBldgspd {
-      get { return hasShucaiBldgspd; }
-    }
-    public int ShucaiBldgspd {
-      get { return shucaiBldgspd_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ShuiguoBldgspdFieldNumber = 26;
-    private bool hasShuiguoBldgspd;
-    private int shuiguoBldgspd_;
-    public bool HasShuiguoBldgspd {
-      get { return hasShuiguoBldgspd; }
-    }
-    public int ShuiguoBldgspd {
-      get { return shuiguoBldgspd_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int JingBldgspdFieldNumber = 27;
-    private bool hasJingBldgspd;
-    private int jingBldgspd_;
-    public bool HasJingBldgspd {
-      get { return hasJingBldgspd; }
-    }
-    public int JingBldgspd {
-      get { return jingBldgspd_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int LushuiBldgspdFieldNumber = 28;
-    private bool hasLushuiBldgspd;
-    private int lushuiBldgspd_;
-    public bool HasLushuiBldgspd {
-      get { return hasLushuiBldgspd; }
-    }
-    public int LushuiBldgspd {
-      get { return lushuiBldgspd_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int SongshuBldgspdFieldNumber = 29;
-    private bool hasSongshuBldgspd;
-    private int songshuBldgspd_;
-    public bool HasSongshuBldgspd {
-      get { return hasSongshuBldgspd; }
-    }
-    public int SongshuBldgspd {
-      get { return songshuBldgspd_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int FengliBldgspdFieldNumber = 30;
-    private bool hasFengliBldgspd;
-    private int fengliBldgspd_;
-    public bool HasFengliBldgspd {
-      get { return hasFengliBldgspd; }
-    }
-    public int FengliBldgspd {
-      get { return fengliBldgspd_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int WuxiandianBldgFieldNumber = 31;
-    private bool hasWuxiandianBldg;
-    private int wuxiandianBldg_;
-    public bool HasWuxiandianBldg {
-      get { return hasWuxiandianBldg; }
-    }
-    public int WuxiandianBldg {
-      get { return wuxiandianBldg_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int LeidaBldgFieldNumber = 32;
-    private bool hasLeidaBldg;
-    private int leidaBldg_;
-    public bool HasLeidaBldg {
-      get { return hasLeidaBldg; }
-    }
-    public int LeidaBldg {
-      get { return leidaBldg_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int TaxCoeffFieldNumber = 33;
-    private bool hasTaxCoeff;
-    private int taxCoeff_;
-    public bool HasTaxCoeff {
-      get { return hasTaxCoeff; }
-    }
-    public int TaxCoeff {
-      get { return taxCoeff_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int DamikeyFieldNumber = 34;
+    public const int DamikeyFieldNumber = 2;
     private bool hasDamikey;
     private int damikey_;
     public bool HasDamikey {
@@ -493,7 +77,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ShucaikeyFieldNumber = 35;
+    public const int ShucaikeyFieldNumber = 3;
     private bool hasShucaikey;
     private int shucaikey_;
     public bool HasShucaikey {
@@ -506,7 +90,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ShuiguokeyFieldNumber = 36;
+    public const int ShuiguokeyFieldNumber = 4;
     private bool hasShuiguokey;
     private int shuiguokey_;
     public bool HasShuiguokey {
@@ -519,7 +103,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HuafeikeyFieldNumber = 37;
+    public const int HuafeikeyFieldNumber = 5;
     private bool hasHuafeikey;
     private int huafeikey_;
     public bool HasHuafeikey {
@@ -532,7 +116,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ShuikeyFieldNumber = 38;
+    public const int ShuikeyFieldNumber = 6;
     private bool hasShuikey;
     private int shuikey_;
     public bool HasShuikey {
@@ -545,7 +129,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SongmukeyFieldNumber = 39;
+    public const int SongmukeyFieldNumber = 7;
     private bool hasSongmukey;
     private int songmukey_;
     public bool HasSongmukey {
@@ -558,7 +142,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ShuinikeyFieldNumber = 40;
+    public const int ShuinikeyFieldNumber = 8;
     private bool hasShuinikey;
     private int shuinikey_;
     public bool HasShuinikey {
@@ -571,7 +155,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int CaokeyFieldNumber = 41;
+    public const int CaokeyFieldNumber = 9;
     private bool hasCaokey;
     private int caokey_;
     public bool HasCaokey {
@@ -584,7 +168,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int YuanyoukeyFieldNumber = 42;
+    public const int YuanyoukeyFieldNumber = 10;
     private bool hasYuanyoukey;
     private int yuanyoukey_;
     public bool HasYuanyoukey {
@@ -597,7 +181,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int TiekeyFieldNumber = 43;
+    public const int TiekeyFieldNumber = 11;
     private bool hasTiekey;
     private int tiekey_;
     public bool HasTiekey {
@@ -610,7 +194,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JijiubaokeyFieldNumber = 44;
+    public const int JijiubaokeyFieldNumber = 12;
     private bool hasJijiubaokey;
     private int jijiubaokey_;
     public bool HasJijiubaokey {
@@ -623,7 +207,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int RizhikeyFieldNumber = 45;
+    public const int RizhikeyFieldNumber = 13;
     private bool hasRizhikey;
     private int rizhikey_;
     public bool HasRizhikey {
@@ -636,7 +220,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JiqiangtuzhikeyFieldNumber = 46;
+    public const int JiqiangtuzhikeyFieldNumber = 14;
     private bool hasJiqiangtuzhikey;
     private int jiqiangtuzhikey_;
     public bool HasJiqiangtuzhikey {
@@ -649,7 +233,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JujituzhikeyFieldNumber = 47;
+    public const int JujituzhikeyFieldNumber = 15;
     private bool hasJujituzhikey;
     private int jujituzhikey_;
     public bool HasJujituzhikey {
@@ -662,7 +246,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JipaotuzhikeyFieldNumber = 48;
+    public const int JipaotuzhikeyFieldNumber = 16;
     private bool hasJipaotuzhikey;
     private int jipaotuzhikey_;
     public bool HasJipaotuzhikey {
@@ -675,7 +259,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int YuanlongpingkeyFieldNumber = 49;
+    public const int YuanlongpingkeyFieldNumber = 17;
     private bool hasYuanlongpingkey;
     private int yuanlongpingkey_;
     public bool HasYuanlongpingkey {
@@ -688,7 +272,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HuafeigongyekeyFieldNumber = 50;
+    public const int HuafeigongyekeyFieldNumber = 18;
     private bool hasHuafeigongyekey;
     private int huafeigongyekey_;
     public bool HasHuafeigongyekey {
@@ -701,7 +285,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int YangzhukeyFieldNumber = 51;
+    public const int YangzhukeyFieldNumber = 19;
     private bool hasYangzhukey;
     private int yangzhukey_;
     public bool HasYangzhukey {
@@ -714,7 +298,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int CangchukeyFieldNumber = 52;
+    public const int CangchukeyFieldNumber = 20;
     private bool hasCangchukey;
     private int cangchukey_;
     public bool HasCangchukey {
@@ -727,7 +311,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int TesilakeyFieldNumber = 53;
+    public const int TesilakeyFieldNumber = 21;
     private bool hasTesilakey;
     private int tesilakey_;
     public bool HasTesilakey {
@@ -740,7 +324,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int LuokefeilekeyFieldNumber = 54;
+    public const int LuokefeilekeyFieldNumber = 22;
     private bool hasLuokefeilekey;
     private int luokefeilekey_;
     public bool HasLuokefeilekey {
@@ -753,7 +337,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int KanaijikeyFieldNumber = 55;
+    public const int KanaijikeyFieldNumber = 23;
     private bool hasKanaijikey;
     private int kanaijikey_;
     public bool HasKanaijikey {
@@ -766,7 +350,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int LubankeyFieldNumber = 56;
+    public const int LubankeyFieldNumber = 24;
     private bool hasLubankey;
     private int lubankey_;
     public bool HasLubankey {
@@ -779,7 +363,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int TumukeyFieldNumber = 57;
+    public const int TumukeyFieldNumber = 25;
     private bool hasTumukey;
     private int tumukey_;
     public bool HasTumukey {
@@ -792,7 +376,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int FangdaokeyFieldNumber = 58;
+    public const int FangdaokeyFieldNumber = 26;
     private bool hasFangdaokey;
     private int fangdaokey_;
     public bool HasFangdaokey {
@@ -805,7 +389,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int MakeqinkeyFieldNumber = 59;
+    public const int MakeqinkeyFieldNumber = 27;
     private bool hasMakeqinkey;
     private int makeqinkey_;
     public bool HasMakeqinkey {
@@ -818,7 +402,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int WodefendoukeyFieldNumber = 60;
+    public const int WodefendoukeyFieldNumber = 28;
     private bool hasWodefendoukey;
     private int wodefendoukey_;
     public bool HasWodefendoukey {
@@ -831,7 +415,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JiatelinkeyFieldNumber = 61;
+    public const int JiatelinkeyFieldNumber = 29;
     private bool hasJiatelinkey;
     private int jiatelinkey_;
     public bool HasJiatelinkey {
@@ -844,7 +428,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int WbaleitekeyFieldNumber = 62;
+    public const int WbaleitekeyFieldNumber = 30;
     private bool hasWbaleitekey;
     private int wbaleitekey_;
     public bool HasWbaleitekey {
@@ -857,7 +441,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int GuanrenkeyFieldNumber = 63;
+    public const int GuanrenkeyFieldNumber = 31;
     private bool hasGuanrenkey;
     private int guanrenkey_;
     public bool HasGuanrenkey {
@@ -870,7 +454,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Toukui1KeyFieldNumber = 64;
+    public const int Toukui1KeyFieldNumber = 32;
     private bool hasToukui1Key;
     private int toukui1Key_;
     public bool HasToukui1Key {
@@ -883,7 +467,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Toukui2KeyFieldNumber = 65;
+    public const int Toukui2KeyFieldNumber = 33;
     private bool hasToukui2Key;
     private int toukui2Key_;
     public bool HasToukui2Key {
@@ -896,7 +480,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Toukui3KeyFieldNumber = 66;
+    public const int Toukui3KeyFieldNumber = 34;
     private bool hasToukui3Key;
     private int toukui3Key_;
     public bool HasToukui3Key {
@@ -909,7 +493,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Shouqiang1KeyFieldNumber = 67;
+    public const int Shouqiang1KeyFieldNumber = 35;
     private bool hasShouqiang1Key;
     private int shouqiang1Key_;
     public bool HasShouqiang1Key {
@@ -922,7 +506,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Buqiang1KeyFieldNumber = 68;
+    public const int Buqiang1KeyFieldNumber = 36;
     private bool hasBuqiang1Key;
     private int buqiang1Key_;
     public bool HasBuqiang1Key {
@@ -935,7 +519,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Qingjiqiang1KeyFieldNumber = 69;
+    public const int Qingjiqiang1KeyFieldNumber = 37;
     private bool hasQingjiqiang1Key;
     private int qingjiqiang1Key_;
     public bool HasQingjiqiang1Key {
@@ -948,7 +532,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Fangdanyi1KeyFieldNumber = 70;
+    public const int Fangdanyi1KeyFieldNumber = 38;
     private bool hasFangdanyi1Key;
     private int fangdanyi1Key_;
     public bool HasFangdanyi1Key {
@@ -961,7 +545,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Fangdanyi2KeyFieldNumber = 71;
+    public const int Fangdanyi2KeyFieldNumber = 39;
     private bool hasFangdanyi2Key;
     private int fangdanyi2Key_;
     public bool HasFangdanyi2Key {
@@ -974,7 +558,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Fangdanyi3KeyFieldNumber = 72;
+    public const int Fangdanyi3KeyFieldNumber = 40;
     private bool hasFangdanyi3Key;
     private int fangdanyi3Key_;
     public bool HasFangdanyi3Key {
@@ -987,7 +571,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Kuzi1KeyFieldNumber = 73;
+    public const int Kuzi1KeyFieldNumber = 41;
     private bool hasKuzi1Key;
     private int kuzi1Key_;
     public bool HasKuzi1Key {
@@ -1000,7 +584,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Kuzi2KeyFieldNumber = 74;
+    public const int Kuzi2KeyFieldNumber = 42;
     private bool hasKuzi2Key;
     private int kuzi2Key_;
     public bool HasKuzi2Key {
@@ -1013,7 +597,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Kuzi3KeyFieldNumber = 75;
+    public const int Kuzi3KeyFieldNumber = 43;
     private bool hasKuzi3Key;
     private int kuzi3Key_;
     public bool HasKuzi3Key {
@@ -1026,7 +610,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Xiezi1KeyFieldNumber = 76;
+    public const int Xiezi1KeyFieldNumber = 44;
     private bool hasXiezi1Key;
     private int xiezi1Key_;
     public bool HasXiezi1Key {
@@ -1039,7 +623,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Xiezi2KeyFieldNumber = 77;
+    public const int Xiezi2KeyFieldNumber = 45;
     private bool hasXiezi2Key;
     private int xiezi2Key_;
     public bool HasXiezi2Key {
@@ -1052,7 +636,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Xiezi3KeyFieldNumber = 78;
+    public const int Xiezi3KeyFieldNumber = 46;
     private bool hasXiezi3Key;
     private int xiezi3Key_;
     public bool HasXiezi3Key {
@@ -1065,7 +649,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int KuangquanshuikeyFieldNumber = 79;
+    public const int KuangquanshuikeyFieldNumber = 47;
     private bool hasKuangquanshuikey;
     private int kuangquanshuikey_;
     public bool HasKuangquanshuikey {
@@ -1078,7 +662,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SiliaokeyFieldNumber = 80;
+    public const int SiliaokeyFieldNumber = 48;
     private bool hasSiliaokey;
     private int siliaokey_;
     public bool HasSiliaokey {
@@ -1091,7 +675,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ZhuroukeyFieldNumber = 81;
+    public const int ZhuroukeyFieldNumber = 49;
     private bool hasZhuroukey;
     private int zhuroukey_;
     public bool HasZhuroukey {
@@ -1104,7 +688,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int QiyoukeyFieldNumber = 82;
+    public const int QiyoukeyFieldNumber = 50;
     private bool hasQiyoukey;
     private int qiyoukey_;
     public bool HasQiyoukey {
@@ -1117,7 +701,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int GangkeyFieldNumber = 83;
+    public const int GangkeyFieldNumber = 51;
     private bool hasGangkey;
     private int gangkey_;
     public bool HasGangkey {
@@ -1130,7 +714,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SongmubankeyFieldNumber = 84;
+    public const int SongmubankeyFieldNumber = 52;
     private bool hasSongmubankey;
     private int songmubankey_;
     public bool HasSongmubankey {
@@ -1143,7 +727,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HunningtukeyFieldNumber = 85;
+    public const int HunningtukeyFieldNumber = 53;
     private bool hasHunningtukey;
     private int hunningtukey_;
     public bool HasHunningtukey {
@@ -1158,7 +742,6 @@ namespace com.game.framework.resource.data {
      #endif//
     public override bool IsInitialized {
       get {
-        if (!hasId) return false;
         return true;
       }
     }
@@ -1168,261 +751,165 @@ namespace com.game.framework.resource.data {
      #endif//
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
-      string[] field_names = _wORLDEVENTSFieldNames;
+      string[] field_names = _pURCHASELIMFieldNames;
       if (hasId) {
-        output.WriteInt32(1, field_names[26], Id);
-      }
-      if (hasEventName) {
-        output.WriteString(2, field_names[10], EventName);
-      }
-      if (hasEventUnlock) {
-        output.WriteInt32(3, field_names[14], EventUnlock);
-      }
-      if (hasEventDesc) {
-        output.WriteString(4, field_names[7], EventDesc);
-      }
-      if (hasEventNews) {
-        output.WriteString(5, field_names[11], EventNews);
-      }
-      if (hasEventNewsdetail) {
-        output.WriteString(6, field_names[12], EventNewsdetail);
-      }
-      if (hasEventDuration) {
-        output.WriteInt32(7, field_names[8], EventDuration);
-      }
-      if (hasEventIcon) {
-        output.WriteString(8, field_names[9], EventIcon);
-      }
-      if (hasEventProb) {
-        output.WriteInt32(9, field_names[13], EventProb);
-      }
-      if (hasConProb) {
-        output.WriteInt32(10, field_names[3], ConProb);
-      }
-      if (hasInvaProb) {
-        output.WriteInt32(11, field_names[27], InvaProb);
-      }
-      if (hasZombieAtk) {
-        output.WriteInt32(12, field_names[81], ZombieAtk);
-      }
-      if (hasZombieDef) {
-        output.WriteInt32(13, field_names[82], ZombieDef);
-      }
-      if (hasZombieHp) {
-        output.WriteInt32(14, field_names[83], ZombieHp);
-      }
-      if (hasZombieNum) {
-        output.WriteInt32(15, field_names[84], ZombieNum);
-      }
-      if (hasHealthkey) {
-        output.WriteInt32(16, field_names[22], Healthkey);
-      }
-      if (hasMoodkey) {
-        output.WriteInt32(17, field_names[46], Moodkey);
-      }
-      if (hasDamiBldgcap) {
-        output.WriteInt32(18, field_names[4], DamiBldgcap);
-      }
-      if (hasShucaiBldgcap) {
-        output.WriteInt32(19, field_names[51], ShucaiBldgcap);
-      }
-      if (hasShuiguoBldgcap) {
-        output.WriteInt32(20, field_names[54], ShuiguoBldgcap);
-      }
-      if (hasJingBldgcap) {
-        output.WriteInt32(21, field_names[30], JingBldgcap);
-      }
-      if (hasLushuiBldgcap) {
-        output.WriteInt32(22, field_names[43], LushuiBldgcap);
-      }
-      if (hasSongshuBldgcap) {
-        output.WriteInt32(23, field_names[62], SongshuBldgcap);
-      }
-      if (hasDamiBldgspd) {
-        output.WriteInt32(24, field_names[5], DamiBldgspd);
-      }
-      if (hasShucaiBldgspd) {
-        output.WriteInt32(25, field_names[52], ShucaiBldgspd);
-      }
-      if (hasShuiguoBldgspd) {
-        output.WriteInt32(26, field_names[55], ShuiguoBldgspd);
-      }
-      if (hasJingBldgspd) {
-        output.WriteInt32(27, field_names[31], JingBldgspd);
-      }
-      if (hasLushuiBldgspd) {
-        output.WriteInt32(28, field_names[44], LushuiBldgspd);
-      }
-      if (hasSongshuBldgspd) {
-        output.WriteInt32(29, field_names[63], SongshuBldgspd);
-      }
-      if (hasFengliBldgspd) {
-        output.WriteInt32(30, field_names[19], FengliBldgspd);
-      }
-      if (hasWuxiandianBldg) {
-        output.WriteInt32(31, field_names[73], WuxiandianBldg);
-      }
-      if (hasLeidaBldg) {
-        output.WriteInt32(32, field_names[40], LeidaBldg);
-      }
-      if (hasTaxCoeff) {
-        output.WriteInt32(33, field_names[64], TaxCoeff);
+        output.WriteInt32(1, field_names[13], Id);
       }
       if (hasDamikey) {
-        output.WriteInt32(34, field_names[6], Damikey);
+        output.WriteInt32(2, field_names[3], Damikey);
       }
       if (hasShucaikey) {
-        output.WriteInt32(35, field_names[53], Shucaikey);
+        output.WriteInt32(3, field_names[31], Shucaikey);
       }
       if (hasShuiguokey) {
-        output.WriteInt32(36, field_names[56], Shuiguokey);
+        output.WriteInt32(4, field_names[32], Shuiguokey);
       }
       if (hasHuafeikey) {
-        output.WriteInt32(37, field_names[24], Huafeikey);
+        output.WriteInt32(5, field_names[11], Huafeikey);
       }
       if (hasShuikey) {
-        output.WriteInt32(38, field_names[57], Shuikey);
+        output.WriteInt32(6, field_names[33], Shuikey);
       }
       if (hasSongmukey) {
-        output.WriteInt32(39, field_names[61], Songmukey);
+        output.WriteInt32(7, field_names[37], Songmukey);
       }
       if (hasShuinikey) {
-        output.WriteInt32(40, field_names[58], Shuinikey);
+        output.WriteInt32(8, field_names[34], Shuinikey);
       }
       if (hasCaokey) {
-        output.WriteInt32(41, field_names[2], Caokey);
+        output.WriteInt32(9, field_names[2], Caokey);
       }
       if (hasYuanyoukey) {
-        output.WriteInt32(42, field_names[79], Yuanyoukey);
+        output.WriteInt32(10, field_names[51], Yuanyoukey);
       }
       if (hasTiekey) {
-        output.WriteInt32(43, field_names[66], Tiekey);
+        output.WriteInt32(11, field_names[39], Tiekey);
       }
       if (hasJijiubaokey) {
-        output.WriteInt32(44, field_names[29], Jijiubaokey);
+        output.WriteInt32(12, field_names[15], Jijiubaokey);
       }
       if (hasRizhikey) {
-        output.WriteInt32(45, field_names[49], Rizhikey);
+        output.WriteInt32(13, field_names[29], Rizhikey);
       }
       if (hasJiqiangtuzhikey) {
-        output.WriteInt32(46, field_names[33], Jiqiangtuzhikey);
+        output.WriteInt32(14, field_names[17], Jiqiangtuzhikey);
       }
       if (hasJujituzhikey) {
-        output.WriteInt32(47, field_names[34], Jujituzhikey);
+        output.WriteInt32(15, field_names[18], Jujituzhikey);
       }
       if (hasJipaotuzhikey) {
-        output.WriteInt32(48, field_names[32], Jipaotuzhikey);
+        output.WriteInt32(16, field_names[16], Jipaotuzhikey);
       }
       if (hasYuanlongpingkey) {
-        output.WriteInt32(49, field_names[78], Yuanlongpingkey);
+        output.WriteInt32(17, field_names[50], Yuanlongpingkey);
       }
       if (hasHuafeigongyekey) {
-        output.WriteInt32(50, field_names[23], Huafeigongyekey);
+        output.WriteInt32(18, field_names[10], Huafeigongyekey);
       }
       if (hasYangzhukey) {
-        output.WriteInt32(51, field_names[77], Yangzhukey);
+        output.WriteInt32(19, field_names[49], Yangzhukey);
       }
       if (hasCangchukey) {
-        output.WriteInt32(52, field_names[1], Cangchukey);
+        output.WriteInt32(20, field_names[1], Cangchukey);
       }
       if (hasTesilakey) {
-        output.WriteInt32(53, field_names[65], Tesilakey);
+        output.WriteInt32(21, field_names[38], Tesilakey);
       }
       if (hasLuokefeilekey) {
-        output.WriteInt32(54, field_names[42], Luokefeilekey);
+        output.WriteInt32(22, field_names[25], Luokefeilekey);
       }
       if (hasKanaijikey) {
-        output.WriteInt32(55, field_names[35], Kanaijikey);
+        output.WriteInt32(23, field_names[19], Kanaijikey);
       }
       if (hasLubankey) {
-        output.WriteInt32(56, field_names[41], Lubankey);
+        output.WriteInt32(24, field_names[24], Lubankey);
       }
       if (hasTumukey) {
-        output.WriteInt32(57, field_names[70], Tumukey);
+        output.WriteInt32(25, field_names[43], Tumukey);
       }
       if (hasFangdaokey) {
-        output.WriteInt32(58, field_names[18], Fangdaokey);
+        output.WriteInt32(26, field_names[7], Fangdaokey);
       }
       if (hasMakeqinkey) {
-        output.WriteInt32(59, field_names[45], Makeqinkey);
+        output.WriteInt32(27, field_names[26], Makeqinkey);
       }
       if (hasWodefendoukey) {
-        output.WriteInt32(60, field_names[72], Wodefendoukey);
+        output.WriteInt32(28, field_names[45], Wodefendoukey);
       }
       if (hasJiatelinkey) {
-        output.WriteInt32(61, field_names[28], Jiatelinkey);
+        output.WriteInt32(29, field_names[14], Jiatelinkey);
       }
       if (hasWbaleitekey) {
-        output.WriteInt32(62, field_names[71], Wbaleitekey);
+        output.WriteInt32(30, field_names[44], Wbaleitekey);
       }
       if (hasGuanrenkey) {
-        output.WriteInt32(63, field_names[21], Guanrenkey);
+        output.WriteInt32(31, field_names[9], Guanrenkey);
       }
       if (hasToukui1Key) {
-        output.WriteInt32(64, field_names[67], Toukui1Key);
+        output.WriteInt32(32, field_names[40], Toukui1Key);
       }
       if (hasToukui2Key) {
-        output.WriteInt32(65, field_names[68], Toukui2Key);
+        output.WriteInt32(33, field_names[41], Toukui2Key);
       }
       if (hasToukui3Key) {
-        output.WriteInt32(66, field_names[69], Toukui3Key);
+        output.WriteInt32(34, field_names[42], Toukui3Key);
       }
       if (hasShouqiang1Key) {
-        output.WriteInt32(67, field_names[50], Shouqiang1Key);
+        output.WriteInt32(35, field_names[30], Shouqiang1Key);
       }
       if (hasBuqiang1Key) {
-        output.WriteInt32(68, field_names[0], Buqiang1Key);
+        output.WriteInt32(36, field_names[0], Buqiang1Key);
       }
       if (hasQingjiqiang1Key) {
-        output.WriteInt32(69, field_names[47], Qingjiqiang1Key);
+        output.WriteInt32(37, field_names[27], Qingjiqiang1Key);
       }
       if (hasFangdanyi1Key) {
-        output.WriteInt32(70, field_names[15], Fangdanyi1Key);
+        output.WriteInt32(38, field_names[4], Fangdanyi1Key);
       }
       if (hasFangdanyi2Key) {
-        output.WriteInt32(71, field_names[16], Fangdanyi2Key);
+        output.WriteInt32(39, field_names[5], Fangdanyi2Key);
       }
       if (hasFangdanyi3Key) {
-        output.WriteInt32(72, field_names[17], Fangdanyi3Key);
+        output.WriteInt32(40, field_names[6], Fangdanyi3Key);
       }
       if (hasKuzi1Key) {
-        output.WriteInt32(73, field_names[37], Kuzi1Key);
+        output.WriteInt32(41, field_names[21], Kuzi1Key);
       }
       if (hasKuzi2Key) {
-        output.WriteInt32(74, field_names[38], Kuzi2Key);
+        output.WriteInt32(42, field_names[22], Kuzi2Key);
       }
       if (hasKuzi3Key) {
-        output.WriteInt32(75, field_names[39], Kuzi3Key);
+        output.WriteInt32(43, field_names[23], Kuzi3Key);
       }
       if (hasXiezi1Key) {
-        output.WriteInt32(76, field_names[74], Xiezi1Key);
+        output.WriteInt32(44, field_names[46], Xiezi1Key);
       }
       if (hasXiezi2Key) {
-        output.WriteInt32(77, field_names[75], Xiezi2Key);
+        output.WriteInt32(45, field_names[47], Xiezi2Key);
       }
       if (hasXiezi3Key) {
-        output.WriteInt32(78, field_names[76], Xiezi3Key);
+        output.WriteInt32(46, field_names[48], Xiezi3Key);
       }
       if (hasKuangquanshuikey) {
-        output.WriteInt32(79, field_names[36], Kuangquanshuikey);
+        output.WriteInt32(47, field_names[20], Kuangquanshuikey);
       }
       if (hasSiliaokey) {
-        output.WriteInt32(80, field_names[59], Siliaokey);
+        output.WriteInt32(48, field_names[35], Siliaokey);
       }
       if (hasZhuroukey) {
-        output.WriteInt32(81, field_names[80], Zhuroukey);
+        output.WriteInt32(49, field_names[52], Zhuroukey);
       }
       if (hasQiyoukey) {
-        output.WriteInt32(82, field_names[48], Qiyoukey);
+        output.WriteInt32(50, field_names[28], Qiyoukey);
       }
       if (hasGangkey) {
-        output.WriteInt32(83, field_names[20], Gangkey);
+        output.WriteInt32(51, field_names[8], Gangkey);
       }
       if (hasSongmubankey) {
-        output.WriteInt32(84, field_names[60], Songmubankey);
+        output.WriteInt32(52, field_names[36], Songmubankey);
       }
       if (hasHunningtukey) {
-        output.WriteInt32(85, field_names[25], Hunningtukey);
+        output.WriteInt32(53, field_names[12], Hunningtukey);
       }
     }
     
@@ -1439,257 +926,161 @@ namespace com.game.framework.resource.data {
         if (hasId) {
           size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
         }
-        if (hasEventName) {
-          size += pb::CodedOutputStream.ComputeStringSize(2, EventName);
-        }
-        if (hasEventUnlock) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, EventUnlock);
-        }
-        if (hasEventDesc) {
-          size += pb::CodedOutputStream.ComputeStringSize(4, EventDesc);
-        }
-        if (hasEventNews) {
-          size += pb::CodedOutputStream.ComputeStringSize(5, EventNews);
-        }
-        if (hasEventNewsdetail) {
-          size += pb::CodedOutputStream.ComputeStringSize(6, EventNewsdetail);
-        }
-        if (hasEventDuration) {
-          size += pb::CodedOutputStream.ComputeInt32Size(7, EventDuration);
-        }
-        if (hasEventIcon) {
-          size += pb::CodedOutputStream.ComputeStringSize(8, EventIcon);
-        }
-        if (hasEventProb) {
-          size += pb::CodedOutputStream.ComputeInt32Size(9, EventProb);
-        }
-        if (hasConProb) {
-          size += pb::CodedOutputStream.ComputeInt32Size(10, ConProb);
-        }
-        if (hasInvaProb) {
-          size += pb::CodedOutputStream.ComputeInt32Size(11, InvaProb);
-        }
-        if (hasZombieAtk) {
-          size += pb::CodedOutputStream.ComputeInt32Size(12, ZombieAtk);
-        }
-        if (hasZombieDef) {
-          size += pb::CodedOutputStream.ComputeInt32Size(13, ZombieDef);
-        }
-        if (hasZombieHp) {
-          size += pb::CodedOutputStream.ComputeInt32Size(14, ZombieHp);
-        }
-        if (hasZombieNum) {
-          size += pb::CodedOutputStream.ComputeInt32Size(15, ZombieNum);
-        }
-        if (hasHealthkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(16, Healthkey);
-        }
-        if (hasMoodkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(17, Moodkey);
-        }
-        if (hasDamiBldgcap) {
-          size += pb::CodedOutputStream.ComputeInt32Size(18, DamiBldgcap);
-        }
-        if (hasShucaiBldgcap) {
-          size += pb::CodedOutputStream.ComputeInt32Size(19, ShucaiBldgcap);
-        }
-        if (hasShuiguoBldgcap) {
-          size += pb::CodedOutputStream.ComputeInt32Size(20, ShuiguoBldgcap);
-        }
-        if (hasJingBldgcap) {
-          size += pb::CodedOutputStream.ComputeInt32Size(21, JingBldgcap);
-        }
-        if (hasLushuiBldgcap) {
-          size += pb::CodedOutputStream.ComputeInt32Size(22, LushuiBldgcap);
-        }
-        if (hasSongshuBldgcap) {
-          size += pb::CodedOutputStream.ComputeInt32Size(23, SongshuBldgcap);
-        }
-        if (hasDamiBldgspd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(24, DamiBldgspd);
-        }
-        if (hasShucaiBldgspd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(25, ShucaiBldgspd);
-        }
-        if (hasShuiguoBldgspd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(26, ShuiguoBldgspd);
-        }
-        if (hasJingBldgspd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(27, JingBldgspd);
-        }
-        if (hasLushuiBldgspd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(28, LushuiBldgspd);
-        }
-        if (hasSongshuBldgspd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(29, SongshuBldgspd);
-        }
-        if (hasFengliBldgspd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(30, FengliBldgspd);
-        }
-        if (hasWuxiandianBldg) {
-          size += pb::CodedOutputStream.ComputeInt32Size(31, WuxiandianBldg);
-        }
-        if (hasLeidaBldg) {
-          size += pb::CodedOutputStream.ComputeInt32Size(32, LeidaBldg);
-        }
-        if (hasTaxCoeff) {
-          size += pb::CodedOutputStream.ComputeInt32Size(33, TaxCoeff);
-        }
         if (hasDamikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(34, Damikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(2, Damikey);
         }
         if (hasShucaikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(35, Shucaikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(3, Shucaikey);
         }
         if (hasShuiguokey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(36, Shuiguokey);
+          size += pb::CodedOutputStream.ComputeInt32Size(4, Shuiguokey);
         }
         if (hasHuafeikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(37, Huafeikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(5, Huafeikey);
         }
         if (hasShuikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(38, Shuikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(6, Shuikey);
         }
         if (hasSongmukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(39, Songmukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(7, Songmukey);
         }
         if (hasShuinikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(40, Shuinikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(8, Shuinikey);
         }
         if (hasCaokey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(41, Caokey);
+          size += pb::CodedOutputStream.ComputeInt32Size(9, Caokey);
         }
         if (hasYuanyoukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(42, Yuanyoukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(10, Yuanyoukey);
         }
         if (hasTiekey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(43, Tiekey);
+          size += pb::CodedOutputStream.ComputeInt32Size(11, Tiekey);
         }
         if (hasJijiubaokey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(44, Jijiubaokey);
+          size += pb::CodedOutputStream.ComputeInt32Size(12, Jijiubaokey);
         }
         if (hasRizhikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(45, Rizhikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(13, Rizhikey);
         }
         if (hasJiqiangtuzhikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(46, Jiqiangtuzhikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(14, Jiqiangtuzhikey);
         }
         if (hasJujituzhikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(47, Jujituzhikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(15, Jujituzhikey);
         }
         if (hasJipaotuzhikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(48, Jipaotuzhikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(16, Jipaotuzhikey);
         }
         if (hasYuanlongpingkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(49, Yuanlongpingkey);
+          size += pb::CodedOutputStream.ComputeInt32Size(17, Yuanlongpingkey);
         }
         if (hasHuafeigongyekey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(50, Huafeigongyekey);
+          size += pb::CodedOutputStream.ComputeInt32Size(18, Huafeigongyekey);
         }
         if (hasYangzhukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(51, Yangzhukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(19, Yangzhukey);
         }
         if (hasCangchukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(52, Cangchukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(20, Cangchukey);
         }
         if (hasTesilakey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(53, Tesilakey);
+          size += pb::CodedOutputStream.ComputeInt32Size(21, Tesilakey);
         }
         if (hasLuokefeilekey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(54, Luokefeilekey);
+          size += pb::CodedOutputStream.ComputeInt32Size(22, Luokefeilekey);
         }
         if (hasKanaijikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(55, Kanaijikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(23, Kanaijikey);
         }
         if (hasLubankey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(56, Lubankey);
+          size += pb::CodedOutputStream.ComputeInt32Size(24, Lubankey);
         }
         if (hasTumukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(57, Tumukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(25, Tumukey);
         }
         if (hasFangdaokey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(58, Fangdaokey);
+          size += pb::CodedOutputStream.ComputeInt32Size(26, Fangdaokey);
         }
         if (hasMakeqinkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(59, Makeqinkey);
+          size += pb::CodedOutputStream.ComputeInt32Size(27, Makeqinkey);
         }
         if (hasWodefendoukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(60, Wodefendoukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(28, Wodefendoukey);
         }
         if (hasJiatelinkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(61, Jiatelinkey);
+          size += pb::CodedOutputStream.ComputeInt32Size(29, Jiatelinkey);
         }
         if (hasWbaleitekey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(62, Wbaleitekey);
+          size += pb::CodedOutputStream.ComputeInt32Size(30, Wbaleitekey);
         }
         if (hasGuanrenkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(63, Guanrenkey);
+          size += pb::CodedOutputStream.ComputeInt32Size(31, Guanrenkey);
         }
         if (hasToukui1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(64, Toukui1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(32, Toukui1Key);
         }
         if (hasToukui2Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(65, Toukui2Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(33, Toukui2Key);
         }
         if (hasToukui3Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(66, Toukui3Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(34, Toukui3Key);
         }
         if (hasShouqiang1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(67, Shouqiang1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(35, Shouqiang1Key);
         }
         if (hasBuqiang1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(68, Buqiang1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(36, Buqiang1Key);
         }
         if (hasQingjiqiang1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(69, Qingjiqiang1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(37, Qingjiqiang1Key);
         }
         if (hasFangdanyi1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(70, Fangdanyi1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(38, Fangdanyi1Key);
         }
         if (hasFangdanyi2Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(71, Fangdanyi2Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(39, Fangdanyi2Key);
         }
         if (hasFangdanyi3Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(72, Fangdanyi3Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(40, Fangdanyi3Key);
         }
         if (hasKuzi1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(73, Kuzi1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(41, Kuzi1Key);
         }
         if (hasKuzi2Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(74, Kuzi2Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(42, Kuzi2Key);
         }
         if (hasKuzi3Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(75, Kuzi3Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(43, Kuzi3Key);
         }
         if (hasXiezi1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(76, Xiezi1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(44, Xiezi1Key);
         }
         if (hasXiezi2Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(77, Xiezi2Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(45, Xiezi2Key);
         }
         if (hasXiezi3Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(78, Xiezi3Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(46, Xiezi3Key);
         }
         if (hasKuangquanshuikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(79, Kuangquanshuikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(47, Kuangquanshuikey);
         }
         if (hasSiliaokey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(80, Siliaokey);
+          size += pb::CodedOutputStream.ComputeInt32Size(48, Siliaokey);
         }
         if (hasZhuroukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(81, Zhuroukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(49, Zhuroukey);
         }
         if (hasQiyoukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(82, Qiyoukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(50, Qiyoukey);
         }
         if (hasGangkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(83, Gangkey);
+          size += pb::CodedOutputStream.ComputeInt32Size(51, Gangkey);
         }
         if (hasSongmubankey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(84, Songmubankey);
+          size += pb::CodedOutputStream.ComputeInt32Size(52, Songmubankey);
         }
         if (hasHunningtukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(85, Hunningtukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(53, Hunningtukey);
         }
         memoizedSerializedSize = size;
         return size;
@@ -1700,38 +1091,6 @@ namespace com.game.framework.resource.data {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasId) hash ^= id_.GetHashCode();
-      if (hasEventName) hash ^= eventName_.GetHashCode();
-      if (hasEventUnlock) hash ^= eventUnlock_.GetHashCode();
-      if (hasEventDesc) hash ^= eventDesc_.GetHashCode();
-      if (hasEventNews) hash ^= eventNews_.GetHashCode();
-      if (hasEventNewsdetail) hash ^= eventNewsdetail_.GetHashCode();
-      if (hasEventDuration) hash ^= eventDuration_.GetHashCode();
-      if (hasEventIcon) hash ^= eventIcon_.GetHashCode();
-      if (hasEventProb) hash ^= eventProb_.GetHashCode();
-      if (hasConProb) hash ^= conProb_.GetHashCode();
-      if (hasInvaProb) hash ^= invaProb_.GetHashCode();
-      if (hasZombieAtk) hash ^= zombieAtk_.GetHashCode();
-      if (hasZombieDef) hash ^= zombieDef_.GetHashCode();
-      if (hasZombieHp) hash ^= zombieHp_.GetHashCode();
-      if (hasZombieNum) hash ^= zombieNum_.GetHashCode();
-      if (hasHealthkey) hash ^= healthkey_.GetHashCode();
-      if (hasMoodkey) hash ^= moodkey_.GetHashCode();
-      if (hasDamiBldgcap) hash ^= damiBldgcap_.GetHashCode();
-      if (hasShucaiBldgcap) hash ^= shucaiBldgcap_.GetHashCode();
-      if (hasShuiguoBldgcap) hash ^= shuiguoBldgcap_.GetHashCode();
-      if (hasJingBldgcap) hash ^= jingBldgcap_.GetHashCode();
-      if (hasLushuiBldgcap) hash ^= lushuiBldgcap_.GetHashCode();
-      if (hasSongshuBldgcap) hash ^= songshuBldgcap_.GetHashCode();
-      if (hasDamiBldgspd) hash ^= damiBldgspd_.GetHashCode();
-      if (hasShucaiBldgspd) hash ^= shucaiBldgspd_.GetHashCode();
-      if (hasShuiguoBldgspd) hash ^= shuiguoBldgspd_.GetHashCode();
-      if (hasJingBldgspd) hash ^= jingBldgspd_.GetHashCode();
-      if (hasLushuiBldgspd) hash ^= lushuiBldgspd_.GetHashCode();
-      if (hasSongshuBldgspd) hash ^= songshuBldgspd_.GetHashCode();
-      if (hasFengliBldgspd) hash ^= fengliBldgspd_.GetHashCode();
-      if (hasWuxiandianBldg) hash ^= wuxiandianBldg_.GetHashCode();
-      if (hasLeidaBldg) hash ^= leidaBldg_.GetHashCode();
-      if (hasTaxCoeff) hash ^= taxCoeff_.GetHashCode();
       if (hasDamikey) hash ^= damikey_.GetHashCode();
       if (hasShucaikey) hash ^= shucaikey_.GetHashCode();
       if (hasShuiguokey) hash ^= shuiguokey_.GetHashCode();
@@ -1788,41 +1147,9 @@ namespace com.game.framework.resource.data {
     }
     
     public override bool Equals(object obj) {
-      WORLD_EVENTS other = obj as WORLD_EVENTS;
+      PURCHASE_LIM other = obj as PURCHASE_LIM;
       if (other == null) return false;
       if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
-      if (hasEventName != other.hasEventName || (hasEventName && !eventName_.Equals(other.eventName_))) return false;
-      if (hasEventUnlock != other.hasEventUnlock || (hasEventUnlock && !eventUnlock_.Equals(other.eventUnlock_))) return false;
-      if (hasEventDesc != other.hasEventDesc || (hasEventDesc && !eventDesc_.Equals(other.eventDesc_))) return false;
-      if (hasEventNews != other.hasEventNews || (hasEventNews && !eventNews_.Equals(other.eventNews_))) return false;
-      if (hasEventNewsdetail != other.hasEventNewsdetail || (hasEventNewsdetail && !eventNewsdetail_.Equals(other.eventNewsdetail_))) return false;
-      if (hasEventDuration != other.hasEventDuration || (hasEventDuration && !eventDuration_.Equals(other.eventDuration_))) return false;
-      if (hasEventIcon != other.hasEventIcon || (hasEventIcon && !eventIcon_.Equals(other.eventIcon_))) return false;
-      if (hasEventProb != other.hasEventProb || (hasEventProb && !eventProb_.Equals(other.eventProb_))) return false;
-      if (hasConProb != other.hasConProb || (hasConProb && !conProb_.Equals(other.conProb_))) return false;
-      if (hasInvaProb != other.hasInvaProb || (hasInvaProb && !invaProb_.Equals(other.invaProb_))) return false;
-      if (hasZombieAtk != other.hasZombieAtk || (hasZombieAtk && !zombieAtk_.Equals(other.zombieAtk_))) return false;
-      if (hasZombieDef != other.hasZombieDef || (hasZombieDef && !zombieDef_.Equals(other.zombieDef_))) return false;
-      if (hasZombieHp != other.hasZombieHp || (hasZombieHp && !zombieHp_.Equals(other.zombieHp_))) return false;
-      if (hasZombieNum != other.hasZombieNum || (hasZombieNum && !zombieNum_.Equals(other.zombieNum_))) return false;
-      if (hasHealthkey != other.hasHealthkey || (hasHealthkey && !healthkey_.Equals(other.healthkey_))) return false;
-      if (hasMoodkey != other.hasMoodkey || (hasMoodkey && !moodkey_.Equals(other.moodkey_))) return false;
-      if (hasDamiBldgcap != other.hasDamiBldgcap || (hasDamiBldgcap && !damiBldgcap_.Equals(other.damiBldgcap_))) return false;
-      if (hasShucaiBldgcap != other.hasShucaiBldgcap || (hasShucaiBldgcap && !shucaiBldgcap_.Equals(other.shucaiBldgcap_))) return false;
-      if (hasShuiguoBldgcap != other.hasShuiguoBldgcap || (hasShuiguoBldgcap && !shuiguoBldgcap_.Equals(other.shuiguoBldgcap_))) return false;
-      if (hasJingBldgcap != other.hasJingBldgcap || (hasJingBldgcap && !jingBldgcap_.Equals(other.jingBldgcap_))) return false;
-      if (hasLushuiBldgcap != other.hasLushuiBldgcap || (hasLushuiBldgcap && !lushuiBldgcap_.Equals(other.lushuiBldgcap_))) return false;
-      if (hasSongshuBldgcap != other.hasSongshuBldgcap || (hasSongshuBldgcap && !songshuBldgcap_.Equals(other.songshuBldgcap_))) return false;
-      if (hasDamiBldgspd != other.hasDamiBldgspd || (hasDamiBldgspd && !damiBldgspd_.Equals(other.damiBldgspd_))) return false;
-      if (hasShucaiBldgspd != other.hasShucaiBldgspd || (hasShucaiBldgspd && !shucaiBldgspd_.Equals(other.shucaiBldgspd_))) return false;
-      if (hasShuiguoBldgspd != other.hasShuiguoBldgspd || (hasShuiguoBldgspd && !shuiguoBldgspd_.Equals(other.shuiguoBldgspd_))) return false;
-      if (hasJingBldgspd != other.hasJingBldgspd || (hasJingBldgspd && !jingBldgspd_.Equals(other.jingBldgspd_))) return false;
-      if (hasLushuiBldgspd != other.hasLushuiBldgspd || (hasLushuiBldgspd && !lushuiBldgspd_.Equals(other.lushuiBldgspd_))) return false;
-      if (hasSongshuBldgspd != other.hasSongshuBldgspd || (hasSongshuBldgspd && !songshuBldgspd_.Equals(other.songshuBldgspd_))) return false;
-      if (hasFengliBldgspd != other.hasFengliBldgspd || (hasFengliBldgspd && !fengliBldgspd_.Equals(other.fengliBldgspd_))) return false;
-      if (hasWuxiandianBldg != other.hasWuxiandianBldg || (hasWuxiandianBldg && !wuxiandianBldg_.Equals(other.wuxiandianBldg_))) return false;
-      if (hasLeidaBldg != other.hasLeidaBldg || (hasLeidaBldg && !leidaBldg_.Equals(other.leidaBldg_))) return false;
-      if (hasTaxCoeff != other.hasTaxCoeff || (hasTaxCoeff && !taxCoeff_.Equals(other.taxCoeff_))) return false;
       if (hasDamikey != other.hasDamikey || (hasDamikey && !damikey_.Equals(other.damikey_))) return false;
       if (hasShucaikey != other.hasShucaikey || (hasShucaikey && !shucaikey_.Equals(other.shucaikey_))) return false;
       if (hasShuiguokey != other.hasShuiguokey || (hasShuiguokey && !shuiguokey_.Equals(other.shuiguokey_))) return false;
@@ -1883,64 +1210,64 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS ParseFrom(pb::ByteString data) {
+    public static PURCHASE_LIM ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+    public static PURCHASE_LIM ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS ParseFrom(byte[] data) {
+    public static PURCHASE_LIM ParseFrom(byte[] data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+    public static PURCHASE_LIM ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS ParseFrom(global::System.IO.Stream input) {
+    public static PURCHASE_LIM ParseFrom(global::System.IO.Stream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static PURCHASE_LIM ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS ParseDelimitedFrom(global::System.IO.Stream input) {
+    public static PURCHASE_LIM ParseDelimitedFrom(global::System.IO.Stream input) {
       return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static PURCHASE_LIM ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS ParseFrom(pb::ICodedInputStream input) {
+    public static PURCHASE_LIM ParseFrom(pb::ICodedInputStream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+    public static PURCHASE_LIM ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    private WORLD_EVENTS MakeReadOnly() {
+    private PURCHASE_LIM MakeReadOnly() {
       return this;
     }
     
@@ -1959,11 +1286,11 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Builder CreateBuilder(WORLD_EVENTS prototype) {
+    public static Builder CreateBuilder(PURCHASE_LIM prototype) {
       return new Builder(prototype);
     }
     
-    public sealed partial class Builder : pb::GeneratedBuilderLite<WORLD_EVENTS, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<PURCHASE_LIM, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -1971,18 +1298,18 @@ namespace com.game.framework.resource.data {
         result = DefaultInstance;
         resultIsReadOnly = true;
       }
-      internal Builder(WORLD_EVENTS cloneFrom) {
+      internal Builder(PURCHASE_LIM cloneFrom) {
         result = cloneFrom;
         resultIsReadOnly = true;
       }
       
       private bool resultIsReadOnly;
-      private WORLD_EVENTS result;
+      private PURCHASE_LIM result;
       
-      private WORLD_EVENTS PrepareBuilder() {
+      private PURCHASE_LIM PrepareBuilder() {
         if (resultIsReadOnly) {
-          WORLD_EVENTS original = result;
-          result = new WORLD_EVENTS();
+          PURCHASE_LIM original = result;
+          result = new PURCHASE_LIM();
           resultIsReadOnly = false;
           MergeFrom(original);
         }
@@ -1993,7 +1320,7 @@ namespace com.game.framework.resource.data {
         get { return result.IsInitialized; }
       }
       
-      protected override WORLD_EVENTS MessageBeingBuilt {
+      protected override PURCHASE_LIM MessageBeingBuilt {
         get { return PrepareBuilder(); }
       }
       
@@ -2011,11 +1338,11 @@ namespace com.game.framework.resource.data {
         }
       }
       
-      public override WORLD_EVENTS DefaultInstanceForType {
-        get { return global::com.game.framework.resource.data.WORLD_EVENTS.DefaultInstance; }
+      public override PURCHASE_LIM DefaultInstanceForType {
+        get { return global::com.game.framework.resource.data.PURCHASE_LIM.DefaultInstance; }
       }
       
-      public override WORLD_EVENTS BuildPartial() {
+      public override PURCHASE_LIM BuildPartial() {
         if (resultIsReadOnly) {
           return result;
         }
@@ -2024,115 +1351,19 @@ namespace com.game.framework.resource.data {
       }
       
       public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is WORLD_EVENTS) {
-          return MergeFrom((WORLD_EVENTS) other);
+        if (other is PURCHASE_LIM) {
+          return MergeFrom((PURCHASE_LIM) other);
         } else {
           base.MergeFrom(other);
           return this;
         }
       }
       
-      public override Builder MergeFrom(WORLD_EVENTS other) {
-        if (other == global::com.game.framework.resource.data.WORLD_EVENTS.DefaultInstance) return this;
+      public override Builder MergeFrom(PURCHASE_LIM other) {
+        if (other == global::com.game.framework.resource.data.PURCHASE_LIM.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasId) {
           Id = other.Id;
-        }
-        if (other.HasEventName) {
-          EventName = other.EventName;
-        }
-        if (other.HasEventUnlock) {
-          EventUnlock = other.EventUnlock;
-        }
-        if (other.HasEventDesc) {
-          EventDesc = other.EventDesc;
-        }
-        if (other.HasEventNews) {
-          EventNews = other.EventNews;
-        }
-        if (other.HasEventNewsdetail) {
-          EventNewsdetail = other.EventNewsdetail;
-        }
-        if (other.HasEventDuration) {
-          EventDuration = other.EventDuration;
-        }
-        if (other.HasEventIcon) {
-          EventIcon = other.EventIcon;
-        }
-        if (other.HasEventProb) {
-          EventProb = other.EventProb;
-        }
-        if (other.HasConProb) {
-          ConProb = other.ConProb;
-        }
-        if (other.HasInvaProb) {
-          InvaProb = other.InvaProb;
-        }
-        if (other.HasZombieAtk) {
-          ZombieAtk = other.ZombieAtk;
-        }
-        if (other.HasZombieDef) {
-          ZombieDef = other.ZombieDef;
-        }
-        if (other.HasZombieHp) {
-          ZombieHp = other.ZombieHp;
-        }
-        if (other.HasZombieNum) {
-          ZombieNum = other.ZombieNum;
-        }
-        if (other.HasHealthkey) {
-          Healthkey = other.Healthkey;
-        }
-        if (other.HasMoodkey) {
-          Moodkey = other.Moodkey;
-        }
-        if (other.HasDamiBldgcap) {
-          DamiBldgcap = other.DamiBldgcap;
-        }
-        if (other.HasShucaiBldgcap) {
-          ShucaiBldgcap = other.ShucaiBldgcap;
-        }
-        if (other.HasShuiguoBldgcap) {
-          ShuiguoBldgcap = other.ShuiguoBldgcap;
-        }
-        if (other.HasJingBldgcap) {
-          JingBldgcap = other.JingBldgcap;
-        }
-        if (other.HasLushuiBldgcap) {
-          LushuiBldgcap = other.LushuiBldgcap;
-        }
-        if (other.HasSongshuBldgcap) {
-          SongshuBldgcap = other.SongshuBldgcap;
-        }
-        if (other.HasDamiBldgspd) {
-          DamiBldgspd = other.DamiBldgspd;
-        }
-        if (other.HasShucaiBldgspd) {
-          ShucaiBldgspd = other.ShucaiBldgspd;
-        }
-        if (other.HasShuiguoBldgspd) {
-          ShuiguoBldgspd = other.ShuiguoBldgspd;
-        }
-        if (other.HasJingBldgspd) {
-          JingBldgspd = other.JingBldgspd;
-        }
-        if (other.HasLushuiBldgspd) {
-          LushuiBldgspd = other.LushuiBldgspd;
-        }
-        if (other.HasSongshuBldgspd) {
-          SongshuBldgspd = other.SongshuBldgspd;
-        }
-        if (other.HasFengliBldgspd) {
-          FengliBldgspd = other.FengliBldgspd;
-        }
-        if (other.HasWuxiandianBldg) {
-          WuxiandianBldg = other.WuxiandianBldg;
-        }
-        if (other.HasLeidaBldg) {
-          LeidaBldg = other.LeidaBldg;
-        }
-        if (other.HasTaxCoeff) {
-          TaxCoeff = other.TaxCoeff;
         }
         if (other.HasDamikey) {
           Damikey = other.Damikey;
@@ -2303,9 +1534,9 @@ namespace com.game.framework.resource.data {
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
           if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_wORLDEVENTSFieldNames, field_name, global::System.StringComparer.Ordinal);
+            int field_ordinal = global::System.Array.BinarySearch(_pURCHASELIMFieldNames, field_name, global::System.StringComparer.Ordinal);
             if(field_ordinal >= 0)
-              tag = _wORLDEVENTSFieldTags[field_ordinal];
+              tag = _pURCHASELIMFieldTags[field_ordinal];
             else {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
@@ -2326,339 +1557,211 @@ namespace com.game.framework.resource.data {
               result.hasId = input.ReadInt32(ref result.id_);
               break;
             }
-            case 18: {
-              result.hasEventName = input.ReadString(ref result.eventName_);
-              break;
-            }
-            case 24: {
-              result.hasEventUnlock = input.ReadInt32(ref result.eventUnlock_);
-              break;
-            }
-            case 34: {
-              result.hasEventDesc = input.ReadString(ref result.eventDesc_);
-              break;
-            }
-            case 42: {
-              result.hasEventNews = input.ReadString(ref result.eventNews_);
-              break;
-            }
-            case 50: {
-              result.hasEventNewsdetail = input.ReadString(ref result.eventNewsdetail_);
-              break;
-            }
-            case 56: {
-              result.hasEventDuration = input.ReadInt32(ref result.eventDuration_);
-              break;
-            }
-            case 66: {
-              result.hasEventIcon = input.ReadString(ref result.eventIcon_);
-              break;
-            }
-            case 72: {
-              result.hasEventProb = input.ReadInt32(ref result.eventProb_);
-              break;
-            }
-            case 80: {
-              result.hasConProb = input.ReadInt32(ref result.conProb_);
-              break;
-            }
-            case 88: {
-              result.hasInvaProb = input.ReadInt32(ref result.invaProb_);
-              break;
-            }
-            case 96: {
-              result.hasZombieAtk = input.ReadInt32(ref result.zombieAtk_);
-              break;
-            }
-            case 104: {
-              result.hasZombieDef = input.ReadInt32(ref result.zombieDef_);
-              break;
-            }
-            case 112: {
-              result.hasZombieHp = input.ReadInt32(ref result.zombieHp_);
-              break;
-            }
-            case 120: {
-              result.hasZombieNum = input.ReadInt32(ref result.zombieNum_);
-              break;
-            }
-            case 128: {
-              result.hasHealthkey = input.ReadInt32(ref result.healthkey_);
-              break;
-            }
-            case 136: {
-              result.hasMoodkey = input.ReadInt32(ref result.moodkey_);
-              break;
-            }
-            case 144: {
-              result.hasDamiBldgcap = input.ReadInt32(ref result.damiBldgcap_);
-              break;
-            }
-            case 152: {
-              result.hasShucaiBldgcap = input.ReadInt32(ref result.shucaiBldgcap_);
-              break;
-            }
-            case 160: {
-              result.hasShuiguoBldgcap = input.ReadInt32(ref result.shuiguoBldgcap_);
-              break;
-            }
-            case 168: {
-              result.hasJingBldgcap = input.ReadInt32(ref result.jingBldgcap_);
-              break;
-            }
-            case 176: {
-              result.hasLushuiBldgcap = input.ReadInt32(ref result.lushuiBldgcap_);
-              break;
-            }
-            case 184: {
-              result.hasSongshuBldgcap = input.ReadInt32(ref result.songshuBldgcap_);
-              break;
-            }
-            case 192: {
-              result.hasDamiBldgspd = input.ReadInt32(ref result.damiBldgspd_);
-              break;
-            }
-            case 200: {
-              result.hasShucaiBldgspd = input.ReadInt32(ref result.shucaiBldgspd_);
-              break;
-            }
-            case 208: {
-              result.hasShuiguoBldgspd = input.ReadInt32(ref result.shuiguoBldgspd_);
-              break;
-            }
-            case 216: {
-              result.hasJingBldgspd = input.ReadInt32(ref result.jingBldgspd_);
-              break;
-            }
-            case 224: {
-              result.hasLushuiBldgspd = input.ReadInt32(ref result.lushuiBldgspd_);
-              break;
-            }
-            case 232: {
-              result.hasSongshuBldgspd = input.ReadInt32(ref result.songshuBldgspd_);
-              break;
-            }
-            case 240: {
-              result.hasFengliBldgspd = input.ReadInt32(ref result.fengliBldgspd_);
-              break;
-            }
-            case 248: {
-              result.hasWuxiandianBldg = input.ReadInt32(ref result.wuxiandianBldg_);
-              break;
-            }
-            case 256: {
-              result.hasLeidaBldg = input.ReadInt32(ref result.leidaBldg_);
-              break;
-            }
-            case 264: {
-              result.hasTaxCoeff = input.ReadInt32(ref result.taxCoeff_);
-              break;
-            }
-            case 272: {
+            case 16: {
               result.hasDamikey = input.ReadInt32(ref result.damikey_);
               break;
             }
-            case 280: {
+            case 24: {
               result.hasShucaikey = input.ReadInt32(ref result.shucaikey_);
               break;
             }
-            case 288: {
+            case 32: {
               result.hasShuiguokey = input.ReadInt32(ref result.shuiguokey_);
               break;
             }
-            case 296: {
+            case 40: {
               result.hasHuafeikey = input.ReadInt32(ref result.huafeikey_);
               break;
             }
-            case 304: {
+            case 48: {
               result.hasShuikey = input.ReadInt32(ref result.shuikey_);
               break;
             }
-            case 312: {
+            case 56: {
               result.hasSongmukey = input.ReadInt32(ref result.songmukey_);
               break;
             }
-            case 320: {
+            case 64: {
               result.hasShuinikey = input.ReadInt32(ref result.shuinikey_);
               break;
             }
-            case 328: {
+            case 72: {
               result.hasCaokey = input.ReadInt32(ref result.caokey_);
               break;
             }
-            case 336: {
+            case 80: {
               result.hasYuanyoukey = input.ReadInt32(ref result.yuanyoukey_);
               break;
             }
-            case 344: {
+            case 88: {
               result.hasTiekey = input.ReadInt32(ref result.tiekey_);
               break;
             }
-            case 352: {
+            case 96: {
               result.hasJijiubaokey = input.ReadInt32(ref result.jijiubaokey_);
               break;
             }
-            case 360: {
+            case 104: {
               result.hasRizhikey = input.ReadInt32(ref result.rizhikey_);
               break;
             }
-            case 368: {
+            case 112: {
               result.hasJiqiangtuzhikey = input.ReadInt32(ref result.jiqiangtuzhikey_);
               break;
             }
-            case 376: {
+            case 120: {
               result.hasJujituzhikey = input.ReadInt32(ref result.jujituzhikey_);
               break;
             }
-            case 384: {
+            case 128: {
               result.hasJipaotuzhikey = input.ReadInt32(ref result.jipaotuzhikey_);
               break;
             }
-            case 392: {
+            case 136: {
               result.hasYuanlongpingkey = input.ReadInt32(ref result.yuanlongpingkey_);
               break;
             }
-            case 400: {
+            case 144: {
               result.hasHuafeigongyekey = input.ReadInt32(ref result.huafeigongyekey_);
               break;
             }
-            case 408: {
+            case 152: {
               result.hasYangzhukey = input.ReadInt32(ref result.yangzhukey_);
               break;
             }
-            case 416: {
+            case 160: {
               result.hasCangchukey = input.ReadInt32(ref result.cangchukey_);
               break;
             }
-            case 424: {
+            case 168: {
               result.hasTesilakey = input.ReadInt32(ref result.tesilakey_);
               break;
             }
-            case 432: {
+            case 176: {
               result.hasLuokefeilekey = input.ReadInt32(ref result.luokefeilekey_);
               break;
             }
-            case 440: {
+            case 184: {
               result.hasKanaijikey = input.ReadInt32(ref result.kanaijikey_);
               break;
             }
-            case 448: {
+            case 192: {
               result.hasLubankey = input.ReadInt32(ref result.lubankey_);
               break;
             }
-            case 456: {
+            case 200: {
               result.hasTumukey = input.ReadInt32(ref result.tumukey_);
               break;
             }
-            case 464: {
+            case 208: {
               result.hasFangdaokey = input.ReadInt32(ref result.fangdaokey_);
               break;
             }
-            case 472: {
+            case 216: {
               result.hasMakeqinkey = input.ReadInt32(ref result.makeqinkey_);
               break;
             }
-            case 480: {
+            case 224: {
               result.hasWodefendoukey = input.ReadInt32(ref result.wodefendoukey_);
               break;
             }
-            case 488: {
+            case 232: {
               result.hasJiatelinkey = input.ReadInt32(ref result.jiatelinkey_);
               break;
             }
-            case 496: {
+            case 240: {
               result.hasWbaleitekey = input.ReadInt32(ref result.wbaleitekey_);
               break;
             }
-            case 504: {
+            case 248: {
               result.hasGuanrenkey = input.ReadInt32(ref result.guanrenkey_);
               break;
             }
-            case 512: {
+            case 256: {
               result.hasToukui1Key = input.ReadInt32(ref result.toukui1Key_);
               break;
             }
-            case 520: {
+            case 264: {
               result.hasToukui2Key = input.ReadInt32(ref result.toukui2Key_);
               break;
             }
-            case 528: {
+            case 272: {
               result.hasToukui3Key = input.ReadInt32(ref result.toukui3Key_);
               break;
             }
-            case 536: {
+            case 280: {
               result.hasShouqiang1Key = input.ReadInt32(ref result.shouqiang1Key_);
               break;
             }
-            case 544: {
+            case 288: {
               result.hasBuqiang1Key = input.ReadInt32(ref result.buqiang1Key_);
               break;
             }
-            case 552: {
+            case 296: {
               result.hasQingjiqiang1Key = input.ReadInt32(ref result.qingjiqiang1Key_);
               break;
             }
-            case 560: {
+            case 304: {
               result.hasFangdanyi1Key = input.ReadInt32(ref result.fangdanyi1Key_);
               break;
             }
-            case 568: {
+            case 312: {
               result.hasFangdanyi2Key = input.ReadInt32(ref result.fangdanyi2Key_);
               break;
             }
-            case 576: {
+            case 320: {
               result.hasFangdanyi3Key = input.ReadInt32(ref result.fangdanyi3Key_);
               break;
             }
-            case 584: {
+            case 328: {
               result.hasKuzi1Key = input.ReadInt32(ref result.kuzi1Key_);
               break;
             }
-            case 592: {
+            case 336: {
               result.hasKuzi2Key = input.ReadInt32(ref result.kuzi2Key_);
               break;
             }
-            case 600: {
+            case 344: {
               result.hasKuzi3Key = input.ReadInt32(ref result.kuzi3Key_);
               break;
             }
-            case 608: {
+            case 352: {
               result.hasXiezi1Key = input.ReadInt32(ref result.xiezi1Key_);
               break;
             }
-            case 616: {
+            case 360: {
               result.hasXiezi2Key = input.ReadInt32(ref result.xiezi2Key_);
               break;
             }
-            case 624: {
+            case 368: {
               result.hasXiezi3Key = input.ReadInt32(ref result.xiezi3Key_);
               break;
             }
-            case 632: {
+            case 376: {
               result.hasKuangquanshuikey = input.ReadInt32(ref result.kuangquanshuikey_);
               break;
             }
-            case 640: {
+            case 384: {
               result.hasSiliaokey = input.ReadInt32(ref result.siliaokey_);
               break;
             }
-            case 648: {
+            case 392: {
               result.hasZhuroukey = input.ReadInt32(ref result.zhuroukey_);
               break;
             }
-            case 656: {
+            case 400: {
               result.hasQiyoukey = input.ReadInt32(ref result.qiyoukey_);
               break;
             }
-            case 664: {
+            case 408: {
               result.hasGangkey = input.ReadInt32(ref result.gangkey_);
               break;
             }
-            case 672: {
+            case 416: {
               result.hasSongmubankey = input.ReadInt32(ref result.songmubankey_);
               break;
             }
-            case 680: {
+            case 424: {
               result.hasHunningtukey = input.ReadInt32(ref result.hunningtukey_);
               break;
             }
@@ -2686,651 +1789,6 @@ namespace com.game.framework.resource.data {
         PrepareBuilder();
         result.hasId = false;
         result.id_ = 0;
-        return this;
-      }
-      
-      public bool HasEventName {
-        get { return result.hasEventName; }
-      }
-      public string EventName {
-        get { return result.EventName; }
-        set { SetEventName(value); }
-      }
-      public Builder SetEventName(string value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.hasEventName = true;
-        result.eventName_ = value;
-        return this;
-      }
-      public Builder ClearEventName() {
-        PrepareBuilder();
-        result.hasEventName = false;
-        result.eventName_ = "";
-        return this;
-      }
-      
-      public bool HasEventUnlock {
-        get { return result.hasEventUnlock; }
-      }
-      public int EventUnlock {
-        get { return result.EventUnlock; }
-        set { SetEventUnlock(value); }
-      }
-      public Builder SetEventUnlock(int value) {
-        PrepareBuilder();
-        result.hasEventUnlock = true;
-        result.eventUnlock_ = value;
-        return this;
-      }
-      public Builder ClearEventUnlock() {
-        PrepareBuilder();
-        result.hasEventUnlock = false;
-        result.eventUnlock_ = 0;
-        return this;
-      }
-      
-      public bool HasEventDesc {
-        get { return result.hasEventDesc; }
-      }
-      public string EventDesc {
-        get { return result.EventDesc; }
-        set { SetEventDesc(value); }
-      }
-      public Builder SetEventDesc(string value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.hasEventDesc = true;
-        result.eventDesc_ = value;
-        return this;
-      }
-      public Builder ClearEventDesc() {
-        PrepareBuilder();
-        result.hasEventDesc = false;
-        result.eventDesc_ = "";
-        return this;
-      }
-      
-      public bool HasEventNews {
-        get { return result.hasEventNews; }
-      }
-      public string EventNews {
-        get { return result.EventNews; }
-        set { SetEventNews(value); }
-      }
-      public Builder SetEventNews(string value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.hasEventNews = true;
-        result.eventNews_ = value;
-        return this;
-      }
-      public Builder ClearEventNews() {
-        PrepareBuilder();
-        result.hasEventNews = false;
-        result.eventNews_ = "";
-        return this;
-      }
-      
-      public bool HasEventNewsdetail {
-        get { return result.hasEventNewsdetail; }
-      }
-      public string EventNewsdetail {
-        get { return result.EventNewsdetail; }
-        set { SetEventNewsdetail(value); }
-      }
-      public Builder SetEventNewsdetail(string value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.hasEventNewsdetail = true;
-        result.eventNewsdetail_ = value;
-        return this;
-      }
-      public Builder ClearEventNewsdetail() {
-        PrepareBuilder();
-        result.hasEventNewsdetail = false;
-        result.eventNewsdetail_ = "";
-        return this;
-      }
-      
-      public bool HasEventDuration {
-        get { return result.hasEventDuration; }
-      }
-      public int EventDuration {
-        get { return result.EventDuration; }
-        set { SetEventDuration(value); }
-      }
-      public Builder SetEventDuration(int value) {
-        PrepareBuilder();
-        result.hasEventDuration = true;
-        result.eventDuration_ = value;
-        return this;
-      }
-      public Builder ClearEventDuration() {
-        PrepareBuilder();
-        result.hasEventDuration = false;
-        result.eventDuration_ = 0;
-        return this;
-      }
-      
-      public bool HasEventIcon {
-        get { return result.hasEventIcon; }
-      }
-      public string EventIcon {
-        get { return result.EventIcon; }
-        set { SetEventIcon(value); }
-      }
-      public Builder SetEventIcon(string value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.hasEventIcon = true;
-        result.eventIcon_ = value;
-        return this;
-      }
-      public Builder ClearEventIcon() {
-        PrepareBuilder();
-        result.hasEventIcon = false;
-        result.eventIcon_ = "";
-        return this;
-      }
-      
-      public bool HasEventProb {
-        get { return result.hasEventProb; }
-      }
-      public int EventProb {
-        get { return result.EventProb; }
-        set { SetEventProb(value); }
-      }
-      public Builder SetEventProb(int value) {
-        PrepareBuilder();
-        result.hasEventProb = true;
-        result.eventProb_ = value;
-        return this;
-      }
-      public Builder ClearEventProb() {
-        PrepareBuilder();
-        result.hasEventProb = false;
-        result.eventProb_ = 0;
-        return this;
-      }
-      
-      public bool HasConProb {
-        get { return result.hasConProb; }
-      }
-      public int ConProb {
-        get { return result.ConProb; }
-        set { SetConProb(value); }
-      }
-      public Builder SetConProb(int value) {
-        PrepareBuilder();
-        result.hasConProb = true;
-        result.conProb_ = value;
-        return this;
-      }
-      public Builder ClearConProb() {
-        PrepareBuilder();
-        result.hasConProb = false;
-        result.conProb_ = 0;
-        return this;
-      }
-      
-      public bool HasInvaProb {
-        get { return result.hasInvaProb; }
-      }
-      public int InvaProb {
-        get { return result.InvaProb; }
-        set { SetInvaProb(value); }
-      }
-      public Builder SetInvaProb(int value) {
-        PrepareBuilder();
-        result.hasInvaProb = true;
-        result.invaProb_ = value;
-        return this;
-      }
-      public Builder ClearInvaProb() {
-        PrepareBuilder();
-        result.hasInvaProb = false;
-        result.invaProb_ = 0;
-        return this;
-      }
-      
-      public bool HasZombieAtk {
-        get { return result.hasZombieAtk; }
-      }
-      public int ZombieAtk {
-        get { return result.ZombieAtk; }
-        set { SetZombieAtk(value); }
-      }
-      public Builder SetZombieAtk(int value) {
-        PrepareBuilder();
-        result.hasZombieAtk = true;
-        result.zombieAtk_ = value;
-        return this;
-      }
-      public Builder ClearZombieAtk() {
-        PrepareBuilder();
-        result.hasZombieAtk = false;
-        result.zombieAtk_ = 0;
-        return this;
-      }
-      
-      public bool HasZombieDef {
-        get { return result.hasZombieDef; }
-      }
-      public int ZombieDef {
-        get { return result.ZombieDef; }
-        set { SetZombieDef(value); }
-      }
-      public Builder SetZombieDef(int value) {
-        PrepareBuilder();
-        result.hasZombieDef = true;
-        result.zombieDef_ = value;
-        return this;
-      }
-      public Builder ClearZombieDef() {
-        PrepareBuilder();
-        result.hasZombieDef = false;
-        result.zombieDef_ = 0;
-        return this;
-      }
-      
-      public bool HasZombieHp {
-        get { return result.hasZombieHp; }
-      }
-      public int ZombieHp {
-        get { return result.ZombieHp; }
-        set { SetZombieHp(value); }
-      }
-      public Builder SetZombieHp(int value) {
-        PrepareBuilder();
-        result.hasZombieHp = true;
-        result.zombieHp_ = value;
-        return this;
-      }
-      public Builder ClearZombieHp() {
-        PrepareBuilder();
-        result.hasZombieHp = false;
-        result.zombieHp_ = 0;
-        return this;
-      }
-      
-      public bool HasZombieNum {
-        get { return result.hasZombieNum; }
-      }
-      public int ZombieNum {
-        get { return result.ZombieNum; }
-        set { SetZombieNum(value); }
-      }
-      public Builder SetZombieNum(int value) {
-        PrepareBuilder();
-        result.hasZombieNum = true;
-        result.zombieNum_ = value;
-        return this;
-      }
-      public Builder ClearZombieNum() {
-        PrepareBuilder();
-        result.hasZombieNum = false;
-        result.zombieNum_ = 0;
-        return this;
-      }
-      
-      public bool HasHealthkey {
-        get { return result.hasHealthkey; }
-      }
-      public int Healthkey {
-        get { return result.Healthkey; }
-        set { SetHealthkey(value); }
-      }
-      public Builder SetHealthkey(int value) {
-        PrepareBuilder();
-        result.hasHealthkey = true;
-        result.healthkey_ = value;
-        return this;
-      }
-      public Builder ClearHealthkey() {
-        PrepareBuilder();
-        result.hasHealthkey = false;
-        result.healthkey_ = 0;
-        return this;
-      }
-      
-      public bool HasMoodkey {
-        get { return result.hasMoodkey; }
-      }
-      public int Moodkey {
-        get { return result.Moodkey; }
-        set { SetMoodkey(value); }
-      }
-      public Builder SetMoodkey(int value) {
-        PrepareBuilder();
-        result.hasMoodkey = true;
-        result.moodkey_ = value;
-        return this;
-      }
-      public Builder ClearMoodkey() {
-        PrepareBuilder();
-        result.hasMoodkey = false;
-        result.moodkey_ = 0;
-        return this;
-      }
-      
-      public bool HasDamiBldgcap {
-        get { return result.hasDamiBldgcap; }
-      }
-      public int DamiBldgcap {
-        get { return result.DamiBldgcap; }
-        set { SetDamiBldgcap(value); }
-      }
-      public Builder SetDamiBldgcap(int value) {
-        PrepareBuilder();
-        result.hasDamiBldgcap = true;
-        result.damiBldgcap_ = value;
-        return this;
-      }
-      public Builder ClearDamiBldgcap() {
-        PrepareBuilder();
-        result.hasDamiBldgcap = false;
-        result.damiBldgcap_ = 0;
-        return this;
-      }
-      
-      public bool HasShucaiBldgcap {
-        get { return result.hasShucaiBldgcap; }
-      }
-      public int ShucaiBldgcap {
-        get { return result.ShucaiBldgcap; }
-        set { SetShucaiBldgcap(value); }
-      }
-      public Builder SetShucaiBldgcap(int value) {
-        PrepareBuilder();
-        result.hasShucaiBldgcap = true;
-        result.shucaiBldgcap_ = value;
-        return this;
-      }
-      public Builder ClearShucaiBldgcap() {
-        PrepareBuilder();
-        result.hasShucaiBldgcap = false;
-        result.shucaiBldgcap_ = 0;
-        return this;
-      }
-      
-      public bool HasShuiguoBldgcap {
-        get { return result.hasShuiguoBldgcap; }
-      }
-      public int ShuiguoBldgcap {
-        get { return result.ShuiguoBldgcap; }
-        set { SetShuiguoBldgcap(value); }
-      }
-      public Builder SetShuiguoBldgcap(int value) {
-        PrepareBuilder();
-        result.hasShuiguoBldgcap = true;
-        result.shuiguoBldgcap_ = value;
-        return this;
-      }
-      public Builder ClearShuiguoBldgcap() {
-        PrepareBuilder();
-        result.hasShuiguoBldgcap = false;
-        result.shuiguoBldgcap_ = 0;
-        return this;
-      }
-      
-      public bool HasJingBldgcap {
-        get { return result.hasJingBldgcap; }
-      }
-      public int JingBldgcap {
-        get { return result.JingBldgcap; }
-        set { SetJingBldgcap(value); }
-      }
-      public Builder SetJingBldgcap(int value) {
-        PrepareBuilder();
-        result.hasJingBldgcap = true;
-        result.jingBldgcap_ = value;
-        return this;
-      }
-      public Builder ClearJingBldgcap() {
-        PrepareBuilder();
-        result.hasJingBldgcap = false;
-        result.jingBldgcap_ = 0;
-        return this;
-      }
-      
-      public bool HasLushuiBldgcap {
-        get { return result.hasLushuiBldgcap; }
-      }
-      public int LushuiBldgcap {
-        get { return result.LushuiBldgcap; }
-        set { SetLushuiBldgcap(value); }
-      }
-      public Builder SetLushuiBldgcap(int value) {
-        PrepareBuilder();
-        result.hasLushuiBldgcap = true;
-        result.lushuiBldgcap_ = value;
-        return this;
-      }
-      public Builder ClearLushuiBldgcap() {
-        PrepareBuilder();
-        result.hasLushuiBldgcap = false;
-        result.lushuiBldgcap_ = 0;
-        return this;
-      }
-      
-      public bool HasSongshuBldgcap {
-        get { return result.hasSongshuBldgcap; }
-      }
-      public int SongshuBldgcap {
-        get { return result.SongshuBldgcap; }
-        set { SetSongshuBldgcap(value); }
-      }
-      public Builder SetSongshuBldgcap(int value) {
-        PrepareBuilder();
-        result.hasSongshuBldgcap = true;
-        result.songshuBldgcap_ = value;
-        return this;
-      }
-      public Builder ClearSongshuBldgcap() {
-        PrepareBuilder();
-        result.hasSongshuBldgcap = false;
-        result.songshuBldgcap_ = 0;
-        return this;
-      }
-      
-      public bool HasDamiBldgspd {
-        get { return result.hasDamiBldgspd; }
-      }
-      public int DamiBldgspd {
-        get { return result.DamiBldgspd; }
-        set { SetDamiBldgspd(value); }
-      }
-      public Builder SetDamiBldgspd(int value) {
-        PrepareBuilder();
-        result.hasDamiBldgspd = true;
-        result.damiBldgspd_ = value;
-        return this;
-      }
-      public Builder ClearDamiBldgspd() {
-        PrepareBuilder();
-        result.hasDamiBldgspd = false;
-        result.damiBldgspd_ = 0;
-        return this;
-      }
-      
-      public bool HasShucaiBldgspd {
-        get { return result.hasShucaiBldgspd; }
-      }
-      public int ShucaiBldgspd {
-        get { return result.ShucaiBldgspd; }
-        set { SetShucaiBldgspd(value); }
-      }
-      public Builder SetShucaiBldgspd(int value) {
-        PrepareBuilder();
-        result.hasShucaiBldgspd = true;
-        result.shucaiBldgspd_ = value;
-        return this;
-      }
-      public Builder ClearShucaiBldgspd() {
-        PrepareBuilder();
-        result.hasShucaiBldgspd = false;
-        result.shucaiBldgspd_ = 0;
-        return this;
-      }
-      
-      public bool HasShuiguoBldgspd {
-        get { return result.hasShuiguoBldgspd; }
-      }
-      public int ShuiguoBldgspd {
-        get { return result.ShuiguoBldgspd; }
-        set { SetShuiguoBldgspd(value); }
-      }
-      public Builder SetShuiguoBldgspd(int value) {
-        PrepareBuilder();
-        result.hasShuiguoBldgspd = true;
-        result.shuiguoBldgspd_ = value;
-        return this;
-      }
-      public Builder ClearShuiguoBldgspd() {
-        PrepareBuilder();
-        result.hasShuiguoBldgspd = false;
-        result.shuiguoBldgspd_ = 0;
-        return this;
-      }
-      
-      public bool HasJingBldgspd {
-        get { return result.hasJingBldgspd; }
-      }
-      public int JingBldgspd {
-        get { return result.JingBldgspd; }
-        set { SetJingBldgspd(value); }
-      }
-      public Builder SetJingBldgspd(int value) {
-        PrepareBuilder();
-        result.hasJingBldgspd = true;
-        result.jingBldgspd_ = value;
-        return this;
-      }
-      public Builder ClearJingBldgspd() {
-        PrepareBuilder();
-        result.hasJingBldgspd = false;
-        result.jingBldgspd_ = 0;
-        return this;
-      }
-      
-      public bool HasLushuiBldgspd {
-        get { return result.hasLushuiBldgspd; }
-      }
-      public int LushuiBldgspd {
-        get { return result.LushuiBldgspd; }
-        set { SetLushuiBldgspd(value); }
-      }
-      public Builder SetLushuiBldgspd(int value) {
-        PrepareBuilder();
-        result.hasLushuiBldgspd = true;
-        result.lushuiBldgspd_ = value;
-        return this;
-      }
-      public Builder ClearLushuiBldgspd() {
-        PrepareBuilder();
-        result.hasLushuiBldgspd = false;
-        result.lushuiBldgspd_ = 0;
-        return this;
-      }
-      
-      public bool HasSongshuBldgspd {
-        get { return result.hasSongshuBldgspd; }
-      }
-      public int SongshuBldgspd {
-        get { return result.SongshuBldgspd; }
-        set { SetSongshuBldgspd(value); }
-      }
-      public Builder SetSongshuBldgspd(int value) {
-        PrepareBuilder();
-        result.hasSongshuBldgspd = true;
-        result.songshuBldgspd_ = value;
-        return this;
-      }
-      public Builder ClearSongshuBldgspd() {
-        PrepareBuilder();
-        result.hasSongshuBldgspd = false;
-        result.songshuBldgspd_ = 0;
-        return this;
-      }
-      
-      public bool HasFengliBldgspd {
-        get { return result.hasFengliBldgspd; }
-      }
-      public int FengliBldgspd {
-        get { return result.FengliBldgspd; }
-        set { SetFengliBldgspd(value); }
-      }
-      public Builder SetFengliBldgspd(int value) {
-        PrepareBuilder();
-        result.hasFengliBldgspd = true;
-        result.fengliBldgspd_ = value;
-        return this;
-      }
-      public Builder ClearFengliBldgspd() {
-        PrepareBuilder();
-        result.hasFengliBldgspd = false;
-        result.fengliBldgspd_ = 0;
-        return this;
-      }
-      
-      public bool HasWuxiandianBldg {
-        get { return result.hasWuxiandianBldg; }
-      }
-      public int WuxiandianBldg {
-        get { return result.WuxiandianBldg; }
-        set { SetWuxiandianBldg(value); }
-      }
-      public Builder SetWuxiandianBldg(int value) {
-        PrepareBuilder();
-        result.hasWuxiandianBldg = true;
-        result.wuxiandianBldg_ = value;
-        return this;
-      }
-      public Builder ClearWuxiandianBldg() {
-        PrepareBuilder();
-        result.hasWuxiandianBldg = false;
-        result.wuxiandianBldg_ = 0;
-        return this;
-      }
-      
-      public bool HasLeidaBldg {
-        get { return result.hasLeidaBldg; }
-      }
-      public int LeidaBldg {
-        get { return result.LeidaBldg; }
-        set { SetLeidaBldg(value); }
-      }
-      public Builder SetLeidaBldg(int value) {
-        PrepareBuilder();
-        result.hasLeidaBldg = true;
-        result.leidaBldg_ = value;
-        return this;
-      }
-      public Builder ClearLeidaBldg() {
-        PrepareBuilder();
-        result.hasLeidaBldg = false;
-        result.leidaBldg_ = 0;
-        return this;
-      }
-      
-      public bool HasTaxCoeff {
-        get { return result.hasTaxCoeff; }
-      }
-      public int TaxCoeff {
-        get { return result.TaxCoeff; }
-        set { SetTaxCoeff(value); }
-      }
-      public Builder SetTaxCoeff(int value) {
-        PrepareBuilder();
-        result.hasTaxCoeff = true;
-        result.taxCoeff_ = value;
-        return this;
-      }
-      public Builder ClearTaxCoeff() {
-        PrepareBuilder();
-        result.hasTaxCoeff = false;
-        result.taxCoeff_ = 0;
         return this;
       }
       
@@ -4374,31 +2832,31 @@ namespace com.game.framework.resource.data {
         return this;
       }
     }
-    static WORLD_EVENTS() {
-      object.ReferenceEquals(global::com.game.framework.resource.data.WorldEventsBytes.Descriptor, null);
+    static PURCHASE_LIM() {
+      object.ReferenceEquals(global::com.game.framework.resource.data.PurchaseLimBytes.Descriptor, null);
     }
   }
   
-  public sealed partial class WORLD_EVENTS_ARRAY : pb::GeneratedMessageLite<WORLD_EVENTS_ARRAY, WORLD_EVENTS_ARRAY.Builder> {
-    private WORLD_EVENTS_ARRAY() { }
-    private static readonly WORLD_EVENTS_ARRAY defaultInstance = new WORLD_EVENTS_ARRAY().MakeReadOnly();
-    private static readonly string[] _wORLDEVENTSARRAYFieldNames = new string[] { "items" };
-    private static readonly uint[] _wORLDEVENTSARRAYFieldTags = new uint[] { 10 };
+  public sealed partial class PURCHASE_LIM_ARRAY : pb::GeneratedMessageLite<PURCHASE_LIM_ARRAY, PURCHASE_LIM_ARRAY.Builder> {
+    private PURCHASE_LIM_ARRAY() { }
+    private static readonly PURCHASE_LIM_ARRAY defaultInstance = new PURCHASE_LIM_ARRAY().MakeReadOnly();
+    private static readonly string[] _pURCHASELIMARRAYFieldNames = new string[] { "items" };
+    private static readonly uint[] _pURCHASELIMARRAYFieldTags = new uint[] { 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY DefaultInstance {
+    public static PURCHASE_LIM_ARRAY DefaultInstance {
       get { return defaultInstance; }
     }
     
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public override WORLD_EVENTS_ARRAY DefaultInstanceForType {
+    public override PURCHASE_LIM_ARRAY DefaultInstanceForType {
       get { return DefaultInstance; }
     }
     
-    protected override WORLD_EVENTS_ARRAY ThisMessage {
+    protected override PURCHASE_LIM_ARRAY ThisMessage {
       get { return this; }
     }
     
@@ -4406,14 +2864,14 @@ namespace com.game.framework.resource.data {
     [pb.FieldNumber]
     #endif//
     public const int ItemsFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.resource.data.WORLD_EVENTS> items_ = new pbc::PopsicleList<global::com.game.framework.resource.data.WORLD_EVENTS>();
-    public scg::IList<global::com.game.framework.resource.data.WORLD_EVENTS> ItemsList {
+    private pbc::PopsicleList<global::com.game.framework.resource.data.PURCHASE_LIM> items_ = new pbc::PopsicleList<global::com.game.framework.resource.data.PURCHASE_LIM>();
+    public scg::IList<global::com.game.framework.resource.data.PURCHASE_LIM> ItemsList {
       get { return items_; }
     }
     public int ItemsCount {
       get { return items_.Count; }
     }
-    public global::com.game.framework.resource.data.WORLD_EVENTS GetItems(int index) {
+    public global::com.game.framework.resource.data.PURCHASE_LIM GetItems(int index) {
       return items_[index];
     }
     
@@ -4422,9 +2880,6 @@ namespace com.game.framework.resource.data {
      #endif//
     public override bool IsInitialized {
       get {
-        foreach (global::com.game.framework.resource.data.WORLD_EVENTS element in ItemsList) {
-          if (!element.IsInitialized) return false;
-        }
         return true;
       }
     }
@@ -4434,7 +2889,7 @@ namespace com.game.framework.resource.data {
      #endif//
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
-      string[] field_names = _wORLDEVENTSARRAYFieldNames;
+      string[] field_names = _pURCHASELIMARRAYFieldNames;
       if (items_.Count > 0) {
         output.WriteMessageArray(1, field_names[0], items_);
       }
@@ -4450,7 +2905,7 @@ namespace com.game.framework.resource.data {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.resource.data.WORLD_EVENTS element in ItemsList) {
+        foreach (global::com.game.framework.resource.data.PURCHASE_LIM element in ItemsList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
@@ -4461,13 +2916,13 @@ namespace com.game.framework.resource.data {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.resource.data.WORLD_EVENTS i in items_)
+      foreach(global::com.game.framework.resource.data.PURCHASE_LIM i in items_)
         hash ^= i.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
-      WORLD_EVENTS_ARRAY other = obj as WORLD_EVENTS_ARRAY;
+      PURCHASE_LIM_ARRAY other = obj as PURCHASE_LIM_ARRAY;
       if (other == null) return false;
       if(items_.Count != other.items_.Count) return false;
       for(int ix=0; ix < items_.Count; ix++)
@@ -4480,64 +2935,64 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY ParseFrom(pb::ByteString data) {
+    public static PURCHASE_LIM_ARRAY ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+    public static PURCHASE_LIM_ARRAY ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY ParseFrom(byte[] data) {
+    public static PURCHASE_LIM_ARRAY ParseFrom(byte[] data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+    public static PURCHASE_LIM_ARRAY ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY ParseFrom(global::System.IO.Stream input) {
+    public static PURCHASE_LIM_ARRAY ParseFrom(global::System.IO.Stream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static PURCHASE_LIM_ARRAY ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY ParseDelimitedFrom(global::System.IO.Stream input) {
+    public static PURCHASE_LIM_ARRAY ParseDelimitedFrom(global::System.IO.Stream input) {
       return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static PURCHASE_LIM_ARRAY ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY ParseFrom(pb::ICodedInputStream input) {
+    public static PURCHASE_LIM_ARRAY ParseFrom(pb::ICodedInputStream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static WORLD_EVENTS_ARRAY ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+    public static PURCHASE_LIM_ARRAY ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    private WORLD_EVENTS_ARRAY MakeReadOnly() {
+    private PURCHASE_LIM_ARRAY MakeReadOnly() {
       items_.MakeReadOnly();
       return this;
     }
@@ -4557,11 +3012,11 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
-    public static Builder CreateBuilder(WORLD_EVENTS_ARRAY prototype) {
+    public static Builder CreateBuilder(PURCHASE_LIM_ARRAY prototype) {
       return new Builder(prototype);
     }
     
-    public sealed partial class Builder : pb::GeneratedBuilderLite<WORLD_EVENTS_ARRAY, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<PURCHASE_LIM_ARRAY, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -4569,18 +3024,18 @@ namespace com.game.framework.resource.data {
         result = DefaultInstance;
         resultIsReadOnly = true;
       }
-      internal Builder(WORLD_EVENTS_ARRAY cloneFrom) {
+      internal Builder(PURCHASE_LIM_ARRAY cloneFrom) {
         result = cloneFrom;
         resultIsReadOnly = true;
       }
       
       private bool resultIsReadOnly;
-      private WORLD_EVENTS_ARRAY result;
+      private PURCHASE_LIM_ARRAY result;
       
-      private WORLD_EVENTS_ARRAY PrepareBuilder() {
+      private PURCHASE_LIM_ARRAY PrepareBuilder() {
         if (resultIsReadOnly) {
-          WORLD_EVENTS_ARRAY original = result;
-          result = new WORLD_EVENTS_ARRAY();
+          PURCHASE_LIM_ARRAY original = result;
+          result = new PURCHASE_LIM_ARRAY();
           resultIsReadOnly = false;
           MergeFrom(original);
         }
@@ -4591,7 +3046,7 @@ namespace com.game.framework.resource.data {
         get { return result.IsInitialized; }
       }
       
-      protected override WORLD_EVENTS_ARRAY MessageBeingBuilt {
+      protected override PURCHASE_LIM_ARRAY MessageBeingBuilt {
         get { return PrepareBuilder(); }
       }
       
@@ -4609,11 +3064,11 @@ namespace com.game.framework.resource.data {
         }
       }
       
-      public override WORLD_EVENTS_ARRAY DefaultInstanceForType {
-        get { return global::com.game.framework.resource.data.WORLD_EVENTS_ARRAY.DefaultInstance; }
+      public override PURCHASE_LIM_ARRAY DefaultInstanceForType {
+        get { return global::com.game.framework.resource.data.PURCHASE_LIM_ARRAY.DefaultInstance; }
       }
       
-      public override WORLD_EVENTS_ARRAY BuildPartial() {
+      public override PURCHASE_LIM_ARRAY BuildPartial() {
         if (resultIsReadOnly) {
           return result;
         }
@@ -4622,16 +3077,16 @@ namespace com.game.framework.resource.data {
       }
       
       public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is WORLD_EVENTS_ARRAY) {
-          return MergeFrom((WORLD_EVENTS_ARRAY) other);
+        if (other is PURCHASE_LIM_ARRAY) {
+          return MergeFrom((PURCHASE_LIM_ARRAY) other);
         } else {
           base.MergeFrom(other);
           return this;
         }
       }
       
-      public override Builder MergeFrom(WORLD_EVENTS_ARRAY other) {
-        if (other == global::com.game.framework.resource.data.WORLD_EVENTS_ARRAY.DefaultInstance) return this;
+      public override Builder MergeFrom(PURCHASE_LIM_ARRAY other) {
+        if (other == global::com.game.framework.resource.data.PURCHASE_LIM_ARRAY.DefaultInstance) return this;
         PrepareBuilder();
         if (other.items_.Count != 0) {
           result.items_.Add(other.items_);
@@ -4649,9 +3104,9 @@ namespace com.game.framework.resource.data {
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
           if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_wORLDEVENTSARRAYFieldNames, field_name, global::System.StringComparer.Ordinal);
+            int field_ordinal = global::System.Array.BinarySearch(_pURCHASELIMARRAYFieldNames, field_name, global::System.StringComparer.Ordinal);
             if(field_ordinal >= 0)
-              tag = _wORLDEVENTSARRAYFieldTags[field_ordinal];
+              tag = _pURCHASELIMARRAYFieldTags[field_ordinal];
             else {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
@@ -4669,7 +3124,7 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.items_, global::com.game.framework.resource.data.WORLD_EVENTS.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.items_, global::com.game.framework.resource.data.PURCHASE_LIM.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -4679,40 +3134,40 @@ namespace com.game.framework.resource.data {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.resource.data.WORLD_EVENTS> ItemsList {
+      public pbc::IPopsicleList<global::com.game.framework.resource.data.PURCHASE_LIM> ItemsList {
         get { return PrepareBuilder().items_; }
       }
       public int ItemsCount {
         get { return result.ItemsCount; }
       }
-      public global::com.game.framework.resource.data.WORLD_EVENTS GetItems(int index) {
+      public global::com.game.framework.resource.data.PURCHASE_LIM GetItems(int index) {
         return result.GetItems(index);
       }
-      public Builder SetItems(int index, global::com.game.framework.resource.data.WORLD_EVENTS value) {
+      public Builder SetItems(int index, global::com.game.framework.resource.data.PURCHASE_LIM value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.items_[index] = value;
         return this;
       }
-      public Builder SetItems(int index, global::com.game.framework.resource.data.WORLD_EVENTS.Builder builderForValue) {
+      public Builder SetItems(int index, global::com.game.framework.resource.data.PURCHASE_LIM.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.items_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddItems(global::com.game.framework.resource.data.WORLD_EVENTS value) {
+      public Builder AddItems(global::com.game.framework.resource.data.PURCHASE_LIM value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.items_.Add(value);
         return this;
       }
-      public Builder AddItems(global::com.game.framework.resource.data.WORLD_EVENTS.Builder builderForValue) {
+      public Builder AddItems(global::com.game.framework.resource.data.PURCHASE_LIM.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.items_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeItems(scg::IEnumerable<global::com.game.framework.resource.data.WORLD_EVENTS> values) {
+      public Builder AddRangeItems(scg::IEnumerable<global::com.game.framework.resource.data.PURCHASE_LIM> values) {
         PrepareBuilder();
         result.items_.Add(values);
         return this;
@@ -4723,8 +3178,8 @@ namespace com.game.framework.resource.data {
         return this;
       }
     }
-    static WORLD_EVENTS_ARRAY() {
-      object.ReferenceEquals(global::com.game.framework.resource.data.WorldEventsBytes.Descriptor, null);
+    static PURCHASE_LIM_ARRAY() {
+      object.ReferenceEquals(global::com.game.framework.resource.data.PurchaseLimBytes.Descriptor, null);
     }
   }
   

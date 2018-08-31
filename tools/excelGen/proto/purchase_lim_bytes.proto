@@ -1,0 +1,120 @@
+/**
+* @file:   proto/purchase_lim_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message PURCHASE_LIM{
+    /** 玩家等级 */
+    optional int32 id = 1 [default = 0];
+    /** 大米 */
+    optional int32 damikey = 2 [default = 0];
+    /** 蔬菜 */
+    optional int32 shucaikey = 3 [default = 0];
+    /** 水果 */
+    optional int32 shuiguokey = 4 [default = 0];
+    /** 化肥 */
+    optional int32 huafeikey = 5 [default = 0];
+    /** 纯净水 */
+    optional int32 shuikey = 6 [default = 0];
+    /** 松木 */
+    optional int32 songmukey = 7 [default = 0];
+    /** 水泥 */
+    optional int32 shuinikey = 8 [default = 0];
+    /** 草 */
+    optional int32 caokey = 9 [default = 0];
+    /** 原油 */
+    optional int32 yuanyoukey = 10 [default = 0];
+    /** 铁 */
+    optional int32 tiekey = 11 [default = 0];
+    /** 急救包 */
+    optional int32 jijiubaokey = 12 [default = 0];
+    /** 庄园日志 */
+    optional int32 rizhikey = 13 [default = 0];
+    /** 重机枪图纸 */
+    optional int32 jiqiangtuzhikey = 14 [default = 0];
+    /** 狙击枪图纸 */
+    optional int32 jujituzhikey = 15 [default = 0];
+    /** 机炮设计图 */
+    optional int32 jipaotuzhikey = 16 [default = 0];
+    /** 《袁隆平传》 */
+    optional int32 yuanlongpingkey = 17 [default = 0];
+    /** 《化肥工业概论》 */
+    optional int32 huafeigongyekey = 18 [default = 0];
+    /** 《论如何养猪》 */
+    optional int32 yangzhukey = 19 [default = 0];
+    /** 《仓储管理》 */
+    optional int32 cangchukey = 20 [default = 0];
+    /** 《特斯拉传》 */
+    optional int32 tesilakey = 21 [default = 0];
+    /** 《洛克菲勒传》 */
+    optional int32 luokefeilekey = 22 [default = 0];
+    /** 《卡耐基传》 */
+    optional int32 kanaijikey = 23 [default = 0];
+    /** 《鲁班传》 */
+    optional int32 lubankey = 24 [default = 0];
+    /** 《土木工程概论》 */
+    optional int32 tumukey = 25 [default = 0];
+    /** 《防盗门技术》 */
+    optional int32 fangdaokey = 26 [default = 0];
+    /** 《马克沁传》 */
+    optional int32 makeqinkey = 27 [default = 0];
+    /** 《我的奋斗》 */
+    optional int32 wodefendoukey = 28 [default = 0];
+    /** 《加特林传》 */
+    optional int32 jiatelinkey = 29 [default = 0];
+    /** 《巴雷特的笔记》 */
+    optional int32 wbaleitekey = 30 [default = 0];
+    /** 《官人吃鸡指南》 */
+    optional int32 guanrenkey = 31 [default = 0];
+    /** 1级头盔 */
+    optional int32 toukui1key = 32 [default = 0];
+    /** 2级头盔 */
+    optional int32 toukui2key = 33 [default = 0];
+    /** 3级头盔 */
+    optional int32 toukui3key = 34 [default = 0];
+    /** 手枪 */
+    optional int32 shouqiang1key = 35 [default = 0];
+    /** 步枪 */
+    optional int32 buqiang1key = 36 [default = 0];
+    /** 轻机枪 */
+    optional int32 qingjiqiang1key = 37 [default = 0];
+    /** 1级防弹衣 */
+    optional int32 fangdanyi1key = 38 [default = 0];
+    /** 2级防弹衣 */
+    optional int32 fangdanyi2key = 39 [default = 0];
+    /** 3级防弹衣 */
+    optional int32 fangdanyi3key = 40 [default = 0];
+    /** 1级作训裤 */
+    optional int32 kuzi1key = 41 [default = 0];
+    /** 2级作训裤 */
+    optional int32 kuzi2key = 42 [default = 0];
+    /** 3级作训裤 */
+    optional int32 kuzi3key = 43 [default = 0];
+    /** 1级越野靴 */
+    optional int32 xiezi1key = 44 [default = 0];
+    /** 2级越野靴 */
+    optional int32 xiezi2key = 45 [default = 0];
+    /** 3级越野靴 */
+    optional int32 xiezi3key = 46 [default = 0];
+    /** 矿物质水 */
+    optional int32 kuangquanshuikey = 47 [default = 0];
+    /** 饲料 */
+    optional int32 siliaokey = 48 [default = 0];
+    /** 猪肉 */
+    optional int32 zhuroukey = 49 [default = 0];
+    /** 汽油 */
+    optional int32 qiyoukey = 50 [default = 0];
+    /** 钢 */
+    optional int32 gangkey = 51 [default = 0];
+    /** 松木板 */
+    optional int32 songmubankey = 52 [default = 0];
+    /** 混凝土 */
+    optional int32 hunningtukey = 53 [default = 0];
+}
+
+message PURCHASE_LIM_ARRAY {
+    repeated PURCHASE_LIM items = 1;
+}

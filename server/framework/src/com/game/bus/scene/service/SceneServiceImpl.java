@@ -118,6 +118,7 @@ public class SceneServiceImpl implements SceneService {
         TSCGetSceneInfo p = TSCGetSceneInfo.newBuilder()
                 .addAllBuildingInfos(buildingInfos)
                 .setTotalContribution(group.getTotalContribution())
+                .setPeopleNum(group.getPeopleNumber())
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);

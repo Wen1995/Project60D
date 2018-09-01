@@ -296,8 +296,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetSceneInfo : pb::GeneratedMessageLite<TSCGetSceneInfo, TSCGetSceneInfo.Builder> {
     private TSCGetSceneInfo() { }
     private static readonly TSCGetSceneInfo defaultInstance = new TSCGetSceneInfo().MakeReadOnly();
-    private static readonly string[] _tSCGetSceneInfoFieldNames = new string[] { "buildingInfos", "totalContribution" };
-    private static readonly uint[] _tSCGetSceneInfoFieldTags = new uint[] { 10, 16 };
+    private static readonly string[] _tSCGetSceneInfoFieldNames = new string[] { "buildingInfos", "peopleNum", "totalContribution" };
+    private static readonly uint[] _tSCGetSceneInfoFieldTags = new uint[] { 10, 24, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -345,6 +345,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int PeopleNumFieldNumber = 3;
+    private bool hasPeopleNum;
+    private int peopleNum_;
+    public bool HasPeopleNum {
+      get { return hasPeopleNum; }
+    }
+    public int PeopleNum {
+      get { return peopleNum_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -363,7 +376,10 @@ namespace com.game.framework.protocol {
         output.WriteMessageArray(1, field_names[0], buildingInfos_);
       }
       if (hasTotalContribution) {
-        output.WriteInt32(2, field_names[1], TotalContribution);
+        output.WriteInt32(2, field_names[2], TotalContribution);
+      }
+      if (hasPeopleNum) {
+        output.WriteInt32(3, field_names[1], PeopleNum);
       }
     }
     
@@ -383,6 +399,9 @@ namespace com.game.framework.protocol {
         if (hasTotalContribution) {
           size += pb::CodedOutputStream.ComputeInt32Size(2, TotalContribution);
         }
+        if (hasPeopleNum) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, PeopleNum);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -394,6 +413,7 @@ namespace com.game.framework.protocol {
       foreach(global::com.game.framework.protocol.BuildingInfo i in buildingInfos_)
         hash ^= i.GetHashCode();
       if (hasTotalContribution) hash ^= totalContribution_.GetHashCode();
+      if (hasPeopleNum) hash ^= peopleNum_.GetHashCode();
       return hash;
     }
     
@@ -404,6 +424,7 @@ namespace com.game.framework.protocol {
       for(int ix=0; ix < buildingInfos_.Count; ix++)
         if(!buildingInfos_[ix].Equals(other.buildingInfos_[ix])) return false;
       if (hasTotalContribution != other.hasTotalContribution || (hasTotalContribution && !totalContribution_.Equals(other.totalContribution_))) return false;
+      if (hasPeopleNum != other.hasPeopleNum || (hasPeopleNum && !peopleNum_.Equals(other.peopleNum_))) return false;
       return true;
     }
     
@@ -571,6 +592,9 @@ namespace com.game.framework.protocol {
         if (other.HasTotalContribution) {
           TotalContribution = other.TotalContribution;
         }
+        if (other.HasPeopleNum) {
+          PeopleNum = other.PeopleNum;
+        }
         return this;
       }
       
@@ -609,6 +633,10 @@ namespace com.game.framework.protocol {
             }
             case 16: {
               result.hasTotalContribution = input.ReadInt32(ref result.totalContribution_);
+              break;
+            }
+            case 24: {
+              result.hasPeopleNum = input.ReadInt32(ref result.peopleNum_);
               break;
             }
           }
@@ -679,6 +707,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasTotalContribution = false;
         result.totalContribution_ = 0;
+        return this;
+      }
+      
+      public bool HasPeopleNum {
+        get { return result.hasPeopleNum; }
+      }
+      public int PeopleNum {
+        get { return result.PeopleNum; }
+        set { SetPeopleNum(value); }
+      }
+      public Builder SetPeopleNum(int value) {
+        PrepareBuilder();
+        result.hasPeopleNum = true;
+        result.peopleNum_ = value;
+        return this;
+      }
+      public Builder ClearPeopleNum() {
+        PrepareBuilder();
+        result.hasPeopleNum = false;
+        result.peopleNum_ = 0;
         return this;
       }
     }

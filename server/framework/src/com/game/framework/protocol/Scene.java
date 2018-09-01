@@ -382,6 +382,24 @@ public final class Scene {
      * </pre>
      */
     int getTotalContribution();
+
+    // optional int32 peopleNum = 3;
+    /**
+     * <code>optional int32 peopleNum = 3;</code>
+     *
+     * <pre>
+     * 人数
+     * </pre>
+     */
+    boolean hasPeopleNum();
+    /**
+     * <code>optional int32 peopleNum = 3;</code>
+     *
+     * <pre>
+     * 人数
+     * </pre>
+     */
+    int getPeopleNum();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetSceneInfo}
@@ -445,6 +463,11 @@ public final class Scene {
             case 16: {
               bitField0_ |= 0x00000001;
               totalContribution_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000002;
+              peopleNum_ = input.readInt32();
               break;
             }
           }
@@ -570,9 +593,34 @@ public final class Scene {
       return totalContribution_;
     }
 
+    // optional int32 peopleNum = 3;
+    public static final int PEOPLENUM_FIELD_NUMBER = 3;
+    private int peopleNum_;
+    /**
+     * <code>optional int32 peopleNum = 3;</code>
+     *
+     * <pre>
+     * 人数
+     * </pre>
+     */
+    public boolean hasPeopleNum() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 peopleNum = 3;</code>
+     *
+     * <pre>
+     * 人数
+     * </pre>
+     */
+    public int getPeopleNum() {
+      return peopleNum_;
+    }
+
     private void initFields() {
       buildingInfos_ = java.util.Collections.emptyList();
       totalContribution_ = 0;
+      peopleNum_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -592,6 +640,9 @@ public final class Scene {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(2, totalContribution_);
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(3, peopleNum_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -608,6 +659,10 @@ public final class Scene {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, totalContribution_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, peopleNum_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -734,6 +789,8 @@ public final class Scene {
         }
         totalContribution_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
+        peopleNum_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -775,6 +832,10 @@ public final class Scene {
           to_bitField0_ |= 0x00000001;
         }
         result.totalContribution_ = totalContribution_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.peopleNum_ = peopleNum_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -819,6 +880,9 @@ public final class Scene {
         }
         if (other.hasTotalContribution()) {
           setTotalContribution(other.getTotalContribution());
+        }
+        if (other.hasPeopleNum()) {
+          setPeopleNum(other.getPeopleNum());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1204,6 +1268,55 @@ public final class Scene {
       public Builder clearTotalContribution() {
         bitField0_ = (bitField0_ & ~0x00000002);
         totalContribution_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 peopleNum = 3;
+      private int peopleNum_ ;
+      /**
+       * <code>optional int32 peopleNum = 3;</code>
+       *
+       * <pre>
+       * 人数
+       * </pre>
+       */
+      public boolean hasPeopleNum() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 peopleNum = 3;</code>
+       *
+       * <pre>
+       * 人数
+       * </pre>
+       */
+      public int getPeopleNum() {
+        return peopleNum_;
+      }
+      /**
+       * <code>optional int32 peopleNum = 3;</code>
+       *
+       * <pre>
+       * 人数
+       * </pre>
+       */
+      public Builder setPeopleNum(int value) {
+        bitField0_ |= 0x00000004;
+        peopleNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 peopleNum = 3;</code>
+       *
+       * <pre>
+       * 人数
+       * </pre>
+       */
+      public Builder clearPeopleNum() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        peopleNum_ = 0;
         onChanged();
         return this;
       }
@@ -11112,37 +11225,37 @@ public final class Scene {
   static {
     java.lang.String[] descriptorData = {
       "\n\013scene.proto\022\033com.game.framework.protoc" +
-      "ol\"\021\n\017TCSGetSceneInfo\"n\n\017TSCGetSceneInfo" +
-      "\022@\n\rbuildingInfos\030\001 \003(\0132).com.game.frame" +
-      "work.protocol.BuildingInfo\022\031\n\021totalContr" +
-      "ibution\030\002 \001(\005\"(\n\022TCSGetBuildingInfo\022\022\n\nb" +
-      "uildingId\030\001 \001(\003\"U\n\022TSCGetBuildingInfo\022?\n" +
-      "\014buildingInfo\030\001 \001(\0132).com.game.framework" +
-      ".protocol.BuildingInfo\"\242\001\n\014BuildingInfo\022" +
-      "\022\n\nbuildingId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022\031\n" +
-      "\021upgradeFinishTime\030\003 \001(\003\022\022\n\nupgradeUid\030\004",
-      " \001(\003\022\031\n\021processFinishTime\030\005 \001(\003\022\022\n\nproce" +
-      "ssUid\030\006 \001(\003\022\016\n\006number\030\007 \001(\005\" \n\nTCSUpgrad" +
-      "e\022\022\n\nbuildingId\030\001 \001(\003\"\200\001\n\nTSCUpgrade\022\017\n\007" +
-      "isState\030\001 \001(\010\022\017\n\007isGroup\030\002 \001(\010\022\022\n\nisReso" +
-      "urce\030\003 \001(\010\022\024\n\014isProduction\030\004 \001(\010\022\022\n\nfini" +
-      "shTime\030\005 \001(\003\022\022\n\nbuildingId\030\006 \001(\003\"&\n\020TCSF" +
-      "inishUpgrade\022\022\n\nbuildingId\030\001 \001(\003\"&\n\020TSCF" +
-      "inishUpgrade\022\022\n\nbuildingId\030\001 \001(\003\"\035\n\tTCSU" +
-      "nlock\022\020\n\010configId\030\001 \001(\005\"n\n\tTSCUnlock\022\022\n\n" +
-      "buildingId\030\001 \001(\003\022\017\n\007isGroup\030\002 \001(\010\022\022\n\nisR",
-      "esource\030\003 \001(\010\022\024\n\014isProduction\030\004 \001(\010\022\022\n\nf" +
-      "inishTime\030\005 \001(\003\"%\n\017TCSFinishUnlock\022\022\n\nbu" +
-      "ildingId\030\001 \001(\003\"%\n\017TSCFinishUnlock\022\022\n\nbui" +
-      "ldingId\030\001 \001(\003\" \n\nTCSReceive\022\022\n\nbuildingI" +
-      "d\030\001 \001(\003\"B\n\nTSCReceive\022\022\n\nbuildingId\030\001 \001(" +
-      "\003\022\020\n\010configId\030\002 \001(\005\022\016\n\006number\030\003 \001(\005\"0\n\nT" +
-      "CSProcess\022\022\n\nbuildingId\030\001 \001(\003\022\016\n\006number\030" +
-      "\002 \001(\005\"Q\n\nTSCProcess\022\022\n\nbuildingId\030\001 \001(\003\022" +
-      "\022\n\nfinishTime\030\002 \001(\003\022\013\n\003uid\030\003 \001(\003\022\016\n\006numb" +
-      "er\030\004 \001(\005\")\n\023TCSInterruptProcess\022\022\n\nbuild",
-      "ingId\030\001 \001(\003\")\n\023TSCInterruptProcess\022\022\n\nbu" +
-      "ildingId\030\001 \001(\003B\002H\001"
+      "ol\"\021\n\017TCSGetSceneInfo\"\201\001\n\017TSCGetSceneInf" +
+      "o\022@\n\rbuildingInfos\030\001 \003(\0132).com.game.fram" +
+      "ework.protocol.BuildingInfo\022\031\n\021totalCont" +
+      "ribution\030\002 \001(\005\022\021\n\tpeopleNum\030\003 \001(\005\"(\n\022TCS" +
+      "GetBuildingInfo\022\022\n\nbuildingId\030\001 \001(\003\"U\n\022T" +
+      "SCGetBuildingInfo\022?\n\014buildingInfo\030\001 \001(\0132" +
+      ").com.game.framework.protocol.BuildingIn" +
+      "fo\"\242\001\n\014BuildingInfo\022\022\n\nbuildingId\030\001 \001(\003\022" +
+      "\020\n\010configId\030\002 \001(\005\022\031\n\021upgradeFinishTime\030\003",
+      " \001(\003\022\022\n\nupgradeUid\030\004 \001(\003\022\031\n\021processFinis" +
+      "hTime\030\005 \001(\003\022\022\n\nprocessUid\030\006 \001(\003\022\016\n\006numbe" +
+      "r\030\007 \001(\005\" \n\nTCSUpgrade\022\022\n\nbuildingId\030\001 \001(" +
+      "\003\"\200\001\n\nTSCUpgrade\022\017\n\007isState\030\001 \001(\010\022\017\n\007isG" +
+      "roup\030\002 \001(\010\022\022\n\nisResource\030\003 \001(\010\022\024\n\014isProd" +
+      "uction\030\004 \001(\010\022\022\n\nfinishTime\030\005 \001(\003\022\022\n\nbuil" +
+      "dingId\030\006 \001(\003\"&\n\020TCSFinishUpgrade\022\022\n\nbuil" +
+      "dingId\030\001 \001(\003\"&\n\020TSCFinishUpgrade\022\022\n\nbuil" +
+      "dingId\030\001 \001(\003\"\035\n\tTCSUnlock\022\020\n\010configId\030\001 " +
+      "\001(\005\"n\n\tTSCUnlock\022\022\n\nbuildingId\030\001 \001(\003\022\017\n\007",
+      "isGroup\030\002 \001(\010\022\022\n\nisResource\030\003 \001(\010\022\024\n\014isP" +
+      "roduction\030\004 \001(\010\022\022\n\nfinishTime\030\005 \001(\003\"%\n\017T" +
+      "CSFinishUnlock\022\022\n\nbuildingId\030\001 \001(\003\"%\n\017TS" +
+      "CFinishUnlock\022\022\n\nbuildingId\030\001 \001(\003\" \n\nTCS" +
+      "Receive\022\022\n\nbuildingId\030\001 \001(\003\"B\n\nTSCReceiv" +
+      "e\022\022\n\nbuildingId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022" +
+      "\016\n\006number\030\003 \001(\005\"0\n\nTCSProcess\022\022\n\nbuildin" +
+      "gId\030\001 \001(\003\022\016\n\006number\030\002 \001(\005\"Q\n\nTSCProcess\022" +
+      "\022\n\nbuildingId\030\001 \001(\003\022\022\n\nfinishTime\030\002 \001(\003\022" +
+      "\013\n\003uid\030\003 \001(\003\022\016\n\006number\030\004 \001(\005\")\n\023TCSInter",
+      "ruptProcess\022\022\n\nbuildingId\030\001 \001(\003\")\n\023TSCIn" +
+      "terruptProcess\022\022\n\nbuildingId\030\001 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -11160,7 +11273,7 @@ public final class Scene {
           internal_static_com_game_framework_protocol_TSCGetSceneInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetSceneInfo_descriptor,
-              new java.lang.String[] { "BuildingInfos", "TotalContribution", });
+              new java.lang.String[] { "BuildingInfos", "TotalContribution", "PeopleNum", });
           internal_static_com_game_framework_protocol_TCSGetBuildingInfo_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_TCSGetBuildingInfo_fieldAccessorTable = new

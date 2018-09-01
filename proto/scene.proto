@@ -10,6 +10,8 @@ message TSCGetSceneInfo {
 	repeated BuildingInfo buildingInfos = 1;
 	// 庄园总贡献
 	optional int32 totalContribution = 2;
+	// 人数
+	optional int32 peopleNum = 3;
 }
 
 message TCSGetBuildingInfo {

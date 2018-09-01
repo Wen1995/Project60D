@@ -57,9 +57,19 @@ public class UIBuildingInteractionPanel : PanelBase{
         HideAllButton();
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(selectBuilding.BuildingID);
         BuildingFunc funcType = BuildingFunc.Collect;
-        nameLabel.text = sanctuaryPackage.GetBuildingNameByType(selectBuilding.buildingType);
+        
         if(info != null)
-            funcType = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
+        {
+            nameLabel.text = string.Format("{0}Lv.{1}"
+        , sanctuaryPackage.GetBuildingNameByType(selectBuilding.buildingType)
+        , sanctuaryPackage.GetBulidingLevelByConfigID(info.configID));
+        funcType = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
+        }
+        else
+        {
+            nameLabel.text = string.Format("{0}(未解锁)", sanctuaryPackage.GetBuildingNameByType(selectBuilding.buildingType));
+        }
+            
         switch (selectBuilding.State)
         {
             case (BuildingState.Locked):

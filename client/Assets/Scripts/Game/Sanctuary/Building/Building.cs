@@ -89,7 +89,7 @@ public class Building : Controller {
             }
         }
 
-        if(mState == BuildingState.Locked || (mState == BuildingState.Upgrade))
+        if(mState == BuildingState.Locked)
         {
             transform.Find("building").gameObject.SetActive(false);
             transform.Find("lock").gameObject.SetActive(true);

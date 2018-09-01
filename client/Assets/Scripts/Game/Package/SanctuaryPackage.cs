@@ -121,7 +121,8 @@ public class SanctuaryPackage : ModelBase {
     public bool IsBuildingVisible(BuildingType type)
     {
         UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
-        int level = userPackage.GetManorLevel();
+        float progress;
+        int level = userPackage.GetManorLevel(out progress);
         int configID = GetConfigIDByBuildingType(type);
         BUILDING data = GetBuildingConfigDataByConfigID(configID);
         if(level >= data.BldgVisible)

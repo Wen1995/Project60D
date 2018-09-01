@@ -96,7 +96,7 @@ public class UserPackage : ModelBase {
         return personContribution;
     }
 
-    public int GetPlayerLevel()
+    public int GetPlayerLevel(out float progress)
     {
         var levelMap = ConfigDataStatic.GetConfigDataTable("PLAYER_LEVEL");
         int i = 0;
@@ -104,12 +104,23 @@ public class UserPackage : ModelBase {
         {
             PLAYER_LEVEL data = levelMap[i] as PLAYER_LEVEL;
             if(personContribution < data.PlayerCap)
-                break;
+            {
+                if(i == 1)
+                    progress = (float)personContribution / (float)data.PlayerCap;
+                else
+                {
+                    PLAYER_LEVEL preData = levelMap[i - 1] as PLAYER_LEVEL;
+                    progress = (float)(data.PlayerCap - personContribution) / (float)(data.PlayerCap - preData.PlayerCap);
+                }
+                return i;
+            }
+                
         }
-        return i;
+        progress = 1.0f;
+        return 20;
     }
 
-    public int GetManorLevel()
+    public int GetManorLevel(out float progress)
     {
         var levelMap = ConfigDataStatic.GetConfigDataTable("MANOR_LEVEL");
         int i = 1;
@@ -117,9 +128,19 @@ public class UserPackage : ModelBase {
         {
             MANOR_LEVEL data = levelMap[i] as MANOR_LEVEL;
             if(totalContribution < data.ManorCap)
-                break;
+            {
+                if(i == 1)
+                    progress = (float)totalContribution / (float)data.ManorCap;
+                else
+                {
+                    MANOR_LEVEL preData = levelMap[i - 1] as MANOR_LEVEL;
+                    progress = (float)(data.ManorCap - totalContribution)/(float)(data.ManorCap - preData.ManorCap);
+                }
+                return i;
+            }
         }
-        return i;
+        progress = 1.0f;
+        return 20;
     }
 
     public int GetManorPersonNumber()

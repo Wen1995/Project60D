@@ -65,7 +65,9 @@ public class UIPlayerMenuPanel : PanelBase {
 		hungerProgressBar.value = (float)playerState.hunger / (float)(20 + 2 * playerState.health);
 		thirstProgressBar.value = (float)playerState.thirst / (float)(20 + 2 * playerState.health);
 		expProgressBar.value = 0.4f;
-		levelLabel.text = string.Format("Lv.{0}", userPackage.GetPlayerLevel().ToString());
+		float progres = 0f;
+		levelLabel.text = string.Format("Lv.{0}", userPackage.GetPlayerLevel(out progres).ToString());
+		expProgressBar.value = progres;
 	}
 
 	void OnPlayerInfo()

@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIBuildingUpgradePanel : MonoBehaviour {
+public class UIBuildingUpgradePanel : PanelBase {
 
-	// Use this for initialization
-	void Start () {
-		
+	protected override void Awake()
+	{
+		base.Awake();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public override void OpenPanel()
+	{
+		base.OpenPanel();
+	}
+
+	public override void ClosePanel()
+	{
+		base.ClosePanel();
 	}
 }

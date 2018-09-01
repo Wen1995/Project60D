@@ -108,6 +108,10 @@ public class SanctuaryPackage : ModelBase {
     public BUILDING GetBuildingConfigDataByConfigID(int configID)
     {
         var buildingDataMap = ConfigDataStatic.GetConfigDataTable("BUILDING");
+        if(!buildingDataMap.ContainsKey(configID))
+        {
+            Debug.Log(configID);
+        }
         return buildingDataMap[configID] as BUILDING;
     }
 
@@ -116,6 +120,18 @@ public class SanctuaryPackage : ModelBase {
         int configID = GetConfigIDByBuildingType(type);
         BUILDING data = GetBuildingConfigDataByConfigID(configID);
         return data.BldgName;
+    }
+
+    public bool IsBuildingVisible(BuildingType type)
+    {
+        UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+        int level = userPackage.GetManorLevel();
+        int configID = GetConfigIDByBuildingType(type);
+        BUILDING data = GetBuildingConfigDataByConfigID(configID);
+        if(level >= data.BldgVisible)
+            return true;
+        else
+            return false;
     }
 
     #region Acess Data

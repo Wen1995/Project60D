@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class BUILDING : pb::GeneratedMessageLite<BUILDING, BUILDING.Builder> {
     private BUILDING() { }
     private static readonly BUILDING defaultInstance = new BUILDING().MakeReadOnly();
-    private static readonly string[] _bUILDINGFieldNames = new string[] { "bldg_func_table_id", "bldg_func_table_name", "bldg_info", "bldg_lvl", "bldg_name", "bldg_strength_add", "bldg_strength_lim", "bldg_type", "bldg_visible", "bldgcap_key", "bldgspd_key", "con_id", "con_pro", "cost_table", "elec_cost", "gold_cost", "icon_name", "id", "in_use", "max_bldg_lvl", "prefab_name", "pro_id", "time_cost" };
-    private static readonly uint[] _bUILDINGFieldTags = new uint[] { 136, 130, 98, 24, 34, 152, 144, 16, 40, 50, 58, 104, 112, 186, 176, 168, 90, 8, 64, 72, 82, 120, 160 };
+    private static readonly string[] _bUILDINGFieldNames = new string[] { "bldg_func_table_id", "bldg_func_table_name", "bldg_info", "bldg_lv_lim", "bldg_lvl", "bldg_name", "bldg_strength_add", "bldg_strength_lim", "bldg_type", "bldg_visible", "bldgcap_key", "bldgspd_key", "con_id", "con_pro", "cost_table", "elec_cost", "gold_cost", "icon_name", "id", "in_use", "max_bldg_lvl", "prefab_name", "pro_id", "time_cost" };
+    private static readonly uint[] _bUILDINGFieldTags = new uint[] { 136, 130, 98, 152, 24, 34, 160, 144, 16, 40, 50, 58, 104, 112, 194, 184, 176, 90, 8, 64, 72, 82, 120, 168 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -654,7 +654,20 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int BldgStrengthAddFieldNumber = 19;
+    public const int BldgLvLimFieldNumber = 19;
+    private bool hasBldgLvLim;
+    private int bldgLvLim_;
+    public bool HasBldgLvLim {
+      get { return hasBldgLvLim; }
+    }
+    public int BldgLvLim {
+      get { return bldgLvLim_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BldgStrengthAddFieldNumber = 20;
     private bool hasBldgStrengthAdd;
     private int bldgStrengthAdd_;
     public bool HasBldgStrengthAdd {
@@ -667,7 +680,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int TimeCostFieldNumber = 20;
+    public const int TimeCostFieldNumber = 21;
     private bool hasTimeCost;
     private int timeCost_;
     public bool HasTimeCost {
@@ -680,7 +693,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int GoldCostFieldNumber = 21;
+    public const int GoldCostFieldNumber = 22;
     private bool hasGoldCost;
     private int goldCost_;
     public bool HasGoldCost {
@@ -693,7 +706,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ElecCostFieldNumber = 22;
+    public const int ElecCostFieldNumber = 23;
     private bool hasElecCost;
     private int elecCost_;
     public bool HasElecCost {
@@ -706,7 +719,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int CostTableFieldNumber = 23;
+    public const int CostTableFieldNumber = 24;
     private pbc::PopsicleList<global::com.game.framework.resource.data.BUILDING.Types.CostStruct> costTable_ = new pbc::PopsicleList<global::com.game.framework.resource.data.BUILDING.Types.CostStruct>();
     public scg::IList<global::com.game.framework.resource.data.BUILDING.Types.CostStruct> CostTableList {
       get { return costTable_; }
@@ -735,49 +748,49 @@ namespace com.game.framework.resource.data {
       int size = SerializedSize;
       string[] field_names = _bUILDINGFieldNames;
       if (hasId) {
-        output.WriteInt32(1, field_names[17], Id);
+        output.WriteInt32(1, field_names[18], Id);
       }
       if (hasBldgType) {
-        output.WriteInt32(2, field_names[7], BldgType);
+        output.WriteInt32(2, field_names[8], BldgType);
       }
       if (hasBldgLvl) {
-        output.WriteInt32(3, field_names[3], BldgLvl);
+        output.WriteInt32(3, field_names[4], BldgLvl);
       }
       if (hasBldgName) {
-        output.WriteString(4, field_names[4], BldgName);
+        output.WriteString(4, field_names[5], BldgName);
       }
       if (hasBldgVisible) {
-        output.WriteInt32(5, field_names[8], BldgVisible);
+        output.WriteInt32(5, field_names[9], BldgVisible);
       }
       if (hasBldgcapKey) {
-        output.WriteString(6, field_names[9], BldgcapKey);
+        output.WriteString(6, field_names[10], BldgcapKey);
       }
       if (hasBldgspdKey) {
-        output.WriteString(7, field_names[10], BldgspdKey);
+        output.WriteString(7, field_names[11], BldgspdKey);
       }
       if (hasInUse) {
-        output.WriteInt32(8, field_names[18], InUse);
+        output.WriteInt32(8, field_names[19], InUse);
       }
       if (hasMaxBldgLvl) {
-        output.WriteInt32(9, field_names[19], MaxBldgLvl);
+        output.WriteInt32(9, field_names[20], MaxBldgLvl);
       }
       if (hasPrefabName) {
-        output.WriteString(10, field_names[20], PrefabName);
+        output.WriteString(10, field_names[21], PrefabName);
       }
       if (hasIconName) {
-        output.WriteString(11, field_names[16], IconName);
+        output.WriteString(11, field_names[17], IconName);
       }
       if (hasBldgInfo) {
         output.WriteString(12, field_names[2], BldgInfo);
       }
       if (hasConId) {
-        output.WriteInt32(13, field_names[11], ConId);
+        output.WriteInt32(13, field_names[12], ConId);
       }
       if (hasConPro) {
-        output.WriteInt32(14, field_names[12], ConPro);
+        output.WriteInt32(14, field_names[13], ConPro);
       }
       if (hasProId) {
-        output.WriteInt32(15, field_names[21], ProId);
+        output.WriteInt32(15, field_names[22], ProId);
       }
       if (hasBldgFuncTableName) {
         output.WriteString(16, field_names[1], BldgFuncTableName);
@@ -786,22 +799,25 @@ namespace com.game.framework.resource.data {
         output.WriteInt32(17, field_names[0], BldgFuncTableId);
       }
       if (hasBldgStrengthLim) {
-        output.WriteInt32(18, field_names[6], BldgStrengthLim);
+        output.WriteInt32(18, field_names[7], BldgStrengthLim);
+      }
+      if (hasBldgLvLim) {
+        output.WriteInt32(19, field_names[3], BldgLvLim);
       }
       if (hasBldgStrengthAdd) {
-        output.WriteInt32(19, field_names[5], BldgStrengthAdd);
+        output.WriteInt32(20, field_names[6], BldgStrengthAdd);
       }
       if (hasTimeCost) {
-        output.WriteInt32(20, field_names[22], TimeCost);
+        output.WriteInt32(21, field_names[23], TimeCost);
       }
       if (hasGoldCost) {
-        output.WriteInt32(21, field_names[15], GoldCost);
+        output.WriteInt32(22, field_names[16], GoldCost);
       }
       if (hasElecCost) {
-        output.WriteInt32(22, field_names[14], ElecCost);
+        output.WriteInt32(23, field_names[15], ElecCost);
       }
       if (costTable_.Count > 0) {
-        output.WriteMessageArray(23, field_names[13], costTable_);
+        output.WriteMessageArray(24, field_names[14], costTable_);
       }
     }
     
@@ -869,20 +885,23 @@ namespace com.game.framework.resource.data {
         if (hasBldgStrengthLim) {
           size += pb::CodedOutputStream.ComputeInt32Size(18, BldgStrengthLim);
         }
+        if (hasBldgLvLim) {
+          size += pb::CodedOutputStream.ComputeInt32Size(19, BldgLvLim);
+        }
         if (hasBldgStrengthAdd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(19, BldgStrengthAdd);
+          size += pb::CodedOutputStream.ComputeInt32Size(20, BldgStrengthAdd);
         }
         if (hasTimeCost) {
-          size += pb::CodedOutputStream.ComputeInt32Size(20, TimeCost);
+          size += pb::CodedOutputStream.ComputeInt32Size(21, TimeCost);
         }
         if (hasGoldCost) {
-          size += pb::CodedOutputStream.ComputeInt32Size(21, GoldCost);
+          size += pb::CodedOutputStream.ComputeInt32Size(22, GoldCost);
         }
         if (hasElecCost) {
-          size += pb::CodedOutputStream.ComputeInt32Size(22, ElecCost);
+          size += pb::CodedOutputStream.ComputeInt32Size(23, ElecCost);
         }
         foreach (global::com.game.framework.resource.data.BUILDING.Types.CostStruct element in CostTableList) {
-          size += pb::CodedOutputStream.ComputeMessageSize(23, element);
+          size += pb::CodedOutputStream.ComputeMessageSize(24, element);
         }
         memoizedSerializedSize = size;
         return size;
@@ -910,6 +929,7 @@ namespace com.game.framework.resource.data {
       if (hasBldgFuncTableName) hash ^= bldgFuncTableName_.GetHashCode();
       if (hasBldgFuncTableId) hash ^= bldgFuncTableId_.GetHashCode();
       if (hasBldgStrengthLim) hash ^= bldgStrengthLim_.GetHashCode();
+      if (hasBldgLvLim) hash ^= bldgLvLim_.GetHashCode();
       if (hasBldgStrengthAdd) hash ^= bldgStrengthAdd_.GetHashCode();
       if (hasTimeCost) hash ^= timeCost_.GetHashCode();
       if (hasGoldCost) hash ^= goldCost_.GetHashCode();
@@ -940,6 +960,7 @@ namespace com.game.framework.resource.data {
       if (hasBldgFuncTableName != other.hasBldgFuncTableName || (hasBldgFuncTableName && !bldgFuncTableName_.Equals(other.bldgFuncTableName_))) return false;
       if (hasBldgFuncTableId != other.hasBldgFuncTableId || (hasBldgFuncTableId && !bldgFuncTableId_.Equals(other.bldgFuncTableId_))) return false;
       if (hasBldgStrengthLim != other.hasBldgStrengthLim || (hasBldgStrengthLim && !bldgStrengthLim_.Equals(other.bldgStrengthLim_))) return false;
+      if (hasBldgLvLim != other.hasBldgLvLim || (hasBldgLvLim && !bldgLvLim_.Equals(other.bldgLvLim_))) return false;
       if (hasBldgStrengthAdd != other.hasBldgStrengthAdd || (hasBldgStrengthAdd && !bldgStrengthAdd_.Equals(other.bldgStrengthAdd_))) return false;
       if (hasTimeCost != other.hasTimeCost || (hasTimeCost && !timeCost_.Equals(other.timeCost_))) return false;
       if (hasGoldCost != other.hasGoldCost || (hasGoldCost && !goldCost_.Equals(other.goldCost_))) return false;
@@ -1162,6 +1183,9 @@ namespace com.game.framework.resource.data {
         if (other.HasBldgStrengthLim) {
           BldgStrengthLim = other.BldgStrengthLim;
         }
+        if (other.HasBldgLvLim) {
+          BldgLvLim = other.BldgLvLim;
+        }
         if (other.HasBldgStrengthAdd) {
           BldgStrengthAdd = other.BldgStrengthAdd;
         }
@@ -1282,22 +1306,26 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 152: {
-              result.hasBldgStrengthAdd = input.ReadInt32(ref result.bldgStrengthAdd_);
+              result.hasBldgLvLim = input.ReadInt32(ref result.bldgLvLim_);
               break;
             }
             case 160: {
-              result.hasTimeCost = input.ReadInt32(ref result.timeCost_);
+              result.hasBldgStrengthAdd = input.ReadInt32(ref result.bldgStrengthAdd_);
               break;
             }
             case 168: {
-              result.hasGoldCost = input.ReadInt32(ref result.goldCost_);
+              result.hasTimeCost = input.ReadInt32(ref result.timeCost_);
               break;
             }
             case 176: {
+              result.hasGoldCost = input.ReadInt32(ref result.goldCost_);
+              break;
+            }
+            case 184: {
               result.hasElecCost = input.ReadInt32(ref result.elecCost_);
               break;
             }
-            case 186: {
+            case 194: {
               input.ReadMessageArray(tag, field_name, result.costTable_, global::com.game.framework.resource.data.BUILDING.Types.CostStruct.DefaultInstance, extensionRegistry);
               break;
             }
@@ -1672,6 +1700,26 @@ namespace com.game.framework.resource.data {
         PrepareBuilder();
         result.hasBldgStrengthLim = false;
         result.bldgStrengthLim_ = 0;
+        return this;
+      }
+      
+      public bool HasBldgLvLim {
+        get { return result.hasBldgLvLim; }
+      }
+      public int BldgLvLim {
+        get { return result.BldgLvLim; }
+        set { SetBldgLvLim(value); }
+      }
+      public Builder SetBldgLvLim(int value) {
+        PrepareBuilder();
+        result.hasBldgLvLim = true;
+        result.bldgLvLim_ = value;
+        return this;
+      }
+      public Builder ClearBldgLvLim() {
+        PrepareBuilder();
+        result.hasBldgLvLim = false;
+        result.bldgLvLim_ = 0;
         return this;
       }
       

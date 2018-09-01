@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/building_bytes.proto',
   package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x1aproto/building_bytes.proto\x12 com.game.framework.resource.data\"\x86\x05\n\x08\x42UILDING\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x14\n\tbldg_type\x18\x02 \x01(\x05:\x01\x30\x12\x13\n\x08\x62ldg_lvl\x18\x03 \x01(\x05:\x01\x30\x12\x13\n\tbldg_name\x18\x04 \x01(\t:\x00\x12\x17\n\x0c\x62ldg_visible\x18\x05 \x01(\x05:\x01\x30\x12\x15\n\x0b\x62ldgcap_key\x18\x06 \x01(\t:\x00\x12\x15\n\x0b\x62ldgspd_key\x18\x07 \x01(\t:\x00\x12\x11\n\x06in_use\x18\x08 \x01(\x05:\x01\x30\x12\x17\n\x0cmax_bldg_lvl\x18\t \x01(\x05:\x01\x30\x12\x15\n\x0bprefab_name\x18\n \x01(\t:\x00\x12\x13\n\ticon_name\x18\x0b \x01(\t:\x00\x12\x13\n\tbldg_info\x18\x0c \x01(\t:\x00\x12\x11\n\x06\x63on_id\x18\r \x01(\x05:\x01\x30\x12\x12\n\x07\x63on_pro\x18\x0e \x01(\x05:\x01\x30\x12\x11\n\x06pro_id\x18\x0f \x01(\x05:\x01\x30\x12\x1e\n\x14\x62ldg_func_table_name\x18\x10 \x01(\t:\x00\x12\x1d\n\x12\x62ldg_func_table_id\x18\x11 \x01(\x05:\x01\x30\x12\x1c\n\x11\x62ldg_strength_lim\x18\x12 \x01(\x05:\x01\x30\x12\x1c\n\x11\x62ldg_strength_add\x18\x13 \x01(\x05:\x01\x30\x12\x14\n\ttime_cost\x18\x14 \x01(\x05:\x01\x30\x12\x14\n\tgold_cost\x18\x15 \x01(\x05:\x01\x30\x12\x14\n\telec_cost\x18\x16 \x01(\x05:\x01\x30\x12I\n\ncost_table\x18\x17 \x03(\x0b\x32\x35.com.game.framework.resource.data.BUILDING.CostStruct\x1a\x35\n\nCostStruct\x12\x12\n\x07\x63ost_id\x18\x01 \x01(\x05:\x01\x30\x12\x13\n\x08\x63ost_qty\x18\x02 \x01(\x05:\x01\x30\"K\n\x0e\x42UILDING_ARRAY\x12\x39\n\x05items\x18\x01 \x03(\x0b\x32*.com.game.framework.resource.data.BUILDING')
+  serialized_pb=_b('\n\x1aproto/building_bytes.proto\x12 com.game.framework.resource.data\"\x9e\x05\n\x08\x42UILDING\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x14\n\tbldg_type\x18\x02 \x01(\x05:\x01\x30\x12\x13\n\x08\x62ldg_lvl\x18\x03 \x01(\x05:\x01\x30\x12\x13\n\tbldg_name\x18\x04 \x01(\t:\x00\x12\x17\n\x0c\x62ldg_visible\x18\x05 \x01(\x05:\x01\x30\x12\x15\n\x0b\x62ldgcap_key\x18\x06 \x01(\t:\x00\x12\x15\n\x0b\x62ldgspd_key\x18\x07 \x01(\t:\x00\x12\x11\n\x06in_use\x18\x08 \x01(\x05:\x01\x30\x12\x17\n\x0cmax_bldg_lvl\x18\t \x01(\x05:\x01\x30\x12\x15\n\x0bprefab_name\x18\n \x01(\t:\x00\x12\x13\n\ticon_name\x18\x0b \x01(\t:\x00\x12\x13\n\tbldg_info\x18\x0c \x01(\t:\x00\x12\x11\n\x06\x63on_id\x18\r \x01(\x05:\x01\x30\x12\x12\n\x07\x63on_pro\x18\x0e \x01(\x05:\x01\x30\x12\x11\n\x06pro_id\x18\x0f \x01(\x05:\x01\x30\x12\x1e\n\x14\x62ldg_func_table_name\x18\x10 \x01(\t:\x00\x12\x1d\n\x12\x62ldg_func_table_id\x18\x11 \x01(\x05:\x01\x30\x12\x1c\n\x11\x62ldg_strength_lim\x18\x12 \x01(\x05:\x01\x30\x12\x16\n\x0b\x62ldg_lv_lim\x18\x13 \x01(\x05:\x01\x30\x12\x1c\n\x11\x62ldg_strength_add\x18\x14 \x01(\x05:\x01\x30\x12\x14\n\ttime_cost\x18\x15 \x01(\x05:\x01\x30\x12\x14\n\tgold_cost\x18\x16 \x01(\x05:\x01\x30\x12\x14\n\telec_cost\x18\x17 \x01(\x05:\x01\x30\x12I\n\ncost_table\x18\x18 \x03(\x0b\x32\x35.com.game.framework.resource.data.BUILDING.CostStruct\x1a\x35\n\nCostStruct\x12\x12\n\x07\x63ost_id\x18\x01 \x01(\x05:\x01\x30\x12\x13\n\x08\x63ost_qty\x18\x02 \x01(\x05:\x01\x30\"K\n\x0e\x42UILDING_ARRAY\x12\x39\n\x05items\x18\x01 \x03(\x0b\x32*.com.game.framework.resource.data.BUILDING')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -57,8 +57,8 @@ _BUILDING_COSTSTRUCT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=658,
-  serialized_end=711,
+  serialized_start=682,
+  serialized_end=735,
 )
 
 _BUILDING = _descriptor.Descriptor(
@@ -195,36 +195,43 @@ _BUILDING = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='bldg_strength_add', full_name='com.game.framework.resource.data.BUILDING.bldg_strength_add', index=18,
+      name='bldg_lv_lim', full_name='com.game.framework.resource.data.BUILDING.bldg_lv_lim', index=18,
       number=19, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='time_cost', full_name='com.game.framework.resource.data.BUILDING.time_cost', index=19,
+      name='bldg_strength_add', full_name='com.game.framework.resource.data.BUILDING.bldg_strength_add', index=19,
       number=20, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='gold_cost', full_name='com.game.framework.resource.data.BUILDING.gold_cost', index=20,
+      name='time_cost', full_name='com.game.framework.resource.data.BUILDING.time_cost', index=20,
       number=21, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='elec_cost', full_name='com.game.framework.resource.data.BUILDING.elec_cost', index=21,
+      name='gold_cost', full_name='com.game.framework.resource.data.BUILDING.gold_cost', index=21,
       number=22, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='cost_table', full_name='com.game.framework.resource.data.BUILDING.cost_table', index=22,
-      number=23, type=11, cpp_type=10, label=3,
+      name='elec_cost', full_name='com.game.framework.resource.data.BUILDING.elec_cost', index=22,
+      number=23, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='cost_table', full_name='com.game.framework.resource.data.BUILDING.cost_table', index=23,
+      number=24, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -241,7 +248,7 @@ _BUILDING = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=65,
-  serialized_end=711,
+  serialized_end=735,
 )
 
 
@@ -270,8 +277,8 @@ _BUILDING_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=713,
-  serialized_end=788,
+  serialized_start=737,
+  serialized_end=812,
 )
 
 _BUILDING_COSTSTRUCT.containing_type = _BUILDING

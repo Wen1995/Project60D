@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class WORLD_EVENTS : pb::GeneratedMessageLite<WORLD_EVENTS, WORLD_EVENTS.Builder> {
     private WORLD_EVENTS() { }
     private static readonly WORLD_EVENTS defaultInstance = new WORLD_EVENTS().MakeReadOnly();
-    private static readonly string[] _wORLDEVENTSFieldNames = new string[] { "buqiang1key", "cangchukey", "caokey", "con_prob", "dami_bldgcap", "dami_bldgspd", "damikey", "event_desc", "event_duration", "event_icon", "event_name", "event_news", "event_newsdetail", "event_prob", "event_unlock", "fangdanyi1key", "fangdanyi2key", "fangdanyi3key", "fangdaokey", "fengli_bldgspd", "gangkey", "guanrenkey", "healthkey", "huafeigongyekey", "huafeikey", "hunningtukey", "id", "inva_prob", "jiatelinkey", "jijiubaokey", "jing_bldgcap", "jing_bldgspd", "jipaotuzhikey", "jiqiangtuzhikey", "jujituzhikey", "kanaijikey", "kuangquanshuikey", "kuzi1key", "kuzi2key", "kuzi3key", "leida_bldg", "lubankey", "luokefeilekey", "lushui_bldgcap", "lushui_bldgspd", "makeqinkey", "moodkey", "qingjiqiang1key", "qiyoukey", "rizhikey", "shouqiang1key", "shucai_bldgcap", "shucai_bldgspd", "shucaikey", "shuiguo_bldgcap", "shuiguo_bldgspd", "shuiguokey", "shuikey", "shuinikey", "siliaokey", "songmubankey", "songmukey", "songshu_bldgcap", "songshu_bldgspd", "tax_coeff", "tesilakey", "tiekey", "toukui1key", "toukui2key", "toukui3key", "tumukey", "wbaleitekey", "wodefendoukey", "wuxiandian_bldg", "xiezi1key", "xiezi2key", "xiezi3key", "yangzhukey", "yuanlongpingkey", "yuanyoukey", "zhuroukey", "zombie_atk", "zombie_def", "zombie_hp", "zombie_num" };
-    private static readonly uint[] _wORLDEVENTSFieldTags = new uint[] { 544, 416, 328, 80, 144, 192, 272, 34, 56, 66, 18, 42, 50, 72, 24, 560, 568, 576, 464, 240, 664, 504, 128, 400, 296, 680, 8, 88, 488, 352, 168, 216, 384, 368, 376, 440, 632, 584, 592, 600, 256, 448, 432, 176, 224, 472, 136, 552, 656, 360, 536, 152, 200, 280, 160, 208, 288, 304, 320, 640, 672, 312, 184, 232, 264, 424, 344, 512, 520, 528, 456, 496, 480, 248, 608, 616, 624, 408, 392, 336, 648, 96, 104, 112, 120 };
+    private static readonly string[] _wORLDEVENTSFieldNames = new string[] { "buqiang1key", "cangchukey", "caokey", "car_bldgspd", "con_prob", "dami_bldgcap", "dami_bldgspd", "damikey", "event_desc", "event_duration", "event_icon", "event_name", "event_news", "event_newsdetail", "event_prob", "event_unlock", "fangdanyi1key", "fangdanyi2key", "fangdanyi3key", "fangdaokey", "fengli_bldgspd", "gangkey", "guanrenkey", "healthkey", "huafeigongyekey", "huafeikey", "hunningtukey", "id", "inva_prob", "jiatelinkey", "jijiubaokey", "jing_bldgcap", "jing_bldgspd", "jipaotuzhikey", "jiqiangtuzhikey", "jujituzhikey", "kanaijikey", "kuangquanshuikey", "kuzi1key", "kuzi2key", "kuzi3key", "leida_bldg", "lubankey", "luokefeilekey", "lushui_bldgcap", "lushui_bldgspd", "makeqinkey", "moodkey", "qingjiqiang1key", "qiyoukey", "rizhikey", "shouqiang1key", "shucai_bldgcap", "shucai_bldgspd", "shucaikey", "shuiguo_bldgcap", "shuiguo_bldgspd", "shuiguokey", "shuikey", "shuinikey", "siliaokey", "songmubankey", "songmukey", "songshu_bldgcap", "songshu_bldgspd", "tax_coeff", "tesilakey", "tiekey", "toukui1key", "toukui2key", "toukui3key", "tumukey", "wbaleitekey", "wodefendoukey", "wuxiandian_bldg", "xiezi1key", "xiezi2key", "xiezi3key", "yangzhukey", "yuanlongpingkey", "yuanyoukey", "zhuroukey", "zombie_atk", "zombie_def", "zombie_hp", "zombie_num" };
+    private static readonly uint[] _wORLDEVENTSFieldTags = new uint[] { 552, 424, 336, 264, 80, 144, 192, 280, 34, 56, 66, 18, 42, 50, 72, 24, 568, 576, 584, 472, 240, 672, 512, 128, 408, 304, 688, 8, 88, 496, 360, 168, 216, 392, 376, 384, 448, 640, 592, 600, 608, 256, 456, 440, 176, 224, 480, 136, 560, 664, 368, 544, 152, 200, 288, 160, 208, 296, 312, 328, 648, 680, 320, 184, 232, 272, 432, 352, 520, 528, 536, 464, 504, 488, 248, 616, 624, 632, 416, 400, 344, 656, 96, 104, 112, 120 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -467,7 +467,20 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int TaxCoeffFieldNumber = 33;
+    public const int CarBldgspdFieldNumber = 33;
+    private bool hasCarBldgspd;
+    private int carBldgspd_;
+    public bool HasCarBldgspd {
+      get { return hasCarBldgspd; }
+    }
+    public int CarBldgspd {
+      get { return carBldgspd_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int TaxCoeffFieldNumber = 34;
     private bool hasTaxCoeff;
     private int taxCoeff_;
     public bool HasTaxCoeff {
@@ -480,7 +493,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int DamikeyFieldNumber = 34;
+    public const int DamikeyFieldNumber = 35;
     private bool hasDamikey;
     private int damikey_;
     public bool HasDamikey {
@@ -493,7 +506,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ShucaikeyFieldNumber = 35;
+    public const int ShucaikeyFieldNumber = 36;
     private bool hasShucaikey;
     private int shucaikey_;
     public bool HasShucaikey {
@@ -506,7 +519,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ShuiguokeyFieldNumber = 36;
+    public const int ShuiguokeyFieldNumber = 37;
     private bool hasShuiguokey;
     private int shuiguokey_;
     public bool HasShuiguokey {
@@ -519,7 +532,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HuafeikeyFieldNumber = 37;
+    public const int HuafeikeyFieldNumber = 38;
     private bool hasHuafeikey;
     private int huafeikey_;
     public bool HasHuafeikey {
@@ -532,7 +545,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ShuikeyFieldNumber = 38;
+    public const int ShuikeyFieldNumber = 39;
     private bool hasShuikey;
     private int shuikey_;
     public bool HasShuikey {
@@ -545,7 +558,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SongmukeyFieldNumber = 39;
+    public const int SongmukeyFieldNumber = 40;
     private bool hasSongmukey;
     private int songmukey_;
     public bool HasSongmukey {
@@ -558,7 +571,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ShuinikeyFieldNumber = 40;
+    public const int ShuinikeyFieldNumber = 41;
     private bool hasShuinikey;
     private int shuinikey_;
     public bool HasShuinikey {
@@ -571,7 +584,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int CaokeyFieldNumber = 41;
+    public const int CaokeyFieldNumber = 42;
     private bool hasCaokey;
     private int caokey_;
     public bool HasCaokey {
@@ -584,7 +597,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int YuanyoukeyFieldNumber = 42;
+    public const int YuanyoukeyFieldNumber = 43;
     private bool hasYuanyoukey;
     private int yuanyoukey_;
     public bool HasYuanyoukey {
@@ -597,7 +610,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int TiekeyFieldNumber = 43;
+    public const int TiekeyFieldNumber = 44;
     private bool hasTiekey;
     private int tiekey_;
     public bool HasTiekey {
@@ -610,7 +623,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JijiubaokeyFieldNumber = 44;
+    public const int JijiubaokeyFieldNumber = 45;
     private bool hasJijiubaokey;
     private int jijiubaokey_;
     public bool HasJijiubaokey {
@@ -623,7 +636,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int RizhikeyFieldNumber = 45;
+    public const int RizhikeyFieldNumber = 46;
     private bool hasRizhikey;
     private int rizhikey_;
     public bool HasRizhikey {
@@ -636,7 +649,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JiqiangtuzhikeyFieldNumber = 46;
+    public const int JiqiangtuzhikeyFieldNumber = 47;
     private bool hasJiqiangtuzhikey;
     private int jiqiangtuzhikey_;
     public bool HasJiqiangtuzhikey {
@@ -649,7 +662,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JujituzhikeyFieldNumber = 47;
+    public const int JujituzhikeyFieldNumber = 48;
     private bool hasJujituzhikey;
     private int jujituzhikey_;
     public bool HasJujituzhikey {
@@ -662,7 +675,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JipaotuzhikeyFieldNumber = 48;
+    public const int JipaotuzhikeyFieldNumber = 49;
     private bool hasJipaotuzhikey;
     private int jipaotuzhikey_;
     public bool HasJipaotuzhikey {
@@ -675,7 +688,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int YuanlongpingkeyFieldNumber = 49;
+    public const int YuanlongpingkeyFieldNumber = 50;
     private bool hasYuanlongpingkey;
     private int yuanlongpingkey_;
     public bool HasYuanlongpingkey {
@@ -688,7 +701,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HuafeigongyekeyFieldNumber = 50;
+    public const int HuafeigongyekeyFieldNumber = 51;
     private bool hasHuafeigongyekey;
     private int huafeigongyekey_;
     public bool HasHuafeigongyekey {
@@ -701,7 +714,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int YangzhukeyFieldNumber = 51;
+    public const int YangzhukeyFieldNumber = 52;
     private bool hasYangzhukey;
     private int yangzhukey_;
     public bool HasYangzhukey {
@@ -714,7 +727,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int CangchukeyFieldNumber = 52;
+    public const int CangchukeyFieldNumber = 53;
     private bool hasCangchukey;
     private int cangchukey_;
     public bool HasCangchukey {
@@ -727,7 +740,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int TesilakeyFieldNumber = 53;
+    public const int TesilakeyFieldNumber = 54;
     private bool hasTesilakey;
     private int tesilakey_;
     public bool HasTesilakey {
@@ -740,7 +753,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int LuokefeilekeyFieldNumber = 54;
+    public const int LuokefeilekeyFieldNumber = 55;
     private bool hasLuokefeilekey;
     private int luokefeilekey_;
     public bool HasLuokefeilekey {
@@ -753,7 +766,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int KanaijikeyFieldNumber = 55;
+    public const int KanaijikeyFieldNumber = 56;
     private bool hasKanaijikey;
     private int kanaijikey_;
     public bool HasKanaijikey {
@@ -766,7 +779,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int LubankeyFieldNumber = 56;
+    public const int LubankeyFieldNumber = 57;
     private bool hasLubankey;
     private int lubankey_;
     public bool HasLubankey {
@@ -779,7 +792,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int TumukeyFieldNumber = 57;
+    public const int TumukeyFieldNumber = 58;
     private bool hasTumukey;
     private int tumukey_;
     public bool HasTumukey {
@@ -792,7 +805,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int FangdaokeyFieldNumber = 58;
+    public const int FangdaokeyFieldNumber = 59;
     private bool hasFangdaokey;
     private int fangdaokey_;
     public bool HasFangdaokey {
@@ -805,7 +818,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int MakeqinkeyFieldNumber = 59;
+    public const int MakeqinkeyFieldNumber = 60;
     private bool hasMakeqinkey;
     private int makeqinkey_;
     public bool HasMakeqinkey {
@@ -818,7 +831,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int WodefendoukeyFieldNumber = 60;
+    public const int WodefendoukeyFieldNumber = 61;
     private bool hasWodefendoukey;
     private int wodefendoukey_;
     public bool HasWodefendoukey {
@@ -831,7 +844,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int JiatelinkeyFieldNumber = 61;
+    public const int JiatelinkeyFieldNumber = 62;
     private bool hasJiatelinkey;
     private int jiatelinkey_;
     public bool HasJiatelinkey {
@@ -844,7 +857,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int WbaleitekeyFieldNumber = 62;
+    public const int WbaleitekeyFieldNumber = 63;
     private bool hasWbaleitekey;
     private int wbaleitekey_;
     public bool HasWbaleitekey {
@@ -857,7 +870,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int GuanrenkeyFieldNumber = 63;
+    public const int GuanrenkeyFieldNumber = 64;
     private bool hasGuanrenkey;
     private int guanrenkey_;
     public bool HasGuanrenkey {
@@ -870,7 +883,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Toukui1KeyFieldNumber = 64;
+    public const int Toukui1KeyFieldNumber = 65;
     private bool hasToukui1Key;
     private int toukui1Key_;
     public bool HasToukui1Key {
@@ -883,7 +896,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Toukui2KeyFieldNumber = 65;
+    public const int Toukui2KeyFieldNumber = 66;
     private bool hasToukui2Key;
     private int toukui2Key_;
     public bool HasToukui2Key {
@@ -896,7 +909,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Toukui3KeyFieldNumber = 66;
+    public const int Toukui3KeyFieldNumber = 67;
     private bool hasToukui3Key;
     private int toukui3Key_;
     public bool HasToukui3Key {
@@ -909,7 +922,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Shouqiang1KeyFieldNumber = 67;
+    public const int Shouqiang1KeyFieldNumber = 68;
     private bool hasShouqiang1Key;
     private int shouqiang1Key_;
     public bool HasShouqiang1Key {
@@ -922,7 +935,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Buqiang1KeyFieldNumber = 68;
+    public const int Buqiang1KeyFieldNumber = 69;
     private bool hasBuqiang1Key;
     private int buqiang1Key_;
     public bool HasBuqiang1Key {
@@ -935,7 +948,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Qingjiqiang1KeyFieldNumber = 69;
+    public const int Qingjiqiang1KeyFieldNumber = 70;
     private bool hasQingjiqiang1Key;
     private int qingjiqiang1Key_;
     public bool HasQingjiqiang1Key {
@@ -948,7 +961,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Fangdanyi1KeyFieldNumber = 70;
+    public const int Fangdanyi1KeyFieldNumber = 71;
     private bool hasFangdanyi1Key;
     private int fangdanyi1Key_;
     public bool HasFangdanyi1Key {
@@ -961,7 +974,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Fangdanyi2KeyFieldNumber = 71;
+    public const int Fangdanyi2KeyFieldNumber = 72;
     private bool hasFangdanyi2Key;
     private int fangdanyi2Key_;
     public bool HasFangdanyi2Key {
@@ -974,7 +987,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Fangdanyi3KeyFieldNumber = 72;
+    public const int Fangdanyi3KeyFieldNumber = 73;
     private bool hasFangdanyi3Key;
     private int fangdanyi3Key_;
     public bool HasFangdanyi3Key {
@@ -987,7 +1000,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Kuzi1KeyFieldNumber = 73;
+    public const int Kuzi1KeyFieldNumber = 74;
     private bool hasKuzi1Key;
     private int kuzi1Key_;
     public bool HasKuzi1Key {
@@ -1000,7 +1013,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Kuzi2KeyFieldNumber = 74;
+    public const int Kuzi2KeyFieldNumber = 75;
     private bool hasKuzi2Key;
     private int kuzi2Key_;
     public bool HasKuzi2Key {
@@ -1013,7 +1026,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Kuzi3KeyFieldNumber = 75;
+    public const int Kuzi3KeyFieldNumber = 76;
     private bool hasKuzi3Key;
     private int kuzi3Key_;
     public bool HasKuzi3Key {
@@ -1026,7 +1039,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Xiezi1KeyFieldNumber = 76;
+    public const int Xiezi1KeyFieldNumber = 77;
     private bool hasXiezi1Key;
     private int xiezi1Key_;
     public bool HasXiezi1Key {
@@ -1039,7 +1052,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Xiezi2KeyFieldNumber = 77;
+    public const int Xiezi2KeyFieldNumber = 78;
     private bool hasXiezi2Key;
     private int xiezi2Key_;
     public bool HasXiezi2Key {
@@ -1052,7 +1065,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Xiezi3KeyFieldNumber = 78;
+    public const int Xiezi3KeyFieldNumber = 79;
     private bool hasXiezi3Key;
     private int xiezi3Key_;
     public bool HasXiezi3Key {
@@ -1065,7 +1078,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int KuangquanshuikeyFieldNumber = 79;
+    public const int KuangquanshuikeyFieldNumber = 80;
     private bool hasKuangquanshuikey;
     private int kuangquanshuikey_;
     public bool HasKuangquanshuikey {
@@ -1078,7 +1091,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SiliaokeyFieldNumber = 80;
+    public const int SiliaokeyFieldNumber = 81;
     private bool hasSiliaokey;
     private int siliaokey_;
     public bool HasSiliaokey {
@@ -1091,7 +1104,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ZhuroukeyFieldNumber = 81;
+    public const int ZhuroukeyFieldNumber = 82;
     private bool hasZhuroukey;
     private int zhuroukey_;
     public bool HasZhuroukey {
@@ -1104,7 +1117,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int QiyoukeyFieldNumber = 82;
+    public const int QiyoukeyFieldNumber = 83;
     private bool hasQiyoukey;
     private int qiyoukey_;
     public bool HasQiyoukey {
@@ -1117,7 +1130,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int GangkeyFieldNumber = 83;
+    public const int GangkeyFieldNumber = 84;
     private bool hasGangkey;
     private int gangkey_;
     public bool HasGangkey {
@@ -1130,7 +1143,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SongmubankeyFieldNumber = 84;
+    public const int SongmubankeyFieldNumber = 85;
     private bool hasSongmubankey;
     private int songmubankey_;
     public bool HasSongmubankey {
@@ -1143,7 +1156,7 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HunningtukeyFieldNumber = 85;
+    public const int HunningtukeyFieldNumber = 86;
     private bool hasHunningtukey;
     private int hunningtukey_;
     public bool HasHunningtukey {
@@ -1170,259 +1183,262 @@ namespace com.game.framework.resource.data {
       int size = SerializedSize;
       string[] field_names = _wORLDEVENTSFieldNames;
       if (hasId) {
-        output.WriteInt32(1, field_names[26], Id);
+        output.WriteInt32(1, field_names[27], Id);
       }
       if (hasEventName) {
-        output.WriteString(2, field_names[10], EventName);
+        output.WriteString(2, field_names[11], EventName);
       }
       if (hasEventUnlock) {
-        output.WriteInt32(3, field_names[14], EventUnlock);
+        output.WriteInt32(3, field_names[15], EventUnlock);
       }
       if (hasEventDesc) {
-        output.WriteString(4, field_names[7], EventDesc);
+        output.WriteString(4, field_names[8], EventDesc);
       }
       if (hasEventNews) {
-        output.WriteString(5, field_names[11], EventNews);
+        output.WriteString(5, field_names[12], EventNews);
       }
       if (hasEventNewsdetail) {
-        output.WriteString(6, field_names[12], EventNewsdetail);
+        output.WriteString(6, field_names[13], EventNewsdetail);
       }
       if (hasEventDuration) {
-        output.WriteInt32(7, field_names[8], EventDuration);
+        output.WriteInt32(7, field_names[9], EventDuration);
       }
       if (hasEventIcon) {
-        output.WriteString(8, field_names[9], EventIcon);
+        output.WriteString(8, field_names[10], EventIcon);
       }
       if (hasEventProb) {
-        output.WriteInt32(9, field_names[13], EventProb);
+        output.WriteInt32(9, field_names[14], EventProb);
       }
       if (hasConProb) {
-        output.WriteInt32(10, field_names[3], ConProb);
+        output.WriteInt32(10, field_names[4], ConProb);
       }
       if (hasInvaProb) {
-        output.WriteInt32(11, field_names[27], InvaProb);
+        output.WriteInt32(11, field_names[28], InvaProb);
       }
       if (hasZombieAtk) {
-        output.WriteInt32(12, field_names[81], ZombieAtk);
+        output.WriteInt32(12, field_names[82], ZombieAtk);
       }
       if (hasZombieDef) {
-        output.WriteInt32(13, field_names[82], ZombieDef);
+        output.WriteInt32(13, field_names[83], ZombieDef);
       }
       if (hasZombieHp) {
-        output.WriteInt32(14, field_names[83], ZombieHp);
+        output.WriteInt32(14, field_names[84], ZombieHp);
       }
       if (hasZombieNum) {
-        output.WriteInt32(15, field_names[84], ZombieNum);
+        output.WriteInt32(15, field_names[85], ZombieNum);
       }
       if (hasHealthkey) {
-        output.WriteInt32(16, field_names[22], Healthkey);
+        output.WriteInt32(16, field_names[23], Healthkey);
       }
       if (hasMoodkey) {
-        output.WriteInt32(17, field_names[46], Moodkey);
+        output.WriteInt32(17, field_names[47], Moodkey);
       }
       if (hasDamiBldgcap) {
-        output.WriteInt32(18, field_names[4], DamiBldgcap);
+        output.WriteInt32(18, field_names[5], DamiBldgcap);
       }
       if (hasShucaiBldgcap) {
-        output.WriteInt32(19, field_names[51], ShucaiBldgcap);
+        output.WriteInt32(19, field_names[52], ShucaiBldgcap);
       }
       if (hasShuiguoBldgcap) {
-        output.WriteInt32(20, field_names[54], ShuiguoBldgcap);
+        output.WriteInt32(20, field_names[55], ShuiguoBldgcap);
       }
       if (hasJingBldgcap) {
-        output.WriteInt32(21, field_names[30], JingBldgcap);
+        output.WriteInt32(21, field_names[31], JingBldgcap);
       }
       if (hasLushuiBldgcap) {
-        output.WriteInt32(22, field_names[43], LushuiBldgcap);
+        output.WriteInt32(22, field_names[44], LushuiBldgcap);
       }
       if (hasSongshuBldgcap) {
-        output.WriteInt32(23, field_names[62], SongshuBldgcap);
+        output.WriteInt32(23, field_names[63], SongshuBldgcap);
       }
       if (hasDamiBldgspd) {
-        output.WriteInt32(24, field_names[5], DamiBldgspd);
+        output.WriteInt32(24, field_names[6], DamiBldgspd);
       }
       if (hasShucaiBldgspd) {
-        output.WriteInt32(25, field_names[52], ShucaiBldgspd);
+        output.WriteInt32(25, field_names[53], ShucaiBldgspd);
       }
       if (hasShuiguoBldgspd) {
-        output.WriteInt32(26, field_names[55], ShuiguoBldgspd);
+        output.WriteInt32(26, field_names[56], ShuiguoBldgspd);
       }
       if (hasJingBldgspd) {
-        output.WriteInt32(27, field_names[31], JingBldgspd);
+        output.WriteInt32(27, field_names[32], JingBldgspd);
       }
       if (hasLushuiBldgspd) {
-        output.WriteInt32(28, field_names[44], LushuiBldgspd);
+        output.WriteInt32(28, field_names[45], LushuiBldgspd);
       }
       if (hasSongshuBldgspd) {
-        output.WriteInt32(29, field_names[63], SongshuBldgspd);
+        output.WriteInt32(29, field_names[64], SongshuBldgspd);
       }
       if (hasFengliBldgspd) {
-        output.WriteInt32(30, field_names[19], FengliBldgspd);
+        output.WriteInt32(30, field_names[20], FengliBldgspd);
       }
       if (hasWuxiandianBldg) {
-        output.WriteInt32(31, field_names[73], WuxiandianBldg);
+        output.WriteInt32(31, field_names[74], WuxiandianBldg);
       }
       if (hasLeidaBldg) {
-        output.WriteInt32(32, field_names[40], LeidaBldg);
+        output.WriteInt32(32, field_names[41], LeidaBldg);
+      }
+      if (hasCarBldgspd) {
+        output.WriteInt32(33, field_names[3], CarBldgspd);
       }
       if (hasTaxCoeff) {
-        output.WriteInt32(33, field_names[64], TaxCoeff);
+        output.WriteInt32(34, field_names[65], TaxCoeff);
       }
       if (hasDamikey) {
-        output.WriteInt32(34, field_names[6], Damikey);
+        output.WriteInt32(35, field_names[7], Damikey);
       }
       if (hasShucaikey) {
-        output.WriteInt32(35, field_names[53], Shucaikey);
+        output.WriteInt32(36, field_names[54], Shucaikey);
       }
       if (hasShuiguokey) {
-        output.WriteInt32(36, field_names[56], Shuiguokey);
+        output.WriteInt32(37, field_names[57], Shuiguokey);
       }
       if (hasHuafeikey) {
-        output.WriteInt32(37, field_names[24], Huafeikey);
+        output.WriteInt32(38, field_names[25], Huafeikey);
       }
       if (hasShuikey) {
-        output.WriteInt32(38, field_names[57], Shuikey);
+        output.WriteInt32(39, field_names[58], Shuikey);
       }
       if (hasSongmukey) {
-        output.WriteInt32(39, field_names[61], Songmukey);
+        output.WriteInt32(40, field_names[62], Songmukey);
       }
       if (hasShuinikey) {
-        output.WriteInt32(40, field_names[58], Shuinikey);
+        output.WriteInt32(41, field_names[59], Shuinikey);
       }
       if (hasCaokey) {
-        output.WriteInt32(41, field_names[2], Caokey);
+        output.WriteInt32(42, field_names[2], Caokey);
       }
       if (hasYuanyoukey) {
-        output.WriteInt32(42, field_names[79], Yuanyoukey);
+        output.WriteInt32(43, field_names[80], Yuanyoukey);
       }
       if (hasTiekey) {
-        output.WriteInt32(43, field_names[66], Tiekey);
+        output.WriteInt32(44, field_names[67], Tiekey);
       }
       if (hasJijiubaokey) {
-        output.WriteInt32(44, field_names[29], Jijiubaokey);
+        output.WriteInt32(45, field_names[30], Jijiubaokey);
       }
       if (hasRizhikey) {
-        output.WriteInt32(45, field_names[49], Rizhikey);
+        output.WriteInt32(46, field_names[50], Rizhikey);
       }
       if (hasJiqiangtuzhikey) {
-        output.WriteInt32(46, field_names[33], Jiqiangtuzhikey);
+        output.WriteInt32(47, field_names[34], Jiqiangtuzhikey);
       }
       if (hasJujituzhikey) {
-        output.WriteInt32(47, field_names[34], Jujituzhikey);
+        output.WriteInt32(48, field_names[35], Jujituzhikey);
       }
       if (hasJipaotuzhikey) {
-        output.WriteInt32(48, field_names[32], Jipaotuzhikey);
+        output.WriteInt32(49, field_names[33], Jipaotuzhikey);
       }
       if (hasYuanlongpingkey) {
-        output.WriteInt32(49, field_names[78], Yuanlongpingkey);
+        output.WriteInt32(50, field_names[79], Yuanlongpingkey);
       }
       if (hasHuafeigongyekey) {
-        output.WriteInt32(50, field_names[23], Huafeigongyekey);
+        output.WriteInt32(51, field_names[24], Huafeigongyekey);
       }
       if (hasYangzhukey) {
-        output.WriteInt32(51, field_names[77], Yangzhukey);
+        output.WriteInt32(52, field_names[78], Yangzhukey);
       }
       if (hasCangchukey) {
-        output.WriteInt32(52, field_names[1], Cangchukey);
+        output.WriteInt32(53, field_names[1], Cangchukey);
       }
       if (hasTesilakey) {
-        output.WriteInt32(53, field_names[65], Tesilakey);
+        output.WriteInt32(54, field_names[66], Tesilakey);
       }
       if (hasLuokefeilekey) {
-        output.WriteInt32(54, field_names[42], Luokefeilekey);
+        output.WriteInt32(55, field_names[43], Luokefeilekey);
       }
       if (hasKanaijikey) {
-        output.WriteInt32(55, field_names[35], Kanaijikey);
+        output.WriteInt32(56, field_names[36], Kanaijikey);
       }
       if (hasLubankey) {
-        output.WriteInt32(56, field_names[41], Lubankey);
+        output.WriteInt32(57, field_names[42], Lubankey);
       }
       if (hasTumukey) {
-        output.WriteInt32(57, field_names[70], Tumukey);
+        output.WriteInt32(58, field_names[71], Tumukey);
       }
       if (hasFangdaokey) {
-        output.WriteInt32(58, field_names[18], Fangdaokey);
+        output.WriteInt32(59, field_names[19], Fangdaokey);
       }
       if (hasMakeqinkey) {
-        output.WriteInt32(59, field_names[45], Makeqinkey);
+        output.WriteInt32(60, field_names[46], Makeqinkey);
       }
       if (hasWodefendoukey) {
-        output.WriteInt32(60, field_names[72], Wodefendoukey);
+        output.WriteInt32(61, field_names[73], Wodefendoukey);
       }
       if (hasJiatelinkey) {
-        output.WriteInt32(61, field_names[28], Jiatelinkey);
+        output.WriteInt32(62, field_names[29], Jiatelinkey);
       }
       if (hasWbaleitekey) {
-        output.WriteInt32(62, field_names[71], Wbaleitekey);
+        output.WriteInt32(63, field_names[72], Wbaleitekey);
       }
       if (hasGuanrenkey) {
-        output.WriteInt32(63, field_names[21], Guanrenkey);
+        output.WriteInt32(64, field_names[22], Guanrenkey);
       }
       if (hasToukui1Key) {
-        output.WriteInt32(64, field_names[67], Toukui1Key);
+        output.WriteInt32(65, field_names[68], Toukui1Key);
       }
       if (hasToukui2Key) {
-        output.WriteInt32(65, field_names[68], Toukui2Key);
+        output.WriteInt32(66, field_names[69], Toukui2Key);
       }
       if (hasToukui3Key) {
-        output.WriteInt32(66, field_names[69], Toukui3Key);
+        output.WriteInt32(67, field_names[70], Toukui3Key);
       }
       if (hasShouqiang1Key) {
-        output.WriteInt32(67, field_names[50], Shouqiang1Key);
+        output.WriteInt32(68, field_names[51], Shouqiang1Key);
       }
       if (hasBuqiang1Key) {
-        output.WriteInt32(68, field_names[0], Buqiang1Key);
+        output.WriteInt32(69, field_names[0], Buqiang1Key);
       }
       if (hasQingjiqiang1Key) {
-        output.WriteInt32(69, field_names[47], Qingjiqiang1Key);
+        output.WriteInt32(70, field_names[48], Qingjiqiang1Key);
       }
       if (hasFangdanyi1Key) {
-        output.WriteInt32(70, field_names[15], Fangdanyi1Key);
+        output.WriteInt32(71, field_names[16], Fangdanyi1Key);
       }
       if (hasFangdanyi2Key) {
-        output.WriteInt32(71, field_names[16], Fangdanyi2Key);
+        output.WriteInt32(72, field_names[17], Fangdanyi2Key);
       }
       if (hasFangdanyi3Key) {
-        output.WriteInt32(72, field_names[17], Fangdanyi3Key);
+        output.WriteInt32(73, field_names[18], Fangdanyi3Key);
       }
       if (hasKuzi1Key) {
-        output.WriteInt32(73, field_names[37], Kuzi1Key);
+        output.WriteInt32(74, field_names[38], Kuzi1Key);
       }
       if (hasKuzi2Key) {
-        output.WriteInt32(74, field_names[38], Kuzi2Key);
+        output.WriteInt32(75, field_names[39], Kuzi2Key);
       }
       if (hasKuzi3Key) {
-        output.WriteInt32(75, field_names[39], Kuzi3Key);
+        output.WriteInt32(76, field_names[40], Kuzi3Key);
       }
       if (hasXiezi1Key) {
-        output.WriteInt32(76, field_names[74], Xiezi1Key);
+        output.WriteInt32(77, field_names[75], Xiezi1Key);
       }
       if (hasXiezi2Key) {
-        output.WriteInt32(77, field_names[75], Xiezi2Key);
+        output.WriteInt32(78, field_names[76], Xiezi2Key);
       }
       if (hasXiezi3Key) {
-        output.WriteInt32(78, field_names[76], Xiezi3Key);
+        output.WriteInt32(79, field_names[77], Xiezi3Key);
       }
       if (hasKuangquanshuikey) {
-        output.WriteInt32(79, field_names[36], Kuangquanshuikey);
+        output.WriteInt32(80, field_names[37], Kuangquanshuikey);
       }
       if (hasSiliaokey) {
-        output.WriteInt32(80, field_names[59], Siliaokey);
+        output.WriteInt32(81, field_names[60], Siliaokey);
       }
       if (hasZhuroukey) {
-        output.WriteInt32(81, field_names[80], Zhuroukey);
+        output.WriteInt32(82, field_names[81], Zhuroukey);
       }
       if (hasQiyoukey) {
-        output.WriteInt32(82, field_names[48], Qiyoukey);
+        output.WriteInt32(83, field_names[49], Qiyoukey);
       }
       if (hasGangkey) {
-        output.WriteInt32(83, field_names[20], Gangkey);
+        output.WriteInt32(84, field_names[21], Gangkey);
       }
       if (hasSongmubankey) {
-        output.WriteInt32(84, field_names[60], Songmubankey);
+        output.WriteInt32(85, field_names[61], Songmubankey);
       }
       if (hasHunningtukey) {
-        output.WriteInt32(85, field_names[25], Hunningtukey);
+        output.WriteInt32(86, field_names[26], Hunningtukey);
       }
     }
     
@@ -1532,164 +1548,167 @@ namespace com.game.framework.resource.data {
         if (hasLeidaBldg) {
           size += pb::CodedOutputStream.ComputeInt32Size(32, LeidaBldg);
         }
+        if (hasCarBldgspd) {
+          size += pb::CodedOutputStream.ComputeInt32Size(33, CarBldgspd);
+        }
         if (hasTaxCoeff) {
-          size += pb::CodedOutputStream.ComputeInt32Size(33, TaxCoeff);
+          size += pb::CodedOutputStream.ComputeInt32Size(34, TaxCoeff);
         }
         if (hasDamikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(34, Damikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(35, Damikey);
         }
         if (hasShucaikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(35, Shucaikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(36, Shucaikey);
         }
         if (hasShuiguokey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(36, Shuiguokey);
+          size += pb::CodedOutputStream.ComputeInt32Size(37, Shuiguokey);
         }
         if (hasHuafeikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(37, Huafeikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(38, Huafeikey);
         }
         if (hasShuikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(38, Shuikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(39, Shuikey);
         }
         if (hasSongmukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(39, Songmukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(40, Songmukey);
         }
         if (hasShuinikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(40, Shuinikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(41, Shuinikey);
         }
         if (hasCaokey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(41, Caokey);
+          size += pb::CodedOutputStream.ComputeInt32Size(42, Caokey);
         }
         if (hasYuanyoukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(42, Yuanyoukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(43, Yuanyoukey);
         }
         if (hasTiekey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(43, Tiekey);
+          size += pb::CodedOutputStream.ComputeInt32Size(44, Tiekey);
         }
         if (hasJijiubaokey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(44, Jijiubaokey);
+          size += pb::CodedOutputStream.ComputeInt32Size(45, Jijiubaokey);
         }
         if (hasRizhikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(45, Rizhikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(46, Rizhikey);
         }
         if (hasJiqiangtuzhikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(46, Jiqiangtuzhikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(47, Jiqiangtuzhikey);
         }
         if (hasJujituzhikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(47, Jujituzhikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(48, Jujituzhikey);
         }
         if (hasJipaotuzhikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(48, Jipaotuzhikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(49, Jipaotuzhikey);
         }
         if (hasYuanlongpingkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(49, Yuanlongpingkey);
+          size += pb::CodedOutputStream.ComputeInt32Size(50, Yuanlongpingkey);
         }
         if (hasHuafeigongyekey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(50, Huafeigongyekey);
+          size += pb::CodedOutputStream.ComputeInt32Size(51, Huafeigongyekey);
         }
         if (hasYangzhukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(51, Yangzhukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(52, Yangzhukey);
         }
         if (hasCangchukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(52, Cangchukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(53, Cangchukey);
         }
         if (hasTesilakey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(53, Tesilakey);
+          size += pb::CodedOutputStream.ComputeInt32Size(54, Tesilakey);
         }
         if (hasLuokefeilekey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(54, Luokefeilekey);
+          size += pb::CodedOutputStream.ComputeInt32Size(55, Luokefeilekey);
         }
         if (hasKanaijikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(55, Kanaijikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(56, Kanaijikey);
         }
         if (hasLubankey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(56, Lubankey);
+          size += pb::CodedOutputStream.ComputeInt32Size(57, Lubankey);
         }
         if (hasTumukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(57, Tumukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(58, Tumukey);
         }
         if (hasFangdaokey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(58, Fangdaokey);
+          size += pb::CodedOutputStream.ComputeInt32Size(59, Fangdaokey);
         }
         if (hasMakeqinkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(59, Makeqinkey);
+          size += pb::CodedOutputStream.ComputeInt32Size(60, Makeqinkey);
         }
         if (hasWodefendoukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(60, Wodefendoukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(61, Wodefendoukey);
         }
         if (hasJiatelinkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(61, Jiatelinkey);
+          size += pb::CodedOutputStream.ComputeInt32Size(62, Jiatelinkey);
         }
         if (hasWbaleitekey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(62, Wbaleitekey);
+          size += pb::CodedOutputStream.ComputeInt32Size(63, Wbaleitekey);
         }
         if (hasGuanrenkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(63, Guanrenkey);
+          size += pb::CodedOutputStream.ComputeInt32Size(64, Guanrenkey);
         }
         if (hasToukui1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(64, Toukui1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(65, Toukui1Key);
         }
         if (hasToukui2Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(65, Toukui2Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(66, Toukui2Key);
         }
         if (hasToukui3Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(66, Toukui3Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(67, Toukui3Key);
         }
         if (hasShouqiang1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(67, Shouqiang1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(68, Shouqiang1Key);
         }
         if (hasBuqiang1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(68, Buqiang1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(69, Buqiang1Key);
         }
         if (hasQingjiqiang1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(69, Qingjiqiang1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(70, Qingjiqiang1Key);
         }
         if (hasFangdanyi1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(70, Fangdanyi1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(71, Fangdanyi1Key);
         }
         if (hasFangdanyi2Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(71, Fangdanyi2Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(72, Fangdanyi2Key);
         }
         if (hasFangdanyi3Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(72, Fangdanyi3Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(73, Fangdanyi3Key);
         }
         if (hasKuzi1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(73, Kuzi1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(74, Kuzi1Key);
         }
         if (hasKuzi2Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(74, Kuzi2Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(75, Kuzi2Key);
         }
         if (hasKuzi3Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(75, Kuzi3Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(76, Kuzi3Key);
         }
         if (hasXiezi1Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(76, Xiezi1Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(77, Xiezi1Key);
         }
         if (hasXiezi2Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(77, Xiezi2Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(78, Xiezi2Key);
         }
         if (hasXiezi3Key) {
-          size += pb::CodedOutputStream.ComputeInt32Size(78, Xiezi3Key);
+          size += pb::CodedOutputStream.ComputeInt32Size(79, Xiezi3Key);
         }
         if (hasKuangquanshuikey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(79, Kuangquanshuikey);
+          size += pb::CodedOutputStream.ComputeInt32Size(80, Kuangquanshuikey);
         }
         if (hasSiliaokey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(80, Siliaokey);
+          size += pb::CodedOutputStream.ComputeInt32Size(81, Siliaokey);
         }
         if (hasZhuroukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(81, Zhuroukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(82, Zhuroukey);
         }
         if (hasQiyoukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(82, Qiyoukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(83, Qiyoukey);
         }
         if (hasGangkey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(83, Gangkey);
+          size += pb::CodedOutputStream.ComputeInt32Size(84, Gangkey);
         }
         if (hasSongmubankey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(84, Songmubankey);
+          size += pb::CodedOutputStream.ComputeInt32Size(85, Songmubankey);
         }
         if (hasHunningtukey) {
-          size += pb::CodedOutputStream.ComputeInt32Size(85, Hunningtukey);
+          size += pb::CodedOutputStream.ComputeInt32Size(86, Hunningtukey);
         }
         memoizedSerializedSize = size;
         return size;
@@ -1731,6 +1750,7 @@ namespace com.game.framework.resource.data {
       if (hasFengliBldgspd) hash ^= fengliBldgspd_.GetHashCode();
       if (hasWuxiandianBldg) hash ^= wuxiandianBldg_.GetHashCode();
       if (hasLeidaBldg) hash ^= leidaBldg_.GetHashCode();
+      if (hasCarBldgspd) hash ^= carBldgspd_.GetHashCode();
       if (hasTaxCoeff) hash ^= taxCoeff_.GetHashCode();
       if (hasDamikey) hash ^= damikey_.GetHashCode();
       if (hasShucaikey) hash ^= shucaikey_.GetHashCode();
@@ -1822,6 +1842,7 @@ namespace com.game.framework.resource.data {
       if (hasFengliBldgspd != other.hasFengliBldgspd || (hasFengliBldgspd && !fengliBldgspd_.Equals(other.fengliBldgspd_))) return false;
       if (hasWuxiandianBldg != other.hasWuxiandianBldg || (hasWuxiandianBldg && !wuxiandianBldg_.Equals(other.wuxiandianBldg_))) return false;
       if (hasLeidaBldg != other.hasLeidaBldg || (hasLeidaBldg && !leidaBldg_.Equals(other.leidaBldg_))) return false;
+      if (hasCarBldgspd != other.hasCarBldgspd || (hasCarBldgspd && !carBldgspd_.Equals(other.carBldgspd_))) return false;
       if (hasTaxCoeff != other.hasTaxCoeff || (hasTaxCoeff && !taxCoeff_.Equals(other.taxCoeff_))) return false;
       if (hasDamikey != other.hasDamikey || (hasDamikey && !damikey_.Equals(other.damikey_))) return false;
       if (hasShucaikey != other.hasShucaikey || (hasShucaikey && !shucaikey_.Equals(other.shucaikey_))) return false;
@@ -2130,6 +2151,9 @@ namespace com.game.framework.resource.data {
         }
         if (other.HasLeidaBldg) {
           LeidaBldg = other.LeidaBldg;
+        }
+        if (other.HasCarBldgspd) {
+          CarBldgspd = other.CarBldgspd;
         }
         if (other.HasTaxCoeff) {
           TaxCoeff = other.TaxCoeff;
@@ -2451,214 +2475,218 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 264: {
-              result.hasTaxCoeff = input.ReadInt32(ref result.taxCoeff_);
+              result.hasCarBldgspd = input.ReadInt32(ref result.carBldgspd_);
               break;
             }
             case 272: {
-              result.hasDamikey = input.ReadInt32(ref result.damikey_);
+              result.hasTaxCoeff = input.ReadInt32(ref result.taxCoeff_);
               break;
             }
             case 280: {
-              result.hasShucaikey = input.ReadInt32(ref result.shucaikey_);
+              result.hasDamikey = input.ReadInt32(ref result.damikey_);
               break;
             }
             case 288: {
-              result.hasShuiguokey = input.ReadInt32(ref result.shuiguokey_);
+              result.hasShucaikey = input.ReadInt32(ref result.shucaikey_);
               break;
             }
             case 296: {
-              result.hasHuafeikey = input.ReadInt32(ref result.huafeikey_);
+              result.hasShuiguokey = input.ReadInt32(ref result.shuiguokey_);
               break;
             }
             case 304: {
-              result.hasShuikey = input.ReadInt32(ref result.shuikey_);
+              result.hasHuafeikey = input.ReadInt32(ref result.huafeikey_);
               break;
             }
             case 312: {
-              result.hasSongmukey = input.ReadInt32(ref result.songmukey_);
+              result.hasShuikey = input.ReadInt32(ref result.shuikey_);
               break;
             }
             case 320: {
-              result.hasShuinikey = input.ReadInt32(ref result.shuinikey_);
+              result.hasSongmukey = input.ReadInt32(ref result.songmukey_);
               break;
             }
             case 328: {
-              result.hasCaokey = input.ReadInt32(ref result.caokey_);
+              result.hasShuinikey = input.ReadInt32(ref result.shuinikey_);
               break;
             }
             case 336: {
-              result.hasYuanyoukey = input.ReadInt32(ref result.yuanyoukey_);
+              result.hasCaokey = input.ReadInt32(ref result.caokey_);
               break;
             }
             case 344: {
-              result.hasTiekey = input.ReadInt32(ref result.tiekey_);
+              result.hasYuanyoukey = input.ReadInt32(ref result.yuanyoukey_);
               break;
             }
             case 352: {
-              result.hasJijiubaokey = input.ReadInt32(ref result.jijiubaokey_);
+              result.hasTiekey = input.ReadInt32(ref result.tiekey_);
               break;
             }
             case 360: {
-              result.hasRizhikey = input.ReadInt32(ref result.rizhikey_);
+              result.hasJijiubaokey = input.ReadInt32(ref result.jijiubaokey_);
               break;
             }
             case 368: {
-              result.hasJiqiangtuzhikey = input.ReadInt32(ref result.jiqiangtuzhikey_);
+              result.hasRizhikey = input.ReadInt32(ref result.rizhikey_);
               break;
             }
             case 376: {
-              result.hasJujituzhikey = input.ReadInt32(ref result.jujituzhikey_);
+              result.hasJiqiangtuzhikey = input.ReadInt32(ref result.jiqiangtuzhikey_);
               break;
             }
             case 384: {
-              result.hasJipaotuzhikey = input.ReadInt32(ref result.jipaotuzhikey_);
+              result.hasJujituzhikey = input.ReadInt32(ref result.jujituzhikey_);
               break;
             }
             case 392: {
-              result.hasYuanlongpingkey = input.ReadInt32(ref result.yuanlongpingkey_);
+              result.hasJipaotuzhikey = input.ReadInt32(ref result.jipaotuzhikey_);
               break;
             }
             case 400: {
-              result.hasHuafeigongyekey = input.ReadInt32(ref result.huafeigongyekey_);
+              result.hasYuanlongpingkey = input.ReadInt32(ref result.yuanlongpingkey_);
               break;
             }
             case 408: {
-              result.hasYangzhukey = input.ReadInt32(ref result.yangzhukey_);
+              result.hasHuafeigongyekey = input.ReadInt32(ref result.huafeigongyekey_);
               break;
             }
             case 416: {
-              result.hasCangchukey = input.ReadInt32(ref result.cangchukey_);
+              result.hasYangzhukey = input.ReadInt32(ref result.yangzhukey_);
               break;
             }
             case 424: {
-              result.hasTesilakey = input.ReadInt32(ref result.tesilakey_);
+              result.hasCangchukey = input.ReadInt32(ref result.cangchukey_);
               break;
             }
             case 432: {
-              result.hasLuokefeilekey = input.ReadInt32(ref result.luokefeilekey_);
+              result.hasTesilakey = input.ReadInt32(ref result.tesilakey_);
               break;
             }
             case 440: {
-              result.hasKanaijikey = input.ReadInt32(ref result.kanaijikey_);
+              result.hasLuokefeilekey = input.ReadInt32(ref result.luokefeilekey_);
               break;
             }
             case 448: {
-              result.hasLubankey = input.ReadInt32(ref result.lubankey_);
+              result.hasKanaijikey = input.ReadInt32(ref result.kanaijikey_);
               break;
             }
             case 456: {
-              result.hasTumukey = input.ReadInt32(ref result.tumukey_);
+              result.hasLubankey = input.ReadInt32(ref result.lubankey_);
               break;
             }
             case 464: {
-              result.hasFangdaokey = input.ReadInt32(ref result.fangdaokey_);
+              result.hasTumukey = input.ReadInt32(ref result.tumukey_);
               break;
             }
             case 472: {
-              result.hasMakeqinkey = input.ReadInt32(ref result.makeqinkey_);
+              result.hasFangdaokey = input.ReadInt32(ref result.fangdaokey_);
               break;
             }
             case 480: {
-              result.hasWodefendoukey = input.ReadInt32(ref result.wodefendoukey_);
+              result.hasMakeqinkey = input.ReadInt32(ref result.makeqinkey_);
               break;
             }
             case 488: {
-              result.hasJiatelinkey = input.ReadInt32(ref result.jiatelinkey_);
+              result.hasWodefendoukey = input.ReadInt32(ref result.wodefendoukey_);
               break;
             }
             case 496: {
-              result.hasWbaleitekey = input.ReadInt32(ref result.wbaleitekey_);
+              result.hasJiatelinkey = input.ReadInt32(ref result.jiatelinkey_);
               break;
             }
             case 504: {
-              result.hasGuanrenkey = input.ReadInt32(ref result.guanrenkey_);
+              result.hasWbaleitekey = input.ReadInt32(ref result.wbaleitekey_);
               break;
             }
             case 512: {
-              result.hasToukui1Key = input.ReadInt32(ref result.toukui1Key_);
+              result.hasGuanrenkey = input.ReadInt32(ref result.guanrenkey_);
               break;
             }
             case 520: {
-              result.hasToukui2Key = input.ReadInt32(ref result.toukui2Key_);
+              result.hasToukui1Key = input.ReadInt32(ref result.toukui1Key_);
               break;
             }
             case 528: {
-              result.hasToukui3Key = input.ReadInt32(ref result.toukui3Key_);
+              result.hasToukui2Key = input.ReadInt32(ref result.toukui2Key_);
               break;
             }
             case 536: {
-              result.hasShouqiang1Key = input.ReadInt32(ref result.shouqiang1Key_);
+              result.hasToukui3Key = input.ReadInt32(ref result.toukui3Key_);
               break;
             }
             case 544: {
-              result.hasBuqiang1Key = input.ReadInt32(ref result.buqiang1Key_);
+              result.hasShouqiang1Key = input.ReadInt32(ref result.shouqiang1Key_);
               break;
             }
             case 552: {
-              result.hasQingjiqiang1Key = input.ReadInt32(ref result.qingjiqiang1Key_);
+              result.hasBuqiang1Key = input.ReadInt32(ref result.buqiang1Key_);
               break;
             }
             case 560: {
-              result.hasFangdanyi1Key = input.ReadInt32(ref result.fangdanyi1Key_);
+              result.hasQingjiqiang1Key = input.ReadInt32(ref result.qingjiqiang1Key_);
               break;
             }
             case 568: {
-              result.hasFangdanyi2Key = input.ReadInt32(ref result.fangdanyi2Key_);
+              result.hasFangdanyi1Key = input.ReadInt32(ref result.fangdanyi1Key_);
               break;
             }
             case 576: {
-              result.hasFangdanyi3Key = input.ReadInt32(ref result.fangdanyi3Key_);
+              result.hasFangdanyi2Key = input.ReadInt32(ref result.fangdanyi2Key_);
               break;
             }
             case 584: {
-              result.hasKuzi1Key = input.ReadInt32(ref result.kuzi1Key_);
+              result.hasFangdanyi3Key = input.ReadInt32(ref result.fangdanyi3Key_);
               break;
             }
             case 592: {
-              result.hasKuzi2Key = input.ReadInt32(ref result.kuzi2Key_);
+              result.hasKuzi1Key = input.ReadInt32(ref result.kuzi1Key_);
               break;
             }
             case 600: {
-              result.hasKuzi3Key = input.ReadInt32(ref result.kuzi3Key_);
+              result.hasKuzi2Key = input.ReadInt32(ref result.kuzi2Key_);
               break;
             }
             case 608: {
-              result.hasXiezi1Key = input.ReadInt32(ref result.xiezi1Key_);
+              result.hasKuzi3Key = input.ReadInt32(ref result.kuzi3Key_);
               break;
             }
             case 616: {
-              result.hasXiezi2Key = input.ReadInt32(ref result.xiezi2Key_);
+              result.hasXiezi1Key = input.ReadInt32(ref result.xiezi1Key_);
               break;
             }
             case 624: {
-              result.hasXiezi3Key = input.ReadInt32(ref result.xiezi3Key_);
+              result.hasXiezi2Key = input.ReadInt32(ref result.xiezi2Key_);
               break;
             }
             case 632: {
-              result.hasKuangquanshuikey = input.ReadInt32(ref result.kuangquanshuikey_);
+              result.hasXiezi3Key = input.ReadInt32(ref result.xiezi3Key_);
               break;
             }
             case 640: {
-              result.hasSiliaokey = input.ReadInt32(ref result.siliaokey_);
+              result.hasKuangquanshuikey = input.ReadInt32(ref result.kuangquanshuikey_);
               break;
             }
             case 648: {
-              result.hasZhuroukey = input.ReadInt32(ref result.zhuroukey_);
+              result.hasSiliaokey = input.ReadInt32(ref result.siliaokey_);
               break;
             }
             case 656: {
-              result.hasQiyoukey = input.ReadInt32(ref result.qiyoukey_);
+              result.hasZhuroukey = input.ReadInt32(ref result.zhuroukey_);
               break;
             }
             case 664: {
-              result.hasGangkey = input.ReadInt32(ref result.gangkey_);
+              result.hasQiyoukey = input.ReadInt32(ref result.qiyoukey_);
               break;
             }
             case 672: {
-              result.hasSongmubankey = input.ReadInt32(ref result.songmubankey_);
+              result.hasGangkey = input.ReadInt32(ref result.gangkey_);
               break;
             }
             case 680: {
+              result.hasSongmubankey = input.ReadInt32(ref result.songmubankey_);
+              break;
+            }
+            case 688: {
               result.hasHunningtukey = input.ReadInt32(ref result.hunningtukey_);
               break;
             }
@@ -3311,6 +3339,26 @@ namespace com.game.framework.resource.data {
         PrepareBuilder();
         result.hasLeidaBldg = false;
         result.leidaBldg_ = 0;
+        return this;
+      }
+      
+      public bool HasCarBldgspd {
+        get { return result.hasCarBldgspd; }
+      }
+      public int CarBldgspd {
+        get { return result.CarBldgspd; }
+        set { SetCarBldgspd(value); }
+      }
+      public Builder SetCarBldgspd(int value) {
+        PrepareBuilder();
+        result.hasCarBldgspd = true;
+        result.carBldgspd_ = value;
+        return this;
+      }
+      public Builder ClearCarBldgspd() {
+        PrepareBuilder();
+        result.hasCarBldgspd = false;
+        result.carBldgspd_ = 0;
         return this;
       }
       

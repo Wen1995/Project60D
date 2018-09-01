@@ -1,0 +1,22 @@
+/**
+* @file:   proto/che1_bytes.proto
+* @author: jameyli <jameyli AT tencent DOT com>
+* @brief:  这个文件是通过工具自动生成的，建议不要手动修改
+*/
+
+package com.game.framework.resource.data;
+
+message CHE1{
+    /** 索引 */
+    required int32 id = 1 [default = 0];
+    /** 车辆速度 */
+    optional int32 che_spd = 2 [default = 0];
+    /** 可载人数 */
+    optional int32 che_passenger = 3 [default = 0];
+    /** 载货量 */
+    optional int32 che_cap = 4 [default = 0];
+}
+
+message CHE1_ARRAY {
+    repeated CHE1 items = 1;
+}

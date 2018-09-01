@@ -23,9 +23,9 @@ message BUILDING{
     optional string bldg_name = 4 [default = ""];
     /** 可视等级 */
     optional int32 bldg_visible = 5 [default = 0];
-    /** 临时容量key */
+    /** key1 */
     optional string bldgcap_key = 6 [default = ""];
-    /** 临时容量key */
+    /** key2 */
     optional string bldgspd_key = 7 [default = ""];
     /** 可用
         1表示是

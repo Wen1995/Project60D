@@ -120,7 +120,7 @@ public final class BuildingBytes {
      * <code>optional string bldgcap_key = 6 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key1 
      * </pre>
      */
     boolean hasBldgcapKey();
@@ -128,7 +128,7 @@ public final class BuildingBytes {
      * <code>optional string bldgcap_key = 6 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key1 
      * </pre>
      */
     java.lang.String getBldgcapKey();
@@ -136,7 +136,7 @@ public final class BuildingBytes {
      * <code>optional string bldgcap_key = 6 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key1 
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -146,7 +146,7 @@ public final class BuildingBytes {
      * <code>optional string bldgspd_key = 7 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key2 
      * </pre>
      */
     boolean hasBldgspdKey();
@@ -154,7 +154,7 @@ public final class BuildingBytes {
      * <code>optional string bldgspd_key = 7 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key2 
      * </pre>
      */
     java.lang.String getBldgspdKey();
@@ -162,7 +162,7 @@ public final class BuildingBytes {
      * <code>optional string bldgspd_key = 7 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key2 
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -1440,7 +1440,7 @@ public final class BuildingBytes {
      * <code>optional string bldgcap_key = 6 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key1 
      * </pre>
      */
     public boolean hasBldgcapKey() {
@@ -1450,7 +1450,7 @@ public final class BuildingBytes {
      * <code>optional string bldgcap_key = 6 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key1 
      * </pre>
      */
     public java.lang.String getBldgcapKey() {
@@ -1471,7 +1471,7 @@ public final class BuildingBytes {
      * <code>optional string bldgcap_key = 6 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key1 
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -1494,7 +1494,7 @@ public final class BuildingBytes {
      * <code>optional string bldgspd_key = 7 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key2 
      * </pre>
      */
     public boolean hasBldgspdKey() {
@@ -1504,7 +1504,7 @@ public final class BuildingBytes {
      * <code>optional string bldgspd_key = 7 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key2 
      * </pre>
      */
     public java.lang.String getBldgspdKey() {
@@ -1525,7 +1525,7 @@ public final class BuildingBytes {
      * <code>optional string bldgspd_key = 7 [default = ""];</code>
      *
      * <pre>
-     ** 临时容量key 
+     ** key2 
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -3067,7 +3067,7 @@ public final class BuildingBytes {
        * <code>optional string bldgcap_key = 6 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key1 
        * </pre>
        */
       public boolean hasBldgcapKey() {
@@ -3077,7 +3077,7 @@ public final class BuildingBytes {
        * <code>optional string bldgcap_key = 6 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key1 
        * </pre>
        */
       public java.lang.String getBldgcapKey() {
@@ -3098,7 +3098,7 @@ public final class BuildingBytes {
        * <code>optional string bldgcap_key = 6 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key1 
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -3118,7 +3118,7 @@ public final class BuildingBytes {
        * <code>optional string bldgcap_key = 6 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key1 
        * </pre>
        */
       public Builder setBldgcapKey(
@@ -3135,7 +3135,7 @@ public final class BuildingBytes {
        * <code>optional string bldgcap_key = 6 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key1 
        * </pre>
        */
       public Builder clearBldgcapKey() {
@@ -3148,7 +3148,7 @@ public final class BuildingBytes {
        * <code>optional string bldgcap_key = 6 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key1 
        * </pre>
        */
       public Builder setBldgcapKeyBytes(
@@ -3167,7 +3167,7 @@ public final class BuildingBytes {
        * <code>optional string bldgspd_key = 7 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key2 
        * </pre>
        */
       public boolean hasBldgspdKey() {
@@ -3177,7 +3177,7 @@ public final class BuildingBytes {
        * <code>optional string bldgspd_key = 7 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key2 
        * </pre>
        */
       public java.lang.String getBldgspdKey() {
@@ -3198,7 +3198,7 @@ public final class BuildingBytes {
        * <code>optional string bldgspd_key = 7 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key2 
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -3218,7 +3218,7 @@ public final class BuildingBytes {
        * <code>optional string bldgspd_key = 7 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key2 
        * </pre>
        */
       public Builder setBldgspdKey(
@@ -3235,7 +3235,7 @@ public final class BuildingBytes {
        * <code>optional string bldgspd_key = 7 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key2 
        * </pre>
        */
       public Builder clearBldgspdKey() {
@@ -3248,7 +3248,7 @@ public final class BuildingBytes {
        * <code>optional string bldgspd_key = 7 [default = ""];</code>
        *
        * <pre>
-       ** 临时容量key 
+       ** key2 
        * </pre>
        */
       public Builder setBldgspdKeyBytes(

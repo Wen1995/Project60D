@@ -108,10 +108,6 @@ public class SanctuaryPackage : ModelBase {
     public BUILDING GetBuildingConfigDataByConfigID(int configID)
     {
         var buildingDataMap = ConfigDataStatic.GetConfigDataTable("BUILDING");
-        if(!buildingDataMap.ContainsKey(configID))
-        {
-            Debug.Log(configID);
-        }
         return buildingDataMap[configID] as BUILDING;
     }
 
@@ -326,13 +322,13 @@ public class SanctuaryPackage : ModelBase {
             case (BuildingType.Gate):
                 return parent.Find("gate").GetComponent<Building>();
             case (BuildingType.Turret0):
-                return parent.Find("turret1").GetComponent<Building>();
+                return parent.Find("turret0").GetComponent<Building>();
             case (BuildingType.Turret1):
-                return parent.Find("turret2").GetComponent<Building>();
+                return parent.Find("turret1").GetComponent<Building>();
             case (BuildingType.Turret2):
-                return parent.Find("turret3").GetComponent<Building>();
+                return parent.Find("turret2").GetComponent<Building>();
             case (BuildingType.Turret3):
-                return parent.Find("turret4").GetComponent<Building>();
+                return parent.Find("turret3").GetComponent<Building>();
             case (BuildingType.Turret4):
                 return parent.Find("turret5").GetComponent<Building>();
             case (BuildingType.Turret5):

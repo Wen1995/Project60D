@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4099100591260618}
   - component: {fileID: 33732056124030230}
   - component: {fileID: 23856889963333466}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BridgeWood_el3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4627320179340434}
   - component: {fileID: 65042685095218646}
   - component: {fileID: 114445739686099216}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: concretefactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4064321987225956}
   - component: {fileID: 33634908114511458}
   - component: {fileID: 23477486423241026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,13 +70,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4831376724691620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1292186043596916
 GameObject:
   m_ObjectHideFlags: 1
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4964921069807908}
   - component: {fileID: 33714656744659128}
   - component: {fileID: 23307684196776450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BridgeWood_el3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4505596314201084}
   - component: {fileID: 33970427802981074}
   - component: {fileID: 23439538460076796}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gas_bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4850180880241134}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloatingPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4064321987225956
 Transform:
   m_ObjectHideFlags: 1
@@ -431,7 +431,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 9.307953, y: 7.7127504, z: 8.437332}
-  m_Center: {x: -0.1613617, y: -4.2409973, z: -1.8}
+  m_Center: {x: -0.91, y: -4.2409973, z: -0.59}
 --- !u!114 &114445739686099216
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -110,6 +110,8 @@ public class SSanctuaryController : SceneController
             BuildingInfo info = sceneInfo.BuildingInfosList[i];
             sanctuaryPackage.AddBuilding(info);
         }
+        userPackage.SetTotalContribution(sceneInfo.TotalContribution);
+        userPackage.SetManorNumber(sceneInfo.PeopleNum);
         SendEvent("RefreshBuildingView");
     }
 

@@ -25,6 +25,7 @@ public class UISelectGroupPanel : PanelBase {
 
 	void OnJoinGroup()
 	{
+		//FacadeSingleton.Instance.OverlayerPanel("UILoginPanel");
 		FacadeSingleton.Instance.OverlayerPanel("UIGroupListPanel");
 	}
 

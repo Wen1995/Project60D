@@ -21,6 +21,7 @@ public class UIPlayerInfoPanel : PanelBase {
 	UILabel healthLabel = null;
 	UILabel moodLabel = null;
 	UILabel loadLabel = null;
+	UILabel interestLabel = null;
 	//Equip
 	//Item
 	NTableView tableView = null;
@@ -43,6 +44,7 @@ public class UIPlayerInfoPanel : PanelBase {
 		resLabel = transform.Find("playerinfo/res/resouce/label").GetComponent<UILabel>();
 		moneyLabel = transform.Find("playerinfo/res/money/label").GetComponent<UILabel>();
 		elecLabel = transform.Find("playerinfo/res/elec/label").GetComponent<UILabel>();
+		interestLabel = transform.Find("playerinfo/player/interest").GetComponent<UILabel>();
 		//equip
 		//item
 		tableView = transform.Find("store/itemview/tableview").GetComponent<NTableView>();
@@ -88,6 +90,7 @@ public class UIPlayerInfoPanel : PanelBase {
 		bloodProgess.value = (float)(state.blood / (20 + 2 * state.health));
 		hungerProgress.value = (float)(state.hunger / (20 + 2 * state.health));
 		thirstProgress.value = (float)(state.thirst / (20 + 2 * state.health));
+		interestLabel.text = string.Format("分配比例:{0:f}%", (float)userPackage.GetPlayerInterest() * 100);
 		resLabel.text = "0";
 		moneyLabel.text = "0";
 		elecLabel.text = "0";

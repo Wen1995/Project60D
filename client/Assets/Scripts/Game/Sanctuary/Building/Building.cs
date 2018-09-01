@@ -49,6 +49,13 @@ public class Building : Controller {
 
     public void RefreshView(NDictionary data = null)
     {
+        //if under buidlng's min level, hide the building
+        if(false)
+        {
+            Building building = sanctuaryPackage.GetTypeBuilding(buildingType);
+            building.gameObject.SetActive(false);
+            return;
+        }
         ClearFloatingIcon();
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         long remainTime = 0;
@@ -122,7 +129,7 @@ public class Building : Controller {
 
     IEnumerator CollectTimer()
     {
-        yield return new WaitForSeconds(60.0f);
+        yield return new WaitForSeconds(80.0f);
         sanctuaryPackage.SetBuildingCollectable(BuildingID);
     }
 

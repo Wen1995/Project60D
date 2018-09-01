@@ -57,6 +57,7 @@ public class UIManorMenuPanel : PanelBase {
 		invadeProgress.value = 0;
 		manorExpProgress.value = 0;
 		IDLabel.text = userPackage.GroupID.ToString();
+		levelLabel.text = string.Format("Lv.{0}", userPackage.GetManorLevel().ToString());
 	}
 
 	void OnNews()

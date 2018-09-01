@@ -138,6 +138,7 @@ public class SanctuaryPackage : ModelBase {
     {
         return attributeDataList;
     }
+
     #endregion
 
     #region Set Data
@@ -254,7 +255,7 @@ public class SanctuaryPackage : ModelBase {
     /// An uggly implement of gettting buliding's controller
     /// this is temporary ,will be removed in time
     /// </summary>
-    Building GetTypeBuilding(BuildingType type)
+    public Building GetTypeBuilding(BuildingType type)
     {
         Transform parent = GameObject.Find("mainscene/buildings").transform;
         switch (type)
@@ -457,6 +458,105 @@ public class SanctuaryPackage : ModelBase {
                 KUANGQUANSHUI data = dataMap[level] as KUANGQUANSHUI;
                 dataList.Add(new BuildingAttributeData("加工速度", data.KuangquanshuiSpd));
                 dataList.Add(new BuildingAttributeData("最大加工量", data.KuangquanshuiCap));
+                break;
+            }
+            case(BuildingType.RadioStation):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("WUXIANDIAN");
+                WUXIANDIAN data = dataMap[level] as WUXIANDIAN;
+                dataList.Add(new BuildingAttributeData("接受时间(秒)", data.WuxiandianDis));
+                break;
+            }
+            case(BuildingType.Radar):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("LEIDA");
+                LEIDA data = dataMap[level] as LEIDA;
+                dataList.Add(new BuildingAttributeData("接受时间(秒)", data.LeidaDis));
+                break;
+            }
+            case(BuildingType.StoreHouse):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("CANGKU");
+                CANGKU data = dataMap[level] as CANGKU;
+                dataList.Add(new BuildingAttributeData("仓库容量", data.CangkuCap));
+                break;
+            }
+            case(BuildingType.Battery):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("DIANCHIZU");
+                DIANCHIZU data = dataMap[level] as DIANCHIZU;
+                dataList.Add(new BuildingAttributeData("电量储存量", data.DianchizuCap));
+                break;
+            }
+            case(BuildingType.PowerGym):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("JIANSHENFANG");
+                JIANSHENFANG data = dataMap[level] as JIANSHENFANG;
+                dataList.Add(new BuildingAttributeData("能量转化率", data.JianshenfangSpd));
+                dataList.Add(new BuildingAttributeData("每日转化上限", data.JianshenfangCap));
+                break;
+            }
+            case(BuildingType.ZombiePlant):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("JSFADIANZHAN");
+                JSFADIANZHAN data = dataMap[level] as JSFADIANZHAN;
+                dataList.Add(new BuildingAttributeData("能量转化率", data.JsfadianzhanSpd));
+                dataList.Add(new BuildingAttributeData("单次最大储电量", data.JsfadianzhanCap));
+                break;
+            }
+            case(BuildingType.PowerPlant):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("TAIYANGNENG");
+                TAIYANGNENG data = dataMap[level] as TAIYANGNENG;
+                dataList.Add(new BuildingAttributeData("发电速率", data.TaiyangnengSpd));
+                dataList.Add(new BuildingAttributeData("单次最大储电量", data.TaiyangnengCap));
+                break;
+            }
+            case(BuildingType.OilFactory):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("LIANYOU");
+                LIANYOU data = dataMap[level] as LIANYOU;
+                dataList.Add(new BuildingAttributeData("炼油速度", data.LianyouSpd));
+                dataList.Add(new BuildingAttributeData("最高炼油量", data.LianyouCap));
+                break;
+            }
+            case(BuildingType.SteelFactory):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("LIANGANG");
+                LIANGANG data = dataMap[level] as LIANGANG;
+                dataList.Add(new BuildingAttributeData("炼钢速度", data.LiangangSpd));
+                dataList.Add(new BuildingAttributeData("最高炼钢量", data.LiangangCap));
+                break;
+            }
+            case(BuildingType.ConcreteFactory):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("HUNNINGTU");
+                HUNNINGTU data = dataMap[level] as HUNNINGTU;
+                dataList.Add(new BuildingAttributeData("搅拌速度", data.HunningtuSpd));
+                dataList.Add(new BuildingAttributeData("最高搅拌量", data.HunningtuCap));
+                break;
+            }
+            case(BuildingType.PineWood):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("SONGSHU");
+                SONGSHU data = dataMap[level] as SONGSHU;
+                dataList.Add(new BuildingAttributeData("生长速度", data.SongshuSpd));
+                dataList.Add(new BuildingAttributeData("单次最高产量", data.SongshuCap));
+                break;
+            }
+            case(BuildingType.WoodFactory):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("MUCAIJIAGONG");
+                MUCAIJIAGONG data = dataMap[level] as MUCAIJIAGONG;
+                dataList.Add(new BuildingAttributeData("加工速度", data.MucaijiagongSpd));
+                dataList.Add(new BuildingAttributeData("最大加工量", data.MucaijiagongCap));
+                break;
+            }
+            case(BuildingType.Gate):
+            {
+                var dataMap = ConfigDataStatic.GetConfigDataTable("DAMEN");
+                DAMEN data = dataMap[level] as DAMEN;
+                dataList.Add(new BuildingAttributeData("耐久度", data.DamenDura));
                 break;
             }
         } 

@@ -10,6 +10,7 @@ public class UIPlayerMenuPanel : PanelBase {
 	UILabel resLabel = null;
 	UILabel elecLabel = null;
 	UILabel taskLabel = null;
+	UILabel levelLabel = null;
 	UIProgressBar healthProgressBar = null;
 	UIProgressBar hungerProgressBar = null;
 	UIProgressBar thirstProgressBar = null;
@@ -23,6 +24,7 @@ public class UIPlayerMenuPanel : PanelBase {
 		resLabel = transform.Find("res/resource/label").GetComponent<UILabel>();
 		elecLabel = transform.Find("res/elec/label").GetComponent<UILabel>();
 		taskLabel = transform.Find("task/label").GetComponent<UILabel>();
+		levelLabel = transform.Find("player/level").GetComponent<UILabel>();
 		healthProgressBar = transform.Find("status/health").GetComponent<UIProgressBar>();
 		hungerProgressBar = transform.Find("status/hunger").GetComponent<UIProgressBar>();
 		thirstProgressBar = transform.Find("status/thirst").GetComponent<UIProgressBar>();
@@ -63,6 +65,7 @@ public class UIPlayerMenuPanel : PanelBase {
 		hungerProgressBar.value = (float)playerState.hunger / (float)(20 + 2 * playerState.health);
 		thirstProgressBar.value = (float)playerState.thirst / (float)(20 + 2 * playerState.health);
 		expProgressBar.value = 0.4f;
+		levelLabel.text = string.Format("Lv.{0}", userPackage.GetPlayerLevel().ToString());
 	}
 
 	void OnPlayerInfo()

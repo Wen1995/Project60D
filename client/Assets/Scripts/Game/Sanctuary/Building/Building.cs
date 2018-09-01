@@ -49,22 +49,23 @@ public class Building : Controller {
 
     public void RefreshView(NDictionary data = null)
     {
-        //if under buidlng's min level, hide the building
-        if(false)
-        {
-            Building building = sanctuaryPackage.GetTypeBuilding(buildingType);
-            building.gameObject.SetActive(false);
-            return;
-        }
         ClearFloatingIcon();
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         long remainTime = 0;
         if(info == null)
         {
             mState = BuildingState.Locked;
+            Building building = sanctuaryPackage.GetTypeBuilding(buildingType);
+            if(building == null) return;
+            //if under building's min visible level, hide the building
+            if(!sanctuaryPackage.IsBuildingVisible(buildingType))
+                building.gameObject.SetActive(false);
+            else
+                building.gameObject.SetActive(true);
         }
         else
         {
+            info.building.gameObject.SetActive(true);
             BuildingFunc funcType = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
             if(info.upgradeFinishTime > 0 && GlobalFunction.GetRemainTime(info.upgradeFinishTime, out remainTime))
             {    

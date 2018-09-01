@@ -59,7 +59,7 @@ public class UserPackage : ModelBase {
 
     private int personContribution;
 
-    private int manorPersonNumber = 1;
+    private int manorPersonNumber;
     PlayerState playerState = new PlayerState();
 
     public long GroupID

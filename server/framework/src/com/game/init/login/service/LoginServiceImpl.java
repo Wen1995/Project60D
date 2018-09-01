@@ -13,7 +13,6 @@ import com.game.framework.dbcache.id.IdManager;
 import com.game.framework.dbcache.id.IdType;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.Common.Error;
-import com.game.framework.protocol.Login.TSCGetUserInfo;
 import com.game.framework.protocol.Login.TSCHeart;
 import com.game.framework.protocol.Login.TSCLogin;
 import com.game.framework.protocol.User.ResourceInfo;
@@ -102,17 +101,4 @@ public class LoginServiceImpl implements LoginService {
         TimerManager.GetInstance().cancel2Uid(uid);
         return null;
     }
-
-    @Override
-    public TPacket getUserInfo(Long uid) throws Exception {
-        User user = userDao.get(uid);
-        TSCGetUserInfo p = TSCGetUserInfo.newBuilder()
-                .setGroupId(user.getGroupId())
-                .build();
-        TPacket resp = new TPacket();
-        resp.setUid(uid);
-        resp.setBuffer(p.toByteArray());
-        return resp;
-    }
-
 }

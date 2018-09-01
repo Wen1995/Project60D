@@ -154,6 +154,7 @@ public class UserServiceImpl implements UserService {
                 .setAgile(user.getAgile())
                 .setSpeed(user.getSpeed())
                 .setIntellect(user.getIntellect())
+                .setContribution(user.getContribution())
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
@@ -226,6 +227,7 @@ public class UserServiceImpl implements UserService {
                 .setAgile(user.getAgile())
                 .setSpeed(user.getSpeed())
                 .setIntellect(user.getIntellect())
+                .setContribution(user.getContribution())
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);

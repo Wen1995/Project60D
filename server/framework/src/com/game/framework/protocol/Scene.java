@@ -364,6 +364,24 @@ public final class Scene {
      */
     com.game.framework.protocol.Scene.BuildingInfoOrBuilder getBuildingInfosOrBuilder(
         int index);
+
+    // optional int32 totalContribution = 2;
+    /**
+     * <code>optional int32 totalContribution = 2;</code>
+     *
+     * <pre>
+     * 庄园总贡献
+     * </pre>
+     */
+    boolean hasTotalContribution();
+    /**
+     * <code>optional int32 totalContribution = 2;</code>
+     *
+     * <pre>
+     * 庄园总贡献
+     * </pre>
+     */
+    int getTotalContribution();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetSceneInfo}
@@ -424,6 +442,11 @@ public final class Scene {
               buildingInfos_.add(input.readMessage(com.game.framework.protocol.Scene.BuildingInfo.PARSER, extensionRegistry));
               break;
             }
+            case 16: {
+              bitField0_ |= 0x00000001;
+              totalContribution_ = input.readInt32();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -466,6 +489,7 @@ public final class Scene {
       return PARSER;
     }
 
+    private int bitField0_;
     // repeated .com.game.framework.protocol.BuildingInfo buildingInfos = 1;
     public static final int BUILDINGINFOS_FIELD_NUMBER = 1;
     private java.util.List<com.game.framework.protocol.Scene.BuildingInfo> buildingInfos_;
@@ -522,8 +546,33 @@ public final class Scene {
       return buildingInfos_.get(index);
     }
 
+    // optional int32 totalContribution = 2;
+    public static final int TOTALCONTRIBUTION_FIELD_NUMBER = 2;
+    private int totalContribution_;
+    /**
+     * <code>optional int32 totalContribution = 2;</code>
+     *
+     * <pre>
+     * 庄园总贡献
+     * </pre>
+     */
+    public boolean hasTotalContribution() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 totalContribution = 2;</code>
+     *
+     * <pre>
+     * 庄园总贡献
+     * </pre>
+     */
+    public int getTotalContribution() {
+      return totalContribution_;
+    }
+
     private void initFields() {
       buildingInfos_ = java.util.Collections.emptyList();
+      totalContribution_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -540,6 +589,9 @@ public final class Scene {
       for (int i = 0; i < buildingInfos_.size(); i++) {
         output.writeMessage(1, buildingInfos_.get(i));
       }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(2, totalContribution_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -552,6 +604,10 @@ public final class Scene {
       for (int i = 0; i < buildingInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, buildingInfos_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, totalContribution_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -676,6 +732,8 @@ public final class Scene {
         } else {
           buildingInfosBuilder_.clear();
         }
+        totalContribution_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -703,6 +761,7 @@ public final class Scene {
       public com.game.framework.protocol.Scene.TSCGetSceneInfo buildPartial() {
         com.game.framework.protocol.Scene.TSCGetSceneInfo result = new com.game.framework.protocol.Scene.TSCGetSceneInfo(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (buildingInfosBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
             buildingInfos_ = java.util.Collections.unmodifiableList(buildingInfos_);
@@ -712,6 +771,11 @@ public final class Scene {
         } else {
           result.buildingInfos_ = buildingInfosBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.totalContribution_ = totalContribution_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -752,6 +816,9 @@ public final class Scene {
               buildingInfosBuilder_.addAllMessages(other.buildingInfos_);
             }
           }
+        }
+        if (other.hasTotalContribution()) {
+          setTotalContribution(other.getTotalContribution());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1090,6 +1157,55 @@ public final class Scene {
           buildingInfos_ = null;
         }
         return buildingInfosBuilder_;
+      }
+
+      // optional int32 totalContribution = 2;
+      private int totalContribution_ ;
+      /**
+       * <code>optional int32 totalContribution = 2;</code>
+       *
+       * <pre>
+       * 庄园总贡献
+       * </pre>
+       */
+      public boolean hasTotalContribution() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 totalContribution = 2;</code>
+       *
+       * <pre>
+       * 庄园总贡献
+       * </pre>
+       */
+      public int getTotalContribution() {
+        return totalContribution_;
+      }
+      /**
+       * <code>optional int32 totalContribution = 2;</code>
+       *
+       * <pre>
+       * 庄园总贡献
+       * </pre>
+       */
+      public Builder setTotalContribution(int value) {
+        bitField0_ |= 0x00000002;
+        totalContribution_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 totalContribution = 2;</code>
+       *
+       * <pre>
+       * 庄园总贡献
+       * </pre>
+       */
+      public Builder clearTotalContribution() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        totalContribution_ = 0;
+        onChanged();
+        return this;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetSceneInfo)
@@ -10996,36 +11112,37 @@ public final class Scene {
   static {
     java.lang.String[] descriptorData = {
       "\n\013scene.proto\022\033com.game.framework.protoc" +
-      "ol\"\021\n\017TCSGetSceneInfo\"S\n\017TSCGetSceneInfo" +
+      "ol\"\021\n\017TCSGetSceneInfo\"n\n\017TSCGetSceneInfo" +
       "\022@\n\rbuildingInfos\030\001 \003(\0132).com.game.frame" +
-      "work.protocol.BuildingInfo\"(\n\022TCSGetBuil" +
-      "dingInfo\022\022\n\nbuildingId\030\001 \001(\003\"U\n\022TSCGetBu" +
-      "ildingInfo\022?\n\014buildingInfo\030\001 \001(\0132).com.g" +
-      "ame.framework.protocol.BuildingInfo\"\242\001\n\014" +
-      "BuildingInfo\022\022\n\nbuildingId\030\001 \001(\003\022\020\n\010conf" +
-      "igId\030\002 \001(\005\022\031\n\021upgradeFinishTime\030\003 \001(\003\022\022\n" +
-      "\nupgradeUid\030\004 \001(\003\022\031\n\021processFinishTime\030\005",
-      " \001(\003\022\022\n\nprocessUid\030\006 \001(\003\022\016\n\006number\030\007 \001(\005" +
-      "\" \n\nTCSUpgrade\022\022\n\nbuildingId\030\001 \001(\003\"\200\001\n\nT" +
-      "SCUpgrade\022\017\n\007isState\030\001 \001(\010\022\017\n\007isGroup\030\002 " +
-      "\001(\010\022\022\n\nisResource\030\003 \001(\010\022\024\n\014isProduction\030" +
-      "\004 \001(\010\022\022\n\nfinishTime\030\005 \001(\003\022\022\n\nbuildingId\030" +
-      "\006 \001(\003\"&\n\020TCSFinishUpgrade\022\022\n\nbuildingId\030" +
-      "\001 \001(\003\"&\n\020TSCFinishUpgrade\022\022\n\nbuildingId\030" +
-      "\001 \001(\003\"\035\n\tTCSUnlock\022\020\n\010configId\030\001 \001(\005\"n\n\t" +
-      "TSCUnlock\022\022\n\nbuildingId\030\001 \001(\003\022\017\n\007isGroup" +
-      "\030\002 \001(\010\022\022\n\nisResource\030\003 \001(\010\022\024\n\014isProducti",
-      "on\030\004 \001(\010\022\022\n\nfinishTime\030\005 \001(\003\"%\n\017TCSFinis" +
-      "hUnlock\022\022\n\nbuildingId\030\001 \001(\003\"%\n\017TSCFinish" +
-      "Unlock\022\022\n\nbuildingId\030\001 \001(\003\" \n\nTCSReceive" +
-      "\022\022\n\nbuildingId\030\001 \001(\003\"B\n\nTSCReceive\022\022\n\nbu" +
-      "ildingId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022\016\n\006numb" +
-      "er\030\003 \001(\005\"0\n\nTCSProcess\022\022\n\nbuildingId\030\001 \001" +
-      "(\003\022\016\n\006number\030\002 \001(\005\"Q\n\nTSCProcess\022\022\n\nbuil" +
-      "dingId\030\001 \001(\003\022\022\n\nfinishTime\030\002 \001(\003\022\013\n\003uid\030" +
-      "\003 \001(\003\022\016\n\006number\030\004 \001(\005\")\n\023TCSInterruptPro" +
-      "cess\022\022\n\nbuildingId\030\001 \001(\003\")\n\023TSCInterrupt",
-      "Process\022\022\n\nbuildingId\030\001 \001(\003B\002H\001"
+      "work.protocol.BuildingInfo\022\031\n\021totalContr" +
+      "ibution\030\002 \001(\005\"(\n\022TCSGetBuildingInfo\022\022\n\nb" +
+      "uildingId\030\001 \001(\003\"U\n\022TSCGetBuildingInfo\022?\n" +
+      "\014buildingInfo\030\001 \001(\0132).com.game.framework" +
+      ".protocol.BuildingInfo\"\242\001\n\014BuildingInfo\022" +
+      "\022\n\nbuildingId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022\031\n" +
+      "\021upgradeFinishTime\030\003 \001(\003\022\022\n\nupgradeUid\030\004",
+      " \001(\003\022\031\n\021processFinishTime\030\005 \001(\003\022\022\n\nproce" +
+      "ssUid\030\006 \001(\003\022\016\n\006number\030\007 \001(\005\" \n\nTCSUpgrad" +
+      "e\022\022\n\nbuildingId\030\001 \001(\003\"\200\001\n\nTSCUpgrade\022\017\n\007" +
+      "isState\030\001 \001(\010\022\017\n\007isGroup\030\002 \001(\010\022\022\n\nisReso" +
+      "urce\030\003 \001(\010\022\024\n\014isProduction\030\004 \001(\010\022\022\n\nfini" +
+      "shTime\030\005 \001(\003\022\022\n\nbuildingId\030\006 \001(\003\"&\n\020TCSF" +
+      "inishUpgrade\022\022\n\nbuildingId\030\001 \001(\003\"&\n\020TSCF" +
+      "inishUpgrade\022\022\n\nbuildingId\030\001 \001(\003\"\035\n\tTCSU" +
+      "nlock\022\020\n\010configId\030\001 \001(\005\"n\n\tTSCUnlock\022\022\n\n" +
+      "buildingId\030\001 \001(\003\022\017\n\007isGroup\030\002 \001(\010\022\022\n\nisR",
+      "esource\030\003 \001(\010\022\024\n\014isProduction\030\004 \001(\010\022\022\n\nf" +
+      "inishTime\030\005 \001(\003\"%\n\017TCSFinishUnlock\022\022\n\nbu" +
+      "ildingId\030\001 \001(\003\"%\n\017TSCFinishUnlock\022\022\n\nbui" +
+      "ldingId\030\001 \001(\003\" \n\nTCSReceive\022\022\n\nbuildingI" +
+      "d\030\001 \001(\003\"B\n\nTSCReceive\022\022\n\nbuildingId\030\001 \001(" +
+      "\003\022\020\n\010configId\030\002 \001(\005\022\016\n\006number\030\003 \001(\005\"0\n\nT" +
+      "CSProcess\022\022\n\nbuildingId\030\001 \001(\003\022\016\n\006number\030" +
+      "\002 \001(\005\"Q\n\nTSCProcess\022\022\n\nbuildingId\030\001 \001(\003\022" +
+      "\022\n\nfinishTime\030\002 \001(\003\022\013\n\003uid\030\003 \001(\003\022\016\n\006numb" +
+      "er\030\004 \001(\005\")\n\023TCSInterruptProcess\022\022\n\nbuild",
+      "ingId\030\001 \001(\003\")\n\023TSCInterruptProcess\022\022\n\nbu" +
+      "ildingId\030\001 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -11043,7 +11160,7 @@ public final class Scene {
           internal_static_com_game_framework_protocol_TSCGetSceneInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetSceneInfo_descriptor,
-              new java.lang.String[] { "BuildingInfos", });
+              new java.lang.String[] { "BuildingInfos", "TotalContribution", });
           internal_static_com_game_framework_protocol_TCSGetBuildingInfo_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_TCSGetBuildingInfo_fieldAccessorTable = new

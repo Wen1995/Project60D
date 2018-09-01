@@ -13,7 +13,6 @@ import com.game.framework.protocol.Login.TCSHeart;
 import io.netty.channel.Channel;
 import com.game.framework.protocol.Login.TCSLogin;
 import com.game.framework.protocol.Login.TCSLogout;
-import com.game.framework.protocol.Login.TCSGetUserInfo;
 
 @Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Init, module = HandlerConstant.Model_Login)
@@ -54,16 +53,6 @@ public class LoginHandler {
 		TCSLogout msg = TCSLogout.parseFrom(p.getBuffer());
 		
 		service.logout(p.getUid());
-	}
-
-	/** 玩家信息 */
-	@HandlerMethodMapping(cmd = Cmd.GETUSERINFO_VALUE)
-	public void getUserInfo(TPacket p) throws Exception {
-		TCSGetUserInfo msg = TCSGetUserInfo.parseFrom(p.getBuffer());
-		
-		TPacket resp = service.getUserInfo(p.getUid());
-		resp.setCmd(Cmd.GETUSERINFO_VALUE + 1000);
-		GateServer.GetInstance().send(resp);
 	}
 
 }

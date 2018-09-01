@@ -2304,8 +2304,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetUserState : pb::GeneratedMessageLite<TSCGetUserState, TSCGetUserState.Builder> {
     private TSCGetUserState() { }
     private static readonly TSCGetUserState defaultInstance = new TSCGetUserState().MakeReadOnly();
-    private static readonly string[] _tSCGetUserStateFieldNames = new string[] { "agile", "attack", "blood", "defense", "food", "health", "intellect", "mood", "speed", "water" };
-    private static readonly uint[] _tSCGetUserStateFieldTags = new uint[] { 64, 48, 8, 56, 16, 32, 80, 40, 72, 24 };
+    private static readonly string[] _tSCGetUserStateFieldNames = new string[] { "agile", "attack", "blood", "contribution", "defense", "food", "health", "intellect", "mood", "speed", "water" };
+    private static readonly uint[] _tSCGetUserStateFieldTags = new uint[] { 64, 48, 8, 88, 56, 16, 32, 80, 40, 72, 24 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -2455,6 +2455,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ContributionFieldNumber = 11;
+    private bool hasContribution;
+    private int contribution_;
+    public bool HasContribution {
+      get { return hasContribution; }
+    }
+    public int Contribution {
+      get { return contribution_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -2473,31 +2486,34 @@ namespace com.game.framework.protocol {
         output.WriteInt32(1, field_names[2], Blood);
       }
       if (hasFood) {
-        output.WriteInt32(2, field_names[4], Food);
+        output.WriteInt32(2, field_names[5], Food);
       }
       if (hasWater) {
-        output.WriteInt32(3, field_names[9], Water);
+        output.WriteInt32(3, field_names[10], Water);
       }
       if (hasHealth) {
-        output.WriteInt32(4, field_names[5], Health);
+        output.WriteInt32(4, field_names[6], Health);
       }
       if (hasMood) {
-        output.WriteInt32(5, field_names[7], Mood);
+        output.WriteInt32(5, field_names[8], Mood);
       }
       if (hasAttack) {
         output.WriteInt32(6, field_names[1], Attack);
       }
       if (hasDefense) {
-        output.WriteInt32(7, field_names[3], Defense);
+        output.WriteInt32(7, field_names[4], Defense);
       }
       if (hasAgile) {
         output.WriteInt32(8, field_names[0], Agile);
       }
       if (hasSpeed) {
-        output.WriteInt32(9, field_names[8], Speed);
+        output.WriteInt32(9, field_names[9], Speed);
       }
       if (hasIntellect) {
-        output.WriteInt32(10, field_names[6], Intellect);
+        output.WriteInt32(10, field_names[7], Intellect);
+      }
+      if (hasContribution) {
+        output.WriteInt32(11, field_names[3], Contribution);
       }
     }
     
@@ -2541,6 +2557,9 @@ namespace com.game.framework.protocol {
         if (hasIntellect) {
           size += pb::CodedOutputStream.ComputeInt32Size(10, Intellect);
         }
+        if (hasContribution) {
+          size += pb::CodedOutputStream.ComputeInt32Size(11, Contribution);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -2559,6 +2578,7 @@ namespace com.game.framework.protocol {
       if (hasAgile) hash ^= agile_.GetHashCode();
       if (hasSpeed) hash ^= speed_.GetHashCode();
       if (hasIntellect) hash ^= intellect_.GetHashCode();
+      if (hasContribution) hash ^= contribution_.GetHashCode();
       return hash;
     }
     
@@ -2575,6 +2595,7 @@ namespace com.game.framework.protocol {
       if (hasAgile != other.hasAgile || (hasAgile && !agile_.Equals(other.agile_))) return false;
       if (hasSpeed != other.hasSpeed || (hasSpeed && !speed_.Equals(other.speed_))) return false;
       if (hasIntellect != other.hasIntellect || (hasIntellect && !intellect_.Equals(other.intellect_))) return false;
+      if (hasContribution != other.hasContribution || (hasContribution && !contribution_.Equals(other.contribution_))) return false;
       return true;
     }
     
@@ -2765,6 +2786,9 @@ namespace com.game.framework.protocol {
         if (other.HasIntellect) {
           Intellect = other.Intellect;
         }
+        if (other.HasContribution) {
+          Contribution = other.Contribution;
+        }
         return this;
       }
       
@@ -2835,6 +2859,10 @@ namespace com.game.framework.protocol {
             }
             case 80: {
               result.hasIntellect = input.ReadInt32(ref result.intellect_);
+              break;
+            }
+            case 88: {
+              result.hasContribution = input.ReadInt32(ref result.contribution_);
               break;
             }
           }
@@ -3041,6 +3069,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasIntellect = false;
         result.intellect_ = 0;
+        return this;
+      }
+      
+      public bool HasContribution {
+        get { return result.hasContribution; }
+      }
+      public int Contribution {
+        get { return result.Contribution; }
+        set { SetContribution(value); }
+      }
+      public Builder SetContribution(int value) {
+        PrepareBuilder();
+        result.hasContribution = true;
+        result.contribution_ = value;
+        return this;
+      }
+      public Builder ClearContribution() {
+        PrepareBuilder();
+        result.hasContribution = false;
+        result.contribution_ = 0;
         return this;
       }
     }
@@ -3320,8 +3368,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetUserStateRegular : pb::GeneratedMessageLite<TSCGetUserStateRegular, TSCGetUserStateRegular.Builder> {
     private TSCGetUserStateRegular() { }
     private static readonly TSCGetUserStateRegular defaultInstance = new TSCGetUserStateRegular().MakeReadOnly();
-    private static readonly string[] _tSCGetUserStateRegularFieldNames = new string[] { "agile", "attack", "blood", "defense", "food", "health", "intellect", "mood", "speed", "water" };
-    private static readonly uint[] _tSCGetUserStateRegularFieldTags = new uint[] { 64, 48, 8, 56, 16, 32, 80, 40, 72, 24 };
+    private static readonly string[] _tSCGetUserStateRegularFieldNames = new string[] { "agile", "attack", "blood", "contribution", "defense", "food", "health", "intellect", "mood", "speed", "water" };
+    private static readonly uint[] _tSCGetUserStateRegularFieldTags = new uint[] { 64, 48, 8, 88, 56, 16, 32, 80, 40, 72, 24 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -3471,6 +3519,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ContributionFieldNumber = 11;
+    private bool hasContribution;
+    private int contribution_;
+    public bool HasContribution {
+      get { return hasContribution; }
+    }
+    public int Contribution {
+      get { return contribution_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -3489,31 +3550,34 @@ namespace com.game.framework.protocol {
         output.WriteInt32(1, field_names[2], Blood);
       }
       if (hasFood) {
-        output.WriteInt32(2, field_names[4], Food);
+        output.WriteInt32(2, field_names[5], Food);
       }
       if (hasWater) {
-        output.WriteInt32(3, field_names[9], Water);
+        output.WriteInt32(3, field_names[10], Water);
       }
       if (hasHealth) {
-        output.WriteInt32(4, field_names[5], Health);
+        output.WriteInt32(4, field_names[6], Health);
       }
       if (hasMood) {
-        output.WriteInt32(5, field_names[7], Mood);
+        output.WriteInt32(5, field_names[8], Mood);
       }
       if (hasAttack) {
         output.WriteInt32(6, field_names[1], Attack);
       }
       if (hasDefense) {
-        output.WriteInt32(7, field_names[3], Defense);
+        output.WriteInt32(7, field_names[4], Defense);
       }
       if (hasAgile) {
         output.WriteInt32(8, field_names[0], Agile);
       }
       if (hasSpeed) {
-        output.WriteInt32(9, field_names[8], Speed);
+        output.WriteInt32(9, field_names[9], Speed);
       }
       if (hasIntellect) {
-        output.WriteInt32(10, field_names[6], Intellect);
+        output.WriteInt32(10, field_names[7], Intellect);
+      }
+      if (hasContribution) {
+        output.WriteInt32(11, field_names[3], Contribution);
       }
     }
     
@@ -3557,6 +3621,9 @@ namespace com.game.framework.protocol {
         if (hasIntellect) {
           size += pb::CodedOutputStream.ComputeInt32Size(10, Intellect);
         }
+        if (hasContribution) {
+          size += pb::CodedOutputStream.ComputeInt32Size(11, Contribution);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -3575,6 +3642,7 @@ namespace com.game.framework.protocol {
       if (hasAgile) hash ^= agile_.GetHashCode();
       if (hasSpeed) hash ^= speed_.GetHashCode();
       if (hasIntellect) hash ^= intellect_.GetHashCode();
+      if (hasContribution) hash ^= contribution_.GetHashCode();
       return hash;
     }
     
@@ -3591,6 +3659,7 @@ namespace com.game.framework.protocol {
       if (hasAgile != other.hasAgile || (hasAgile && !agile_.Equals(other.agile_))) return false;
       if (hasSpeed != other.hasSpeed || (hasSpeed && !speed_.Equals(other.speed_))) return false;
       if (hasIntellect != other.hasIntellect || (hasIntellect && !intellect_.Equals(other.intellect_))) return false;
+      if (hasContribution != other.hasContribution || (hasContribution && !contribution_.Equals(other.contribution_))) return false;
       return true;
     }
     
@@ -3781,6 +3850,9 @@ namespace com.game.framework.protocol {
         if (other.HasIntellect) {
           Intellect = other.Intellect;
         }
+        if (other.HasContribution) {
+          Contribution = other.Contribution;
+        }
         return this;
       }
       
@@ -3851,6 +3923,10 @@ namespace com.game.framework.protocol {
             }
             case 80: {
               result.hasIntellect = input.ReadInt32(ref result.intellect_);
+              break;
+            }
+            case 88: {
+              result.hasContribution = input.ReadInt32(ref result.contribution_);
               break;
             }
           }
@@ -4057,6 +4133,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasIntellect = false;
         result.intellect_ = 0;
+        return this;
+      }
+      
+      public bool HasContribution {
+        get { return result.hasContribution; }
+      }
+      public int Contribution {
+        get { return result.Contribution; }
+        set { SetContribution(value); }
+      }
+      public Builder SetContribution(int value) {
+        PrepareBuilder();
+        result.hasContribution = true;
+        result.contribution_ = value;
+        return this;
+      }
+      public Builder ClearContribution() {
+        PrepareBuilder();
+        result.hasContribution = false;
+        result.contribution_ = 0;
         return this;
       }
     }

@@ -4228,6 +4228,24 @@ public final class User {
      * </pre>
      */
     int getIntellect();
+
+    // optional int32 contribution = 11;
+    /**
+     * <code>optional int32 contribution = 11;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    boolean hasContribution();
+    /**
+     * <code>optional int32 contribution = 11;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    int getContribution();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetUserState}
@@ -4328,6 +4346,11 @@ public final class User {
             case 80: {
               bitField0_ |= 0x00000200;
               intellect_ = input.readInt32();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
+              contribution_ = input.readInt32();
               break;
             }
           }
@@ -4610,6 +4633,30 @@ public final class User {
       return intellect_;
     }
 
+    // optional int32 contribution = 11;
+    public static final int CONTRIBUTION_FIELD_NUMBER = 11;
+    private int contribution_;
+    /**
+     * <code>optional int32 contribution = 11;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    public boolean hasContribution() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <code>optional int32 contribution = 11;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    public int getContribution() {
+      return contribution_;
+    }
+
     private void initFields() {
       blood_ = 0;
       food_ = 0;
@@ -4621,6 +4668,7 @@ public final class User {
       agile_ = 0;
       speed_ = 0;
       intellect_ = 0;
+      contribution_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4663,6 +4711,9 @@ public final class User {
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         output.writeInt32(10, intellect_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeInt32(11, contribution_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -4712,6 +4763,10 @@ public final class User {
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(10, intellect_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, contribution_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -4849,6 +4904,8 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000100);
         intellect_ = 0;
         bitField0_ = (bitField0_ & ~0x00000200);
+        contribution_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -4917,6 +4974,10 @@ public final class User {
           to_bitField0_ |= 0x00000200;
         }
         result.intellect_ = intellect_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.contribution_ = contribution_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -4962,6 +5023,9 @@ public final class User {
         }
         if (other.hasIntellect()) {
           setIntellect(other.getIntellect());
+        }
+        if (other.hasContribution()) {
+          setContribution(other.getContribution());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -5480,6 +5544,55 @@ public final class User {
         return this;
       }
 
+      // optional int32 contribution = 11;
+      private int contribution_ ;
+      /**
+       * <code>optional int32 contribution = 11;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public boolean hasContribution() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional int32 contribution = 11;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public int getContribution() {
+        return contribution_;
+      }
+      /**
+       * <code>optional int32 contribution = 11;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public Builder setContribution(int value) {
+        bitField0_ |= 0x00000400;
+        contribution_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 contribution = 11;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public Builder clearContribution() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        contribution_ = 0;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetUserState)
     }
 
@@ -5982,6 +6095,24 @@ public final class User {
      * </pre>
      */
     int getIntellect();
+
+    // optional int32 contribution = 11;
+    /**
+     * <code>optional int32 contribution = 11;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    boolean hasContribution();
+    /**
+     * <code>optional int32 contribution = 11;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    int getContribution();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetUserStateRegular}
@@ -6082,6 +6213,11 @@ public final class User {
             case 80: {
               bitField0_ |= 0x00000200;
               intellect_ = input.readInt32();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
+              contribution_ = input.readInt32();
               break;
             }
           }
@@ -6364,6 +6500,30 @@ public final class User {
       return intellect_;
     }
 
+    // optional int32 contribution = 11;
+    public static final int CONTRIBUTION_FIELD_NUMBER = 11;
+    private int contribution_;
+    /**
+     * <code>optional int32 contribution = 11;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    public boolean hasContribution() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <code>optional int32 contribution = 11;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    public int getContribution() {
+      return contribution_;
+    }
+
     private void initFields() {
       blood_ = 0;
       food_ = 0;
@@ -6375,6 +6535,7 @@ public final class User {
       agile_ = 0;
       speed_ = 0;
       intellect_ = 0;
+      contribution_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -6417,6 +6578,9 @@ public final class User {
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         output.writeInt32(10, intellect_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeInt32(11, contribution_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6466,6 +6630,10 @@ public final class User {
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(10, intellect_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, contribution_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -6603,6 +6771,8 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000100);
         intellect_ = 0;
         bitField0_ = (bitField0_ & ~0x00000200);
+        contribution_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -6671,6 +6841,10 @@ public final class User {
           to_bitField0_ |= 0x00000200;
         }
         result.intellect_ = intellect_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.contribution_ = contribution_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6716,6 +6890,9 @@ public final class User {
         }
         if (other.hasIntellect()) {
           setIntellect(other.getIntellect());
+        }
+        if (other.hasContribution()) {
+          setContribution(other.getContribution());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -7230,6 +7407,55 @@ public final class User {
       public Builder clearIntellect() {
         bitField0_ = (bitField0_ & ~0x00000200);
         intellect_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 contribution = 11;
+      private int contribution_ ;
+      /**
+       * <code>optional int32 contribution = 11;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public boolean hasContribution() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional int32 contribution = 11;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public int getContribution() {
+        return contribution_;
+      }
+      /**
+       * <code>optional int32 contribution = 11;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public Builder setContribution(int value) {
+        bitField0_ |= 0x00000400;
+        contribution_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 contribution = 11;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public Builder clearContribution() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        contribution_ = 0;
         onChanged();
         return this;
       }
@@ -9456,21 +9682,22 @@ public final class User {
       "esourceInfos\030\001 \003(\0132).com.game.framework." +
       "protocol.ResourceInfo\"0\n\014ResourceInfo\022\020\n",
       "\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\"\021\n\017TCSGe" +
-      "tUserState\"\255\001\n\017TSCGetUserState\022\r\n\005blood\030" +
+      "tUserState\"\303\001\n\017TSCGetUserState\022\r\n\005blood\030" +
       "\001 \001(\005\022\014\n\004food\030\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006he" +
       "alth\030\004 \001(\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005" +
       "\022\017\n\007defense\030\007 \001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005spee" +
-      "d\030\t \001(\005\022\021\n\tintellect\030\n \001(\005\"\030\n\026TCSGetUser" +
-      "StateRegular\"\264\001\n\026TSCGetUserStateRegular\022" +
-      "\r\n\005blood\030\001 \001(\005\022\014\n\004food\030\002 \001(\005\022\r\n\005water\030\003 " +
-      "\001(\005\022\016\n\006health\030\004 \001(\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006att" +
-      "ack\030\006 \001(\005\022\017\n\007defense\030\007 \001(\005\022\r\n\005agile\030\010 \001(",
-      "\005\022\r\n\005speed\030\t \001(\005\022\021\n\tintellect\030\n \001(\005\"\022\n\020T" +
-      "CSGetWorldEvent\"%\n\020TSCGetWorldEvent\022\021\n\tc" +
-      "onfigIds\030\001 \003(\005\"G\n\014TCSSellGoods\022\020\n\010config" +
-      "Id\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\022\025\n\rworldEventId" +
-      "s\030\003 \003(\005\"2\n\014TSCSellGoods\022\024\n\014isWorldEvent\030" +
-      "\001 \001(\010\022\014\n\004gold\030\002 \001(\005B\002H\001"
+      "d\030\t \001(\005\022\021\n\tintellect\030\n \001(\005\022\024\n\014contributi" +
+      "on\030\013 \001(\005\"\030\n\026TCSGetUserStateRegular\"\312\001\n\026T" +
+      "SCGetUserStateRegular\022\r\n\005blood\030\001 \001(\005\022\014\n\004" +
+      "food\030\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006health\030\004 \001(" +
+      "\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007defen",
+      "se\030\007 \001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t \001(\005\022\021" +
+      "\n\tintellect\030\n \001(\005\022\024\n\014contribution\030\013 \001(\005\"" +
+      "\022\n\020TCSGetWorldEvent\"%\n\020TSCGetWorldEvent\022" +
+      "\021\n\tconfigIds\030\001 \003(\005\"G\n\014TCSSellGoods\022\020\n\010co" +
+      "nfigId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\022\025\n\rworldEve" +
+      "ntIds\030\003 \003(\005\"2\n\014TSCSellGoods\022\024\n\014isWorldEv" +
+      "ent\030\001 \001(\010\022\014\n\004gold\030\002 \001(\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -9524,7 +9751,7 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCGetUserState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetUserState_descriptor,
-              new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", });
+              new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Contribution", });
           internal_static_com_game_framework_protocol_TCSGetUserStateRegular_descriptor =
             getDescriptor().getMessageTypes().get(8);
           internal_static_com_game_framework_protocol_TCSGetUserStateRegular_fieldAccessorTable = new
@@ -9536,7 +9763,7 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCGetUserStateRegular_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetUserStateRegular_descriptor,
-              new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", });
+              new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Contribution", });
           internal_static_com_game_framework_protocol_TCSGetWorldEvent_descriptor =
             getDescriptor().getMessageTypes().get(10);
           internal_static_com_game_framework_protocol_TCSGetWorldEvent_fieldAccessorTable = new

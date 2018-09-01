@@ -117,6 +117,7 @@ public class SceneServiceImpl implements SceneService {
         }
         TSCGetSceneInfo p = TSCGetSceneInfo.newBuilder()
                 .addAllBuildingInfos(buildingInfos)
+                .setTotalContribution(group.getTotalContribution())
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
@@ -651,12 +652,10 @@ public class SceneServiceImpl implements SceneService {
                 resourceInfoBuilder.setNumber(number + resourceInfoBuilder.getNumber());
                 userResourceBuilder.setResourceInfos(resourceIndex, resourceInfoBuilder);
             } else {
-                List<ResourceInfo> resourceInfos = userResourceBuilder.getResourceInfosList();
                 resourceInfoBuilder = ResourceInfo.newBuilder()
                         .setConfigId(productionConfigId)
                         .setNumber(number);
-                resourceInfos.add(resourceInfoBuilder.build());
-                userResourceBuilder.addAllResourceInfos(resourceInfos);
+                userResourceBuilder.addResourceInfos(resourceInfoBuilder);
             }
             user.setResource(userResourceBuilder.build().toByteArray());
             userDao.update(user);

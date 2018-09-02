@@ -11,7 +11,7 @@ public interface RoomService {
 	TPacket applyGroup(Long uid, Long groupId) throws Exception;
 
 	/** 工会总数 */
-	TPacket getGroupPageCount(Long uid, Long groupId) throws Exception;
+	TPacket getGroupPageCount(Long uid) throws Exception;
 
 	/** 工会排名 */
 	TPacket getGroupRanking(Long uid, Integer currentPage) throws Exception;

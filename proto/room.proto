@@ -22,8 +22,7 @@ message TSCApplyGroup {
 }
 
 message TCSGetGroupPageCount {
-	// 工会Id
-	optional int64 groupId = 1;
+
 }
 message TSCGetGroupPageCount {
 	// 页数

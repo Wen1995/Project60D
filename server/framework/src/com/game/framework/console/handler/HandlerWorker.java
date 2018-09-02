@@ -75,14 +75,11 @@ public class HandlerWorker implements EventHandler<ObjectEvent> {
 
                 byte err = Error.SERVER_ERR_VALUE;
 
-                Throwable te1 = e.getTargetException();
-                if (te1 instanceof InvocationTargetException) {
-                    Throwable te2 = getRootException((InvocationTargetException) te1);
-                    if (te2 instanceof BaseException) {
-                        BaseException be = (BaseException) te2;
-                        err = (byte) be.getErrrorCode();
-                        logger.error("BaseException: {}", be.getMessage());
-                    }
+                Throwable te = e.getTargetException();
+                if (te instanceof BaseException) {
+                    BaseException be = (BaseException) te;
+                    err = (byte) be.getErrrorCode();
+                    logger.error("BaseException: {}", be.getMessage());
                 }
 
                 if (err == Error.SERVER_ERR_VALUE) {
@@ -105,14 +102,6 @@ public class HandlerWorker implements EventHandler<ObjectEvent> {
                 GateServer.GetInstance().send(errPacket);
             }
         }
-    }
-
-    public Throwable getRootException(InvocationTargetException e) {
-        Throwable e2 = e.getTargetException();
-        if (e2 instanceof InvocationTargetException) {
-            return getRootException((InvocationTargetException) e2);
-        }
-        return e2;
     }
 
     public void clearStatus() {

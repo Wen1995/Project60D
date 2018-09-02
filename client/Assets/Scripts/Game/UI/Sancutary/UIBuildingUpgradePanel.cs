@@ -69,7 +69,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 	{
 		NBuildingInfo info = sanctuaryPackage.GetSelectionBuildingInfo();
 		BUILDING configData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
-		titleLabel.text = string.Format("{0}升级", configData.BldgName);
+		titleLabel.text = string.Format("{0}  升级", configData.BldgName);
 		preLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID));
 		nextLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID + 1));
 		//show cost
@@ -77,7 +77,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 		NDictionary args = new NDictionary();
 		args.Add("strength", strength);
 		int level = (int)FacadeSingleton.Instance.InvokeService("GetManorLevelByStrength", ConstVal.Service_Sanctuary, args);
-		levelLabel.text = string.Format("等级限制:{0}", level);
+		levelLabel.text = string.Format("等级限制: {0}", level);
 		int curLevel = userPackage.GetManorLevel();
 		if(level > curLevel)
 			levelLabel.color = Color.red;
@@ -99,9 +99,10 @@ public class UIBuildingUpgradePanel : PanelBase {
 			if(itemConfigId == 0) continue;
 			int num = configData.GetCostTable(i).CostQty;
 			ITEM_RES itemData = itemPackage.GetItemDataByConfigID(itemConfigId);
-			costCellList[count].title.text = itemData.MinName + ":";
-			costCellList[count].value.text = num.ToString();
 			NItemInfo itemInfo = itemPackage.GetItemInfo(itemConfigId);
+			int curNum = itemInfo == null ? 0 : itemInfo.number;
+			costCellList[count].title.text = itemData.MinName + ": ";
+			costCellList[count].value.text = string.Format("{0} / {1}", num.ToString(), curNum);
 			if(itemInfo == null || itemInfo.number < num)
 			{
 				costCellList[count].title.color = Color.red;

@@ -60,7 +60,7 @@ public class UIBuildingInteractionPanel : PanelBase{
         
         if(info != null)
         {
-            nameLabel.text = string.Format("{0}Lv.{1}"
+            nameLabel.text = string.Format("{0}  Lv.{1}"
         , sanctuaryPackage.GetBuildingNameByType(selectBuilding.buildingType)
         , sanctuaryPackage.GetBulidingLevelByConfigID(info.configID));
         funcType = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);

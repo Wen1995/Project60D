@@ -152,6 +152,13 @@ public class SanctuaryPackage : ModelBase {
         return mBuildingInfoMap[selectionBuilding.BuildingID];
     }
 
+    public void ClearBuildingCollect(Building buidling)
+    {
+        NBuildingInfo info = mBuildingInfoMap[buidling.BuildingID];
+        info.number = 0;
+        info.building.RefreshView();
+    }
+
     #region Acess Data
     public Building GetSelectionBuilding()
     {
@@ -256,8 +263,8 @@ public class SanctuaryPackage : ModelBase {
             Debug.Log(string.Format("buidingID={0} not exist"));
             return;
         }
-        info.number = 0;
-        info.building.RefreshView();
+        // info.number = 0;
+        // info.building.RefreshView();
     }
 
     public void CancelCraft(long buildingID)

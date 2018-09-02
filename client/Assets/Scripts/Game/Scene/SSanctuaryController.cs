@@ -39,6 +39,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UITradePanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIInvadeResultPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIBuildingUpgradePanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UITipsPanel", "Prefabs/UI/Common", 11000, PanelAnchor.Top);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
@@ -95,6 +96,7 @@ public class SSanctuaryController : SceneController
             NDictionary args = new NDictionary();
             args.Add("buildingID", building.BuildingID);
             FacadeSingleton.Instance.InvokeService("RPCReceive", ConstVal.Service_Sanctuary, args);
+            sanctuaryPackage.ClearBuildingCollect(building);
         }
         else
             FacadeSingleton.Instance.OverlayerPanel("UIBuildingInteractionPanel");
@@ -215,13 +217,11 @@ public class SSanctuaryController : SceneController
             SendEvent("RefreshCraftPanel");
         Debug.Log(string.Format("buildingID{0} collect res type={1}, num={2}", buildingID, itemPackage.GetItemTypeByConfigID(configID), num));
         ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(configID);
-        string title = "获得资源";
-        string content = string.Format("获得{0}x{1}", itemConfig.MinName, num);
+        FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
         NDictionary data = new NDictionary();
-        data.Add("title", title);
+        string content = string.Format("获得{0} x {1}", itemConfig.MinName, num);
         data.Add("content", content);
-        FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
-        FacadeSingleton.Instance.SendEvent("OpenMsgBox", data);
+        FacadeSingleton.Instance.SendEvent("OpenTips", data);
         FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
     }
 

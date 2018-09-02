@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
 import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.console.exception.BaseException;
 import com.game.framework.dbcache.dao.IUserDao;
@@ -24,7 +23,6 @@ import com.game.framework.task.TimerManager;
 import com.game.framework.utils.ReadOnlyMap;
 import com.game.framework.utils.StringUtil;
 
-@Service
 public class LoginServiceImpl implements LoginService {
     @Resource
     private IUserDao userDao;

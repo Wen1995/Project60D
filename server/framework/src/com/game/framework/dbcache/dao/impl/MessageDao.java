@@ -1,7 +1,6 @@
 package com.game.framework.dbcache.dao.impl;
 
 import java.util.List;
-import org.springframework.stereotype.Repository;
 import com.game.framework.console.constant.Constant;
 import com.game.framework.dbcache.base.BaseDao;
 import com.game.framework.dbcache.dao.IMessageDao;
@@ -10,7 +9,6 @@ import com.game.framework.dbcache.model.MessageExample;
 import com.game.framework.dbcache.model.MessageMapper;
 import com.github.pagehelper.PageHelper;
 
-@Repository
 public class MessageDao extends BaseDao<Message, MessageMapper, MessageExample> implements IMessageDao {
 
     @Override

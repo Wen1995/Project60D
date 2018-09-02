@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
 import com.game.framework.console.GateServer;
 import com.game.framework.console.constant.Constant;
 import com.game.framework.console.constant.TimerConstant;
@@ -51,7 +50,6 @@ import com.game.framework.utils.MapUtil;
 import com.game.framework.utils.ReadOnlyMap;
 import com.game.framework.utils.UserUtil;
 
-@Service
 public class FightingServiceImpl implements FightingService {
     @Resource
     private IUserDao userDao;

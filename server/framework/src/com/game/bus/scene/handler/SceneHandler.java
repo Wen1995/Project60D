@@ -6,7 +6,6 @@ import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.console.constant.HandlerConstant;
 import com.game.framework.console.disruptor.TPacket;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Controller;
 import com.game.framework.console.GateServer;
 import com.game.bus.scene.service.SceneService;
 import com.game.framework.protocol.Scene.TCSGetSceneInfo;
@@ -19,7 +18,6 @@ import com.game.framework.protocol.Scene.TCSReceive;
 import com.game.framework.protocol.Scene.TCSProcess;
 import com.game.framework.protocol.Scene.TCSInterruptProcess;
 
-@Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Bus, module = HandlerConstant.Model_Scene)
 public class SceneHandler {
 	@Resource

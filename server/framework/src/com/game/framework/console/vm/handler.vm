@@ -9,7 +9,6 @@ import com.game.framework.console.disruptor.TPacket;
 import java.util.List;
 #end
 import javax.annotation.Resource;
-import org.springframework.stereotype.Controller;
 #if(${haveServer} == "true")
 import com.game.framework.console.GateServer;
 #end
@@ -24,7 +23,6 @@ import com.game.framework.protocol.${model}.TCS${attr[1]};
 import com.game.framework.protocol.${model}.${attr};
 #end
 
-@Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_${bigHandlerGroup}, module = HandlerConstant.Model_${model})
 public class ${model}Handler {
 	@Resource

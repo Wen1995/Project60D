@@ -24,7 +24,7 @@ import com.game.framework.protocol.Fighting.TCSZombieInvade;
 import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.resource.StaticDataManager;
 import com.game.framework.resource.data.ArithmeticCoefficientBytes.ARITHMETIC_COEFFICIENT;
-import com.game.framework.socket.MessageHandler;
+import com.game.framework.socket.MessageDealHandler;
 import com.game.framework.utils.ReadOnlyMap;
 import io.netty.channel.Channel;
 
@@ -87,7 +87,7 @@ public class TimerManager {
                         hashChannels.remove(channel);
                         iterator.remove();
                         uid2HeartTime.remove(entry.getKey());
-                        logger.info("Client Disconnect Ip[{}]", MessageHandler.getIP(channel));
+                        logger.info("Client Disconnect Ip[{}]", MessageDealHandler.getIP(channel));
                         logger.info("Client Disconnect User[{}]", uid);
 
                         User user = userDao.get(uid);

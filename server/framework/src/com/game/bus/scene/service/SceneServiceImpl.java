@@ -3,7 +3,6 @@ package com.game.bus.scene.service;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
 import com.game.framework.console.constant.Constant;
 import com.game.framework.console.constant.TimerConstant;
 import com.game.framework.console.disruptor.TPacket;
@@ -43,7 +42,6 @@ import com.game.framework.task.TimerManager;
 import com.game.framework.utils.BuildingUtil;
 import com.game.framework.utils.ReadOnlyMap;
 
-@Service
 public class SceneServiceImpl implements SceneService {
     @Resource
     private IUserDao userDao;

@@ -6,7 +6,6 @@ import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.console.constant.HandlerConstant;
 import com.game.framework.console.disruptor.TPacket;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Controller;
 import com.game.framework.console.GateServer;
 import com.game.init.login.service.LoginService;
 import com.game.framework.protocol.Login.TCSHeart;
@@ -14,7 +13,6 @@ import io.netty.channel.Channel;
 import com.game.framework.protocol.Login.TCSLogin;
 import com.game.framework.protocol.Login.TCSLogout;
 
-@Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Init, module = HandlerConstant.Model_Login)
 public class LoginHandler {
 	@Resource

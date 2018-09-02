@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
 import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.dbcache.dao.IBuildingDao;
 import com.game.framework.dbcache.dao.IGroupDao;
@@ -28,7 +27,6 @@ import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.game.framework.utils.BuildingUtil;
 import com.game.framework.utils.ReadOnlyMap;
 
-@Service
 public class RoomServiceImpl implements RoomService {
     @Resource
     private IUserDao userDao;

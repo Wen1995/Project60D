@@ -13,8 +13,8 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.ChannelHandler.Sharable;
 
 @Sharable
-public class MessageHandler extends ChannelInboundHandlerAdapter {
-    private static Logger logger = LoggerFactory.getLogger(MessageHandler.class);
+public class MessageDealHandler extends ChannelInboundHandlerAdapter {
+    private static Logger logger = LoggerFactory.getLogger(MessageDealHandler.class);
     
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

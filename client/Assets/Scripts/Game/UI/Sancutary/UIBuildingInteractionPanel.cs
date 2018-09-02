@@ -142,6 +142,15 @@ public class UIBuildingInteractionPanel : PanelBase{
     {
         NDictionary args = new NDictionary();
         NBuildingInfo buildingInfo = sanctuaryPackage.GetBuildingInfo(selectBuilding.BuildingID);
+        if(sanctuaryPackage.GetBulidingLevelByConfigID(buildingInfo.configID) >= 20)
+        {
+            NDictionary data = new NDictionary();
+            data.Add("title", "升级失败");
+            data.Add("content", "等级达到上限");
+            FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+            FacadeSingleton.Instance.SendEvent("OpenMsgBox", data);
+            return;
+        }
         args.Add("configID", buildingInfo.configID + 1);
         List<NItemInfo> costInfoList = FacadeSingleton.Instance.InvokeService("GetBuildingUpgradeCost", ConstVal.Service_Sanctuary, args) as List<NItemInfo>;
         FacadeSingleton.Instance.OverlayerPanel("UICostResPanel");

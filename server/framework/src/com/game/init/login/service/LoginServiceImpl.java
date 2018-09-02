@@ -30,8 +30,7 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public TPacket heart(Long uid) throws Exception {
         Long systemCurrentTime = System.currentTimeMillis();
-        Map<Long, Long> uid2HeartTime = DynamicDataManager.GetInstance().uid2HeartTime;
-        uid2HeartTime.put(uid, systemCurrentTime);
+        DynamicDataManager.GetInstance().uid2HeartTime.put(uid, systemCurrentTime);
         
         TSCHeart p = TSCHeart.newBuilder()
                 .setSystemCurrentTime(systemCurrentTime)
@@ -79,6 +78,7 @@ public class LoginServiceImpl implements LoginService {
             account2Id.put(account, uid);
         }
         
+        DynamicDataManager.GetInstance().uid2GroupId.put(uid, groupId);
         TSCLogin p = TSCLogin.newBuilder()
                 .setUid(uid)
                 .setSystemCurrentTime(System.currentTimeMillis())

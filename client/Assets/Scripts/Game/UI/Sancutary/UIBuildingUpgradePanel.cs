@@ -69,6 +69,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 	{
 		NBuildingInfo info = sanctuaryPackage.GetSelectionBuildingInfo();
 		BUILDING configData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
+		BUILDING nextConfigData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID + 1);
 		titleLabel.text = string.Format("{0}  升级", configData.BldgName);
 		preLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID));
 		nextLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID + 1));
@@ -84,7 +85,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 		else
 			levelLabel.color = Color.white;
 		//levelLabel.text
-		ShowCost(configData);
+		ShowCost(nextConfigData);
 		//show upgrade effect
 		ShowUpgradeEffect(info);
 	}

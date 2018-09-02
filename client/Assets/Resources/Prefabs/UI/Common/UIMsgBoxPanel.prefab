@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65534776586030634}
   - component: {fileID: 114205245017301352}
   m_Layer: 5
-  m_Name: confirm
+  m_Name: 01confirm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 65157582782718264}
   - component: {fileID: 114139630109341646}
   m_Layer: 5
-  m_Name: cancel
+  m_Name: 02cancel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,11 +490,11 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mWidth: 175
   mHeight: 55
-  mDepth: 0
+  mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -635,18 +635,18 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 1
   mWidth: 459
-  mHeight: 38
+  mHeight: 24
   mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 12.078947
+  aspectRatio: 19.125
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
   mText: content
-  mFontSize: 38
+  mFontSize: 24
   mFontStyle: 0
   mAlignment: 2
   mEncoding: 1
@@ -724,7 +724,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114941413815276036, guid: 07bf9f15629c9404c851b6516671288d, type: 2}
-  mSpriteName: Blue-Button-Outline
+  mSpriteName: White-Basic-List-Background
   mFillCenter: 1
 --- !u!114 &114649842971023166
 MonoBehaviour:
@@ -754,11 +754,11 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 1}
   mPivot: 4
   mWidth: 175
   mHeight: 55
-  mDepth: 0
+  mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -824,15 +824,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 640
+  mWidth: 600
   mHeight: 370
   mDepth: 0
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.7297298
-  mType: 0
+  aspectRatio: 1.6216216
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -846,7 +846,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114941413815276036, guid: 07bf9f15629c9404c851b6516671288d, type: 2}
-  mSpriteName: Blue-Outline
+  mSpriteName: Black-Button
   mFillCenter: 1
 --- !u!114 &114759674313364558
 MonoBehaviour:
@@ -978,7 +978,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114941413815276036, guid: 07bf9f15629c9404c851b6516671288d, type: 2}
-  mSpriteName: Blue-Button-Outline
+  mSpriteName: White-Basic-List-Background
   mFillCenter: 1
 --- !u!114 &114874617232630418
 MonoBehaviour:
@@ -1009,6 +1009,6 @@ MonoBehaviour:
   cellWidth: 250
   cellHeight: 200
   animateSmoothly: 0
-  hideInactive: 0
+  hideInactive: 1
   keepWithinPanel: 0
   sorted: 0

@@ -30,7 +30,33 @@ public final class PlayerAttrBytes {
     int getId();
 
     /**
-     * <code>optional int32 begin_num = 2 [default = 0];</code>
+     * <code>optional string player_attrkey = 2 [default = ""];</code>
+     *
+     * <pre>
+     **  
+     * </pre>
+     */
+    boolean hasPlayerAttrkey();
+    /**
+     * <code>optional string player_attrkey = 2 [default = ""];</code>
+     *
+     * <pre>
+     **  
+     * </pre>
+     */
+    java.lang.String getPlayerAttrkey();
+    /**
+     * <code>optional string player_attrkey = 2 [default = ""];</code>
+     *
+     * <pre>
+     **  
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getPlayerAttrkeyBytes();
+
+    /**
+     * <code>optional int32 begin_num = 3 [default = 0];</code>
      *
      * <pre>
      ** 初始 
@@ -38,7 +64,7 @@ public final class PlayerAttrBytes {
      */
     boolean hasBeginNum();
     /**
-     * <code>optional int32 begin_num = 2 [default = 0];</code>
+     * <code>optional int32 begin_num = 3 [default = 0];</code>
      *
      * <pre>
      ** 初始 
@@ -47,7 +73,7 @@ public final class PlayerAttrBytes {
     int getBeginNum();
 
     /**
-     * <code>optional int32 attr_k1 = 3 [default = 0];</code>
+     * <code>optional int32 attr_k1 = 4 [default = 0];</code>
      *
      * <pre>
      ** 值算法k1*100 
@@ -55,7 +81,7 @@ public final class PlayerAttrBytes {
      */
     boolean hasAttrK1();
     /**
-     * <code>optional int32 attr_k1 = 3 [default = 0];</code>
+     * <code>optional int32 attr_k1 = 4 [default = 0];</code>
      *
      * <pre>
      ** 值算法k1*100 
@@ -64,7 +90,7 @@ public final class PlayerAttrBytes {
     int getAttrK1();
 
     /**
-     * <code>optional int32 attr_k2 = 4 [default = 0];</code>
+     * <code>optional int32 attr_k2 = 5 [default = 0];</code>
      *
      * <pre>
      ** 值算法k2*100 
@@ -72,7 +98,7 @@ public final class PlayerAttrBytes {
      */
     boolean hasAttrK2();
     /**
-     * <code>optional int32 attr_k2 = 4 [default = 0];</code>
+     * <code>optional int32 attr_k2 = 5 [default = 0];</code>
      *
      * <pre>
      ** 值算法k2*100 
@@ -81,7 +107,7 @@ public final class PlayerAttrBytes {
     int getAttrK2();
 
     /**
-     * <code>optional int32 rec_k1 = 5 [default = 0];</code>
+     * <code>optional int32 rec_k1 = 6 [default = 0];</code>
      *
      * <pre>
      ** 系数k1 
@@ -89,7 +115,7 @@ public final class PlayerAttrBytes {
      */
     boolean hasRecK1();
     /**
-     * <code>optional int32 rec_k1 = 5 [default = 0];</code>
+     * <code>optional int32 rec_k1 = 6 [default = 0];</code>
      *
      * <pre>
      ** 系数k1 
@@ -98,7 +124,7 @@ public final class PlayerAttrBytes {
     int getRecK1();
 
     /**
-     * <code>optional int32 lim_real = 6 [default = 0];</code>
+     * <code>optional int32 lim_real = 7 [default = 0];</code>
      *
      * <pre>
      ** 上限*100 
@@ -106,7 +132,7 @@ public final class PlayerAttrBytes {
      */
     boolean hasLimReal();
     /**
-     * <code>optional int32 lim_real = 6 [default = 0];</code>
+     * <code>optional int32 lim_real = 7 [default = 0];</code>
      *
      * <pre>
      ** 上限*100 
@@ -115,7 +141,7 @@ public final class PlayerAttrBytes {
     int getLimReal();
 
     /**
-     * <code>optional int32 lim_k1 = 7 [default = 0];</code>
+     * <code>optional int32 lim_k1 = 8 [default = 0];</code>
      *
      * <pre>
      ** 系数k1*100 
@@ -123,7 +149,7 @@ public final class PlayerAttrBytes {
      */
     boolean hasLimK1();
     /**
-     * <code>optional int32 lim_k1 = 7 [default = 0];</code>
+     * <code>optional int32 lim_k1 = 8 [default = 0];</code>
      *
      * <pre>
      ** 系数k1*100 
@@ -132,7 +158,7 @@ public final class PlayerAttrBytes {
     int getLimK1();
 
     /**
-     * <code>optional int32 lim_k2 = 8 [default = 0];</code>
+     * <code>optional int32 lim_k2 = 9 [default = 0];</code>
      *
      * <pre>
      ** 系数k2*100 
@@ -140,7 +166,7 @@ public final class PlayerAttrBytes {
      */
     boolean hasLimK2();
     /**
-     * <code>optional int32 lim_k2 = 8 [default = 0];</code>
+     * <code>optional int32 lim_k2 = 9 [default = 0];</code>
      *
      * <pre>
      ** 系数k2*100 
@@ -149,7 +175,7 @@ public final class PlayerAttrBytes {
     int getLimK2();
 
     /**
-     * <code>optional int32 spc_k1 = 9 [default = 0];</code>
+     * <code>optional int32 spc_k1 = 10 [default = 0];</code>
      *
      * <pre>
      ** 系数k1*100 
@@ -157,7 +183,7 @@ public final class PlayerAttrBytes {
      */
     boolean hasSpcK1();
     /**
-     * <code>optional int32 spc_k1 = 9 [default = 0];</code>
+     * <code>optional int32 spc_k1 = 10 [default = 0];</code>
      *
      * <pre>
      ** 系数k1*100 
@@ -166,7 +192,7 @@ public final class PlayerAttrBytes {
     int getSpcK1();
 
     /**
-     * <code>optional int32 spc_k2 = 10 [default = 0];</code>
+     * <code>optional int32 spc_k2 = 11 [default = 0];</code>
      *
      * <pre>
      ** 系数k2*100 
@@ -174,7 +200,7 @@ public final class PlayerAttrBytes {
      */
     boolean hasSpcK2();
     /**
-     * <code>optional int32 spc_k2 = 10 [default = 0];</code>
+     * <code>optional int32 spc_k2 = 11 [default = 0];</code>
      *
      * <pre>
      ** 系数k2*100 
@@ -239,48 +265,54 @@ public final class PlayerAttrBytes {
               id_ = input.readInt32();
               break;
             }
-            case 16: {
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              beginNum_ = input.readInt32();
+              playerAttrkey_ = bs;
               break;
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              attrK1_ = input.readInt32();
+              beginNum_ = input.readInt32();
               break;
             }
             case 32: {
               bitField0_ |= 0x00000008;
-              attrK2_ = input.readInt32();
+              attrK1_ = input.readInt32();
               break;
             }
             case 40: {
               bitField0_ |= 0x00000010;
-              recK1_ = input.readInt32();
+              attrK2_ = input.readInt32();
               break;
             }
             case 48: {
               bitField0_ |= 0x00000020;
-              limReal_ = input.readInt32();
+              recK1_ = input.readInt32();
               break;
             }
             case 56: {
               bitField0_ |= 0x00000040;
-              limK1_ = input.readInt32();
+              limReal_ = input.readInt32();
               break;
             }
             case 64: {
               bitField0_ |= 0x00000080;
-              limK2_ = input.readInt32();
+              limK1_ = input.readInt32();
               break;
             }
             case 72: {
               bitField0_ |= 0x00000100;
-              spcK1_ = input.readInt32();
+              limK2_ = input.readInt32();
               break;
             }
             case 80: {
               bitField0_ |= 0x00000200;
+              spcK1_ = input.readInt32();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
               spcK2_ = input.readInt32();
               break;
             }
@@ -347,20 +379,74 @@ public final class PlayerAttrBytes {
       return id_;
     }
 
-    public static final int BEGIN_NUM_FIELD_NUMBER = 2;
+    public static final int PLAYER_ATTRKEY_FIELD_NUMBER = 2;
+    private java.lang.Object playerAttrkey_;
+    /**
+     * <code>optional string player_attrkey = 2 [default = ""];</code>
+     *
+     * <pre>
+     **  
+     * </pre>
+     */
+    public boolean hasPlayerAttrkey() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string player_attrkey = 2 [default = ""];</code>
+     *
+     * <pre>
+     **  
+     * </pre>
+     */
+    public java.lang.String getPlayerAttrkey() {
+      java.lang.Object ref = playerAttrkey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          playerAttrkey_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string player_attrkey = 2 [default = ""];</code>
+     *
+     * <pre>
+     **  
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getPlayerAttrkeyBytes() {
+      java.lang.Object ref = playerAttrkey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        playerAttrkey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BEGIN_NUM_FIELD_NUMBER = 3;
     private int beginNum_;
     /**
-     * <code>optional int32 begin_num = 2 [default = 0];</code>
+     * <code>optional int32 begin_num = 3 [default = 0];</code>
      *
      * <pre>
      ** 初始 
      * </pre>
      */
     public boolean hasBeginNum() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 begin_num = 2 [default = 0];</code>
+     * <code>optional int32 begin_num = 3 [default = 0];</code>
      *
      * <pre>
      ** 初始 
@@ -370,20 +456,20 @@ public final class PlayerAttrBytes {
       return beginNum_;
     }
 
-    public static final int ATTR_K1_FIELD_NUMBER = 3;
+    public static final int ATTR_K1_FIELD_NUMBER = 4;
     private int attrK1_;
     /**
-     * <code>optional int32 attr_k1 = 3 [default = 0];</code>
+     * <code>optional int32 attr_k1 = 4 [default = 0];</code>
      *
      * <pre>
      ** 值算法k1*100 
      * </pre>
      */
     public boolean hasAttrK1() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional int32 attr_k1 = 3 [default = 0];</code>
+     * <code>optional int32 attr_k1 = 4 [default = 0];</code>
      *
      * <pre>
      ** 值算法k1*100 
@@ -393,20 +479,20 @@ public final class PlayerAttrBytes {
       return attrK1_;
     }
 
-    public static final int ATTR_K2_FIELD_NUMBER = 4;
+    public static final int ATTR_K2_FIELD_NUMBER = 5;
     private int attrK2_;
     /**
-     * <code>optional int32 attr_k2 = 4 [default = 0];</code>
+     * <code>optional int32 attr_k2 = 5 [default = 0];</code>
      *
      * <pre>
      ** 值算法k2*100 
      * </pre>
      */
     public boolean hasAttrK2() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional int32 attr_k2 = 4 [default = 0];</code>
+     * <code>optional int32 attr_k2 = 5 [default = 0];</code>
      *
      * <pre>
      ** 值算法k2*100 
@@ -416,20 +502,20 @@ public final class PlayerAttrBytes {
       return attrK2_;
     }
 
-    public static final int REC_K1_FIELD_NUMBER = 5;
+    public static final int REC_K1_FIELD_NUMBER = 6;
     private int recK1_;
     /**
-     * <code>optional int32 rec_k1 = 5 [default = 0];</code>
+     * <code>optional int32 rec_k1 = 6 [default = 0];</code>
      *
      * <pre>
      ** 系数k1 
      * </pre>
      */
     public boolean hasRecK1() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional int32 rec_k1 = 5 [default = 0];</code>
+     * <code>optional int32 rec_k1 = 6 [default = 0];</code>
      *
      * <pre>
      ** 系数k1 
@@ -439,20 +525,20 @@ public final class PlayerAttrBytes {
       return recK1_;
     }
 
-    public static final int LIM_REAL_FIELD_NUMBER = 6;
+    public static final int LIM_REAL_FIELD_NUMBER = 7;
     private int limReal_;
     /**
-     * <code>optional int32 lim_real = 6 [default = 0];</code>
+     * <code>optional int32 lim_real = 7 [default = 0];</code>
      *
      * <pre>
      ** 上限*100 
      * </pre>
      */
     public boolean hasLimReal() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional int32 lim_real = 6 [default = 0];</code>
+     * <code>optional int32 lim_real = 7 [default = 0];</code>
      *
      * <pre>
      ** 上限*100 
@@ -462,20 +548,20 @@ public final class PlayerAttrBytes {
       return limReal_;
     }
 
-    public static final int LIM_K1_FIELD_NUMBER = 7;
+    public static final int LIM_K1_FIELD_NUMBER = 8;
     private int limK1_;
     /**
-     * <code>optional int32 lim_k1 = 7 [default = 0];</code>
+     * <code>optional int32 lim_k1 = 8 [default = 0];</code>
      *
      * <pre>
      ** 系数k1*100 
      * </pre>
      */
     public boolean hasLimK1() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional int32 lim_k1 = 7 [default = 0];</code>
+     * <code>optional int32 lim_k1 = 8 [default = 0];</code>
      *
      * <pre>
      ** 系数k1*100 
@@ -485,20 +571,20 @@ public final class PlayerAttrBytes {
       return limK1_;
     }
 
-    public static final int LIM_K2_FIELD_NUMBER = 8;
+    public static final int LIM_K2_FIELD_NUMBER = 9;
     private int limK2_;
     /**
-     * <code>optional int32 lim_k2 = 8 [default = 0];</code>
+     * <code>optional int32 lim_k2 = 9 [default = 0];</code>
      *
      * <pre>
      ** 系数k2*100 
      * </pre>
      */
     public boolean hasLimK2() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional int32 lim_k2 = 8 [default = 0];</code>
+     * <code>optional int32 lim_k2 = 9 [default = 0];</code>
      *
      * <pre>
      ** 系数k2*100 
@@ -508,20 +594,20 @@ public final class PlayerAttrBytes {
       return limK2_;
     }
 
-    public static final int SPC_K1_FIELD_NUMBER = 9;
+    public static final int SPC_K1_FIELD_NUMBER = 10;
     private int spcK1_;
     /**
-     * <code>optional int32 spc_k1 = 9 [default = 0];</code>
+     * <code>optional int32 spc_k1 = 10 [default = 0];</code>
      *
      * <pre>
      ** 系数k1*100 
      * </pre>
      */
     public boolean hasSpcK1() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional int32 spc_k1 = 9 [default = 0];</code>
+     * <code>optional int32 spc_k1 = 10 [default = 0];</code>
      *
      * <pre>
      ** 系数k1*100 
@@ -531,20 +617,20 @@ public final class PlayerAttrBytes {
       return spcK1_;
     }
 
-    public static final int SPC_K2_FIELD_NUMBER = 10;
+    public static final int SPC_K2_FIELD_NUMBER = 11;
     private int spcK2_;
     /**
-     * <code>optional int32 spc_k2 = 10 [default = 0];</code>
+     * <code>optional int32 spc_k2 = 11 [default = 0];</code>
      *
      * <pre>
      ** 系数k2*100 
      * </pre>
      */
     public boolean hasSpcK2() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional int32 spc_k2 = 10 [default = 0];</code>
+     * <code>optional int32 spc_k2 = 11 [default = 0];</code>
      *
      * <pre>
      ** 系数k2*100 
@@ -556,6 +642,7 @@ public final class PlayerAttrBytes {
 
     private void initFields() {
       id_ = 0;
+      playerAttrkey_ = "";
       beginNum_ = 0;
       attrK1_ = 0;
       attrK2_ = 0;
@@ -587,31 +674,34 @@ public final class PlayerAttrBytes {
         output.writeInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, beginNum_);
+        output.writeBytes(2, getPlayerAttrkeyBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, attrK1_);
+        output.writeInt32(3, beginNum_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(4, attrK2_);
+        output.writeInt32(4, attrK1_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, recK1_);
+        output.writeInt32(5, attrK2_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeInt32(6, limReal_);
+        output.writeInt32(6, recK1_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeInt32(7, limK1_);
+        output.writeInt32(7, limReal_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeInt32(8, limK2_);
+        output.writeInt32(8, limK1_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeInt32(9, spcK1_);
+        output.writeInt32(9, limK2_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeInt32(10, spcK2_);
+        output.writeInt32(10, spcK1_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeInt32(11, spcK2_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -628,39 +718,43 @@ public final class PlayerAttrBytes {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, beginNum_);
+          .computeBytesSize(2, getPlayerAttrkeyBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, attrK1_);
+          .computeInt32Size(3, beginNum_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, attrK2_);
+          .computeInt32Size(4, attrK1_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, recK1_);
+          .computeInt32Size(5, attrK2_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, limReal_);
+          .computeInt32Size(6, recK1_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, limK1_);
+          .computeInt32Size(7, limReal_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, limK2_);
+          .computeInt32Size(8, limK1_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, spcK1_);
+          .computeInt32Size(9, limK2_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, spcK2_);
+          .computeInt32Size(10, spcK1_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, spcK2_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -781,24 +875,26 @@ public final class PlayerAttrBytes {
         super.clear();
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        beginNum_ = 0;
+        playerAttrkey_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        attrK1_ = 0;
+        beginNum_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        attrK2_ = 0;
+        attrK1_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        recK1_ = 0;
+        attrK2_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
-        limReal_ = 0;
+        recK1_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
-        limK1_ = 0;
+        limReal_ = 0;
         bitField0_ = (bitField0_ & ~0x00000040);
-        limK2_ = 0;
+        limK1_ = 0;
         bitField0_ = (bitField0_ & ~0x00000080);
-        spcK1_ = 0;
+        limK2_ = 0;
         bitField0_ = (bitField0_ & ~0x00000100);
-        spcK2_ = 0;
+        spcK1_ = 0;
         bitField0_ = (bitField0_ & ~0x00000200);
+        spcK2_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -834,37 +930,41 @@ public final class PlayerAttrBytes {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.beginNum_ = beginNum_;
+        result.playerAttrkey_ = playerAttrkey_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.attrK1_ = attrK1_;
+        result.beginNum_ = beginNum_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.attrK2_ = attrK2_;
+        result.attrK1_ = attrK1_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.recK1_ = recK1_;
+        result.attrK2_ = attrK2_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.limReal_ = limReal_;
+        result.recK1_ = recK1_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.limK1_ = limK1_;
+        result.limReal_ = limReal_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.limK2_ = limK2_;
+        result.limK1_ = limK1_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.spcK1_ = spcK1_;
+        result.limK2_ = limK2_;
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000200;
+        }
+        result.spcK1_ = spcK1_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
         }
         result.spcK2_ = spcK2_;
         result.bitField0_ = to_bitField0_;
@@ -885,6 +985,11 @@ public final class PlayerAttrBytes {
         if (other == com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
+        }
+        if (other.hasPlayerAttrkey()) {
+          bitField0_ |= 0x00000002;
+          playerAttrkey_ = other.playerAttrkey_;
+          onChanged();
         }
         if (other.hasBeginNum()) {
           setBeginNum(other.getBeginNum());
@@ -992,19 +1097,119 @@ public final class PlayerAttrBytes {
         return this;
       }
 
+      private java.lang.Object playerAttrkey_ = "";
+      /**
+       * <code>optional string player_attrkey = 2 [default = ""];</code>
+       *
+       * <pre>
+       **  
+       * </pre>
+       */
+      public boolean hasPlayerAttrkey() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string player_attrkey = 2 [default = ""];</code>
+       *
+       * <pre>
+       **  
+       * </pre>
+       */
+      public java.lang.String getPlayerAttrkey() {
+        java.lang.Object ref = playerAttrkey_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            playerAttrkey_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string player_attrkey = 2 [default = ""];</code>
+       *
+       * <pre>
+       **  
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getPlayerAttrkeyBytes() {
+        java.lang.Object ref = playerAttrkey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          playerAttrkey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string player_attrkey = 2 [default = ""];</code>
+       *
+       * <pre>
+       **  
+       * </pre>
+       */
+      public Builder setPlayerAttrkey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        playerAttrkey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string player_attrkey = 2 [default = ""];</code>
+       *
+       * <pre>
+       **  
+       * </pre>
+       */
+      public Builder clearPlayerAttrkey() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        playerAttrkey_ = getDefaultInstance().getPlayerAttrkey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string player_attrkey = 2 [default = ""];</code>
+       *
+       * <pre>
+       **  
+       * </pre>
+       */
+      public Builder setPlayerAttrkeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        playerAttrkey_ = value;
+        onChanged();
+        return this;
+      }
+
       private int beginNum_ ;
       /**
-       * <code>optional int32 begin_num = 2 [default = 0];</code>
+       * <code>optional int32 begin_num = 3 [default = 0];</code>
        *
        * <pre>
        ** 初始 
        * </pre>
        */
       public boolean hasBeginNum() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 begin_num = 2 [default = 0];</code>
+       * <code>optional int32 begin_num = 3 [default = 0];</code>
        *
        * <pre>
        ** 初始 
@@ -1014,27 +1219,27 @@ public final class PlayerAttrBytes {
         return beginNum_;
       }
       /**
-       * <code>optional int32 begin_num = 2 [default = 0];</code>
+       * <code>optional int32 begin_num = 3 [default = 0];</code>
        *
        * <pre>
        ** 初始 
        * </pre>
        */
       public Builder setBeginNum(int value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         beginNum_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 begin_num = 2 [default = 0];</code>
+       * <code>optional int32 begin_num = 3 [default = 0];</code>
        *
        * <pre>
        ** 初始 
        * </pre>
        */
       public Builder clearBeginNum() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         beginNum_ = 0;
         onChanged();
         return this;
@@ -1042,17 +1247,17 @@ public final class PlayerAttrBytes {
 
       private int attrK1_ ;
       /**
-       * <code>optional int32 attr_k1 = 3 [default = 0];</code>
+       * <code>optional int32 attr_k1 = 4 [default = 0];</code>
        *
        * <pre>
        ** 值算法k1*100 
        * </pre>
        */
       public boolean hasAttrK1() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional int32 attr_k1 = 3 [default = 0];</code>
+       * <code>optional int32 attr_k1 = 4 [default = 0];</code>
        *
        * <pre>
        ** 值算法k1*100 
@@ -1062,27 +1267,27 @@ public final class PlayerAttrBytes {
         return attrK1_;
       }
       /**
-       * <code>optional int32 attr_k1 = 3 [default = 0];</code>
+       * <code>optional int32 attr_k1 = 4 [default = 0];</code>
        *
        * <pre>
        ** 值算法k1*100 
        * </pre>
        */
       public Builder setAttrK1(int value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         attrK1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 attr_k1 = 3 [default = 0];</code>
+       * <code>optional int32 attr_k1 = 4 [default = 0];</code>
        *
        * <pre>
        ** 值算法k1*100 
        * </pre>
        */
       public Builder clearAttrK1() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         attrK1_ = 0;
         onChanged();
         return this;
@@ -1090,17 +1295,17 @@ public final class PlayerAttrBytes {
 
       private int attrK2_ ;
       /**
-       * <code>optional int32 attr_k2 = 4 [default = 0];</code>
+       * <code>optional int32 attr_k2 = 5 [default = 0];</code>
        *
        * <pre>
        ** 值算法k2*100 
        * </pre>
        */
       public boolean hasAttrK2() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional int32 attr_k2 = 4 [default = 0];</code>
+       * <code>optional int32 attr_k2 = 5 [default = 0];</code>
        *
        * <pre>
        ** 值算法k2*100 
@@ -1110,27 +1315,27 @@ public final class PlayerAttrBytes {
         return attrK2_;
       }
       /**
-       * <code>optional int32 attr_k2 = 4 [default = 0];</code>
+       * <code>optional int32 attr_k2 = 5 [default = 0];</code>
        *
        * <pre>
        ** 值算法k2*100 
        * </pre>
        */
       public Builder setAttrK2(int value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         attrK2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 attr_k2 = 4 [default = 0];</code>
+       * <code>optional int32 attr_k2 = 5 [default = 0];</code>
        *
        * <pre>
        ** 值算法k2*100 
        * </pre>
        */
       public Builder clearAttrK2() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         attrK2_ = 0;
         onChanged();
         return this;
@@ -1138,17 +1343,17 @@ public final class PlayerAttrBytes {
 
       private int recK1_ ;
       /**
-       * <code>optional int32 rec_k1 = 5 [default = 0];</code>
+       * <code>optional int32 rec_k1 = 6 [default = 0];</code>
        *
        * <pre>
        ** 系数k1 
        * </pre>
        */
       public boolean hasRecK1() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional int32 rec_k1 = 5 [default = 0];</code>
+       * <code>optional int32 rec_k1 = 6 [default = 0];</code>
        *
        * <pre>
        ** 系数k1 
@@ -1158,27 +1363,27 @@ public final class PlayerAttrBytes {
         return recK1_;
       }
       /**
-       * <code>optional int32 rec_k1 = 5 [default = 0];</code>
+       * <code>optional int32 rec_k1 = 6 [default = 0];</code>
        *
        * <pre>
        ** 系数k1 
        * </pre>
        */
       public Builder setRecK1(int value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         recK1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 rec_k1 = 5 [default = 0];</code>
+       * <code>optional int32 rec_k1 = 6 [default = 0];</code>
        *
        * <pre>
        ** 系数k1 
        * </pre>
        */
       public Builder clearRecK1() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         recK1_ = 0;
         onChanged();
         return this;
@@ -1186,17 +1391,17 @@ public final class PlayerAttrBytes {
 
       private int limReal_ ;
       /**
-       * <code>optional int32 lim_real = 6 [default = 0];</code>
+       * <code>optional int32 lim_real = 7 [default = 0];</code>
        *
        * <pre>
        ** 上限*100 
        * </pre>
        */
       public boolean hasLimReal() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional int32 lim_real = 6 [default = 0];</code>
+       * <code>optional int32 lim_real = 7 [default = 0];</code>
        *
        * <pre>
        ** 上限*100 
@@ -1206,27 +1411,27 @@ public final class PlayerAttrBytes {
         return limReal_;
       }
       /**
-       * <code>optional int32 lim_real = 6 [default = 0];</code>
+       * <code>optional int32 lim_real = 7 [default = 0];</code>
        *
        * <pre>
        ** 上限*100 
        * </pre>
        */
       public Builder setLimReal(int value) {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         limReal_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 lim_real = 6 [default = 0];</code>
+       * <code>optional int32 lim_real = 7 [default = 0];</code>
        *
        * <pre>
        ** 上限*100 
        * </pre>
        */
       public Builder clearLimReal() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         limReal_ = 0;
         onChanged();
         return this;
@@ -1234,17 +1439,17 @@ public final class PlayerAttrBytes {
 
       private int limK1_ ;
       /**
-       * <code>optional int32 lim_k1 = 7 [default = 0];</code>
+       * <code>optional int32 lim_k1 = 8 [default = 0];</code>
        *
        * <pre>
        ** 系数k1*100 
        * </pre>
        */
       public boolean hasLimK1() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional int32 lim_k1 = 7 [default = 0];</code>
+       * <code>optional int32 lim_k1 = 8 [default = 0];</code>
        *
        * <pre>
        ** 系数k1*100 
@@ -1254,27 +1459,27 @@ public final class PlayerAttrBytes {
         return limK1_;
       }
       /**
-       * <code>optional int32 lim_k1 = 7 [default = 0];</code>
+       * <code>optional int32 lim_k1 = 8 [default = 0];</code>
        *
        * <pre>
        ** 系数k1*100 
        * </pre>
        */
       public Builder setLimK1(int value) {
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         limK1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 lim_k1 = 7 [default = 0];</code>
+       * <code>optional int32 lim_k1 = 8 [default = 0];</code>
        *
        * <pre>
        ** 系数k1*100 
        * </pre>
        */
       public Builder clearLimK1() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         limK1_ = 0;
         onChanged();
         return this;
@@ -1282,17 +1487,17 @@ public final class PlayerAttrBytes {
 
       private int limK2_ ;
       /**
-       * <code>optional int32 lim_k2 = 8 [default = 0];</code>
+       * <code>optional int32 lim_k2 = 9 [default = 0];</code>
        *
        * <pre>
        ** 系数k2*100 
        * </pre>
        */
       public boolean hasLimK2() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional int32 lim_k2 = 8 [default = 0];</code>
+       * <code>optional int32 lim_k2 = 9 [default = 0];</code>
        *
        * <pre>
        ** 系数k2*100 
@@ -1302,27 +1507,27 @@ public final class PlayerAttrBytes {
         return limK2_;
       }
       /**
-       * <code>optional int32 lim_k2 = 8 [default = 0];</code>
+       * <code>optional int32 lim_k2 = 9 [default = 0];</code>
        *
        * <pre>
        ** 系数k2*100 
        * </pre>
        */
       public Builder setLimK2(int value) {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         limK2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 lim_k2 = 8 [default = 0];</code>
+       * <code>optional int32 lim_k2 = 9 [default = 0];</code>
        *
        * <pre>
        ** 系数k2*100 
        * </pre>
        */
       public Builder clearLimK2() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         limK2_ = 0;
         onChanged();
         return this;
@@ -1330,17 +1535,17 @@ public final class PlayerAttrBytes {
 
       private int spcK1_ ;
       /**
-       * <code>optional int32 spc_k1 = 9 [default = 0];</code>
+       * <code>optional int32 spc_k1 = 10 [default = 0];</code>
        *
        * <pre>
        ** 系数k1*100 
        * </pre>
        */
       public boolean hasSpcK1() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional int32 spc_k1 = 9 [default = 0];</code>
+       * <code>optional int32 spc_k1 = 10 [default = 0];</code>
        *
        * <pre>
        ** 系数k1*100 
@@ -1350,27 +1555,27 @@ public final class PlayerAttrBytes {
         return spcK1_;
       }
       /**
-       * <code>optional int32 spc_k1 = 9 [default = 0];</code>
+       * <code>optional int32 spc_k1 = 10 [default = 0];</code>
        *
        * <pre>
        ** 系数k1*100 
        * </pre>
        */
       public Builder setSpcK1(int value) {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         spcK1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 spc_k1 = 9 [default = 0];</code>
+       * <code>optional int32 spc_k1 = 10 [default = 0];</code>
        *
        * <pre>
        ** 系数k1*100 
        * </pre>
        */
       public Builder clearSpcK1() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         spcK1_ = 0;
         onChanged();
         return this;
@@ -1378,17 +1583,17 @@ public final class PlayerAttrBytes {
 
       private int spcK2_ ;
       /**
-       * <code>optional int32 spc_k2 = 10 [default = 0];</code>
+       * <code>optional int32 spc_k2 = 11 [default = 0];</code>
        *
        * <pre>
        ** 系数k2*100 
        * </pre>
        */
       public boolean hasSpcK2() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional int32 spc_k2 = 10 [default = 0];</code>
+       * <code>optional int32 spc_k2 = 11 [default = 0];</code>
        *
        * <pre>
        ** 系数k2*100 
@@ -1398,27 +1603,27 @@ public final class PlayerAttrBytes {
         return spcK2_;
       }
       /**
-       * <code>optional int32 spc_k2 = 10 [default = 0];</code>
+       * <code>optional int32 spc_k2 = 11 [default = 0];</code>
        *
        * <pre>
        ** 系数k2*100 
        * </pre>
        */
       public Builder setSpcK2(int value) {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         spcK2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 spc_k2 = 10 [default = 0];</code>
+       * <code>optional int32 spc_k2 = 11 [default = 0];</code>
        *
        * <pre>
        ** 系数k2*100 
        * </pre>
        */
       public Builder clearSpcK2() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         spcK2_ = 0;
         onChanged();
         return this;
@@ -2143,14 +2348,15 @@ public final class PlayerAttrBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\035proto/player_attr_bytes.proto\022 com.gam" +
-      "e.framework.resource.data\"\316\001\n\013PLAYER_ATT" +
-      "R\022\r\n\002id\030\001 \002(\005:\0010\022\024\n\tbegin_num\030\002 \001(\005:\0010\022\022" +
-      "\n\007attr_k1\030\003 \001(\005:\0010\022\022\n\007attr_k2\030\004 \001(\005:\0010\022\021" +
-      "\n\006rec_k1\030\005 \001(\005:\0010\022\023\n\010lim_real\030\006 \001(\005:\0010\022\021" +
-      "\n\006lim_k1\030\007 \001(\005:\0010\022\021\n\006lim_k2\030\010 \001(\005:\0010\022\021\n\006" +
-      "spc_k1\030\t \001(\005:\0010\022\021\n\006spc_k2\030\n \001(\005:\0010\"Q\n\021PL" +
-      "AYER_ATTR_ARRAY\022<\n\005items\030\001 \003(\0132-.com.gam" +
-      "e.framework.resource.data.PLAYER_ATTR"
+      "e.framework.resource.data\"\350\001\n\013PLAYER_ATT" +
+      "R\022\r\n\002id\030\001 \002(\005:\0010\022\030\n\016player_attrkey\030\002 \001(\t" +
+      ":\000\022\024\n\tbegin_num\030\003 \001(\005:\0010\022\022\n\007attr_k1\030\004 \001(" +
+      "\005:\0010\022\022\n\007attr_k2\030\005 \001(\005:\0010\022\021\n\006rec_k1\030\006 \001(\005" +
+      ":\0010\022\023\n\010lim_real\030\007 \001(\005:\0010\022\021\n\006lim_k1\030\010 \001(\005" +
+      ":\0010\022\021\n\006lim_k2\030\t \001(\005:\0010\022\021\n\006spc_k1\030\n \001(\005:\001" +
+      "0\022\021\n\006spc_k2\030\013 \001(\005:\0010\"Q\n\021PLAYER_ATTR_ARRA" +
+      "Y\022<\n\005items\030\001 \003(\0132-.com.game.framework.re" +
+      "source.data.PLAYER_ATTR"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2169,7 +2375,7 @@ public final class PlayerAttrBytes {
     internal_static_com_game_framework_resource_data_PLAYER_ATTR_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_PLAYER_ATTR_descriptor,
-        new java.lang.String[] { "Id", "BeginNum", "AttrK1", "AttrK2", "RecK1", "LimReal", "LimK1", "LimK2", "SpcK1", "SpcK2", });
+        new java.lang.String[] { "Id", "PlayerAttrkey", "BeginNum", "AttrK1", "AttrK2", "RecK1", "LimReal", "LimK1", "LimK2", "SpcK1", "SpcK2", });
     internal_static_com_game_framework_resource_data_PLAYER_ATTR_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_PLAYER_ATTR_ARRAY_fieldAccessorTable = new

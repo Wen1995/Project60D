@@ -239,17 +239,20 @@ public class SceneServiceImpl implements SceneService {
                 UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
                 List<ResourceInfo> resourceInfos = userResourceBuilder.getResourceInfosList();
                 for (CostStruct c : costStructs) {
-                    isExist = false;
-                    for (ResourceInfo r : resourceInfos) {
-                        if (r.getConfigId() == c.getCostId()) {
-                            if (r.getNumber() >= c.getCostQty()) {
-                                isExist = true;
-                                break;
+                    int costId = c.getCostId();
+                    if (costId != 0) {
+                        isExist = false;
+                        for (ResourceInfo r : resourceInfos) {
+                            if (r.getConfigId() == costId) {
+                                if (r.getNumber() >= c.getCostQty()) {
+                                    isExist = true;
+                                    break;
+                                }
                             }
                         }
-                    }
-                    if (!isExist) {
-                        break;
+                        if (!isExist) {
+                            break;
+                        }
                     }
                 }
                 if (isExist) {
@@ -403,17 +406,20 @@ public class SceneServiceImpl implements SceneService {
             
             boolean isExist = true;
             for (CostStruct c : costStructs) {
-                isExist = false;
-                for (ResourceInfo r : resourceInfos) {
-                    if (r.getConfigId() == c.getCostId()) {
-                        if (r.getNumber() >= c.getCostQty()) {
-                            isExist = true;
-                            break;
+                int costId = c.getCostId();
+                if (costId != 0) {
+                    isExist = false;
+                    for (ResourceInfo r : resourceInfos) {
+                        if (r.getConfigId() == costId) {
+                            if (r.getNumber() >= c.getCostQty()) {
+                                isExist = true;
+                                break;
+                            }
                         }
                     }
-                }
-                if (!isExist) {
-                    break;
+                    if (!isExist) {
+                        break;
+                    }
                 }
             }
             if (isExist) {

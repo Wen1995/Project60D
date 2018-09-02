@@ -503,7 +503,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: cancel
+  mText: "\u53D6\u6D88"
   mFontSize: 38
   mFontStyle: 0
   mAlignment: 0
@@ -767,7 +767,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: confirm
+  mText: "\u786E\u5B9A"
   mFontSize: 38
   mFontStyle: 0
   mAlignment: 0

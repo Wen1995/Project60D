@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class UITipsPanel : PanelBase {
 
-
+	Animation anim = null;
 	UILabel contentLabel = null;
 	Coroutine TimerCo = null;
+
 	protected override void Awake()
 	{
 		base.Awake();
 		contentLabel = transform.Find("inbox/text").GetComponent<UILabel>();
+		anim = GetComponent<Animation>();
 
 		FacadeSingleton.Instance.RegisterEvent("OpenTips", OpenTips);
 	}
@@ -18,6 +20,7 @@ public class UITipsPanel : PanelBase {
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
+		anim.Play("UITipsAnim");
 	}
 
 	public override void ClosePanel()
@@ -27,7 +30,11 @@ public class UITipsPanel : PanelBase {
 
 	void OpenTips(NDictionary data)
 	{
-		string content = data.Value<string>("content");
+		string content;
+		if(data == null)
+			content = "test";
+		else
+			content = data.Value<string>("content");
 		contentLabel.text = content;
 		if(TimerCo != null)
 			StopCoroutine(TimerCo);

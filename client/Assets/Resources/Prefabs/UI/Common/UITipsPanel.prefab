@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4122728082025742}
   - component: {fileID: 114212559127810086}
   - component: {fileID: 114348106162522892}
+  - component: {fileID: 111404120171490456}
   m_Layer: 5
   m_Name: UITipsPanel
   m_TagString: Untagged
@@ -130,6 +131,20 @@ Transform:
   m_Father: {fileID: 4774670861359324}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &111404120171490456
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1127082605604602}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: bac9480fefc24e840b6f95cbc9fa666a, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114212559127810086
 MonoBehaviour:
   m_ObjectHideFlags: 1

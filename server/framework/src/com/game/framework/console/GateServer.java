@@ -12,7 +12,7 @@ import com.game.framework.console.handler.HandlersConfig.Handler;
 import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.socket.MessageDecodeHandler;
 import com.game.framework.socket.MessageEncodeHandler;
-import com.game.framework.socket.MessageHandler;
+import com.game.framework.socket.MessageDealHandler;
 import com.game.framework.socket.SocketSender;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -163,7 +163,7 @@ public class GateServer {
                             ch.pipeline().addLast(new MessageDecodeHandler());
 
                             // 注册消息处理handler
-                            ch.pipeline().addLast(new MessageHandler());
+                            ch.pipeline().addLast(new MessageDealHandler());
                         }
 
                     })

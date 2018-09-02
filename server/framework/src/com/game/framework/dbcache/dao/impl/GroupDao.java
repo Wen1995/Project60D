@@ -1,7 +1,6 @@
 package com.game.framework.dbcache.dao.impl;
 
 import java.util.List;
-import org.springframework.stereotype.Repository;
 import com.game.framework.console.constant.Constant;
 import com.game.framework.dbcache.base.BaseDao;
 import com.game.framework.dbcache.dao.IGroupDao;
@@ -10,7 +9,6 @@ import com.game.framework.dbcache.model.GroupExample;
 import com.game.framework.dbcache.model.GroupMapper;
 import com.github.pagehelper.PageHelper;
 
-@Repository
 public class GroupDao extends BaseDao<Group, GroupMapper, GroupExample> implements IGroupDao {
 
     @Override

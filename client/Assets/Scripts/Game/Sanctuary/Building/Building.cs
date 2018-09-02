@@ -130,7 +130,7 @@ public class Building : Controller {
 
     IEnumerator CollectTimer()
     {
-        yield return new WaitForSeconds(80.0f);
+        yield return new WaitForSeconds(300.0f);
         sanctuaryPackage.SetBuildingCollectable(BuildingID);
     }
 

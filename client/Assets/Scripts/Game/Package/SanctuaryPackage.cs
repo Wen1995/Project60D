@@ -78,10 +78,19 @@ public class NBuildingInfo
     }
 }
 
+public class UpgradeEffect
+{
+    public string title;
+    public string preNum;
+    public string nextNum;
+}
+
 public class SanctuaryPackage : ModelBase {
     Dictionary<long, NBuildingInfo> mBuildingInfoMap = new Dictionary<long, NBuildingInfo>();
     List<BuildingAttributeData> attributeDataList = null;
     private Building selectionBuilding = null;
+
+    List<UpgradeEffect> upgradeEffectList = new List<UpgradeEffect>();
 
     public BuildingType GetBuildingTypeByConfigID(int configID)
     {
@@ -125,10 +134,22 @@ public class SanctuaryPackage : ModelBase {
         int level = userPackage.GetManorLevel(out progress);
         int configID = GetConfigIDByBuildingType(type);
         BUILDING data = GetBuildingConfigDataByConfigID(configID);
+        if(type == BuildingType.ConcreteFactory)
+        {
+            Debug.Log(string.Format("name{0} level{1}", data.BldgName, data.BldgVisible));
+        }
         if(level >= data.BldgVisible)
             return true;
         else
             return false;
+    }
+
+    public NBuildingInfo GetSelectionBuildingInfo()
+    {
+        if(selectionBuilding == null) return null;
+        if(!mBuildingInfoMap.ContainsKey(selectionBuilding.BuildingID))
+            return null;
+        return mBuildingInfoMap[selectionBuilding.BuildingID];
     }
 
     #region Acess Data
@@ -160,6 +181,8 @@ public class SanctuaryPackage : ModelBase {
     {
         selectionBuilding = building;
     }
+
+
 
     /// <summary>
     /// buildinginfo is from server
@@ -288,8 +311,8 @@ public class SanctuaryPackage : ModelBase {
 
             case (BuildingType.ZombiePlant):
                 return null;
-            case (BuildingType.PowerPlant):
-                return null;
+            case (BuildingType.PowerPlant):            
+                return parent.Find("windpowerplant").GetComponent<Building>();
             case (BuildingType.PineWood):
                 return parent.Find("pinewood").GetComponent<Building>();
 
@@ -305,12 +328,14 @@ public class SanctuaryPackage : ModelBase {
             case (BuildingType.SteelFactory):
                 return parent.Find("steelfactory").GetComponent<Building>();
             case (BuildingType.ConcreteFactory):
-                return null;
+                return parent.Find("concretefactory").GetComponent<Building>();
             case (BuildingType.WoodFactory):
-                    return parent.Find("woodfactory").GetComponent<Building>();
+                return parent.Find("woodfactory").GetComponent<Building>();
 
             case (BuildingType.RadioStation):
-                return null;
+                return parent.Find("radiostation").GetComponent<Building>();
+            case (BuildingType.Radar):
+                return parent.Find("radar").GetComponent<Building>();
             case (BuildingType.StoreHouse):
                 return parent.Find("storehouse").GetComponent<Building>();
             case (BuildingType.Battery):
@@ -413,163 +438,163 @@ public class SanctuaryPackage : ModelBase {
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("DAMI");
                 DAMI data = dataMap[level] as DAMI;
-                dataList.Add(new BuildingAttributeData("生长速度", data.DamiSpd));
-                dataList.Add(new BuildingAttributeData("单次最高产量", data.DamiCap));
+                dataList.Add(new BuildingAttributeData("生长速度", data.DamiSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("单次最高产量", data.DamiCap.ToString()));
                 break;
             }
             case(BuildingType.Veg):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("SHUCAI");
                 SHUCAI data = dataMap[level] as SHUCAI;
-                dataList.Add(new BuildingAttributeData("生长速度", data.ShucaiSpd));
-                dataList.Add(new BuildingAttributeData("单次最高产量", data.ShucaiCap));
+                dataList.Add(new BuildingAttributeData("生长速度", data.ShucaiSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("单次最高产量", data.ShucaiCap.ToString()));
                 break;
             }
             case(BuildingType.Fertilizer):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("HUAFEI");
                 HUAFEI data = dataMap[level] as HUAFEI;
-                dataList.Add(new BuildingAttributeData("生长速度", data.HuafeiSpd));
-                dataList.Add(new BuildingAttributeData("单次最高产量", data.HuafeiCap));
+                dataList.Add(new BuildingAttributeData("生长速度", data.HuafeiSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("单次最高产量", data.HuafeiCap.ToString()));
                 break;
             }
             case(BuildingType.Fruit):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("SHUIGUO");
                 SHUIGUO data = dataMap[level] as SHUIGUO;
-                dataList.Add(new BuildingAttributeData("生长速度", data.ShuiguoSpd));
-                dataList.Add(new BuildingAttributeData("单次最高产量", data.ShuiguoCap));
+                dataList.Add(new BuildingAttributeData("生长速度", data.ShuiguoSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("单次最高产量", data.ShuiguoCap.ToString()));
                 break;
         }
             case(BuildingType.FeedFactory):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("SILIAO");
                 SILIAO data = dataMap[level] as SILIAO;
-                dataList.Add(new BuildingAttributeData("加工速度", data.SiliaoSpd));
-                dataList.Add(new BuildingAttributeData("最大加工量", data.SiliaoCap));
+                dataList.Add(new BuildingAttributeData("加工速度", data.SiliaoSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("最大加工量", data.SiliaoCap.ToString()));
                 break;
             }
             case(BuildingType.Well):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("JING");
                 JING data = dataMap[level] as JING;
-                dataList.Add(new BuildingAttributeData("渗水速度", data.JingSpd));
-                dataList.Add(new BuildingAttributeData("容量", data.JingCap));
+                dataList.Add(new BuildingAttributeData("渗水速度", data.JingSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("容量", data.JingCap.ToString()));
                 break;
             }
             case(BuildingType.WaterCollector):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("LUSHUI");
                 LUSHUI data = dataMap[level] as LUSHUI;
-                dataList.Add(new BuildingAttributeData("收集速度", data.LushuiSpd));
-                dataList.Add(new BuildingAttributeData("单次最大收集量", data.LushuiCap));
+                dataList.Add(new BuildingAttributeData("收集速度", data.LushuiSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("单次最大收集量", data.LushuiCap.ToString()));
                 break;
             }
             case(BuildingType.WaterFactory):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("KUANGQUANSHUI");
                 KUANGQUANSHUI data = dataMap[level] as KUANGQUANSHUI;
-                dataList.Add(new BuildingAttributeData("加工速度", data.KuangquanshuiSpd));
-                dataList.Add(new BuildingAttributeData("最大加工量", data.KuangquanshuiCap));
+                dataList.Add(new BuildingAttributeData("加工速度", data.KuangquanshuiSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("最大加工量", data.KuangquanshuiCap.ToString()));
                 break;
             }
             case(BuildingType.RadioStation):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("WUXIANDIAN");
                 WUXIANDIAN data = dataMap[level] as WUXIANDIAN;
-                dataList.Add(new BuildingAttributeData("接受时间(秒)", data.WuxiandianDis));
+                dataList.Add(new BuildingAttributeData("接受时间(秒)", data.WuxiandianDis.ToString()));
                 break;
             }
             case(BuildingType.Radar):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("LEIDA");
                 LEIDA data = dataMap[level] as LEIDA;
-                dataList.Add(new BuildingAttributeData("接受时间(秒)", data.LeidaDis));
+                dataList.Add(new BuildingAttributeData("接受时间(秒)", data.LeidaDis.ToString()));
                 break;
             }
             case(BuildingType.StoreHouse):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("CANGKU");
                 CANGKU data = dataMap[level] as CANGKU;
-                dataList.Add(new BuildingAttributeData("仓库容量", data.CangkuCap));
+                dataList.Add(new BuildingAttributeData("仓库容量", data.CangkuCap.ToString()));
                 break;
             }
             case(BuildingType.Battery):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("DIANCHIZU");
                 DIANCHIZU data = dataMap[level] as DIANCHIZU;
-                dataList.Add(new BuildingAttributeData("电量储存量", data.DianchizuCap));
+                dataList.Add(new BuildingAttributeData("电量储存量", data.DianchizuCap.ToString()));
                 break;
             }
             case(BuildingType.PowerGym):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("JIANSHENFANG");
                 JIANSHENFANG data = dataMap[level] as JIANSHENFANG;
-                dataList.Add(new BuildingAttributeData("能量转化率", data.JianshenfangSpd));
-                dataList.Add(new BuildingAttributeData("每日转化上限", data.JianshenfangCap));
+                dataList.Add(new BuildingAttributeData("能量转化率", data.JianshenfangSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("每日转化上限", data.JianshenfangCap.ToString()));
                 break;
             }
             case(BuildingType.ZombiePlant):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("JSFADIANZHAN");
                 JSFADIANZHAN data = dataMap[level] as JSFADIANZHAN;
-                dataList.Add(new BuildingAttributeData("能量转化率", data.JsfadianzhanSpd));
-                dataList.Add(new BuildingAttributeData("单次最大储电量", data.JsfadianzhanCap));
+                dataList.Add(new BuildingAttributeData("能量转化率", data.JsfadianzhanSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("单次最大储电量", data.JsfadianzhanCap.ToString()));
                 break;
             }
             case(BuildingType.PowerPlant):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("TAIYANGNENG");
                 TAIYANGNENG data = dataMap[level] as TAIYANGNENG;
-                dataList.Add(new BuildingAttributeData("发电速率", data.TaiyangnengSpd));
-                dataList.Add(new BuildingAttributeData("单次最大储电量", data.TaiyangnengCap));
+                dataList.Add(new BuildingAttributeData("发电速率", data.TaiyangnengSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("单次最大储电量", data.TaiyangnengCap.ToString()));
                 break;
             }
             case(BuildingType.OilFactory):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("LIANYOU");
                 LIANYOU data = dataMap[level] as LIANYOU;
-                dataList.Add(new BuildingAttributeData("炼油速度", data.LianyouSpd));
-                dataList.Add(new BuildingAttributeData("最高炼油量", data.LianyouCap));
+                dataList.Add(new BuildingAttributeData("炼油速度", data.LianyouSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("最高炼油量", data.LianyouCap.ToString()));
                 break;
             }
             case(BuildingType.SteelFactory):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("LIANGANG");
                 LIANGANG data = dataMap[level] as LIANGANG;
-                dataList.Add(new BuildingAttributeData("炼钢速度", data.LiangangSpd));
-                dataList.Add(new BuildingAttributeData("最高炼钢量", data.LiangangCap));
+                dataList.Add(new BuildingAttributeData("炼钢速度", data.LiangangSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("最高炼钢量", data.LiangangCap.ToString()));
                 break;
             }
             case(BuildingType.ConcreteFactory):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("HUNNINGTU");
                 HUNNINGTU data = dataMap[level] as HUNNINGTU;
-                dataList.Add(new BuildingAttributeData("搅拌速度", data.HunningtuSpd));
-                dataList.Add(new BuildingAttributeData("最高搅拌量", data.HunningtuCap));
+                dataList.Add(new BuildingAttributeData("搅拌速度", data.HunningtuSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("最高搅拌量", data.HunningtuCap.ToString()));
                 break;
             }
             case(BuildingType.PineWood):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("SONGSHU");
                 SONGSHU data = dataMap[level] as SONGSHU;
-                dataList.Add(new BuildingAttributeData("生长速度", data.SongshuSpd));
-                dataList.Add(new BuildingAttributeData("单次最高产量", data.SongshuCap));
+                dataList.Add(new BuildingAttributeData("生长速度", data.SongshuSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("单次最高产量", data.SongshuCap.ToString()));
                 break;
             }
             case(BuildingType.WoodFactory):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("MUCAIJIAGONG");
                 MUCAIJIAGONG data = dataMap[level] as MUCAIJIAGONG;
-                dataList.Add(new BuildingAttributeData("加工速度", data.MucaijiagongSpd));
-                dataList.Add(new BuildingAttributeData("最大加工量", data.MucaijiagongCap));
+                dataList.Add(new BuildingAttributeData("加工速度", data.MucaijiagongSpd.ToString()));
+                dataList.Add(new BuildingAttributeData("最大加工量", data.MucaijiagongCap.ToString()));
                 break;
             }
             case(BuildingType.Gate):
             {
                 var dataMap = ConfigDataStatic.GetConfigDataTable("DAMEN");
                 DAMEN data = dataMap[level] as DAMEN;
-                dataList.Add(new BuildingAttributeData("耐久度", data.DamenDura));
+                dataList.Add(new BuildingAttributeData("耐久度", data.DamenDura.ToString()));
                 break;
             }
         } 
@@ -577,6 +602,30 @@ public class SanctuaryPackage : ModelBase {
         return attributeDataList.Count;
     }
 
+    public void CalculateBuildingUpgradeEffect(Building building, int preLevel)
+    {
+        if(preLevel >= 20) return;
+        upgradeEffectList.Clear();
+        GetBuildingAttribute(building, preLevel);
+        for(int i=0;i<attributeDataList.Count;i++)
+        {
+            UpgradeEffect upEffect = new UpgradeEffect();
+            upEffect.title = attributeDataList[i].name;
+            upEffect.preNum = attributeDataList[i].value;
+            upgradeEffectList.Add(upEffect);
+        }
+        GetBuildingAttribute(building, preLevel + 1);
+        for(int i=0;i<attributeDataList.Count;i++)
+        {
+            UpgradeEffect upEffect =  upgradeEffectList[i];
+            upEffect.nextNum = attributeDataList[i].value;
+        }
+    }
+
+    public List<UpgradeEffect> GetBuildingUpgradeEffect()
+    {
+        return upgradeEffectList;
+    }
     public void GenerateAnimation()
     {
         AnimationClip ani = new AnimationClip();

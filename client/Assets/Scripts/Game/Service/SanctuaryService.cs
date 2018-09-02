@@ -184,4 +184,17 @@ public class SanctuaryService : ServiceBase {
         }
         return costInfoList;
     }
+
+    public int GetManorLevelByStrength(NDictionary args)
+    {
+        int strength = args.Value<int>("strength");
+        var map = ConfigDataStatic.GetConfigDataTable("MANOR_LEVEL");
+        for(int i=1;i<=20;i++)
+        {
+            MANOR_LEVEL data = map[i] as MANOR_LEVEL;
+            if(strength < data.ManorCap)
+                return i;
+        }
+        return 20;
+    }
 }

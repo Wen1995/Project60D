@@ -6,7 +6,6 @@ import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.console.constant.HandlerConstant;
 import com.game.framework.console.disruptor.TPacket;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Controller;
 import com.game.framework.console.GateServer;
 import com.game.msg.message.service.MessageService;
 import com.game.framework.protocol.Message.TCSSaveMessage;
@@ -17,7 +16,6 @@ import com.game.framework.protocol.Message.TCSSendMessageTag;
 import com.game.framework.protocol.Message.ZombieInfo;
 import com.game.framework.protocol.Message.FightingInfo;
 
-@Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Msg, module = HandlerConstant.Model_Message)
 public class MessageHandler {
 	@Resource

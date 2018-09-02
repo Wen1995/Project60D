@@ -6,7 +6,6 @@ import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.console.constant.HandlerConstant;
 import com.game.framework.console.disruptor.TPacket;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Controller;
 import com.game.framework.console.GateServer;
 import com.game.match.room.service.RoomService;
 import com.game.framework.protocol.Room.TCSCreateGroup;
@@ -14,7 +13,6 @@ import com.game.framework.protocol.Room.TCSApplyGroup;
 import com.game.framework.protocol.Room.TCSGetGroupPageCount;
 import com.game.framework.protocol.Room.TCSGetGroupRanking;
 
-@Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Match, module = HandlerConstant.Model_Room)
 public class RoomHandler {
 	@Resource

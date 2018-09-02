@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
 import com.game.framework.console.constant.Constant;
 import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.dbcache.dao.IMessageDao;
@@ -22,7 +21,6 @@ import com.game.framework.protocol.Message.TSCGetPageCount;
 import com.game.framework.protocol.Message.TSCGetPageList;
 import com.game.framework.protocol.Message.ZombieInfo;
 
-@Service
 public class MessageServiceImpl implements MessageService {
     @Resource
     private IUserDao userDao;

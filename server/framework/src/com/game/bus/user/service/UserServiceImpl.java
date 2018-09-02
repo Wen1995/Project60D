@@ -3,7 +3,6 @@ package com.game.bus.user.service;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
 import com.game.framework.console.constant.Constant;
 import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.dbcache.dao.IUserDao;
@@ -21,7 +20,6 @@ import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.game.framework.task.TimerManager;
 import com.game.framework.utils.ReadOnlyMap;
 
-@Service
 public class UserServiceImpl implements UserService {
     @Resource
     private IUserDao userDao;

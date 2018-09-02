@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import org.springframework.stereotype.Repository;
 import com.game.framework.console.constant.DBConstant;
 import com.game.framework.dbcache.base.BaseDao;
 import com.game.framework.dbcache.dao.ITimerDao;
@@ -14,7 +13,6 @@ import com.game.framework.dbcache.model.TimerExample;
 import com.game.framework.dbcache.model.TimerMapper;
 import com.game.framework.utils.StringUtil;
 
-@Repository
 public class TimerDao extends BaseDao<Timer, TimerMapper, TimerExample> implements ITimerDao {
     @Override
     public void cacheSet(String key, Long timerId) {

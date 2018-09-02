@@ -7,8 +7,8 @@ using UnityEngine;
 public class BuildingAttributeData
 {
     public string name;
-    public int value;
-    public BuildingAttributeData(string name, int value)
+    public string value;
+    public BuildingAttributeData(string name, string value)
     {
         this.name = name;
         this.value = value;        

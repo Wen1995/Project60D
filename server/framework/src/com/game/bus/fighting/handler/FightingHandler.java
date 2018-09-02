@@ -6,13 +6,11 @@ import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.console.constant.HandlerConstant;
 import com.game.framework.console.disruptor.TPacket;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Controller;
 import com.game.bus.fighting.service.FightingService;
 import com.game.framework.protocol.Fighting.TCSZombieInvade;
 import com.game.framework.protocol.Fighting.TCSReceiveZombieMessage;
 import com.game.framework.protocol.Fighting.TCSZombieInvadeResult;
 
-@Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Bus, module = HandlerConstant.Model_Fighting)
 public class FightingHandler {
 	@Resource

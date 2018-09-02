@@ -151,18 +151,19 @@ public class UIBuildingInteractionPanel : PanelBase{
             FacadeSingleton.Instance.SendEvent("OpenMsgBox", data);
             return;
         }
-        args.Add("configID", buildingInfo.configID + 1);
-        List<NItemInfo> costInfoList = FacadeSingleton.Instance.InvokeService("GetBuildingUpgradeCost", ConstVal.Service_Sanctuary, args) as List<NItemInfo>;
-        FacadeSingleton.Instance.OverlayerPanel("UICostResPanel");
-        args.Clear();
-        args.Add("infolist", costInfoList);
-        args.Add("callback", new EventDelegate(()=>{
-            FacadeSingleton.Instance.BackPanel();
-            NDictionary data = new NDictionary();
-            data.Add("buildingID", selectBuilding.BuildingID);
-            FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, data);
-        }));
-        FacadeSingleton.Instance.SendEvent("OpenCostRes", args);
+        FacadeSingleton.Instance.OverlayerPanel("UIBuildingUpgradePanel");
+        // args.Add("configID", buildingInfo.configID + 1);
+        // List<NItemInfo> costInfoList = FacadeSingleton.Instance.InvokeService("GetBuildingUpgradeCost", ConstVal.Service_Sanctuary, args) as List<NItemInfo>;
+        // FacadeSingleton.Instance.OverlayerPanel("UICostResPanel");
+        // args.Clear();
+        // args.Add("infolist", costInfoList);
+        // args.Add("callback", new EventDelegate(()=>{
+        //     FacadeSingleton.Instance.BackPanel();
+        //     NDictionary data = new NDictionary();
+        //     data.Add("buildingID", selectBuilding.BuildingID);
+        //     FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, data);
+        // }));
+        // FacadeSingleton.Instance.SendEvent("OpenCostRes", args);
     }
 
     void OnUnlock()

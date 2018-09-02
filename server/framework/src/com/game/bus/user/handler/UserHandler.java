@@ -7,7 +7,6 @@ import com.game.framework.console.constant.HandlerConstant;
 import com.game.framework.console.disruptor.TPacket;
 import java.util.List;
 import javax.annotation.Resource;
-import org.springframework.stereotype.Controller;
 import com.game.framework.console.GateServer;
 import com.game.bus.user.service.UserService;
 import com.game.framework.protocol.User.TCSGetResourceInfo;
@@ -17,7 +16,6 @@ import com.game.framework.protocol.User.TCSGetUserStateRegular;
 import com.game.framework.protocol.User.TCSGetWorldEvent;
 import com.game.framework.protocol.User.TCSSellGoods;
 
-@Controller
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Bus, module = HandlerConstant.Model_User)
 public class UserHandler {
 	@Resource

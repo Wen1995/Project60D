@@ -100,7 +100,76 @@ public final class BuildingBytes {
         getBldgNameBytes();
 
     /**
-     * <code>optional int32 in_use = 5 [default = 0];</code>
+     * <code>optional int32 bldg_visible = 5 [default = 0];</code>
+     *
+     * <pre>
+     ** 可视等级 
+     * </pre>
+     */
+    boolean hasBldgVisible();
+    /**
+     * <code>optional int32 bldg_visible = 5 [default = 0];</code>
+     *
+     * <pre>
+     ** 可视等级 
+     * </pre>
+     */
+    int getBldgVisible();
+
+    /**
+     * <code>optional string bldgcap_key = 6 [default = ""];</code>
+     *
+     * <pre>
+     ** key1 
+     * </pre>
+     */
+    boolean hasBldgcapKey();
+    /**
+     * <code>optional string bldgcap_key = 6 [default = ""];</code>
+     *
+     * <pre>
+     ** key1 
+     * </pre>
+     */
+    java.lang.String getBldgcapKey();
+    /**
+     * <code>optional string bldgcap_key = 6 [default = ""];</code>
+     *
+     * <pre>
+     ** key1 
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getBldgcapKeyBytes();
+
+    /**
+     * <code>optional string bldgspd_key = 7 [default = ""];</code>
+     *
+     * <pre>
+     ** key2 
+     * </pre>
+     */
+    boolean hasBldgspdKey();
+    /**
+     * <code>optional string bldgspd_key = 7 [default = ""];</code>
+     *
+     * <pre>
+     ** key2 
+     * </pre>
+     */
+    java.lang.String getBldgspdKey();
+    /**
+     * <code>optional string bldgspd_key = 7 [default = ""];</code>
+     *
+     * <pre>
+     ** key2 
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getBldgspdKeyBytes();
+
+    /**
+     * <code>optional int32 in_use = 8 [default = 0];</code>
      *
      * <pre>
      ** 可用
@@ -110,7 +179,7 @@ public final class BuildingBytes {
      */
     boolean hasInUse();
     /**
-     * <code>optional int32 in_use = 5 [default = 0];</code>
+     * <code>optional int32 in_use = 8 [default = 0];</code>
      *
      * <pre>
      ** 可用
@@ -121,7 +190,7 @@ public final class BuildingBytes {
     int getInUse();
 
     /**
-     * <code>optional int32 max_bldg_lvl = 6 [default = 0];</code>
+     * <code>optional int32 max_bldg_lvl = 9 [default = 0];</code>
      *
      * <pre>
      ** 建筑最大等级 
@@ -129,7 +198,7 @@ public final class BuildingBytes {
      */
     boolean hasMaxBldgLvl();
     /**
-     * <code>optional int32 max_bldg_lvl = 6 [default = 0];</code>
+     * <code>optional int32 max_bldg_lvl = 9 [default = 0];</code>
      *
      * <pre>
      ** 建筑最大等级 
@@ -138,7 +207,7 @@ public final class BuildingBytes {
     int getMaxBldgLvl();
 
     /**
-     * <code>optional string prefab_name = 7 [default = ""];</code>
+     * <code>optional string prefab_name = 10 [default = ""];</code>
      *
      * <pre>
      ** 模型名 
@@ -146,7 +215,7 @@ public final class BuildingBytes {
      */
     boolean hasPrefabName();
     /**
-     * <code>optional string prefab_name = 7 [default = ""];</code>
+     * <code>optional string prefab_name = 10 [default = ""];</code>
      *
      * <pre>
      ** 模型名 
@@ -154,7 +223,7 @@ public final class BuildingBytes {
      */
     java.lang.String getPrefabName();
     /**
-     * <code>optional string prefab_name = 7 [default = ""];</code>
+     * <code>optional string prefab_name = 10 [default = ""];</code>
      *
      * <pre>
      ** 模型名 
@@ -164,7 +233,7 @@ public final class BuildingBytes {
         getPrefabNameBytes();
 
     /**
-     * <code>optional string icon_name = 8 [default = ""];</code>
+     * <code>optional string icon_name = 11 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -172,7 +241,7 @@ public final class BuildingBytes {
      */
     boolean hasIconName();
     /**
-     * <code>optional string icon_name = 8 [default = ""];</code>
+     * <code>optional string icon_name = 11 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -180,7 +249,7 @@ public final class BuildingBytes {
      */
     java.lang.String getIconName();
     /**
-     * <code>optional string icon_name = 8 [default = ""];</code>
+     * <code>optional string icon_name = 11 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -190,7 +259,7 @@ public final class BuildingBytes {
         getIconNameBytes();
 
     /**
-     * <code>optional string bldg_info = 9 [default = ""];</code>
+     * <code>optional string bldg_info = 12 [default = ""];</code>
      *
      * <pre>
      ** 建筑描述 
@@ -198,7 +267,7 @@ public final class BuildingBytes {
      */
     boolean hasBldgInfo();
     /**
-     * <code>optional string bldg_info = 9 [default = ""];</code>
+     * <code>optional string bldg_info = 12 [default = ""];</code>
      *
      * <pre>
      ** 建筑描述 
@@ -206,7 +275,7 @@ public final class BuildingBytes {
      */
     java.lang.String getBldgInfo();
     /**
-     * <code>optional string bldg_info = 9 [default = ""];</code>
+     * <code>optional string bldg_info = 12 [default = ""];</code>
      *
      * <pre>
      ** 建筑描述 
@@ -216,7 +285,7 @@ public final class BuildingBytes {
         getBldgInfoBytes();
 
     /**
-     * <code>optional int32 con_id = 10 [default = 0];</code>
+     * <code>optional int32 con_id = 13 [default = 0];</code>
      *
      * <pre>
      ** 消耗id 
@@ -224,7 +293,7 @@ public final class BuildingBytes {
      */
     boolean hasConId();
     /**
-     * <code>optional int32 con_id = 10 [default = 0];</code>
+     * <code>optional int32 con_id = 13 [default = 0];</code>
      *
      * <pre>
      ** 消耗id 
@@ -233,7 +302,7 @@ public final class BuildingBytes {
     int getConId();
 
     /**
-     * <code>optional int32 con_pro = 11 [default = 0];</code>
+     * <code>optional int32 con_pro = 14 [default = 0];</code>
      *
      * <pre>
      ** 消耗产出比 
@@ -241,7 +310,7 @@ public final class BuildingBytes {
      */
     boolean hasConPro();
     /**
-     * <code>optional int32 con_pro = 11 [default = 0];</code>
+     * <code>optional int32 con_pro = 14 [default = 0];</code>
      *
      * <pre>
      ** 消耗产出比 
@@ -250,7 +319,7 @@ public final class BuildingBytes {
     int getConPro();
 
     /**
-     * <code>optional int32 pro_id = 12 [default = 0];</code>
+     * <code>optional int32 pro_id = 15 [default = 0];</code>
      *
      * <pre>
      ** 产出id 
@@ -258,7 +327,7 @@ public final class BuildingBytes {
      */
     boolean hasProId();
     /**
-     * <code>optional int32 pro_id = 12 [default = 0];</code>
+     * <code>optional int32 pro_id = 15 [default = 0];</code>
      *
      * <pre>
      ** 产出id 
@@ -267,7 +336,7 @@ public final class BuildingBytes {
     int getProId();
 
     /**
-     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
@@ -275,7 +344,7 @@ public final class BuildingBytes {
      */
     boolean hasBldgFuncTableName();
     /**
-     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
@@ -283,7 +352,7 @@ public final class BuildingBytes {
      */
     java.lang.String getBldgFuncTableName();
     /**
-     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
@@ -293,7 +362,7 @@ public final class BuildingBytes {
         getBldgFuncTableNameBytes();
 
     /**
-     * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
+     * <code>optional int32 bldg_func_table_id = 17 [default = 0];</code>
      *
      * <pre>
      ** 建筑功能表索引ID 
@@ -301,7 +370,7 @@ public final class BuildingBytes {
      */
     boolean hasBldgFuncTableId();
     /**
-     * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
+     * <code>optional int32 bldg_func_table_id = 17 [default = 0];</code>
      *
      * <pre>
      ** 建筑功能表索引ID 
@@ -310,7 +379,7 @@ public final class BuildingBytes {
     int getBldgFuncTableId();
 
     /**
-     * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
+     * <code>optional int32 bldg_strength_lim = 18 [default = 0];</code>
      *
      * <pre>
      ** 庄园实力限制 
@@ -318,7 +387,7 @@ public final class BuildingBytes {
      */
     boolean hasBldgStrengthLim();
     /**
-     * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
+     * <code>optional int32 bldg_strength_lim = 18 [default = 0];</code>
      *
      * <pre>
      ** 庄园实力限制 
@@ -327,7 +396,24 @@ public final class BuildingBytes {
     int getBldgStrengthLim();
 
     /**
-     * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
+     * <code>optional int32 bldg_lv_lim = 19 [default = 0];</code>
+     *
+     * <pre>
+     ** 等效等级 
+     * </pre>
+     */
+    boolean hasBldgLvLim();
+    /**
+     * <code>optional int32 bldg_lv_lim = 19 [default = 0];</code>
+     *
+     * <pre>
+     ** 等效等级 
+     * </pre>
+     */
+    int getBldgLvLim();
+
+    /**
+     * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
      *
      * <pre>
      ** 每级消耗资源价值（每级增加实力） 
@@ -335,7 +421,7 @@ public final class BuildingBytes {
      */
     boolean hasBldgStrengthAdd();
     /**
-     * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
+     * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
      *
      * <pre>
      ** 每级消耗资源价值（每级增加实力） 
@@ -344,7 +430,7 @@ public final class BuildingBytes {
     int getBldgStrengthAdd();
 
     /**
-     * <code>optional int32 time_cost = 17 [default = 0];</code>
+     * <code>optional int32 time_cost = 21 [default = 0];</code>
      *
      * <pre>
      ** 消耗时间
@@ -353,7 +439,7 @@ public final class BuildingBytes {
      */
     boolean hasTimeCost();
     /**
-     * <code>optional int32 time_cost = 17 [default = 0];</code>
+     * <code>optional int32 time_cost = 21 [default = 0];</code>
      *
      * <pre>
      ** 消耗时间
@@ -363,7 +449,7 @@ public final class BuildingBytes {
     int getTimeCost();
 
     /**
-     * <code>optional int32 gold_cost = 18 [default = 0];</code>
+     * <code>optional int32 gold_cost = 22 [default = 0];</code>
      *
      * <pre>
      ** 消耗黄金 
@@ -371,7 +457,7 @@ public final class BuildingBytes {
      */
     boolean hasGoldCost();
     /**
-     * <code>optional int32 gold_cost = 18 [default = 0];</code>
+     * <code>optional int32 gold_cost = 22 [default = 0];</code>
      *
      * <pre>
      ** 消耗黄金 
@@ -380,7 +466,7 @@ public final class BuildingBytes {
     int getGoldCost();
 
     /**
-     * <code>optional int32 elec_cost = 19 [default = 0];</code>
+     * <code>optional int32 elec_cost = 23 [default = 0];</code>
      *
      * <pre>
      ** 消耗电力 
@@ -388,7 +474,7 @@ public final class BuildingBytes {
      */
     boolean hasElecCost();
     /**
-     * <code>optional int32 elec_cost = 19 [default = 0];</code>
+     * <code>optional int32 elec_cost = 23 [default = 0];</code>
      *
      * <pre>
      ** 消耗电力 
@@ -397,25 +483,25 @@ public final class BuildingBytes {
     int getElecCost();
 
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
      */
     java.util.List<com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct> 
         getCostTableList();
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
      */
     com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct getCostTable(int index);
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
      */
     int getCostTableCount();
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
      */
     java.util.List<? extends com.game.framework.resource.data.BuildingBytes.BUILDING.CostStructOrBuilder> 
         getCostTableOrBuilderList();
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
      */
     com.game.framework.resource.data.BuildingBytes.BUILDING.CostStructOrBuilder getCostTableOrBuilder(
         int index);
@@ -495,87 +581,109 @@ public final class BuildingBytes {
             }
             case 40: {
               bitField0_ |= 0x00000010;
-              inUse_ = input.readInt32();
+              bldgVisible_ = input.readInt32();
               break;
             }
-            case 48: {
+            case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
-              maxBldgLvl_ = input.readInt32();
+              bldgcapKey_ = bs;
               break;
             }
             case 58: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000040;
+              bldgspdKey_ = bs;
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              inUse_ = input.readInt32();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              maxBldgLvl_ = input.readInt32();
+              break;
+            }
+            case 82: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000200;
               prefabName_ = bs;
               break;
             }
-            case 66: {
+            case 90: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000080;
+              bitField0_ |= 0x00000400;
               iconName_ = bs;
               break;
             }
-            case 74: {
+            case 98: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000800;
               bldgInfo_ = bs;
               break;
             }
-            case 80: {
-              bitField0_ |= 0x00000200;
-              conId_ = input.readInt32();
-              break;
-            }
-            case 88: {
-              bitField0_ |= 0x00000400;
-              conPro_ = input.readInt32();
-              break;
-            }
-            case 96: {
-              bitField0_ |= 0x00000800;
-              proId_ = input.readInt32();
-              break;
-            }
-            case 106: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 104: {
               bitField0_ |= 0x00001000;
-              bldgFuncTableName_ = bs;
+              conId_ = input.readInt32();
               break;
             }
             case 112: {
               bitField0_ |= 0x00002000;
-              bldgFuncTableId_ = input.readInt32();
+              conPro_ = input.readInt32();
               break;
             }
             case 120: {
               bitField0_ |= 0x00004000;
-              bldgStrengthLim_ = input.readInt32();
+              proId_ = input.readInt32();
               break;
             }
-            case 128: {
+            case 130: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00008000;
-              bldgStrengthAdd_ = input.readInt32();
+              bldgFuncTableName_ = bs;
               break;
             }
             case 136: {
               bitField0_ |= 0x00010000;
-              timeCost_ = input.readInt32();
+              bldgFuncTableId_ = input.readInt32();
               break;
             }
             case 144: {
               bitField0_ |= 0x00020000;
-              goldCost_ = input.readInt32();
+              bldgStrengthLim_ = input.readInt32();
               break;
             }
             case 152: {
               bitField0_ |= 0x00040000;
+              bldgLvLim_ = input.readInt32();
+              break;
+            }
+            case 160: {
+              bitField0_ |= 0x00080000;
+              bldgStrengthAdd_ = input.readInt32();
+              break;
+            }
+            case 168: {
+              bitField0_ |= 0x00100000;
+              timeCost_ = input.readInt32();
+              break;
+            }
+            case 176: {
+              bitField0_ |= 0x00200000;
+              goldCost_ = input.readInt32();
+              break;
+            }
+            case 184: {
+              bitField0_ |= 0x00400000;
               elecCost_ = input.readInt32();
               break;
             }
-            case 162: {
-              if (!((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+            case 194: {
+              if (!((mutable_bitField0_ & 0x00800000) == 0x00800000)) {
                 costTable_ = new java.util.ArrayList<com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct>();
-                mutable_bitField0_ |= 0x00080000;
+                mutable_bitField0_ |= 0x00800000;
               }
               costTable_.add(input.readMessage(com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.PARSER, extensionRegistry));
               break;
@@ -588,7 +696,7 @@ public final class BuildingBytes {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+        if (((mutable_bitField0_ & 0x00800000) == 0x00800000)) {
           costTable_ = java.util.Collections.unmodifiableList(costTable_);
         }
         this.unknownFields = unknownFields.build();
@@ -1303,10 +1411,141 @@ public final class BuildingBytes {
       }
     }
 
-    public static final int IN_USE_FIELD_NUMBER = 5;
+    public static final int BLDG_VISIBLE_FIELD_NUMBER = 5;
+    private int bldgVisible_;
+    /**
+     * <code>optional int32 bldg_visible = 5 [default = 0];</code>
+     *
+     * <pre>
+     ** 可视等级 
+     * </pre>
+     */
+    public boolean hasBldgVisible() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int32 bldg_visible = 5 [default = 0];</code>
+     *
+     * <pre>
+     ** 可视等级 
+     * </pre>
+     */
+    public int getBldgVisible() {
+      return bldgVisible_;
+    }
+
+    public static final int BLDGCAP_KEY_FIELD_NUMBER = 6;
+    private java.lang.Object bldgcapKey_;
+    /**
+     * <code>optional string bldgcap_key = 6 [default = ""];</code>
+     *
+     * <pre>
+     ** key1 
+     * </pre>
+     */
+    public boolean hasBldgcapKey() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional string bldgcap_key = 6 [default = ""];</code>
+     *
+     * <pre>
+     ** key1 
+     * </pre>
+     */
+    public java.lang.String getBldgcapKey() {
+      java.lang.Object ref = bldgcapKey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          bldgcapKey_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string bldgcap_key = 6 [default = ""];</code>
+     *
+     * <pre>
+     ** key1 
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getBldgcapKeyBytes() {
+      java.lang.Object ref = bldgcapKey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        bldgcapKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BLDGSPD_KEY_FIELD_NUMBER = 7;
+    private java.lang.Object bldgspdKey_;
+    /**
+     * <code>optional string bldgspd_key = 7 [default = ""];</code>
+     *
+     * <pre>
+     ** key2 
+     * </pre>
+     */
+    public boolean hasBldgspdKey() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional string bldgspd_key = 7 [default = ""];</code>
+     *
+     * <pre>
+     ** key2 
+     * </pre>
+     */
+    public java.lang.String getBldgspdKey() {
+      java.lang.Object ref = bldgspdKey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          bldgspdKey_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string bldgspd_key = 7 [default = ""];</code>
+     *
+     * <pre>
+     ** key2 
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getBldgspdKeyBytes() {
+      java.lang.Object ref = bldgspdKey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        bldgspdKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IN_USE_FIELD_NUMBER = 8;
     private int inUse_;
     /**
-     * <code>optional int32 in_use = 5 [default = 0];</code>
+     * <code>optional int32 in_use = 8 [default = 0];</code>
      *
      * <pre>
      ** 可用
@@ -1315,10 +1554,10 @@ public final class BuildingBytes {
      * </pre>
      */
     public boolean hasInUse() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional int32 in_use = 5 [default = 0];</code>
+     * <code>optional int32 in_use = 8 [default = 0];</code>
      *
      * <pre>
      ** 可用
@@ -1330,20 +1569,20 @@ public final class BuildingBytes {
       return inUse_;
     }
 
-    public static final int MAX_BLDG_LVL_FIELD_NUMBER = 6;
+    public static final int MAX_BLDG_LVL_FIELD_NUMBER = 9;
     private int maxBldgLvl_;
     /**
-     * <code>optional int32 max_bldg_lvl = 6 [default = 0];</code>
+     * <code>optional int32 max_bldg_lvl = 9 [default = 0];</code>
      *
      * <pre>
      ** 建筑最大等级 
      * </pre>
      */
     public boolean hasMaxBldgLvl() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional int32 max_bldg_lvl = 6 [default = 0];</code>
+     * <code>optional int32 max_bldg_lvl = 9 [default = 0];</code>
      *
      * <pre>
      ** 建筑最大等级 
@@ -1353,20 +1592,20 @@ public final class BuildingBytes {
       return maxBldgLvl_;
     }
 
-    public static final int PREFAB_NAME_FIELD_NUMBER = 7;
+    public static final int PREFAB_NAME_FIELD_NUMBER = 10;
     private java.lang.Object prefabName_;
     /**
-     * <code>optional string prefab_name = 7 [default = ""];</code>
+     * <code>optional string prefab_name = 10 [default = ""];</code>
      *
      * <pre>
      ** 模型名 
      * </pre>
      */
     public boolean hasPrefabName() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional string prefab_name = 7 [default = ""];</code>
+     * <code>optional string prefab_name = 10 [default = ""];</code>
      *
      * <pre>
      ** 模型名 
@@ -1387,7 +1626,7 @@ public final class BuildingBytes {
       }
     }
     /**
-     * <code>optional string prefab_name = 7 [default = ""];</code>
+     * <code>optional string prefab_name = 10 [default = ""];</code>
      *
      * <pre>
      ** 模型名 
@@ -1407,20 +1646,20 @@ public final class BuildingBytes {
       }
     }
 
-    public static final int ICON_NAME_FIELD_NUMBER = 8;
+    public static final int ICON_NAME_FIELD_NUMBER = 11;
     private java.lang.Object iconName_;
     /**
-     * <code>optional string icon_name = 8 [default = ""];</code>
+     * <code>optional string icon_name = 11 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
      * </pre>
      */
     public boolean hasIconName() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional string icon_name = 8 [default = ""];</code>
+     * <code>optional string icon_name = 11 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -1441,7 +1680,7 @@ public final class BuildingBytes {
       }
     }
     /**
-     * <code>optional string icon_name = 8 [default = ""];</code>
+     * <code>optional string icon_name = 11 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -1461,20 +1700,20 @@ public final class BuildingBytes {
       }
     }
 
-    public static final int BLDG_INFO_FIELD_NUMBER = 9;
+    public static final int BLDG_INFO_FIELD_NUMBER = 12;
     private java.lang.Object bldgInfo_;
     /**
-     * <code>optional string bldg_info = 9 [default = ""];</code>
+     * <code>optional string bldg_info = 12 [default = ""];</code>
      *
      * <pre>
      ** 建筑描述 
      * </pre>
      */
     public boolean hasBldgInfo() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional string bldg_info = 9 [default = ""];</code>
+     * <code>optional string bldg_info = 12 [default = ""];</code>
      *
      * <pre>
      ** 建筑描述 
@@ -1495,7 +1734,7 @@ public final class BuildingBytes {
       }
     }
     /**
-     * <code>optional string bldg_info = 9 [default = ""];</code>
+     * <code>optional string bldg_info = 12 [default = ""];</code>
      *
      * <pre>
      ** 建筑描述 
@@ -1515,20 +1754,20 @@ public final class BuildingBytes {
       }
     }
 
-    public static final int CON_ID_FIELD_NUMBER = 10;
+    public static final int CON_ID_FIELD_NUMBER = 13;
     private int conId_;
     /**
-     * <code>optional int32 con_id = 10 [default = 0];</code>
+     * <code>optional int32 con_id = 13 [default = 0];</code>
      *
      * <pre>
      ** 消耗id 
      * </pre>
      */
     public boolean hasConId() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00001000) == 0x00001000);
     }
     /**
-     * <code>optional int32 con_id = 10 [default = 0];</code>
+     * <code>optional int32 con_id = 13 [default = 0];</code>
      *
      * <pre>
      ** 消耗id 
@@ -1538,20 +1777,20 @@ public final class BuildingBytes {
       return conId_;
     }
 
-    public static final int CON_PRO_FIELD_NUMBER = 11;
+    public static final int CON_PRO_FIELD_NUMBER = 14;
     private int conPro_;
     /**
-     * <code>optional int32 con_pro = 11 [default = 0];</code>
+     * <code>optional int32 con_pro = 14 [default = 0];</code>
      *
      * <pre>
      ** 消耗产出比 
      * </pre>
      */
     public boolean hasConPro() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00002000) == 0x00002000);
     }
     /**
-     * <code>optional int32 con_pro = 11 [default = 0];</code>
+     * <code>optional int32 con_pro = 14 [default = 0];</code>
      *
      * <pre>
      ** 消耗产出比 
@@ -1561,20 +1800,20 @@ public final class BuildingBytes {
       return conPro_;
     }
 
-    public static final int PRO_ID_FIELD_NUMBER = 12;
+    public static final int PRO_ID_FIELD_NUMBER = 15;
     private int proId_;
     /**
-     * <code>optional int32 pro_id = 12 [default = 0];</code>
+     * <code>optional int32 pro_id = 15 [default = 0];</code>
      *
      * <pre>
      ** 产出id 
      * </pre>
      */
     public boolean hasProId() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
+      return ((bitField0_ & 0x00004000) == 0x00004000);
     }
     /**
-     * <code>optional int32 pro_id = 12 [default = 0];</code>
+     * <code>optional int32 pro_id = 15 [default = 0];</code>
      *
      * <pre>
      ** 产出id 
@@ -1584,20 +1823,20 @@ public final class BuildingBytes {
       return proId_;
     }
 
-    public static final int BLDG_FUNC_TABLE_NAME_FIELD_NUMBER = 13;
+    public static final int BLDG_FUNC_TABLE_NAME_FIELD_NUMBER = 16;
     private java.lang.Object bldgFuncTableName_;
     /**
-     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
      * </pre>
      */
     public boolean hasBldgFuncTableName() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
+      return ((bitField0_ & 0x00008000) == 0x00008000);
     }
     /**
-     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
@@ -1618,7 +1857,7 @@ public final class BuildingBytes {
       }
     }
     /**
-     * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+     * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
      *
      * <pre>
      ** 建筑功能表名 
@@ -1638,20 +1877,20 @@ public final class BuildingBytes {
       }
     }
 
-    public static final int BLDG_FUNC_TABLE_ID_FIELD_NUMBER = 14;
+    public static final int BLDG_FUNC_TABLE_ID_FIELD_NUMBER = 17;
     private int bldgFuncTableId_;
     /**
-     * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
+     * <code>optional int32 bldg_func_table_id = 17 [default = 0];</code>
      *
      * <pre>
      ** 建筑功能表索引ID 
      * </pre>
      */
     public boolean hasBldgFuncTableId() {
-      return ((bitField0_ & 0x00002000) == 0x00002000);
+      return ((bitField0_ & 0x00010000) == 0x00010000);
     }
     /**
-     * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
+     * <code>optional int32 bldg_func_table_id = 17 [default = 0];</code>
      *
      * <pre>
      ** 建筑功能表索引ID 
@@ -1661,20 +1900,20 @@ public final class BuildingBytes {
       return bldgFuncTableId_;
     }
 
-    public static final int BLDG_STRENGTH_LIM_FIELD_NUMBER = 15;
+    public static final int BLDG_STRENGTH_LIM_FIELD_NUMBER = 18;
     private int bldgStrengthLim_;
     /**
-     * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
+     * <code>optional int32 bldg_strength_lim = 18 [default = 0];</code>
      *
      * <pre>
      ** 庄园实力限制 
      * </pre>
      */
     public boolean hasBldgStrengthLim() {
-      return ((bitField0_ & 0x00004000) == 0x00004000);
+      return ((bitField0_ & 0x00020000) == 0x00020000);
     }
     /**
-     * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
+     * <code>optional int32 bldg_strength_lim = 18 [default = 0];</code>
      *
      * <pre>
      ** 庄园实力限制 
@@ -1684,20 +1923,43 @@ public final class BuildingBytes {
       return bldgStrengthLim_;
     }
 
-    public static final int BLDG_STRENGTH_ADD_FIELD_NUMBER = 16;
+    public static final int BLDG_LV_LIM_FIELD_NUMBER = 19;
+    private int bldgLvLim_;
+    /**
+     * <code>optional int32 bldg_lv_lim = 19 [default = 0];</code>
+     *
+     * <pre>
+     ** 等效等级 
+     * </pre>
+     */
+    public boolean hasBldgLvLim() {
+      return ((bitField0_ & 0x00040000) == 0x00040000);
+    }
+    /**
+     * <code>optional int32 bldg_lv_lim = 19 [default = 0];</code>
+     *
+     * <pre>
+     ** 等效等级 
+     * </pre>
+     */
+    public int getBldgLvLim() {
+      return bldgLvLim_;
+    }
+
+    public static final int BLDG_STRENGTH_ADD_FIELD_NUMBER = 20;
     private int bldgStrengthAdd_;
     /**
-     * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
+     * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
      *
      * <pre>
      ** 每级消耗资源价值（每级增加实力） 
      * </pre>
      */
     public boolean hasBldgStrengthAdd() {
-      return ((bitField0_ & 0x00008000) == 0x00008000);
+      return ((bitField0_ & 0x00080000) == 0x00080000);
     }
     /**
-     * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
+     * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
      *
      * <pre>
      ** 每级消耗资源价值（每级增加实力） 
@@ -1707,10 +1969,10 @@ public final class BuildingBytes {
       return bldgStrengthAdd_;
     }
 
-    public static final int TIME_COST_FIELD_NUMBER = 17;
+    public static final int TIME_COST_FIELD_NUMBER = 21;
     private int timeCost_;
     /**
-     * <code>optional int32 time_cost = 17 [default = 0];</code>
+     * <code>optional int32 time_cost = 21 [default = 0];</code>
      *
      * <pre>
      ** 消耗时间
@@ -1718,10 +1980,10 @@ public final class BuildingBytes {
      * </pre>
      */
     public boolean hasTimeCost() {
-      return ((bitField0_ & 0x00010000) == 0x00010000);
+      return ((bitField0_ & 0x00100000) == 0x00100000);
     }
     /**
-     * <code>optional int32 time_cost = 17 [default = 0];</code>
+     * <code>optional int32 time_cost = 21 [default = 0];</code>
      *
      * <pre>
      ** 消耗时间
@@ -1732,20 +1994,20 @@ public final class BuildingBytes {
       return timeCost_;
     }
 
-    public static final int GOLD_COST_FIELD_NUMBER = 18;
+    public static final int GOLD_COST_FIELD_NUMBER = 22;
     private int goldCost_;
     /**
-     * <code>optional int32 gold_cost = 18 [default = 0];</code>
+     * <code>optional int32 gold_cost = 22 [default = 0];</code>
      *
      * <pre>
      ** 消耗黄金 
      * </pre>
      */
     public boolean hasGoldCost() {
-      return ((bitField0_ & 0x00020000) == 0x00020000);
+      return ((bitField0_ & 0x00200000) == 0x00200000);
     }
     /**
-     * <code>optional int32 gold_cost = 18 [default = 0];</code>
+     * <code>optional int32 gold_cost = 22 [default = 0];</code>
      *
      * <pre>
      ** 消耗黄金 
@@ -1755,20 +2017,20 @@ public final class BuildingBytes {
       return goldCost_;
     }
 
-    public static final int ELEC_COST_FIELD_NUMBER = 19;
+    public static final int ELEC_COST_FIELD_NUMBER = 23;
     private int elecCost_;
     /**
-     * <code>optional int32 elec_cost = 19 [default = 0];</code>
+     * <code>optional int32 elec_cost = 23 [default = 0];</code>
      *
      * <pre>
      ** 消耗电力 
      * </pre>
      */
     public boolean hasElecCost() {
-      return ((bitField0_ & 0x00040000) == 0x00040000);
+      return ((bitField0_ & 0x00400000) == 0x00400000);
     }
     /**
-     * <code>optional int32 elec_cost = 19 [default = 0];</code>
+     * <code>optional int32 elec_cost = 23 [default = 0];</code>
      *
      * <pre>
      ** 消耗电力 
@@ -1778,35 +2040,35 @@ public final class BuildingBytes {
       return elecCost_;
     }
 
-    public static final int COST_TABLE_FIELD_NUMBER = 20;
+    public static final int COST_TABLE_FIELD_NUMBER = 24;
     private java.util.List<com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct> costTable_;
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
      */
     public java.util.List<com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct> getCostTableList() {
       return costTable_;
     }
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
      */
     public java.util.List<? extends com.game.framework.resource.data.BuildingBytes.BUILDING.CostStructOrBuilder> 
         getCostTableOrBuilderList() {
       return costTable_;
     }
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
      */
     public int getCostTableCount() {
       return costTable_.size();
     }
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
      */
     public com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct getCostTable(int index) {
       return costTable_.get(index);
     }
     /**
-     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+     * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
      */
     public com.game.framework.resource.data.BuildingBytes.BUILDING.CostStructOrBuilder getCostTableOrBuilder(
         int index) {
@@ -1818,6 +2080,9 @@ public final class BuildingBytes {
       bldgType_ = 0;
       bldgLvl_ = 0;
       bldgName_ = "";
+      bldgVisible_ = 0;
+      bldgcapKey_ = "";
+      bldgspdKey_ = "";
       inUse_ = 0;
       maxBldgLvl_ = 0;
       prefabName_ = "";
@@ -1829,6 +2094,7 @@ public final class BuildingBytes {
       bldgFuncTableName_ = "";
       bldgFuncTableId_ = 0;
       bldgStrengthLim_ = 0;
+      bldgLvLim_ = 0;
       bldgStrengthAdd_ = 0;
       timeCost_ = 0;
       goldCost_ = 0;
@@ -1865,52 +2131,64 @@ public final class BuildingBytes {
         output.writeBytes(4, getBldgNameBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, inUse_);
+        output.writeInt32(5, bldgVisible_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeInt32(6, maxBldgLvl_);
+        output.writeBytes(6, getBldgcapKeyBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, getPrefabNameBytes());
+        output.writeBytes(7, getBldgspdKeyBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBytes(8, getIconNameBytes());
+        output.writeInt32(8, inUse_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeBytes(9, getBldgInfoBytes());
+        output.writeInt32(9, maxBldgLvl_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeInt32(10, conId_);
+        output.writeBytes(10, getPrefabNameBytes());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeInt32(11, conPro_);
+        output.writeBytes(11, getIconNameBytes());
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(12, proId_);
+        output.writeBytes(12, getBldgInfoBytes());
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeBytes(13, getBldgFuncTableNameBytes());
+        output.writeInt32(13, conId_);
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        output.writeInt32(14, bldgFuncTableId_);
+        output.writeInt32(14, conPro_);
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        output.writeInt32(15, bldgStrengthLim_);
+        output.writeInt32(15, proId_);
       }
       if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        output.writeInt32(16, bldgStrengthAdd_);
+        output.writeBytes(16, getBldgFuncTableNameBytes());
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        output.writeInt32(17, timeCost_);
+        output.writeInt32(17, bldgFuncTableId_);
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
-        output.writeInt32(18, goldCost_);
+        output.writeInt32(18, bldgStrengthLim_);
       }
       if (((bitField0_ & 0x00040000) == 0x00040000)) {
-        output.writeInt32(19, elecCost_);
+        output.writeInt32(19, bldgLvLim_);
+      }
+      if (((bitField0_ & 0x00080000) == 0x00080000)) {
+        output.writeInt32(20, bldgStrengthAdd_);
+      }
+      if (((bitField0_ & 0x00100000) == 0x00100000)) {
+        output.writeInt32(21, timeCost_);
+      }
+      if (((bitField0_ & 0x00200000) == 0x00200000)) {
+        output.writeInt32(22, goldCost_);
+      }
+      if (((bitField0_ & 0x00400000) == 0x00400000)) {
+        output.writeInt32(23, elecCost_);
       }
       for (int i = 0; i < costTable_.size(); i++) {
-        output.writeMessage(20, costTable_.get(i));
+        output.writeMessage(24, costTable_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -1939,67 +2217,83 @@ public final class BuildingBytes {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, inUse_);
+          .computeInt32Size(5, bldgVisible_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, maxBldgLvl_);
+          .computeBytesSize(6, getBldgcapKeyBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getPrefabNameBytes());
+          .computeBytesSize(7, getBldgspdKeyBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(8, getIconNameBytes());
+          .computeInt32Size(8, inUse_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, getBldgInfoBytes());
+          .computeInt32Size(9, maxBldgLvl_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, conId_);
+          .computeBytesSize(10, getPrefabNameBytes());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(11, conPro_);
+          .computeBytesSize(11, getIconNameBytes());
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, proId_);
+          .computeBytesSize(12, getBldgInfoBytes());
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(13, getBldgFuncTableNameBytes());
+          .computeInt32Size(13, conId_);
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(14, bldgFuncTableId_);
+          .computeInt32Size(14, conPro_);
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(15, bldgStrengthLim_);
+          .computeInt32Size(15, proId_);
       }
       if (((bitField0_ & 0x00008000) == 0x00008000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(16, bldgStrengthAdd_);
+          .computeBytesSize(16, getBldgFuncTableNameBytes());
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(17, timeCost_);
+          .computeInt32Size(17, bldgFuncTableId_);
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(18, goldCost_);
+          .computeInt32Size(18, bldgStrengthLim_);
       }
       if (((bitField0_ & 0x00040000) == 0x00040000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(19, elecCost_);
+          .computeInt32Size(19, bldgLvLim_);
+      }
+      if (((bitField0_ & 0x00080000) == 0x00080000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(20, bldgStrengthAdd_);
+      }
+      if (((bitField0_ & 0x00100000) == 0x00100000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(21, timeCost_);
+      }
+      if (((bitField0_ & 0x00200000) == 0x00200000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(22, goldCost_);
+      }
+      if (((bitField0_ & 0x00400000) == 0x00400000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(23, elecCost_);
       }
       for (int i = 0; i < costTable_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(20, costTable_.get(i));
+          .computeMessageSize(24, costTable_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2127,39 +2421,47 @@ public final class BuildingBytes {
         bitField0_ = (bitField0_ & ~0x00000004);
         bldgName_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        inUse_ = 0;
+        bldgVisible_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
-        maxBldgLvl_ = 0;
+        bldgcapKey_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
-        prefabName_ = "";
+        bldgspdKey_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
-        iconName_ = "";
+        inUse_ = 0;
         bitField0_ = (bitField0_ & ~0x00000080);
-        bldgInfo_ = "";
+        maxBldgLvl_ = 0;
         bitField0_ = (bitField0_ & ~0x00000100);
-        conId_ = 0;
+        prefabName_ = "";
         bitField0_ = (bitField0_ & ~0x00000200);
-        conPro_ = 0;
+        iconName_ = "";
         bitField0_ = (bitField0_ & ~0x00000400);
-        proId_ = 0;
+        bldgInfo_ = "";
         bitField0_ = (bitField0_ & ~0x00000800);
-        bldgFuncTableName_ = "";
+        conId_ = 0;
         bitField0_ = (bitField0_ & ~0x00001000);
-        bldgFuncTableId_ = 0;
+        conPro_ = 0;
         bitField0_ = (bitField0_ & ~0x00002000);
-        bldgStrengthLim_ = 0;
+        proId_ = 0;
         bitField0_ = (bitField0_ & ~0x00004000);
-        bldgStrengthAdd_ = 0;
+        bldgFuncTableName_ = "";
         bitField0_ = (bitField0_ & ~0x00008000);
-        timeCost_ = 0;
+        bldgFuncTableId_ = 0;
         bitField0_ = (bitField0_ & ~0x00010000);
-        goldCost_ = 0;
+        bldgStrengthLim_ = 0;
         bitField0_ = (bitField0_ & ~0x00020000);
-        elecCost_ = 0;
+        bldgLvLim_ = 0;
         bitField0_ = (bitField0_ & ~0x00040000);
+        bldgStrengthAdd_ = 0;
+        bitField0_ = (bitField0_ & ~0x00080000);
+        timeCost_ = 0;
+        bitField0_ = (bitField0_ & ~0x00100000);
+        goldCost_ = 0;
+        bitField0_ = (bitField0_ & ~0x00200000);
+        elecCost_ = 0;
+        bitField0_ = (bitField0_ & ~0x00400000);
         if (costTableBuilder_ == null) {
           costTable_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00080000);
+          bitField0_ = (bitField0_ & ~0x00800000);
         } else {
           costTableBuilder_.clear();
         }
@@ -2210,67 +2512,83 @@ public final class BuildingBytes {
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.inUse_ = inUse_;
+        result.bldgVisible_ = bldgVisible_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.maxBldgLvl_ = maxBldgLvl_;
+        result.bldgcapKey_ = bldgcapKey_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.prefabName_ = prefabName_;
+        result.bldgspdKey_ = bldgspdKey_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.iconName_ = iconName_;
+        result.inUse_ = inUse_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.bldgInfo_ = bldgInfo_;
+        result.maxBldgLvl_ = maxBldgLvl_;
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.conId_ = conId_;
+        result.prefabName_ = prefabName_;
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000400;
         }
-        result.conPro_ = conPro_;
+        result.iconName_ = iconName_;
         if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
           to_bitField0_ |= 0x00000800;
         }
-        result.proId_ = proId_;
+        result.bldgInfo_ = bldgInfo_;
         if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
           to_bitField0_ |= 0x00001000;
         }
-        result.bldgFuncTableName_ = bldgFuncTableName_;
+        result.conId_ = conId_;
         if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
           to_bitField0_ |= 0x00002000;
         }
-        result.bldgFuncTableId_ = bldgFuncTableId_;
+        result.conPro_ = conPro_;
         if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
           to_bitField0_ |= 0x00004000;
         }
-        result.bldgStrengthLim_ = bldgStrengthLim_;
+        result.proId_ = proId_;
         if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
           to_bitField0_ |= 0x00008000;
         }
-        result.bldgStrengthAdd_ = bldgStrengthAdd_;
+        result.bldgFuncTableName_ = bldgFuncTableName_;
         if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
           to_bitField0_ |= 0x00010000;
         }
-        result.timeCost_ = timeCost_;
+        result.bldgFuncTableId_ = bldgFuncTableId_;
         if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
           to_bitField0_ |= 0x00020000;
         }
-        result.goldCost_ = goldCost_;
+        result.bldgStrengthLim_ = bldgStrengthLim_;
         if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
           to_bitField0_ |= 0x00040000;
         }
+        result.bldgLvLim_ = bldgLvLim_;
+        if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
+          to_bitField0_ |= 0x00080000;
+        }
+        result.bldgStrengthAdd_ = bldgStrengthAdd_;
+        if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
+          to_bitField0_ |= 0x00100000;
+        }
+        result.timeCost_ = timeCost_;
+        if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
+          to_bitField0_ |= 0x00200000;
+        }
+        result.goldCost_ = goldCost_;
+        if (((from_bitField0_ & 0x00400000) == 0x00400000)) {
+          to_bitField0_ |= 0x00400000;
+        }
         result.elecCost_ = elecCost_;
         if (costTableBuilder_ == null) {
-          if (((bitField0_ & 0x00080000) == 0x00080000)) {
+          if (((bitField0_ & 0x00800000) == 0x00800000)) {
             costTable_ = java.util.Collections.unmodifiableList(costTable_);
-            bitField0_ = (bitField0_ & ~0x00080000);
+            bitField0_ = (bitField0_ & ~0x00800000);
           }
           result.costTable_ = costTable_;
         } else {
@@ -2306,6 +2624,19 @@ public final class BuildingBytes {
           bldgName_ = other.bldgName_;
           onChanged();
         }
+        if (other.hasBldgVisible()) {
+          setBldgVisible(other.getBldgVisible());
+        }
+        if (other.hasBldgcapKey()) {
+          bitField0_ |= 0x00000020;
+          bldgcapKey_ = other.bldgcapKey_;
+          onChanged();
+        }
+        if (other.hasBldgspdKey()) {
+          bitField0_ |= 0x00000040;
+          bldgspdKey_ = other.bldgspdKey_;
+          onChanged();
+        }
         if (other.hasInUse()) {
           setInUse(other.getInUse());
         }
@@ -2313,17 +2644,17 @@ public final class BuildingBytes {
           setMaxBldgLvl(other.getMaxBldgLvl());
         }
         if (other.hasPrefabName()) {
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000200;
           prefabName_ = other.prefabName_;
           onChanged();
         }
         if (other.hasIconName()) {
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000400;
           iconName_ = other.iconName_;
           onChanged();
         }
         if (other.hasBldgInfo()) {
-          bitField0_ |= 0x00000100;
+          bitField0_ |= 0x00000800;
           bldgInfo_ = other.bldgInfo_;
           onChanged();
         }
@@ -2337,7 +2668,7 @@ public final class BuildingBytes {
           setProId(other.getProId());
         }
         if (other.hasBldgFuncTableName()) {
-          bitField0_ |= 0x00001000;
+          bitField0_ |= 0x00008000;
           bldgFuncTableName_ = other.bldgFuncTableName_;
           onChanged();
         }
@@ -2346,6 +2677,9 @@ public final class BuildingBytes {
         }
         if (other.hasBldgStrengthLim()) {
           setBldgStrengthLim(other.getBldgStrengthLim());
+        }
+        if (other.hasBldgLvLim()) {
+          setBldgLvLim(other.getBldgLvLim());
         }
         if (other.hasBldgStrengthAdd()) {
           setBldgStrengthAdd(other.getBldgStrengthAdd());
@@ -2363,7 +2697,7 @@ public final class BuildingBytes {
           if (!other.costTable_.isEmpty()) {
             if (costTable_.isEmpty()) {
               costTable_ = other.costTable_;
-              bitField0_ = (bitField0_ & ~0x00080000);
+              bitField0_ = (bitField0_ & ~0x00800000);
             } else {
               ensureCostTableIsMutable();
               costTable_.addAll(other.costTable_);
@@ -2376,7 +2710,7 @@ public final class BuildingBytes {
               costTableBuilder_.dispose();
               costTableBuilder_ = null;
               costTable_ = other.costTable_;
-              bitField0_ = (bitField0_ & ~0x00080000);
+              bitField0_ = (bitField0_ & ~0x00800000);
               costTableBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getCostTableFieldBuilder() : null;
@@ -2680,9 +3014,257 @@ public final class BuildingBytes {
         return this;
       }
 
+      private int bldgVisible_ ;
+      /**
+       * <code>optional int32 bldg_visible = 5 [default = 0];</code>
+       *
+       * <pre>
+       ** 可视等级 
+       * </pre>
+       */
+      public boolean hasBldgVisible() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 bldg_visible = 5 [default = 0];</code>
+       *
+       * <pre>
+       ** 可视等级 
+       * </pre>
+       */
+      public int getBldgVisible() {
+        return bldgVisible_;
+      }
+      /**
+       * <code>optional int32 bldg_visible = 5 [default = 0];</code>
+       *
+       * <pre>
+       ** 可视等级 
+       * </pre>
+       */
+      public Builder setBldgVisible(int value) {
+        bitField0_ |= 0x00000010;
+        bldgVisible_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 bldg_visible = 5 [default = 0];</code>
+       *
+       * <pre>
+       ** 可视等级 
+       * </pre>
+       */
+      public Builder clearBldgVisible() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        bldgVisible_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object bldgcapKey_ = "";
+      /**
+       * <code>optional string bldgcap_key = 6 [default = ""];</code>
+       *
+       * <pre>
+       ** key1 
+       * </pre>
+       */
+      public boolean hasBldgcapKey() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional string bldgcap_key = 6 [default = ""];</code>
+       *
+       * <pre>
+       ** key1 
+       * </pre>
+       */
+      public java.lang.String getBldgcapKey() {
+        java.lang.Object ref = bldgcapKey_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            bldgcapKey_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string bldgcap_key = 6 [default = ""];</code>
+       *
+       * <pre>
+       ** key1 
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getBldgcapKeyBytes() {
+        java.lang.Object ref = bldgcapKey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          bldgcapKey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string bldgcap_key = 6 [default = ""];</code>
+       *
+       * <pre>
+       ** key1 
+       * </pre>
+       */
+      public Builder setBldgcapKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        bldgcapKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string bldgcap_key = 6 [default = ""];</code>
+       *
+       * <pre>
+       ** key1 
+       * </pre>
+       */
+      public Builder clearBldgcapKey() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        bldgcapKey_ = getDefaultInstance().getBldgcapKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string bldgcap_key = 6 [default = ""];</code>
+       *
+       * <pre>
+       ** key1 
+       * </pre>
+       */
+      public Builder setBldgcapKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        bldgcapKey_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object bldgspdKey_ = "";
+      /**
+       * <code>optional string bldgspd_key = 7 [default = ""];</code>
+       *
+       * <pre>
+       ** key2 
+       * </pre>
+       */
+      public boolean hasBldgspdKey() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional string bldgspd_key = 7 [default = ""];</code>
+       *
+       * <pre>
+       ** key2 
+       * </pre>
+       */
+      public java.lang.String getBldgspdKey() {
+        java.lang.Object ref = bldgspdKey_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            bldgspdKey_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string bldgspd_key = 7 [default = ""];</code>
+       *
+       * <pre>
+       ** key2 
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getBldgspdKeyBytes() {
+        java.lang.Object ref = bldgspdKey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          bldgspdKey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string bldgspd_key = 7 [default = ""];</code>
+       *
+       * <pre>
+       ** key2 
+       * </pre>
+       */
+      public Builder setBldgspdKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        bldgspdKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string bldgspd_key = 7 [default = ""];</code>
+       *
+       * <pre>
+       ** key2 
+       * </pre>
+       */
+      public Builder clearBldgspdKey() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        bldgspdKey_ = getDefaultInstance().getBldgspdKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string bldgspd_key = 7 [default = ""];</code>
+       *
+       * <pre>
+       ** key2 
+       * </pre>
+       */
+      public Builder setBldgspdKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        bldgspdKey_ = value;
+        onChanged();
+        return this;
+      }
+
       private int inUse_ ;
       /**
-       * <code>optional int32 in_use = 5 [default = 0];</code>
+       * <code>optional int32 in_use = 8 [default = 0];</code>
        *
        * <pre>
        ** 可用
@@ -2691,10 +3273,10 @@ public final class BuildingBytes {
        * </pre>
        */
       public boolean hasInUse() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional int32 in_use = 5 [default = 0];</code>
+       * <code>optional int32 in_use = 8 [default = 0];</code>
        *
        * <pre>
        ** 可用
@@ -2706,7 +3288,7 @@ public final class BuildingBytes {
         return inUse_;
       }
       /**
-       * <code>optional int32 in_use = 5 [default = 0];</code>
+       * <code>optional int32 in_use = 8 [default = 0];</code>
        *
        * <pre>
        ** 可用
@@ -2715,13 +3297,13 @@ public final class BuildingBytes {
        * </pre>
        */
       public Builder setInUse(int value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000080;
         inUse_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 in_use = 5 [default = 0];</code>
+       * <code>optional int32 in_use = 8 [default = 0];</code>
        *
        * <pre>
        ** 可用
@@ -2730,7 +3312,7 @@ public final class BuildingBytes {
        * </pre>
        */
       public Builder clearInUse() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000080);
         inUse_ = 0;
         onChanged();
         return this;
@@ -2738,17 +3320,17 @@ public final class BuildingBytes {
 
       private int maxBldgLvl_ ;
       /**
-       * <code>optional int32 max_bldg_lvl = 6 [default = 0];</code>
+       * <code>optional int32 max_bldg_lvl = 9 [default = 0];</code>
        *
        * <pre>
        ** 建筑最大等级 
        * </pre>
        */
       public boolean hasMaxBldgLvl() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional int32 max_bldg_lvl = 6 [default = 0];</code>
+       * <code>optional int32 max_bldg_lvl = 9 [default = 0];</code>
        *
        * <pre>
        ** 建筑最大等级 
@@ -2758,27 +3340,27 @@ public final class BuildingBytes {
         return maxBldgLvl_;
       }
       /**
-       * <code>optional int32 max_bldg_lvl = 6 [default = 0];</code>
+       * <code>optional int32 max_bldg_lvl = 9 [default = 0];</code>
        *
        * <pre>
        ** 建筑最大等级 
        * </pre>
        */
       public Builder setMaxBldgLvl(int value) {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000100;
         maxBldgLvl_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 max_bldg_lvl = 6 [default = 0];</code>
+       * <code>optional int32 max_bldg_lvl = 9 [default = 0];</code>
        *
        * <pre>
        ** 建筑最大等级 
        * </pre>
        */
       public Builder clearMaxBldgLvl() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000100);
         maxBldgLvl_ = 0;
         onChanged();
         return this;
@@ -2786,17 +3368,17 @@ public final class BuildingBytes {
 
       private java.lang.Object prefabName_ = "";
       /**
-       * <code>optional string prefab_name = 7 [default = ""];</code>
+       * <code>optional string prefab_name = 10 [default = ""];</code>
        *
        * <pre>
        ** 模型名 
        * </pre>
        */
       public boolean hasPrefabName() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional string prefab_name = 7 [default = ""];</code>
+       * <code>optional string prefab_name = 10 [default = ""];</code>
        *
        * <pre>
        ** 模型名 
@@ -2817,7 +3399,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>optional string prefab_name = 7 [default = ""];</code>
+       * <code>optional string prefab_name = 10 [default = ""];</code>
        *
        * <pre>
        ** 模型名 
@@ -2837,7 +3419,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>optional string prefab_name = 7 [default = ""];</code>
+       * <code>optional string prefab_name = 10 [default = ""];</code>
        *
        * <pre>
        ** 模型名 
@@ -2848,26 +3430,26 @@ public final class BuildingBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000200;
         prefabName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string prefab_name = 7 [default = ""];</code>
+       * <code>optional string prefab_name = 10 [default = ""];</code>
        *
        * <pre>
        ** 模型名 
        * </pre>
        */
       public Builder clearPrefabName() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000200);
         prefabName_ = getDefaultInstance().getPrefabName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string prefab_name = 7 [default = ""];</code>
+       * <code>optional string prefab_name = 10 [default = ""];</code>
        *
        * <pre>
        ** 模型名 
@@ -2878,7 +3460,7 @@ public final class BuildingBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000200;
         prefabName_ = value;
         onChanged();
         return this;
@@ -2886,17 +3468,17 @@ public final class BuildingBytes {
 
       private java.lang.Object iconName_ = "";
       /**
-       * <code>optional string icon_name = 8 [default = ""];</code>
+       * <code>optional string icon_name = 11 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
        * </pre>
        */
       public boolean hasIconName() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional string icon_name = 8 [default = ""];</code>
+       * <code>optional string icon_name = 11 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -2917,7 +3499,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>optional string icon_name = 8 [default = ""];</code>
+       * <code>optional string icon_name = 11 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -2937,7 +3519,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>optional string icon_name = 8 [default = ""];</code>
+       * <code>optional string icon_name = 11 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -2948,26 +3530,26 @@ public final class BuildingBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000400;
         iconName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string icon_name = 8 [default = ""];</code>
+       * <code>optional string icon_name = 11 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
        * </pre>
        */
       public Builder clearIconName() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000400);
         iconName_ = getDefaultInstance().getIconName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string icon_name = 8 [default = ""];</code>
+       * <code>optional string icon_name = 11 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -2978,7 +3560,7 @@ public final class BuildingBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000400;
         iconName_ = value;
         onChanged();
         return this;
@@ -2986,17 +3568,17 @@ public final class BuildingBytes {
 
       private java.lang.Object bldgInfo_ = "";
       /**
-       * <code>optional string bldg_info = 9 [default = ""];</code>
+       * <code>optional string bldg_info = 12 [default = ""];</code>
        *
        * <pre>
        ** 建筑描述 
        * </pre>
        */
       public boolean hasBldgInfo() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional string bldg_info = 9 [default = ""];</code>
+       * <code>optional string bldg_info = 12 [default = ""];</code>
        *
        * <pre>
        ** 建筑描述 
@@ -3017,7 +3599,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>optional string bldg_info = 9 [default = ""];</code>
+       * <code>optional string bldg_info = 12 [default = ""];</code>
        *
        * <pre>
        ** 建筑描述 
@@ -3037,7 +3619,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>optional string bldg_info = 9 [default = ""];</code>
+       * <code>optional string bldg_info = 12 [default = ""];</code>
        *
        * <pre>
        ** 建筑描述 
@@ -3048,26 +3630,26 @@ public final class BuildingBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00000800;
         bldgInfo_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string bldg_info = 9 [default = ""];</code>
+       * <code>optional string bldg_info = 12 [default = ""];</code>
        *
        * <pre>
        ** 建筑描述 
        * </pre>
        */
       public Builder clearBldgInfo() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000800);
         bldgInfo_ = getDefaultInstance().getBldgInfo();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string bldg_info = 9 [default = ""];</code>
+       * <code>optional string bldg_info = 12 [default = ""];</code>
        *
        * <pre>
        ** 建筑描述 
@@ -3078,7 +3660,7 @@ public final class BuildingBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00000800;
         bldgInfo_ = value;
         onChanged();
         return this;
@@ -3086,17 +3668,17 @@ public final class BuildingBytes {
 
       private int conId_ ;
       /**
-       * <code>optional int32 con_id = 10 [default = 0];</code>
+       * <code>optional int32 con_id = 13 [default = 0];</code>
        *
        * <pre>
        ** 消耗id 
        * </pre>
        */
       public boolean hasConId() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
-       * <code>optional int32 con_id = 10 [default = 0];</code>
+       * <code>optional int32 con_id = 13 [default = 0];</code>
        *
        * <pre>
        ** 消耗id 
@@ -3106,27 +3688,27 @@ public final class BuildingBytes {
         return conId_;
       }
       /**
-       * <code>optional int32 con_id = 10 [default = 0];</code>
+       * <code>optional int32 con_id = 13 [default = 0];</code>
        *
        * <pre>
        ** 消耗id 
        * </pre>
        */
       public Builder setConId(int value) {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00001000;
         conId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 con_id = 10 [default = 0];</code>
+       * <code>optional int32 con_id = 13 [default = 0];</code>
        *
        * <pre>
        ** 消耗id 
        * </pre>
        */
       public Builder clearConId() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00001000);
         conId_ = 0;
         onChanged();
         return this;
@@ -3134,17 +3716,17 @@ public final class BuildingBytes {
 
       private int conPro_ ;
       /**
-       * <code>optional int32 con_pro = 11 [default = 0];</code>
+       * <code>optional int32 con_pro = 14 [default = 0];</code>
        *
        * <pre>
        ** 消耗产出比 
        * </pre>
        */
       public boolean hasConPro() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00002000) == 0x00002000);
       }
       /**
-       * <code>optional int32 con_pro = 11 [default = 0];</code>
+       * <code>optional int32 con_pro = 14 [default = 0];</code>
        *
        * <pre>
        ** 消耗产出比 
@@ -3154,27 +3736,27 @@ public final class BuildingBytes {
         return conPro_;
       }
       /**
-       * <code>optional int32 con_pro = 11 [default = 0];</code>
+       * <code>optional int32 con_pro = 14 [default = 0];</code>
        *
        * <pre>
        ** 消耗产出比 
        * </pre>
        */
       public Builder setConPro(int value) {
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00002000;
         conPro_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 con_pro = 11 [default = 0];</code>
+       * <code>optional int32 con_pro = 14 [default = 0];</code>
        *
        * <pre>
        ** 消耗产出比 
        * </pre>
        */
       public Builder clearConPro() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00002000);
         conPro_ = 0;
         onChanged();
         return this;
@@ -3182,17 +3764,17 @@ public final class BuildingBytes {
 
       private int proId_ ;
       /**
-       * <code>optional int32 pro_id = 12 [default = 0];</code>
+       * <code>optional int32 pro_id = 15 [default = 0];</code>
        *
        * <pre>
        ** 产出id 
        * </pre>
        */
       public boolean hasProId() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+        return ((bitField0_ & 0x00004000) == 0x00004000);
       }
       /**
-       * <code>optional int32 pro_id = 12 [default = 0];</code>
+       * <code>optional int32 pro_id = 15 [default = 0];</code>
        *
        * <pre>
        ** 产出id 
@@ -3202,27 +3784,27 @@ public final class BuildingBytes {
         return proId_;
       }
       /**
-       * <code>optional int32 pro_id = 12 [default = 0];</code>
+       * <code>optional int32 pro_id = 15 [default = 0];</code>
        *
        * <pre>
        ** 产出id 
        * </pre>
        */
       public Builder setProId(int value) {
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00004000;
         proId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 pro_id = 12 [default = 0];</code>
+       * <code>optional int32 pro_id = 15 [default = 0];</code>
        *
        * <pre>
        ** 产出id 
        * </pre>
        */
       public Builder clearProId() {
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00004000);
         proId_ = 0;
         onChanged();
         return this;
@@ -3230,17 +3812,17 @@ public final class BuildingBytes {
 
       private java.lang.Object bldgFuncTableName_ = "";
       /**
-       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
        * </pre>
        */
       public boolean hasBldgFuncTableName() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
+        return ((bitField0_ & 0x00008000) == 0x00008000);
       }
       /**
-       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
@@ -3261,7 +3843,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
@@ -3281,7 +3863,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
@@ -3292,26 +3874,26 @@ public final class BuildingBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00001000;
+  bitField0_ |= 0x00008000;
         bldgFuncTableName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
        * </pre>
        */
       public Builder clearBldgFuncTableName() {
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00008000);
         bldgFuncTableName_ = getDefaultInstance().getBldgFuncTableName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string bldg_func_table_name = 13 [default = ""];</code>
+       * <code>optional string bldg_func_table_name = 16 [default = ""];</code>
        *
        * <pre>
        ** 建筑功能表名 
@@ -3322,7 +3904,7 @@ public final class BuildingBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00001000;
+  bitField0_ |= 0x00008000;
         bldgFuncTableName_ = value;
         onChanged();
         return this;
@@ -3330,17 +3912,17 @@ public final class BuildingBytes {
 
       private int bldgFuncTableId_ ;
       /**
-       * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
+       * <code>optional int32 bldg_func_table_id = 17 [default = 0];</code>
        *
        * <pre>
        ** 建筑功能表索引ID 
        * </pre>
        */
       public boolean hasBldgFuncTableId() {
-        return ((bitField0_ & 0x00002000) == 0x00002000);
+        return ((bitField0_ & 0x00010000) == 0x00010000);
       }
       /**
-       * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
+       * <code>optional int32 bldg_func_table_id = 17 [default = 0];</code>
        *
        * <pre>
        ** 建筑功能表索引ID 
@@ -3350,27 +3932,27 @@ public final class BuildingBytes {
         return bldgFuncTableId_;
       }
       /**
-       * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
+       * <code>optional int32 bldg_func_table_id = 17 [default = 0];</code>
        *
        * <pre>
        ** 建筑功能表索引ID 
        * </pre>
        */
       public Builder setBldgFuncTableId(int value) {
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00010000;
         bldgFuncTableId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 bldg_func_table_id = 14 [default = 0];</code>
+       * <code>optional int32 bldg_func_table_id = 17 [default = 0];</code>
        *
        * <pre>
        ** 建筑功能表索引ID 
        * </pre>
        */
       public Builder clearBldgFuncTableId() {
-        bitField0_ = (bitField0_ & ~0x00002000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         bldgFuncTableId_ = 0;
         onChanged();
         return this;
@@ -3378,17 +3960,17 @@ public final class BuildingBytes {
 
       private int bldgStrengthLim_ ;
       /**
-       * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
+       * <code>optional int32 bldg_strength_lim = 18 [default = 0];</code>
        *
        * <pre>
        ** 庄园实力限制 
        * </pre>
        */
       public boolean hasBldgStrengthLim() {
-        return ((bitField0_ & 0x00004000) == 0x00004000);
+        return ((bitField0_ & 0x00020000) == 0x00020000);
       }
       /**
-       * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
+       * <code>optional int32 bldg_strength_lim = 18 [default = 0];</code>
        *
        * <pre>
        ** 庄园实力限制 
@@ -3398,45 +3980,93 @@ public final class BuildingBytes {
         return bldgStrengthLim_;
       }
       /**
-       * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
+       * <code>optional int32 bldg_strength_lim = 18 [default = 0];</code>
        *
        * <pre>
        ** 庄园实力限制 
        * </pre>
        */
       public Builder setBldgStrengthLim(int value) {
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00020000;
         bldgStrengthLim_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 bldg_strength_lim = 15 [default = 0];</code>
+       * <code>optional int32 bldg_strength_lim = 18 [default = 0];</code>
        *
        * <pre>
        ** 庄园实力限制 
        * </pre>
        */
       public Builder clearBldgStrengthLim() {
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         bldgStrengthLim_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int bldgLvLim_ ;
+      /**
+       * <code>optional int32 bldg_lv_lim = 19 [default = 0];</code>
+       *
+       * <pre>
+       ** 等效等级 
+       * </pre>
+       */
+      public boolean hasBldgLvLim() {
+        return ((bitField0_ & 0x00040000) == 0x00040000);
+      }
+      /**
+       * <code>optional int32 bldg_lv_lim = 19 [default = 0];</code>
+       *
+       * <pre>
+       ** 等效等级 
+       * </pre>
+       */
+      public int getBldgLvLim() {
+        return bldgLvLim_;
+      }
+      /**
+       * <code>optional int32 bldg_lv_lim = 19 [default = 0];</code>
+       *
+       * <pre>
+       ** 等效等级 
+       * </pre>
+       */
+      public Builder setBldgLvLim(int value) {
+        bitField0_ |= 0x00040000;
+        bldgLvLim_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 bldg_lv_lim = 19 [default = 0];</code>
+       *
+       * <pre>
+       ** 等效等级 
+       * </pre>
+       */
+      public Builder clearBldgLvLim() {
+        bitField0_ = (bitField0_ & ~0x00040000);
+        bldgLvLim_ = 0;
         onChanged();
         return this;
       }
 
       private int bldgStrengthAdd_ ;
       /**
-       * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
+       * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
        *
        * <pre>
        ** 每级消耗资源价值（每级增加实力） 
        * </pre>
        */
       public boolean hasBldgStrengthAdd() {
-        return ((bitField0_ & 0x00008000) == 0x00008000);
+        return ((bitField0_ & 0x00080000) == 0x00080000);
       }
       /**
-       * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
+       * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
        *
        * <pre>
        ** 每级消耗资源价值（每级增加实力） 
@@ -3446,27 +4076,27 @@ public final class BuildingBytes {
         return bldgStrengthAdd_;
       }
       /**
-       * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
+       * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
        *
        * <pre>
        ** 每级消耗资源价值（每级增加实力） 
        * </pre>
        */
       public Builder setBldgStrengthAdd(int value) {
-        bitField0_ |= 0x00008000;
+        bitField0_ |= 0x00080000;
         bldgStrengthAdd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 bldg_strength_add = 16 [default = 0];</code>
+       * <code>optional int32 bldg_strength_add = 20 [default = 0];</code>
        *
        * <pre>
        ** 每级消耗资源价值（每级增加实力） 
        * </pre>
        */
       public Builder clearBldgStrengthAdd() {
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00080000);
         bldgStrengthAdd_ = 0;
         onChanged();
         return this;
@@ -3474,7 +4104,7 @@ public final class BuildingBytes {
 
       private int timeCost_ ;
       /**
-       * <code>optional int32 time_cost = 17 [default = 0];</code>
+       * <code>optional int32 time_cost = 21 [default = 0];</code>
        *
        * <pre>
        ** 消耗时间
@@ -3482,10 +4112,10 @@ public final class BuildingBytes {
        * </pre>
        */
       public boolean hasTimeCost() {
-        return ((bitField0_ & 0x00010000) == 0x00010000);
+        return ((bitField0_ & 0x00100000) == 0x00100000);
       }
       /**
-       * <code>optional int32 time_cost = 17 [default = 0];</code>
+       * <code>optional int32 time_cost = 21 [default = 0];</code>
        *
        * <pre>
        ** 消耗时间
@@ -3496,7 +4126,7 @@ public final class BuildingBytes {
         return timeCost_;
       }
       /**
-       * <code>optional int32 time_cost = 17 [default = 0];</code>
+       * <code>optional int32 time_cost = 21 [default = 0];</code>
        *
        * <pre>
        ** 消耗时间
@@ -3504,13 +4134,13 @@ public final class BuildingBytes {
        * </pre>
        */
       public Builder setTimeCost(int value) {
-        bitField0_ |= 0x00010000;
+        bitField0_ |= 0x00100000;
         timeCost_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 time_cost = 17 [default = 0];</code>
+       * <code>optional int32 time_cost = 21 [default = 0];</code>
        *
        * <pre>
        ** 消耗时间
@@ -3518,7 +4148,7 @@ public final class BuildingBytes {
        * </pre>
        */
       public Builder clearTimeCost() {
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00100000);
         timeCost_ = 0;
         onChanged();
         return this;
@@ -3526,17 +4156,17 @@ public final class BuildingBytes {
 
       private int goldCost_ ;
       /**
-       * <code>optional int32 gold_cost = 18 [default = 0];</code>
+       * <code>optional int32 gold_cost = 22 [default = 0];</code>
        *
        * <pre>
        ** 消耗黄金 
        * </pre>
        */
       public boolean hasGoldCost() {
-        return ((bitField0_ & 0x00020000) == 0x00020000);
+        return ((bitField0_ & 0x00200000) == 0x00200000);
       }
       /**
-       * <code>optional int32 gold_cost = 18 [default = 0];</code>
+       * <code>optional int32 gold_cost = 22 [default = 0];</code>
        *
        * <pre>
        ** 消耗黄金 
@@ -3546,27 +4176,27 @@ public final class BuildingBytes {
         return goldCost_;
       }
       /**
-       * <code>optional int32 gold_cost = 18 [default = 0];</code>
+       * <code>optional int32 gold_cost = 22 [default = 0];</code>
        *
        * <pre>
        ** 消耗黄金 
        * </pre>
        */
       public Builder setGoldCost(int value) {
-        bitField0_ |= 0x00020000;
+        bitField0_ |= 0x00200000;
         goldCost_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold_cost = 18 [default = 0];</code>
+       * <code>optional int32 gold_cost = 22 [default = 0];</code>
        *
        * <pre>
        ** 消耗黄金 
        * </pre>
        */
       public Builder clearGoldCost() {
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00200000);
         goldCost_ = 0;
         onChanged();
         return this;
@@ -3574,17 +4204,17 @@ public final class BuildingBytes {
 
       private int elecCost_ ;
       /**
-       * <code>optional int32 elec_cost = 19 [default = 0];</code>
+       * <code>optional int32 elec_cost = 23 [default = 0];</code>
        *
        * <pre>
        ** 消耗电力 
        * </pre>
        */
       public boolean hasElecCost() {
-        return ((bitField0_ & 0x00040000) == 0x00040000);
+        return ((bitField0_ & 0x00400000) == 0x00400000);
       }
       /**
-       * <code>optional int32 elec_cost = 19 [default = 0];</code>
+       * <code>optional int32 elec_cost = 23 [default = 0];</code>
        *
        * <pre>
        ** 消耗电力 
@@ -3594,27 +4224,27 @@ public final class BuildingBytes {
         return elecCost_;
       }
       /**
-       * <code>optional int32 elec_cost = 19 [default = 0];</code>
+       * <code>optional int32 elec_cost = 23 [default = 0];</code>
        *
        * <pre>
        ** 消耗电力 
        * </pre>
        */
       public Builder setElecCost(int value) {
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00400000;
         elecCost_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 elec_cost = 19 [default = 0];</code>
+       * <code>optional int32 elec_cost = 23 [default = 0];</code>
        *
        * <pre>
        ** 消耗电力 
        * </pre>
        */
       public Builder clearElecCost() {
-        bitField0_ = (bitField0_ & ~0x00040000);
+        bitField0_ = (bitField0_ & ~0x00400000);
         elecCost_ = 0;
         onChanged();
         return this;
@@ -3623,9 +4253,9 @@ public final class BuildingBytes {
       private java.util.List<com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct> costTable_ =
         java.util.Collections.emptyList();
       private void ensureCostTableIsMutable() {
-        if (!((bitField0_ & 0x00080000) == 0x00080000)) {
+        if (!((bitField0_ & 0x00800000) == 0x00800000)) {
           costTable_ = new java.util.ArrayList<com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct>(costTable_);
-          bitField0_ |= 0x00080000;
+          bitField0_ |= 0x00800000;
          }
       }
 
@@ -3633,7 +4263,7 @@ public final class BuildingBytes {
           com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct, com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.Builder, com.game.framework.resource.data.BuildingBytes.BUILDING.CostStructOrBuilder> costTableBuilder_;
 
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public java.util.List<com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct> getCostTableList() {
         if (costTableBuilder_ == null) {
@@ -3643,7 +4273,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public int getCostTableCount() {
         if (costTableBuilder_ == null) {
@@ -3653,7 +4283,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct getCostTable(int index) {
         if (costTableBuilder_ == null) {
@@ -3663,7 +4293,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public Builder setCostTable(
           int index, com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct value) {
@@ -3680,7 +4310,7 @@ public final class BuildingBytes {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public Builder setCostTable(
           int index, com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.Builder builderForValue) {
@@ -3694,7 +4324,7 @@ public final class BuildingBytes {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public Builder addCostTable(com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct value) {
         if (costTableBuilder_ == null) {
@@ -3710,7 +4340,7 @@ public final class BuildingBytes {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public Builder addCostTable(
           int index, com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct value) {
@@ -3727,7 +4357,7 @@ public final class BuildingBytes {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public Builder addCostTable(
           com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.Builder builderForValue) {
@@ -3741,7 +4371,7 @@ public final class BuildingBytes {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public Builder addCostTable(
           int index, com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.Builder builderForValue) {
@@ -3755,7 +4385,7 @@ public final class BuildingBytes {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public Builder addAllCostTable(
           java.lang.Iterable<? extends com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct> values) {
@@ -3770,12 +4400,12 @@ public final class BuildingBytes {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public Builder clearCostTable() {
         if (costTableBuilder_ == null) {
           costTable_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00080000);
+          bitField0_ = (bitField0_ & ~0x00800000);
           onChanged();
         } else {
           costTableBuilder_.clear();
@@ -3783,7 +4413,7 @@ public final class BuildingBytes {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public Builder removeCostTable(int index) {
         if (costTableBuilder_ == null) {
@@ -3796,14 +4426,14 @@ public final class BuildingBytes {
         return this;
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.Builder getCostTableBuilder(
           int index) {
         return getCostTableFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public com.game.framework.resource.data.BuildingBytes.BUILDING.CostStructOrBuilder getCostTableOrBuilder(
           int index) {
@@ -3813,7 +4443,7 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public java.util.List<? extends com.game.framework.resource.data.BuildingBytes.BUILDING.CostStructOrBuilder> 
            getCostTableOrBuilderList() {
@@ -3824,14 +4454,14 @@ public final class BuildingBytes {
         }
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.Builder addCostTableBuilder() {
         return getCostTableFieldBuilder().addBuilder(
             com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.Builder addCostTableBuilder(
           int index) {
@@ -3839,7 +4469,7 @@ public final class BuildingBytes {
             index, com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 20;</code>
+       * <code>repeated .com.game.framework.resource.data.BUILDING.CostStruct cost_table = 24;</code>
        */
       public java.util.List<com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.Builder> 
            getCostTableBuilderList() {
@@ -3852,7 +4482,7 @@ public final class BuildingBytes {
           costTableBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct, com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct.Builder, com.game.framework.resource.data.BuildingBytes.BUILDING.CostStructOrBuilder>(
                   costTable_,
-                  ((bitField0_ & 0x00080000) == 0x00080000),
+                  ((bitField0_ & 0x00800000) == 0x00800000),
                   getParentForChildren(),
                   isClean());
           costTable_ = null;
@@ -4584,23 +5214,26 @@ public final class BuildingBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\032proto/building_bytes.proto\022 com.game.f" +
-      "ramework.resource.data\"\277\004\n\010BUILDING\022\r\n\002i" +
+      "ramework.resource.data\"\236\005\n\010BUILDING\022\r\n\002i" +
       "d\030\001 \002(\005:\0010\022\024\n\tbldg_type\030\002 \001(\005:\0010\022\023\n\010bldg" +
-      "_lvl\030\003 \001(\005:\0010\022\023\n\tbldg_name\030\004 \001(\t:\000\022\021\n\006in" +
-      "_use\030\005 \001(\005:\0010\022\027\n\014max_bldg_lvl\030\006 \001(\005:\0010\022\025" +
-      "\n\013prefab_name\030\007 \001(\t:\000\022\023\n\ticon_name\030\010 \001(\t" +
-      ":\000\022\023\n\tbldg_info\030\t \001(\t:\000\022\021\n\006con_id\030\n \001(\005:" +
-      "\0010\022\022\n\007con_pro\030\013 \001(\005:\0010\022\021\n\006pro_id\030\014 \001(\005:\001" +
-      "0\022\036\n\024bldg_func_table_name\030\r \001(\t:\000\022\035\n\022bld" +
-      "g_func_table_id\030\016 \001(\005:\0010\022\034\n\021bldg_strengt",
-      "h_lim\030\017 \001(\005:\0010\022\034\n\021bldg_strength_add\030\020 \001(" +
-      "\005:\0010\022\024\n\ttime_cost\030\021 \001(\005:\0010\022\024\n\tgold_cost\030" +
-      "\022 \001(\005:\0010\022\024\n\telec_cost\030\023 \001(\005:\0010\022I\n\ncost_t" +
-      "able\030\024 \003(\01325.com.game.framework.resource" +
-      ".data.BUILDING.CostStruct\0325\n\nCostStruct\022" +
-      "\022\n\007cost_id\030\001 \001(\005:\0010\022\023\n\010cost_qty\030\002 \001(\005:\0010" +
-      "\"K\n\016BUILDING_ARRAY\0229\n\005items\030\001 \003(\0132*.com." +
-      "game.framework.resource.data.BUILDING"
+      "_lvl\030\003 \001(\005:\0010\022\023\n\tbldg_name\030\004 \001(\t:\000\022\027\n\014bl" +
+      "dg_visible\030\005 \001(\005:\0010\022\025\n\013bldgcap_key\030\006 \001(\t" +
+      ":\000\022\025\n\013bldgspd_key\030\007 \001(\t:\000\022\021\n\006in_use\030\010 \001(" +
+      "\005:\0010\022\027\n\014max_bldg_lvl\030\t \001(\005:\0010\022\025\n\013prefab_" +
+      "name\030\n \001(\t:\000\022\023\n\ticon_name\030\013 \001(\t:\000\022\023\n\tbld" +
+      "g_info\030\014 \001(\t:\000\022\021\n\006con_id\030\r \001(\005:\0010\022\022\n\007con" +
+      "_pro\030\016 \001(\005:\0010\022\021\n\006pro_id\030\017 \001(\005:\0010\022\036\n\024bldg",
+      "_func_table_name\030\020 \001(\t:\000\022\035\n\022bldg_func_ta" +
+      "ble_id\030\021 \001(\005:\0010\022\034\n\021bldg_strength_lim\030\022 \001" +
+      "(\005:\0010\022\026\n\013bldg_lv_lim\030\023 \001(\005:\0010\022\034\n\021bldg_st" +
+      "rength_add\030\024 \001(\005:\0010\022\024\n\ttime_cost\030\025 \001(\005:\001" +
+      "0\022\024\n\tgold_cost\030\026 \001(\005:\0010\022\024\n\telec_cost\030\027 \001" +
+      "(\005:\0010\022I\n\ncost_table\030\030 \003(\01325.com.game.fra" +
+      "mework.resource.data.BUILDING.CostStruct" +
+      "\0325\n\nCostStruct\022\022\n\007cost_id\030\001 \001(\005:\0010\022\023\n\010co" +
+      "st_qty\030\002 \001(\005:\0010\"K\n\016BUILDING_ARRAY\0229\n\005ite" +
+      "ms\030\001 \003(\0132*.com.game.framework.resource.d",
+      "ata.BUILDING"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4619,7 +5252,7 @@ public final class BuildingBytes {
     internal_static_com_game_framework_resource_data_BUILDING_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_BUILDING_descriptor,
-        new java.lang.String[] { "Id", "BldgType", "BldgLvl", "BldgName", "InUse", "MaxBldgLvl", "PrefabName", "IconName", "BldgInfo", "ConId", "ConPro", "ProId", "BldgFuncTableName", "BldgFuncTableId", "BldgStrengthLim", "BldgStrengthAdd", "TimeCost", "GoldCost", "ElecCost", "CostTable", });
+        new java.lang.String[] { "Id", "BldgType", "BldgLvl", "BldgName", "BldgVisible", "BldgcapKey", "BldgspdKey", "InUse", "MaxBldgLvl", "PrefabName", "IconName", "BldgInfo", "ConId", "ConPro", "ProId", "BldgFuncTableName", "BldgFuncTableId", "BldgStrengthLim", "BldgLvLim", "BldgStrengthAdd", "TimeCost", "GoldCost", "ElecCost", "CostTable", });
     internal_static_com_game_framework_resource_data_BUILDING_CostStruct_descriptor =
       internal_static_com_game_framework_resource_data_BUILDING_descriptor.getNestedTypes().get(0);
     internal_static_com_game_framework_resource_data_BUILDING_CostStruct_fieldAccessorTable = new

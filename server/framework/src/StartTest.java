@@ -1,5 +1,8 @@
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -8,22 +11,26 @@ import com.game.framework.console.exception.BaseException;
 import com.game.framework.console.factory.ServiceFactory;
 import com.game.framework.dbcache.dao.IBuildingDao;
 import com.game.framework.dbcache.dao.IGroupDao;
+import com.game.framework.dbcache.dao.IMessageDao;
 import com.game.framework.dbcache.dao.IUserDao;
 import com.game.framework.dbcache.dao.impl.BuildingDao;
 import com.game.framework.dbcache.dao.impl.GroupDao;
+import com.game.framework.dbcache.dao.impl.MessageDao;
 import com.game.framework.dbcache.dao.impl.UserDao;
 import com.game.framework.dbcache.model.Building;
 import com.game.framework.dbcache.model.User;
+import com.game.framework.protocol.Message;
 import com.game.framework.protocol.Common.Error;
 import com.game.framework.protocol.Database.BuildingState;
 import com.game.framework.protocol.Database.ProcessInfo;
 import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Database.UpgradeInfo;
-import com.game.framework.protocol.Fighting.LossInfo;
+import com.game.framework.protocol.Message.TCSGetMessageTag;
 import com.game.framework.protocol.User.ResourceInfo;
 import com.game.framework.protocol.User.UserResource;
 import com.game.framework.resource.StaticDataManager;
 import com.game.framework.resource.data.BuildingBytes.BUILDING;
+import com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct;
 import com.game.framework.resource.data.ItemResBytes.ITEM_RES;
 import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.game.framework.utils.BuildingUtil;
@@ -38,8 +45,47 @@ public class StartTest {
     static IBuildingDao buildingDao = ServiceFactory.getProxy(BuildingDao.class);
     static IGroupDao groupDao = ServiceFactory.getProxy(GroupDao.class);
     static IUserDao userDao = ServiceFactory.getProxy(UserDao.class);
+    static IMessageDao messageDao = ServiceFactory.getProxy(MessageDao.class);
     
     public static void main(String[] args) throws Exception {
+        StaticDataManager.GetInstance().init();
+        ReadOnlyMap<Integer, BUILDING> buildingAttrMap = StaticDataManager.GetInstance().buildingMap;
+        BUILDING building = buildingAttrMap.get(111050001);
+        List<CostStruct> costStructs = building.getCostTableList();
+        for (CostStruct c : costStructs) {
+            System.out.println(c.getCostId());
+        }
+        /*Building b = buildingDao.get(415236098L);
+        BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(b.getState()).toBuilder();
+        List<ReceiveInfo> receiveInfos = buildingStateBuilder.getReceiveInfosList();
+        System.out.println(receiveInfos.size());
+        //List<ReceiveInfo> receiveInfos = new ArrayList<>();
+        ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder();
+        receiveInfos.add(receiveInfoBuilder.build());*/
+        
+        
+        /*Map<User, Integer> map = new HashMap<>();
+        User user = new User();
+        user.setId(1L);
+        map.put(user, 12);
+        
+        user = new User();
+        user.setId(2L);
+        map.put(user, 23);
+        
+        user = new User();
+        user.setId(3L);
+        map.put(user, 3);
+        
+        user = new User();
+        user.setId(4L);
+        map.put(user, 4);
+        
+        Map<User, Integer> resultMap = MapUtil.sortMapByValue(map); 
+        for (Map.Entry<User, Integer> entry : resultMap.entrySet()) {
+            System.out.println(entry.getKey().getId() + " " + entry.getValue());
+        }*/
+        
         /*StaticDataManager.GetInstance().init();
         ReadOnlyMap<Integer, ITEM_RES> itemResMap = StaticDataManager.GetInstance().itemResMap;
         for (Integer key : itemResMap.keySet()) {
@@ -49,6 +95,11 @@ public class StartTest {
         for (ResourceInfo u : userResource.getResourceInfosList()) {
             System.out.println(u.getConfigId());
         }*/
+    }
+    
+    static void intoDoor(double a) {
+        System.out.println(a);
+        a = 1;
     }
     
     static void getBuildingInfo(Long buildingId) throws Exception {
@@ -83,8 +134,8 @@ public class StartTest {
                 Field[] fields = clazz.getDeclaredFields();
                 for (Field f : fields) {
                     name = f.getName();
-                    if (name.startsWith("internal_static_com_game_framework_protocol_TCS") && name.endsWith("_descriptor"))
-                        System.out.println(name.subSequence(47, name.lastIndexOf("_descriptor")));
+                    if (name.startsWith("internal_static_com_game_framework_protocol_TSC") && name.endsWith("_descriptor"))
+                        System.out.println(name.substring(47, name.lastIndexOf("_descriptor")));
                 }
             }
         }

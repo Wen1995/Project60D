@@ -33,7 +33,7 @@ public final class JsfadianzhanBytes {
      * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
      *
      * <pre>
-     ** 能量转化率（js水平x这个系数） 
+     ** 能量转化率 
      * </pre>
      */
     boolean hasJsfadianzhanSpd();
@@ -41,7 +41,7 @@ public final class JsfadianzhanBytes {
      * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
      *
      * <pre>
-     ** 能量转化率（js水平x这个系数） 
+     ** 能量转化率 
      * </pre>
      */
     int getJsfadianzhanSpd();
@@ -199,7 +199,7 @@ public final class JsfadianzhanBytes {
      * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
      *
      * <pre>
-     ** 能量转化率（js水平x这个系数） 
+     ** 能量转化率 
      * </pre>
      */
     public boolean hasJsfadianzhanSpd() {
@@ -209,7 +209,7 @@ public final class JsfadianzhanBytes {
      * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
      *
      * <pre>
-     ** 能量转化率（js水平x这个系数） 
+     ** 能量转化率 
      * </pre>
      */
     public int getJsfadianzhanSpd() {
@@ -563,7 +563,7 @@ public final class JsfadianzhanBytes {
        * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
        *
        * <pre>
-       ** 能量转化率（js水平x这个系数） 
+       ** 能量转化率 
        * </pre>
        */
       public boolean hasJsfadianzhanSpd() {
@@ -573,7 +573,7 @@ public final class JsfadianzhanBytes {
        * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
        *
        * <pre>
-       ** 能量转化率（js水平x这个系数） 
+       ** 能量转化率 
        * </pre>
        */
       public int getJsfadianzhanSpd() {
@@ -583,7 +583,7 @@ public final class JsfadianzhanBytes {
        * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
        *
        * <pre>
-       ** 能量转化率（js水平x这个系数） 
+       ** 能量转化率 
        * </pre>
        */
       public Builder setJsfadianzhanSpd(int value) {
@@ -596,7 +596,7 @@ public final class JsfadianzhanBytes {
        * <code>optional int32 jsfadianzhan_spd = 2 [default = 0];</code>
        *
        * <pre>
-       ** 能量转化率（js水平x这个系数） 
+       ** 能量转化率 
        * </pre>
        */
       public Builder clearJsfadianzhanSpd() {

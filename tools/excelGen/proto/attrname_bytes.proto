@@ -10,7 +10,9 @@ message ATTRNAME{
     /** key */
     required string id = 1 [default = ""];
     /** 属性名称 */
-    required string ATTR_name = 2 [default = ""];
+    optional string attr_name = 2 [default = ""];
+    /** 属性单位 */
+    optional string attr_units = 3 [default = ""];
 }
 
 message ATTRNAME_ARRAY {

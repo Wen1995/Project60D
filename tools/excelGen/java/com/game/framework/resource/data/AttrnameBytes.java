@@ -39,30 +39,56 @@ public final class AttrnameBytes {
         getIdBytes();
 
     /**
-     * <code>required string ATTR_name = 2 [default = ""];</code>
+     * <code>optional string attr_name = 2 [default = ""];</code>
      *
      * <pre>
      ** 属性名称 
      * </pre>
      */
-    boolean hasATTRName();
+    boolean hasAttrName();
     /**
-     * <code>required string ATTR_name = 2 [default = ""];</code>
+     * <code>optional string attr_name = 2 [default = ""];</code>
      *
      * <pre>
      ** 属性名称 
      * </pre>
      */
-    java.lang.String getATTRName();
+    java.lang.String getAttrName();
     /**
-     * <code>required string ATTR_name = 2 [default = ""];</code>
+     * <code>optional string attr_name = 2 [default = ""];</code>
      *
      * <pre>
      ** 属性名称 
      * </pre>
      */
     com.google.protobuf.ByteString
-        getATTRNameBytes();
+        getAttrNameBytes();
+
+    /**
+     * <code>optional string attr_units = 3 [default = ""];</code>
+     *
+     * <pre>
+     ** 属性单位 
+     * </pre>
+     */
+    boolean hasAttrUnits();
+    /**
+     * <code>optional string attr_units = 3 [default = ""];</code>
+     *
+     * <pre>
+     ** 属性单位 
+     * </pre>
+     */
+    java.lang.String getAttrUnits();
+    /**
+     * <code>optional string attr_units = 3 [default = ""];</code>
+     *
+     * <pre>
+     ** 属性单位 
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getAttrUnitsBytes();
   }
   /**
    * Protobuf type {@code com.game.framework.resource.data.ATTRNAME}
@@ -125,7 +151,13 @@ public final class AttrnameBytes {
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              aTTRName_ = bs;
+              attrName_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              attrUnits_ = bs;
               break;
             }
           }
@@ -223,26 +255,26 @@ public final class AttrnameBytes {
     }
 
     public static final int ATTR_NAME_FIELD_NUMBER = 2;
-    private java.lang.Object aTTRName_;
+    private java.lang.Object attrName_;
     /**
-     * <code>required string ATTR_name = 2 [default = ""];</code>
+     * <code>optional string attr_name = 2 [default = ""];</code>
      *
      * <pre>
      ** 属性名称 
      * </pre>
      */
-    public boolean hasATTRName() {
+    public boolean hasAttrName() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string ATTR_name = 2 [default = ""];</code>
+     * <code>optional string attr_name = 2 [default = ""];</code>
      *
      * <pre>
      ** 属性名称 
      * </pre>
      */
-    public java.lang.String getATTRName() {
-      java.lang.Object ref = aTTRName_;
+    public java.lang.String getAttrName() {
+      java.lang.Object ref = attrName_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -250,26 +282,80 @@ public final class AttrnameBytes {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          aTTRName_ = s;
+          attrName_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>required string ATTR_name = 2 [default = ""];</code>
+     * <code>optional string attr_name = 2 [default = ""];</code>
      *
      * <pre>
      ** 属性名称 
      * </pre>
      */
     public com.google.protobuf.ByteString
-        getATTRNameBytes() {
-      java.lang.Object ref = aTTRName_;
+        getAttrNameBytes() {
+      java.lang.Object ref = attrName_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        aTTRName_ = b;
+        attrName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ATTR_UNITS_FIELD_NUMBER = 3;
+    private java.lang.Object attrUnits_;
+    /**
+     * <code>optional string attr_units = 3 [default = ""];</code>
+     *
+     * <pre>
+     ** 属性单位 
+     * </pre>
+     */
+    public boolean hasAttrUnits() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional string attr_units = 3 [default = ""];</code>
+     *
+     * <pre>
+     ** 属性单位 
+     * </pre>
+     */
+    public java.lang.String getAttrUnits() {
+      java.lang.Object ref = attrUnits_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          attrUnits_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string attr_units = 3 [default = ""];</code>
+     *
+     * <pre>
+     ** 属性单位 
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getAttrUnitsBytes() {
+      java.lang.Object ref = attrUnits_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        attrUnits_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -278,7 +364,8 @@ public final class AttrnameBytes {
 
     private void initFields() {
       id_ = "";
-      aTTRName_ = "";
+      attrName_ = "";
+      attrUnits_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -287,10 +374,6 @@ public final class AttrnameBytes {
       if (isInitialized == 0) return false;
 
       if (!hasId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasATTRName()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -305,7 +388,10 @@ public final class AttrnameBytes {
         output.writeBytes(1, getIdBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getATTRNameBytes());
+        output.writeBytes(2, getAttrNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getAttrUnitsBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -322,7 +408,11 @@ public final class AttrnameBytes {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getATTRNameBytes());
+          .computeBytesSize(2, getAttrNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getAttrUnitsBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -443,8 +533,10 @@ public final class AttrnameBytes {
         super.clear();
         id_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        aTTRName_ = "";
+        attrName_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        attrUnits_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -480,7 +572,11 @@ public final class AttrnameBytes {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.aTTRName_ = aTTRName_;
+        result.attrName_ = attrName_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.attrUnits_ = attrUnits_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -502,9 +598,14 @@ public final class AttrnameBytes {
           id_ = other.id_;
           onChanged();
         }
-        if (other.hasATTRName()) {
+        if (other.hasAttrName()) {
           bitField0_ |= 0x00000002;
-          aTTRName_ = other.aTTRName_;
+          attrName_ = other.attrName_;
+          onChanged();
+        }
+        if (other.hasAttrUnits()) {
+          bitField0_ |= 0x00000004;
+          attrUnits_ = other.attrUnits_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -513,10 +614,6 @@ public final class AttrnameBytes {
 
       public final boolean isInitialized() {
         if (!hasId()) {
-          
-          return false;
-        }
-        if (!hasATTRName()) {
           
           return false;
         }
@@ -642,32 +739,32 @@ public final class AttrnameBytes {
         return this;
       }
 
-      private java.lang.Object aTTRName_ = "";
+      private java.lang.Object attrName_ = "";
       /**
-       * <code>required string ATTR_name = 2 [default = ""];</code>
+       * <code>optional string attr_name = 2 [default = ""];</code>
        *
        * <pre>
        ** 属性名称 
        * </pre>
        */
-      public boolean hasATTRName() {
+      public boolean hasAttrName() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string ATTR_name = 2 [default = ""];</code>
+       * <code>optional string attr_name = 2 [default = ""];</code>
        *
        * <pre>
        ** 属性名称 
        * </pre>
        */
-      public java.lang.String getATTRName() {
-        java.lang.Object ref = aTTRName_;
+      public java.lang.String getAttrName() {
+        java.lang.Object ref = attrName_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            aTTRName_ = s;
+            attrName_ = s;
           }
           return s;
         } else {
@@ -675,69 +772,169 @@ public final class AttrnameBytes {
         }
       }
       /**
-       * <code>required string ATTR_name = 2 [default = ""];</code>
+       * <code>optional string attr_name = 2 [default = ""];</code>
        *
        * <pre>
        ** 属性名称 
        * </pre>
        */
       public com.google.protobuf.ByteString
-          getATTRNameBytes() {
-        java.lang.Object ref = aTTRName_;
+          getAttrNameBytes() {
+        java.lang.Object ref = attrName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          aTTRName_ = b;
+          attrName_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>required string ATTR_name = 2 [default = ""];</code>
+       * <code>optional string attr_name = 2 [default = ""];</code>
        *
        * <pre>
        ** 属性名称 
        * </pre>
        */
-      public Builder setATTRName(
+      public Builder setAttrName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        aTTRName_ = value;
+        attrName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string ATTR_name = 2 [default = ""];</code>
+       * <code>optional string attr_name = 2 [default = ""];</code>
        *
        * <pre>
        ** 属性名称 
        * </pre>
        */
-      public Builder clearATTRName() {
+      public Builder clearAttrName() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        aTTRName_ = getDefaultInstance().getATTRName();
+        attrName_ = getDefaultInstance().getAttrName();
         onChanged();
         return this;
       }
       /**
-       * <code>required string ATTR_name = 2 [default = ""];</code>
+       * <code>optional string attr_name = 2 [default = ""];</code>
        *
        * <pre>
        ** 属性名称 
        * </pre>
        */
-      public Builder setATTRNameBytes(
+      public Builder setAttrNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        aTTRName_ = value;
+        attrName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object attrUnits_ = "";
+      /**
+       * <code>optional string attr_units = 3 [default = ""];</code>
+       *
+       * <pre>
+       ** 属性单位 
+       * </pre>
+       */
+      public boolean hasAttrUnits() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string attr_units = 3 [default = ""];</code>
+       *
+       * <pre>
+       ** 属性单位 
+       * </pre>
+       */
+      public java.lang.String getAttrUnits() {
+        java.lang.Object ref = attrUnits_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            attrUnits_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string attr_units = 3 [default = ""];</code>
+       *
+       * <pre>
+       ** 属性单位 
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getAttrUnitsBytes() {
+        java.lang.Object ref = attrUnits_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          attrUnits_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string attr_units = 3 [default = ""];</code>
+       *
+       * <pre>
+       ** 属性单位 
+       * </pre>
+       */
+      public Builder setAttrUnits(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        attrUnits_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string attr_units = 3 [default = ""];</code>
+       *
+       * <pre>
+       ** 属性单位 
+       * </pre>
+       */
+      public Builder clearAttrUnits() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        attrUnits_ = getDefaultInstance().getAttrUnits();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string attr_units = 3 [default = ""];</code>
+       *
+       * <pre>
+       ** 属性单位 
+       * </pre>
+       */
+      public Builder setAttrUnitsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        attrUnits_ = value;
         onChanged();
         return this;
       }
@@ -1461,10 +1658,11 @@ public final class AttrnameBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\032proto/attrname_bytes.proto\022 com.game.f" +
-      "ramework.resource.data\"-\n\010ATTRNAME\022\014\n\002id" +
-      "\030\001 \002(\t:\000\022\023\n\tATTR_name\030\002 \002(\t:\000\"K\n\016ATTRNAM" +
-      "E_ARRAY\0229\n\005items\030\001 \003(\0132*.com.game.framew" +
-      "ork.resource.data.ATTRNAME"
+      "ramework.resource.data\"C\n\010ATTRNAME\022\014\n\002id" +
+      "\030\001 \002(\t:\000\022\023\n\tattr_name\030\002 \001(\t:\000\022\024\n\nattr_un" +
+      "its\030\003 \001(\t:\000\"K\n\016ATTRNAME_ARRAY\0229\n\005items\030\001" +
+      " \003(\0132*.com.game.framework.resource.data." +
+      "ATTRNAME"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1483,7 +1681,7 @@ public final class AttrnameBytes {
     internal_static_com_game_framework_resource_data_ATTRNAME_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_ATTRNAME_descriptor,
-        new java.lang.String[] { "Id", "ATTRName", });
+        new java.lang.String[] { "Id", "AttrName", "AttrUnits", });
     internal_static_com_game_framework_resource_data_ATTRNAME_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_ATTRNAME_ARRAY_fieldAccessorTable = new

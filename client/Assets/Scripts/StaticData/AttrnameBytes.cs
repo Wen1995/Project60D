@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class ATTRNAME : pb::GeneratedMessageLite<ATTRNAME, ATTRNAME.Builder> {
     private ATTRNAME() { }
     private static readonly ATTRNAME defaultInstance = new ATTRNAME().MakeReadOnly();
-    private static readonly string[] _aTTRNAMEFieldNames = new string[] { "ATTR_name", "id" };
-    private static readonly uint[] _aTTRNAMEFieldTags = new uint[] { 18, 10 };
+    private static readonly string[] _aTTRNAMEFieldNames = new string[] { "attr_name", "attr_units", "id" };
+    private static readonly uint[] _aTTRNAMEFieldTags = new uint[] { 18, 26, 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -64,14 +64,27 @@ namespace com.game.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ATTRNameFieldNumber = 2;
-    private bool hasATTRName;
-    private string aTTRName_ = "";
-    public bool HasATTRName {
-      get { return hasATTRName; }
+    public const int AttrNameFieldNumber = 2;
+    private bool hasAttrName;
+    private string attrName_ = "";
+    public bool HasAttrName {
+      get { return hasAttrName; }
     }
-    public string ATTRName {
-      get { return aTTRName_; }
+    public string AttrName {
+      get { return attrName_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int AttrUnitsFieldNumber = 3;
+    private bool hasAttrUnits;
+    private string attrUnits_ = "";
+    public bool HasAttrUnits {
+      get { return hasAttrUnits; }
+    }
+    public string AttrUnits {
+      get { return attrUnits_; }
     }
     
     #if UNITY_EDITOR
@@ -80,7 +93,6 @@ namespace com.game.framework.resource.data {
     public override bool IsInitialized {
       get {
         if (!hasId) return false;
-        if (!hasATTRName) return false;
         return true;
       }
     }
@@ -92,10 +104,13 @@ namespace com.game.framework.resource.data {
       int size = SerializedSize;
       string[] field_names = _aTTRNAMEFieldNames;
       if (hasId) {
-        output.WriteString(1, field_names[1], Id);
+        output.WriteString(1, field_names[2], Id);
       }
-      if (hasATTRName) {
-        output.WriteString(2, field_names[0], ATTRName);
+      if (hasAttrName) {
+        output.WriteString(2, field_names[0], AttrName);
+      }
+      if (hasAttrUnits) {
+        output.WriteString(3, field_names[1], AttrUnits);
       }
     }
     
@@ -112,8 +127,11 @@ namespace com.game.framework.resource.data {
         if (hasId) {
           size += pb::CodedOutputStream.ComputeStringSize(1, Id);
         }
-        if (hasATTRName) {
-          size += pb::CodedOutputStream.ComputeStringSize(2, ATTRName);
+        if (hasAttrName) {
+          size += pb::CodedOutputStream.ComputeStringSize(2, AttrName);
+        }
+        if (hasAttrUnits) {
+          size += pb::CodedOutputStream.ComputeStringSize(3, AttrUnits);
         }
         memoizedSerializedSize = size;
         return size;
@@ -124,7 +142,8 @@ namespace com.game.framework.resource.data {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasId) hash ^= id_.GetHashCode();
-      if (hasATTRName) hash ^= aTTRName_.GetHashCode();
+      if (hasAttrName) hash ^= attrName_.GetHashCode();
+      if (hasAttrUnits) hash ^= attrUnits_.GetHashCode();
       return hash;
     }
     
@@ -132,7 +151,8 @@ namespace com.game.framework.resource.data {
       ATTRNAME other = obj as ATTRNAME;
       if (other == null) return false;
       if (hasId != other.hasId || (hasId && !id_.Equals(other.id_))) return false;
-      if (hasATTRName != other.hasATTRName || (hasATTRName && !aTTRName_.Equals(other.aTTRName_))) return false;
+      if (hasAttrName != other.hasAttrName || (hasAttrName && !attrName_.Equals(other.attrName_))) return false;
+      if (hasAttrUnits != other.hasAttrUnits || (hasAttrUnits && !attrUnits_.Equals(other.attrUnits_))) return false;
       return true;
     }
     
@@ -296,8 +316,11 @@ namespace com.game.framework.resource.data {
         if (other.HasId) {
           Id = other.Id;
         }
-        if (other.HasATTRName) {
-          ATTRName = other.ATTRName;
+        if (other.HasAttrName) {
+          AttrName = other.AttrName;
+        }
+        if (other.HasAttrUnits) {
+          AttrUnits = other.AttrUnits;
         }
         return this;
       }
@@ -336,7 +359,11 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 18: {
-              result.hasATTRName = input.ReadString(ref result.aTTRName_);
+              result.hasAttrName = input.ReadString(ref result.attrName_);
+              break;
+            }
+            case 26: {
+              result.hasAttrUnits = input.ReadString(ref result.attrUnits_);
               break;
             }
           }
@@ -367,24 +394,45 @@ namespace com.game.framework.resource.data {
         return this;
       }
       
-      public bool HasATTRName {
-        get { return result.hasATTRName; }
+      public bool HasAttrName {
+        get { return result.hasAttrName; }
       }
-      public string ATTRName {
-        get { return result.ATTRName; }
-        set { SetATTRName(value); }
+      public string AttrName {
+        get { return result.AttrName; }
+        set { SetAttrName(value); }
       }
-      public Builder SetATTRName(string value) {
+      public Builder SetAttrName(string value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.hasATTRName = true;
-        result.aTTRName_ = value;
+        result.hasAttrName = true;
+        result.attrName_ = value;
         return this;
       }
-      public Builder ClearATTRName() {
+      public Builder ClearAttrName() {
         PrepareBuilder();
-        result.hasATTRName = false;
-        result.aTTRName_ = "";
+        result.hasAttrName = false;
+        result.attrName_ = "";
+        return this;
+      }
+      
+      public bool HasAttrUnits {
+        get { return result.hasAttrUnits; }
+      }
+      public string AttrUnits {
+        get { return result.AttrUnits; }
+        set { SetAttrUnits(value); }
+      }
+      public Builder SetAttrUnits(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasAttrUnits = true;
+        result.attrUnits_ = value;
+        return this;
+      }
+      public Builder ClearAttrUnits() {
+        PrepareBuilder();
+        result.hasAttrUnits = false;
+        result.attrUnits_ = "";
         return this;
       }
     }

@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/attrname_bytes.proto',
   package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x1aproto/attrname_bytes.proto\x12 com.game.framework.resource.data\"-\n\x08\x41TTRNAME\x12\x0c\n\x02id\x18\x01 \x02(\t:\x00\x12\x13\n\tATTR_name\x18\x02 \x02(\t:\x00\"K\n\x0e\x41TTRNAME_ARRAY\x12\x39\n\x05items\x18\x01 \x03(\x0b\x32*.com.game.framework.resource.data.ATTRNAME')
+  serialized_pb=_b('\n\x1aproto/attrname_bytes.proto\x12 com.game.framework.resource.data\"C\n\x08\x41TTRNAME\x12\x0c\n\x02id\x18\x01 \x02(\t:\x00\x12\x13\n\tattr_name\x18\x02 \x01(\t:\x00\x12\x14\n\nattr_units\x18\x03 \x01(\t:\x00\"K\n\x0e\x41TTRNAME_ARRAY\x12\x39\n\x05items\x18\x01 \x03(\x0b\x32*.com.game.framework.resource.data.ATTRNAME')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -40,8 +40,15 @@ _ATTRNAME = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='ATTR_name', full_name='com.game.framework.resource.data.ATTRNAME.ATTR_name', index=1,
-      number=2, type=9, cpp_type=9, label=2,
+      name='attr_name', full_name='com.game.framework.resource.data.ATTRNAME.attr_name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=True, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='attr_units', full_name='com.game.framework.resource.data.ATTRNAME.attr_units', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=True, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -58,7 +65,7 @@ _ATTRNAME = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=64,
-  serialized_end=109,
+  serialized_end=131,
 )
 
 
@@ -87,8 +94,8 @@ _ATTRNAME_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=111,
-  serialized_end=186,
+  serialized_start=133,
+  serialized_end=208,
 )
 
 _ATTRNAME_ARRAY.fields_by_name['items'].message_type = _ATTRNAME

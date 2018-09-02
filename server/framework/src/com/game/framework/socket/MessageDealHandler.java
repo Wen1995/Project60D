@@ -7,6 +7,7 @@ import com.game.framework.console.GateServer;
 import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.protocol.Login.TCSLogout;
+import com.game.framework.resource.DynamicDataManager;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -28,8 +29,9 @@ public class MessageDealHandler extends ChannelInboundHandlerAdapter {
                 ctx.channel().close();
                 return;
             }
-
+            
             p.setUid(uid);
+            p.setGroupId(DynamicDataManager.GetInstance().uid2GroupId.get(uid));
             p.setData(uid);
         }
         GateServer.GetInstance().produce(p);

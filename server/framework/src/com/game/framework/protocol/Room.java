@@ -1716,24 +1716,6 @@ public final class Room {
 
   public interface TCSGetGroupPageCountOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
-    // optional int64 groupId = 1;
-    /**
-     * <code>optional int64 groupId = 1;</code>
-     *
-     * <pre>
-     * 工会Id
-     * </pre>
-     */
-    boolean hasGroupId();
-    /**
-     * <code>optional int64 groupId = 1;</code>
-     *
-     * <pre>
-     * 工会Id
-     * </pre>
-     */
-    long getGroupId();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TCSGetGroupPageCount}
@@ -1768,7 +1750,6 @@ public final class Room {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1784,11 +1765,6 @@ public final class Room {
                                      extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              groupId_ = input.readInt64();
               break;
             }
           }
@@ -1830,33 +1806,7 @@ public final class Room {
       return PARSER;
     }
 
-    private int bitField0_;
-    // optional int64 groupId = 1;
-    public static final int GROUPID_FIELD_NUMBER = 1;
-    private long groupId_;
-    /**
-     * <code>optional int64 groupId = 1;</code>
-     *
-     * <pre>
-     * 工会Id
-     * </pre>
-     */
-    public boolean hasGroupId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional int64 groupId = 1;</code>
-     *
-     * <pre>
-     * 工会Id
-     * </pre>
-     */
-    public long getGroupId() {
-      return groupId_;
-    }
-
     private void initFields() {
-      groupId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1870,9 +1820,6 @@ public final class Room {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt64(1, groupId_);
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1882,10 +1829,6 @@ public final class Room {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, groupId_);
-      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -2002,8 +1945,6 @@ public final class Room {
 
       public Builder clear() {
         super.clear();
-        groupId_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2030,13 +1971,6 @@ public final class Room {
 
       public com.game.framework.protocol.Room.TCSGetGroupPageCount buildPartial() {
         com.game.framework.protocol.Room.TCSGetGroupPageCount result = new com.game.framework.protocol.Room.TCSGetGroupPageCount(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.groupId_ = groupId_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2052,9 +1986,6 @@ public final class Room {
 
       public Builder mergeFrom(com.game.framework.protocol.Room.TCSGetGroupPageCount other) {
         if (other == com.game.framework.protocol.Room.TCSGetGroupPageCount.getDefaultInstance()) return this;
-        if (other.hasGroupId()) {
-          setGroupId(other.getGroupId());
-        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -2078,56 +2009,6 @@ public final class Room {
             mergeFrom(parsedMessage);
           }
         }
-        return this;
-      }
-      private int bitField0_;
-
-      // optional int64 groupId = 1;
-      private long groupId_ ;
-      /**
-       * <code>optional int64 groupId = 1;</code>
-       *
-       * <pre>
-       * 工会Id
-       * </pre>
-       */
-      public boolean hasGroupId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional int64 groupId = 1;</code>
-       *
-       * <pre>
-       * 工会Id
-       * </pre>
-       */
-      public long getGroupId() {
-        return groupId_;
-      }
-      /**
-       * <code>optional int64 groupId = 1;</code>
-       *
-       * <pre>
-       * 工会Id
-       * </pre>
-       */
-      public Builder setGroupId(long value) {
-        bitField0_ |= 0x00000001;
-        groupId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int64 groupId = 1;</code>
-       *
-       * <pre>
-       * 工会Id
-       * </pre>
-       */
-      public Builder clearGroupId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        groupId_ = 0L;
-        onChanged();
         return this;
       }
 
@@ -4700,14 +4581,14 @@ public final class Room {
       "l\"\020\n\016TCSCreateGroup\"!\n\016TSCCreateGroup\022\017\n" +
       "\007groupId\030\001 \001(\003\" \n\rTCSApplyGroup\022\017\n\007group" +
       "Id\030\001 \001(\003\",\n\rTSCApplyGroup\022\r\n\005exist\030\001 \001(\010" +
-      "\022\014\n\004full\030\002 \001(\010\"\'\n\024TCSGetGroupPageCount\022\017" +
-      "\n\007groupId\030\001 \001(\003\")\n\024TSCGetGroupPageCount\022" +
-      "\021\n\tpageCount\030\001 \001(\005\")\n\022TCSGetGroupRanking" +
-      "\022\023\n\013currentPage\030\001 \001(\005\"P\n\022TSCGetGroupRank" +
-      "ing\022:\n\ngroupInfos\030\001 \003(\0132&.com.game.frame" +
-      "work.protocol.GroupInfo\"V\n\tGroupInfo\022\n\n\002",
-      "id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\024\n\014peopleNumber\030\003" +
-      " \001(\005\022\031\n\021totalContribution\030\004 \001(\005B\002H\001"
+      "\022\014\n\004full\030\002 \001(\010\"\026\n\024TCSGetGroupPageCount\")" +
+      "\n\024TSCGetGroupPageCount\022\021\n\tpageCount\030\001 \001(" +
+      "\005\")\n\022TCSGetGroupRanking\022\023\n\013currentPage\030\001" +
+      " \001(\005\"P\n\022TSCGetGroupRanking\022:\n\ngroupInfos" +
+      "\030\001 \003(\0132&.com.game.framework.protocol.Gro" +
+      "upInfo\"V\n\tGroupInfo\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030",
+      "\002 \001(\t\022\024\n\014peopleNumber\030\003 \001(\005\022\031\n\021totalCont" +
+      "ribution\030\004 \001(\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -4743,7 +4624,7 @@ public final class Room {
           internal_static_com_game_framework_protocol_TCSGetGroupPageCount_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TCSGetGroupPageCount_descriptor,
-              new java.lang.String[] { "GroupId", });
+              new java.lang.String[] { });
           internal_static_com_game_framework_protocol_TSCGetGroupPageCount_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_com_game_framework_protocol_TSCGetGroupPageCount_fieldAccessorTable = new

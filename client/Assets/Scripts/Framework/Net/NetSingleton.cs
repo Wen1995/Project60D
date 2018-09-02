@@ -152,13 +152,14 @@ public class NetSingleton : Singleton<NetSingleton> {
             }
             case(10):
             {
-                content = "仓库容量不足";
-                break;
+                FacadeSingleton.Instance.InvokeService("ProcessStoreHouseFull", ConstVal.Service_Common);
+                return;
             }
         }
         NDictionary args = new NDictionary();
         args.Add("title", "发生错误");
         args.Add("content", content);
+        args.Add("method", 1);
         FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
         FacadeSingleton.Instance.SendEvent("OpenMsgBox", args);
     }

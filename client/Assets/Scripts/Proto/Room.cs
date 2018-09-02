@@ -1292,8 +1292,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TCSGetGroupPageCount : pb::GeneratedMessageLite<TCSGetGroupPageCount, TCSGetGroupPageCount.Builder> {
     private TCSGetGroupPageCount() { }
     private static readonly TCSGetGroupPageCount defaultInstance = new TCSGetGroupPageCount().MakeReadOnly();
-    private static readonly string[] _tCSGetGroupPageCountFieldNames = new string[] { "groupId" };
-    private static readonly uint[] _tCSGetGroupPageCountFieldTags = new uint[] { 8 };
+    private static readonly string[] _tCSGetGroupPageCountFieldNames = new string[] {  };
+    private static readonly uint[] _tCSGetGroupPageCountFieldTags = new uint[] {  };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -1313,19 +1313,6 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int GroupIdFieldNumber = 1;
-    private bool hasGroupId;
-    private long groupId_;
-    public bool HasGroupId {
-      get { return hasGroupId; }
-    }
-    public long GroupId {
-      get { return groupId_; }
-    }
-    
-    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -1340,9 +1327,6 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _tCSGetGroupPageCountFieldNames;
-      if (hasGroupId) {
-        output.WriteInt64(1, field_names[0], GroupId);
-      }
     }
     
     private int memoizedSerializedSize = -1;
@@ -1355,9 +1339,6 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasGroupId) {
-          size += pb::CodedOutputStream.ComputeInt64Size(1, GroupId);
-        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -1366,14 +1347,12 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasGroupId) hash ^= groupId_.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
       TCSGetGroupPageCount other = obj as TCSGetGroupPageCount;
       if (other == null) return false;
-      if (hasGroupId != other.hasGroupId || (hasGroupId && !groupId_.Equals(other.groupId_))) return false;
       return true;
     }
     
@@ -1534,9 +1513,6 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(TCSGetGroupPageCount other) {
         if (other == global::com.game.framework.protocol.TCSGetGroupPageCount.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasGroupId) {
-          GroupId = other.GroupId;
-        }
         return this;
       }
       
@@ -1569,36 +1545,12 @@ namespace com.game.framework.protocol {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               break;
             }
-            case 8: {
-              result.hasGroupId = input.ReadInt64(ref result.groupId_);
-              break;
-            }
           }
         }
         
         return this;
       }
       
-      
-      public bool HasGroupId {
-        get { return result.hasGroupId; }
-      }
-      public long GroupId {
-        get { return result.GroupId; }
-        set { SetGroupId(value); }
-      }
-      public Builder SetGroupId(long value) {
-        PrepareBuilder();
-        result.hasGroupId = true;
-        result.groupId_ = value;
-        return this;
-      }
-      public Builder ClearGroupId() {
-        PrepareBuilder();
-        result.hasGroupId = false;
-        result.groupId_ = 0L;
-        return this;
-      }
     }
     static TCSGetGroupPageCount() {
       object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);

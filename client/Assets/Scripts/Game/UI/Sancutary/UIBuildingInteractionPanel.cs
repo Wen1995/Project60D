@@ -142,11 +142,12 @@ public class UIBuildingInteractionPanel : PanelBase{
     {
         NDictionary args = new NDictionary();
         NBuildingInfo buildingInfo = sanctuaryPackage.GetBuildingInfo(selectBuilding.BuildingID);
-        if(sanctuaryPackage.GetBulidingLevelByConfigID(buildingInfo.configID) >= 20)
+        if(true || sanctuaryPackage.GetBulidingLevelByConfigID(buildingInfo.configID) >= 20)
         {
             NDictionary data = new NDictionary();
             data.Add("title", "升级失败");
             data.Add("content", "等级达到上限");
+            data.Add("method", 1);
             FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
             FacadeSingleton.Instance.SendEvent("OpenMsgBox", data);
             return;
@@ -188,6 +189,9 @@ public class UIBuildingInteractionPanel : PanelBase{
 
     void OnCollect()
     {
+        FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
+        FacadeSingleton.Instance.SendEvent("OpenTips");
+        return;
         if(selectBuilding == null) return;
         FacadeSingleton.Instance.BackPanel();
         NDictionary args = new NDictionary();

@@ -35,6 +35,18 @@ public class CommonService : ServiceBase {
         TCSApplyGroup msg = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.APPLYGROUP, msg.ToByteArray());
     }
+
+    //-------------------------------------------------------------
+    public void ProcessStoreHouseFull()
+    {
+        string content = "仓库容量不足\n建议：出售物品、使用物品或升级仓库";
+        NDictionary args = new NDictionary();
+        args.Add("title", "领取失败");
+        args.Add("content", content);
+        args.Add("method", 1);
+        FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+        FacadeSingleton.Instance.SendEvent("OpenMsgBox", args);
+    }
     
     public int GetTime()
     {

@@ -159,7 +159,7 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public TPacket getGroupPageCount(Long uid, Long groupId) throws Exception {
+    public TPacket getGroupPageCount(Long uid) throws Exception {
         TSCGetGroupPageCount p = TSCGetGroupPageCount.newBuilder()
                 .setPageCount(groupDao.getPageCount())
                 .build();

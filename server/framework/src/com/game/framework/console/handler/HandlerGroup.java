@@ -108,9 +108,9 @@ public class HandlerGroup {
         RouteInfor routeInfor = null;
         Object route = handlerRoute.getRoute(p);
 
-        // 默认路由策略是随玩家id
+        // 默认路由策略是随玩家groupId
         if (route == null) {
-            route = p.getUid();
+            route = p.getGroupId();
         }
 
         if (route != null) {

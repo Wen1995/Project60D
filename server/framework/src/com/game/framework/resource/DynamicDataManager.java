@@ -36,6 +36,7 @@ public class DynamicDataManager {
     public Map<String, Long> account2Uid = new ConcurrentHashMap<>();
     public Map<Long, Long> uid2HeartTime = new ConcurrentHashMap<>();
     public Map<Long, Long> groupId2InvadeTime = new ConcurrentHashMap<>();
+    public Map<Long, Long> uid2GroupId = new ConcurrentHashMap<>();
     
     public void init() {
         long startTime = System.currentTimeMillis();

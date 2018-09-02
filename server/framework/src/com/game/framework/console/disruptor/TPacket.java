@@ -20,6 +20,8 @@ public class TPacket
 	
 	Channel channel;
 	
+	Long groupId;
+	
 	Object data;//自定义数据
 	
 	Object mark;//标记
@@ -84,8 +86,16 @@ public class TPacket
 	public void setChannel(Channel channel) {
 		this.channel = channel;
 	}
+	
+	public Long getGroupId() {
+        return groupId;
+    }
 
-	public MessageLite parseProtobuf(Parser<MessageLite> parser) 
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
+    }
+
+    public MessageLite parseProtobuf(Parser<MessageLite> parser) 
 	{
         try 
         {

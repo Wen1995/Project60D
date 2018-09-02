@@ -42,8 +42,8 @@ public class RoomHandler {
 	@HandlerMethodMapping(cmd = Cmd.GETGROUPPAGECOUNT_VALUE)
 	public void getGroupPageCount(TPacket p) throws Exception {
 		TCSGetGroupPageCount msg = TCSGetGroupPageCount.parseFrom(p.getBuffer());
-		Long groupId = msg.getGroupId();		
-		TPacket resp = service.getGroupPageCount(p.getUid(), groupId);
+		
+		TPacket resp = service.getGroupPageCount(p.getUid());
 		resp.setCmd(Cmd.GETGROUPPAGECOUNT_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}

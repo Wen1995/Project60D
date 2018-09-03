@@ -7,6 +7,8 @@ public class UIWorldEventPanel : PanelBase {
 	protected override void Awake() 
 	{
 		base.Awake();
+		UIButton button = transform.Find("closebtn").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(Close));
 	}
 
 	public override void OpenPanel()
@@ -17,5 +19,10 @@ public class UIWorldEventPanel : PanelBase {
 	public override void ClosePanel()
 	{
 		base.ClosePanel();
+	}
+
+	void Close()
+	{
+		FacadeSingleton.Instance.BackPanel();
 	}
 }

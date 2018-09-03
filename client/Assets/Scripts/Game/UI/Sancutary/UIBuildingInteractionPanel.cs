@@ -142,7 +142,7 @@ public class UIBuildingInteractionPanel : PanelBase{
     {
         NDictionary args = new NDictionary();
         NBuildingInfo buildingInfo = sanctuaryPackage.GetBuildingInfo(selectBuilding.BuildingID);
-        if(true || sanctuaryPackage.GetBulidingLevelByConfigID(buildingInfo.configID) >= 20)
+        if(sanctuaryPackage.GetBulidingLevelByConfigID(buildingInfo.configID) >= 20)
         {
             NDictionary data = new NDictionary();
             data.Add("title", "升级失败");
@@ -153,18 +153,6 @@ public class UIBuildingInteractionPanel : PanelBase{
             return;
         }
         FacadeSingleton.Instance.OverlayerPanel("UIBuildingUpgradePanel");
-        // args.Add("configID", buildingInfo.configID + 1);
-        // List<NItemInfo> costInfoList = FacadeSingleton.Instance.InvokeService("GetBuildingUpgradeCost", ConstVal.Service_Sanctuary, args) as List<NItemInfo>;
-        // FacadeSingleton.Instance.OverlayerPanel("UICostResPanel");
-        // args.Clear();
-        // args.Add("infolist", costInfoList);
-        // args.Add("callback", new EventDelegate(()=>{
-        //     FacadeSingleton.Instance.BackPanel();
-        //     NDictionary data = new NDictionary();
-        //     data.Add("buildingID", selectBuilding.BuildingID);
-        //     FacadeSingleton.Instance.InvokeService("RPCUpgradeBuliding", ConstVal.Service_Sanctuary, data);
-        // }));
-        // FacadeSingleton.Instance.SendEvent("OpenCostRes", args);
     }
 
     void OnUnlock()
@@ -189,9 +177,6 @@ public class UIBuildingInteractionPanel : PanelBase{
 
     void OnCollect()
     {
-        FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
-        FacadeSingleton.Instance.SendEvent("OpenTips");
-        return;
         if(selectBuilding == null) return;
         FacadeSingleton.Instance.BackPanel();
         NDictionary args = new NDictionary();

@@ -20,7 +20,7 @@ public class UITipsPanel : PanelBase {
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
-		anim.Play("UITipsAnim");
+		//anim.Play("UITipsAnim", PlayMode.StopAll);
 	}
 
 	public override void ClosePanel()
@@ -31,6 +31,7 @@ public class UITipsPanel : PanelBase {
 	void OpenTips(NDictionary data)
 	{
 		string content;
+		anim.Play(PlayMode.StopAll);
 		if(data == null)
 			content = "test";
 		else

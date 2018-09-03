@@ -33,6 +33,7 @@ public class StoreListCellItem : NListCellItem {
 		ITEM_RES itemConfigData = itemDataMap[info.configID] as ITEM_RES;
 		nameLabel.text = itemConfigData.MinName;
 		numLabel.text = info.number.ToString();
+		iconSprite.spriteName = itemConfigData.IconName;
 	}
 
 	protected virtual void OnClick()

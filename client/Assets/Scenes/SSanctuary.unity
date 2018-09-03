@@ -15434,7 +15434,9 @@ MonoBehaviour:
   movingArea: {x: 120, y: 80}
   zoomArea: 10
   dragSpeed: 40
-  zoomSpeed: 10
+  zoomSpeed: 30
+  zoomInMax: 100
+  zoomOutMax: 30
 --- !u!1 &371494298
 GameObject:
   m_ObjectHideFlags: 0
@@ -29678,7 +29680,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1177876053}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695092312
 GameObject:
@@ -49370,8 +49372,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1690832884}
-  - {fileID: 655150206}
   - {fileID: 694138739}
+  - {fileID: 655150206}
   m_Father: {fileID: 1752632579}
   m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

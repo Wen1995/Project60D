@@ -13,10 +13,13 @@ public class CameraController : MonoBehaviour {
     public float dragSpeed;
     public float zoomSpeed;
 
+    public float zoomInMax;
+    public float zoomOutMax;
+
     //Movement state flag
     private Vector3 mouseOrigin;
     private Vector3 cameraOrigin;
-    private float curZoomDistance;
+    private float curZoomDistance = 0;
     
     //Mouse state flag
     private bool isOverUI = false;
@@ -30,7 +33,6 @@ public class CameraController : MonoBehaviour {
 
     Vector2 oldTouchPos0;
     Vector2 oldTouchPos1;
-
 
     private void Awake()
     {
@@ -114,43 +116,27 @@ public class CameraController : MonoBehaviour {
             }
         }
         
-        if(Input.touchCount > 1)
+        if(Input.touchCount == 2)
         {
-            if(Input.GetTouch(0).phase ==  TouchPhase.Moved || Input.GetTouch(1).phase == TouchPhase.Moved)
-            {
-                var touchPos0 = Input.GetTouch(0).position;
-                var touchPos1 = Input.GetTouch(1).position;
-                if(IsEnlarge(oldTouchPos0, oldTouchPos1, touchPos0, touchPos1))
-                {
-                    CameraZomming(0.1f);
-                }
-                else
-                {
-                    CameraZomming(-0.1f);
-                }
-                oldTouchPos0 = touchPos0;
-                oldTouchPos1 = touchPos1;
-            }
+            var touchPos0 = Input.GetTouch(0);
+            var touchPos1 = Input.GetTouch(1);
+            var preTouch0 = touchPos0.position - touchPos0.deltaPosition;
+            var preTouch1 = touchPos1.position - touchPos1.deltaPosition;
+            float preTouchDeltaMag = (preTouch0 - preTouch1).magnitude;
+            float curTouchDeltaMag = (touchPos0.position - touchPos1.position).magnitude;
+            if(curTouchDeltaMag > preTouchDeltaMag)
+                CameraZomming(0.1f);
+            else if(curTouchDeltaMag < preTouchDeltaMag)
+                CameraZomming(-0.1f);
         }
     }
 
-    bool IsEnlarge(Vector2 oldPos0, Vector2 oldPos1, Vector2 newPos0, Vector2 newPos1)
-    {
-        float oldLen = (oldPos0.x - oldPos1.x) * (oldPos0.x - oldPos1.x) + (oldPos0.y - oldPos1.y) * (oldPos0.y - oldPos1.y);
-        float newLen = (newPos0.x - newPos1.x) * (newPos0.x - newPos1.x) + (newPos0.y - newPos1.y) * (newPos0.y - newPos1.y);
-
-        if(newLen > oldLen)
-            return true;
-        else
-            return false;
-    }
 
     void ClearState()
     {
         isPress = false;
         isDragging = false;
     }
-
 
     #region CameraMovement
 
@@ -163,10 +149,11 @@ public class CameraController : MonoBehaviour {
 
     public void CameraZomming(float zoomDiff)
     {
-        if (Mathf.Abs(curZoomDistance + zoomDiff * zoomSpeed) < zoomArea)
+        float newZoomDistance = curZoomDistance + zoomDiff * zoomSpeed;
+        if(newZoomDistance <= zoomInMax && newZoomDistance >= -zoomOutMax)
         {
-            curZoomDistance += zoomDiff;
             transform.Translate(Vector3.forward * zoomDiff * zoomSpeed);
+            curZoomDistance = newZoomDistance;
         }
     }
 

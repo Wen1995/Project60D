@@ -86,7 +86,6 @@ public class MessageServiceImpl implements MessageService {
                     for (LossInfo l : fBuilder.getLossInfosList()) {
                         if (uid.equals(l.getUid())) {
                             fBuilder.setLossInfo(l);
-                            fBuilder.clearLossInfos();
                             break;
                         }
                     }
@@ -120,5 +119,4 @@ public class MessageServiceImpl implements MessageService {
         messageDao.unbindWithUID(messageId, uid);
         return null;
     }
-    
 }

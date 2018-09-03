@@ -4161,616 +4161,10 @@ namespace com.game.framework.protocol {
     }
   }
   
-  public sealed partial class TCSGetWorldEvent : pb::GeneratedMessageLite<TCSGetWorldEvent, TCSGetWorldEvent.Builder> {
-    private TCSGetWorldEvent() { }
-    private static readonly TCSGetWorldEvent defaultInstance = new TCSGetWorldEvent().MakeReadOnly();
-    private static readonly string[] _tCSGetWorldEventFieldNames = new string[] {  };
-    private static readonly uint[] _tCSGetWorldEventFieldTags = new uint[] {  };
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent DefaultInstance {
-      get { return defaultInstance; }
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override TCSGetWorldEvent DefaultInstanceForType {
-      get { return DefaultInstance; }
-    }
-    
-    protected override TCSGetWorldEvent ThisMessage {
-      get { return this; }
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override bool IsInitialized {
-      get {
-        return true;
-      }
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override void WriteTo(pb::ICodedOutputStream output) {
-      int size = SerializedSize;
-      string[] field_names = _tCSGetWorldEventFieldNames;
-    }
-    
-    private int memoizedSerializedSize = -1;
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override int SerializedSize {
-      get {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-        
-        size = 0;
-        memoizedSerializedSize = size;
-        return size;
-      }
-    }
-    
-    #region Lite runtime methods
-    public override int GetHashCode() {
-      int hash = GetType().GetHashCode();
-      return hash;
-    }
-    
-    public override bool Equals(object obj) {
-      TCSGetWorldEvent other = obj as TCSGetWorldEvent;
-      if (other == null) return false;
-      return true;
-    }
-    
-    #endregion
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent ParseFrom(pb::ByteString data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent ParseFrom(byte[] data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent ParseFrom(global::System.IO.Stream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent ParseDelimitedFrom(global::System.IO.Stream input) {
-      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent ParseFrom(pb::ICodedInputStream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TCSGetWorldEvent ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    private TCSGetWorldEvent MakeReadOnly() {
-      return this;
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static Builder CreateBuilder() { return new Builder(); }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override Builder ToBuilder() { return CreateBuilder(this); }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override Builder CreateBuilderForType() { return new Builder(); }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static Builder CreateBuilder(TCSGetWorldEvent prototype) {
-      return new Builder(prototype);
-    }
-    
-    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSGetWorldEvent, Builder> {
-      protected override Builder ThisBuilder {
-        get { return this; }
-      }
-      public Builder() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-      }
-      internal Builder(TCSGetWorldEvent cloneFrom) {
-        result = cloneFrom;
-        resultIsReadOnly = true;
-      }
-      
-      private bool resultIsReadOnly;
-      private TCSGetWorldEvent result;
-      
-      private TCSGetWorldEvent PrepareBuilder() {
-        if (resultIsReadOnly) {
-          TCSGetWorldEvent original = result;
-          result = new TCSGetWorldEvent();
-          resultIsReadOnly = false;
-          MergeFrom(original);
-        }
-        return result;
-      }
-      
-      public override bool IsInitialized {
-        get { return result.IsInitialized; }
-      }
-      
-      protected override TCSGetWorldEvent MessageBeingBuilt {
-        get { return PrepareBuilder(); }
-      }
-      
-      public override Builder Clear() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-        return this;
-      }
-      
-      public override Builder Clone() {
-        if (resultIsReadOnly) {
-          return new Builder(result);
-        } else {
-          return new Builder().MergeFrom(result);
-        }
-      }
-      
-      public override TCSGetWorldEvent DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetWorldEvent.DefaultInstance; }
-      }
-      
-      public override TCSGetWorldEvent BuildPartial() {
-        if (resultIsReadOnly) {
-          return result;
-        }
-        resultIsReadOnly = true;
-        return result.MakeReadOnly();
-      }
-      
-      public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is TCSGetWorldEvent) {
-          return MergeFrom((TCSGetWorldEvent) other);
-        } else {
-          base.MergeFrom(other);
-          return this;
-        }
-      }
-      
-      public override Builder MergeFrom(TCSGetWorldEvent other) {
-        if (other == global::com.game.framework.protocol.TCSGetWorldEvent.DefaultInstance) return this;
-        PrepareBuilder();
-        return this;
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input) {
-        return MergeFrom(input, pb::ExtensionRegistry.Empty);
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-        PrepareBuilder();
-        uint tag;
-        string field_name;
-        while (input.ReadTag(out tag, out field_name)) {
-          if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_tCSGetWorldEventFieldNames, field_name, global::System.StringComparer.Ordinal);
-            if(field_ordinal >= 0)
-              tag = _tCSGetWorldEventFieldTags[field_ordinal];
-            else {
-              ParseUnknownField(input, extensionRegistry, tag, field_name);
-              continue;
-            }
-          }
-          switch (tag) {
-            case 0: {
-              throw pb::InvalidProtocolBufferException.InvalidTag();
-            }
-            default: {
-              if (pb::WireFormat.IsEndGroupTag(tag)) {
-                return this;
-              }
-              ParseUnknownField(input, extensionRegistry, tag, field_name);
-              break;
-            }
-          }
-        }
-        
-        return this;
-      }
-      
-    }
-    static TCSGetWorldEvent() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
-    }
-  }
-  
-  public sealed partial class TSCGetWorldEvent : pb::GeneratedMessageLite<TSCGetWorldEvent, TSCGetWorldEvent.Builder> {
-    private TSCGetWorldEvent() { }
-    private static readonly TSCGetWorldEvent defaultInstance = new TSCGetWorldEvent().MakeReadOnly();
-    private static readonly string[] _tSCGetWorldEventFieldNames = new string[] { "configIds" };
-    private static readonly uint[] _tSCGetWorldEventFieldTags = new uint[] { 8 };
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent DefaultInstance {
-      get { return defaultInstance; }
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override TSCGetWorldEvent DefaultInstanceForType {
-      get { return DefaultInstance; }
-    }
-    
-    protected override TSCGetWorldEvent ThisMessage {
-      get { return this; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int ConfigIdsFieldNumber = 1;
-    private pbc::PopsicleList<int> configIds_ = new pbc::PopsicleList<int>();
-    public scg::IList<int> ConfigIdsList {
-      get { return pbc::Lists.AsReadOnly(configIds_); }
-    }
-    public int ConfigIdsCount {
-      get { return configIds_.Count; }
-    }
-    public int GetConfigIds(int index) {
-      return configIds_[index];
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override bool IsInitialized {
-      get {
-        return true;
-      }
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override void WriteTo(pb::ICodedOutputStream output) {
-      int size = SerializedSize;
-      string[] field_names = _tSCGetWorldEventFieldNames;
-      if (configIds_.Count > 0) {
-        output.WriteInt32Array(1, field_names[0], configIds_);
-      }
-    }
-    
-    private int memoizedSerializedSize = -1;
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override int SerializedSize {
-      get {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-        
-        size = 0;
-        {
-          int dataSize = 0;
-          foreach (int element in ConfigIdsList) {
-            dataSize += pb::CodedOutputStream.ComputeInt32SizeNoTag(element);
-          }
-          size += dataSize;
-          size += 1 * configIds_.Count;
-        }
-        memoizedSerializedSize = size;
-        return size;
-      }
-    }
-    
-    #region Lite runtime methods
-    public override int GetHashCode() {
-      int hash = GetType().GetHashCode();
-      foreach(int i in configIds_)
-        hash ^= i.GetHashCode();
-      return hash;
-    }
-    
-    public override bool Equals(object obj) {
-      TSCGetWorldEvent other = obj as TSCGetWorldEvent;
-      if (other == null) return false;
-      if(configIds_.Count != other.configIds_.Count) return false;
-      for(int ix=0; ix < configIds_.Count; ix++)
-        if(!configIds_[ix].Equals(other.configIds_[ix])) return false;
-      return true;
-    }
-    
-    #endregion
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent ParseFrom(pb::ByteString data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent ParseFrom(byte[] data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent ParseFrom(global::System.IO.Stream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent ParseDelimitedFrom(global::System.IO.Stream input) {
-      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent ParseFrom(pb::ICodedInputStream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static TSCGetWorldEvent ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    private TSCGetWorldEvent MakeReadOnly() {
-      configIds_.MakeReadOnly();
-      return this;
-    }
-    
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static Builder CreateBuilder() { return new Builder(); }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override Builder ToBuilder() { return CreateBuilder(this); }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public override Builder CreateBuilderForType() { return new Builder(); }
-    #if UNITY_EDITOR
-     [pb.FieldNumber] 
-     #endif//
-    public static Builder CreateBuilder(TSCGetWorldEvent prototype) {
-      return new Builder(prototype);
-    }
-    
-    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCGetWorldEvent, Builder> {
-      protected override Builder ThisBuilder {
-        get { return this; }
-      }
-      public Builder() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-      }
-      internal Builder(TSCGetWorldEvent cloneFrom) {
-        result = cloneFrom;
-        resultIsReadOnly = true;
-      }
-      
-      private bool resultIsReadOnly;
-      private TSCGetWorldEvent result;
-      
-      private TSCGetWorldEvent PrepareBuilder() {
-        if (resultIsReadOnly) {
-          TSCGetWorldEvent original = result;
-          result = new TSCGetWorldEvent();
-          resultIsReadOnly = false;
-          MergeFrom(original);
-        }
-        return result;
-      }
-      
-      public override bool IsInitialized {
-        get { return result.IsInitialized; }
-      }
-      
-      protected override TSCGetWorldEvent MessageBeingBuilt {
-        get { return PrepareBuilder(); }
-      }
-      
-      public override Builder Clear() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-        return this;
-      }
-      
-      public override Builder Clone() {
-        if (resultIsReadOnly) {
-          return new Builder(result);
-        } else {
-          return new Builder().MergeFrom(result);
-        }
-      }
-      
-      public override TSCGetWorldEvent DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetWorldEvent.DefaultInstance; }
-      }
-      
-      public override TSCGetWorldEvent BuildPartial() {
-        if (resultIsReadOnly) {
-          return result;
-        }
-        resultIsReadOnly = true;
-        return result.MakeReadOnly();
-      }
-      
-      public override Builder MergeFrom(pb::IMessageLite other) {
-        if (other is TSCGetWorldEvent) {
-          return MergeFrom((TSCGetWorldEvent) other);
-        } else {
-          base.MergeFrom(other);
-          return this;
-        }
-      }
-      
-      public override Builder MergeFrom(TSCGetWorldEvent other) {
-        if (other == global::com.game.framework.protocol.TSCGetWorldEvent.DefaultInstance) return this;
-        PrepareBuilder();
-        if (other.configIds_.Count != 0) {
-          result.configIds_.Add(other.configIds_);
-        }
-        return this;
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input) {
-        return MergeFrom(input, pb::ExtensionRegistry.Empty);
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-        PrepareBuilder();
-        uint tag;
-        string field_name;
-        while (input.ReadTag(out tag, out field_name)) {
-          if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_tSCGetWorldEventFieldNames, field_name, global::System.StringComparer.Ordinal);
-            if(field_ordinal >= 0)
-              tag = _tSCGetWorldEventFieldTags[field_ordinal];
-            else {
-              ParseUnknownField(input, extensionRegistry, tag, field_name);
-              continue;
-            }
-          }
-          switch (tag) {
-            case 0: {
-              throw pb::InvalidProtocolBufferException.InvalidTag();
-            }
-            default: {
-              if (pb::WireFormat.IsEndGroupTag(tag)) {
-                return this;
-              }
-              ParseUnknownField(input, extensionRegistry, tag, field_name);
-              break;
-            }
-            case 10:
-            case 8: {
-              input.ReadInt32Array(tag, field_name, result.configIds_);
-              break;
-            }
-          }
-        }
-        
-        return this;
-      }
-      
-      
-      public pbc::IPopsicleList<int> ConfigIdsList {
-        get { return PrepareBuilder().configIds_; }
-      }
-      public int ConfigIdsCount {
-        get { return result.ConfigIdsCount; }
-      }
-      public int GetConfigIds(int index) {
-        return result.GetConfigIds(index);
-      }
-      public Builder SetConfigIds(int index, int value) {
-        PrepareBuilder();
-        result.configIds_[index] = value;
-        return this;
-      }
-      public Builder AddConfigIds(int value) {
-        PrepareBuilder();
-        result.configIds_.Add(value);
-        return this;
-      }
-      public Builder AddRangeConfigIds(scg::IEnumerable<int> values) {
-        PrepareBuilder();
-        result.configIds_.Add(values);
-        return this;
-      }
-      public Builder ClearConfigIds() {
-        PrepareBuilder();
-        result.configIds_.Clear();
-        return this;
-      }
-    }
-    static TSCGetWorldEvent() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
-    }
-  }
-  
   public sealed partial class TCSSellGoods : pb::GeneratedMessageLite<TCSSellGoods, TCSSellGoods.Builder> {
     private TCSSellGoods() { }
     private static readonly TCSSellGoods defaultInstance = new TCSSellGoods().MakeReadOnly();
-    private static readonly string[] _tCSSellGoodsFieldNames = new string[] { "configId", "number", "worldEventIds" };
+    private static readonly string[] _tCSSellGoodsFieldNames = new string[] { "configId", "number", "worldEventConfigIds" };
     private static readonly uint[] _tCSSellGoodsFieldTags = new uint[] { 8, 16, 24 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -4819,16 +4213,16 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int WorldEventIdsFieldNumber = 3;
-    private pbc::PopsicleList<int> worldEventIds_ = new pbc::PopsicleList<int>();
-    public scg::IList<int> WorldEventIdsList {
-      get { return pbc::Lists.AsReadOnly(worldEventIds_); }
+    public const int WorldEventConfigIdsFieldNumber = 3;
+    private pbc::PopsicleList<int> worldEventConfigIds_ = new pbc::PopsicleList<int>();
+    public scg::IList<int> WorldEventConfigIdsList {
+      get { return pbc::Lists.AsReadOnly(worldEventConfigIds_); }
     }
-    public int WorldEventIdsCount {
-      get { return worldEventIds_.Count; }
+    public int WorldEventConfigIdsCount {
+      get { return worldEventConfigIds_.Count; }
     }
-    public int GetWorldEventIds(int index) {
-      return worldEventIds_[index];
+    public int GetWorldEventConfigIds(int index) {
+      return worldEventConfigIds_[index];
     }
     
     #if UNITY_EDITOR
@@ -4852,8 +4246,8 @@ namespace com.game.framework.protocol {
       if (hasNumber) {
         output.WriteInt32(2, field_names[1], Number);
       }
-      if (worldEventIds_.Count > 0) {
-        output.WriteInt32Array(3, field_names[2], worldEventIds_);
+      if (worldEventConfigIds_.Count > 0) {
+        output.WriteInt32Array(3, field_names[2], worldEventConfigIds_);
       }
     }
     
@@ -4875,11 +4269,11 @@ namespace com.game.framework.protocol {
         }
         {
           int dataSize = 0;
-          foreach (int element in WorldEventIdsList) {
+          foreach (int element in WorldEventConfigIdsList) {
             dataSize += pb::CodedOutputStream.ComputeInt32SizeNoTag(element);
           }
           size += dataSize;
-          size += 1 * worldEventIds_.Count;
+          size += 1 * worldEventConfigIds_.Count;
         }
         memoizedSerializedSize = size;
         return size;
@@ -4891,7 +4285,7 @@ namespace com.game.framework.protocol {
       int hash = GetType().GetHashCode();
       if (hasConfigId) hash ^= configId_.GetHashCode();
       if (hasNumber) hash ^= number_.GetHashCode();
-      foreach(int i in worldEventIds_)
+      foreach(int i in worldEventConfigIds_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -4901,9 +4295,9 @@ namespace com.game.framework.protocol {
       if (other == null) return false;
       if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
       if (hasNumber != other.hasNumber || (hasNumber && !number_.Equals(other.number_))) return false;
-      if(worldEventIds_.Count != other.worldEventIds_.Count) return false;
-      for(int ix=0; ix < worldEventIds_.Count; ix++)
-        if(!worldEventIds_[ix].Equals(other.worldEventIds_[ix])) return false;
+      if(worldEventConfigIds_.Count != other.worldEventConfigIds_.Count) return false;
+      for(int ix=0; ix < worldEventConfigIds_.Count; ix++)
+        if(!worldEventConfigIds_[ix].Equals(other.worldEventConfigIds_[ix])) return false;
       return true;
     }
     
@@ -4970,7 +4364,7 @@ namespace com.game.framework.protocol {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private TCSSellGoods MakeReadOnly() {
-      worldEventIds_.MakeReadOnly();
+      worldEventConfigIds_.MakeReadOnly();
       return this;
     }
     
@@ -5071,8 +4465,8 @@ namespace com.game.framework.protocol {
         if (other.HasNumber) {
           Number = other.Number;
         }
-        if (other.worldEventIds_.Count != 0) {
-          result.worldEventIds_.Add(other.worldEventIds_);
+        if (other.worldEventConfigIds_.Count != 0) {
+          result.worldEventConfigIds_.Add(other.worldEventConfigIds_);
         }
         return this;
       }
@@ -5116,7 +4510,7 @@ namespace com.game.framework.protocol {
             }
             case 26:
             case 24: {
-              input.ReadInt32Array(tag, field_name, result.worldEventIds_);
+              input.ReadInt32Array(tag, field_name, result.worldEventConfigIds_);
               break;
             }
           }
@@ -5166,33 +4560,33 @@ namespace com.game.framework.protocol {
         return this;
       }
       
-      public pbc::IPopsicleList<int> WorldEventIdsList {
-        get { return PrepareBuilder().worldEventIds_; }
+      public pbc::IPopsicleList<int> WorldEventConfigIdsList {
+        get { return PrepareBuilder().worldEventConfigIds_; }
       }
-      public int WorldEventIdsCount {
-        get { return result.WorldEventIdsCount; }
+      public int WorldEventConfigIdsCount {
+        get { return result.WorldEventConfigIdsCount; }
       }
-      public int GetWorldEventIds(int index) {
-        return result.GetWorldEventIds(index);
+      public int GetWorldEventConfigIds(int index) {
+        return result.GetWorldEventConfigIds(index);
       }
-      public Builder SetWorldEventIds(int index, int value) {
+      public Builder SetWorldEventConfigIds(int index, int value) {
         PrepareBuilder();
-        result.worldEventIds_[index] = value;
+        result.worldEventConfigIds_[index] = value;
         return this;
       }
-      public Builder AddWorldEventIds(int value) {
+      public Builder AddWorldEventConfigIds(int value) {
         PrepareBuilder();
-        result.worldEventIds_.Add(value);
+        result.worldEventConfigIds_.Add(value);
         return this;
       }
-      public Builder AddRangeWorldEventIds(scg::IEnumerable<int> values) {
+      public Builder AddRangeWorldEventConfigIds(scg::IEnumerable<int> values) {
         PrepareBuilder();
-        result.worldEventIds_.Add(values);
+        result.worldEventConfigIds_.Add(values);
         return this;
       }
-      public Builder ClearWorldEventIds() {
+      public Builder ClearWorldEventConfigIds() {
         PrepareBuilder();
-        result.worldEventIds_.Clear();
+        result.worldEventConfigIds_.Clear();
         return this;
       }
     }

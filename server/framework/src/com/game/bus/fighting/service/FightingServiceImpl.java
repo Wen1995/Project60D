@@ -135,8 +135,6 @@ public class FightingServiceImpl implements FightingService {
         Random rand = new Random();
         configId += rand.nextInt(10);
         
-        configId = 20010001;//TODO
-        
         // 更新僵尸入侵时间
         int zombieInvadeTime = arithmeticCoefficientMap.get(30100000).getAcK4() * 60;
         long time = System.currentTimeMillis() + zombieInvadeTime * 1000;
@@ -151,7 +149,6 @@ public class FightingServiceImpl implements FightingService {
             int leftTime = leidaMap.get(buildingMap.get(radar.getConfigId()).getBldgFuncTableId()).getLeidaDis();
             int receiveTime = zombieInvadeTime - leftTime;
             String timerKey = TimerConstant.RECEIVEZOMBIEMESSAGE + groupId;
-            receiveTime = 5;//TODO
             TCSReceiveZombieMessage p = TCSReceiveZombieMessage.newBuilder()
                     .setGroupId(groupId)
                     .setConfigId(configId)
@@ -168,7 +165,6 @@ public class FightingServiceImpl implements FightingService {
                 .setDoorId(doorId)
                 .build();
         String timerKey = TimerConstant.ZOMBIEINVADERESULT + groupId;
-        zombieInvadeTime = 10;//TODO
         TimerManager.GetInstance().sumbit(timerKey, uid, Cmd.ZOMBIEINVADERESULT_VALUE,
                 p.toByteArray(), zombieInvadeTime);
         return null;
@@ -386,9 +382,8 @@ public class FightingServiceImpl implements FightingService {
 
                         String tableName = buildingMap.get(b.getConfigId()).getBldgFuncTableName();
                         Integer tableId = buildingMap.get(b.getConfigId()).getBldgFuncTableId();
-                        Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
-                        Integer capacity =
-                                StaticDataManager.GetInstance().getCapacity(tableName, tableId);
+                        Integer speed = BuildingUtil.getSpeed(tableName, tableId);
+                        Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
                         double peopleNumber = group.getPeopleNumber();
                         double stake = 1 / peopleNumber + ((user.getContribution() + Constant.K)
                                 / (group.getTotalContribution() + peopleNumber * Constant.K)

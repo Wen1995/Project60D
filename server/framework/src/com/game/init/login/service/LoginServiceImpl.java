@@ -14,6 +14,7 @@ import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.Common.Error;
 import com.game.framework.protocol.Login.TSCHeart;
 import com.game.framework.protocol.Login.TSCLogin;
+import com.game.framework.protocol.Login.WorldEventConfigId2HappenTime;
 import com.game.framework.protocol.User.ResourceInfo;
 import com.game.framework.protocol.User.UserResource;
 import com.game.framework.resource.DynamicDataManager;
@@ -32,7 +33,16 @@ public class LoginServiceImpl implements LoginService {
         Long systemCurrentTime = System.currentTimeMillis();
         DynamicDataManager.GetInstance().uid2HeartTime.put(uid, systemCurrentTime);
         
+        List<WorldEventConfigId2HappenTime> worldEventConfigId2HappenTimes = new ArrayList<>();
+        WorldEventConfigId2HappenTime.Builder wBuilder = WorldEventConfigId2HappenTime.newBuilder();
+        for (Map.Entry<Integer, Long> entry : DynamicDataManager.GetInstance().worldEventConfigId2HappenTime.entrySet()) {
+            wBuilder.setWorldEventConfigId(entry.getKey())
+                    .setHappenTime(entry.getValue());
+            worldEventConfigId2HappenTimes.add(wBuilder.build());
+        }
+        
         TSCHeart p = TSCHeart.newBuilder()
+                .addAllWorldEventConfigId2HappenTime(worldEventConfigId2HappenTimes)
                 .setSystemCurrentTime(systemCurrentTime)
                 .build();
         TPacket resp = new TPacket();

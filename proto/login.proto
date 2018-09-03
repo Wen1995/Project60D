@@ -22,6 +22,15 @@ message TCSHeart {
 
 }
 message TSCHeart {
+	// 世界事件
+	repeated WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;
 	// 服务器当前时间
-	optional int64 systemCurrentTime = 3;
+	optional int64 systemCurrentTime = 2;
+}
+
+message WorldEventConfigId2HappenTime {
+	// 世界事件Id
+	optional int32 worldEventConfigId = 1;
+	// 发生时间
+	optional int64 happenTime = 2;
 }

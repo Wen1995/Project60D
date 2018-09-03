@@ -27,7 +27,7 @@
 		<Handler model="Scene" method="interruptProcess" description="中断加工"/>
 		
 		<!--//////////////// 战斗模块 ////////////////-->
-		<Handler model="Fighting" method="zombieInvade" description="僵尸入侵"/>
+		<Handler model="Fighting" method="zombieInvade" description="僵尸入侵" isInner="true"/>
 		<Handler model="Fighting" method="receiveZombieMessage" description="僵尸入侵消息推送" isInner="true"/>
 		<Handler model="Fighting" method="zombieInvadeResult" description="僵尸入侵结果推送" isInner="true"/>
 		
@@ -36,9 +36,7 @@
 		<Handler model="User" method="getResourceInfoByConfigId" description="玩家某种资源数量"/>
 		<Handler model="User" method="getUserState" description="玩家状态"/>
 		<Handler model="User" method="getUserStateRegular" description="玩家状态（周期）" isInner="true"/>
-		<Handler model="User" method="getWorldEvent" description="世界事件"/>
 		<Handler model="User" method="sellGoods" description="卖出商品"/>
-		
 	</HandlerGroup>
 	
 	<HandlerGroup name="Match" thread="1" clean="60">

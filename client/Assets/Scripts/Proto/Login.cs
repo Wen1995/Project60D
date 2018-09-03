@@ -1293,8 +1293,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCHeart : pb::GeneratedMessageLite<TSCHeart, TSCHeart.Builder> {
     private TSCHeart() { }
     private static readonly TSCHeart defaultInstance = new TSCHeart().MakeReadOnly();
-    private static readonly string[] _tSCHeartFieldNames = new string[] { "systemCurrentTime" };
-    private static readonly uint[] _tSCHeartFieldTags = new uint[] { 24 };
+    private static readonly string[] _tSCHeartFieldNames = new string[] { "systemCurrentTime", "worldEventConfigId2HappenTime" };
+    private static readonly uint[] _tSCHeartFieldTags = new uint[] { 16, 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -1316,7 +1316,22 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SystemCurrentTimeFieldNumber = 3;
+    public const int WorldEventConfigId2HappenTimeFieldNumber = 1;
+    private pbc::PopsicleList<global::com.game.framework.protocol.WorldEventConfigId2HappenTime> worldEventConfigId2HappenTime_ = new pbc::PopsicleList<global::com.game.framework.protocol.WorldEventConfigId2HappenTime>();
+    public scg::IList<global::com.game.framework.protocol.WorldEventConfigId2HappenTime> WorldEventConfigId2HappenTimeList {
+      get { return worldEventConfigId2HappenTime_; }
+    }
+    public int WorldEventConfigId2HappenTimeCount {
+      get { return worldEventConfigId2HappenTime_.Count; }
+    }
+    public global::com.game.framework.protocol.WorldEventConfigId2HappenTime GetWorldEventConfigId2HappenTime(int index) {
+      return worldEventConfigId2HappenTime_[index];
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int SystemCurrentTimeFieldNumber = 2;
     private bool hasSystemCurrentTime;
     private long systemCurrentTime_;
     public bool HasSystemCurrentTime {
@@ -1341,8 +1356,11 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _tSCHeartFieldNames;
+      if (worldEventConfigId2HappenTime_.Count > 0) {
+        output.WriteMessageArray(1, field_names[1], worldEventConfigId2HappenTime_);
+      }
       if (hasSystemCurrentTime) {
-        output.WriteInt64(3, field_names[0], SystemCurrentTime);
+        output.WriteInt64(2, field_names[0], SystemCurrentTime);
       }
     }
     
@@ -1356,8 +1374,11 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
+        foreach (global::com.game.framework.protocol.WorldEventConfigId2HappenTime element in WorldEventConfigId2HappenTimeList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(1, element);
+        }
         if (hasSystemCurrentTime) {
-          size += pb::CodedOutputStream.ComputeInt64Size(3, SystemCurrentTime);
+          size += pb::CodedOutputStream.ComputeInt64Size(2, SystemCurrentTime);
         }
         memoizedSerializedSize = size;
         return size;
@@ -1367,6 +1388,8 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
+      foreach(global::com.game.framework.protocol.WorldEventConfigId2HappenTime i in worldEventConfigId2HappenTime_)
+        hash ^= i.GetHashCode();
       if (hasSystemCurrentTime) hash ^= systemCurrentTime_.GetHashCode();
       return hash;
     }
@@ -1374,6 +1397,9 @@ namespace com.game.framework.protocol {
     public override bool Equals(object obj) {
       TSCHeart other = obj as TSCHeart;
       if (other == null) return false;
+      if(worldEventConfigId2HappenTime_.Count != other.worldEventConfigId2HappenTime_.Count) return false;
+      for(int ix=0; ix < worldEventConfigId2HappenTime_.Count; ix++)
+        if(!worldEventConfigId2HappenTime_[ix].Equals(other.worldEventConfigId2HappenTime_[ix])) return false;
       if (hasSystemCurrentTime != other.hasSystemCurrentTime || (hasSystemCurrentTime && !systemCurrentTime_.Equals(other.systemCurrentTime_))) return false;
       return true;
     }
@@ -1441,6 +1467,7 @@ namespace com.game.framework.protocol {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private TSCHeart MakeReadOnly() {
+      worldEventConfigId2HappenTime_.MakeReadOnly();
       return this;
     }
     
@@ -1535,6 +1562,9 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(TSCHeart other) {
         if (other == global::com.game.framework.protocol.TSCHeart.DefaultInstance) return this;
         PrepareBuilder();
+        if (other.worldEventConfigId2HappenTime_.Count != 0) {
+          result.worldEventConfigId2HappenTime_.Add(other.worldEventConfigId2HappenTime_);
+        }
         if (other.HasSystemCurrentTime) {
           SystemCurrentTime = other.SystemCurrentTime;
         }
@@ -1570,7 +1600,11 @@ namespace com.game.framework.protocol {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               break;
             }
-            case 24: {
+            case 10: {
+              input.ReadMessageArray(tag, field_name, result.worldEventConfigId2HappenTime_, global::com.game.framework.protocol.WorldEventConfigId2HappenTime.DefaultInstance, extensionRegistry);
+              break;
+            }
+            case 16: {
               result.hasSystemCurrentTime = input.ReadInt64(ref result.systemCurrentTime_);
               break;
             }
@@ -1580,6 +1614,50 @@ namespace com.game.framework.protocol {
         return this;
       }
       
+      
+      public pbc::IPopsicleList<global::com.game.framework.protocol.WorldEventConfigId2HappenTime> WorldEventConfigId2HappenTimeList {
+        get { return PrepareBuilder().worldEventConfigId2HappenTime_; }
+      }
+      public int WorldEventConfigId2HappenTimeCount {
+        get { return result.WorldEventConfigId2HappenTimeCount; }
+      }
+      public global::com.game.framework.protocol.WorldEventConfigId2HappenTime GetWorldEventConfigId2HappenTime(int index) {
+        return result.GetWorldEventConfigId2HappenTime(index);
+      }
+      public Builder SetWorldEventConfigId2HappenTime(int index, global::com.game.framework.protocol.WorldEventConfigId2HappenTime value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.worldEventConfigId2HappenTime_[index] = value;
+        return this;
+      }
+      public Builder SetWorldEventConfigId2HappenTime(int index, global::com.game.framework.protocol.WorldEventConfigId2HappenTime.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.worldEventConfigId2HappenTime_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddWorldEventConfigId2HappenTime(global::com.game.framework.protocol.WorldEventConfigId2HappenTime value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.worldEventConfigId2HappenTime_.Add(value);
+        return this;
+      }
+      public Builder AddWorldEventConfigId2HappenTime(global::com.game.framework.protocol.WorldEventConfigId2HappenTime.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.worldEventConfigId2HappenTime_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeWorldEventConfigId2HappenTime(scg::IEnumerable<global::com.game.framework.protocol.WorldEventConfigId2HappenTime> values) {
+        PrepareBuilder();
+        result.worldEventConfigId2HappenTime_.Add(values);
+        return this;
+      }
+      public Builder ClearWorldEventConfigId2HappenTime() {
+        PrepareBuilder();
+        result.worldEventConfigId2HappenTime_.Clear();
+        return this;
+      }
       
       public bool HasSystemCurrentTime {
         get { return result.hasSystemCurrentTime; }
@@ -1602,6 +1680,370 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCHeart() {
+      object.ReferenceEquals(global::com.game.framework.protocol.Login.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class WorldEventConfigId2HappenTime : pb::GeneratedMessageLite<WorldEventConfigId2HappenTime, WorldEventConfigId2HappenTime.Builder> {
+    private WorldEventConfigId2HappenTime() { }
+    private static readonly WorldEventConfigId2HappenTime defaultInstance = new WorldEventConfigId2HappenTime().MakeReadOnly();
+    private static readonly string[] _worldEventConfigId2HappenTimeFieldNames = new string[] { "happenTime", "worldEventConfigId" };
+    private static readonly uint[] _worldEventConfigId2HappenTimeFieldTags = new uint[] { 16, 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override WorldEventConfigId2HappenTime DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override WorldEventConfigId2HappenTime ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int WorldEventConfigIdFieldNumber = 1;
+    private bool hasWorldEventConfigId;
+    private int worldEventConfigId_;
+    public bool HasWorldEventConfigId {
+      get { return hasWorldEventConfigId; }
+    }
+    public int WorldEventConfigId {
+      get { return worldEventConfigId_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int HappenTimeFieldNumber = 2;
+    private bool hasHappenTime;
+    private long happenTime_;
+    public bool HasHappenTime {
+      get { return hasHappenTime; }
+    }
+    public long HappenTime {
+      get { return happenTime_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _worldEventConfigId2HappenTimeFieldNames;
+      if (hasWorldEventConfigId) {
+        output.WriteInt32(1, field_names[1], WorldEventConfigId);
+      }
+      if (hasHappenTime) {
+        output.WriteInt64(2, field_names[0], HappenTime);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasWorldEventConfigId) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, WorldEventConfigId);
+        }
+        if (hasHappenTime) {
+          size += pb::CodedOutputStream.ComputeInt64Size(2, HappenTime);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasWorldEventConfigId) hash ^= worldEventConfigId_.GetHashCode();
+      if (hasHappenTime) hash ^= happenTime_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      WorldEventConfigId2HappenTime other = obj as WorldEventConfigId2HappenTime;
+      if (other == null) return false;
+      if (hasWorldEventConfigId != other.hasWorldEventConfigId || (hasWorldEventConfigId && !worldEventConfigId_.Equals(other.worldEventConfigId_))) return false;
+      if (hasHappenTime != other.hasHappenTime || (hasHappenTime && !happenTime_.Equals(other.happenTime_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEventConfigId2HappenTime ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private WorldEventConfigId2HappenTime MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(WorldEventConfigId2HappenTime prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<WorldEventConfigId2HappenTime, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(WorldEventConfigId2HappenTime cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private WorldEventConfigId2HappenTime result;
+      
+      private WorldEventConfigId2HappenTime PrepareBuilder() {
+        if (resultIsReadOnly) {
+          WorldEventConfigId2HappenTime original = result;
+          result = new WorldEventConfigId2HappenTime();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override WorldEventConfigId2HappenTime MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override WorldEventConfigId2HappenTime DefaultInstanceForType {
+        get { return global::com.game.framework.protocol.WorldEventConfigId2HappenTime.DefaultInstance; }
+      }
+      
+      public override WorldEventConfigId2HappenTime BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is WorldEventConfigId2HappenTime) {
+          return MergeFrom((WorldEventConfigId2HappenTime) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(WorldEventConfigId2HappenTime other) {
+        if (other == global::com.game.framework.protocol.WorldEventConfigId2HappenTime.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasWorldEventConfigId) {
+          WorldEventConfigId = other.WorldEventConfigId;
+        }
+        if (other.HasHappenTime) {
+          HappenTime = other.HappenTime;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_worldEventConfigId2HappenTimeFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _worldEventConfigId2HappenTimeFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasWorldEventConfigId = input.ReadInt32(ref result.worldEventConfigId_);
+              break;
+            }
+            case 16: {
+              result.hasHappenTime = input.ReadInt64(ref result.happenTime_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasWorldEventConfigId {
+        get { return result.hasWorldEventConfigId; }
+      }
+      public int WorldEventConfigId {
+        get { return result.WorldEventConfigId; }
+        set { SetWorldEventConfigId(value); }
+      }
+      public Builder SetWorldEventConfigId(int value) {
+        PrepareBuilder();
+        result.hasWorldEventConfigId = true;
+        result.worldEventConfigId_ = value;
+        return this;
+      }
+      public Builder ClearWorldEventConfigId() {
+        PrepareBuilder();
+        result.hasWorldEventConfigId = false;
+        result.worldEventConfigId_ = 0;
+        return this;
+      }
+      
+      public bool HasHappenTime {
+        get { return result.hasHappenTime; }
+      }
+      public long HappenTime {
+        get { return result.HappenTime; }
+        set { SetHappenTime(value); }
+      }
+      public Builder SetHappenTime(long value) {
+        PrepareBuilder();
+        result.hasHappenTime = true;
+        result.happenTime_ = value;
+        return this;
+      }
+      public Builder ClearHappenTime() {
+        PrepareBuilder();
+        result.hasHappenTime = false;
+        result.happenTime_ = 0L;
+        return this;
+      }
+    }
+    static WorldEventConfigId2HappenTime() {
       object.ReferenceEquals(global::com.game.framework.protocol.Login.Descriptor, null);
     }
   }

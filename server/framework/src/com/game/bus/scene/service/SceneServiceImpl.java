@@ -73,8 +73,8 @@ public class SceneServiceImpl implements SceneService {
                 
                 String tableName = buildingMap.get(configId).getBldgFuncTableName();
                 Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
-                Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
-                Integer capacity = StaticDataManager.GetInstance().getCapacity(tableName, tableId);
+                Integer speed = BuildingUtil.getSpeed(tableName, tableId);
+                Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
                 double peopleNumber = group.getPeopleNumber();
                 for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
                     ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
@@ -150,8 +150,8 @@ public class SceneServiceImpl implements SceneService {
             ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
             String tableName = buildingMap.get(configId).getBldgFuncTableName();
             Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
-            Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
-            Integer capacity = StaticDataManager.GetInstance().getCapacity(tableName, tableId);
+            Integer speed = BuildingUtil.getSpeed(tableName, tableId);
+            Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
             double peopleNumber = group.getPeopleNumber();
             for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
                 ReceiveInfo.Builder rbBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
@@ -342,8 +342,8 @@ public class SceneServiceImpl implements SceneService {
             ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
             String tableName = buildingMap.get(configId).getBldgFuncTableName();
             Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
-            Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
-            Integer capacity = StaticDataManager.GetInstance().getCapacity(tableName, tableId);
+            Integer speed = BuildingUtil.getSpeed(tableName, tableId);
+            Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
             double peopleNumber = group.getPeopleNumber();
             for (int i = 0; i < buildingStatebuilder.getReceiveInfosCount(); i++) {
                 ReceiveInfo.Builder rbBuilder = buildingStatebuilder.getReceiveInfosBuilder(i);
@@ -604,8 +604,8 @@ public class SceneServiceImpl implements SceneService {
                 // 计算新增资源数量
                 String tableName = buildingMap.get(building.getConfigId()).getBldgFuncTableName();
                 Integer tableId = buildingMap.get(building.getConfigId()).getBldgFuncTableId();
-                Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
-                Integer capacity = StaticDataManager.GetInstance().getCapacity(tableName, tableId);
+                Integer speed = BuildingUtil.getSpeed(tableName, tableId);
+                Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
                 double peopleNumber = group.getPeopleNumber();
                 double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
                 number = (int) (time*speed*stake/1000/3600) + leftNumber;
@@ -738,10 +738,10 @@ public class SceneServiceImpl implements SceneService {
                 
                 String tableName = buildingMap.get(building.getConfigId()).getBldgFuncTableName();
                 Integer tableId = buildingMap.get(building.getConfigId()).getBldgFuncTableId();
-                Integer capacity = StaticDataManager.GetInstance().getCapacity(tableName, tableId);
+                Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
                 // 仓库是否有对应的资源、是否有足够的数量、是否有足够的加工仓库容量、是否是加工比的整数倍
                 if (resourceIndex != -1 && resourceNumber >= number && capacity >= number && number%conProRate == 0) {
-                    Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
+                    Integer speed = BuildingUtil.getSpeed(tableName, tableId);
                     Long startTime = System.currentTimeMillis();
                     finishTime = startTime + (long)(number)*3600*1000/speed;
                     
@@ -814,7 +814,7 @@ public class SceneServiceImpl implements SceneService {
         ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
         String tableName = buildingMap.get(building.getConfigId()).getBldgFuncTableName();
         Integer tableId = buildingMap.get(building.getConfigId()).getBldgFuncTableId();
-        Integer speed = StaticDataManager.GetInstance().getSpeed(tableName, tableId);
+        Integer speed = BuildingUtil.getSpeed(tableName, tableId);
         Integer conProRate = buildingMap.get(building.getConfigId()).getConPro();
         Integer number = (int) (time*speed/(conProRate*3600*1000));
         

@@ -14,7 +14,9 @@ public enum IdType {
     /** 建筑 */
     BUILDING(3),
     /** 消息 */
-    MESSAGE(4);
+    MESSAGE(4),
+    /** 世界事件 */
+    WORLDEVENT(5);
 
     private byte val;
 

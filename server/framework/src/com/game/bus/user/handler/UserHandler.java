@@ -13,7 +13,6 @@ import com.game.framework.protocol.User.TCSGetResourceInfo;
 import com.game.framework.protocol.User.TCSGetResourceInfoByConfigId;
 import com.game.framework.protocol.User.TCSGetUserState;
 import com.game.framework.protocol.User.TCSGetUserStateRegular;
-import com.game.framework.protocol.User.TCSGetWorldEvent;
 import com.game.framework.protocol.User.TCSSellGoods;
 
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Bus, module = HandlerConstant.Model_User)
@@ -61,22 +60,12 @@ public class UserHandler {
 		GateServer.GetInstance().send(resp);
 	}
 
-	/** 世界事件 */
-	@HandlerMethodMapping(cmd = Cmd.GETWORLDEVENT_VALUE)
-	public void getWorldEvent(TPacket p) throws Exception {
-		TCSGetWorldEvent msg = TCSGetWorldEvent.parseFrom(p.getBuffer());
-		
-		TPacket resp = service.getWorldEvent(p.getUid());
-		resp.setCmd(Cmd.GETWORLDEVENT_VALUE + 1000);
-		GateServer.GetInstance().send(resp);
-	}
-
 	/** 卖出商品 */
 	@HandlerMethodMapping(cmd = Cmd.SELLGOODS_VALUE)
 	public void sellGoods(TPacket p) throws Exception {
 		TCSSellGoods msg = TCSSellGoods.parseFrom(p.getBuffer());
-		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		List<Integer> worldEventIdsList = msg.getWorldEventIdsList();		
-		TPacket resp = service.sellGoods(p.getUid(), configId, number, worldEventIdsList);
+		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		List<Integer> worldEventConfigIdsList = msg.getWorldEventConfigIdsList();		
+		TPacket resp = service.sellGoods(p.getUid(), configId, number, worldEventConfigIdsList);
 		resp.setCmd(Cmd.SELLGOODS_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}

@@ -1,8 +1,9 @@
 package com.game.framework.resource;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -14,7 +15,6 @@ import com.game.framework.dbcache.model.User;
 import com.game.framework.utils.StringUtil;
 
 public class DynamicDataManager {
-
     private static final Logger logger = LoggerFactory.getLogger(DynamicDataManager.class);
     
     private static Object obj = new Object();
@@ -33,10 +33,12 @@ public class DynamicDataManager {
     private IUserDao userDao = (IUserDao) context.getBean("userDao");
     private IGroupDao groupDao = (IGroupDao) context.getBean("groupDao");
     
-    public Map<String, Long> account2Uid = new ConcurrentHashMap<>();
-    public Map<Long, Long> uid2HeartTime = new ConcurrentHashMap<>();
-    public Map<Long, Long> groupId2InvadeTime = new ConcurrentHashMap<>();
-    public Map<Long, Long> uid2GroupId = new ConcurrentHashMap<>();
+    public Map<String, Long> account2Uid = new HashMap<>();
+    public Map<Long, Long> uid2HeartTime = new HashMap<>();
+    public Map<Long, Long> groupId2InvadeTime = new HashMap<>();
+    public Map<Long, Long> uid2GroupId = new HashMap<>();
+    public Map<Integer, Long> worldEventConfigId2HappenTime = new HashMap<>();
+    public List<Integer> eventTypes = new ArrayList<>();
     
     public void init() {
         long startTime = System.currentTimeMillis();

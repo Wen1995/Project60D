@@ -7471,836 +7471,6 @@ public final class User {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetUserStateRegular)
   }
 
-  public interface TCSGetWorldEventOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-  }
-  /**
-   * Protobuf type {@code com.game.framework.protocol.TCSGetWorldEvent}
-   */
-  public static final class TCSGetWorldEvent extends
-      com.google.protobuf.GeneratedMessage
-      implements TCSGetWorldEventOrBuilder {
-    // Use TCSGetWorldEvent.newBuilder() to construct.
-    private TCSGetWorldEvent(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private TCSGetWorldEvent(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final TCSGetWorldEvent defaultInstance;
-    public static TCSGetWorldEvent getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public TCSGetWorldEvent getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TCSGetWorldEvent(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetWorldEvent_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetWorldEvent_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.game.framework.protocol.User.TCSGetWorldEvent.class, com.game.framework.protocol.User.TCSGetWorldEvent.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<TCSGetWorldEvent> PARSER =
-        new com.google.protobuf.AbstractParser<TCSGetWorldEvent>() {
-      public TCSGetWorldEvent parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TCSGetWorldEvent(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TCSGetWorldEvent> getParserForType() {
-      return PARSER;
-    }
-
-    private void initFields() {
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.game.framework.protocol.User.TCSGetWorldEvent parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.game.framework.protocol.User.TCSGetWorldEvent parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.game.framework.protocol.User.TCSGetWorldEvent parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.game.framework.protocol.User.TCSGetWorldEvent parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.game.framework.protocol.User.TCSGetWorldEvent parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.game.framework.protocol.User.TCSGetWorldEvent parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.game.framework.protocol.User.TCSGetWorldEvent parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.game.framework.protocol.User.TCSGetWorldEvent parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.game.framework.protocol.User.TCSGetWorldEvent parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.game.framework.protocol.User.TCSGetWorldEvent parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.game.framework.protocol.User.TCSGetWorldEvent prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code com.game.framework.protocol.TCSGetWorldEvent}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.game.framework.protocol.User.TCSGetWorldEventOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetWorldEvent_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetWorldEvent_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.game.framework.protocol.User.TCSGetWorldEvent.class, com.game.framework.protocol.User.TCSGetWorldEvent.Builder.class);
-      }
-
-      // Construct using com.game.framework.protocol.User.TCSGetWorldEvent.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetWorldEvent_descriptor;
-      }
-
-      public com.game.framework.protocol.User.TCSGetWorldEvent getDefaultInstanceForType() {
-        return com.game.framework.protocol.User.TCSGetWorldEvent.getDefaultInstance();
-      }
-
-      public com.game.framework.protocol.User.TCSGetWorldEvent build() {
-        com.game.framework.protocol.User.TCSGetWorldEvent result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.game.framework.protocol.User.TCSGetWorldEvent buildPartial() {
-        com.game.framework.protocol.User.TCSGetWorldEvent result = new com.game.framework.protocol.User.TCSGetWorldEvent(this);
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.framework.protocol.User.TCSGetWorldEvent) {
-          return mergeFrom((com.game.framework.protocol.User.TCSGetWorldEvent)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.game.framework.protocol.User.TCSGetWorldEvent other) {
-        if (other == com.game.framework.protocol.User.TCSGetWorldEvent.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.game.framework.protocol.User.TCSGetWorldEvent parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.framework.protocol.User.TCSGetWorldEvent) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSGetWorldEvent)
-    }
-
-    static {
-      defaultInstance = new TCSGetWorldEvent(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSGetWorldEvent)
-  }
-
-  public interface TSCGetWorldEventOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // repeated int32 configIds = 1;
-    /**
-     * <code>repeated int32 configIds = 1;</code>
-     *
-     * <pre>
-     * 世界事件
-     * </pre>
-     */
-    java.util.List<java.lang.Integer> getConfigIdsList();
-    /**
-     * <code>repeated int32 configIds = 1;</code>
-     *
-     * <pre>
-     * 世界事件
-     * </pre>
-     */
-    int getConfigIdsCount();
-    /**
-     * <code>repeated int32 configIds = 1;</code>
-     *
-     * <pre>
-     * 世界事件
-     * </pre>
-     */
-    int getConfigIds(int index);
-  }
-  /**
-   * Protobuf type {@code com.game.framework.protocol.TSCGetWorldEvent}
-   */
-  public static final class TSCGetWorldEvent extends
-      com.google.protobuf.GeneratedMessage
-      implements TSCGetWorldEventOrBuilder {
-    // Use TSCGetWorldEvent.newBuilder() to construct.
-    private TSCGetWorldEvent(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private TSCGetWorldEvent(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final TSCGetWorldEvent defaultInstance;
-    public static TSCGetWorldEvent getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public TSCGetWorldEvent getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TSCGetWorldEvent(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                configIds_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              configIds_.add(input.readInt32());
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
-                configIds_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                configIds_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          configIds_ = java.util.Collections.unmodifiableList(configIds_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetWorldEvent_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetWorldEvent_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.game.framework.protocol.User.TSCGetWorldEvent.class, com.game.framework.protocol.User.TSCGetWorldEvent.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<TSCGetWorldEvent> PARSER =
-        new com.google.protobuf.AbstractParser<TSCGetWorldEvent>() {
-      public TSCGetWorldEvent parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TSCGetWorldEvent(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TSCGetWorldEvent> getParserForType() {
-      return PARSER;
-    }
-
-    // repeated int32 configIds = 1;
-    public static final int CONFIGIDS_FIELD_NUMBER = 1;
-    private java.util.List<java.lang.Integer> configIds_;
-    /**
-     * <code>repeated int32 configIds = 1;</code>
-     *
-     * <pre>
-     * 世界事件
-     * </pre>
-     */
-    public java.util.List<java.lang.Integer>
-        getConfigIdsList() {
-      return configIds_;
-    }
-    /**
-     * <code>repeated int32 configIds = 1;</code>
-     *
-     * <pre>
-     * 世界事件
-     * </pre>
-     */
-    public int getConfigIdsCount() {
-      return configIds_.size();
-    }
-    /**
-     * <code>repeated int32 configIds = 1;</code>
-     *
-     * <pre>
-     * 世界事件
-     * </pre>
-     */
-    public int getConfigIds(int index) {
-      return configIds_.get(index);
-    }
-
-    private void initFields() {
-      configIds_ = java.util.Collections.emptyList();
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      for (int i = 0; i < configIds_.size(); i++) {
-        output.writeInt32(1, configIds_.get(i));
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < configIds_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(configIds_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getConfigIdsList().size();
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.game.framework.protocol.User.TSCGetWorldEvent parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.game.framework.protocol.User.TSCGetWorldEvent parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.game.framework.protocol.User.TSCGetWorldEvent parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.game.framework.protocol.User.TSCGetWorldEvent parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.game.framework.protocol.User.TSCGetWorldEvent parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.game.framework.protocol.User.TSCGetWorldEvent parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.game.framework.protocol.User.TSCGetWorldEvent parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.game.framework.protocol.User.TSCGetWorldEvent parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.game.framework.protocol.User.TSCGetWorldEvent parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.game.framework.protocol.User.TSCGetWorldEvent parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.game.framework.protocol.User.TSCGetWorldEvent prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code com.game.framework.protocol.TSCGetWorldEvent}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.game.framework.protocol.User.TSCGetWorldEventOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetWorldEvent_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetWorldEvent_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.game.framework.protocol.User.TSCGetWorldEvent.class, com.game.framework.protocol.User.TSCGetWorldEvent.Builder.class);
-      }
-
-      // Construct using com.game.framework.protocol.User.TSCGetWorldEvent.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        configIds_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetWorldEvent_descriptor;
-      }
-
-      public com.game.framework.protocol.User.TSCGetWorldEvent getDefaultInstanceForType() {
-        return com.game.framework.protocol.User.TSCGetWorldEvent.getDefaultInstance();
-      }
-
-      public com.game.framework.protocol.User.TSCGetWorldEvent build() {
-        com.game.framework.protocol.User.TSCGetWorldEvent result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.game.framework.protocol.User.TSCGetWorldEvent buildPartial() {
-        com.game.framework.protocol.User.TSCGetWorldEvent result = new com.game.framework.protocol.User.TSCGetWorldEvent(this);
-        int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          configIds_ = java.util.Collections.unmodifiableList(configIds_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.configIds_ = configIds_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.framework.protocol.User.TSCGetWorldEvent) {
-          return mergeFrom((com.game.framework.protocol.User.TSCGetWorldEvent)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.game.framework.protocol.User.TSCGetWorldEvent other) {
-        if (other == com.game.framework.protocol.User.TSCGetWorldEvent.getDefaultInstance()) return this;
-        if (!other.configIds_.isEmpty()) {
-          if (configIds_.isEmpty()) {
-            configIds_ = other.configIds_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureConfigIdsIsMutable();
-            configIds_.addAll(other.configIds_);
-          }
-          onChanged();
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.game.framework.protocol.User.TSCGetWorldEvent parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.framework.protocol.User.TSCGetWorldEvent) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // repeated int32 configIds = 1;
-      private java.util.List<java.lang.Integer> configIds_ = java.util.Collections.emptyList();
-      private void ensureConfigIdsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          configIds_ = new java.util.ArrayList<java.lang.Integer>(configIds_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <code>repeated int32 configIds = 1;</code>
-       *
-       * <pre>
-       * 世界事件
-       * </pre>
-       */
-      public java.util.List<java.lang.Integer>
-          getConfigIdsList() {
-        return java.util.Collections.unmodifiableList(configIds_);
-      }
-      /**
-       * <code>repeated int32 configIds = 1;</code>
-       *
-       * <pre>
-       * 世界事件
-       * </pre>
-       */
-      public int getConfigIdsCount() {
-        return configIds_.size();
-      }
-      /**
-       * <code>repeated int32 configIds = 1;</code>
-       *
-       * <pre>
-       * 世界事件
-       * </pre>
-       */
-      public int getConfigIds(int index) {
-        return configIds_.get(index);
-      }
-      /**
-       * <code>repeated int32 configIds = 1;</code>
-       *
-       * <pre>
-       * 世界事件
-       * </pre>
-       */
-      public Builder setConfigIds(
-          int index, int value) {
-        ensureConfigIdsIsMutable();
-        configIds_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 configIds = 1;</code>
-       *
-       * <pre>
-       * 世界事件
-       * </pre>
-       */
-      public Builder addConfigIds(int value) {
-        ensureConfigIdsIsMutable();
-        configIds_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 configIds = 1;</code>
-       *
-       * <pre>
-       * 世界事件
-       * </pre>
-       */
-      public Builder addAllConfigIds(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureConfigIdsIsMutable();
-        super.addAll(values, configIds_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 configIds = 1;</code>
-       *
-       * <pre>
-       * 世界事件
-       * </pre>
-       */
-      public Builder clearConfigIds() {
-        configIds_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetWorldEvent)
-    }
-
-    static {
-      defaultInstance = new TSCGetWorldEvent(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetWorldEvent)
-  }
-
   public interface TCSSellGoodsOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -8340,31 +7510,31 @@ public final class User {
      */
     int getNumber();
 
-    // repeated int32 worldEventIds = 3;
+    // repeated int32 worldEventConfigIds = 3;
     /**
-     * <code>repeated int32 worldEventIds = 3;</code>
+     * <code>repeated int32 worldEventConfigIds = 3;</code>
      *
      * <pre>
      * 世界事件
      * </pre>
      */
-    java.util.List<java.lang.Integer> getWorldEventIdsList();
+    java.util.List<java.lang.Integer> getWorldEventConfigIdsList();
     /**
-     * <code>repeated int32 worldEventIds = 3;</code>
+     * <code>repeated int32 worldEventConfigIds = 3;</code>
      *
      * <pre>
      * 世界事件
      * </pre>
      */
-    int getWorldEventIdsCount();
+    int getWorldEventConfigIdsCount();
     /**
-     * <code>repeated int32 worldEventIds = 3;</code>
+     * <code>repeated int32 worldEventConfigIds = 3;</code>
      *
      * <pre>
      * 世界事件
      * </pre>
      */
-    int getWorldEventIds(int index);
+    int getWorldEventConfigIds(int index);
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TCSSellGoods}
@@ -8429,21 +7599,21 @@ public final class User {
             }
             case 24: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                worldEventIds_ = new java.util.ArrayList<java.lang.Integer>();
+                worldEventConfigIds_ = new java.util.ArrayList<java.lang.Integer>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              worldEventIds_.add(input.readInt32());
+              worldEventConfigIds_.add(input.readInt32());
               break;
             }
             case 26: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
-                worldEventIds_ = new java.util.ArrayList<java.lang.Integer>();
+                worldEventConfigIds_ = new java.util.ArrayList<java.lang.Integer>();
                 mutable_bitField0_ |= 0x00000004;
               }
               while (input.getBytesUntilLimit() > 0) {
-                worldEventIds_.add(input.readInt32());
+                worldEventConfigIds_.add(input.readInt32());
               }
               input.popLimit(limit);
               break;
@@ -8457,7 +7627,7 @@ public final class User {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          worldEventIds_ = java.util.Collections.unmodifiableList(worldEventIds_);
+          worldEventConfigIds_ = java.util.Collections.unmodifiableList(worldEventConfigIds_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -8539,45 +7709,45 @@ public final class User {
       return number_;
     }
 
-    // repeated int32 worldEventIds = 3;
-    public static final int WORLDEVENTIDS_FIELD_NUMBER = 3;
-    private java.util.List<java.lang.Integer> worldEventIds_;
+    // repeated int32 worldEventConfigIds = 3;
+    public static final int WORLDEVENTCONFIGIDS_FIELD_NUMBER = 3;
+    private java.util.List<java.lang.Integer> worldEventConfigIds_;
     /**
-     * <code>repeated int32 worldEventIds = 3;</code>
+     * <code>repeated int32 worldEventConfigIds = 3;</code>
      *
      * <pre>
      * 世界事件
      * </pre>
      */
     public java.util.List<java.lang.Integer>
-        getWorldEventIdsList() {
-      return worldEventIds_;
+        getWorldEventConfigIdsList() {
+      return worldEventConfigIds_;
     }
     /**
-     * <code>repeated int32 worldEventIds = 3;</code>
+     * <code>repeated int32 worldEventConfigIds = 3;</code>
      *
      * <pre>
      * 世界事件
      * </pre>
      */
-    public int getWorldEventIdsCount() {
-      return worldEventIds_.size();
+    public int getWorldEventConfigIdsCount() {
+      return worldEventConfigIds_.size();
     }
     /**
-     * <code>repeated int32 worldEventIds = 3;</code>
+     * <code>repeated int32 worldEventConfigIds = 3;</code>
      *
      * <pre>
      * 世界事件
      * </pre>
      */
-    public int getWorldEventIds(int index) {
-      return worldEventIds_.get(index);
+    public int getWorldEventConfigIds(int index) {
+      return worldEventConfigIds_.get(index);
     }
 
     private void initFields() {
       configId_ = 0;
       number_ = 0;
-      worldEventIds_ = java.util.Collections.emptyList();
+      worldEventConfigIds_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -8597,8 +7767,8 @@ public final class User {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, number_);
       }
-      for (int i = 0; i < worldEventIds_.size(); i++) {
-        output.writeInt32(3, worldEventIds_.get(i));
+      for (int i = 0; i < worldEventConfigIds_.size(); i++) {
+        output.writeInt32(3, worldEventConfigIds_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -8619,12 +7789,12 @@ public final class User {
       }
       {
         int dataSize = 0;
-        for (int i = 0; i < worldEventIds_.size(); i++) {
+        for (int i = 0; i < worldEventConfigIds_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(worldEventIds_.get(i));
+            .computeInt32SizeNoTag(worldEventConfigIds_.get(i));
         }
         size += dataSize;
-        size += 1 * getWorldEventIdsList().size();
+        size += 1 * getWorldEventConfigIdsList().size();
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -8746,7 +7916,7 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000001);
         number_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        worldEventIds_ = java.util.Collections.emptyList();
+        worldEventConfigIds_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -8785,10 +7955,10 @@ public final class User {
         }
         result.number_ = number_;
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          worldEventIds_ = java.util.Collections.unmodifiableList(worldEventIds_);
+          worldEventConfigIds_ = java.util.Collections.unmodifiableList(worldEventConfigIds_);
           bitField0_ = (bitField0_ & ~0x00000004);
         }
-        result.worldEventIds_ = worldEventIds_;
+        result.worldEventConfigIds_ = worldEventConfigIds_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8811,13 +7981,13 @@ public final class User {
         if (other.hasNumber()) {
           setNumber(other.getNumber());
         }
-        if (!other.worldEventIds_.isEmpty()) {
-          if (worldEventIds_.isEmpty()) {
-            worldEventIds_ = other.worldEventIds_;
+        if (!other.worldEventConfigIds_.isEmpty()) {
+          if (worldEventConfigIds_.isEmpty()) {
+            worldEventConfigIds_ = other.worldEventConfigIds_;
             bitField0_ = (bitField0_ & ~0x00000004);
           } else {
-            ensureWorldEventIdsIsMutable();
-            worldEventIds_.addAll(other.worldEventIds_);
+            ensureWorldEventConfigIdsIsMutable();
+            worldEventConfigIds_.addAll(other.worldEventConfigIds_);
           }
           onChanged();
         }
@@ -8946,95 +8116,95 @@ public final class User {
         return this;
       }
 
-      // repeated int32 worldEventIds = 3;
-      private java.util.List<java.lang.Integer> worldEventIds_ = java.util.Collections.emptyList();
-      private void ensureWorldEventIdsIsMutable() {
+      // repeated int32 worldEventConfigIds = 3;
+      private java.util.List<java.lang.Integer> worldEventConfigIds_ = java.util.Collections.emptyList();
+      private void ensureWorldEventConfigIdsIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          worldEventIds_ = new java.util.ArrayList<java.lang.Integer>(worldEventIds_);
+          worldEventConfigIds_ = new java.util.ArrayList<java.lang.Integer>(worldEventConfigIds_);
           bitField0_ |= 0x00000004;
          }
       }
       /**
-       * <code>repeated int32 worldEventIds = 3;</code>
+       * <code>repeated int32 worldEventConfigIds = 3;</code>
        *
        * <pre>
        * 世界事件
        * </pre>
        */
       public java.util.List<java.lang.Integer>
-          getWorldEventIdsList() {
-        return java.util.Collections.unmodifiableList(worldEventIds_);
+          getWorldEventConfigIdsList() {
+        return java.util.Collections.unmodifiableList(worldEventConfigIds_);
       }
       /**
-       * <code>repeated int32 worldEventIds = 3;</code>
+       * <code>repeated int32 worldEventConfigIds = 3;</code>
        *
        * <pre>
        * 世界事件
        * </pre>
        */
-      public int getWorldEventIdsCount() {
-        return worldEventIds_.size();
+      public int getWorldEventConfigIdsCount() {
+        return worldEventConfigIds_.size();
       }
       /**
-       * <code>repeated int32 worldEventIds = 3;</code>
+       * <code>repeated int32 worldEventConfigIds = 3;</code>
        *
        * <pre>
        * 世界事件
        * </pre>
        */
-      public int getWorldEventIds(int index) {
-        return worldEventIds_.get(index);
+      public int getWorldEventConfigIds(int index) {
+        return worldEventConfigIds_.get(index);
       }
       /**
-       * <code>repeated int32 worldEventIds = 3;</code>
+       * <code>repeated int32 worldEventConfigIds = 3;</code>
        *
        * <pre>
        * 世界事件
        * </pre>
        */
-      public Builder setWorldEventIds(
+      public Builder setWorldEventConfigIds(
           int index, int value) {
-        ensureWorldEventIdsIsMutable();
-        worldEventIds_.set(index, value);
+        ensureWorldEventConfigIdsIsMutable();
+        worldEventConfigIds_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated int32 worldEventIds = 3;</code>
+       * <code>repeated int32 worldEventConfigIds = 3;</code>
        *
        * <pre>
        * 世界事件
        * </pre>
        */
-      public Builder addWorldEventIds(int value) {
-        ensureWorldEventIdsIsMutable();
-        worldEventIds_.add(value);
+      public Builder addWorldEventConfigIds(int value) {
+        ensureWorldEventConfigIdsIsMutable();
+        worldEventConfigIds_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated int32 worldEventIds = 3;</code>
+       * <code>repeated int32 worldEventConfigIds = 3;</code>
        *
        * <pre>
        * 世界事件
        * </pre>
        */
-      public Builder addAllWorldEventIds(
+      public Builder addAllWorldEventConfigIds(
           java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureWorldEventIdsIsMutable();
-        super.addAll(values, worldEventIds_);
+        ensureWorldEventConfigIdsIsMutable();
+        super.addAll(values, worldEventConfigIds_);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated int32 worldEventIds = 3;</code>
+       * <code>repeated int32 worldEventConfigIds = 3;</code>
        *
        * <pre>
        * 世界事件
        * </pre>
        */
-      public Builder clearWorldEventIds() {
-        worldEventIds_ = java.util.Collections.emptyList();
+      public Builder clearWorldEventConfigIds() {
+        worldEventConfigIds_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
@@ -9643,16 +8813,6 @@ public final class User {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TSCGetUserStateRegular_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_game_framework_protocol_TCSGetWorldEvent_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_game_framework_protocol_TCSGetWorldEvent_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_game_framework_protocol_TSCGetWorldEvent_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_game_framework_protocol_TSCGetWorldEvent_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_framework_protocol_TCSSellGoods_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -9693,11 +8853,10 @@ public final class User {
       "\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007defen",
       "se\030\007 \001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t \001(\005\022\021" +
       "\n\tintellect\030\n \001(\005\022\024\n\014contribution\030\013 \001(\005\"" +
-      "\022\n\020TCSGetWorldEvent\"%\n\020TSCGetWorldEvent\022" +
-      "\021\n\tconfigIds\030\001 \003(\005\"G\n\014TCSSellGoods\022\020\n\010co" +
-      "nfigId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\022\025\n\rworldEve" +
-      "ntIds\030\003 \003(\005\"2\n\014TSCSellGoods\022\024\n\014isWorldEv" +
-      "ent\030\001 \001(\010\022\014\n\004gold\030\002 \001(\005B\002H\001"
+      "M\n\014TCSSellGoods\022\020\n\010configId\030\001 \001(\005\022\016\n\006num" +
+      "ber\030\002 \001(\005\022\033\n\023worldEventConfigIds\030\003 \003(\005\"2" +
+      "\n\014TSCSellGoods\022\024\n\014isWorldEvent\030\001 \001(\010\022\014\n\004" +
+      "gold\030\002 \001(\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -9764,26 +8923,14 @@ public final class User {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetUserStateRegular_descriptor,
               new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Contribution", });
-          internal_static_com_game_framework_protocol_TCSGetWorldEvent_descriptor =
-            getDescriptor().getMessageTypes().get(10);
-          internal_static_com_game_framework_protocol_TCSGetWorldEvent_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_game_framework_protocol_TCSGetWorldEvent_descriptor,
-              new java.lang.String[] { });
-          internal_static_com_game_framework_protocol_TSCGetWorldEvent_descriptor =
-            getDescriptor().getMessageTypes().get(11);
-          internal_static_com_game_framework_protocol_TSCGetWorldEvent_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_game_framework_protocol_TSCGetWorldEvent_descriptor,
-              new java.lang.String[] { "ConfigIds", });
           internal_static_com_game_framework_protocol_TCSSellGoods_descriptor =
-            getDescriptor().getMessageTypes().get(12);
+            getDescriptor().getMessageTypes().get(10);
           internal_static_com_game_framework_protocol_TCSSellGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TCSSellGoods_descriptor,
-              new java.lang.String[] { "ConfigId", "Number", "WorldEventIds", });
+              new java.lang.String[] { "ConfigId", "Number", "WorldEventConfigIds", });
           internal_static_com_game_framework_protocol_TSCSellGoods_descriptor =
-            getDescriptor().getMessageTypes().get(13);
+            getDescriptor().getMessageTypes().get(11);
           internal_static_com_game_framework_protocol_TSCSellGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCSellGoods_descriptor,

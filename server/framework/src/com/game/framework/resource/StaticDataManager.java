@@ -1,6 +1,5 @@
 package com.game.framework.resource;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -9,10 +8,10 @@ import org.slf4j.LoggerFactory;
 import com.game.framework.utils.ExternalStorageUtil;
 import com.game.framework.utils.ReadOnlyMap;
 import com.game.framework.utils.StringUtil;
-import com.google.common.base.CaseFormat;
 import com.game.framework.resource.data.ArithmeticCoefficientBytes.ARITHMETIC_COEFFICIENT;
 import com.game.framework.resource.data.BuildingBytes.BUILDING;
 import com.game.framework.resource.data.CangkuBytes.CANGKU;
+import com.game.framework.resource.data.Che1Bytes.CHE1;
 import com.game.framework.resource.data.DamenBytes.DAMEN;
 import com.game.framework.resource.data.DamiBytes.DAMI;
 import com.game.framework.resource.data.DianchizuBytes.DIANCHIZU;
@@ -31,6 +30,7 @@ import com.game.framework.resource.data.ManorLevelBytes.MANOR_LEVEL;
 import com.game.framework.resource.data.MucaijiagongBytes.MUCAIJIAGONG;
 import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.game.framework.resource.data.PlayerLevelBytes.PLAYER_LEVEL;
+import com.game.framework.resource.data.PurchaseLimBytes.PURCHASE_LIM;
 import com.game.framework.resource.data.QiangBytes.QIANG;
 import com.game.framework.resource.data.RobProportionBytes.ROB_PROPORTION;
 import com.game.framework.resource.data.ShucaiBytes.SHUCAI;
@@ -38,6 +38,7 @@ import com.game.framework.resource.data.ShuiguoBytes.SHUIGUO;
 import com.game.framework.resource.data.SiliaoBytes.SILIAO;
 import com.game.framework.resource.data.SongshuBytes.SONGSHU;
 import com.game.framework.resource.data.TaiyangnengBytes.TAIYANGNENG;
+import com.game.framework.resource.data.WorldEventsBytes.WORLD_EVENTS;
 import com.game.framework.resource.data.WuxiandianBytes.WUXIANDIAN;
 import com.game.framework.resource.data.ZhujuanBytes.ZHUJUAN;
 import com.game.framework.resource.data.ZombieAttrBytes.ZOMBIE_ATTR;
@@ -62,6 +63,7 @@ public class StaticDataManager {
 	public ReadOnlyMap<Integer, ARITHMETIC_COEFFICIENT> arithmeticCoefficientMap;
 	public ReadOnlyMap<Integer, BUILDING> buildingMap;
 	public ReadOnlyMap<Integer, CANGKU> cangkuMap;
+	public ReadOnlyMap<Integer, CHE1> che1Map;
 	public ReadOnlyMap<Integer, DAMEN> damenMap;
 	public ReadOnlyMap<Integer, DAMI> damiMap;
 	public ReadOnlyMap<Integer, DIANCHIZU> dianchizuMap;
@@ -80,6 +82,7 @@ public class StaticDataManager {
 	public ReadOnlyMap<Integer, MUCAIJIAGONG> mucaijiagongMap;
 	public ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap;
 	public ReadOnlyMap<Integer, PLAYER_LEVEL> playerLevelMap;
+	public ReadOnlyMap<Integer, PURCHASE_LIM> purchaseLimMap;
 	public ReadOnlyMap<Integer, QIANG> qiangMap;
 	public ReadOnlyMap<Integer, ROB_PROPORTION> robProportionMap;
 	public ReadOnlyMap<Integer, SHUCAI> shucaiMap;
@@ -87,6 +90,7 @@ public class StaticDataManager {
 	public ReadOnlyMap<Integer, SILIAO> siliaoMap;
 	public ReadOnlyMap<Integer, SONGSHU> songshuMap;
 	public ReadOnlyMap<Integer, TAIYANGNENG> taiyangnengMap;
+	public ReadOnlyMap<Integer, WORLD_EVENTS> worldEventsMap;
 	public ReadOnlyMap<Integer, WUXIANDIAN> wuxiandianMap;
 	public ReadOnlyMap<Integer, ZHUJUAN> zhujuanMap;
 	public ReadOnlyMap<Integer, ZOMBIE_ATTR> zombieAttrMap;
@@ -95,6 +99,7 @@ public class StaticDataManager {
 	    arithmeticCoefficientMap = load(ARITHMETIC_COEFFICIENT.class);
         buildingMap = load(BUILDING.class);
         cangkuMap = load(CANGKU.class);
+        che1Map = load(CHE1.class);
         damenMap = load(DAMEN.class);
         damiMap = load(DAMI.class);
         dianchizuMap = load(DIANCHIZU.class);
@@ -113,6 +118,7 @@ public class StaticDataManager {
         mucaijiagongMap = load(MUCAIJIAGONG.class);
         playerAttrMap = load(PLAYER_ATTR.class);
         playerLevelMap = load(PLAYER_LEVEL.class);
+        purchaseLimMap = load(PURCHASE_LIM.class);
         qiangMap = load(QIANG.class);
         robProportionMap = load(ROB_PROPORTION.class);
         shucaiMap = load(SHUCAI.class);
@@ -120,6 +126,7 @@ public class StaticDataManager {
         siliaoMap = load(SILIAO.class);
         songshuMap = load(SONGSHU.class);
         taiyangnengMap = load(TAIYANGNENG.class);
+        worldEventsMap = load(WORLD_EVENTS.class);
         wuxiandianMap = load(WUXIANDIAN.class);
         zhujuanMap = load(ZHUJUAN.class);
         zombieAttrMap = load(ZOMBIE_ATTR.class);
@@ -162,65 +169,5 @@ public class StaticDataManager {
             logger.error("DataManager", e);
         }
         return new ReadOnlyMap<>(hash);
-    }
-
-    @SuppressWarnings({"unchecked", "rawtypes"})
-    public Integer getSpeed(String tableName, Integer tableId) {
-        String lowerCamelName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
-        String name = StringUtil.FirstLetterToUpper(lowerCamelName);
-        String classPath = "com.game.framework.resource.data." + name + "Bytes$" + StringUtil.AllLetterToUpper(lowerCamelName);
-        Integer speed = null;
-        try {
-            Field f = StaticDataManager.class.getDeclaredField(lowerCamelName + "Map");
-            ReadOnlyMap map = (ReadOnlyMap) f.get(StaticDataManager.GetInstance());
-            Class clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
-            Method method = clazz.getDeclaredMethod("get" + name + "Spd");
-            speed = (Integer) method.invoke(map.get(tableId));
-        } catch (ClassNotFoundException e) {
-            logger.error("", e);
-        } catch (NoSuchFieldException e) {
-            logger.error("", e);
-        } catch (SecurityException e) {
-            logger.error("", e);
-        } catch (IllegalArgumentException e) {
-            logger.error("", e);
-        } catch (IllegalAccessException e) {
-            logger.error("", e);
-        } catch (NoSuchMethodException e) {
-            logger.error("", e);
-        } catch (InvocationTargetException e) {
-            logger.error("", e);
-        }
-        return speed;
-    }
-    
-    @SuppressWarnings({"unchecked", "rawtypes"})
-    public Integer getCapacity(String tableName, Integer tableId) {
-        String lowerCamelName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
-        String name = StringUtil.FirstLetterToUpper(lowerCamelName);
-        String classPath = "com.game.framework.resource.data." + name + "Bytes$" + StringUtil.AllLetterToUpper(lowerCamelName);
-        Integer speed = null;
-        try {
-            Field f = StaticDataManager.class.getDeclaredField(lowerCamelName + "Map");
-            ReadOnlyMap map = (ReadOnlyMap) f.get(StaticDataManager.GetInstance());
-            Class clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
-            Method method = clazz.getDeclaredMethod("get" + name + "Cap");
-            speed = (Integer) method.invoke(map.get(tableId));
-        } catch (ClassNotFoundException e) {
-            logger.error("", e);
-        } catch (NoSuchFieldException e) {
-            logger.error("", e);
-        } catch (SecurityException e) {
-            logger.error("", e);
-        } catch (IllegalArgumentException e) {
-            logger.error("", e);
-        } catch (IllegalAccessException e) {
-            logger.error("", e);
-        } catch (NoSuchMethodException e) {
-            logger.error("", e);
-        } catch (InvocationTargetException e) {
-            logger.error("", e);
-        }
-        return speed;
     }
 }

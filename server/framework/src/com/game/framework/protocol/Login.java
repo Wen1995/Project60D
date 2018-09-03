@@ -1770,9 +1770,54 @@ public final class Login {
   public interface TSCHeartOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional int64 systemCurrentTime = 3;
+    // repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;
     /**
-     * <code>optional int64 systemCurrentTime = 3;</code>
+     * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    java.util.List<com.game.framework.protocol.Login.WorldEventConfigId2HappenTime> 
+        getWorldEventConfigId2HappenTimeList();
+    /**
+     * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    com.game.framework.protocol.Login.WorldEventConfigId2HappenTime getWorldEventConfigId2HappenTime(int index);
+    /**
+     * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    int getWorldEventConfigId2HappenTimeCount();
+    /**
+     * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    java.util.List<? extends com.game.framework.protocol.Login.WorldEventConfigId2HappenTimeOrBuilder> 
+        getWorldEventConfigId2HappenTimeOrBuilderList();
+    /**
+     * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    com.game.framework.protocol.Login.WorldEventConfigId2HappenTimeOrBuilder getWorldEventConfigId2HappenTimeOrBuilder(
+        int index);
+
+    // optional int64 systemCurrentTime = 2;
+    /**
+     * <code>optional int64 systemCurrentTime = 2;</code>
      *
      * <pre>
      * 服务器当前时间
@@ -1780,7 +1825,7 @@ public final class Login {
      */
     boolean hasSystemCurrentTime();
     /**
-     * <code>optional int64 systemCurrentTime = 3;</code>
+     * <code>optional int64 systemCurrentTime = 2;</code>
      *
      * <pre>
      * 服务器当前时间
@@ -1839,7 +1884,15 @@ public final class Login {
               }
               break;
             }
-            case 24: {
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                worldEventConfigId2HappenTime_ = new java.util.ArrayList<com.game.framework.protocol.Login.WorldEventConfigId2HappenTime>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              worldEventConfigId2HappenTime_.add(input.readMessage(com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.PARSER, extensionRegistry));
+              break;
+            }
+            case 16: {
               bitField0_ |= 0x00000001;
               systemCurrentTime_ = input.readInt64();
               break;
@@ -1852,6 +1905,9 @@ public final class Login {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          worldEventConfigId2HappenTime_ = java.util.Collections.unmodifiableList(worldEventConfigId2HappenTime_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1884,11 +1940,67 @@ public final class Login {
     }
 
     private int bitField0_;
-    // optional int64 systemCurrentTime = 3;
-    public static final int SYSTEMCURRENTTIME_FIELD_NUMBER = 3;
+    // repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;
+    public static final int WORLDEVENTCONFIGID2HAPPENTIME_FIELD_NUMBER = 1;
+    private java.util.List<com.game.framework.protocol.Login.WorldEventConfigId2HappenTime> worldEventConfigId2HappenTime_;
+    /**
+     * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public java.util.List<com.game.framework.protocol.Login.WorldEventConfigId2HappenTime> getWorldEventConfigId2HappenTimeList() {
+      return worldEventConfigId2HappenTime_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public java.util.List<? extends com.game.framework.protocol.Login.WorldEventConfigId2HappenTimeOrBuilder> 
+        getWorldEventConfigId2HappenTimeOrBuilderList() {
+      return worldEventConfigId2HappenTime_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public int getWorldEventConfigId2HappenTimeCount() {
+      return worldEventConfigId2HappenTime_.size();
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public com.game.framework.protocol.Login.WorldEventConfigId2HappenTime getWorldEventConfigId2HappenTime(int index) {
+      return worldEventConfigId2HappenTime_.get(index);
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public com.game.framework.protocol.Login.WorldEventConfigId2HappenTimeOrBuilder getWorldEventConfigId2HappenTimeOrBuilder(
+        int index) {
+      return worldEventConfigId2HappenTime_.get(index);
+    }
+
+    // optional int64 systemCurrentTime = 2;
+    public static final int SYSTEMCURRENTTIME_FIELD_NUMBER = 2;
     private long systemCurrentTime_;
     /**
-     * <code>optional int64 systemCurrentTime = 3;</code>
+     * <code>optional int64 systemCurrentTime = 2;</code>
      *
      * <pre>
      * 服务器当前时间
@@ -1898,7 +2010,7 @@ public final class Login {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional int64 systemCurrentTime = 3;</code>
+     * <code>optional int64 systemCurrentTime = 2;</code>
      *
      * <pre>
      * 服务器当前时间
@@ -1909,6 +2021,7 @@ public final class Login {
     }
 
     private void initFields() {
+      worldEventConfigId2HappenTime_ = java.util.Collections.emptyList();
       systemCurrentTime_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
@@ -1923,8 +2036,11 @@ public final class Login {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      for (int i = 0; i < worldEventConfigId2HappenTime_.size(); i++) {
+        output.writeMessage(1, worldEventConfigId2HappenTime_.get(i));
+      }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt64(3, systemCurrentTime_);
+        output.writeInt64(2, systemCurrentTime_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1935,9 +2051,13 @@ public final class Login {
       if (size != -1) return size;
 
       size = 0;
+      for (int i = 0; i < worldEventConfigId2HappenTime_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, worldEventConfigId2HappenTime_.get(i));
+      }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, systemCurrentTime_);
+          .computeInt64Size(2, systemCurrentTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2047,6 +2167,7 @@ public final class Login {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getWorldEventConfigId2HappenTimeFieldBuilder();
         }
       }
       private static Builder create() {
@@ -2055,8 +2176,14 @@ public final class Login {
 
       public Builder clear() {
         super.clear();
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          worldEventConfigId2HappenTime_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          worldEventConfigId2HappenTimeBuilder_.clear();
+        }
         systemCurrentTime_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -2085,7 +2212,16 @@ public final class Login {
         com.game.framework.protocol.Login.TSCHeart result = new com.game.framework.protocol.Login.TSCHeart(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            worldEventConfigId2HappenTime_ = java.util.Collections.unmodifiableList(worldEventConfigId2HappenTime_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.worldEventConfigId2HappenTime_ = worldEventConfigId2HappenTime_;
+        } else {
+          result.worldEventConfigId2HappenTime_ = worldEventConfigId2HappenTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000001;
         }
         result.systemCurrentTime_ = systemCurrentTime_;
@@ -2105,6 +2241,32 @@ public final class Login {
 
       public Builder mergeFrom(com.game.framework.protocol.Login.TSCHeart other) {
         if (other == com.game.framework.protocol.Login.TSCHeart.getDefaultInstance()) return this;
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          if (!other.worldEventConfigId2HappenTime_.isEmpty()) {
+            if (worldEventConfigId2HappenTime_.isEmpty()) {
+              worldEventConfigId2HappenTime_ = other.worldEventConfigId2HappenTime_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureWorldEventConfigId2HappenTimeIsMutable();
+              worldEventConfigId2HappenTime_.addAll(other.worldEventConfigId2HappenTime_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.worldEventConfigId2HappenTime_.isEmpty()) {
+            if (worldEventConfigId2HappenTimeBuilder_.isEmpty()) {
+              worldEventConfigId2HappenTimeBuilder_.dispose();
+              worldEventConfigId2HappenTimeBuilder_ = null;
+              worldEventConfigId2HappenTime_ = other.worldEventConfigId2HappenTime_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              worldEventConfigId2HappenTimeBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getWorldEventConfigId2HappenTimeFieldBuilder() : null;
+            } else {
+              worldEventConfigId2HappenTimeBuilder_.addAllMessages(other.worldEventConfigId2HappenTime_);
+            }
+          }
+        }
         if (other.hasSystemCurrentTime()) {
           setSystemCurrentTime(other.getSystemCurrentTime());
         }
@@ -2135,20 +2297,332 @@ public final class Login {
       }
       private int bitField0_;
 
-      // optional int64 systemCurrentTime = 3;
+      // repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;
+      private java.util.List<com.game.framework.protocol.Login.WorldEventConfigId2HappenTime> worldEventConfigId2HappenTime_ =
+        java.util.Collections.emptyList();
+      private void ensureWorldEventConfigId2HappenTimeIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          worldEventConfigId2HappenTime_ = new java.util.ArrayList<com.game.framework.protocol.Login.WorldEventConfigId2HappenTime>(worldEventConfigId2HappenTime_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.Login.WorldEventConfigId2HappenTime, com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder, com.game.framework.protocol.Login.WorldEventConfigId2HappenTimeOrBuilder> worldEventConfigId2HappenTimeBuilder_;
+
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public java.util.List<com.game.framework.protocol.Login.WorldEventConfigId2HappenTime> getWorldEventConfigId2HappenTimeList() {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(worldEventConfigId2HappenTime_);
+        } else {
+          return worldEventConfigId2HappenTimeBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public int getWorldEventConfigId2HappenTimeCount() {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          return worldEventConfigId2HappenTime_.size();
+        } else {
+          return worldEventConfigId2HappenTimeBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public com.game.framework.protocol.Login.WorldEventConfigId2HappenTime getWorldEventConfigId2HappenTime(int index) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          return worldEventConfigId2HappenTime_.get(index);
+        } else {
+          return worldEventConfigId2HappenTimeBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder setWorldEventConfigId2HappenTime(
+          int index, com.game.framework.protocol.Login.WorldEventConfigId2HappenTime value) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureWorldEventConfigId2HappenTimeIsMutable();
+          worldEventConfigId2HappenTime_.set(index, value);
+          onChanged();
+        } else {
+          worldEventConfigId2HappenTimeBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder setWorldEventConfigId2HappenTime(
+          int index, com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder builderForValue) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          ensureWorldEventConfigId2HappenTimeIsMutable();
+          worldEventConfigId2HappenTime_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          worldEventConfigId2HappenTimeBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder addWorldEventConfigId2HappenTime(com.game.framework.protocol.Login.WorldEventConfigId2HappenTime value) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureWorldEventConfigId2HappenTimeIsMutable();
+          worldEventConfigId2HappenTime_.add(value);
+          onChanged();
+        } else {
+          worldEventConfigId2HappenTimeBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder addWorldEventConfigId2HappenTime(
+          int index, com.game.framework.protocol.Login.WorldEventConfigId2HappenTime value) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureWorldEventConfigId2HappenTimeIsMutable();
+          worldEventConfigId2HappenTime_.add(index, value);
+          onChanged();
+        } else {
+          worldEventConfigId2HappenTimeBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder addWorldEventConfigId2HappenTime(
+          com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder builderForValue) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          ensureWorldEventConfigId2HappenTimeIsMutable();
+          worldEventConfigId2HappenTime_.add(builderForValue.build());
+          onChanged();
+        } else {
+          worldEventConfigId2HappenTimeBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder addWorldEventConfigId2HappenTime(
+          int index, com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder builderForValue) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          ensureWorldEventConfigId2HappenTimeIsMutable();
+          worldEventConfigId2HappenTime_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          worldEventConfigId2HappenTimeBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder addAllWorldEventConfigId2HappenTime(
+          java.lang.Iterable<? extends com.game.framework.protocol.Login.WorldEventConfigId2HappenTime> values) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          ensureWorldEventConfigId2HappenTimeIsMutable();
+          super.addAll(values, worldEventConfigId2HappenTime_);
+          onChanged();
+        } else {
+          worldEventConfigId2HappenTimeBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder clearWorldEventConfigId2HappenTime() {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          worldEventConfigId2HappenTime_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          worldEventConfigId2HappenTimeBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder removeWorldEventConfigId2HappenTime(int index) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          ensureWorldEventConfigId2HappenTimeIsMutable();
+          worldEventConfigId2HappenTime_.remove(index);
+          onChanged();
+        } else {
+          worldEventConfigId2HappenTimeBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder getWorldEventConfigId2HappenTimeBuilder(
+          int index) {
+        return getWorldEventConfigId2HappenTimeFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public com.game.framework.protocol.Login.WorldEventConfigId2HappenTimeOrBuilder getWorldEventConfigId2HappenTimeOrBuilder(
+          int index) {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          return worldEventConfigId2HappenTime_.get(index);  } else {
+          return worldEventConfigId2HappenTimeBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public java.util.List<? extends com.game.framework.protocol.Login.WorldEventConfigId2HappenTimeOrBuilder> 
+           getWorldEventConfigId2HappenTimeOrBuilderList() {
+        if (worldEventConfigId2HappenTimeBuilder_ != null) {
+          return worldEventConfigId2HappenTimeBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(worldEventConfigId2HappenTime_);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder addWorldEventConfigId2HappenTimeBuilder() {
+        return getWorldEventConfigId2HappenTimeFieldBuilder().addBuilder(
+            com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder addWorldEventConfigId2HappenTimeBuilder(
+          int index) {
+        return getWorldEventConfigId2HappenTimeFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.WorldEventConfigId2HappenTime worldEventConfigId2HappenTime = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public java.util.List<com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder> 
+           getWorldEventConfigId2HappenTimeBuilderList() {
+        return getWorldEventConfigId2HappenTimeFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.Login.WorldEventConfigId2HappenTime, com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder, com.game.framework.protocol.Login.WorldEventConfigId2HappenTimeOrBuilder> 
+          getWorldEventConfigId2HappenTimeFieldBuilder() {
+        if (worldEventConfigId2HappenTimeBuilder_ == null) {
+          worldEventConfigId2HappenTimeBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.Login.WorldEventConfigId2HappenTime, com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder, com.game.framework.protocol.Login.WorldEventConfigId2HappenTimeOrBuilder>(
+                  worldEventConfigId2HappenTime_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          worldEventConfigId2HappenTime_ = null;
+        }
+        return worldEventConfigId2HappenTimeBuilder_;
+      }
+
+      // optional int64 systemCurrentTime = 2;
       private long systemCurrentTime_ ;
       /**
-       * <code>optional int64 systemCurrentTime = 3;</code>
+       * <code>optional int64 systemCurrentTime = 2;</code>
        *
        * <pre>
        * 服务器当前时间
        * </pre>
        */
       public boolean hasSystemCurrentTime() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int64 systemCurrentTime = 3;</code>
+       * <code>optional int64 systemCurrentTime = 2;</code>
        *
        * <pre>
        * 服务器当前时间
@@ -2158,27 +2632,27 @@ public final class Login {
         return systemCurrentTime_;
       }
       /**
-       * <code>optional int64 systemCurrentTime = 3;</code>
+       * <code>optional int64 systemCurrentTime = 2;</code>
        *
        * <pre>
        * 服务器当前时间
        * </pre>
        */
       public Builder setSystemCurrentTime(long value) {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         systemCurrentTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 systemCurrentTime = 3;</code>
+       * <code>optional int64 systemCurrentTime = 2;</code>
        *
        * <pre>
        * 服务器当前时间
        * </pre>
        */
       public Builder clearSystemCurrentTime() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         systemCurrentTime_ = 0L;
         onChanged();
         return this;
@@ -2193,6 +2667,547 @@ public final class Login {
     }
 
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCHeart)
+  }
+
+  public interface WorldEventConfigId2HappenTimeOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int32 worldEventConfigId = 1;
+    /**
+     * <code>optional int32 worldEventConfigId = 1;</code>
+     *
+     * <pre>
+     * 世界事件Id
+     * </pre>
+     */
+    boolean hasWorldEventConfigId();
+    /**
+     * <code>optional int32 worldEventConfigId = 1;</code>
+     *
+     * <pre>
+     * 世界事件Id
+     * </pre>
+     */
+    int getWorldEventConfigId();
+
+    // optional int64 happenTime = 2;
+    /**
+     * <code>optional int64 happenTime = 2;</code>
+     *
+     * <pre>
+     * 发生时间
+     * </pre>
+     */
+    boolean hasHappenTime();
+    /**
+     * <code>optional int64 happenTime = 2;</code>
+     *
+     * <pre>
+     * 发生时间
+     * </pre>
+     */
+    long getHappenTime();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.WorldEventConfigId2HappenTime}
+   */
+  public static final class WorldEventConfigId2HappenTime extends
+      com.google.protobuf.GeneratedMessage
+      implements WorldEventConfigId2HappenTimeOrBuilder {
+    // Use WorldEventConfigId2HappenTime.newBuilder() to construct.
+    private WorldEventConfigId2HappenTime(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private WorldEventConfigId2HappenTime(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final WorldEventConfigId2HappenTime defaultInstance;
+    public static WorldEventConfigId2HappenTime getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public WorldEventConfigId2HappenTime getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WorldEventConfigId2HappenTime(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              worldEventConfigId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              happenTime_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_WorldEventConfigId2HappenTime_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_WorldEventConfigId2HappenTime_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.class, com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<WorldEventConfigId2HappenTime> PARSER =
+        new com.google.protobuf.AbstractParser<WorldEventConfigId2HappenTime>() {
+      public WorldEventConfigId2HappenTime parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WorldEventConfigId2HappenTime(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WorldEventConfigId2HappenTime> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int32 worldEventConfigId = 1;
+    public static final int WORLDEVENTCONFIGID_FIELD_NUMBER = 1;
+    private int worldEventConfigId_;
+    /**
+     * <code>optional int32 worldEventConfigId = 1;</code>
+     *
+     * <pre>
+     * 世界事件Id
+     * </pre>
+     */
+    public boolean hasWorldEventConfigId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 worldEventConfigId = 1;</code>
+     *
+     * <pre>
+     * 世界事件Id
+     * </pre>
+     */
+    public int getWorldEventConfigId() {
+      return worldEventConfigId_;
+    }
+
+    // optional int64 happenTime = 2;
+    public static final int HAPPENTIME_FIELD_NUMBER = 2;
+    private long happenTime_;
+    /**
+     * <code>optional int64 happenTime = 2;</code>
+     *
+     * <pre>
+     * 发生时间
+     * </pre>
+     */
+    public boolean hasHappenTime() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int64 happenTime = 2;</code>
+     *
+     * <pre>
+     * 发生时间
+     * </pre>
+     */
+    public long getHappenTime() {
+      return happenTime_;
+    }
+
+    private void initFields() {
+      worldEventConfigId_ = 0;
+      happenTime_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, worldEventConfigId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, happenTime_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, worldEventConfigId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, happenTime_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.Login.WorldEventConfigId2HappenTime prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.WorldEventConfigId2HappenTime}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.Login.WorldEventConfigId2HappenTimeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_WorldEventConfigId2HappenTime_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_WorldEventConfigId2HappenTime_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.class, com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        worldEventConfigId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        happenTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.Login.internal_static_com_game_framework_protocol_WorldEventConfigId2HappenTime_descriptor;
+      }
+
+      public com.game.framework.protocol.Login.WorldEventConfigId2HappenTime getDefaultInstanceForType() {
+        return com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.Login.WorldEventConfigId2HappenTime build() {
+        com.game.framework.protocol.Login.WorldEventConfigId2HappenTime result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.Login.WorldEventConfigId2HappenTime buildPartial() {
+        com.game.framework.protocol.Login.WorldEventConfigId2HappenTime result = new com.game.framework.protocol.Login.WorldEventConfigId2HappenTime(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.worldEventConfigId_ = worldEventConfigId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.happenTime_ = happenTime_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.Login.WorldEventConfigId2HappenTime) {
+          return mergeFrom((com.game.framework.protocol.Login.WorldEventConfigId2HappenTime)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.Login.WorldEventConfigId2HappenTime other) {
+        if (other == com.game.framework.protocol.Login.WorldEventConfigId2HappenTime.getDefaultInstance()) return this;
+        if (other.hasWorldEventConfigId()) {
+          setWorldEventConfigId(other.getWorldEventConfigId());
+        }
+        if (other.hasHappenTime()) {
+          setHappenTime(other.getHappenTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.Login.WorldEventConfigId2HappenTime parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.Login.WorldEventConfigId2HappenTime) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int32 worldEventConfigId = 1;
+      private int worldEventConfigId_ ;
+      /**
+       * <code>optional int32 worldEventConfigId = 1;</code>
+       *
+       * <pre>
+       * 世界事件Id
+       * </pre>
+       */
+      public boolean hasWorldEventConfigId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 worldEventConfigId = 1;</code>
+       *
+       * <pre>
+       * 世界事件Id
+       * </pre>
+       */
+      public int getWorldEventConfigId() {
+        return worldEventConfigId_;
+      }
+      /**
+       * <code>optional int32 worldEventConfigId = 1;</code>
+       *
+       * <pre>
+       * 世界事件Id
+       * </pre>
+       */
+      public Builder setWorldEventConfigId(int value) {
+        bitField0_ |= 0x00000001;
+        worldEventConfigId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 worldEventConfigId = 1;</code>
+       *
+       * <pre>
+       * 世界事件Id
+       * </pre>
+       */
+      public Builder clearWorldEventConfigId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        worldEventConfigId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 happenTime = 2;
+      private long happenTime_ ;
+      /**
+       * <code>optional int64 happenTime = 2;</code>
+       *
+       * <pre>
+       * 发生时间
+       * </pre>
+       */
+      public boolean hasHappenTime() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int64 happenTime = 2;</code>
+       *
+       * <pre>
+       * 发生时间
+       * </pre>
+       */
+      public long getHappenTime() {
+        return happenTime_;
+      }
+      /**
+       * <code>optional int64 happenTime = 2;</code>
+       *
+       * <pre>
+       * 发生时间
+       * </pre>
+       */
+      public Builder setHappenTime(long value) {
+        bitField0_ |= 0x00000002;
+        happenTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 happenTime = 2;</code>
+       *
+       * <pre>
+       * 发生时间
+       * </pre>
+       */
+      public Builder clearHappenTime() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        happenTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.WorldEventConfigId2HappenTime)
+    }
+
+    static {
+      defaultInstance = new WorldEventConfigId2HappenTime(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.WorldEventConfigId2HappenTime)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -2220,6 +3235,11 @@ public final class Login {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TSCHeart_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_WorldEventConfigId2HappenTime_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_WorldEventConfigId2HappenTime_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2233,8 +3253,12 @@ public final class Login {
       "ol\"\033\n\010TCSLogin\022\017\n\007account\030\001 \001(\t\"C\n\010TSCLo" +
       "gin\022\013\n\003uid\030\001 \001(\003\022\017\n\007groupId\030\002 \001(\003\022\031\n\021sys" +
       "temCurrentTime\030\003 \001(\003\"\013\n\tTCSLogout\"\n\n\010TCS" +
-      "Heart\"%\n\010TSCHeart\022\031\n\021systemCurrentTime\030\003" +
-      " \001(\003B\002H\001"
+      "Heart\"\210\001\n\010TSCHeart\022a\n\035worldEventConfigId" +
+      "2HappenTime\030\001 \003(\0132:.com.game.framework.p" +
+      "rotocol.WorldEventConfigId2HappenTime\022\031\n" +
+      "\021systemCurrentTime\030\002 \001(\003\"O\n\035WorldEventCo" +
+      "nfigId2HappenTime\022\032\n\022worldEventConfigId\030" +
+      "\001 \001(\005\022\022\n\nhappenTime\030\002 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2270,7 +3294,13 @@ public final class Login {
           internal_static_com_game_framework_protocol_TSCHeart_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCHeart_descriptor,
-              new java.lang.String[] { "SystemCurrentTime", });
+              new java.lang.String[] { "WorldEventConfigId2HappenTime", "SystemCurrentTime", });
+          internal_static_com_game_framework_protocol_WorldEventConfigId2HappenTime_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_com_game_framework_protocol_WorldEventConfigId2HappenTime_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_WorldEventConfigId2HappenTime_descriptor,
+              new java.lang.String[] { "WorldEventConfigId", "HappenTime", });
           return null;
         }
       };

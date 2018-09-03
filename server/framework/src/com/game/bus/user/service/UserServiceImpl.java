@@ -90,10 +90,13 @@ public class UserServiceImpl implements UserService {
             foodChangeRate *= -1;
             foodTime4FiveMinute = food/foodChangeRate;
             if (foodTime4FiveMinute > time4FiveMinute) {
-                foodTime4FiveMinute = time4FiveMinute;
                 food -= time4FiveMinute*foodChangeRate;
             } else {
                 food = 0;
+            }
+            foodTime4FiveMinute = (food - foodAttr.getSpcK2())/foodChangeRate;
+            if (foodTime4FiveMinute > time4FiveMinute) {
+                foodTime4FiveMinute = time4FiveMinute;
             }
         } else {
             food += foodChangeRate*time4FiveMinute;
@@ -108,10 +111,13 @@ public class UserServiceImpl implements UserService {
             waterChangeRate *= -1;
             waterTime4FiveMinute = water/waterChangeRate;
             if (waterTime4FiveMinute > time4FiveMinute) {
-                waterTime4FiveMinute = time4FiveMinute;
                 water -= time4FiveMinute*waterChangeRate;
             } else {
                 water = 0;
+            }
+            waterTime4FiveMinute = (water - waterAttr.getSpcK2())/waterChangeRate;
+            if (waterTime4FiveMinute > time4FiveMinute) {
+                waterTime4FiveMinute = time4FiveMinute;
             }
         } else {
             water += waterChangeRate*time4FiveMinute;
@@ -124,8 +130,8 @@ public class UserServiceImpl implements UserService {
         int bloodTime4FiveMinute = Math.min(foodTime4FiveMinute, waterTime4FiveMinute);
         int bloodChangeRate = 1 + mood/bloodAttr.getRecK1();
         Integer blood = user.getBlood() + bloodChangeRate*bloodTime4FiveMinute - 
-                (time4FiveMinute - foodTime4FiveMinute) - 
-                (time4FiveMinute - waterTime4FiveMinute);
+                (time4FiveMinute - foodTime4FiveMinute)*foodAttr.getSpcK2()/100 - 
+                (time4FiveMinute - waterTime4FiveMinute)*waterAttr.getSpcK2()/100;
         if (blood > bloodUpLine) {
             blood = bloodUpLine;
         } else if (blood < 0) {
@@ -195,12 +201,12 @@ public class UserServiceImpl implements UserService {
         user.setWater(water);
         
         Integer blood = user.getBlood();
-        if (food == 0 || water == 0) {
-            if (food == 0) {
-                blood--;
+        if (food <= foodAttr.getSpcK1()/100 || water <= waterAttr.getSpcK1()/100) {
+            if (food <= foodAttr.getSpcK1()/100) {
+                blood -= foodAttr.getSpcK2()/100;
             }
-            if (water == 0) {
-                blood--;
+            if (water <= waterAttr.getSpcK1()/100) {
+                blood -= waterAttr.getSpcK2()/100;
             }
             if (blood < 0) {
                 blood = 0;
@@ -231,12 +237,6 @@ public class UserServiceImpl implements UserService {
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());
         return resp;
-    }
-
-    @Override
-    public TPacket getWorldEvent(Long uid) throws Exception {
-        // TODO Auto-generated method stub
-        return null;
     }
 
     @Override

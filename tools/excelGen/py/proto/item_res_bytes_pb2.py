@@ -18,7 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/item_res_bytes.proto',
   package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x1aproto/item_res_bytes.proto\x12 com.game.framework.resource.data\"\xdf\x01\n\x08ITEM_RES\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x13\n\x08item_lvl\x18\x02 \x01(\x05:\x01\x30\x12\x12\n\x08min_name\x18\x03 \x01(\t:\x00\x12\x12\n\x08key_name\x18\x04 \x01(\t:\x00\x12\x1b\n\x10serviceable_rate\x18\x05 \x01(\x05:\x01\x30\x12\x13\n\ticon_name\x18\x06 \x01(\t:\x00\x12\x19\n\x0fsmall_icon_name\x18\x07 \x01(\t:\x00\x12\x0e\n\x04\x64\x65sc\x18\x08 \x01(\t:\x00\x12\x14\n\tgold_conv\x18\t \x01(\x05:\x01\x30\x12\x14\n\tstor_unit\x18\n \x01(\x05:\x01\x30\"K\n\x0eITEM_RES_ARRAY\x12\x39\n\x05items\x18\x01 \x03(\x0b\x32*.com.game.framework.resource.data.ITEM_RES')
+  serialized_pb=_b('\n\x1aproto/item_res_bytes.proto\x12 com.game.framework.resource.data\"\x95\x03\n\x08ITEM_RES\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x13\n\x08item_lvl\x18\x02 \x01(\x05:\x01\x30\x12\x12\n\x08min_name\x18\x03 \x01(\t:\x00\x12\x12\n\x08key_name\x18\x04 \x01(\t:\x00\x12\x1b\n\x10serviceable_rate\x18\x05 \x01(\x05:\x01\x30\x12\x13\n\ticon_name\x18\x06 \x01(\t:\x00\x12\x19\n\x0fsmall_icon_name\x18\x07 \x01(\t:\x00\x12\x0e\n\x04\x64\x65sc\x18\x08 \x01(\t:\x00\x12\x14\n\tgold_conv\x18\t \x01(\x05:\x01\x30\x12\x14\n\tstor_unit\x18\n \x01(\x05:\x01\x30\x12\x17\n\x0cif_available\x18\x0b \x01(\x05:\x01\x30\x12\x11\n\x06hp_rec\x18\x0c \x01(\x05:\x01\x30\x12\x14\n\tstarv_rec\x18\r \x01(\x05:\x01\x30\x12\x14\n\twater_rec\x18\x0e \x01(\x05:\x01\x30\x12\x15\n\nhealth_rec\x18\x0f \x01(\x05:\x01\x30\x12\x18\n\rhealthrec_lim\x18\x10 \x01(\x05:\x01\x30\x12\x13\n\x08mood_rec\x18\x11 \x01(\x05:\x01\x30\x12\x16\n\x0bmoodrec_lim\x18\x12 \x01(\x05:\x01\x30\"K\n\x0eITEM_RES_ARRAY\x12\x39\n\x05items\x18\x01 \x03(\x0b\x32*.com.game.framework.resource.data.ITEM_RES')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -102,6 +102,62 @@ _ITEM_RES = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='if_available', full_name='com.game.framework.resource.data.ITEM_RES.if_available', index=10,
+      number=11, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='hp_rec', full_name='com.game.framework.resource.data.ITEM_RES.hp_rec', index=11,
+      number=12, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='starv_rec', full_name='com.game.framework.resource.data.ITEM_RES.starv_rec', index=12,
+      number=13, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='water_rec', full_name='com.game.framework.resource.data.ITEM_RES.water_rec', index=13,
+      number=14, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='health_rec', full_name='com.game.framework.resource.data.ITEM_RES.health_rec', index=14,
+      number=15, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='healthrec_lim', full_name='com.game.framework.resource.data.ITEM_RES.healthrec_lim', index=15,
+      number=16, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mood_rec', full_name='com.game.framework.resource.data.ITEM_RES.mood_rec', index=16,
+      number=17, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='moodrec_lim', full_name='com.game.framework.resource.data.ITEM_RES.moodrec_lim', index=17,
+      number=18, type=5, cpp_type=1, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -114,7 +170,7 @@ _ITEM_RES = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=65,
-  serialized_end=288,
+  serialized_end=470,
 )
 
 
@@ -143,8 +199,8 @@ _ITEM_RES_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=290,
-  serialized_end=365,
+  serialized_start=472,
+  serialized_end=547,
 )
 
 _ITEM_RES_ARRAY.fields_by_name['items'].message_type = _ITEM_RES

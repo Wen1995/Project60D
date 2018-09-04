@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class ITEM_RES : pb::GeneratedMessageLite<ITEM_RES, ITEM_RES.Builder> {
     private ITEM_RES() { }
     private static readonly ITEM_RES defaultInstance = new ITEM_RES().MakeReadOnly();
-    private static readonly string[] _iTEMRESFieldNames = new string[] { "desc", "gold_conv", "icon_name", "id", "item_lvl", "key_name", "min_name", "serviceable_rate", "small_icon_name", "stor_unit" };
-    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 66, 72, 50, 8, 16, 34, 26, 40, 58, 80 };
+    private static readonly string[] _iTEMRESFieldNames = new string[] { "desc", "gold_conv", "health_rec", "healthrec_lim", "hp_rec", "icon_name", "id", "if_available", "item_lvl", "key_name", "min_name", "mood_rec", "moodrec_lim", "serviceable_rate", "small_icon_name", "starv_rec", "stor_unit", "water_rec" };
+    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 66, 72, 120, 128, 96, 50, 8, 88, 16, 34, 26, 136, 144, 40, 58, 104, 80, 112 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -179,6 +179,110 @@ namespace com.game.framework.resource.data {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int IfAvailableFieldNumber = 11;
+    private bool hasIfAvailable;
+    private int ifAvailable_;
+    public bool HasIfAvailable {
+      get { return hasIfAvailable; }
+    }
+    public int IfAvailable {
+      get { return ifAvailable_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int HpRecFieldNumber = 12;
+    private bool hasHpRec;
+    private int hpRec_;
+    public bool HasHpRec {
+      get { return hasHpRec; }
+    }
+    public int HpRec {
+      get { return hpRec_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int StarvRecFieldNumber = 13;
+    private bool hasStarvRec;
+    private int starvRec_;
+    public bool HasStarvRec {
+      get { return hasStarvRec; }
+    }
+    public int StarvRec {
+      get { return starvRec_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int WaterRecFieldNumber = 14;
+    private bool hasWaterRec;
+    private int waterRec_;
+    public bool HasWaterRec {
+      get { return hasWaterRec; }
+    }
+    public int WaterRec {
+      get { return waterRec_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int HealthRecFieldNumber = 15;
+    private bool hasHealthRec;
+    private int healthRec_;
+    public bool HasHealthRec {
+      get { return hasHealthRec; }
+    }
+    public int HealthRec {
+      get { return healthRec_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int HealthrecLimFieldNumber = 16;
+    private bool hasHealthrecLim;
+    private int healthrecLim_;
+    public bool HasHealthrecLim {
+      get { return hasHealthrecLim; }
+    }
+    public int HealthrecLim {
+      get { return healthrecLim_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int MoodRecFieldNumber = 17;
+    private bool hasMoodRec;
+    private int moodRec_;
+    public bool HasMoodRec {
+      get { return hasMoodRec; }
+    }
+    public int MoodRec {
+      get { return moodRec_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int MoodrecLimFieldNumber = 18;
+    private bool hasMoodrecLim;
+    private int moodrecLim_;
+    public bool HasMoodrecLim {
+      get { return hasMoodrecLim; }
+    }
+    public int MoodrecLim {
+      get { return moodrecLim_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -195,25 +299,25 @@ namespace com.game.framework.resource.data {
       int size = SerializedSize;
       string[] field_names = _iTEMRESFieldNames;
       if (hasId) {
-        output.WriteInt32(1, field_names[3], Id);
+        output.WriteInt32(1, field_names[6], Id);
       }
       if (hasItemLvl) {
-        output.WriteInt32(2, field_names[4], ItemLvl);
+        output.WriteInt32(2, field_names[8], ItemLvl);
       }
       if (hasMinName) {
-        output.WriteString(3, field_names[6], MinName);
+        output.WriteString(3, field_names[10], MinName);
       }
       if (hasKeyName) {
-        output.WriteString(4, field_names[5], KeyName);
+        output.WriteString(4, field_names[9], KeyName);
       }
       if (hasServiceableRate) {
-        output.WriteInt32(5, field_names[7], ServiceableRate);
+        output.WriteInt32(5, field_names[13], ServiceableRate);
       }
       if (hasIconName) {
-        output.WriteString(6, field_names[2], IconName);
+        output.WriteString(6, field_names[5], IconName);
       }
       if (hasSmallIconName) {
-        output.WriteString(7, field_names[8], SmallIconName);
+        output.WriteString(7, field_names[14], SmallIconName);
       }
       if (hasDesc) {
         output.WriteString(8, field_names[0], Desc);
@@ -222,7 +326,31 @@ namespace com.game.framework.resource.data {
         output.WriteInt32(9, field_names[1], GoldConv);
       }
       if (hasStorUnit) {
-        output.WriteInt32(10, field_names[9], StorUnit);
+        output.WriteInt32(10, field_names[16], StorUnit);
+      }
+      if (hasIfAvailable) {
+        output.WriteInt32(11, field_names[7], IfAvailable);
+      }
+      if (hasHpRec) {
+        output.WriteInt32(12, field_names[4], HpRec);
+      }
+      if (hasStarvRec) {
+        output.WriteInt32(13, field_names[15], StarvRec);
+      }
+      if (hasWaterRec) {
+        output.WriteInt32(14, field_names[17], WaterRec);
+      }
+      if (hasHealthRec) {
+        output.WriteInt32(15, field_names[2], HealthRec);
+      }
+      if (hasHealthrecLim) {
+        output.WriteInt32(16, field_names[3], HealthrecLim);
+      }
+      if (hasMoodRec) {
+        output.WriteInt32(17, field_names[11], MoodRec);
+      }
+      if (hasMoodrecLim) {
+        output.WriteInt32(18, field_names[12], MoodrecLim);
       }
     }
     
@@ -266,6 +394,30 @@ namespace com.game.framework.resource.data {
         if (hasStorUnit) {
           size += pb::CodedOutputStream.ComputeInt32Size(10, StorUnit);
         }
+        if (hasIfAvailable) {
+          size += pb::CodedOutputStream.ComputeInt32Size(11, IfAvailable);
+        }
+        if (hasHpRec) {
+          size += pb::CodedOutputStream.ComputeInt32Size(12, HpRec);
+        }
+        if (hasStarvRec) {
+          size += pb::CodedOutputStream.ComputeInt32Size(13, StarvRec);
+        }
+        if (hasWaterRec) {
+          size += pb::CodedOutputStream.ComputeInt32Size(14, WaterRec);
+        }
+        if (hasHealthRec) {
+          size += pb::CodedOutputStream.ComputeInt32Size(15, HealthRec);
+        }
+        if (hasHealthrecLim) {
+          size += pb::CodedOutputStream.ComputeInt32Size(16, HealthrecLim);
+        }
+        if (hasMoodRec) {
+          size += pb::CodedOutputStream.ComputeInt32Size(17, MoodRec);
+        }
+        if (hasMoodrecLim) {
+          size += pb::CodedOutputStream.ComputeInt32Size(18, MoodrecLim);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -284,6 +436,14 @@ namespace com.game.framework.resource.data {
       if (hasDesc) hash ^= desc_.GetHashCode();
       if (hasGoldConv) hash ^= goldConv_.GetHashCode();
       if (hasStorUnit) hash ^= storUnit_.GetHashCode();
+      if (hasIfAvailable) hash ^= ifAvailable_.GetHashCode();
+      if (hasHpRec) hash ^= hpRec_.GetHashCode();
+      if (hasStarvRec) hash ^= starvRec_.GetHashCode();
+      if (hasWaterRec) hash ^= waterRec_.GetHashCode();
+      if (hasHealthRec) hash ^= healthRec_.GetHashCode();
+      if (hasHealthrecLim) hash ^= healthrecLim_.GetHashCode();
+      if (hasMoodRec) hash ^= moodRec_.GetHashCode();
+      if (hasMoodrecLim) hash ^= moodrecLim_.GetHashCode();
       return hash;
     }
     
@@ -300,6 +460,14 @@ namespace com.game.framework.resource.data {
       if (hasDesc != other.hasDesc || (hasDesc && !desc_.Equals(other.desc_))) return false;
       if (hasGoldConv != other.hasGoldConv || (hasGoldConv && !goldConv_.Equals(other.goldConv_))) return false;
       if (hasStorUnit != other.hasStorUnit || (hasStorUnit && !storUnit_.Equals(other.storUnit_))) return false;
+      if (hasIfAvailable != other.hasIfAvailable || (hasIfAvailable && !ifAvailable_.Equals(other.ifAvailable_))) return false;
+      if (hasHpRec != other.hasHpRec || (hasHpRec && !hpRec_.Equals(other.hpRec_))) return false;
+      if (hasStarvRec != other.hasStarvRec || (hasStarvRec && !starvRec_.Equals(other.starvRec_))) return false;
+      if (hasWaterRec != other.hasWaterRec || (hasWaterRec && !waterRec_.Equals(other.waterRec_))) return false;
+      if (hasHealthRec != other.hasHealthRec || (hasHealthRec && !healthRec_.Equals(other.healthRec_))) return false;
+      if (hasHealthrecLim != other.hasHealthrecLim || (hasHealthrecLim && !healthrecLim_.Equals(other.healthrecLim_))) return false;
+      if (hasMoodRec != other.hasMoodRec || (hasMoodRec && !moodRec_.Equals(other.moodRec_))) return false;
+      if (hasMoodrecLim != other.hasMoodrecLim || (hasMoodrecLim && !moodrecLim_.Equals(other.moodrecLim_))) return false;
       return true;
     }
     
@@ -490,6 +658,30 @@ namespace com.game.framework.resource.data {
         if (other.HasStorUnit) {
           StorUnit = other.StorUnit;
         }
+        if (other.HasIfAvailable) {
+          IfAvailable = other.IfAvailable;
+        }
+        if (other.HasHpRec) {
+          HpRec = other.HpRec;
+        }
+        if (other.HasStarvRec) {
+          StarvRec = other.StarvRec;
+        }
+        if (other.HasWaterRec) {
+          WaterRec = other.WaterRec;
+        }
+        if (other.HasHealthRec) {
+          HealthRec = other.HealthRec;
+        }
+        if (other.HasHealthrecLim) {
+          HealthrecLim = other.HealthrecLim;
+        }
+        if (other.HasMoodRec) {
+          MoodRec = other.MoodRec;
+        }
+        if (other.HasMoodrecLim) {
+          MoodrecLim = other.MoodrecLim;
+        }
         return this;
       }
       
@@ -560,6 +752,38 @@ namespace com.game.framework.resource.data {
             }
             case 80: {
               result.hasStorUnit = input.ReadInt32(ref result.storUnit_);
+              break;
+            }
+            case 88: {
+              result.hasIfAvailable = input.ReadInt32(ref result.ifAvailable_);
+              break;
+            }
+            case 96: {
+              result.hasHpRec = input.ReadInt32(ref result.hpRec_);
+              break;
+            }
+            case 104: {
+              result.hasStarvRec = input.ReadInt32(ref result.starvRec_);
+              break;
+            }
+            case 112: {
+              result.hasWaterRec = input.ReadInt32(ref result.waterRec_);
+              break;
+            }
+            case 120: {
+              result.hasHealthRec = input.ReadInt32(ref result.healthRec_);
+              break;
+            }
+            case 128: {
+              result.hasHealthrecLim = input.ReadInt32(ref result.healthrecLim_);
+              break;
+            }
+            case 136: {
+              result.hasMoodRec = input.ReadInt32(ref result.moodRec_);
+              break;
+            }
+            case 144: {
+              result.hasMoodrecLim = input.ReadInt32(ref result.moodrecLim_);
               break;
             }
           }
@@ -771,6 +995,166 @@ namespace com.game.framework.resource.data {
         PrepareBuilder();
         result.hasStorUnit = false;
         result.storUnit_ = 0;
+        return this;
+      }
+      
+      public bool HasIfAvailable {
+        get { return result.hasIfAvailable; }
+      }
+      public int IfAvailable {
+        get { return result.IfAvailable; }
+        set { SetIfAvailable(value); }
+      }
+      public Builder SetIfAvailable(int value) {
+        PrepareBuilder();
+        result.hasIfAvailable = true;
+        result.ifAvailable_ = value;
+        return this;
+      }
+      public Builder ClearIfAvailable() {
+        PrepareBuilder();
+        result.hasIfAvailable = false;
+        result.ifAvailable_ = 0;
+        return this;
+      }
+      
+      public bool HasHpRec {
+        get { return result.hasHpRec; }
+      }
+      public int HpRec {
+        get { return result.HpRec; }
+        set { SetHpRec(value); }
+      }
+      public Builder SetHpRec(int value) {
+        PrepareBuilder();
+        result.hasHpRec = true;
+        result.hpRec_ = value;
+        return this;
+      }
+      public Builder ClearHpRec() {
+        PrepareBuilder();
+        result.hasHpRec = false;
+        result.hpRec_ = 0;
+        return this;
+      }
+      
+      public bool HasStarvRec {
+        get { return result.hasStarvRec; }
+      }
+      public int StarvRec {
+        get { return result.StarvRec; }
+        set { SetStarvRec(value); }
+      }
+      public Builder SetStarvRec(int value) {
+        PrepareBuilder();
+        result.hasStarvRec = true;
+        result.starvRec_ = value;
+        return this;
+      }
+      public Builder ClearStarvRec() {
+        PrepareBuilder();
+        result.hasStarvRec = false;
+        result.starvRec_ = 0;
+        return this;
+      }
+      
+      public bool HasWaterRec {
+        get { return result.hasWaterRec; }
+      }
+      public int WaterRec {
+        get { return result.WaterRec; }
+        set { SetWaterRec(value); }
+      }
+      public Builder SetWaterRec(int value) {
+        PrepareBuilder();
+        result.hasWaterRec = true;
+        result.waterRec_ = value;
+        return this;
+      }
+      public Builder ClearWaterRec() {
+        PrepareBuilder();
+        result.hasWaterRec = false;
+        result.waterRec_ = 0;
+        return this;
+      }
+      
+      public bool HasHealthRec {
+        get { return result.hasHealthRec; }
+      }
+      public int HealthRec {
+        get { return result.HealthRec; }
+        set { SetHealthRec(value); }
+      }
+      public Builder SetHealthRec(int value) {
+        PrepareBuilder();
+        result.hasHealthRec = true;
+        result.healthRec_ = value;
+        return this;
+      }
+      public Builder ClearHealthRec() {
+        PrepareBuilder();
+        result.hasHealthRec = false;
+        result.healthRec_ = 0;
+        return this;
+      }
+      
+      public bool HasHealthrecLim {
+        get { return result.hasHealthrecLim; }
+      }
+      public int HealthrecLim {
+        get { return result.HealthrecLim; }
+        set { SetHealthrecLim(value); }
+      }
+      public Builder SetHealthrecLim(int value) {
+        PrepareBuilder();
+        result.hasHealthrecLim = true;
+        result.healthrecLim_ = value;
+        return this;
+      }
+      public Builder ClearHealthrecLim() {
+        PrepareBuilder();
+        result.hasHealthrecLim = false;
+        result.healthrecLim_ = 0;
+        return this;
+      }
+      
+      public bool HasMoodRec {
+        get { return result.hasMoodRec; }
+      }
+      public int MoodRec {
+        get { return result.MoodRec; }
+        set { SetMoodRec(value); }
+      }
+      public Builder SetMoodRec(int value) {
+        PrepareBuilder();
+        result.hasMoodRec = true;
+        result.moodRec_ = value;
+        return this;
+      }
+      public Builder ClearMoodRec() {
+        PrepareBuilder();
+        result.hasMoodRec = false;
+        result.moodRec_ = 0;
+        return this;
+      }
+      
+      public bool HasMoodrecLim {
+        get { return result.hasMoodrecLim; }
+      }
+      public int MoodrecLim {
+        get { return result.MoodrecLim; }
+        set { SetMoodrecLim(value); }
+      }
+      public Builder SetMoodrecLim(int value) {
+        PrepareBuilder();
+        result.hasMoodrecLim = true;
+        result.moodrecLim_ = value;
+        return this;
+      }
+      public Builder ClearMoodrecLim() {
+        PrepareBuilder();
+        result.hasMoodrecLim = false;
+        result.moodrecLim_ = 0;
         return this;
       }
     }

@@ -68,8 +68,26 @@ public class UIBuildingUpgradePanel : PanelBase {
 	void InitView()
 	{
 		NBuildingInfo info = sanctuaryPackage.GetSelectionBuildingInfo();
-		BUILDING configData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
-		BUILDING nextConfigData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID + 1);
+		BUILDING configData = null;
+		BUILDING nextConfigData = null;
+		if(info == null)	//unlock
+		{
+			Building building = sanctuaryPackage.GetSelectionBuilding();
+			int configID = sanctuaryPackage.GetConfigIDByBuildingType(building.buildingType);
+			nextConfigData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
+			titleLabel.text = string.Format("{0}  升级", nextConfigData.BldgName);
+			preLevelLabel.text = string.Format("Lv.{0}", 0);
+			nextLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(configID));
+		}
+		else
+		{
+			configData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
+			nextConfigData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID + 1);
+			titleLabel.text = string.Format("{0}  升级", configData.BldgName);
+			preLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID));
+			nextLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID + 1));
+		}
+		
 		titleLabel.text = string.Format("{0}  升级", configData.BldgName);
 		preLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID));
 		nextLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID + 1));

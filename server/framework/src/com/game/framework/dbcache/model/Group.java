@@ -15,6 +15,8 @@ public class Group {
 
     private Long storehouseId;
 
+    private Long batteryId;
+
     private Date invadeTime;
 
     public Long getId() {
@@ -63,6 +65,14 @@ public class Group {
 
     public void setStorehouseId(Long storehouseId) {
         this.storehouseId = storehouseId;
+    }
+
+    public Long getBatteryId() {
+        return batteryId;
+    }
+
+    public void setBatteryId(Long batteryId) {
+        this.batteryId = batteryId;
     }
 
     public Date getInvadeTime() {

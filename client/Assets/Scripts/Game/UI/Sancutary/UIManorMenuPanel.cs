@@ -65,7 +65,7 @@ public class UIManorMenuPanel : PanelBase {
 
 	void OnNews()
 	{
-		//TODO
+		FacadeSingleton.Instance.OverlayerPanel("UIWorldEventPanel");
 	}
 
 	void OnMail()

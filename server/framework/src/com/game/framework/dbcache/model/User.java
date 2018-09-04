@@ -35,6 +35,8 @@ public class User {
 
     private Integer intellect;
 
+    private Integer electricity;
+
     private Integer production;
 
     private Date createTime;
@@ -169,6 +171,14 @@ public class User {
 
     public void setIntellect(Integer intellect) {
         this.intellect = intellect;
+    }
+
+    public Integer getElectricity() {
+        return electricity;
+    }
+
+    public void setElectricity(Integer electricity) {
+        this.electricity = electricity;
     }
 
     public Integer getProduction() {

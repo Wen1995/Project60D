@@ -8,6 +8,7 @@
     <result column="total_contribution" property="totalContribution" jdbcType="INTEGER" />
     <result column="group_gold" property="groupGold" jdbcType="INTEGER" />
     <result column="storehouse_id" property="storehouseId" jdbcType="BIGINT" />
+    <result column="battery_id" property="batteryId" jdbcType="BIGINT" />
     <result column="invade_time" property="invadeTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -69,7 +70,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, people_number, total_contribution, group_gold, storehouse_id, invade_time
+    id, name, people_number, total_contribution, group_gold, storehouse_id, battery_id, 
+    invade_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.game.framework.dbcache.model.GroupExample" >
     select
@@ -104,10 +106,10 @@
   <insert id="insert" parameterType="com.game.framework.dbcache.model.Group" >
     insert into t_group (id, name, people_number, 
       total_contribution, group_gold, storehouse_id, 
-      invade_time)
+      battery_id, invade_time)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{peopleNumber,jdbcType=INTEGER}, 
       #{totalContribution,jdbcType=INTEGER}, #{groupGold,jdbcType=INTEGER}, #{storehouseId,jdbcType=BIGINT}, 
-      #{invadeTime,jdbcType=TIMESTAMP})
+      #{batteryId,jdbcType=BIGINT}, #{invadeTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.game.framework.dbcache.model.Group" >
     insert into t_group
@@ -129,6 +131,9 @@
       </if>
       <if test="storehouseId != null" >
         storehouse_id,
+      </if>
+      <if test="batteryId != null" >
+        battery_id,
       </if>
       <if test="invadeTime != null" >
         invade_time,
@@ -152,6 +157,9 @@
       </if>
       <if test="storehouseId != null" >
         #{storehouseId,jdbcType=BIGINT},
+      </if>
+      <if test="batteryId != null" >
+        #{batteryId,jdbcType=BIGINT},
       </if>
       <if test="invadeTime != null" >
         #{invadeTime,jdbcType=TIMESTAMP},
@@ -185,6 +193,9 @@
       <if test="record.storehouseId != null" >
         storehouse_id = #{record.storehouseId,jdbcType=BIGINT},
       </if>
+      <if test="record.batteryId != null" >
+        battery_id = #{record.batteryId,jdbcType=BIGINT},
+      </if>
       <if test="record.invadeTime != null" >
         invade_time = #{record.invadeTime,jdbcType=TIMESTAMP},
       </if>
@@ -201,6 +212,7 @@
       total_contribution = #{record.totalContribution,jdbcType=INTEGER},
       group_gold = #{record.groupGold,jdbcType=INTEGER},
       storehouse_id = #{record.storehouseId,jdbcType=BIGINT},
+      battery_id = #{record.batteryId,jdbcType=BIGINT},
       invade_time = #{record.invadeTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -224,6 +236,9 @@
       <if test="storehouseId != null" >
         storehouse_id = #{storehouseId,jdbcType=BIGINT},
       </if>
+      <if test="batteryId != null" >
+        battery_id = #{batteryId,jdbcType=BIGINT},
+      </if>
       <if test="invadeTime != null" >
         invade_time = #{invadeTime,jdbcType=TIMESTAMP},
       </if>
@@ -237,6 +252,7 @@
       total_contribution = #{totalContribution,jdbcType=INTEGER},
       group_gold = #{groupGold,jdbcType=INTEGER},
       storehouse_id = #{storehouseId,jdbcType=BIGINT},
+      battery_id = #{batteryId,jdbcType=BIGINT},
       invade_time = #{invadeTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>

@@ -166,7 +166,7 @@ public class UIContainerBase : MonoBehaviour {
     protected PanelBase OpenPanelByName(string name)
     {
         PanelBase panel = GetPanelByName(name);
-        if (panel.gameObject.activeSelf == false)
+        if (panel)
         {
             PanelInfo info = GetPanelInfoByName(name);
             panel.gameObject.SetActive(true);

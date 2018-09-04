@@ -22,6 +22,9 @@ public class Building : Controller {
     private Transform floatingIconTrans = null;
     private SanctuaryPackage mSanctuaryPackage = null;
 
+    GameObject buildingGo = null;
+    GameObject lockGo = null;
+
     public long BuildingID
     { get { return buildingID; } }
     public BuildingState State
@@ -38,7 +41,11 @@ public class Building : Controller {
     private void Awake()
     {
         floatingIconTrans = transform.Find("FloatingPos");
-        RegisterEvent("RefreshBuildingView", RefreshView);
+        buildingGo = transform.Find("building").gameObject;
+        Destroy(buildingGo);
+        buildingGo = null;
+        lockGo = transform.Find("lock").gameObject;
+        RegisterEvent("RefreshBuildingView", InitView);
     }
 
     public virtual void OnClick()
@@ -47,8 +54,14 @@ public class Building : Controller {
         SendEvent("SelectBuilding");
     }
 
-    public void RefreshView(NDictionary data = null)
+    void InitView(NDictionary data = null)
     {
+        ReloadModel();
+        RefreshView();
+    }
+
+    public void RefreshView(NDictionary data = null)
+    {       
         ClearFloatingIcon();
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         long remainTime = 0;
@@ -91,13 +104,11 @@ public class Building : Controller {
 
         if(mState == BuildingState.Locked)
         {
-            transform.Find("building").gameObject.SetActive(false);
-            transform.Find("lock").gameObject.SetActive(true);
+            lockGo.SetActive(true);
         }
         else
         {
-            transform.Find("building").gameObject.SetActive(true);
-            transform.Find("lock").gameObject.SetActive(false);
+            lockGo.SetActive(false);
         }
         switch(mState)
         {
@@ -113,7 +124,25 @@ public class Building : Controller {
                 break;
             }
         }
-        //Debug.Log(string.Format("buidlingtype={0}, state={1}", buildingType.ToString(), mState.ToString()));
+    }
+
+    //reload prefab of building
+    public void ReloadModel()
+    {
+        NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+        if(info == null) return;
+        BUILDING configData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
+        string prefabName = configData.PrefabName;
+        prefabName = prefabName.Substring(0, prefabName.IndexOf("."));
+        print("prefabName = " + prefabName);
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/Building/model/" + prefabName);
+        if(prefab == null)
+         return;
+        if(buildingGo != null)
+            DestroyImmediate(buildingGo);
+        buildingGo = Instantiate(prefab);
+        buildingGo.transform.parent = transform;
+        buildingGo.transform.localPosition = Vector3.zero;
     }
 
     public void SetBuildingID(long buildingID)

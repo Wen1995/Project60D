@@ -152,12 +152,14 @@ public class UIBuildingInteractionPanel : PanelBase{
             FacadeSingleton.Instance.SendEvent("OpenMsgBox", data);
             return;
         }
+        FacadeSingleton.Instance.BackPanel();
         FacadeSingleton.Instance.OverlayerPanel("UIBuildingUpgradePanel");
     }
 
     void OnUnlock()
     {
         FacadeSingleton.Instance.BackPanel();
+        //FacadeSingleton.Instance.OverlayerPanel("UIBuildingUpgradePanel");
         int newConfigID = sanctuaryPackage.GetConfigIDByBuildingType(selectBuilding.buildingType);
         FacadeSingleton.Instance.OverlayerPanel("UICostResPanel");
         NDictionary args = new NDictionary();

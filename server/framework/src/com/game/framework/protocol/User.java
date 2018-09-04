@@ -364,6 +364,24 @@ public final class User {
      */
     com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
         int index);
+
+    // optional int32 electricity = 2;
+    /**
+     * <code>optional int32 electricity = 2;</code>
+     *
+     * <pre>
+     * 电力信息
+     * </pre>
+     */
+    boolean hasElectricity();
+    /**
+     * <code>optional int32 electricity = 2;</code>
+     *
+     * <pre>
+     * 电力信息
+     * </pre>
+     */
+    int getElectricity();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetResourceInfo}
@@ -424,6 +442,11 @@ public final class User {
               resourceInfos_.add(input.readMessage(com.game.framework.protocol.User.ResourceInfo.PARSER, extensionRegistry));
               break;
             }
+            case 16: {
+              bitField0_ |= 0x00000001;
+              electricity_ = input.readInt32();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -466,6 +489,7 @@ public final class User {
       return PARSER;
     }
 
+    private int bitField0_;
     // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
     public static final int RESOURCEINFOS_FIELD_NUMBER = 1;
     private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_;
@@ -522,8 +546,33 @@ public final class User {
       return resourceInfos_.get(index);
     }
 
+    // optional int32 electricity = 2;
+    public static final int ELECTRICITY_FIELD_NUMBER = 2;
+    private int electricity_;
+    /**
+     * <code>optional int32 electricity = 2;</code>
+     *
+     * <pre>
+     * 电力信息
+     * </pre>
+     */
+    public boolean hasElectricity() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 electricity = 2;</code>
+     *
+     * <pre>
+     * 电力信息
+     * </pre>
+     */
+    public int getElectricity() {
+      return electricity_;
+    }
+
     private void initFields() {
       resourceInfos_ = java.util.Collections.emptyList();
+      electricity_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -540,6 +589,9 @@ public final class User {
       for (int i = 0; i < resourceInfos_.size(); i++) {
         output.writeMessage(1, resourceInfos_.get(i));
       }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(2, electricity_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -552,6 +604,10 @@ public final class User {
       for (int i = 0; i < resourceInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, resourceInfos_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, electricity_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -676,6 +732,8 @@ public final class User {
         } else {
           resourceInfosBuilder_.clear();
         }
+        electricity_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -703,6 +761,7 @@ public final class User {
       public com.game.framework.protocol.User.TSCGetResourceInfo buildPartial() {
         com.game.framework.protocol.User.TSCGetResourceInfo result = new com.game.framework.protocol.User.TSCGetResourceInfo(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (resourceInfosBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
             resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
@@ -712,6 +771,11 @@ public final class User {
         } else {
           result.resourceInfos_ = resourceInfosBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.electricity_ = electricity_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -752,6 +816,9 @@ public final class User {
               resourceInfosBuilder_.addAllMessages(other.resourceInfos_);
             }
           }
+        }
+        if (other.hasElectricity()) {
+          setElectricity(other.getElectricity());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1090,6 +1157,55 @@ public final class User {
           resourceInfos_ = null;
         }
         return resourceInfosBuilder_;
+      }
+
+      // optional int32 electricity = 2;
+      private int electricity_ ;
+      /**
+       * <code>optional int32 electricity = 2;</code>
+       *
+       * <pre>
+       * 电力信息
+       * </pre>
+       */
+      public boolean hasElectricity() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 electricity = 2;</code>
+       *
+       * <pre>
+       * 电力信息
+       * </pre>
+       */
+      public int getElectricity() {
+        return electricity_;
+      }
+      /**
+       * <code>optional int32 electricity = 2;</code>
+       *
+       * <pre>
+       * 电力信息
+       * </pre>
+       */
+      public Builder setElectricity(int value) {
+        bitField0_ |= 0x00000002;
+        electricity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 electricity = 2;</code>
+       *
+       * <pre>
+       * 电力信息
+       * </pre>
+       */
+      public Builder clearElectricity() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        electricity_ = 0;
+        onChanged();
+        return this;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetResourceInfo)
@@ -4246,6 +4362,24 @@ public final class User {
      * </pre>
      */
     int getContribution();
+
+    // optional int32 gold = 12;
+    /**
+     * <code>optional int32 gold = 12;</code>
+     *
+     * <pre>
+     * 黄金
+     * </pre>
+     */
+    boolean hasGold();
+    /**
+     * <code>optional int32 gold = 12;</code>
+     *
+     * <pre>
+     * 黄金
+     * </pre>
+     */
+    int getGold();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetUserState}
@@ -4351,6 +4485,11 @@ public final class User {
             case 88: {
               bitField0_ |= 0x00000400;
               contribution_ = input.readInt32();
+              break;
+            }
+            case 96: {
+              bitField0_ |= 0x00000800;
+              gold_ = input.readInt32();
               break;
             }
           }
@@ -4657,6 +4796,30 @@ public final class User {
       return contribution_;
     }
 
+    // optional int32 gold = 12;
+    public static final int GOLD_FIELD_NUMBER = 12;
+    private int gold_;
+    /**
+     * <code>optional int32 gold = 12;</code>
+     *
+     * <pre>
+     * 黄金
+     * </pre>
+     */
+    public boolean hasGold() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    /**
+     * <code>optional int32 gold = 12;</code>
+     *
+     * <pre>
+     * 黄金
+     * </pre>
+     */
+    public int getGold() {
+      return gold_;
+    }
+
     private void initFields() {
       blood_ = 0;
       food_ = 0;
@@ -4669,6 +4832,7 @@ public final class User {
       speed_ = 0;
       intellect_ = 0;
       contribution_ = 0;
+      gold_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4714,6 +4878,9 @@ public final class User {
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         output.writeInt32(11, contribution_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeInt32(12, gold_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -4767,6 +4934,10 @@ public final class User {
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(11, contribution_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, gold_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -4906,6 +5077,8 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000200);
         contribution_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
+        gold_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -4978,6 +5151,10 @@ public final class User {
           to_bitField0_ |= 0x00000400;
         }
         result.contribution_ = contribution_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.gold_ = gold_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5026,6 +5203,9 @@ public final class User {
         }
         if (other.hasContribution()) {
           setContribution(other.getContribution());
+        }
+        if (other.hasGold()) {
+          setGold(other.getGold());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -5593,6 +5773,55 @@ public final class User {
         return this;
       }
 
+      // optional int32 gold = 12;
+      private int gold_ ;
+      /**
+       * <code>optional int32 gold = 12;</code>
+       *
+       * <pre>
+       * 黄金
+       * </pre>
+       */
+      public boolean hasGold() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional int32 gold = 12;</code>
+       *
+       * <pre>
+       * 黄金
+       * </pre>
+       */
+      public int getGold() {
+        return gold_;
+      }
+      /**
+       * <code>optional int32 gold = 12;</code>
+       *
+       * <pre>
+       * 黄金
+       * </pre>
+       */
+      public Builder setGold(int value) {
+        bitField0_ |= 0x00000800;
+        gold_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 gold = 12;</code>
+       *
+       * <pre>
+       * 黄金
+       * </pre>
+       */
+      public Builder clearGold() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        gold_ = 0;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetUserState)
     }
 
@@ -6113,6 +6342,24 @@ public final class User {
      * </pre>
      */
     int getContribution();
+
+    // optional int32 gold = 12;
+    /**
+     * <code>optional int32 gold = 12;</code>
+     *
+     * <pre>
+     * 黄金
+     * </pre>
+     */
+    boolean hasGold();
+    /**
+     * <code>optional int32 gold = 12;</code>
+     *
+     * <pre>
+     * 黄金
+     * </pre>
+     */
+    int getGold();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetUserStateRegular}
@@ -6218,6 +6465,11 @@ public final class User {
             case 88: {
               bitField0_ |= 0x00000400;
               contribution_ = input.readInt32();
+              break;
+            }
+            case 96: {
+              bitField0_ |= 0x00000800;
+              gold_ = input.readInt32();
               break;
             }
           }
@@ -6524,6 +6776,30 @@ public final class User {
       return contribution_;
     }
 
+    // optional int32 gold = 12;
+    public static final int GOLD_FIELD_NUMBER = 12;
+    private int gold_;
+    /**
+     * <code>optional int32 gold = 12;</code>
+     *
+     * <pre>
+     * 黄金
+     * </pre>
+     */
+    public boolean hasGold() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    /**
+     * <code>optional int32 gold = 12;</code>
+     *
+     * <pre>
+     * 黄金
+     * </pre>
+     */
+    public int getGold() {
+      return gold_;
+    }
+
     private void initFields() {
       blood_ = 0;
       food_ = 0;
@@ -6536,6 +6812,7 @@ public final class User {
       speed_ = 0;
       intellect_ = 0;
       contribution_ = 0;
+      gold_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -6581,6 +6858,9 @@ public final class User {
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         output.writeInt32(11, contribution_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeInt32(12, gold_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6634,6 +6914,10 @@ public final class User {
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(11, contribution_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, gold_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -6773,6 +7057,8 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000200);
         contribution_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
+        gold_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -6845,6 +7131,10 @@ public final class User {
           to_bitField0_ |= 0x00000400;
         }
         result.contribution_ = contribution_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.gold_ = gold_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6893,6 +7183,9 @@ public final class User {
         }
         if (other.hasContribution()) {
           setContribution(other.getContribution());
+        }
+        if (other.hasGold()) {
+          setGold(other.getGold());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -7456,6 +7749,55 @@ public final class User {
       public Builder clearContribution() {
         bitField0_ = (bitField0_ & ~0x00000400);
         contribution_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 gold = 12;
+      private int gold_ ;
+      /**
+       * <code>optional int32 gold = 12;</code>
+       *
+       * <pre>
+       * 黄金
+       * </pre>
+       */
+      public boolean hasGold() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional int32 gold = 12;</code>
+       *
+       * <pre>
+       * 黄金
+       * </pre>
+       */
+      public int getGold() {
+        return gold_;
+      }
+      /**
+       * <code>optional int32 gold = 12;</code>
+       *
+       * <pre>
+       * 黄金
+       * </pre>
+       */
+      public Builder setGold(int value) {
+        bitField0_ |= 0x00000800;
+        gold_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 gold = 12;</code>
+       *
+       * <pre>
+       * 黄金
+       * </pre>
+       */
+      public Builder clearGold() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        gold_ = 0;
         onChanged();
         return this;
       }
@@ -8832,31 +9174,32 @@ public final class User {
   static {
     java.lang.String[] descriptorData = {
       "\n\nuser.proto\022\033com.game.framework.protoco" +
-      "l\"\024\n\022TCSGetResourceInfo\"V\n\022TSCGetResourc" +
+      "l\"\024\n\022TCSGetResourceInfo\"k\n\022TSCGetResourc" +
       "eInfo\022@\n\rresourceInfos\030\001 \003(\0132).com.game." +
-      "framework.protocol.ResourceInfo\"0\n\034TCSGe" +
-      "tResourceInfoByConfigId\022\020\n\010configId\030\001 \003(" +
-      "\005\"`\n\034TSCGetResourceInfoByConfigId\022@\n\rres" +
-      "ourceInfos\030\001 \003(\0132).com.game.framework.pr" +
-      "otocol.ResourceInfo\"P\n\014UserResource\022@\n\rr" +
-      "esourceInfos\030\001 \003(\0132).com.game.framework." +
-      "protocol.ResourceInfo\"0\n\014ResourceInfo\022\020\n",
-      "\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\"\021\n\017TCSGe" +
-      "tUserState\"\303\001\n\017TSCGetUserState\022\r\n\005blood\030" +
-      "\001 \001(\005\022\014\n\004food\030\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006he" +
-      "alth\030\004 \001(\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005" +
-      "\022\017\n\007defense\030\007 \001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005spee" +
-      "d\030\t \001(\005\022\021\n\tintellect\030\n \001(\005\022\024\n\014contributi" +
-      "on\030\013 \001(\005\"\030\n\026TCSGetUserStateRegular\"\312\001\n\026T" +
-      "SCGetUserStateRegular\022\r\n\005blood\030\001 \001(\005\022\014\n\004" +
-      "food\030\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006health\030\004 \001(" +
-      "\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007defen",
-      "se\030\007 \001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t \001(\005\022\021" +
-      "\n\tintellect\030\n \001(\005\022\024\n\014contribution\030\013 \001(\005\"" +
-      "M\n\014TCSSellGoods\022\020\n\010configId\030\001 \001(\005\022\016\n\006num" +
-      "ber\030\002 \001(\005\022\033\n\023worldEventConfigIds\030\003 \003(\005\"2" +
-      "\n\014TSCSellGoods\022\024\n\014isWorldEvent\030\001 \001(\010\022\014\n\004" +
-      "gold\030\002 \001(\005B\002H\001"
+      "framework.protocol.ResourceInfo\022\023\n\013elect" +
+      "ricity\030\002 \001(\005\"0\n\034TCSGetResourceInfoByConf" +
+      "igId\022\020\n\010configId\030\001 \003(\005\"`\n\034TSCGetResource" +
+      "InfoByConfigId\022@\n\rresourceInfos\030\001 \003(\0132)." +
+      "com.game.framework.protocol.ResourceInfo" +
+      "\"P\n\014UserResource\022@\n\rresourceInfos\030\001 \003(\0132" +
+      ").com.game.framework.protocol.ResourceIn",
+      "fo\"0\n\014ResourceInfo\022\020\n\010configId\030\001 \001(\005\022\016\n\006" +
+      "number\030\002 \001(\005\"\021\n\017TCSGetUserState\"\321\001\n\017TSCG" +
+      "etUserState\022\r\n\005blood\030\001 \001(\005\022\014\n\004food\030\002 \001(\005" +
+      "\022\r\n\005water\030\003 \001(\005\022\016\n\006health\030\004 \001(\005\022\014\n\004mood\030" +
+      "\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007defense\030\007 \001(\005\022\r" +
+      "\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t \001(\005\022\021\n\tintellec" +
+      "t\030\n \001(\005\022\024\n\014contribution\030\013 \001(\005\022\014\n\004gold\030\014 " +
+      "\001(\005\"\030\n\026TCSGetUserStateRegular\"\330\001\n\026TSCGet" +
+      "UserStateRegular\022\r\n\005blood\030\001 \001(\005\022\014\n\004food\030" +
+      "\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006health\030\004 \001(\005\022\014\n\004",
+      "mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007defense\030\007 " +
+      "\001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t \001(\005\022\021\n\tint" +
+      "ellect\030\n \001(\005\022\024\n\014contribution\030\013 \001(\005\022\014\n\004go" +
+      "ld\030\014 \001(\005\"M\n\014TCSSellGoods\022\020\n\010configId\030\001 \001" +
+      "(\005\022\016\n\006number\030\002 \001(\005\022\033\n\023worldEventConfigId" +
+      "s\030\003 \003(\005\"2\n\014TSCSellGoods\022\024\n\014isWorldEvent\030" +
+      "\001 \001(\010\022\014\n\004gold\030\002 \001(\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -8874,7 +9217,7 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCGetResourceInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetResourceInfo_descriptor,
-              new java.lang.String[] { "ResourceInfos", });
+              new java.lang.String[] { "ResourceInfos", "Electricity", });
           internal_static_com_game_framework_protocol_TCSGetResourceInfoByConfigId_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_TCSGetResourceInfoByConfigId_fieldAccessorTable = new
@@ -8910,7 +9253,7 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCGetUserState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetUserState_descriptor,
-              new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Contribution", });
+              new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Contribution", "Gold", });
           internal_static_com_game_framework_protocol_TCSGetUserStateRegular_descriptor =
             getDescriptor().getMessageTypes().get(8);
           internal_static_com_game_framework_protocol_TCSGetUserStateRegular_fieldAccessorTable = new
@@ -8922,7 +9265,7 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCGetUserStateRegular_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetUserStateRegular_descriptor,
-              new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Contribution", });
+              new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Contribution", "Gold", });
           internal_static_com_game_framework_protocol_TCSSellGoods_descriptor =
             getDescriptor().getMessageTypes().get(10);
           internal_static_com_game_framework_protocol_TCSSellGoods_fieldAccessorTable = new

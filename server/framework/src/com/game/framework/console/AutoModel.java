@@ -69,6 +69,7 @@ public class AutoModel {
             String strCmd =
                     "protoc.exe -I=./proto --java_out=./src ./proto/" + s + "Cache" + ".proto";
             try {
+                Thread.sleep(500);
                 Runtime.getRuntime().exec(strCmd);
                 Thread.sleep(500);
             } catch (Exception e) {

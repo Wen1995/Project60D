@@ -475,6 +475,66 @@ public class GroupExample {
             return (Criteria) this;
         }
 
+        public Criteria andBatteryIdIsNull() {
+            addCriterion("battery_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdIsNotNull() {
+            addCriterion("battery_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdEqualTo(Long value) {
+            addCriterion("battery_id =", value, "batteryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdNotEqualTo(Long value) {
+            addCriterion("battery_id <>", value, "batteryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdGreaterThan(Long value) {
+            addCriterion("battery_id >", value, "batteryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("battery_id >=", value, "batteryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdLessThan(Long value) {
+            addCriterion("battery_id <", value, "batteryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdLessThanOrEqualTo(Long value) {
+            addCriterion("battery_id <=", value, "batteryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdIn(List<Long> values) {
+            addCriterion("battery_id in", values, "batteryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdNotIn(List<Long> values) {
+            addCriterion("battery_id not in", values, "batteryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdBetween(Long value1, Long value2) {
+            addCriterion("battery_id between", value1, value2, "batteryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBatteryIdNotBetween(Long value1, Long value2) {
+            addCriterion("battery_id not between", value1, value2, "batteryId");
+            return (Criteria) this;
+        }
+
         public Criteria andInvadeTimeIsNull() {
             addCriterion("invade_time is null");
             return (Criteria) this;

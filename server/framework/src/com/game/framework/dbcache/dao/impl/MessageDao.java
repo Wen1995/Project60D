@@ -13,6 +13,7 @@ public class MessageDao extends BaseDao<Message, MessageMapper, MessageExample> 
 
     @Override
     public List<Message> getPageList(int currentPage, Long groupId) {
+        // TODO
         PageHelper.startPage(currentPage, Constant.MESSAGE_RECORD_COUNT);
         MessageExample example = new MessageExample();
         example.setOrderByClause("time desc");

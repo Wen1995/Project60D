@@ -45,10 +45,12 @@ import com.game.framework.resource.data.RobProportionBytes.ROB_PROPORTION;
 import com.game.framework.resource.data.ZombieAttrBytes.ZOMBIE_ATTR;
 import com.game.framework.task.TimerManager;
 import com.game.framework.utils.BuildingUtil;
+import com.game.framework.utils.GroupUtil;
 import com.game.framework.utils.ItemUtil;
 import com.game.framework.utils.MapUtil;
 import com.game.framework.utils.ReadOnlyMap;
 import com.game.framework.utils.UserUtil;
+import com.game.framework.utils.ZombieUtil;
 
 public class FightingServiceImpl implements FightingService {
     @Resource
@@ -134,6 +136,7 @@ public class FightingServiceImpl implements FightingService {
         }
         Random rand = new Random();
         configId += rand.nextInt(10);
+        configId = 20010003;//TODO
         
         // 更新僵尸入侵时间
         int zombieInvadeTime = arithmeticCoefficientMap.get(30100000).getAcK4() * 60;
@@ -149,6 +152,7 @@ public class FightingServiceImpl implements FightingService {
             int leftTime = leidaMap.get(buildingMap.get(radar.getConfigId()).getBldgFuncTableId()).getLeidaDis();
             int receiveTime = zombieInvadeTime - leftTime;
             String timerKey = TimerConstant.RECEIVEZOMBIEMESSAGE + groupId;
+            receiveTime = 5;//TODO
             TCSReceiveZombieMessage p = TCSReceiveZombieMessage.newBuilder()
                     .setGroupId(groupId)
                     .setConfigId(configId)
@@ -165,6 +169,7 @@ public class FightingServiceImpl implements FightingService {
                 .setDoorId(doorId)
                 .build();
         String timerKey = TimerConstant.ZOMBIEINVADERESULT + groupId;
+        zombieInvadeTime = 10;//TODO
         TimerManager.GetInstance().sumbit(timerKey, uid, Cmd.ZOMBIEINVADERESULT_VALUE,
                 p.toByteArray(), zombieInvadeTime);
         return null;
@@ -217,11 +222,12 @@ public class FightingServiceImpl implements FightingService {
         double K1 = arithmeticCoefficientMap.get(30060000).getAcK1() / 100;
         double intoDoorTime = 0;
         double maxTime = 1.0 * arithmeticCoefficientMap.get(30080000).getAcK1() / 100;
-
-        int zombieNum = zombieAttr.getZombieNum();
-        double zombieDefence = zombieAttr.getZombieDef();
-        double zombieAttack = zombieAttr.getZombieAtk();
-        double blood4PerZombie = zombieAttr.getZombieHp();
+        int level = DynamicDataManager.GetInstance().groupId2Level.get(groupId);
+        
+        int zombieNum = (int) (zombieAttr.getZombieNum() * ZombieUtil.getZombieNumberCoefficient(level));
+        double zombieDefence = zombieAttr.getZombieDef() * ZombieUtil.getZombieDefenceCoefficient(level);
+        double zombieAttack = zombieAttr.getZombieAtk() * ZombieUtil.getZombieAttackCoefficient(level);
+        double blood4PerZombie = zombieAttr.getZombieHp() * ZombieUtil.getZombieBloodCoefficient(level);
         double blood4AllZombie = blood4PerZombie * zombieNum;
 
         List<InvadeResultInfo> invadeResultInfos = new ArrayList<>();
@@ -318,7 +324,7 @@ public class FightingServiceImpl implements FightingService {
         // 计算损失
         if (intoDoorTime > 0) {
             Group group = groupDao.get(groupId);
-            int groupLevel = UserUtil.getGroupLevel(group.getTotalContribution());
+            int groupLevel = GroupUtil.getGroupLevel(group.getTotalContribution());
             ROB_PROPORTION robProportion =
                     StaticDataManager.GetInstance().robProportionMap.get(groupLevel);
             int storeHouseLimit = robProportion.getBwLim();

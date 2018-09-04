@@ -31,6 +31,7 @@ import com.game.framework.resource.data.ArithmeticCoefficientBytes.ARITHMETIC_CO
 import com.game.framework.resource.data.WorldEventsBytes.WORLD_EVENTS;
 import com.game.framework.socket.MessageDealHandler;
 import com.game.framework.utils.ReadOnlyMap;
+import com.game.framework.utils.ZombieUtil;
 import io.netty.channel.Channel;
 
 public class TimerManager {
@@ -114,13 +115,13 @@ public class TimerManager {
             public void run() {
                 ReadOnlyMap<Integer, ARITHMETIC_COEFFICIENT> arithmeticCoefficientMap =
                         StaticDataManager.GetInstance().arithmeticCoefficientMap;
-                int rate = arithmeticCoefficientMap.get(30110000).getAcK5();
                 int day = arithmeticCoefficientMap.get(30130000).getAcK4();
                 int hour = 24 / arithmeticCoefficientMap.get(30120000).getAcK4();
                 Map<Long, Long> groupId2InvadeTime =
                         DynamicDataManager.GetInstance().groupId2InvadeTime;
                 for (Map.Entry<Long, Long> entry : groupId2InvadeTime.entrySet()) {
-                    Long groupId = entry.getKey();
+                    long groupId = entry.getKey();
+                    int level = DynamicDataManager.GetInstance().groupId2Level.get(groupId);
                     long currentTime = System.currentTimeMillis();
                     // 是否多天未被进攻
                     if (currentTime - entry.getValue() > Constant.TIME_DAY * day) {
@@ -131,7 +132,7 @@ public class TimerManager {
                         p.setReceiveTime(currentTime);
                         p.setBuffer(pInvade.toByteArray());
                         GateServer.GetInstance().sendInner(p);
-                    } else if (new Random().nextInt(10000) < rate) {
+                    } else if (new Random().nextInt(10000) < ZombieUtil.getZombieInvadeRate(level)) {
                         // 是否可以进攻
                         if (entry.getValue() + Constant.TIME_HOUR * hour < currentTime) {
                             TCSZombieInvade pInvade =
@@ -143,6 +144,14 @@ public class TimerManager {
                             GateServer.GetInstance().sendInner(p);
                         }
                     }
+                    // TODO
+                    /*TCSZombieInvade pInvade =
+                            TCSZombieInvade.newBuilder().setGroupId(groupId).build();
+                    TPacket p = new TPacket();
+                    p.setCmd(Cmd.ZOMBIEINVADE_VALUE);
+                    p.setReceiveTime(currentTime);
+                    p.setBuffer(pInvade.toByteArray());
+                    GateServer.GetInstance().sendInner(p);*/
                 }
             }
         }, 60, 60, TimeUnit.SECONDS);

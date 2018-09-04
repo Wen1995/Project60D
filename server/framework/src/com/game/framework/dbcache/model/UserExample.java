@@ -1085,6 +1085,66 @@ public class UserExample {
             return (Criteria) this;
         }
 
+        public Criteria andElectricityIsNull() {
+            addCriterion("electricity is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityIsNotNull() {
+            addCriterion("electricity is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityEqualTo(Integer value) {
+            addCriterion("electricity =", value, "electricity");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityNotEqualTo(Integer value) {
+            addCriterion("electricity <>", value, "electricity");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityGreaterThan(Integer value) {
+            addCriterion("electricity >", value, "electricity");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityGreaterThanOrEqualTo(Integer value) {
+            addCriterion("electricity >=", value, "electricity");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityLessThan(Integer value) {
+            addCriterion("electricity <", value, "electricity");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityLessThanOrEqualTo(Integer value) {
+            addCriterion("electricity <=", value, "electricity");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityIn(List<Integer> values) {
+            addCriterion("electricity in", values, "electricity");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityNotIn(List<Integer> values) {
+            addCriterion("electricity not in", values, "electricity");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityBetween(Integer value1, Integer value2) {
+            addCriterion("electricity between", value1, value2, "electricity");
+            return (Criteria) this;
+        }
+
+        public Criteria andElectricityNotBetween(Integer value1, Integer value2) {
+            addCriterion("electricity not between", value1, value2, "electricity");
+            return (Criteria) this;
+        }
+
         public Criteria andProductionIsNull() {
             addCriterion("production is null");
             return (Criteria) this;

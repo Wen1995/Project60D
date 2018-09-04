@@ -181,43 +181,53 @@ public final class UserCache {
      */
     int getIntellect();
 
-    // optional int32 production = 17;
+    // optional int32 electricity = 17;
     /**
-     * <code>optional int32 production = 17;</code>
+     * <code>optional int32 electricity = 17;</code>
+     */
+    boolean hasElectricity();
+    /**
+     * <code>optional int32 electricity = 17;</code>
+     */
+    int getElectricity();
+
+    // optional int32 production = 18;
+    /**
+     * <code>optional int32 production = 18;</code>
      */
     boolean hasProduction();
     /**
-     * <code>optional int32 production = 17;</code>
+     * <code>optional int32 production = 18;</code>
      */
     int getProduction();
 
-    // optional sint64 createTime = 18;
+    // optional sint64 createTime = 19;
     /**
-     * <code>optional sint64 createTime = 18;</code>
+     * <code>optional sint64 createTime = 19;</code>
      */
     boolean hasCreateTime();
     /**
-     * <code>optional sint64 createTime = 18;</code>
+     * <code>optional sint64 createTime = 19;</code>
      */
     long getCreateTime();
 
-    // optional sint64 logoutTime = 19;
+    // optional sint64 logoutTime = 20;
     /**
-     * <code>optional sint64 logoutTime = 19;</code>
+     * <code>optional sint64 logoutTime = 20;</code>
      */
     boolean hasLogoutTime();
     /**
-     * <code>optional sint64 logoutTime = 19;</code>
+     * <code>optional sint64 logoutTime = 20;</code>
      */
     long getLogoutTime();
 
-    // optional bytes resource = 20;
+    // optional bytes resource = 21;
     /**
-     * <code>optional bytes resource = 20;</code>
+     * <code>optional bytes resource = 21;</code>
      */
     boolean hasResource();
     /**
-     * <code>optional bytes resource = 20;</code>
+     * <code>optional bytes resource = 21;</code>
      */
     com.google.protobuf.ByteString getResource();
   }
@@ -354,21 +364,26 @@ public final class UserCache {
             }
             case 136: {
               bitField0_ |= 0x00010000;
-              production_ = input.readInt32();
+              electricity_ = input.readInt32();
               break;
             }
             case 144: {
               bitField0_ |= 0x00020000;
-              createTime_ = input.readSInt64();
+              production_ = input.readInt32();
               break;
             }
             case 152: {
               bitField0_ |= 0x00040000;
+              createTime_ = input.readSInt64();
+              break;
+            }
+            case 160: {
+              bitField0_ |= 0x00080000;
               logoutTime_ = input.readSInt64();
               break;
             }
-            case 162: {
-              bitField0_ |= 0x00080000;
+            case 170: {
+              bitField0_ |= 0x00100000;
               resource_ = input.readBytes();
               break;
             }
@@ -722,65 +737,81 @@ public final class UserCache {
       return intellect_;
     }
 
-    // optional int32 production = 17;
-    public static final int PRODUCTION_FIELD_NUMBER = 17;
-    private int production_;
+    // optional int32 electricity = 17;
+    public static final int ELECTRICITY_FIELD_NUMBER = 17;
+    private int electricity_;
     /**
-     * <code>optional int32 production = 17;</code>
+     * <code>optional int32 electricity = 17;</code>
      */
-    public boolean hasProduction() {
+    public boolean hasElectricity() {
       return ((bitField0_ & 0x00010000) == 0x00010000);
     }
     /**
-     * <code>optional int32 production = 17;</code>
+     * <code>optional int32 electricity = 17;</code>
+     */
+    public int getElectricity() {
+      return electricity_;
+    }
+
+    // optional int32 production = 18;
+    public static final int PRODUCTION_FIELD_NUMBER = 18;
+    private int production_;
+    /**
+     * <code>optional int32 production = 18;</code>
+     */
+    public boolean hasProduction() {
+      return ((bitField0_ & 0x00020000) == 0x00020000);
+    }
+    /**
+     * <code>optional int32 production = 18;</code>
      */
     public int getProduction() {
       return production_;
     }
 
-    // optional sint64 createTime = 18;
-    public static final int CREATETIME_FIELD_NUMBER = 18;
+    // optional sint64 createTime = 19;
+    public static final int CREATETIME_FIELD_NUMBER = 19;
     private long createTime_;
     /**
-     * <code>optional sint64 createTime = 18;</code>
+     * <code>optional sint64 createTime = 19;</code>
      */
     public boolean hasCreateTime() {
-      return ((bitField0_ & 0x00020000) == 0x00020000);
+      return ((bitField0_ & 0x00040000) == 0x00040000);
     }
     /**
-     * <code>optional sint64 createTime = 18;</code>
+     * <code>optional sint64 createTime = 19;</code>
      */
     public long getCreateTime() {
       return createTime_;
     }
 
-    // optional sint64 logoutTime = 19;
-    public static final int LOGOUTTIME_FIELD_NUMBER = 19;
+    // optional sint64 logoutTime = 20;
+    public static final int LOGOUTTIME_FIELD_NUMBER = 20;
     private long logoutTime_;
     /**
-     * <code>optional sint64 logoutTime = 19;</code>
+     * <code>optional sint64 logoutTime = 20;</code>
      */
     public boolean hasLogoutTime() {
-      return ((bitField0_ & 0x00040000) == 0x00040000);
+      return ((bitField0_ & 0x00080000) == 0x00080000);
     }
     /**
-     * <code>optional sint64 logoutTime = 19;</code>
+     * <code>optional sint64 logoutTime = 20;</code>
      */
     public long getLogoutTime() {
       return logoutTime_;
     }
 
-    // optional bytes resource = 20;
-    public static final int RESOURCE_FIELD_NUMBER = 20;
+    // optional bytes resource = 21;
+    public static final int RESOURCE_FIELD_NUMBER = 21;
     private com.google.protobuf.ByteString resource_;
     /**
-     * <code>optional bytes resource = 20;</code>
+     * <code>optional bytes resource = 21;</code>
      */
     public boolean hasResource() {
-      return ((bitField0_ & 0x00080000) == 0x00080000);
+      return ((bitField0_ & 0x00100000) == 0x00100000);
     }
     /**
-     * <code>optional bytes resource = 20;</code>
+     * <code>optional bytes resource = 21;</code>
      */
     public com.google.protobuf.ByteString getResource() {
       return resource_;
@@ -803,6 +834,7 @@ public final class UserCache {
       agile_ = 0;
       speed_ = 0;
       intellect_ = 0;
+      electricity_ = 0;
       production_ = 0;
       createTime_ = 0L;
       logoutTime_ = 0L;
@@ -869,16 +901,19 @@ public final class UserCache {
         output.writeInt32(16, intellect_);
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        output.writeInt32(17, production_);
+        output.writeInt32(17, electricity_);
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
-        output.writeSInt64(18, createTime_);
+        output.writeInt32(18, production_);
       }
       if (((bitField0_ & 0x00040000) == 0x00040000)) {
-        output.writeSInt64(19, logoutTime_);
+        output.writeSInt64(19, createTime_);
       }
       if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        output.writeBytes(20, resource_);
+        output.writeSInt64(20, logoutTime_);
+      }
+      if (((bitField0_ & 0x00100000) == 0x00100000)) {
+        output.writeBytes(21, resource_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -955,19 +990,23 @@ public final class UserCache {
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(17, production_);
+          .computeInt32Size(17, electricity_);
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt64Size(18, createTime_);
+          .computeInt32Size(18, production_);
       }
       if (((bitField0_ & 0x00040000) == 0x00040000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt64Size(19, logoutTime_);
+          .computeSInt64Size(19, createTime_);
       }
       if (((bitField0_ & 0x00080000) == 0x00080000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(20, resource_);
+          .computeSInt64Size(20, logoutTime_);
+      }
+      if (((bitField0_ & 0x00100000) == 0x00100000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(21, resource_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1117,14 +1156,16 @@ public final class UserCache {
         bitField0_ = (bitField0_ & ~0x00004000);
         intellect_ = 0;
         bitField0_ = (bitField0_ & ~0x00008000);
-        production_ = 0;
+        electricity_ = 0;
         bitField0_ = (bitField0_ & ~0x00010000);
-        createTime_ = 0L;
+        production_ = 0;
         bitField0_ = (bitField0_ & ~0x00020000);
-        logoutTime_ = 0L;
+        createTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00040000);
-        resource_ = com.google.protobuf.ByteString.EMPTY;
+        logoutTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00080000);
+        resource_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00100000);
         return this;
       }
 
@@ -1220,17 +1261,21 @@ public final class UserCache {
         if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
           to_bitField0_ |= 0x00010000;
         }
-        result.production_ = production_;
+        result.electricity_ = electricity_;
         if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
           to_bitField0_ |= 0x00020000;
         }
-        result.createTime_ = createTime_;
+        result.production_ = production_;
         if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
           to_bitField0_ |= 0x00040000;
         }
-        result.logoutTime_ = logoutTime_;
+        result.createTime_ = createTime_;
         if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
           to_bitField0_ |= 0x00080000;
+        }
+        result.logoutTime_ = logoutTime_;
+        if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
+          to_bitField0_ |= 0x00100000;
         }
         result.resource_ = resource_;
         result.bitField0_ = to_bitField0_;
@@ -1300,6 +1345,9 @@ public final class UserCache {
         }
         if (other.hasIntellect()) {
           setIntellect(other.getIntellect());
+        }
+        if (other.hasElectricity()) {
+          setElectricity(other.getElectricity());
         }
         if (other.hasProduction()) {
           setProduction(other.getProduction());
@@ -1950,136 +1998,169 @@ public final class UserCache {
         return this;
       }
 
-      // optional int32 production = 17;
-      private int production_ ;
+      // optional int32 electricity = 17;
+      private int electricity_ ;
       /**
-       * <code>optional int32 production = 17;</code>
+       * <code>optional int32 electricity = 17;</code>
        */
-      public boolean hasProduction() {
+      public boolean hasElectricity() {
         return ((bitField0_ & 0x00010000) == 0x00010000);
       }
       /**
-       * <code>optional int32 production = 17;</code>
+       * <code>optional int32 electricity = 17;</code>
+       */
+      public int getElectricity() {
+        return electricity_;
+      }
+      /**
+       * <code>optional int32 electricity = 17;</code>
+       */
+      public Builder setElectricity(int value) {
+        bitField0_ |= 0x00010000;
+        electricity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 electricity = 17;</code>
+       */
+      public Builder clearElectricity() {
+        bitField0_ = (bitField0_ & ~0x00010000);
+        electricity_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 production = 18;
+      private int production_ ;
+      /**
+       * <code>optional int32 production = 18;</code>
+       */
+      public boolean hasProduction() {
+        return ((bitField0_ & 0x00020000) == 0x00020000);
+      }
+      /**
+       * <code>optional int32 production = 18;</code>
        */
       public int getProduction() {
         return production_;
       }
       /**
-       * <code>optional int32 production = 17;</code>
+       * <code>optional int32 production = 18;</code>
        */
       public Builder setProduction(int value) {
-        bitField0_ |= 0x00010000;
+        bitField0_ |= 0x00020000;
         production_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 production = 17;</code>
+       * <code>optional int32 production = 18;</code>
        */
       public Builder clearProduction() {
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         production_ = 0;
         onChanged();
         return this;
       }
 
-      // optional sint64 createTime = 18;
+      // optional sint64 createTime = 19;
       private long createTime_ ;
       /**
-       * <code>optional sint64 createTime = 18;</code>
+       * <code>optional sint64 createTime = 19;</code>
        */
       public boolean hasCreateTime() {
-        return ((bitField0_ & 0x00020000) == 0x00020000);
+        return ((bitField0_ & 0x00040000) == 0x00040000);
       }
       /**
-       * <code>optional sint64 createTime = 18;</code>
+       * <code>optional sint64 createTime = 19;</code>
        */
       public long getCreateTime() {
         return createTime_;
       }
       /**
-       * <code>optional sint64 createTime = 18;</code>
+       * <code>optional sint64 createTime = 19;</code>
        */
       public Builder setCreateTime(long value) {
-        bitField0_ |= 0x00020000;
+        bitField0_ |= 0x00040000;
         createTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional sint64 createTime = 18;</code>
+       * <code>optional sint64 createTime = 19;</code>
        */
       public Builder clearCreateTime() {
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00040000);
         createTime_ = 0L;
         onChanged();
         return this;
       }
 
-      // optional sint64 logoutTime = 19;
+      // optional sint64 logoutTime = 20;
       private long logoutTime_ ;
       /**
-       * <code>optional sint64 logoutTime = 19;</code>
+       * <code>optional sint64 logoutTime = 20;</code>
        */
       public boolean hasLogoutTime() {
-        return ((bitField0_ & 0x00040000) == 0x00040000);
+        return ((bitField0_ & 0x00080000) == 0x00080000);
       }
       /**
-       * <code>optional sint64 logoutTime = 19;</code>
+       * <code>optional sint64 logoutTime = 20;</code>
        */
       public long getLogoutTime() {
         return logoutTime_;
       }
       /**
-       * <code>optional sint64 logoutTime = 19;</code>
+       * <code>optional sint64 logoutTime = 20;</code>
        */
       public Builder setLogoutTime(long value) {
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00080000;
         logoutTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional sint64 logoutTime = 19;</code>
+       * <code>optional sint64 logoutTime = 20;</code>
        */
       public Builder clearLogoutTime() {
-        bitField0_ = (bitField0_ & ~0x00040000);
+        bitField0_ = (bitField0_ & ~0x00080000);
         logoutTime_ = 0L;
         onChanged();
         return this;
       }
 
-      // optional bytes resource = 20;
+      // optional bytes resource = 21;
       private com.google.protobuf.ByteString resource_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes resource = 20;</code>
+       * <code>optional bytes resource = 21;</code>
        */
       public boolean hasResource() {
-        return ((bitField0_ & 0x00080000) == 0x00080000);
+        return ((bitField0_ & 0x00100000) == 0x00100000);
       }
       /**
-       * <code>optional bytes resource = 20;</code>
+       * <code>optional bytes resource = 21;</code>
        */
       public com.google.protobuf.ByteString getResource() {
         return resource_;
       }
       /**
-       * <code>optional bytes resource = 20;</code>
+       * <code>optional bytes resource = 21;</code>
        */
       public Builder setResource(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00080000;
+  bitField0_ |= 0x00100000;
         resource_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes resource = 20;</code>
+       * <code>optional bytes resource = 21;</code>
        */
       public Builder clearResource() {
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00100000);
         resource_ = getDefaultInstance().getResource();
         onChanged();
         return this;
@@ -2111,16 +2192,16 @@ public final class UserCache {
   static {
     java.lang.String[] descriptorData = {
       "\n\017UserCache.proto\022 com.game.framework.db" +
-      "cache.model\"\331\002\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n" +
+      "cache.model\"\356\002\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n" +
       "\007account\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\017\n\007grou" +
       "pId\030\004 \001(\003\022\024\n\014contribution\030\005 \001(\005\022\014\n\004gold\030" +
       "\006 \001(\005\022\r\n\005blood\030\007 \001(\005\022\014\n\004food\030\010 \001(\005\022\r\n\005wa" +
       "ter\030\t \001(\005\022\016\n\006health\030\n \001(\005\022\014\n\004mood\030\013 \001(\005\022" +
       "\016\n\006attack\030\014 \001(\005\022\017\n\007defense\030\r \001(\005\022\r\n\005agil" +
       "e\030\016 \001(\005\022\r\n\005speed\030\017 \001(\005\022\021\n\tintellect\030\020 \001(" +
-      "\005\022\022\n\nproduction\030\021 \001(\005\022\022\n\ncreateTime\030\022 \001(" +
-      "\022\022\022\n\nlogoutTime\030\023 \001(\022\022\020\n\010resource\030\024 \001(\014B",
-      "\002H\001"
+      "\005\022\023\n\013electricity\030\021 \001(\005\022\022\n\nproduction\030\022 \001" +
+      "(\005\022\022\n\ncreateTime\030\023 \001(\022\022\022\n\nlogoutTime\030\024 \001",
+      "(\022\022\020\n\010resource\030\025 \001(\014B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2132,7 +2213,7 @@ public final class UserCache {
           internal_static_com_game_framework_dbcache_model_ProtoUser_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_dbcache_model_ProtoUser_descriptor,
-              new java.lang.String[] { "Id", "Account", "Password", "GroupId", "Contribution", "Gold", "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Production", "CreateTime", "LogoutTime", "Resource", });
+              new java.lang.String[] { "Id", "Account", "Password", "GroupId", "Contribution", "Gold", "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Electricity", "Production", "CreateTime", "LogoutTime", "Resource", });
           return null;
         }
       };

@@ -23,27 +23,28 @@ import com.game.framework.utils.ReadOnlyMap;
 public class UserServiceImpl implements UserService {
     @Resource
     private IUserDao userDao;
-    
+
     @Override
     public TPacket getResourceInfo(Long uid) throws Exception {
         User user = userDao.get(uid);
         UserResource userResource = UserResource.parseFrom(user.getResource());
-        
+
         TSCGetResourceInfo p = TSCGetResourceInfo.newBuilder()
                 .addAllResourceInfos(userResource.getResourceInfosList())
+                .setElectricity(user.getElectricity())
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());
         return resp;
     }
-    
+
     @Override
     public TPacket getResourceInfoByConfigId(Long uid, List<Integer> configIdList)
             throws Exception {
         User user = userDao.get(uid);
         UserResource userResource = UserResource.parseFrom(user.getResource());
-        
+
         List<ResourceInfo> myResourceInfos = new ArrayList<>();
         ResourceInfo.Builder myResourceInfoBuilder = ResourceInfo.newBuilder();
         for (ResourceInfo r : userResource.getResourceInfosList()) {
@@ -55,10 +56,9 @@ public class UserServiceImpl implements UserService {
                 }
             }
         }
-        
+
         TSCGetResourceInfoByConfigId p = TSCGetResourceInfoByConfigId.newBuilder()
-                .addAllResourceInfos(myResourceInfos)
-                .build();
+                .addAllResourceInfos(myResourceInfos).build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());
@@ -67,71 +67,81 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public TPacket getUserState(Long uid) throws Exception {
-        ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap = StaticDataManager.GetInstance().playerAttrMap;
+        ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap =
+                StaticDataManager.GetInstance().playerAttrMap;
         User user = userDao.get(uid);
-        int time4FiveMinute =  (int) ((user.getLogoutTime().getTime() - System.currentTimeMillis())/1000/300);
+        int time4FiveMinute =
+                (int) ((System.currentTimeMillis() - user.getLogoutTime().getTime()) / 1000 / 300);
         Integer mood = user.getMood();
         Integer health = user.getHealth();
-        
+
         PLAYER_ATTR bloodAttr = playerAttrMap.get(11010001);
-        Integer bloodUpLine = (bloodAttr.getLimK1() + health*bloodAttr.getLimK2())/100;
+        Integer bloodUpLine = (bloodAttr.getLimK1() + health * bloodAttr.getLimK2()) / 100;
         PLAYER_ATTR foodAttr = playerAttrMap.get(11020001);
-        Integer foodUpLine = (foodAttr.getLimK1() + health*foodAttr.getLimK2())/100;
+        Integer foodUpLine = (foodAttr.getLimK1() + health * foodAttr.getLimK2()) / 100;
         PLAYER_ATTR waterAttr = playerAttrMap.get(11030001);
-        Integer waterUpLine = (waterAttr.getLimK1() + health*waterAttr.getLimK2())/100;
-        
+        Integer waterUpLine = (waterAttr.getLimK1() + health * waterAttr.getLimK2()) / 100;
+
         Integer food = user.getFood();
         int foodTime4FiveMinute = time4FiveMinute;
         Integer water = user.getWater();
         int waterTime4FiveMinute = time4FiveMinute;
-        
-        int foodChangeRate = mood/foodAttr.getRecK1() - 1;
+
+        int foodChangeRate = mood / foodAttr.getRecK1() - 1;
         if (foodChangeRate < 0) {
             foodChangeRate *= -1;
-            foodTime4FiveMinute = food/foodChangeRate;
+            foodTime4FiveMinute = food / foodChangeRate;
             if (foodTime4FiveMinute > time4FiveMinute) {
-                food -= time4FiveMinute*foodChangeRate;
+                foodTime4FiveMinute =
+                        (int) ((food - foodAttr.getSpcK1() * 1.0 / 100) / foodChangeRate);
+                if (foodTime4FiveMinute > time4FiveMinute) {
+                    foodTime4FiveMinute = time4FiveMinute;
+                }
+
+                food -= time4FiveMinute * foodChangeRate;
             } else {
+                foodTime4FiveMinute =
+                        (int) ((food - foodAttr.getSpcK1() * 1.0 / 100) / foodChangeRate);
                 food = 0;
             }
-            foodTime4FiveMinute = (food - foodAttr.getSpcK2())/foodChangeRate;
-            if (foodTime4FiveMinute > time4FiveMinute) {
-                foodTime4FiveMinute = time4FiveMinute;
-            }
         } else {
-            food += foodChangeRate*time4FiveMinute;
+            food += foodChangeRate * time4FiveMinute;
             if (food > foodUpLine) {
                 food = foodUpLine;
             }
-            user.setFood(food);
         }
-        
-        int waterChangeRate = mood/waterAttr.getRecK1() - 1;
+        user.setFood(food);
+
+        int waterChangeRate = mood / waterAttr.getRecK1() - 1;
         if (waterChangeRate < 0) {
             waterChangeRate *= -1;
-            waterTime4FiveMinute = water/waterChangeRate;
+            waterTime4FiveMinute = water / waterChangeRate;
             if (waterTime4FiveMinute > time4FiveMinute) {
-                water -= time4FiveMinute*waterChangeRate;
+                waterTime4FiveMinute =
+                        (int) ((water - waterAttr.getSpcK1() * 1.0 / 100) / waterChangeRate);
+                if (waterTime4FiveMinute > time4FiveMinute) {
+                    waterTime4FiveMinute = time4FiveMinute;
+                }
+                water -= time4FiveMinute * waterChangeRate;
             } else {
+                waterTime4FiveMinute =
+                        (int) ((water - waterAttr.getSpcK1() * 1.0 / 100) / waterChangeRate);
                 water = 0;
             }
-            waterTime4FiveMinute = (water - waterAttr.getSpcK2())/waterChangeRate;
-            if (waterTime4FiveMinute > time4FiveMinute) {
-                waterTime4FiveMinute = time4FiveMinute;
-            }
         } else {
-            water += waterChangeRate*time4FiveMinute;
+            water += waterChangeRate * time4FiveMinute;
             if (water > waterUpLine) {
                 water = waterUpLine;
             }
-            user.setWater(water);
         }
-        
+        user.setWater(water);
+
         int bloodTime4FiveMinute = Math.min(foodTime4FiveMinute, waterTime4FiveMinute);
-        int bloodChangeRate = 1 + mood/bloodAttr.getRecK1();
-        Integer blood = user.getBlood() + bloodChangeRate*bloodTime4FiveMinute - 
-                (time4FiveMinute - foodTime4FiveMinute)*foodAttr.getSpcK2()/100 - 
-                (time4FiveMinute - waterTime4FiveMinute)*waterAttr.getSpcK2()/100;
+        int bloodChangeRate = 1 + mood / bloodAttr.getRecK1();
+        Integer blood = user.getBlood() + bloodChangeRate * bloodTime4FiveMinute
+                - (int) ((time4FiveMinute - foodTime4FiveMinute) * foodAttr.getSpcK2() * 1.0 / 100)
+                - (int) ((time4FiveMinute - waterTime4FiveMinute) * waterAttr.getSpcK2() * 1.0
+                        / 100);
         if (blood > bloodUpLine) {
             blood = bloodUpLine;
         } else if (blood < 0) {
@@ -139,27 +149,20 @@ public class UserServiceImpl implements UserService {
         }
         user.setBlood(blood);
         userDao.update(user);
-        
+
         // 开启周期任务
         if (!TimerManager.GetInstance().uid2FutureMap.containsKey(uid)) {
             TCSGetUserStateRegular pp = TCSGetUserStateRegular.newBuilder().build();
-            TimerManager.GetInstance().scheduleAtFixedRate(uid, Cmd.GETUSERSTATEREGULAR_VALUE, pp.toByteArray(), 
-                    Constant.REGULAR_SCHEDULE, Constant.REGULAR_SCHEDULE);
+            TimerManager.GetInstance().scheduleAtFixedRate(uid, Cmd.GETUSERSTATEREGULAR_VALUE,
+                    pp.toByteArray(), Constant.REGULAR_SCHEDULE, Constant.REGULAR_SCHEDULE);
         }
-        
-        TSCGetUserState p = TSCGetUserState.newBuilder()
-                .setBlood(user.getBlood())
-                .setFood(user.getFood())
-                .setWater(user.getWater())
-                .setHealth(user.getHealth())
-                .setMood(user.getMood())
-                .setAttack(user.getAttack())
-                .setDefense(user.getDefense())
-                .setAgile(user.getAgile())
-                .setSpeed(user.getSpeed())
-                .setIntellect(user.getIntellect())
-                .setContribution(user.getContribution())
-                .build();
+
+        TSCGetUserState p = TSCGetUserState.newBuilder().setBlood(user.getBlood())
+                .setFood(user.getFood()).setWater(user.getWater()).setHealth(user.getHealth())
+                .setMood(user.getMood()).setAttack(user.getAttack()).setDefense(user.getDefense())
+                .setAgile(user.getAgile()).setSpeed(user.getSpeed())
+                .setIntellect(user.getIntellect()).setContribution(user.getContribution())
+                .setGold(user.getGold()).build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());
@@ -168,23 +171,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public TPacket getUserStateRegular(Long uid) throws Exception {
-        ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap = StaticDataManager.GetInstance().playerAttrMap;
+        ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap =
+                StaticDataManager.GetInstance().playerAttrMap;
         User user = userDao.get(uid);
         Integer mood = user.getMood();
         Integer health = user.getHealth();
-        
+
         PLAYER_ATTR bloodAttr = playerAttrMap.get(11010001);
-        Integer bloodUpLine = (bloodAttr.getLimK1() + health*bloodAttr.getLimK2())/100;
+        Integer bloodUpLine = (bloodAttr.getLimK1() + health * bloodAttr.getLimK2()) / 100;
         PLAYER_ATTR foodAttr = playerAttrMap.get(11020001);
-        Integer foodUpLine = (foodAttr.getLimK1() + health*foodAttr.getLimK2())/100;
+        Integer foodUpLine = (foodAttr.getLimK1() + health * foodAttr.getLimK2()) / 100;
         PLAYER_ATTR waterAttr = playerAttrMap.get(11030001);
-        Integer waterUpLine = (waterAttr.getLimK1() + health*waterAttr.getLimK2())/100;
-        
+        Integer waterUpLine = (waterAttr.getLimK1() + health * waterAttr.getLimK2()) / 100;
+
         Integer food = user.getFood();
         Integer water = user.getWater();
-        
-        int foodChangeRate = mood/foodAttr.getRecK1() - 1;
-        int waterChangeRate = mood/waterAttr.getRecK1() - 1;
+
+        int foodChangeRate = mood / foodAttr.getRecK1() - 1;
+        int waterChangeRate = mood / waterAttr.getRecK1() - 1;
         food += foodChangeRate;
         water += waterChangeRate;
         if (food < 0) {
@@ -199,40 +203,33 @@ public class UserServiceImpl implements UserService {
         }
         user.setFood(food);
         user.setWater(water);
-        
+
         Integer blood = user.getBlood();
-        if (food <= foodAttr.getSpcK1()/100 || water <= waterAttr.getSpcK1()/100) {
-            if (food <= foodAttr.getSpcK1()/100) {
-                blood -= foodAttr.getSpcK2()/100;
+        if (food <= foodAttr.getSpcK1() / 100 || water <= waterAttr.getSpcK1() / 100) {
+            if (food <= foodAttr.getSpcK1() * 1.0 / 100) {
+                blood = (int) (blood - foodAttr.getSpcK2() * 1.0 / 100);
             }
-            if (water <= waterAttr.getSpcK1()/100) {
-                blood -= waterAttr.getSpcK2()/100;
+            if (water <= waterAttr.getSpcK1() * 1.0 / 100) {
+                blood = (int) (blood - waterAttr.getSpcK2() * 1.0 / 100);
             }
             if (blood < 0) {
                 blood = 0;
             }
         } else {
-            blood += 1 + mood/bloodAttr.getRecK1();
-            if (blood > bloodUpLine ) {
+            blood += 1 + mood / bloodAttr.getRecK1();
+            if (blood > bloodUpLine) {
                 blood = bloodUpLine;
             }
         }
         user.setBlood(blood);
         userDao.update(user);
-        
-        TSCGetUserStateRegular p = TSCGetUserStateRegular.newBuilder()
-                .setBlood(user.getBlood())
-                .setFood(user.getFood())
-                .setWater(user.getWater())
-                .setHealth(user.getHealth())
-                .setMood(user.getMood())
-                .setAttack(user.getAttack())
-                .setDefense(user.getDefense())
-                .setAgile(user.getAgile())
-                .setSpeed(user.getSpeed())
-                .setIntellect(user.getIntellect())
-                .setContribution(user.getContribution())
-                .build();
+
+        TSCGetUserStateRegular p = TSCGetUserStateRegular.newBuilder().setBlood(user.getBlood())
+                .setFood(user.getFood()).setWater(user.getWater()).setHealth(user.getHealth())
+                .setMood(user.getMood()).setAttack(user.getAttack()).setDefense(user.getDefense())
+                .setAgile(user.getAgile()).setSpeed(user.getSpeed())
+                .setIntellect(user.getIntellect()).setContribution(user.getContribution())
+                .setGold(user.getGold()).build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());

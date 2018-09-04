@@ -35,11 +35,13 @@ import com.game.framework.protocol.Scene.TSCUnlock;
 import com.game.framework.protocol.Scene.TSCUpgrade;
 import com.game.framework.protocol.User.ResourceInfo;
 import com.game.framework.protocol.User.UserResource;
+import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.resource.StaticDataManager;
 import com.game.framework.resource.data.BuildingBytes.BUILDING;
 import com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct;
 import com.game.framework.task.TimerManager;
 import com.game.framework.utils.BuildingUtil;
+import com.game.framework.utils.GroupUtil;
 import com.game.framework.utils.ReadOnlyMap;
 
 public class SceneServiceImpl implements SceneService {
@@ -283,8 +285,10 @@ public class SceneServiceImpl implements SceneService {
                         userDao.update(user);
                         
                         // 增加公司的总贡献
-                        group.setTotalContribution(totalContribution + addContribution);
+                        totalContribution += addContribution;
+                        group.setTotalContribution(totalContribution);
                         groupDao.update(group);
+                        DynamicDataManager.GetInstance().groupId2Level.put(groupId, GroupUtil.getGroupLevel(totalContribution));
                         
                         // 更新建筑升级状态
                         String timerKey = TimerConstant.UPGRADE + buildingId;
@@ -390,7 +394,8 @@ public class SceneServiceImpl implements SceneService {
         Long buildingId = 0L;
         
         User user = userDao.get(uid);
-        Group group = groupDao.get(user.getGroupId());
+        Long groupId = user.getGroupId();
+        Group group = groupDao.get(groupId);
         // 公司实力是否满足
         List<Building> buildings = buildingDao.getAllByGroupId(user.getGroupId());
         ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
@@ -450,8 +455,10 @@ public class SceneServiceImpl implements SceneService {
                     userDao.update(user);
                     
                     // 增加公司的总贡献
-                    group.setTotalContribution(totalContribution + addContribution);
+                    totalContribution += addContribution;
+                    group.setTotalContribution(totalContribution);
                     groupDao.update(group);
+                    DynamicDataManager.GetInstance().groupId2Level.put(groupId, GroupUtil.getGroupLevel(totalContribution));
                     
                     // 更新建筑升级状态
                     String timerKey = TimerConstant.UNLOCK + buildingId;
@@ -558,50 +565,41 @@ public class SceneServiceImpl implements SceneService {
         if (!building.getGroupId().equals(groupId)) {
             throw new BaseException(Error.RIGHT_HANDLE_VALUE);
         }
-        // 计算可用仓库容量
-        Group group = groupDao.get(groupId);
-        Building storehouse = buildingDao.get(group.getStorehouseId());
-        ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
-        Integer productionConfigId = buildingMap.get(building.getConfigId()).getProId();
-        Integer storehouseTableId = buildingMap.get(storehouse.getConfigId()).getBldgFuncTableId();
-        Integer storehouseCapacity = StaticDataManager.GetInstance().cangkuMap.get(storehouseTableId).getCangkuCap();
+        
+        Integer productionConfigId = 0;
         Integer number = 0;
         Integer leftNumber = 0;
-        int resourceIndex = -1;
-        UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
-        for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
-            ResourceInfo r = userResourceBuilder.getResourceInfos(i);
-            if (productionConfigId.equals(r.getConfigId())) {
-                resourceIndex = i;
-            }
-            number += r.getNumber();
-        }
-        storehouseCapacity -= number;
-        // 仓库还有容量
-        if (storehouseCapacity > 0) {
-            // 计算原有资源数量和时间差
-            Long lastReceiveTime = 0L;
-            Long thisTime = System.currentTimeMillis();
-            int stateIndex = -1;
-            BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
-            ReceiveInfo.Builder receiveInfoBuilder = null;
-            for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
-                receiveInfoBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
-                if (uid.equals(receiveInfoBuilder.getUid())) {
-                    stateIndex = i;
-                    lastReceiveTime = receiveInfoBuilder.getLastReceiveTime();
-                    leftNumber = receiveInfoBuilder.getNumber();
-                    break;
+        Long thisTime = System.currentTimeMillis();
+        Long lastReceiveTime = 0L;
+        Group group = groupDao.get(groupId);
+        ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+        if (buildingId/10000 == 11108) {    // 风力发电机
+            // 电池可用容量
+            Building battery = buildingDao.get(group.getBatteryId());
+            Integer batteryTableId = buildingMap.get(battery.getConfigId()).getBldgFuncTableId();
+            Integer batteryCapacity = StaticDataManager.GetInstance().dianchizuMap.get(batteryTableId).getDianchizuCap();
+            batteryCapacity -= user.getElectricity();
+            // 电池还有容量
+            if (batteryCapacity > 0) {
+                // 计算原有资源数量和时间差
+                int stateIndex = -1;
+                BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
+                ReceiveInfo.Builder receiveInfoBuilder = null;
+                for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
+                    receiveInfoBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
+                    if (uid.equals(receiveInfoBuilder.getUid())) {
+                        stateIndex = i;
+                        lastReceiveTime = receiveInfoBuilder.getLastReceiveTime();
+                        leftNumber = receiveInfoBuilder.getNumber();
+                        break;
+                    }
                 }
-            }
-            if (stateIndex == -1) {
-                throw new BaseException(Error.SERVER_ERR_VALUE);
-            }
-            
-            if (BuildingUtil.isReceiveBuilding(building)) {
-                Long time = thisTime - lastReceiveTime;
+                if (stateIndex == -1) {
+                    throw new BaseException(Error.SERVER_ERR_VALUE);
+                }
                 
                 // 计算新增资源数量
+                Long time = thisTime - lastReceiveTime;
                 String tableName = buildingMap.get(building.getConfigId()).getBldgFuncTableName();
                 Integer tableId = buildingMap.get(building.getConfigId()).getBldgFuncTableId();
                 Integer speed = BuildingUtil.getSpeed(tableName, tableId);
@@ -616,9 +614,9 @@ public class SceneServiceImpl implements SceneService {
                 
                 // 计算多余的资源数量和仓库能装的资源
                 leftNumber = 0;
-                if (number > storehouseCapacity) {
-                    leftNumber = number - storehouseCapacity;
-                    number = storehouseCapacity;
+                if (number > batteryCapacity) {
+                    leftNumber = number - batteryCapacity;
+                    number = batteryCapacity;
                 }
                 
                 // 更新生产类建筑状态
@@ -627,45 +625,116 @@ public class SceneServiceImpl implements SceneService {
                 
                 building.setState(buildingStateBuilder.build().toByteArray());
                 buildingDao.update(building);
-            } else if (BuildingUtil.isProcessBuilding(building)) {
-                ProcessInfo.Builder processInfoBuilder = buildingStateBuilder.getProcessInfoBuilder();
-                Long time = thisTime - processInfoBuilder.getStartTime();
-                if (thisTime < processInfoBuilder.getEndTime()) {
-                    throw new BaseException(Error.TIME_ERR_VALUE);
-                }
                 
-                // 计算多余的资源数量和仓库能装的资源
-                leftNumber = 0;
-                number = receiveInfoBuilder.getNumber();
-                if (number > storehouseCapacity) {
-                    leftNumber = number - storehouseCapacity;
-                    number = storehouseCapacity;
-                }
-                
-                // 更新加工建筑状态
-                receiveInfoBuilder.setNumber(leftNumber);
-                buildingStateBuilder.setReceiveInfos(stateIndex, receiveInfoBuilder);
-                
-                building.setState(buildingStateBuilder.build().toByteArray());
-                buildingDao.update(building);
-            }
-            
-            // 更新仓库资源
-            ResourceInfo.Builder resourceInfoBuilder;
-            if (resourceIndex != -1) {
-                resourceInfoBuilder = userResourceBuilder.getResourceInfosBuilder(resourceIndex);
-                resourceInfoBuilder.setNumber(number + resourceInfoBuilder.getNumber());
-                userResourceBuilder.setResourceInfos(resourceIndex, resourceInfoBuilder);
+                // 更新电池状态
+                user.setElectricity(number + user.getElectricity());
+                userDao.update(user);
             } else {
-                resourceInfoBuilder = ResourceInfo.newBuilder()
-                        .setConfigId(productionConfigId)
-                        .setNumber(number);
-                userResourceBuilder.addResourceInfos(resourceInfoBuilder);
+                throw new BaseException(Error.NO_MORE_CAPACITY_VALUE);
             }
-            user.setResource(userResourceBuilder.build().toByteArray());
-            userDao.update(user);
         } else {
-            throw new BaseException(Error.NO_MORE_CAPACITY_VALUE);
+            // 仓库可用容量
+            Building storehouse = buildingDao.get(group.getStorehouseId());
+            productionConfigId = buildingMap.get(building.getConfigId()).getProId();
+            Integer storehouseTableId = buildingMap.get(storehouse.getConfigId()).getBldgFuncTableId();
+            Integer storehouseCapacity = StaticDataManager.GetInstance().cangkuMap.get(storehouseTableId).getCangkuCap();
+            int resourceIndex = -1;
+            UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
+            for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
+                ResourceInfo r = userResourceBuilder.getResourceInfos(i);
+                if (productionConfigId.equals(r.getConfigId())) {
+                    resourceIndex = i;
+                }
+                number += r.getNumber();
+            }
+            storehouseCapacity -= number;
+            // 仓库还有容量
+            if (storehouseCapacity > 0) {
+                // 计算原有资源数量和时间差
+                int stateIndex = -1;
+                BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
+                ReceiveInfo.Builder receiveInfoBuilder = null;
+                for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
+                    receiveInfoBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
+                    if (uid.equals(receiveInfoBuilder.getUid())) {
+                        stateIndex = i;
+                        lastReceiveTime = receiveInfoBuilder.getLastReceiveTime();
+                        leftNumber = receiveInfoBuilder.getNumber();
+                        break;
+                    }
+                }
+                if (stateIndex == -1) {
+                    throw new BaseException(Error.SERVER_ERR_VALUE);
+                }
+                
+                if (BuildingUtil.isReceiveBuilding(building)) {
+                    // 计算新增资源数量
+                    Long time = thisTime - lastReceiveTime;
+                    String tableName = buildingMap.get(building.getConfigId()).getBldgFuncTableName();
+                    Integer tableId = buildingMap.get(building.getConfigId()).getBldgFuncTableId();
+                    Integer speed = BuildingUtil.getSpeed(tableName, tableId);
+                    Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
+                    double peopleNumber = group.getPeopleNumber();
+                    double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
+                    number = (int) (time*speed*stake/1000/3600) + leftNumber;
+                    capacity = (int) (capacity*stake);
+                    if (number > capacity) {
+                        number = capacity;
+                    }
+                    
+                    // 计算多余的资源数量和仓库能装的资源
+                    leftNumber = 0;
+                    if (number > storehouseCapacity) {
+                        leftNumber = number - storehouseCapacity;
+                        number = storehouseCapacity;
+                    }
+                    
+                    // 更新生产类建筑状态
+                    receiveInfoBuilder.setLastReceiveTime(thisTime).setNumber(leftNumber);
+                    buildingStateBuilder.setReceiveInfos(stateIndex, receiveInfoBuilder);
+                    
+                    building.setState(buildingStateBuilder.build().toByteArray());
+                    buildingDao.update(building);
+                } else if (BuildingUtil.isProcessBuilding(building)) {
+                    ProcessInfo.Builder processInfoBuilder = buildingStateBuilder.getProcessInfoBuilder();
+                    Long time = thisTime - processInfoBuilder.getStartTime();
+                    if (thisTime < processInfoBuilder.getEndTime()) {
+                        throw new BaseException(Error.TIME_ERR_VALUE);
+                    }
+                    
+                    // 计算多余的资源数量和仓库能装的资源
+                    leftNumber = 0;
+                    number = receiveInfoBuilder.getNumber();
+                    if (number > storehouseCapacity) {
+                        leftNumber = number - storehouseCapacity;
+                        number = storehouseCapacity;
+                    }
+                    
+                    // 更新加工建筑状态
+                    receiveInfoBuilder.setNumber(leftNumber);
+                    buildingStateBuilder.setReceiveInfos(stateIndex, receiveInfoBuilder);
+                    
+                    building.setState(buildingStateBuilder.build().toByteArray());
+                    buildingDao.update(building);
+                }
+                
+                // 更新仓库资源
+                ResourceInfo.Builder resourceInfoBuilder;
+                if (resourceIndex != -1) {
+                    resourceInfoBuilder = userResourceBuilder.getResourceInfosBuilder(resourceIndex);
+                    resourceInfoBuilder.setNumber(number + resourceInfoBuilder.getNumber());
+                    userResourceBuilder.setResourceInfos(resourceIndex, resourceInfoBuilder);
+                } else {
+                    resourceInfoBuilder = ResourceInfo.newBuilder()
+                            .setConfigId(productionConfigId)
+                            .setNumber(number);
+                    userResourceBuilder.addResourceInfos(resourceInfoBuilder);
+                }
+                user.setResource(userResourceBuilder.build().toByteArray());
+                userDao.update(user);
+            } else {
+                throw new BaseException(Error.NO_MORE_CAPACITY_VALUE);
+            }
         }
         
         TSCReceive p = TSCReceive.newBuilder()

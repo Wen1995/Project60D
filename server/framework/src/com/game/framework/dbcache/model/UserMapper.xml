@@ -18,6 +18,7 @@
     <result column="agile" property="agile" jdbcType="INTEGER" />
     <result column="speed" property="speed" jdbcType="INTEGER" />
     <result column="intellect" property="intellect" jdbcType="INTEGER" />
+    <result column="electricity" property="electricity" jdbcType="INTEGER" />
     <result column="production" property="production" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="logout_time" property="logoutTime" jdbcType="TIMESTAMP" />
@@ -85,7 +86,8 @@
   </sql>
   <sql id="Base_Column_List" >
     id, account, password, group_id, contribution, gold, blood, food, water, health, 
-    mood, attack, defense, agile, speed, intellect, production, create_time, logout_time
+    mood, attack, defense, agile, speed, intellect, electricity, production, create_time, 
+    logout_time
   </sql>
   <sql id="Blob_Column_List" >
     resource
@@ -144,15 +146,17 @@
       blood, food, water, 
       health, mood, attack, 
       defense, agile, speed, 
-      intellect, production, create_time, 
-      logout_time, resource)
+      intellect, electricity, production, 
+      create_time, logout_time, resource
+      )
     values (#{id,jdbcType=BIGINT}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{groupId,jdbcType=BIGINT}, #{contribution,jdbcType=INTEGER}, #{gold,jdbcType=INTEGER}, 
       #{blood,jdbcType=INTEGER}, #{food,jdbcType=INTEGER}, #{water,jdbcType=INTEGER}, 
       #{health,jdbcType=INTEGER}, #{mood,jdbcType=INTEGER}, #{attack,jdbcType=INTEGER}, 
       #{defense,jdbcType=INTEGER}, #{agile,jdbcType=INTEGER}, #{speed,jdbcType=INTEGER}, 
-      #{intellect,jdbcType=INTEGER}, #{production,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{logoutTime,jdbcType=TIMESTAMP}, #{resource,jdbcType=LONGVARBINARY})
+      #{intellect,jdbcType=INTEGER}, #{electricity,jdbcType=INTEGER}, #{production,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{logoutTime,jdbcType=TIMESTAMP}, #{resource,jdbcType=LONGVARBINARY}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.game.framework.dbcache.model.User" >
     insert into t_user
@@ -204,6 +208,9 @@
       </if>
       <if test="intellect != null" >
         intellect,
+      </if>
+      <if test="electricity != null" >
+        electricity,
       </if>
       <if test="production != null" >
         production,
@@ -266,6 +273,9 @@
       </if>
       <if test="intellect != null" >
         #{intellect,jdbcType=INTEGER},
+      </if>
+      <if test="electricity != null" >
+        #{electricity,jdbcType=INTEGER},
       </if>
       <if test="production != null" >
         #{production,jdbcType=INTEGER},
@@ -338,6 +348,9 @@
       <if test="record.intellect != null" >
         intellect = #{record.intellect,jdbcType=INTEGER},
       </if>
+      <if test="record.electricity != null" >
+        electricity = #{record.electricity,jdbcType=INTEGER},
+      </if>
       <if test="record.production != null" >
         production = #{record.production,jdbcType=INTEGER},
       </if>
@@ -373,6 +386,7 @@
       agile = #{record.agile,jdbcType=INTEGER},
       speed = #{record.speed,jdbcType=INTEGER},
       intellect = #{record.intellect,jdbcType=INTEGER},
+      electricity = #{record.electricity,jdbcType=INTEGER},
       production = #{record.production,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       logout_time = #{record.logoutTime,jdbcType=TIMESTAMP},
@@ -399,6 +413,7 @@
       agile = #{record.agile,jdbcType=INTEGER},
       speed = #{record.speed,jdbcType=INTEGER},
       intellect = #{record.intellect,jdbcType=INTEGER},
+      electricity = #{record.electricity,jdbcType=INTEGER},
       production = #{record.production,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       logout_time = #{record.logoutTime,jdbcType=TIMESTAMP}
@@ -454,6 +469,9 @@
       <if test="intellect != null" >
         intellect = #{intellect,jdbcType=INTEGER},
       </if>
+      <if test="electricity != null" >
+        electricity = #{electricity,jdbcType=INTEGER},
+      </if>
       <if test="production != null" >
         production = #{production,jdbcType=INTEGER},
       </if>
@@ -486,6 +504,7 @@
       agile = #{agile,jdbcType=INTEGER},
       speed = #{speed,jdbcType=INTEGER},
       intellect = #{intellect,jdbcType=INTEGER},
+      electricity = #{electricity,jdbcType=INTEGER},
       production = #{production,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       logout_time = #{logoutTime,jdbcType=TIMESTAMP},
@@ -509,6 +528,7 @@
       agile = #{agile,jdbcType=INTEGER},
       speed = #{speed,jdbcType=INTEGER},
       intellect = #{intellect,jdbcType=INTEGER},
+      electricity = #{electricity,jdbcType=INTEGER},
       production = #{production,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       logout_time = #{logoutTime,jdbcType=TIMESTAMP}

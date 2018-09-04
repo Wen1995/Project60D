@@ -37,28 +37,29 @@ public class RoomServiceImpl implements RoomService {
     
     @Override
     public TPacket createGroup(Long uid) throws Exception {
-        Long id = IdManager.GetInstance().genId(IdType.GROUP);
-        Long buildingId = IdManager.GetInstance().genId(IdType.BUILDING);
+        Long groupId = IdManager.GetInstance().genId(IdType.GROUP);
+        Long storehouseId = IdManager.GetInstance().genId(IdType.BUILDING);
+        Long batteryId = IdManager.GetInstance().genId(IdType.BUILDING);
         
         Group group = new Group();
-        group.setId(id);
+        group.setId(groupId);
         group.setPeopleNumber(1);
         group.setTotalContribution(0);
-        group.setStorehouseId(buildingId);
+        group.setStorehouseId(storehouseId);
         group.setInvadeTime(new Date(System.currentTimeMillis()));
         groupDao.insert(group);
         
         User user = userDao.get(uid);
-        user.setGroupId(id);
+        user.setGroupId(groupId);
         
         initUserState(user);
-        userDao.bindWithGroupId(uid, id);
+        userDao.bindWithGroupId(uid, groupId);
         userDao.update(user);
         
         // 创建仓库
         Building building = new Building();
-        building.setId(buildingId);
-        building.setGroupId(user.getGroupId());
+        building.setId(storehouseId);
+        building.setGroupId(groupId);
         building.setPositionX(0);
         building.setPositionY(0);
         building.setConfigId(113030001);    // 仓库ID
@@ -72,8 +73,25 @@ public class RoomServiceImpl implements RoomService {
         building.setState(buildingState.toByteArray());
         buildingDao.insertByGroupId(building);
         
+        // 创建电池
+        building = new Building();
+        building.setId(batteryId);
+        building.setGroupId(groupId);
+        building.setPositionX(0);
+        building.setPositionY(0);
+        building.setConfigId(113040001);    // 电池ID
+        upgradeInfo = UpgradeInfo.newBuilder()
+                .setUid(uid)
+                .setFinishTime(0)
+                .build();
+        buildingState = BuildingState.newBuilder()
+                .setUpgradeInfo(upgradeInfo)
+                .build();
+        building.setState(buildingState.toByteArray());
+        buildingDao.insertByGroupId(building);
+        
         TSCCreateGroup p = TSCCreateGroup.newBuilder()
-                .setGroupId(id)
+                .setGroupId(groupId)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
@@ -189,5 +207,4 @@ public class RoomServiceImpl implements RoomService {
         resp.setBuffer(p.toByteArray());
         return resp;
     }
-
 }

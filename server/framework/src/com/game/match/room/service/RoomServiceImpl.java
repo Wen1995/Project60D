@@ -53,8 +53,8 @@ public class RoomServiceImpl implements RoomService {
         user.setGroupId(groupId);
         
         initUserState(user);
-        userDao.bindWithGroupId(uid, groupId);
         userDao.update(user);
+        userDao.bindWithGroupId(uid, groupId);
         
         // 创建仓库
         Building building = new Building();
@@ -116,8 +116,8 @@ public class RoomServiceImpl implements RoomService {
                 user.setGroupId(groupId);
                 
                 initUserState(user);
-                userDao.bindWithGroupId(uid, groupId);
                 userDao.update(user);
+                userDao.bindWithGroupId(uid, groupId);
                 
                 List<Building> buildings = buildingDao.getAllByGroupId(groupId);
                 BuildingState.Builder buildingStateBuilder;
@@ -163,6 +163,10 @@ public class RoomServiceImpl implements RoomService {
         user.setWater(playerAttrMap.get(11030001).getBeginNum());
         user.setHealth(playerAttrMap.get(10010001).getBeginNum());
         user.setMood(playerAttrMap.get(10020001).getBeginNum());
+        // TODO
+        user.setElectricity(1000);
+        user.setGold(100);
+        
         PLAYER_ATTR attackAttr = playerAttrMap.get(12010001);
         user.setAttack(attackAttr.getBeginNum() + user.getHealth()*100/attackAttr.getAttrK1());
         PLAYER_ATTR defenseAttr = playerAttrMap.get(12020001);

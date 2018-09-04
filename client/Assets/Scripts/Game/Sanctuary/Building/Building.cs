@@ -56,8 +56,8 @@ public class Building : Controller {
 
     void InitView(NDictionary data = null)
     {
-        ReloadModel();
         RefreshView();
+        ReloadModel();
     }
 
     public void RefreshView(NDictionary data = null)
@@ -134,15 +134,16 @@ public class Building : Controller {
         BUILDING configData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
         string prefabName = configData.PrefabName;
         prefabName = prefabName.Substring(0, prefabName.IndexOf("."));
-        print("prefabName = " + prefabName);
         GameObject prefab = Resources.Load<GameObject>("Prefabs/Building/model/" + prefabName);
         if(prefab == null)
          return;
         if(buildingGo != null)
             DestroyImmediate(buildingGo);
         buildingGo = Instantiate(prefab);
+        buildingGo.transform.name = "building";
         buildingGo.transform.parent = transform;
         buildingGo.transform.localPosition = Vector3.zero;
+        buildingGo.transform.localRotation = Quaternion.identity;
     }
 
     public void SetBuildingID(long buildingID)

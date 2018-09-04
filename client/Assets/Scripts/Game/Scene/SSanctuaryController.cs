@@ -41,6 +41,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UIInvadeResultPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIBuildingUpgradePanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIWorldEventPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UIBuildingUnlockPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
@@ -114,16 +115,14 @@ public class SSanctuaryController : SceneController
         }
         userPackage.SetTotalContribution(sceneInfo.TotalContribution);
         userPackage.SetManorNumber(sceneInfo.PeopleNum);
+        SendEvent("RefreshManorLevel");
         SendEvent("RefreshBuildingView");
     }
 
     void OnGetResourceInfo(NetMsgDef msg)
     {
-        //print("Get Resource Info, item Count=");
         TSCGetResourceInfo resInfos = TSCGetResourceInfo.ParseFrom(msg.mBtsData);
-
-        for(int i=0;i<resInfos.ResourceInfosCount;i++)
-            itemPackage.AddItem(resInfos.GetResourceInfos(i));
+        itemPackage.SetResourceInfo(resInfos);
         SendEvent("RefreshUserState");
     }
 
@@ -131,16 +130,17 @@ public class SSanctuaryController : SceneController
     {
         //print("get user state");
         TSCGetUserState userState = TSCGetUserState.ParseFrom(msg.mBtsData);
-        userPackage.SetPlayerState(userState);
+        userPackage.SetPlayerState(userState);  
+        itemPackage.SetGoldNum(userState.Gold);
         BuildSanctuary();
         //SendEvent("RefreshUserState"); 
     }
 
     void OnGetUserStateRegular(NetMsgDef msg)
     {
-        //print("User State Refresh");
         TSCGetUserStateRegular userState = TSCGetUserStateRegular.ParseFrom(msg.mBtsData);
         userPackage.SetPlayerState(userState);
+        itemPackage.SetGoldNum(userState.Gold);
         SendEvent("RefreshUserState");
     }
 

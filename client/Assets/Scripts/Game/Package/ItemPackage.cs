@@ -47,12 +47,25 @@ public enum ItemSortType
     Book =      0x1 << 7,
 }
 
+public struct ItemEffect
+{
+    public string name;
+    public string value;
+    public ItemEffect(string name, string value)
+    {
+        this.name = name;
+        this.value = value;
+    }
+}
+
 public class ItemPackage : ModelBase
 {
     Dictionary<int, NItemInfo> mItemInfoMap = new Dictionary<int, NItemInfo>();
     List<NItemInfo> mItemFilterInfoList = new List<NItemInfo>();
-
+    List<ItemEffect> mItemEffectList = new List<ItemEffect>();
     NItemInfo selectionItem = null;
+    private int elecNum;
+    private int goldNum;
     public ITEM_RES GetItemDataByConfigID(int configID)
     {
         var itemConfigTable = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
@@ -95,14 +108,12 @@ public class ItemPackage : ModelBase
 
     public int GetGoldNumber()
     {
-        //TODO
-        return 0;
+        return goldNum;
     }
 
     public int GetElecNumber()
     {
-        //TODO
-        return 0;
+        return elecNum;
     }
 
     //can item be used directly
@@ -110,6 +121,41 @@ public class ItemPackage : ModelBase
     {
         //TODO
         return true;
+    }
+
+    public void CalculateItemEffect(int configID)
+    {
+        var dataMap = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
+        ITEM_RES configData = dataMap[configID] as ITEM_RES;
+        if(configData == null || configData.IfAvailable != 1)
+            return;
+        mItemEffectList.Clear();
+        ItemType type = GetItemTypeByConfigID(configID);
+        if(configData.HasHpRec)
+        {
+            mItemEffectList.Add(new ItemEffect("回复血量", configData.HpRec.ToString()));
+        }
+        if(configData.HasStarvRec)
+        {
+            mItemEffectList.Add(new ItemEffect("回复饥饿", configData.StarvRec.ToString()));
+        }
+        if(configData.HasWaterRec)
+        {
+            mItemEffectList.Add(new ItemEffect("回复口渴", configData.WaterRec.ToString()));
+        }
+        if(configData.HasHealthRec)
+        {
+            mItemEffectList.Add(new ItemEffect("回复健康", configData.HealthRec.ToString()));
+        }
+        if(configData.HasMoodRec)
+        {
+            mItemEffectList.Add(new ItemEffect("回复心情", configData.MoodRec.ToString()));
+        }
+    }
+
+    public List<ItemEffect> GetItemEffectList()
+    {
+        return mItemEffectList;
     }
 
     
@@ -163,6 +209,17 @@ public class ItemPackage : ModelBase
         selectionItem = info;
     }
 
+    public void SetResourceInfo(TSCGetResourceInfo msg)
+    {
+        for(int i=0;i<msg.ResourceInfosCount;i++)
+            AddItem(msg.GetResourceInfos(i));
+        elecNum = msg.Electricity;
+    }
+
+    public void SetGoldNum(int number)
+    {
+        goldNum = number;
+    }
     #endregion
 
     public override void Release()

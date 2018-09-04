@@ -35,6 +35,7 @@ public class UIPlayerMenuPanel : PanelBase {
 		UIButton button = transform.Find("player").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnPlayerInfo));
 		RegisterEvent("RefreshUserState", RefreshUserState);
+		RegisterEvent("RefreshPlayerLevel", RefreshPlayerLevel);
 	}
 
 	public override void OpenPanel()
@@ -64,7 +65,11 @@ public class UIPlayerMenuPanel : PanelBase {
 		healthProgressBar.value = (float)playerState.blood / (float)(20 + 2 * playerState.health);
 		hungerProgressBar.value = (float)playerState.hunger / (float)(20 + 2 * playerState.health);
 		thirstProgressBar.value = (float)playerState.thirst / (float)(20 + 2 * playerState.health);
-		expProgressBar.value = 0.4f;
+		RefreshPlayerLevel();
+	}
+
+	void RefreshPlayerLevel(NDictionary data = null)
+	{
 		float progres = 0f;
 		levelLabel.text = string.Format("Lv.{0}", userPackage.GetPlayerLevel(out progres).ToString());
 		expProgressBar.value = progres;

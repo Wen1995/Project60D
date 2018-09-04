@@ -38,6 +38,7 @@ public class UIManorMenuPanel : PanelBase {
 
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETMESSAGETAG, OnGetMessgeTag);
 		FacadeSingleton.Instance.RegisterEvent("RefreshMailTag", RefreshMailTag);
+		FacadeSingleton.Instance.RegisterEvent("RefreshManorLevel", InitView);
 	}
 
 	public override void OpenPanel()
@@ -52,7 +53,7 @@ public class UIManorMenuPanel : PanelBase {
 		base.ClosePanel();
 	}
 
-	void InitView()
+	void InitView(NDictionary data = null)
 	{
 		invadeProgress.value = 0;
 		manorExpProgress.value = 0;

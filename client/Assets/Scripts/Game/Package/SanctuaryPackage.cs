@@ -85,12 +85,20 @@ public class UpgradeEffect
     public string nextNum;
 }
 
+public class NCostDef
+{
+    public int configID;            //1: level, 2:gold 3:elec
+    public int value;
+}
+
 public class SanctuaryPackage : ModelBase {
     Dictionary<long, NBuildingInfo> mBuildingInfoMap = new Dictionary<long, NBuildingInfo>();
+    Dictionary<BuildingType, NBuildingInfo> mBuildingType2IDMap = new Dictionary<BuildingType, NBuildingInfo>();
     List<BuildingAttributeData> attributeDataList = null;
     private Building selectionBuilding = null;
 
     List<UpgradeEffect> upgradeEffectList = new List<UpgradeEffect>();
+    List<NCostDef> buildingCostList = new List<NCostDef>();
 
     public BuildingType GetBuildingTypeByConfigID(int configID)
     {
@@ -159,6 +167,61 @@ public class SanctuaryPackage : ModelBase {
         info.building.RefreshView();
     }
 
+    public int GetStoreHouseCap()
+    {
+        if(!mBuildingType2IDMap.ContainsKey(BuildingType.StoreHouse))
+        {
+            Debug.Log("storehouse not exist, there must be something wrong with server");
+            return 0;
+        }
+        NBuildingInfo info = mBuildingType2IDMap[BuildingType.StoreHouse];
+        var dataMap = ConfigDataStatic.GetConfigDataTable("CANGKU");
+        CANGKU configData = dataMap[GetBulidingLevelByConfigID(info.configID)] as CANGKU;
+        return configData.CangkuCap;
+    }
+
+    public void CalculateBuildingCost(int configID)
+    {
+        BUILDING configData = GetBuildingConfigDataByConfigID(configID);
+        if(configData == null) return;
+        buildingCostList.Clear();
+        //level, gold, elec
+        NCostDef cost = new NCostDef();
+        cost.configID = 1;
+        cost.value = configData.BldgLvLim;
+        buildingCostList.Add(cost);
+        if(configData.GoldCost > 0)
+        {
+            cost = new NCostDef();
+            cost.configID = 2;
+            cost.value = configData.GoldCost;
+            buildingCostList.Add(cost);
+        }
+        if(configData.ElecCost > 0)
+        {
+            cost = new NCostDef();
+            cost.configID = 3;
+            cost.value = configData.ElecCost;
+            buildingCostList.Add(cost);
+        }
+        //res cost
+        ItemPackage itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
+        for(int i=0;i<configData.CostTableCount;i++)
+        {
+            cost = new NCostDef();
+            int itemConfigID = configData.GetCostTable(i).CostId;
+            int num = configData.GetCostTable(i).CostQty;
+            cost.configID = itemConfigID;
+            cost.value = num;
+            buildingCostList.Add(cost);
+        }
+    }
+    
+    public List<NCostDef> GetBuildingCostList()
+    {
+        return buildingCostList;
+    }
+
     #region Acess Data
     public Building GetSelectionBuilding()
     {
@@ -205,6 +268,7 @@ public class SanctuaryPackage : ModelBase {
         }
         info.building.SetBuildingID(info.buildingID);
         mBuildingInfoMap[info.buildingID] = info;
+        mBuildingType2IDMap[GetBuildingTypeByConfigID(info.configID)] = info;
     }
 
     public void UnlockBuilding(long buildingID, Building building, long finishTime)

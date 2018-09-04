@@ -8,7 +8,7 @@ public class NListCell : MonoBehaviour {
 
 	List<NListCellItem> mItemList = new List<NListCellItem>();
 
-	void Awake()
+	protected virtual void Awake()
 	{
 		NListCellItem[] itemList = transform.GetComponentsInChildren<NListCellItem>();
 		foreach(NListCellItem item in itemList)

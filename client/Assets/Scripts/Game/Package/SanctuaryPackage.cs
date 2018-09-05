@@ -327,8 +327,8 @@ public class SanctuaryPackage : ModelBase {
             Debug.Log(string.Format("buidingID={0} not exist"));
             return;
         }
-        // info.number = 0;
-        // info.building.RefreshView();
+         info.number = 0;
+         info.building.RefreshView();
     }
 
     public void CancelCraft(long buildingID)

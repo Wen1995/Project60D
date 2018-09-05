@@ -8,6 +8,8 @@ public class UIBuildingInteractionPanel : PanelBase{
     private Building selectBuilding = null;
     private SanctuaryPackage sanctuaryPackage = null;
 
+    bool isOpen = false;
+
     UIGrid grid;
     UIButton infoBtn = null;
     UIButton upgradeBtn = null;
@@ -15,13 +17,14 @@ public class UIBuildingInteractionPanel : PanelBase{
     UIButton unlockBtn = null;
     UIButton craftBtn = null;
     UILabel nameLabel = null;
+
     protected override void Awake()
     {
         base.Awake();
         grid = transform.Find("group").GetComponent<UIGrid>();
         //bind event
-        UIButton button = transform.Find("bkgnd").GetComponent<UIButton>();
-        button.onClick.Add(new EventDelegate(OnClose));
+        // UIButton button = transform.Find("bkgnd").GetComponent<UIButton>();
+        // button.onClick.Add(new EventDelegate(OnClose));
         infoBtn = transform.Find("group/01info").GetComponent<UIButton>();
         infoBtn.onClick.Add(new EventDelegate(OnInfo));
         upgradeBtn = transform.Find("group/02upgrade").GetComponent<UIButton>();
@@ -35,11 +38,13 @@ public class UIBuildingInteractionPanel : PanelBase{
         nameLabel = transform.Find("namelabel").GetComponent<UILabel>();
 
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
+        FacadeSingleton.Instance.RegisterEvent("CloseInteraction", Close);
     }
 
     public override void OpenPanel()
     {
         base.OpenPanel();
+        isOpen = true;
         SendEvent("HideMenu");
         selectBuilding = sanctuaryPackage.GetSelectionBuilding();
         InitView();
@@ -48,6 +53,7 @@ public class UIBuildingInteractionPanel : PanelBase{
     public override void ClosePanel()
     {
         base.ClosePanel();
+        isOpen = false;
         SendEvent("ShowMenu");
     }
 
@@ -128,9 +134,10 @@ public class UIBuildingInteractionPanel : PanelBase{
         craftBtn.gameObject.SetActive(false);
     }
 
-    void OnClose()
+    void Close(NDictionary data = null)
     {
-        FacadeSingleton.Instance.BackPanel();
+        if(isOpen)
+            FacadeSingleton.Instance.BackPanel();
     }
 
     void OnInfo()

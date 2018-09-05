@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33081684858732736}
   - component: {fileID: 23789757418803542}
   - component: {fileID: 95464844375673910}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Barrel5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33113528537017812}
   - component: {fileID: 23244550925623580}
   - component: {fileID: 95736250968310646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Barrel5 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 33119693195278270}
   - component: {fileID: 23645623998571346}
   - component: {fileID: 95758806913453930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Barrel5 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 33820781837687106}
   - component: {fileID: 23590691677726440}
   - component: {fileID: 95259054217676206}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Barrel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,6 +91,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4265164647587988}
+  - component: {fileID: 65324155458104914}
   m_Layer: 9
   m_Name: fertilizer3
   m_TagString: Untagged
@@ -105,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853792193816090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.1, y: 0, z: 5.22}
+  m_LocalPosition: {x: 0.62250185, y: 0, z: 1.8225002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4265164647587988}
@@ -118,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1918647438895288}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.00000004371139}
-  m_LocalPosition: {x: 8.65, y: 0, z: 0}
+  m_LocalPosition: {x: 2.1725016, y: 0, z: -3.3974996}
   m_LocalScale: {x: 4.8, y: 4.8, z: 4.8}
   m_Children: []
   m_Father: {fileID: 4265164647587988}
@@ -131,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919288328054864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.477498, y: 0, z: 3.3974996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4219469449870880}
@@ -148,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1885022942397150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.079997, y: 0, z: 5.129999}
+  m_LocalPosition: {x: -1.397501, y: 0, z: 1.7324996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4265164647587988}
@@ -161,7 +162,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278547956952816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.079997, y: 0, z: 3.2399993}
+  m_LocalPosition: {x: -1.397501, y: 0, z: -0.15750027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4265164647587988}
@@ -335,6 +336,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1918647438895288}
   m_Mesh: {fileID: 4300000, guid: 2b6ffcaa07fc8884397f37921272adaf, type: 3}
+--- !u!65 &65324155458104914
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1919288328054864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.689535, y: 8.528019, z: 9.339533}
+  m_Center: {x: 1.6051617, y: 4.2604513, z: -2.0051613}
 --- !u!95 &95259054217676206
 Animator:
   serializedVersion: 3

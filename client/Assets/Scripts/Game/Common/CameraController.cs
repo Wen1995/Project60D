@@ -61,6 +61,7 @@ public class CameraController : MonoBehaviour {
             {
                 mouseOrigin = Input.mousePosition;
                 isPress = true;
+                FacadeSingleton.Instance.SendEvent("CloseInteraction");
                 OnClickDown();
             }
 
@@ -177,7 +178,7 @@ public class CameraController : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, 200, layerMask))
         {
             hitGo = hit.collider.gameObject;
-            hitGo.SendMessage("OnPress", SendMessageOptions.DontRequireReceiver);
+            hitGo.SendMessage("OnClickDown", SendMessageOptions.DontRequireReceiver);
         }
     }
 
@@ -189,7 +190,7 @@ public class CameraController : MonoBehaviour {
         {
             if (hitGo == hit.collider.gameObject)
             {
-                hitGo.SendMessage("OnClick", SendMessageOptions.DontRequireReceiver);
+                hitGo.SendMessage("OnClickUp", SendMessageOptions.DontRequireReceiver);
             }
         }
     }

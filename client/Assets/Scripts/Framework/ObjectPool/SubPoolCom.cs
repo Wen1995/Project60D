@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class SubPoolCom<UnitType> : SubPoolBase<UnitType> where UnitType : Component, IPoolUnit
 {
-    protected override UnitType CreateNewInst()
+    protected override UnitType CreateNewInst(Vector3 pos, Quaternion quat, Transform parent)
     {
         GameObject go = null;
-
-        go = GameObject.Instantiate((GameObject)mTemplate);
+        go = GameObject.Instantiate((GameObject)mTemplate, pos, quat, parent);
         var comp = go.AddComponent<UnitType>();
         return comp;
     }

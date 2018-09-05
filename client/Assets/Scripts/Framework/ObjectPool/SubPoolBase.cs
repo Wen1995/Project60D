@@ -5,6 +5,7 @@ using UnityEngine;
 public interface ISubPool
 {
     Object Take();
+    Object Take(Vector3 pos, Quaternion quat, Transform parent);
     void Restore(Object obj);
     void Release();
 }
@@ -29,13 +30,37 @@ public abstract class SubPoolBase <UnitType> : ISubPool
         }
         else
         {
-            unit = CreateNewInst();
+            unit = CreateNewInst(Vector3.zero, Quaternion.identity, null);
         }
         mWorkList.Add(unit);
         unit.State().State = PoolUnitState.Work;
         OnUnitStateChanged(unit);
         return unit as Object;
     }
+
+
+    public virtual Object Take(Vector3 pos, Quaternion quat, Transform parent)
+    {
+        UnitType unit = null;
+        if (mIdleList.Count > 0)
+        {
+            unit = mIdleList[0];
+            mIdleList.RemoveAt(0);
+            MonoBehaviour mono = unit as MonoBehaviour;
+            mono.transform.position = pos;
+            mono.transform.rotation = quat;
+            mono.transform.parent = parent;
+        }
+        else
+        {
+            unit = CreateNewInst(pos, quat, parent);
+        }
+        mWorkList.Add(unit);
+        unit.State().State = PoolUnitState.Work;
+        OnUnitStateChanged(unit);
+        return unit as Object;
+    }
+    
 
     public virtual void Restore(Object obj)
     {
@@ -75,7 +100,7 @@ public abstract class SubPoolBase <UnitType> : ISubPool
     /// <summary>
     /// Create new instance, copy from template
     /// </summary>
-    protected abstract UnitType CreateNewInst();
+    protected abstract UnitType CreateNewInst(Vector3 pos, Quaternion quat, Transform parent);
     /// <summary>
     /// Callback of Unit's state changing
     /// </summary>

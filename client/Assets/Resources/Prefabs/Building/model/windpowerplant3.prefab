@@ -73,7 +73,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4006196877034228}
-  m_Layer: 0
+  - component: {fileID: 65832109756878348}
+  m_Layer: 9
   m_Name: windpowerplant3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +139,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566561109021380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -74.55647, y: -0.46, z: -21.905518}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4948075729135094}
@@ -167,7 +168,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1334071633542652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75.03, y: -0.85, z: -25.91}
+  m_LocalPosition: {x: -0.473526, y: -0.39000002, z: -4.0044823}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4006196877034228}
@@ -180,7 +181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1732515205857722}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -71.29941, y: 0, z: -19.200928}
+  m_LocalPosition: {x: 3.2570648, y: 0.46, z: 2.7045898}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4825058264430038}
@@ -222,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314724943908344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -77.34001, y: -0.53, z: -20.605621}
+  m_LocalPosition: {x: -2.7835388, y: -0.06999996, z: 1.2998962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4006196877034228}
@@ -462,6 +463,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1914432, y: 2.0715463, z: 0.7900232}
   m_Center: {x: -0.000000029802322, y: 1.0895208, z: 0}
+--- !u!65 &65832109756878348
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1566561109021380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.293945, y: 13.734407, z: 9.7577095}
+  m_Center: {x: 1.1433105, y: 6.52108, z: 0.47936058}
 --- !u!95 &95495701136289758
 Animator:
   serializedVersion: 3

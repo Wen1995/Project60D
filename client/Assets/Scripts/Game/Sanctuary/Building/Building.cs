@@ -41,10 +41,10 @@ public class Building : Controller {
     private void Awake()
     {
         floatingIconTrans = transform.Find("FloatingPos");
-        buildingGo = transform.Find("building").gameObject;
-        Destroy(buildingGo);
-        buildingGo = null;
-        lockGo = transform.Find("lock").gameObject;
+        // buildingGo = transform.Find("building").gameObject;
+        // Destroy(buildingGo);
+        // buildingGo = null;
+        // lockGo = transform.Find("lock").gameObject;
         RegisterEvent("RefreshBuildingView", InitView);
     }
 
@@ -56,13 +56,21 @@ public class Building : Controller {
 
     void InitView(NDictionary data = null)
     {
-        RefreshView();
+        RefreshState();
         ReloadModel();
+        RefreshHud();
     }
 
+    //only update state and hud
     public void RefreshView(NDictionary data = null)
     {       
-        ClearFloatingIcon();
+        RefreshState();
+        // update hud
+        RefreshHud();
+    }
+
+    public void RefreshState()
+    {
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         long remainTime = 0;
         if(info == null)
@@ -101,15 +109,6 @@ public class Building : Controller {
                     StartCoroutine(CollectTimer());
             }
         }
-
-        if(mState == BuildingState.Locked)
-        {
-            lockGo.SetActive(true);
-        }
-        else
-        {
-            lockGo.SetActive(false);
-        }
         switch(mState)
         {
             case(BuildingState.Upgrade):
@@ -120,7 +119,7 @@ public class Building : Controller {
             }
             case(BuildingState.Collect):
             {
-                AddRemindIcon();
+                //AddRemindIcon();
                 break;
             }
         }
@@ -129,21 +128,54 @@ public class Building : Controller {
     //reload prefab of building
     public void ReloadModel()
     {
-        NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
-        if(info == null) return;
-        BUILDING configData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
-        string prefabName = configData.PrefabName;
-        prefabName = prefabName.Substring(0, prefabName.IndexOf("."));
-        GameObject prefab = Resources.Load<GameObject>("Prefabs/Building/model/" + prefabName);
+        GameObject prefab = null;
+        if(mState == BuildingState.Locked)
+        {
+            prefab = Resources.Load<GameObject>("Prefabs/Building/lock");
+        }
+        else
+        {
+            NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+            if(info == null) return;
+            BUILDING configData = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
+            string prefabName = configData.PrefabName;
+            prefabName = prefabName.Substring(0, prefabName.IndexOf("."));
+            prefab = Resources.Load<GameObject>("Prefabs/Building/model/" + prefabName);
+        }
         if(prefab == null)
          return;
         if(buildingGo != null)
+        {
+            buildingGo.SendMessage("ClearHud", SendMessageOptions.DontRequireReceiver);
             DestroyImmediate(buildingGo);
+        }
+            
         buildingGo = Instantiate(prefab);
-        buildingGo.transform.name = "building";
         buildingGo.transform.parent = transform;
         buildingGo.transform.localPosition = Vector3.zero;
         buildingGo.transform.localRotation = Quaternion.identity;
+        HudBinder binder = buildingGo.AddComponent<HudBinder>();
+        NEventListener listener = buildingGo.AddComponent<NEventListener>();
+        listener.AddClick(OnClick);
+    }
+
+    void RefreshHud()
+    {
+        if(buildingGo == null) return;
+        HudBinder binder = buildingGo.GetComponent<HudBinder>();
+        if(binder == null) return;
+        binder.ClearHud();
+        if(mState == BuildingState.Collect)
+        {
+            binder.AddHud(HudType.Collect);
+        }
+        else if(mState == BuildingState.Upgrade)
+        {
+            NDictionary args = new NDictionary();
+            NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+            args.Add("finishtime", info.upgradeFinishTime);
+            binder.AddHud(HudType.CountDown, args);
+        }
     }
 
     public void SetBuildingID(long buildingID)
@@ -187,12 +219,12 @@ public class Building : Controller {
 
     void AddCountdownTimer(long finishTime)
     {
-        ISubPool pool = ObjectPoolSingleton.Instance.GetPool<TimerIcon>();
-        TimerIcon icon = pool.Take() as TimerIcon;
-        GameObject go = icon.gameObject;
-        go.transform.parent = floatingIconTrans.transform;
-        go.transform.localPosition = Vector3.zero;
-        icon.StartTimer(finishTime);
+        // ISubPool pool = ObjectPoolSingleton.Instance.GetPool<TimerIcon>();
+        // TimerIcon icon = pool.Take() as TimerIcon;
+        // GameObject go = icon.gameObject;
+        // go.transform.parent = floatingIconTrans.transform;
+        // go.transform.localPosition = Vector3.zero;
+        // icon.StartTimer(finishTime);
     }
 
     void ClearFloatingIcon()

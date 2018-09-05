@@ -16,9 +16,8 @@ public class SSanctuaryController : SceneController
     public void Awake()
     {
         //register object pool
-        ObjectPoolSingleton.Instance.RegisterComPool<FloatingIcon>(Resources.Load<GameObject>("Prefabs/Common/RemindIcon"));
-        ObjectPoolSingleton.Instance.RegisterComPool<ConstructionIcon>(Resources.Load<GameObject>("Prefabs/Common/ConstructionIcon"));
-        ObjectPoolSingleton.Instance.RegisterComPool<TimerIcon>(Resources.Load<GameObject>("Prefabs/Common/TimerIcon"));
+        ObjectPoolSingleton.Instance.RegisterComPool<HudCollect>(Resources.Load<GameObject>("Prefabs/Hud/Collect"));
+        ObjectPoolSingleton.Instance.RegisterComPool<HudCountDown>(Resources.Load<GameObject>("Prefabs/Hud/CountDown"));
         //register panel
         SetUIContainer();
         FacadeSingleton.Instance.RegisterUIPanel("UIMsgBoxPanel", "Prefabs/UI/Common", 10000, PanelAnchor.Center);

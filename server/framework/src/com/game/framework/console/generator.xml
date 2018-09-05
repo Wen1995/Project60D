@@ -45,6 +45,6 @@
 		</javaClientGenerator>
 
 		<!-- 要对那些数据表进行生成操作，必须要有一个 -->
-		<table schema="db_demo" tableName="t_user" domainObjectName="User"/>
+		<table schema="db_demo" tableName="t_world_event" domainObjectName="WorldEvent"/>
 	</context>
 </generatorConfiguration>

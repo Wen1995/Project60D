@@ -3,15 +3,22 @@ package com.game.framework.utils;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.game.framework.console.constant.Constant;
 import com.game.framework.dbcache.model.Building;
 import com.game.framework.protocol.Common.BuildingType;
+import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.resource.StaticDataManager;
+import com.game.framework.resource.data.WorldEventsBytes.WORLD_EVENTS;
 import com.google.common.base.CaseFormat;
 
 public class BuildingUtil {
     private static Logger logger = LoggerFactory.getLogger(BuildingUtil.class);
+    
+    private static final ReadOnlyMap<Integer, WORLD_EVENTS> worldEventsMap =
+            StaticDataManager.GetInstance().worldEventsMap;
 
     /**
      * 是否领取类建筑
@@ -131,15 +138,17 @@ public class BuildingUtil {
     public static double getReceiHverCapacityCoefficient(String tableName, Integer tableId) {
         String lowerCamelName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
         String name = StringUtil.FirstLetterToUpper(lowerCamelName);
-        String classPath = "com.game.framework.resource.data.WorldEventsBytes$"
-                + StringUtil.AllLetterToUpper(lowerCamelName);
+        String classPath = "com.game.framework.resource.data.WorldEventsBytes$WORLD_EVENTS";
         double coefficient = 1;
         try {
             Field f = StaticDataManager.class.getDeclaredField("worldEventsMap");
             ReadOnlyMap map = (ReadOnlyMap) f.get(StaticDataManager.GetInstance());
             Class clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
             Method method = clazz.getDeclaredMethod("get" + name + "Bldgcap");
-            coefficient = (double) method.invoke(map.get(tableId)) / 100;
+            int temp = (int) method.invoke(map.get(tableId));
+            if (temp != 0) {
+                coefficient = temp * 1.0 / 100;
+            }
         } catch (ClassNotFoundException e) {
             logger.error("", e);
         } catch (NoSuchFieldException e) {
@@ -156,5 +165,62 @@ public class BuildingUtil {
             logger.error("", e);
         }
         return coefficient;
+    }
+
+    /**
+     * 获得领取类建筑生产效率影响系数
+     */
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public static double getReceiHverSpeedCoefficient(String tableName, Integer tableId) {
+        String lowerCamelName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
+        String name = StringUtil.FirstLetterToUpper(lowerCamelName);
+        String classPath = "com.game.framework.resource.data.WorldEventsBytes$WORLD_EVENTS";
+        double coefficient = 1;
+        try {
+            Field f = StaticDataManager.class.getDeclaredField("worldEventsMap");
+            ReadOnlyMap map = (ReadOnlyMap) f.get(StaticDataManager.GetInstance());
+            Class clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
+            Method method = clazz.getDeclaredMethod("get" + name + "Bldgspd");
+            int temp = (int) method.invoke(map.get(tableId));
+            if (temp != 0) {
+                coefficient = temp * 1.0 / 100;
+            }
+        } catch (ClassNotFoundException e) {
+            logger.error("", e);
+        } catch (NoSuchFieldException e) {
+            logger.error("", e);
+        } catch (SecurityException e) {
+            logger.error("", e);
+        } catch (IllegalArgumentException e) {
+            logger.error("", e);
+        } catch (IllegalAccessException e) {
+            logger.error("", e);
+        } catch (NoSuchMethodException e) {
+            logger.error("", e);
+        } catch (InvocationTargetException e) {
+            logger.error("", e);
+        }
+        return coefficient;
+    }
+    
+    /**
+     * 雷达系数
+     */
+    public static double getRadarCoefficient() {
+        long currentTime = System.currentTimeMillis();
+        double probability = 1.0;
+        for (Map.Entry<Integer, Long> entry : DynamicDataManager
+                .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
+            // 世界事件正在发生
+            int congigId = entry.getKey();
+            long happenTime = entry.getValue();
+            WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
+
+            long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
+            if (currentTime >= happenTime && currentTime <= endTime) {
+                probability *= 1.0 * worldEvent.getLeidaBldg() / 100;
+            }
+        }
+        return probability;
     }
 }

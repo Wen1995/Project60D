@@ -71,6 +71,16 @@ public class DateTimeUtils {
         cal.set(Calendar.MILLISECOND, 0);
         return cal.getTime();
     }
+    
+    /**
+     * 一周前时间
+     */
+    public static long getAWeekBefore(Long thisTime) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(thisTime);
+        cal.add(Calendar.DATE, -7);
+        return cal.getTimeInMillis();
+    }
 
     /**
      * 判断当前时间是否在两个时间之间

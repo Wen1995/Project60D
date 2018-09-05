@@ -7,9 +7,9 @@ public class WorldEvent {
 
     private Integer configId;
 
-    private Date startTime;
+    private Integer type;
 
-    private Date endTime;
+    private Date time;
 
     public Long getId() {
         return id;
@@ -27,19 +27,19 @@ public class WorldEvent {
         this.configId = configId;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public Integer getType() {
+        return type;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Date getTime() {
+        return time;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setTime(Date time) {
+        this.time = time;
     }
 }

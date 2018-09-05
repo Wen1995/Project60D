@@ -16,7 +16,7 @@ public class ZombieUtil {
     /**
      * 僵尸入侵概率
      */
-    public static int getZombieInvadeRate(int level) {
+    public static int getZombieInvadeRate() {
         long currentTime = System.currentTimeMillis();
         int rate = arithmeticCoefficientMap.get(30110000).getAcK5();
         double probability = 1.0;
@@ -29,10 +29,7 @@ public class ZombieUtil {
 
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
-                // 庄园等级达标
-                if (level >= worldEvent.getEventUnlock()) {
-                    probability *= 1.0 * worldEvent.getInvaProb() / 100;
-                }
+                probability *= 1.0 * worldEvent.getInvaProb() / 100;
             }
         }
         rate *= probability;
@@ -42,7 +39,7 @@ public class ZombieUtil {
     /**
      * 僵尸攻击系数
      */
-    public static double getZombieAttackCoefficient(int level) {
+    public static double getZombieAttackCoefficient() {
         long currentTime = System.currentTimeMillis();
         double probability = 1.0;
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
@@ -54,10 +51,7 @@ public class ZombieUtil {
 
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
-                // 庄园等级达标
-                if (level >= worldEvent.getEventUnlock()) {
-                    probability *= 1.0 * worldEvent.getZombieAtk() / 100;
-                }
+                probability *= 1.0 * worldEvent.getZombieAtk() / 100;
             }
         }
         return probability;
@@ -66,7 +60,7 @@ public class ZombieUtil {
     /**
      * 僵尸防御系数
      */
-    public static double getZombieDefenceCoefficient(int level) {
+    public static double getZombieDefenceCoefficient() {
         long currentTime = System.currentTimeMillis();
         double probability = 1.0;
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
@@ -78,10 +72,7 @@ public class ZombieUtil {
             
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
-                // 庄园等级达标
-                if (level >= worldEvent.getEventUnlock()) {
-                    probability *= 1.0 * worldEvent.getZombieDef() / 100;
-                }
+                probability *= 1.0 * worldEvent.getZombieDef() / 100;
             }
         }
         return probability;
@@ -90,7 +81,7 @@ public class ZombieUtil {
     /**
      * 僵尸血量系数
      */
-    public static double getZombieBloodCoefficient(int level) {
+    public static double getZombieBloodCoefficient() {
         long currentTime = System.currentTimeMillis();
         double probability = 1.0;
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
@@ -102,10 +93,7 @@ public class ZombieUtil {
 
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
-                // 庄园等级达标
-                if (level >= worldEvent.getEventUnlock()) {
-                    probability *= 1.0 * worldEvent.getZombieHp() / 100;
-                }
+                probability *= 1.0 * worldEvent.getZombieHp() / 100;
             }
         }
         return probability;
@@ -114,7 +102,7 @@ public class ZombieUtil {
     /**
      * 僵尸数量系数
      */
-    public static double getZombieNumberCoefficient(int level) {
+    public static double getZombieNumberCoefficient() {
         long currentTime = System.currentTimeMillis();
         double probability = 1.0;
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
@@ -126,10 +114,7 @@ public class ZombieUtil {
 
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
-                // 庄园等级达标
-                if (level >= worldEvent.getEventUnlock()) {
-                    probability *= 1.0 * worldEvent.getZombieNum() / 100;
-                }
+                probability *= 1.0 * worldEvent.getZombieNum() / 100;
             }
         }
         return probability;

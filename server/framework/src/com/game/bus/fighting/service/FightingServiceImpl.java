@@ -150,6 +150,7 @@ public class FightingServiceImpl implements FightingService {
         if (radar != null) {
             ReadOnlyMap<Integer, LEIDA> leidaMap = StaticDataManager.GetInstance().leidaMap;
             int leftTime = leidaMap.get(buildingMap.get(radar.getConfigId()).getBldgFuncTableId()).getLeidaDis();
+            leftTime *= BuildingUtil.getRadarCoefficient();
             int receiveTime = zombieInvadeTime - leftTime;
             String timerKey = TimerConstant.RECEIVEZOMBIEMESSAGE + groupId;
             receiveTime = 5;//TODO
@@ -222,12 +223,11 @@ public class FightingServiceImpl implements FightingService {
         double K1 = arithmeticCoefficientMap.get(30060000).getAcK1() / 100;
         double intoDoorTime = 0;
         double maxTime = 1.0 * arithmeticCoefficientMap.get(30080000).getAcK1() / 100;
-        int level = DynamicDataManager.GetInstance().groupId2Level.get(groupId);
         
-        int zombieNum = (int) (zombieAttr.getZombieNum() * ZombieUtil.getZombieNumberCoefficient(level));
-        double zombieDefence = zombieAttr.getZombieDef() * ZombieUtil.getZombieDefenceCoefficient(level);
-        double zombieAttack = zombieAttr.getZombieAtk() * ZombieUtil.getZombieAttackCoefficient(level);
-        double blood4PerZombie = zombieAttr.getZombieHp() * ZombieUtil.getZombieBloodCoefficient(level);
+        int zombieNum = (int) (zombieAttr.getZombieNum() * ZombieUtil.getZombieNumberCoefficient());
+        double zombieDefence = zombieAttr.getZombieDef() * ZombieUtil.getZombieDefenceCoefficient();
+        double zombieAttack = zombieAttr.getZombieAtk() * ZombieUtil.getZombieAttackCoefficient();
+        double blood4PerZombie = zombieAttr.getZombieHp() * ZombieUtil.getZombieBloodCoefficient();
         double blood4AllZombie = blood4PerZombie * zombieNum;
 
         List<InvadeResultInfo> invadeResultInfos = new ArrayList<>();

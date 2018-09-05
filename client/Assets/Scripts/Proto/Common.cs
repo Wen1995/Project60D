@@ -90,8 +90,21 @@ namespace com.game.framework.protocol {
   }
   
   public enum MessageType {
+    WORLD_EVENT_INFO = 1,
     ZOMBIE_INFO = 2,
     FIGHTING_INFO = 3,
+  }
+  
+  public enum TimeType {
+    START_TIME = 1,
+    END_TIME = 2,
+  }
+  
+  public enum EventType {
+    ZOMBIE = 1,
+    WAR = 2,
+    NATURE = 3,
+    HUMAN = 4,
   }
   
   #endregion

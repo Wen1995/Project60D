@@ -228,6 +228,142 @@ public final class ItemResBytes {
      * </pre>
      */
     int getStorUnit();
+
+    /**
+     * <code>optional int32 if_available = 11 [default = 0];</code>
+     *
+     * <pre>
+     ** 是否可直接使用（1可用，0不可用） 
+     * </pre>
+     */
+    boolean hasIfAvailable();
+    /**
+     * <code>optional int32 if_available = 11 [default = 0];</code>
+     *
+     * <pre>
+     ** 是否可直接使用（1可用，0不可用） 
+     * </pre>
+     */
+    int getIfAvailable();
+
+    /**
+     * <code>optional int32 hp_rec = 12 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复血量 
+     * </pre>
+     */
+    boolean hasHpRec();
+    /**
+     * <code>optional int32 hp_rec = 12 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复血量 
+     * </pre>
+     */
+    int getHpRec();
+
+    /**
+     * <code>optional int32 starv_rec = 13 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复饥饿*1000 
+     * </pre>
+     */
+    boolean hasStarvRec();
+    /**
+     * <code>optional int32 starv_rec = 13 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复饥饿*1000 
+     * </pre>
+     */
+    int getStarvRec();
+
+    /**
+     * <code>optional int32 water_rec = 14 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复口渴*1000 
+     * </pre>
+     */
+    boolean hasWaterRec();
+    /**
+     * <code>optional int32 water_rec = 14 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复口渴*1000 
+     * </pre>
+     */
+    int getWaterRec();
+
+    /**
+     * <code>optional int32 health_rec = 15 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复健康*1000 
+     * </pre>
+     */
+    boolean hasHealthRec();
+    /**
+     * <code>optional int32 health_rec = 15 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复健康*1000 
+     * </pre>
+     */
+    int getHealthRec();
+
+    /**
+     * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+     *
+     * <pre>
+     ** 可回复健康上限（比例）*100 
+     * </pre>
+     */
+    boolean hasHealthrecLim();
+    /**
+     * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+     *
+     * <pre>
+     ** 可回复健康上限（比例）*100 
+     * </pre>
+     */
+    int getHealthrecLim();
+
+    /**
+     * <code>optional int32 mood_rec = 17 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复心情*1000 
+     * </pre>
+     */
+    boolean hasMoodRec();
+    /**
+     * <code>optional int32 mood_rec = 17 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复心情*1000 
+     * </pre>
+     */
+    int getMoodRec();
+
+    /**
+     * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+     *
+     * <pre>
+     ** 可回复心情上限*100 
+     * </pre>
+     */
+    boolean hasMoodrecLim();
+    /**
+     * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+     *
+     * <pre>
+     ** 可回复心情上限*100 
+     * </pre>
+     */
+    int getMoodrecLim();
   }
   /**
    * Protobuf type {@code com.game.framework.resource.data.ITEM_RES}
@@ -334,6 +470,46 @@ public final class ItemResBytes {
             case 80: {
               bitField0_ |= 0x00000200;
               storUnit_ = input.readInt32();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
+              ifAvailable_ = input.readInt32();
+              break;
+            }
+            case 96: {
+              bitField0_ |= 0x00000800;
+              hpRec_ = input.readInt32();
+              break;
+            }
+            case 104: {
+              bitField0_ |= 0x00001000;
+              starvRec_ = input.readInt32();
+              break;
+            }
+            case 112: {
+              bitField0_ |= 0x00002000;
+              waterRec_ = input.readInt32();
+              break;
+            }
+            case 120: {
+              bitField0_ |= 0x00004000;
+              healthRec_ = input.readInt32();
+              break;
+            }
+            case 128: {
+              bitField0_ |= 0x00008000;
+              healthrecLim_ = input.readInt32();
+              break;
+            }
+            case 136: {
+              bitField0_ |= 0x00010000;
+              moodRec_ = input.readInt32();
+              break;
+            }
+            case 144: {
+              bitField0_ |= 0x00020000;
+              moodrecLim_ = input.readInt32();
               break;
             }
           }
@@ -763,6 +939,190 @@ public final class ItemResBytes {
       return storUnit_;
     }
 
+    public static final int IF_AVAILABLE_FIELD_NUMBER = 11;
+    private int ifAvailable_;
+    /**
+     * <code>optional int32 if_available = 11 [default = 0];</code>
+     *
+     * <pre>
+     ** 是否可直接使用（1可用，0不可用） 
+     * </pre>
+     */
+    public boolean hasIfAvailable() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <code>optional int32 if_available = 11 [default = 0];</code>
+     *
+     * <pre>
+     ** 是否可直接使用（1可用，0不可用） 
+     * </pre>
+     */
+    public int getIfAvailable() {
+      return ifAvailable_;
+    }
+
+    public static final int HP_REC_FIELD_NUMBER = 12;
+    private int hpRec_;
+    /**
+     * <code>optional int32 hp_rec = 12 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复血量 
+     * </pre>
+     */
+    public boolean hasHpRec() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    /**
+     * <code>optional int32 hp_rec = 12 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复血量 
+     * </pre>
+     */
+    public int getHpRec() {
+      return hpRec_;
+    }
+
+    public static final int STARV_REC_FIELD_NUMBER = 13;
+    private int starvRec_;
+    /**
+     * <code>optional int32 starv_rec = 13 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复饥饿*1000 
+     * </pre>
+     */
+    public boolean hasStarvRec() {
+      return ((bitField0_ & 0x00001000) == 0x00001000);
+    }
+    /**
+     * <code>optional int32 starv_rec = 13 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复饥饿*1000 
+     * </pre>
+     */
+    public int getStarvRec() {
+      return starvRec_;
+    }
+
+    public static final int WATER_REC_FIELD_NUMBER = 14;
+    private int waterRec_;
+    /**
+     * <code>optional int32 water_rec = 14 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复口渴*1000 
+     * </pre>
+     */
+    public boolean hasWaterRec() {
+      return ((bitField0_ & 0x00002000) == 0x00002000);
+    }
+    /**
+     * <code>optional int32 water_rec = 14 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复口渴*1000 
+     * </pre>
+     */
+    public int getWaterRec() {
+      return waterRec_;
+    }
+
+    public static final int HEALTH_REC_FIELD_NUMBER = 15;
+    private int healthRec_;
+    /**
+     * <code>optional int32 health_rec = 15 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复健康*1000 
+     * </pre>
+     */
+    public boolean hasHealthRec() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    /**
+     * <code>optional int32 health_rec = 15 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复健康*1000 
+     * </pre>
+     */
+    public int getHealthRec() {
+      return healthRec_;
+    }
+
+    public static final int HEALTHREC_LIM_FIELD_NUMBER = 16;
+    private int healthrecLim_;
+    /**
+     * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+     *
+     * <pre>
+     ** 可回复健康上限（比例）*100 
+     * </pre>
+     */
+    public boolean hasHealthrecLim() {
+      return ((bitField0_ & 0x00008000) == 0x00008000);
+    }
+    /**
+     * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+     *
+     * <pre>
+     ** 可回复健康上限（比例）*100 
+     * </pre>
+     */
+    public int getHealthrecLim() {
+      return healthrecLim_;
+    }
+
+    public static final int MOOD_REC_FIELD_NUMBER = 17;
+    private int moodRec_;
+    /**
+     * <code>optional int32 mood_rec = 17 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复心情*1000 
+     * </pre>
+     */
+    public boolean hasMoodRec() {
+      return ((bitField0_ & 0x00010000) == 0x00010000);
+    }
+    /**
+     * <code>optional int32 mood_rec = 17 [default = 0];</code>
+     *
+     * <pre>
+     ** 回复心情*1000 
+     * </pre>
+     */
+    public int getMoodRec() {
+      return moodRec_;
+    }
+
+    public static final int MOODREC_LIM_FIELD_NUMBER = 18;
+    private int moodrecLim_;
+    /**
+     * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+     *
+     * <pre>
+     ** 可回复心情上限*100 
+     * </pre>
+     */
+    public boolean hasMoodrecLim() {
+      return ((bitField0_ & 0x00020000) == 0x00020000);
+    }
+    /**
+     * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+     *
+     * <pre>
+     ** 可回复心情上限*100 
+     * </pre>
+     */
+    public int getMoodrecLim() {
+      return moodrecLim_;
+    }
+
     private void initFields() {
       id_ = 0;
       itemLvl_ = 0;
@@ -774,6 +1134,14 @@ public final class ItemResBytes {
       desc_ = "";
       goldConv_ = 0;
       storUnit_ = 0;
+      ifAvailable_ = 0;
+      hpRec_ = 0;
+      starvRec_ = 0;
+      waterRec_ = 0;
+      healthRec_ = 0;
+      healthrecLim_ = 0;
+      moodRec_ = 0;
+      moodrecLim_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -821,6 +1189,30 @@ public final class ItemResBytes {
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         output.writeInt32(10, storUnit_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeInt32(11, ifAvailable_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeInt32(12, hpRec_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        output.writeInt32(13, starvRec_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        output.writeInt32(14, waterRec_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        output.writeInt32(15, healthRec_);
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        output.writeInt32(16, healthrecLim_);
+      }
+      if (((bitField0_ & 0x00010000) == 0x00010000)) {
+        output.writeInt32(17, moodRec_);
+      }
+      if (((bitField0_ & 0x00020000) == 0x00020000)) {
+        output.writeInt32(18, moodrecLim_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -870,6 +1262,38 @@ public final class ItemResBytes {
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(10, storUnit_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, ifAvailable_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, hpRec_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(13, starvRec_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(14, waterRec_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(15, healthRec_);
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(16, healthrecLim_);
+      }
+      if (((bitField0_ & 0x00010000) == 0x00010000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(17, moodRec_);
+      }
+      if (((bitField0_ & 0x00020000) == 0x00020000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(18, moodrecLim_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1008,6 +1432,22 @@ public final class ItemResBytes {
         bitField0_ = (bitField0_ & ~0x00000100);
         storUnit_ = 0;
         bitField0_ = (bitField0_ & ~0x00000200);
+        ifAvailable_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        hpRec_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000800);
+        starvRec_ = 0;
+        bitField0_ = (bitField0_ & ~0x00001000);
+        waterRec_ = 0;
+        bitField0_ = (bitField0_ & ~0x00002000);
+        healthRec_ = 0;
+        bitField0_ = (bitField0_ & ~0x00004000);
+        healthrecLim_ = 0;
+        bitField0_ = (bitField0_ & ~0x00008000);
+        moodRec_ = 0;
+        bitField0_ = (bitField0_ & ~0x00010000);
+        moodrecLim_ = 0;
+        bitField0_ = (bitField0_ & ~0x00020000);
         return this;
       }
 
@@ -1076,6 +1516,38 @@ public final class ItemResBytes {
           to_bitField0_ |= 0x00000200;
         }
         result.storUnit_ = storUnit_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.ifAvailable_ = ifAvailable_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.hpRec_ = hpRec_;
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+          to_bitField0_ |= 0x00001000;
+        }
+        result.starvRec_ = starvRec_;
+        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
+          to_bitField0_ |= 0x00002000;
+        }
+        result.waterRec_ = waterRec_;
+        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
+          to_bitField0_ |= 0x00004000;
+        }
+        result.healthRec_ = healthRec_;
+        if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
+          to_bitField0_ |= 0x00008000;
+        }
+        result.healthrecLim_ = healthrecLim_;
+        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
+          to_bitField0_ |= 0x00010000;
+        }
+        result.moodRec_ = moodRec_;
+        if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
+          to_bitField0_ |= 0x00020000;
+        }
+        result.moodrecLim_ = moodrecLim_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1131,6 +1603,30 @@ public final class ItemResBytes {
         }
         if (other.hasStorUnit()) {
           setStorUnit(other.getStorUnit());
+        }
+        if (other.hasIfAvailable()) {
+          setIfAvailable(other.getIfAvailable());
+        }
+        if (other.hasHpRec()) {
+          setHpRec(other.getHpRec());
+        }
+        if (other.hasStarvRec()) {
+          setStarvRec(other.getStarvRec());
+        }
+        if (other.hasWaterRec()) {
+          setWaterRec(other.getWaterRec());
+        }
+        if (other.hasHealthRec()) {
+          setHealthRec(other.getHealthRec());
+        }
+        if (other.hasHealthrecLim()) {
+          setHealthrecLim(other.getHealthrecLim());
+        }
+        if (other.hasMoodRec()) {
+          setMoodRec(other.getMoodRec());
+        }
+        if (other.hasMoodrecLim()) {
+          setMoodrecLim(other.getMoodrecLim());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1907,6 +2403,390 @@ public final class ItemResBytes {
         return this;
       }
 
+      private int ifAvailable_ ;
+      /**
+       * <code>optional int32 if_available = 11 [default = 0];</code>
+       *
+       * <pre>
+       ** 是否可直接使用（1可用，0不可用） 
+       * </pre>
+       */
+      public boolean hasIfAvailable() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional int32 if_available = 11 [default = 0];</code>
+       *
+       * <pre>
+       ** 是否可直接使用（1可用，0不可用） 
+       * </pre>
+       */
+      public int getIfAvailable() {
+        return ifAvailable_;
+      }
+      /**
+       * <code>optional int32 if_available = 11 [default = 0];</code>
+       *
+       * <pre>
+       ** 是否可直接使用（1可用，0不可用） 
+       * </pre>
+       */
+      public Builder setIfAvailable(int value) {
+        bitField0_ |= 0x00000400;
+        ifAvailable_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 if_available = 11 [default = 0];</code>
+       *
+       * <pre>
+       ** 是否可直接使用（1可用，0不可用） 
+       * </pre>
+       */
+      public Builder clearIfAvailable() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        ifAvailable_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int hpRec_ ;
+      /**
+       * <code>optional int32 hp_rec = 12 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复血量 
+       * </pre>
+       */
+      public boolean hasHpRec() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional int32 hp_rec = 12 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复血量 
+       * </pre>
+       */
+      public int getHpRec() {
+        return hpRec_;
+      }
+      /**
+       * <code>optional int32 hp_rec = 12 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复血量 
+       * </pre>
+       */
+      public Builder setHpRec(int value) {
+        bitField0_ |= 0x00000800;
+        hpRec_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 hp_rec = 12 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复血量 
+       * </pre>
+       */
+      public Builder clearHpRec() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        hpRec_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int starvRec_ ;
+      /**
+       * <code>optional int32 starv_rec = 13 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复饥饿*1000 
+       * </pre>
+       */
+      public boolean hasStarvRec() {
+        return ((bitField0_ & 0x00001000) == 0x00001000);
+      }
+      /**
+       * <code>optional int32 starv_rec = 13 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复饥饿*1000 
+       * </pre>
+       */
+      public int getStarvRec() {
+        return starvRec_;
+      }
+      /**
+       * <code>optional int32 starv_rec = 13 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复饥饿*1000 
+       * </pre>
+       */
+      public Builder setStarvRec(int value) {
+        bitField0_ |= 0x00001000;
+        starvRec_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 starv_rec = 13 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复饥饿*1000 
+       * </pre>
+       */
+      public Builder clearStarvRec() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        starvRec_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int waterRec_ ;
+      /**
+       * <code>optional int32 water_rec = 14 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复口渴*1000 
+       * </pre>
+       */
+      public boolean hasWaterRec() {
+        return ((bitField0_ & 0x00002000) == 0x00002000);
+      }
+      /**
+       * <code>optional int32 water_rec = 14 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复口渴*1000 
+       * </pre>
+       */
+      public int getWaterRec() {
+        return waterRec_;
+      }
+      /**
+       * <code>optional int32 water_rec = 14 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复口渴*1000 
+       * </pre>
+       */
+      public Builder setWaterRec(int value) {
+        bitField0_ |= 0x00002000;
+        waterRec_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 water_rec = 14 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复口渴*1000 
+       * </pre>
+       */
+      public Builder clearWaterRec() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        waterRec_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int healthRec_ ;
+      /**
+       * <code>optional int32 health_rec = 15 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复健康*1000 
+       * </pre>
+       */
+      public boolean hasHealthRec() {
+        return ((bitField0_ & 0x00004000) == 0x00004000);
+      }
+      /**
+       * <code>optional int32 health_rec = 15 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复健康*1000 
+       * </pre>
+       */
+      public int getHealthRec() {
+        return healthRec_;
+      }
+      /**
+       * <code>optional int32 health_rec = 15 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复健康*1000 
+       * </pre>
+       */
+      public Builder setHealthRec(int value) {
+        bitField0_ |= 0x00004000;
+        healthRec_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 health_rec = 15 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复健康*1000 
+       * </pre>
+       */
+      public Builder clearHealthRec() {
+        bitField0_ = (bitField0_ & ~0x00004000);
+        healthRec_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int healthrecLim_ ;
+      /**
+       * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+       *
+       * <pre>
+       ** 可回复健康上限（比例）*100 
+       * </pre>
+       */
+      public boolean hasHealthrecLim() {
+        return ((bitField0_ & 0x00008000) == 0x00008000);
+      }
+      /**
+       * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+       *
+       * <pre>
+       ** 可回复健康上限（比例）*100 
+       * </pre>
+       */
+      public int getHealthrecLim() {
+        return healthrecLim_;
+      }
+      /**
+       * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+       *
+       * <pre>
+       ** 可回复健康上限（比例）*100 
+       * </pre>
+       */
+      public Builder setHealthrecLim(int value) {
+        bitField0_ |= 0x00008000;
+        healthrecLim_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+       *
+       * <pre>
+       ** 可回复健康上限（比例）*100 
+       * </pre>
+       */
+      public Builder clearHealthrecLim() {
+        bitField0_ = (bitField0_ & ~0x00008000);
+        healthrecLim_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int moodRec_ ;
+      /**
+       * <code>optional int32 mood_rec = 17 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复心情*1000 
+       * </pre>
+       */
+      public boolean hasMoodRec() {
+        return ((bitField0_ & 0x00010000) == 0x00010000);
+      }
+      /**
+       * <code>optional int32 mood_rec = 17 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复心情*1000 
+       * </pre>
+       */
+      public int getMoodRec() {
+        return moodRec_;
+      }
+      /**
+       * <code>optional int32 mood_rec = 17 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复心情*1000 
+       * </pre>
+       */
+      public Builder setMoodRec(int value) {
+        bitField0_ |= 0x00010000;
+        moodRec_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 mood_rec = 17 [default = 0];</code>
+       *
+       * <pre>
+       ** 回复心情*1000 
+       * </pre>
+       */
+      public Builder clearMoodRec() {
+        bitField0_ = (bitField0_ & ~0x00010000);
+        moodRec_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int moodrecLim_ ;
+      /**
+       * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+       *
+       * <pre>
+       ** 可回复心情上限*100 
+       * </pre>
+       */
+      public boolean hasMoodrecLim() {
+        return ((bitField0_ & 0x00020000) == 0x00020000);
+      }
+      /**
+       * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+       *
+       * <pre>
+       ** 可回复心情上限*100 
+       * </pre>
+       */
+      public int getMoodrecLim() {
+        return moodrecLim_;
+      }
+      /**
+       * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+       *
+       * <pre>
+       ** 可回复心情上限*100 
+       * </pre>
+       */
+      public Builder setMoodrecLim(int value) {
+        bitField0_ |= 0x00020000;
+        moodrecLim_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+       *
+       * <pre>
+       ** 可回复心情上限*100 
+       * </pre>
+       */
+      public Builder clearMoodrecLim() {
+        bitField0_ = (bitField0_ & ~0x00020000);
+        moodrecLim_ = 0;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:com.game.framework.resource.data.ITEM_RES)
     }
 
@@ -2626,15 +3506,19 @@ public final class ItemResBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\032proto/item_res_bytes.proto\022 com.game.f" +
-      "ramework.resource.data\"\337\001\n\010ITEM_RES\022\r\n\002i" +
+      "ramework.resource.data\"\225\003\n\010ITEM_RES\022\r\n\002i" +
       "d\030\001 \002(\005:\0010\022\023\n\010item_lvl\030\002 \001(\005:\0010\022\022\n\010min_n" +
       "ame\030\003 \001(\t:\000\022\022\n\010key_name\030\004 \001(\t:\000\022\033\n\020servi" +
       "ceable_rate\030\005 \001(\005:\0010\022\023\n\ticon_name\030\006 \001(\t:" +
       "\000\022\031\n\017small_icon_name\030\007 \001(\t:\000\022\016\n\004desc\030\010 \001" +
       "(\t:\000\022\024\n\tgold_conv\030\t \001(\005:\0010\022\024\n\tstor_unit\030" +
-      "\n \001(\005:\0010\"K\n\016ITEM_RES_ARRAY\0229\n\005items\030\001 \003(" +
-      "\0132*.com.game.framework.resource.data.ITE" +
-      "M_RES"
+      "\n \001(\005:\0010\022\027\n\014if_available\030\013 \001(\005:\0010\022\021\n\006hp_" +
+      "rec\030\014 \001(\005:\0010\022\024\n\tstarv_rec\030\r \001(\005:\0010\022\024\n\twa" +
+      "ter_rec\030\016 \001(\005:\0010\022\025\n\nhealth_rec\030\017 \001(\005:\0010\022",
+      "\030\n\rhealthrec_lim\030\020 \001(\005:\0010\022\023\n\010mood_rec\030\021 " +
+      "\001(\005:\0010\022\026\n\013moodrec_lim\030\022 \001(\005:\0010\"K\n\016ITEM_R" +
+      "ES_ARRAY\0229\n\005items\030\001 \003(\0132*.com.game.frame" +
+      "work.resource.data.ITEM_RES"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2653,7 +3537,7 @@ public final class ItemResBytes {
     internal_static_com_game_framework_resource_data_ITEM_RES_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_ITEM_RES_descriptor,
-        new java.lang.String[] { "Id", "ItemLvl", "MinName", "KeyName", "ServiceableRate", "IconName", "SmallIconName", "Desc", "GoldConv", "StorUnit", });
+        new java.lang.String[] { "Id", "ItemLvl", "MinName", "KeyName", "ServiceableRate", "IconName", "SmallIconName", "Desc", "GoldConv", "StorUnit", "IfAvailable", "HpRec", "StarvRec", "WaterRec", "HealthRec", "HealthrecLim", "MoodRec", "MoodrecLim", });
     internal_static_com_game_framework_resource_data_ITEM_RES_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_ITEM_RES_ARRAY_fieldAccessorTable = new

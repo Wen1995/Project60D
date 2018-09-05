@@ -126,8 +126,28 @@ enum InvadeResultType {
 }
 
 enum MessageType {
+	// 世界事件
+	WORLD_EVENT_INFO = 1;
 	// 僵尸状态
 	ZOMBIE_INFO =  2;
 	// 战斗结果
 	FIGHTING_INFO = 3;
+}
+
+enum TimeType {
+	// 开始时间
+	START_TIME =  1;
+	// 结束时间
+	END_TIME = 2;
+}
+
+enum EventType {
+	// 僵尸类
+	ZOMBIE = 1;
+	// 战争类
+	WAR = 2;
+	// 自然灾害
+	NATURE = 3;
+	// 人类
+	HUMAN = 4;
 }

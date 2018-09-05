@@ -1171,13 +1171,21 @@ public final class Common {
   public enum MessageType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <code>WORLD_EVENT_INFO = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    WORLD_EVENT_INFO(0, 1),
+    /**
      * <code>ZOMBIE_INFO = 2;</code>
      *
      * <pre>
      * 僵尸状态
      * </pre>
      */
-    ZOMBIE_INFO(0, 2),
+    ZOMBIE_INFO(1, 2),
     /**
      * <code>FIGHTING_INFO = 3;</code>
      *
@@ -1185,9 +1193,17 @@ public final class Common {
      * 战斗结果
      * </pre>
      */
-    FIGHTING_INFO(1, 3),
+    FIGHTING_INFO(2, 3),
     ;
 
+    /**
+     * <code>WORLD_EVENT_INFO = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public static final int WORLD_EVENT_INFO_VALUE = 1;
     /**
      * <code>ZOMBIE_INFO = 2;</code>
      *
@@ -1210,6 +1226,7 @@ public final class Common {
 
     public static MessageType valueOf(int value) {
       switch (value) {
+        case 1: return WORLD_EVENT_INFO;
         case 2: return ZOMBIE_INFO;
         case 3: return FIGHTING_INFO;
         default: return null;
@@ -1263,6 +1280,236 @@ public final class Common {
     // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.MessageType)
   }
 
+  /**
+   * Protobuf enum {@code com.game.framework.protocol.TimeType}
+   */
+  public enum TimeType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>START_TIME = 1;</code>
+     *
+     * <pre>
+     * 开始时间
+     * </pre>
+     */
+    START_TIME(0, 1),
+    /**
+     * <code>END_TIME = 2;</code>
+     *
+     * <pre>
+     * 结束时间
+     * </pre>
+     */
+    END_TIME(1, 2),
+    ;
+
+    /**
+     * <code>START_TIME = 1;</code>
+     *
+     * <pre>
+     * 开始时间
+     * </pre>
+     */
+    public static final int START_TIME_VALUE = 1;
+    /**
+     * <code>END_TIME = 2;</code>
+     *
+     * <pre>
+     * 结束时间
+     * </pre>
+     */
+    public static final int END_TIME_VALUE = 2;
+
+
+    public final int getNumber() { return value; }
+
+    public static TimeType valueOf(int value) {
+      switch (value) {
+        case 1: return START_TIME;
+        case 2: return END_TIME;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<TimeType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<TimeType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<TimeType>() {
+            public TimeType findValueByNumber(int number) {
+              return TimeType.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(6);
+    }
+
+    private static final TimeType[] VALUES = values();
+
+    public static TimeType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private TimeType(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.TimeType)
+  }
+
+  /**
+   * Protobuf enum {@code com.game.framework.protocol.EventType}
+   */
+  public enum EventType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>ZOMBIE = 1;</code>
+     *
+     * <pre>
+     * 僵尸类
+     * </pre>
+     */
+    ZOMBIE(0, 1),
+    /**
+     * <code>WAR = 2;</code>
+     *
+     * <pre>
+     * 战争类
+     * </pre>
+     */
+    WAR(1, 2),
+    /**
+     * <code>NATURE = 3;</code>
+     *
+     * <pre>
+     * 自然灾害
+     * </pre>
+     */
+    NATURE(2, 3),
+    /**
+     * <code>HUMAN = 4;</code>
+     *
+     * <pre>
+     * 人类
+     * </pre>
+     */
+    HUMAN(3, 4),
+    ;
+
+    /**
+     * <code>ZOMBIE = 1;</code>
+     *
+     * <pre>
+     * 僵尸类
+     * </pre>
+     */
+    public static final int ZOMBIE_VALUE = 1;
+    /**
+     * <code>WAR = 2;</code>
+     *
+     * <pre>
+     * 战争类
+     * </pre>
+     */
+    public static final int WAR_VALUE = 2;
+    /**
+     * <code>NATURE = 3;</code>
+     *
+     * <pre>
+     * 自然灾害
+     * </pre>
+     */
+    public static final int NATURE_VALUE = 3;
+    /**
+     * <code>HUMAN = 4;</code>
+     *
+     * <pre>
+     * 人类
+     * </pre>
+     */
+    public static final int HUMAN_VALUE = 4;
+
+
+    public final int getNumber() { return value; }
+
+    public static EventType valueOf(int value) {
+      switch (value) {
+        case 1: return ZOMBIE;
+        case 2: return WAR;
+        case 3: return NATURE;
+        case 4: return HUMAN;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<EventType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<EventType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<EventType>() {
+            public EventType findValueByNumber(int number) {
+              return EventType.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.game.framework.protocol.Common.getDescriptor().getEnumTypes().get(7);
+    }
+
+    private static final EventType[] VALUES = values();
+
+    public static EventType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private EventType(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.game.framework.protocol.EventType)
+  }
+
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1297,8 +1544,11 @@ public final class Common {
       "EAPON_BUILDING\020\005*C\n\010ItemType\022\021\n\rRESOURCE" +
       "_ITEM\020\001\022\022\n\016EQUIPMENT_ITEM\020\002\022\020\n\014SPECIAL_I" +
       "TEM\020\003*,\n\020InvadeResultType\022\n\n\006PLAYER\020\001\022\014\n" +
-      "\010BUILDING\020\002*1\n\013MessageType\022\017\n\013ZOMBIE_INF" +
-      "O\020\002\022\021\n\rFIGHTING_INFO\020\003B\002H\001"
+      "\010BUILDING\020\002*G\n\013MessageType\022\024\n\020WORLD_EVEN" +
+      "T_INFO\020\001\022\017\n\013ZOMBIE_INFO\020\002\022\021\n\rFIGHTING_IN" +
+      "FO\020\003*(\n\010TimeType\022\016\n\nSTART_TIME\020\001\022\014\n\010END_" +
+      "TIME\020\002*7\n\tEventType\022\n\n\006ZOMBIE\020\001\022\007\n\003WAR\020\002" +
+      "\022\n\n\006NATURE\020\003\022\t\n\005HUMAN\020\004B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

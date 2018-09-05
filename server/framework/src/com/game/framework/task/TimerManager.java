@@ -24,6 +24,7 @@ import com.game.framework.dbcache.model.Timer;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.dbcache.model.WorldEvent;
 import com.game.framework.protocol.Common.Cmd;
+import com.game.framework.protocol.Common.TimeType;
 import com.game.framework.protocol.Fighting.TCSZombieInvade;
 import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.resource.StaticDataManager;
@@ -188,10 +189,18 @@ public class TimerManager {
                         WorldEvent worldEvent = new WorldEvent();
                         worldEvent.setId(id);
                         worldEvent.setConfigId(congigId);
-                        worldEvent.setStartTime(new Date(happenTime));
-                        worldEvent.setEndTime(new Date(endTime));
+                        worldEvent.setType(TimeType.START_TIME_VALUE);
+                        worldEvent.setTime(new Date(happenTime));
                         worldEventDao.insert(worldEvent);
 
+                        id = IdManager.GetInstance().genId(IdType.WORLDEVENT);
+                        worldEvent = new WorldEvent();
+                        worldEvent.setId(id);
+                        worldEvent.setConfigId(congigId);
+                        worldEvent.setType(TimeType.END_TIME_VALUE);
+                        worldEvent.setTime(new Date(endTime));
+                        worldEventDao.insert(worldEvent);
+                        
                         entries.remove();
                         eventTypes.remove(type);
                     }

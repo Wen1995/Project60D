@@ -1,6 +1,7 @@
 package com.game.bus.scene.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Resource;
 import com.game.framework.console.constant.Constant;
@@ -19,6 +20,8 @@ import com.game.framework.dbcache.model.User;
 import com.game.framework.dbcache.model.WorldEvent;
 import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.protocol.Common.Error;
+import com.game.framework.protocol.Common.EventType;
+import com.game.framework.protocol.Common.TimeType;
 import com.game.framework.protocol.Database.BuildingState;
 import com.game.framework.protocol.Database.ProcessInfo;
 import com.game.framework.protocol.Database.ReceiveInfo;
@@ -66,6 +69,7 @@ public class SceneServiceImpl implements SceneService {
         List<BuildingInfo> buildingInfos = new ArrayList<>();
         BuildingInfo.Builder buildingInfoBuilder = BuildingInfo.newBuilder();
         ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+        long thisReceiveTime = System.currentTimeMillis();
         for (Building building : buildings) {
             BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
             UpgradeInfo upgradeInfo = buildingStateBuilder.getUpgradeInfo();
@@ -74,7 +78,7 @@ public class SceneServiceImpl implements SceneService {
             Integer number = 0;
             Integer configId = building.getConfigId();
             if (BuildingUtil.isReceiveBuilding(building)) {
-                number = receiveTemp(buildingMap, configId, user, group, buildingStateBuilder, building);
+                number = receiveTemp(buildingMap, configId, user, group, buildingStateBuilder, building, thisReceiveTime);
             } else if (BuildingUtil.isProcessBuilding(building)) {
                 for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
                     ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
@@ -127,8 +131,9 @@ public class SceneServiceImpl implements SceneService {
         // 领取类建筑领取状态更新
         Integer number = 0;
         BuildingInfo.Builder buildingInfoBuilder = BuildingInfo.newBuilder();
+        long thisReceiveTime = System.currentTimeMillis();
         if (BuildingUtil.isReceiveBuilding(building)) {
-            number = receiveTemp(buildingMap, configId, user, group, buildingStateBuilder, building);
+            number = receiveTemp(buildingMap, configId, user, group, buildingStateBuilder, building, thisReceiveTime);
         } else if (BuildingUtil.isProcessBuilding(building)) {
             for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
                 ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
@@ -286,51 +291,26 @@ public class SceneServiceImpl implements SceneService {
         Building building = buildingDao.get(buildingId);
         Group group = groupDao.get(user.getGroupId());
         Integer configId = building.getConfigId();
-        BuildingState.Builder buildingStatebuilder = BuildingState.parseFrom(building.getState()).toBuilder();
+        BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
         // 返回建筑队列
         Integer production = user.getProduction() + 1;
         user.setProduction(production);
         userDao.update(user);
         
         // 领取类建筑领取状态更新
-        List<ReceiveInfo> receiveInfos = new ArrayList<>();
         if (BuildingUtil.isReceiveBuilding(building)) {
             List<User> users = userDao.getAllByGroupId(building.getGroupId());
-            Long thisReceiveTime = System.currentTimeMillis();
-            long time = 0;
-            Integer number = 0;
-            
             ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
-            String tableName = buildingMap.get(configId).getBldgFuncTableName();
-            Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
-            Integer speed = BuildingUtil.getSpeed(tableName, tableId);
-            Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
-            double peopleNumber = group.getPeopleNumber();
-            for (int i = 0; i < buildingStatebuilder.getReceiveInfosCount(); i++) {
-                ReceiveInfo.Builder rbBuilder = buildingStatebuilder.getReceiveInfosBuilder(i);
-                User u = userDao.get(rbBuilder.getUid());
-                double stake = 1/peopleNumber + ((u.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
-                time = thisReceiveTime - rbBuilder.getLastReceiveTime();
-                number = (int) (time*speed*stake/1000/3600) + rbBuilder.getNumber();
-                capacity = (int) (capacity*stake);
-                if (number > capacity) {
-                    number = capacity;
-                }
-                rbBuilder.setLastReceiveTime(thisReceiveTime).setNumber(number);
-                receiveInfos.add(rbBuilder.build());
-            }
+            buildingStateBuilder = receiveTemp(buildingMap, configId, users, group, buildingStateBuilder);
         }
         
         // 更新建筑升级状态
         building.setConfigId(configId + 1);
-        UpgradeInfo upgradeInfo = buildingStatebuilder.getUpgradeInfo().toBuilder()
+        UpgradeInfo.Builder upgradeInfoBuilder = buildingStateBuilder.getUpgradeInfoBuilder()
                 .setUid(uid)
-                .setFinishTime(0)
-                .build();
-        buildingStatebuilder
-                .setUpgradeInfo(upgradeInfo)
-                .addAllReceiveInfos(receiveInfos);
-        building.setState(buildingStatebuilder.build().toByteArray());
+                .setFinishTime(0);
+        buildingStateBuilder.setUpgradeInfo(upgradeInfoBuilder);
+        building.setState(buildingStateBuilder.build().toByteArray());
         buildingDao.update(building);
         
         TSCFinishUpgrade p = TSCFinishUpgrade.newBuilder()
@@ -531,7 +511,8 @@ public class SceneServiceImpl implements SceneService {
         Group group = groupDao.get(groupId);
         Integer configId = building.getConfigId();
         ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
-        if (buildingId/10000 == 11108) {    // 风力发电机
+        BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
+        if (configId/10000 == 11108) {    // 风力发电机
             // 电池可用容量
             Building battery = buildingDao.get(group.getBatteryId());
             Integer batteryTableId = buildingMap.get(battery.getConfigId()).getBldgFuncTableId();
@@ -539,51 +520,8 @@ public class SceneServiceImpl implements SceneService {
             batteryCapacity -= user.getElectricity();
             // 电池还有容量
             if (batteryCapacity > 0) {
-                // 计算原有资源数量和时间差
-                int stateIndex = -1;
-                BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
-                ReceiveInfo.Builder receiveInfoBuilder = null;
-                for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
-                    receiveInfoBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
-                    if (uid.equals(receiveInfoBuilder.getUid())) {
-                        stateIndex = i;
-                        lastReceiveTime = receiveInfoBuilder.getLastReceiveTime();
-                        leftNumber = receiveInfoBuilder.getNumber();
-                        break;
-                    }
-                }
-                if (stateIndex == -1) {
-                    throw new BaseException(Error.SERVER_ERR_VALUE);
-                }
-                
                 // 计算新增资源数量
-                Long time = thisTime - lastReceiveTime;
-                String tableName = buildingMap.get(configId).getBldgFuncTableName();
-                Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
-                Integer speed = BuildingUtil.getSpeed(tableName, tableId);
-                Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
-                double peopleNumber = group.getPeopleNumber();
-                double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
-                number = (int) (time*speed*stake/1000/3600) + leftNumber;
-                capacity = (int) (capacity*stake);
-                if (number > capacity) {
-                    number = capacity;
-                }
-                
-                // 计算多余的资源数量和仓库能装的资源
-                leftNumber = 0;
-                if (number > batteryCapacity) {
-                    leftNumber = number - batteryCapacity;
-                    number = batteryCapacity;
-                }
-                
-                // 更新生产类建筑状态
-                receiveInfoBuilder.setLastReceiveTime(thisTime).setNumber(leftNumber);
-                buildingStateBuilder.setReceiveInfos(stateIndex, receiveInfoBuilder);
-                
-                building.setState(buildingStateBuilder.build().toByteArray());
-                buildingDao.update(building);
-                
+                number = receiveTemp(buildingMap, configId, user, group, buildingStateBuilder, building, thisTime, batteryCapacity);
                 // 更新电池状态
                 user.setElectricity(number + user.getElectricity());
                 userDao.update(user);
@@ -606,19 +544,12 @@ public class SceneServiceImpl implements SceneService {
                 number += r.getNumber();
             }
             storehouseCapacity -= number;
-            BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
             // 仓库还有容量
             if (storehouseCapacity > 0) {
                 // 计算原有资源数量和时间差
                 if (BuildingUtil.isReceiveBuilding(building)) {
                     // 计算新增资源数量
-                    number = receiveTemp(buildingMap, configId, user, group, buildingStateBuilder, building);
-                    // 计算多余的资源数量和仓库能装的资源
-                    leftNumber = 0;
-                    if (number > storehouseCapacity) {
-                        leftNumber = number - storehouseCapacity;
-                        number = storehouseCapacity;
-                    }
+                    number = receiveTemp(buildingMap, configId, user, group, buildingStateBuilder, building, thisTime, storehouseCapacity);
                 } else if (BuildingUtil.isProcessBuilding(building)) {
                     for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
                         ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
@@ -903,14 +834,15 @@ public class SceneServiceImpl implements SceneService {
     }
     
     /**
-     * 领取到临时仓库
+     * 领取到临时仓库(个人自动)
      */
-    private int receiveTemp(ReadOnlyMap<Integer, BUILDING> buildingMap, Integer configId, User user, Group group, BuildingState.Builder buildingStateBuilder, Building building) {
+    private int receiveTemp(ReadOnlyMap<Integer, BUILDING> buildingMap, Integer configId, 
+            User user, Group group, BuildingState.Builder buildingStateBuilder, Building building, Long thisReceiveTime) {
         int number = 0;
         String tableName = buildingMap.get(configId).getBldgFuncTableName();
         Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
-        Integer speed = BuildingUtil.getSpeed(tableName, tableId);
         Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
+        double speed = BuildingUtil.getSpeed(tableName, tableId);
         double peopleNumber = group.getPeopleNumber();
         double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
         
@@ -918,25 +850,45 @@ public class SceneServiceImpl implements SceneService {
             ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
             if (user.getId().equals(rBuilder.getUid())) {
                 // 计算一段时间内发生的事件造成的影响
-                long thisReceiveTime = System.currentTimeMillis();
                 long lastReceiveTime = rBuilder.getLastReceiveTime();
-                List<WorldEvent> worldEvents = worldEventDao.getWorldEventStartTimeIn(thisReceiveTime, lastReceiveTime);
+                List<WorldEvent> worldEvents = worldEventDao.getWorldEvent(thisReceiveTime, lastReceiveTime);
                 long time = 0;
                 number = rBuilder.getNumber();
-                for (WorldEvent w : worldEvents) {
-                    time = w.getStartTime().getTime() - lastReceiveTime;
-                    number += (int) (time*speed*stake/1000/3600);
-                    // 临时仓库影响
-                    number *= BuildingUtil.getReceiHverCapacityCoefficient(tableName, w.getConfigId());
-                    lastReceiveTime = w.getStartTime().getTime();
+                double speedCoefficient = 1.0;
+                if (worldEvents != null && worldEvents.size() > 0) {
+                    if (worldEvents.get(0).getType().equals(TimeType.END_TIME_VALUE)) {
+                        speedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, worldEvents.get(0).getConfigId());
+                    }
+                
+                    for (WorldEvent w : worldEvents) {
+                        if (w.getConfigId()/10000%100 == EventType.NATURE_VALUE) {       // 自然的世界事件
+                            long tempTime = w.getTime().getTime();
+                            time = tempTime - lastReceiveTime;
+                            speed *= speedCoefficient;
+                            number += (int) (time*speed*stake/1000/3600);
+                            
+                            Integer eventConfigId = w.getConfigId();
+                            double tempSpeedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, eventConfigId);
+                            if (w.getType().equals(TimeType.START_TIME_VALUE)) {
+                                speedCoefficient *= tempSpeedCoefficient;
+                                number *= BuildingUtil.getReceiHverCapacityCoefficient(tableName, eventConfigId);   // 影响临时仓库
+                            } else {
+                                speedCoefficient /= tempSpeedCoefficient;
+                            }
+                            lastReceiveTime = tempTime;
+                        }
+                    }
                 }
                 time = thisReceiveTime - lastReceiveTime;
+                speed *= speedCoefficient;
                 number += (int) (time*speed*stake/1000/3600);
                 
                 capacity = (int) (capacity*stake);
                 if (number > capacity) {
                     number = capacity;
                 }
+                
+                // 更新生产类建筑状态
                 rBuilder.setLastReceiveTime(thisReceiveTime).setNumber(number);
                 buildingStateBuilder.setReceiveInfos(i, rBuilder);
                 building.setState(buildingStateBuilder.build().toByteArray());
@@ -945,6 +897,145 @@ public class SceneServiceImpl implements SceneService {
             }
         }
         return number;
+    }
+    
+    /**
+     * 领取到临时仓库(个人手动)
+     */
+    private int receiveTemp(ReadOnlyMap<Integer, BUILDING> buildingMap, Integer configId, 
+            User user, Group group, BuildingState.Builder buildingStateBuilder, 
+            Building building, Long thisReceiveTime, Integer storehouseCapacity) {
+        int number = 0;
+        String tableName = buildingMap.get(configId).getBldgFuncTableName();
+        Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
+        Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
+        double speed = BuildingUtil.getSpeed(tableName, tableId);
+        double peopleNumber = group.getPeopleNumber();
+        double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
+        
+        for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
+            ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
+            if (user.getId().equals(rBuilder.getUid())) {
+                // 计算一段时间内发生的事件造成的影响
+                long lastReceiveTime = rBuilder.getLastReceiveTime();
+                List<WorldEvent> worldEvents = worldEventDao.getWorldEvent(thisReceiveTime, lastReceiveTime);
+                long time = 0;
+                number = rBuilder.getNumber();
+                double speedCoefficient = 1.0;
+                if (worldEvents != null && worldEvents.size() > 0) {
+                    if (worldEvents.get(0).getType().equals(TimeType.END_TIME_VALUE)) {
+                        speedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, worldEvents.get(0).getConfigId());
+                    }
+                
+                    for (WorldEvent w : worldEvents) {
+                        if (w.getConfigId()/10000%100 == EventType.NATURE_VALUE) {       // 自然的世界事件
+                            long tempTime = w.getTime().getTime();
+                            time = tempTime - lastReceiveTime;
+                            speed *= speedCoefficient;
+                            number += (int) (time*speed*stake/1000/3600);
+                            
+                            Integer eventConfigId = w.getConfigId();
+                            double tempSpeedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, eventConfigId);
+                            if (w.getType().equals(TimeType.START_TIME_VALUE)) {
+                                speedCoefficient *= tempSpeedCoefficient;
+                                if (configId/10000 != 11108) {      // 风力发电机
+                                    number *= BuildingUtil.getReceiHverCapacityCoefficient(tableName, eventConfigId);   // 影响临时仓库
+                                }
+                            } else {
+                                speedCoefficient /= tempSpeedCoefficient;
+                            }
+                            lastReceiveTime = tempTime;
+                        }
+                    }
+                }
+                time = thisReceiveTime - lastReceiveTime;
+                speed *= speedCoefficient;
+                number += (int) (time*speed*stake/1000/3600);
+                
+                capacity = (int) (capacity*stake);
+                if (number > capacity) {
+                    number = capacity;
+                }
+                
+                // 计算多余的资源数量和仓库能装的资源
+                int leftNumber = 0;
+                if (number > storehouseCapacity) {
+                    leftNumber = number - storehouseCapacity;
+                    number = storehouseCapacity;
+                }
+                
+                // 更新生产类建筑状态
+                rBuilder.setLastReceiveTime(thisReceiveTime).setNumber(leftNumber);
+                buildingStateBuilder.setReceiveInfos(i, rBuilder);
+                building.setState(buildingStateBuilder.build().toByteArray());
+                buildingDao.update(building);
+                break;
+            }
+        }
+        return number;
+    }
+    
+    /**
+     * 领取到临时仓库(建筑升级)
+     */
+    private BuildingState.Builder receiveTemp(ReadOnlyMap<Integer, BUILDING> buildingMap, Integer configId, 
+            List<User> users, Group group, BuildingState.Builder buildingStateBuilder) {
+        int number = 0;
+        String tableName = buildingMap.get(configId).getBldgFuncTableName();
+        Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
+        Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
+        double speed = BuildingUtil.getSpeed(tableName, tableId);
+        double peopleNumber = group.getPeopleNumber();
+        HashMap<Long, Integer> uid2Contribution = new HashMap<>();
+        for (User u : users) {
+            uid2Contribution.put(u.getId(), u.getContribution());
+        }
+        long thisReceiveTime = System.currentTimeMillis();
+        for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
+            ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
+            double stake = 1/peopleNumber + ((uid2Contribution.get(rBuilder.getUid()) + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
+            // 计算一段时间内发生的事件造成的影响
+            long lastReceiveTime = rBuilder.getLastReceiveTime();
+            List<WorldEvent> worldEvents = worldEventDao.getWorldEvent(thisReceiveTime, lastReceiveTime);
+            long time = 0;
+            number = rBuilder.getNumber();
+            double speedCoefficient = 1.0;
+            if (worldEvents != null && worldEvents.size() > 0) {
+                if (worldEvents.get(0).getType().equals(TimeType.END_TIME_VALUE)) {
+                    speedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, worldEvents.get(0).getConfigId());
+                }
+            
+                for (WorldEvent w : worldEvents) {
+                    if (w.getConfigId()/10000%100 == EventType.NATURE_VALUE) {       // 自然的世界事件
+                        long tempTime = w.getTime().getTime();
+                        time = tempTime - lastReceiveTime;
+                        speed *= speedCoefficient;
+                        number += (int) (time*speed*stake/1000/3600);
+                        
+                        Integer eventConfigId = w.getConfigId();
+                        double tempSpeedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, eventConfigId);
+                        if (w.getType().equals(TimeType.START_TIME_VALUE)) {
+                            speedCoefficient *= tempSpeedCoefficient;
+                            number *= BuildingUtil.getReceiHverCapacityCoefficient(tableName, eventConfigId);   // 影响临时仓库
+                        } else {
+                            speedCoefficient /= tempSpeedCoefficient;
+                        }
+                        lastReceiveTime = tempTime;
+                    }
+                }
+            }
+            time = thisReceiveTime - lastReceiveTime;
+            speed *= speedCoefficient;
+            number += (int) (time*speed*stake/1000/3600);
+            
+            capacity = (int) (capacity*stake);
+            if (number > capacity) {
+                number = capacity;
+            }
+            rBuilder.setLastReceiveTime(thisReceiveTime).setNumber(number);
+            buildingStateBuilder.setReceiveInfos(i, rBuilder);
+        }
+        return buildingStateBuilder;
     }
 }
 

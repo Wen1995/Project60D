@@ -53,132 +53,138 @@ message WORLD_EVENTS{
     optional int32 lushui_bldgcap = 22 [default = 0];
     /** 松树林系数*100 */
     optional int32 songshu_bldgcap = 23 [default = 0];
+    /** 风力发电机 */
+    optional int32 taiyangneng_bldgcap = 24 [default = 0];
+    /** 化肥系数*100 */
+    optional int32 huafei_bldgcap = 25 [default = 0];
     /** 水稻种植场产速系数*100 */
-    optional int32 dami_bldgspd = 24 [default = 0];
+    optional int32 dami_bldgspd = 26 [default = 0];
     /** 蔬菜种植场产速系数*100 */
-    optional int32 shucai_bldgspd = 25 [default = 0];
+    optional int32 shucai_bldgspd = 27 [default = 0];
     /** 水果园产速系数*100 */
-    optional int32 shuiguo_bldgspd = 26 [default = 0];
+    optional int32 shuiguo_bldgspd = 28 [default = 0];
     /** 井产速系数*100 */
-    optional int32 jing_bldgspd = 27 [default = 0];
+    optional int32 jing_bldgspd = 29 [default = 0];
     /** 露水收集器产速系数*100 */
-    optional int32 lushui_bldgspd = 28 [default = 0];
+    optional int32 lushui_bldgspd = 30 [default = 0];
     /** 松树林产速系数*100 */
-    optional int32 songshu_bldgspd = 29 [default = 0];
+    optional int32 songshu_bldgspd = 31 [default = 0];
     /** 风力发电机（原太阳能）产速系数*100 */
-    optional int32 fengli_bldgspd = 30 [default = 0];
+    optional int32 taiyangneng_bldgspd = 32 [default = 0];
+    /** 化肥产速系数*100 */
+    optional int32 huafei_bldgspd = 33 [default = 0];
     /** 无线电提前接收系数*100 */
-    optional int32 wuxiandian_bldg = 31 [default = 0];
+    optional int32 wuxiandian_bldg = 34 [default = 0];
     /** 雷达提前接收系数*100 */
-    optional int32 leida_bldg = 32 [default = 0];
+    optional int32 leida_bldg = 35 [default = 0];
     /** 车辆速度系数*100 */
-    optional int32 car_bldgspd = 33 [default = 0];
+    optional int32 car_bldgspd = 36 [default = 0];
     /** 交易税率系数*100 */
-    optional int32 tax_coeff = 34 [default = 0];
+    optional int32 tax_coeff = 37 [default = 0];
     /** 大米*100 */
-    optional int32 dami = 35 [default = 0];
+    optional int32 dami = 38 [default = 0];
     /** 蔬菜*100 */
-    optional int32 shucai = 36 [default = 0];
+    optional int32 shucai = 39 [default = 0];
     /** 水果*100 */
-    optional int32 shuiguo = 37 [default = 0];
+    optional int32 shuiguo = 40 [default = 0];
     /** 化肥*100 */
-    optional int32 huafei = 38 [default = 0];
+    optional int32 huafei = 41 [default = 0];
     /** 纯净水*100 */
-    optional int32 shui = 39 [default = 0];
+    optional int32 shui = 42 [default = 0];
     /** 松木*100 */
-    optional int32 songmu = 40 [default = 0];
+    optional int32 songmu = 43 [default = 0];
     /** 水泥*100 */
-    optional int32 shuini = 41 [default = 0];
+    optional int32 shuini = 44 [default = 0];
     /** 草*100 */
-    optional int32 cao = 42 [default = 0];
+    optional int32 cao = 45 [default = 0];
     /** 原油*100 */
-    optional int32 yuanyou = 43 [default = 0];
+    optional int32 yuanyou = 46 [default = 0];
     /** 铁*100 */
-    optional int32 tie = 44 [default = 0];
+    optional int32 tie = 47 [default = 0];
     /** 急救包*100 */
-    optional int32 jijiubao = 45 [default = 0];
+    optional int32 jijiubao = 48 [default = 0];
     /** 庄园日志*100 */
-    optional int32 rizhi = 46 [default = 0];
+    optional int32 rizhi = 49 [default = 0];
     /** 重机枪图纸*100 */
-    optional int32 jiqiangtuzhi = 47 [default = 0];
+    optional int32 jiqiangtuzhi = 50 [default = 0];
     /** 狙击枪图纸*100 */
-    optional int32 jujituzhi = 48 [default = 0];
+    optional int32 jujituzhi = 51 [default = 0];
     /** 机炮设计图*100 */
-    optional int32 jipaotuzhi = 49 [default = 0];
+    optional int32 jipaotuzhi = 52 [default = 0];
     /** 《袁隆平传》*100 */
-    optional int32 yuanlongping = 50 [default = 0];
+    optional int32 yuanlongping = 53 [default = 0];
     /** 《化肥工业概论》*100 */
-    optional int32 huafeigongye = 51 [default = 0];
+    optional int32 huafeigongye = 54 [default = 0];
     /** 《论如何养猪》*100 */
-    optional int32 yangzhu = 52 [default = 0];
+    optional int32 yangzhu = 55 [default = 0];
     /** 《仓储管理》*100 */
-    optional int32 cangchu = 53 [default = 0];
+    optional int32 cangchu = 56 [default = 0];
     /** 《特斯拉传》*100 */
-    optional int32 tesila = 54 [default = 0];
+    optional int32 tesila = 57 [default = 0];
     /** 《洛克菲勒传》*100 */
-    optional int32 luokefeile = 55 [default = 0];
+    optional int32 luokefeile = 58 [default = 0];
     /** 《卡耐基传》*100 */
-    optional int32 kanaiji = 56 [default = 0];
+    optional int32 kanaiji = 59 [default = 0];
     /** 《鲁班传》*100 */
-    optional int32 luban = 57 [default = 0];
+    optional int32 luban = 60 [default = 0];
     /** 《土木工程概论》*100 */
-    optional int32 tumu = 58 [default = 0];
+    optional int32 tumu = 61 [default = 0];
     /** 《防盗门技术》*100 */
-    optional int32 fangdao = 59 [default = 0];
+    optional int32 fangdao = 62 [default = 0];
     /** 《马克沁传》*100 */
-    optional int32 makeqin = 60 [default = 0];
+    optional int32 makeqin = 63 [default = 0];
     /** 《我的奋斗》*100 */
-    optional int32 wodefendou = 61 [default = 0];
+    optional int32 wodefendou = 64 [default = 0];
     /** 《加特林传》*100 */
-    optional int32 jiatelin = 62 [default = 0];
+    optional int32 jiatelin = 65 [default = 0];
     /** 《巴雷特的笔记》*100 */
-    optional int32 wbaleite = 63 [default = 0];
+    optional int32 wbaleite = 66 [default = 0];
     /** 《官人吃鸡指南》*100 */
-    optional int32 guanren = 64 [default = 0];
+    optional int32 guanren = 67 [default = 0];
     /** 1级头盔*100 */
-    optional int32 toukui1 = 65 [default = 0];
+    optional int32 toukui1 = 68 [default = 0];
     /** 2级头盔*100 */
-    optional int32 toukui2 = 66 [default = 0];
+    optional int32 toukui2 = 69 [default = 0];
     /** 3级头盔*100 */
-    optional int32 toukui3 = 67 [default = 0];
+    optional int32 toukui3 = 70 [default = 0];
     /** 手枪*100 */
-    optional int32 shouqiang1 = 68 [default = 0];
+    optional int32 shouqiang1 = 71 [default = 0];
     /** 步枪*100 */
-    optional int32 buqiang1 = 69 [default = 0];
+    optional int32 buqiang1 = 72 [default = 0];
     /** 轻机枪*100 */
-    optional int32 qingjiqiang1 = 70 [default = 0];
+    optional int32 qingjiqiang1 = 73 [default = 0];
     /** 1级防弹衣*100 */
-    optional int32 fangdanyi1 = 71 [default = 0];
+    optional int32 fangdanyi1 = 74 [default = 0];
     /** 2级防弹衣*100 */
-    optional int32 fangdanyi2 = 72 [default = 0];
+    optional int32 fangdanyi2 = 75 [default = 0];
     /** 3级防弹衣*100 */
-    optional int32 fangdanyi3 = 73 [default = 0];
+    optional int32 fangdanyi3 = 76 [default = 0];
     /** 1级作训裤*100 */
-    optional int32 kuzi1 = 74 [default = 0];
+    optional int32 kuzi1 = 77 [default = 0];
     /** 2级作训裤*100 */
-    optional int32 kuzi2 = 75 [default = 0];
+    optional int32 kuzi2 = 78 [default = 0];
     /** 3级作训裤*100 */
-    optional int32 kuzi3 = 76 [default = 0];
+    optional int32 kuzi3 = 79 [default = 0];
     /** 1级越野靴*100 */
-    optional int32 xiezi1 = 77 [default = 0];
+    optional int32 xiezi1 = 80 [default = 0];
     /** 2级越野靴*100 */
-    optional int32 xiezi2 = 78 [default = 0];
+    optional int32 xiezi2 = 81 [default = 0];
     /** 3级越野靴*100 */
-    optional int32 xiezi3 = 79 [default = 0];
+    optional int32 xiezi3 = 82 [default = 0];
     /** 矿物质水*100 */
-    optional int32 kuangquanshui = 80 [default = 0];
+    optional int32 kuangquanshui = 83 [default = 0];
     /** 饲料*100 */
-    optional int32 siliao = 81 [default = 0];
+    optional int32 siliao = 84 [default = 0];
     /** 猪肉*100 */
-    optional int32 zhurou = 82 [default = 0];
+    optional int32 zhurou = 85 [default = 0];
     /** 汽油*100 */
-    optional int32 qiyou = 83 [default = 0];
+    optional int32 qiyou = 86 [default = 0];
     /** 钢*100 */
-    optional int32 gang = 84 [default = 0];
+    optional int32 gang = 87 [default = 0];
     /** 松木板*100 */
-    optional int32 songmuban = 85 [default = 0];
+    optional int32 songmuban = 88 [default = 0];
     /** 混凝土*100 */
-    optional int32 hunningtu = 86 [default = 0];
+    optional int32 hunningtu = 89 [default = 0];
 }
 
 message WORLD_EVENTS_ARRAY {

@@ -449,7 +449,41 @@ public final class WorldEventsBytes {
     int getSongshuBldgcap();
 
     /**
-     * <code>optional int32 dami_bldgspd = 24 [default = 0];</code>
+     * <code>optional int32 taiyangneng_bldgcap = 24 [default = 0];</code>
+     *
+     * <pre>
+     ** 风力发电机 
+     * </pre>
+     */
+    boolean hasTaiyangnengBldgcap();
+    /**
+     * <code>optional int32 taiyangneng_bldgcap = 24 [default = 0];</code>
+     *
+     * <pre>
+     ** 风力发电机 
+     * </pre>
+     */
+    int getTaiyangnengBldgcap();
+
+    /**
+     * <code>optional int32 huafei_bldgcap = 25 [default = 0];</code>
+     *
+     * <pre>
+     ** 化肥系数*100 
+     * </pre>
+     */
+    boolean hasHuafeiBldgcap();
+    /**
+     * <code>optional int32 huafei_bldgcap = 25 [default = 0];</code>
+     *
+     * <pre>
+     ** 化肥系数*100 
+     * </pre>
+     */
+    int getHuafeiBldgcap();
+
+    /**
+     * <code>optional int32 dami_bldgspd = 26 [default = 0];</code>
      *
      * <pre>
      ** 水稻种植场产速系数*100 
@@ -457,7 +491,7 @@ public final class WorldEventsBytes {
      */
     boolean hasDamiBldgspd();
     /**
-     * <code>optional int32 dami_bldgspd = 24 [default = 0];</code>
+     * <code>optional int32 dami_bldgspd = 26 [default = 0];</code>
      *
      * <pre>
      ** 水稻种植场产速系数*100 
@@ -466,7 +500,7 @@ public final class WorldEventsBytes {
     int getDamiBldgspd();
 
     /**
-     * <code>optional int32 shucai_bldgspd = 25 [default = 0];</code>
+     * <code>optional int32 shucai_bldgspd = 27 [default = 0];</code>
      *
      * <pre>
      ** 蔬菜种植场产速系数*100 
@@ -474,7 +508,7 @@ public final class WorldEventsBytes {
      */
     boolean hasShucaiBldgspd();
     /**
-     * <code>optional int32 shucai_bldgspd = 25 [default = 0];</code>
+     * <code>optional int32 shucai_bldgspd = 27 [default = 0];</code>
      *
      * <pre>
      ** 蔬菜种植场产速系数*100 
@@ -483,7 +517,7 @@ public final class WorldEventsBytes {
     int getShucaiBldgspd();
 
     /**
-     * <code>optional int32 shuiguo_bldgspd = 26 [default = 0];</code>
+     * <code>optional int32 shuiguo_bldgspd = 28 [default = 0];</code>
      *
      * <pre>
      ** 水果园产速系数*100 
@@ -491,7 +525,7 @@ public final class WorldEventsBytes {
      */
     boolean hasShuiguoBldgspd();
     /**
-     * <code>optional int32 shuiguo_bldgspd = 26 [default = 0];</code>
+     * <code>optional int32 shuiguo_bldgspd = 28 [default = 0];</code>
      *
      * <pre>
      ** 水果园产速系数*100 
@@ -500,7 +534,7 @@ public final class WorldEventsBytes {
     int getShuiguoBldgspd();
 
     /**
-     * <code>optional int32 jing_bldgspd = 27 [default = 0];</code>
+     * <code>optional int32 jing_bldgspd = 29 [default = 0];</code>
      *
      * <pre>
      ** 井产速系数*100 
@@ -508,7 +542,7 @@ public final class WorldEventsBytes {
      */
     boolean hasJingBldgspd();
     /**
-     * <code>optional int32 jing_bldgspd = 27 [default = 0];</code>
+     * <code>optional int32 jing_bldgspd = 29 [default = 0];</code>
      *
      * <pre>
      ** 井产速系数*100 
@@ -517,7 +551,7 @@ public final class WorldEventsBytes {
     int getJingBldgspd();
 
     /**
-     * <code>optional int32 lushui_bldgspd = 28 [default = 0];</code>
+     * <code>optional int32 lushui_bldgspd = 30 [default = 0];</code>
      *
      * <pre>
      ** 露水收集器产速系数*100 
@@ -525,7 +559,7 @@ public final class WorldEventsBytes {
      */
     boolean hasLushuiBldgspd();
     /**
-     * <code>optional int32 lushui_bldgspd = 28 [default = 0];</code>
+     * <code>optional int32 lushui_bldgspd = 30 [default = 0];</code>
      *
      * <pre>
      ** 露水收集器产速系数*100 
@@ -534,7 +568,7 @@ public final class WorldEventsBytes {
     int getLushuiBldgspd();
 
     /**
-     * <code>optional int32 songshu_bldgspd = 29 [default = 0];</code>
+     * <code>optional int32 songshu_bldgspd = 31 [default = 0];</code>
      *
      * <pre>
      ** 松树林产速系数*100 
@@ -542,7 +576,7 @@ public final class WorldEventsBytes {
      */
     boolean hasSongshuBldgspd();
     /**
-     * <code>optional int32 songshu_bldgspd = 29 [default = 0];</code>
+     * <code>optional int32 songshu_bldgspd = 31 [default = 0];</code>
      *
      * <pre>
      ** 松树林产速系数*100 
@@ -551,24 +585,41 @@ public final class WorldEventsBytes {
     int getSongshuBldgspd();
 
     /**
-     * <code>optional int32 fengli_bldgspd = 30 [default = 0];</code>
+     * <code>optional int32 taiyangneng_bldgspd = 32 [default = 0];</code>
      *
      * <pre>
      ** 风力发电机（原太阳能）产速系数*100 
      * </pre>
      */
-    boolean hasFengliBldgspd();
+    boolean hasTaiyangnengBldgspd();
     /**
-     * <code>optional int32 fengli_bldgspd = 30 [default = 0];</code>
+     * <code>optional int32 taiyangneng_bldgspd = 32 [default = 0];</code>
      *
      * <pre>
      ** 风力发电机（原太阳能）产速系数*100 
      * </pre>
      */
-    int getFengliBldgspd();
+    int getTaiyangnengBldgspd();
 
     /**
-     * <code>optional int32 wuxiandian_bldg = 31 [default = 0];</code>
+     * <code>optional int32 huafei_bldgspd = 33 [default = 0];</code>
+     *
+     * <pre>
+     ** 化肥产速系数*100 
+     * </pre>
+     */
+    boolean hasHuafeiBldgspd();
+    /**
+     * <code>optional int32 huafei_bldgspd = 33 [default = 0];</code>
+     *
+     * <pre>
+     ** 化肥产速系数*100 
+     * </pre>
+     */
+    int getHuafeiBldgspd();
+
+    /**
+     * <code>optional int32 wuxiandian_bldg = 34 [default = 0];</code>
      *
      * <pre>
      ** 无线电提前接收系数*100 
@@ -576,7 +627,7 @@ public final class WorldEventsBytes {
      */
     boolean hasWuxiandianBldg();
     /**
-     * <code>optional int32 wuxiandian_bldg = 31 [default = 0];</code>
+     * <code>optional int32 wuxiandian_bldg = 34 [default = 0];</code>
      *
      * <pre>
      ** 无线电提前接收系数*100 
@@ -585,7 +636,7 @@ public final class WorldEventsBytes {
     int getWuxiandianBldg();
 
     /**
-     * <code>optional int32 leida_bldg = 32 [default = 0];</code>
+     * <code>optional int32 leida_bldg = 35 [default = 0];</code>
      *
      * <pre>
      ** 雷达提前接收系数*100 
@@ -593,7 +644,7 @@ public final class WorldEventsBytes {
      */
     boolean hasLeidaBldg();
     /**
-     * <code>optional int32 leida_bldg = 32 [default = 0];</code>
+     * <code>optional int32 leida_bldg = 35 [default = 0];</code>
      *
      * <pre>
      ** 雷达提前接收系数*100 
@@ -602,7 +653,7 @@ public final class WorldEventsBytes {
     int getLeidaBldg();
 
     /**
-     * <code>optional int32 car_bldgspd = 33 [default = 0];</code>
+     * <code>optional int32 car_bldgspd = 36 [default = 0];</code>
      *
      * <pre>
      ** 车辆速度系数*100 
@@ -610,7 +661,7 @@ public final class WorldEventsBytes {
      */
     boolean hasCarBldgspd();
     /**
-     * <code>optional int32 car_bldgspd = 33 [default = 0];</code>
+     * <code>optional int32 car_bldgspd = 36 [default = 0];</code>
      *
      * <pre>
      ** 车辆速度系数*100 
@@ -619,7 +670,7 @@ public final class WorldEventsBytes {
     int getCarBldgspd();
 
     /**
-     * <code>optional int32 tax_coeff = 34 [default = 0];</code>
+     * <code>optional int32 tax_coeff = 37 [default = 0];</code>
      *
      * <pre>
      ** 交易税率系数*100 
@@ -627,7 +678,7 @@ public final class WorldEventsBytes {
      */
     boolean hasTaxCoeff();
     /**
-     * <code>optional int32 tax_coeff = 34 [default = 0];</code>
+     * <code>optional int32 tax_coeff = 37 [default = 0];</code>
      *
      * <pre>
      ** 交易税率系数*100 
@@ -636,7 +687,7 @@ public final class WorldEventsBytes {
     int getTaxCoeff();
 
     /**
-     * <code>optional int32 dami = 35 [default = 0];</code>
+     * <code>optional int32 dami = 38 [default = 0];</code>
      *
      * <pre>
      ** 大米*100 
@@ -644,7 +695,7 @@ public final class WorldEventsBytes {
      */
     boolean hasDami();
     /**
-     * <code>optional int32 dami = 35 [default = 0];</code>
+     * <code>optional int32 dami = 38 [default = 0];</code>
      *
      * <pre>
      ** 大米*100 
@@ -653,7 +704,7 @@ public final class WorldEventsBytes {
     int getDami();
 
     /**
-     * <code>optional int32 shucai = 36 [default = 0];</code>
+     * <code>optional int32 shucai = 39 [default = 0];</code>
      *
      * <pre>
      ** 蔬菜*100 
@@ -661,7 +712,7 @@ public final class WorldEventsBytes {
      */
     boolean hasShucai();
     /**
-     * <code>optional int32 shucai = 36 [default = 0];</code>
+     * <code>optional int32 shucai = 39 [default = 0];</code>
      *
      * <pre>
      ** 蔬菜*100 
@@ -670,7 +721,7 @@ public final class WorldEventsBytes {
     int getShucai();
 
     /**
-     * <code>optional int32 shuiguo = 37 [default = 0];</code>
+     * <code>optional int32 shuiguo = 40 [default = 0];</code>
      *
      * <pre>
      ** 水果*100 
@@ -678,7 +729,7 @@ public final class WorldEventsBytes {
      */
     boolean hasShuiguo();
     /**
-     * <code>optional int32 shuiguo = 37 [default = 0];</code>
+     * <code>optional int32 shuiguo = 40 [default = 0];</code>
      *
      * <pre>
      ** 水果*100 
@@ -687,7 +738,7 @@ public final class WorldEventsBytes {
     int getShuiguo();
 
     /**
-     * <code>optional int32 huafei = 38 [default = 0];</code>
+     * <code>optional int32 huafei = 41 [default = 0];</code>
      *
      * <pre>
      ** 化肥*100 
@@ -695,7 +746,7 @@ public final class WorldEventsBytes {
      */
     boolean hasHuafei();
     /**
-     * <code>optional int32 huafei = 38 [default = 0];</code>
+     * <code>optional int32 huafei = 41 [default = 0];</code>
      *
      * <pre>
      ** 化肥*100 
@@ -704,7 +755,7 @@ public final class WorldEventsBytes {
     int getHuafei();
 
     /**
-     * <code>optional int32 shui = 39 [default = 0];</code>
+     * <code>optional int32 shui = 42 [default = 0];</code>
      *
      * <pre>
      ** 纯净水*100 
@@ -712,7 +763,7 @@ public final class WorldEventsBytes {
      */
     boolean hasShui();
     /**
-     * <code>optional int32 shui = 39 [default = 0];</code>
+     * <code>optional int32 shui = 42 [default = 0];</code>
      *
      * <pre>
      ** 纯净水*100 
@@ -721,7 +772,7 @@ public final class WorldEventsBytes {
     int getShui();
 
     /**
-     * <code>optional int32 songmu = 40 [default = 0];</code>
+     * <code>optional int32 songmu = 43 [default = 0];</code>
      *
      * <pre>
      ** 松木*100 
@@ -729,7 +780,7 @@ public final class WorldEventsBytes {
      */
     boolean hasSongmu();
     /**
-     * <code>optional int32 songmu = 40 [default = 0];</code>
+     * <code>optional int32 songmu = 43 [default = 0];</code>
      *
      * <pre>
      ** 松木*100 
@@ -738,7 +789,7 @@ public final class WorldEventsBytes {
     int getSongmu();
 
     /**
-     * <code>optional int32 shuini = 41 [default = 0];</code>
+     * <code>optional int32 shuini = 44 [default = 0];</code>
      *
      * <pre>
      ** 水泥*100 
@@ -746,7 +797,7 @@ public final class WorldEventsBytes {
      */
     boolean hasShuini();
     /**
-     * <code>optional int32 shuini = 41 [default = 0];</code>
+     * <code>optional int32 shuini = 44 [default = 0];</code>
      *
      * <pre>
      ** 水泥*100 
@@ -755,7 +806,7 @@ public final class WorldEventsBytes {
     int getShuini();
 
     /**
-     * <code>optional int32 cao = 42 [default = 0];</code>
+     * <code>optional int32 cao = 45 [default = 0];</code>
      *
      * <pre>
      ** 草*100 
@@ -763,7 +814,7 @@ public final class WorldEventsBytes {
      */
     boolean hasCao();
     /**
-     * <code>optional int32 cao = 42 [default = 0];</code>
+     * <code>optional int32 cao = 45 [default = 0];</code>
      *
      * <pre>
      ** 草*100 
@@ -772,7 +823,7 @@ public final class WorldEventsBytes {
     int getCao();
 
     /**
-     * <code>optional int32 yuanyou = 43 [default = 0];</code>
+     * <code>optional int32 yuanyou = 46 [default = 0];</code>
      *
      * <pre>
      ** 原油*100 
@@ -780,7 +831,7 @@ public final class WorldEventsBytes {
      */
     boolean hasYuanyou();
     /**
-     * <code>optional int32 yuanyou = 43 [default = 0];</code>
+     * <code>optional int32 yuanyou = 46 [default = 0];</code>
      *
      * <pre>
      ** 原油*100 
@@ -789,7 +840,7 @@ public final class WorldEventsBytes {
     int getYuanyou();
 
     /**
-     * <code>optional int32 tie = 44 [default = 0];</code>
+     * <code>optional int32 tie = 47 [default = 0];</code>
      *
      * <pre>
      ** 铁*100 
@@ -797,7 +848,7 @@ public final class WorldEventsBytes {
      */
     boolean hasTie();
     /**
-     * <code>optional int32 tie = 44 [default = 0];</code>
+     * <code>optional int32 tie = 47 [default = 0];</code>
      *
      * <pre>
      ** 铁*100 
@@ -806,7 +857,7 @@ public final class WorldEventsBytes {
     int getTie();
 
     /**
-     * <code>optional int32 jijiubao = 45 [default = 0];</code>
+     * <code>optional int32 jijiubao = 48 [default = 0];</code>
      *
      * <pre>
      ** 急救包*100 
@@ -814,7 +865,7 @@ public final class WorldEventsBytes {
      */
     boolean hasJijiubao();
     /**
-     * <code>optional int32 jijiubao = 45 [default = 0];</code>
+     * <code>optional int32 jijiubao = 48 [default = 0];</code>
      *
      * <pre>
      ** 急救包*100 
@@ -823,7 +874,7 @@ public final class WorldEventsBytes {
     int getJijiubao();
 
     /**
-     * <code>optional int32 rizhi = 46 [default = 0];</code>
+     * <code>optional int32 rizhi = 49 [default = 0];</code>
      *
      * <pre>
      ** 庄园日志*100 
@@ -831,7 +882,7 @@ public final class WorldEventsBytes {
      */
     boolean hasRizhi();
     /**
-     * <code>optional int32 rizhi = 46 [default = 0];</code>
+     * <code>optional int32 rizhi = 49 [default = 0];</code>
      *
      * <pre>
      ** 庄园日志*100 
@@ -840,7 +891,7 @@ public final class WorldEventsBytes {
     int getRizhi();
 
     /**
-     * <code>optional int32 jiqiangtuzhi = 47 [default = 0];</code>
+     * <code>optional int32 jiqiangtuzhi = 50 [default = 0];</code>
      *
      * <pre>
      ** 重机枪图纸*100 
@@ -848,7 +899,7 @@ public final class WorldEventsBytes {
      */
     boolean hasJiqiangtuzhi();
     /**
-     * <code>optional int32 jiqiangtuzhi = 47 [default = 0];</code>
+     * <code>optional int32 jiqiangtuzhi = 50 [default = 0];</code>
      *
      * <pre>
      ** 重机枪图纸*100 
@@ -857,7 +908,7 @@ public final class WorldEventsBytes {
     int getJiqiangtuzhi();
 
     /**
-     * <code>optional int32 jujituzhi = 48 [default = 0];</code>
+     * <code>optional int32 jujituzhi = 51 [default = 0];</code>
      *
      * <pre>
      ** 狙击枪图纸*100 
@@ -865,7 +916,7 @@ public final class WorldEventsBytes {
      */
     boolean hasJujituzhi();
     /**
-     * <code>optional int32 jujituzhi = 48 [default = 0];</code>
+     * <code>optional int32 jujituzhi = 51 [default = 0];</code>
      *
      * <pre>
      ** 狙击枪图纸*100 
@@ -874,7 +925,7 @@ public final class WorldEventsBytes {
     int getJujituzhi();
 
     /**
-     * <code>optional int32 jipaotuzhi = 49 [default = 0];</code>
+     * <code>optional int32 jipaotuzhi = 52 [default = 0];</code>
      *
      * <pre>
      ** 机炮设计图*100 
@@ -882,7 +933,7 @@ public final class WorldEventsBytes {
      */
     boolean hasJipaotuzhi();
     /**
-     * <code>optional int32 jipaotuzhi = 49 [default = 0];</code>
+     * <code>optional int32 jipaotuzhi = 52 [default = 0];</code>
      *
      * <pre>
      ** 机炮设计图*100 
@@ -891,7 +942,7 @@ public final class WorldEventsBytes {
     int getJipaotuzhi();
 
     /**
-     * <code>optional int32 yuanlongping = 50 [default = 0];</code>
+     * <code>optional int32 yuanlongping = 53 [default = 0];</code>
      *
      * <pre>
      ** 《袁隆平传》*100 
@@ -899,7 +950,7 @@ public final class WorldEventsBytes {
      */
     boolean hasYuanlongping();
     /**
-     * <code>optional int32 yuanlongping = 50 [default = 0];</code>
+     * <code>optional int32 yuanlongping = 53 [default = 0];</code>
      *
      * <pre>
      ** 《袁隆平传》*100 
@@ -908,7 +959,7 @@ public final class WorldEventsBytes {
     int getYuanlongping();
 
     /**
-     * <code>optional int32 huafeigongye = 51 [default = 0];</code>
+     * <code>optional int32 huafeigongye = 54 [default = 0];</code>
      *
      * <pre>
      ** 《化肥工业概论》*100 
@@ -916,7 +967,7 @@ public final class WorldEventsBytes {
      */
     boolean hasHuafeigongye();
     /**
-     * <code>optional int32 huafeigongye = 51 [default = 0];</code>
+     * <code>optional int32 huafeigongye = 54 [default = 0];</code>
      *
      * <pre>
      ** 《化肥工业概论》*100 
@@ -925,7 +976,7 @@ public final class WorldEventsBytes {
     int getHuafeigongye();
 
     /**
-     * <code>optional int32 yangzhu = 52 [default = 0];</code>
+     * <code>optional int32 yangzhu = 55 [default = 0];</code>
      *
      * <pre>
      ** 《论如何养猪》*100 
@@ -933,7 +984,7 @@ public final class WorldEventsBytes {
      */
     boolean hasYangzhu();
     /**
-     * <code>optional int32 yangzhu = 52 [default = 0];</code>
+     * <code>optional int32 yangzhu = 55 [default = 0];</code>
      *
      * <pre>
      ** 《论如何养猪》*100 
@@ -942,7 +993,7 @@ public final class WorldEventsBytes {
     int getYangzhu();
 
     /**
-     * <code>optional int32 cangchu = 53 [default = 0];</code>
+     * <code>optional int32 cangchu = 56 [default = 0];</code>
      *
      * <pre>
      ** 《仓储管理》*100 
@@ -950,7 +1001,7 @@ public final class WorldEventsBytes {
      */
     boolean hasCangchu();
     /**
-     * <code>optional int32 cangchu = 53 [default = 0];</code>
+     * <code>optional int32 cangchu = 56 [default = 0];</code>
      *
      * <pre>
      ** 《仓储管理》*100 
@@ -959,7 +1010,7 @@ public final class WorldEventsBytes {
     int getCangchu();
 
     /**
-     * <code>optional int32 tesila = 54 [default = 0];</code>
+     * <code>optional int32 tesila = 57 [default = 0];</code>
      *
      * <pre>
      ** 《特斯拉传》*100 
@@ -967,7 +1018,7 @@ public final class WorldEventsBytes {
      */
     boolean hasTesila();
     /**
-     * <code>optional int32 tesila = 54 [default = 0];</code>
+     * <code>optional int32 tesila = 57 [default = 0];</code>
      *
      * <pre>
      ** 《特斯拉传》*100 
@@ -976,7 +1027,7 @@ public final class WorldEventsBytes {
     int getTesila();
 
     /**
-     * <code>optional int32 luokefeile = 55 [default = 0];</code>
+     * <code>optional int32 luokefeile = 58 [default = 0];</code>
      *
      * <pre>
      ** 《洛克菲勒传》*100 
@@ -984,7 +1035,7 @@ public final class WorldEventsBytes {
      */
     boolean hasLuokefeile();
     /**
-     * <code>optional int32 luokefeile = 55 [default = 0];</code>
+     * <code>optional int32 luokefeile = 58 [default = 0];</code>
      *
      * <pre>
      ** 《洛克菲勒传》*100 
@@ -993,7 +1044,7 @@ public final class WorldEventsBytes {
     int getLuokefeile();
 
     /**
-     * <code>optional int32 kanaiji = 56 [default = 0];</code>
+     * <code>optional int32 kanaiji = 59 [default = 0];</code>
      *
      * <pre>
      ** 《卡耐基传》*100 
@@ -1001,7 +1052,7 @@ public final class WorldEventsBytes {
      */
     boolean hasKanaiji();
     /**
-     * <code>optional int32 kanaiji = 56 [default = 0];</code>
+     * <code>optional int32 kanaiji = 59 [default = 0];</code>
      *
      * <pre>
      ** 《卡耐基传》*100 
@@ -1010,7 +1061,7 @@ public final class WorldEventsBytes {
     int getKanaiji();
 
     /**
-     * <code>optional int32 luban = 57 [default = 0];</code>
+     * <code>optional int32 luban = 60 [default = 0];</code>
      *
      * <pre>
      ** 《鲁班传》*100 
@@ -1018,7 +1069,7 @@ public final class WorldEventsBytes {
      */
     boolean hasLuban();
     /**
-     * <code>optional int32 luban = 57 [default = 0];</code>
+     * <code>optional int32 luban = 60 [default = 0];</code>
      *
      * <pre>
      ** 《鲁班传》*100 
@@ -1027,7 +1078,7 @@ public final class WorldEventsBytes {
     int getLuban();
 
     /**
-     * <code>optional int32 tumu = 58 [default = 0];</code>
+     * <code>optional int32 tumu = 61 [default = 0];</code>
      *
      * <pre>
      ** 《土木工程概论》*100 
@@ -1035,7 +1086,7 @@ public final class WorldEventsBytes {
      */
     boolean hasTumu();
     /**
-     * <code>optional int32 tumu = 58 [default = 0];</code>
+     * <code>optional int32 tumu = 61 [default = 0];</code>
      *
      * <pre>
      ** 《土木工程概论》*100 
@@ -1044,7 +1095,7 @@ public final class WorldEventsBytes {
     int getTumu();
 
     /**
-     * <code>optional int32 fangdao = 59 [default = 0];</code>
+     * <code>optional int32 fangdao = 62 [default = 0];</code>
      *
      * <pre>
      ** 《防盗门技术》*100 
@@ -1052,7 +1103,7 @@ public final class WorldEventsBytes {
      */
     boolean hasFangdao();
     /**
-     * <code>optional int32 fangdao = 59 [default = 0];</code>
+     * <code>optional int32 fangdao = 62 [default = 0];</code>
      *
      * <pre>
      ** 《防盗门技术》*100 
@@ -1061,7 +1112,7 @@ public final class WorldEventsBytes {
     int getFangdao();
 
     /**
-     * <code>optional int32 makeqin = 60 [default = 0];</code>
+     * <code>optional int32 makeqin = 63 [default = 0];</code>
      *
      * <pre>
      ** 《马克沁传》*100 
@@ -1069,7 +1120,7 @@ public final class WorldEventsBytes {
      */
     boolean hasMakeqin();
     /**
-     * <code>optional int32 makeqin = 60 [default = 0];</code>
+     * <code>optional int32 makeqin = 63 [default = 0];</code>
      *
      * <pre>
      ** 《马克沁传》*100 
@@ -1078,7 +1129,7 @@ public final class WorldEventsBytes {
     int getMakeqin();
 
     /**
-     * <code>optional int32 wodefendou = 61 [default = 0];</code>
+     * <code>optional int32 wodefendou = 64 [default = 0];</code>
      *
      * <pre>
      ** 《我的奋斗》*100 
@@ -1086,7 +1137,7 @@ public final class WorldEventsBytes {
      */
     boolean hasWodefendou();
     /**
-     * <code>optional int32 wodefendou = 61 [default = 0];</code>
+     * <code>optional int32 wodefendou = 64 [default = 0];</code>
      *
      * <pre>
      ** 《我的奋斗》*100 
@@ -1095,7 +1146,7 @@ public final class WorldEventsBytes {
     int getWodefendou();
 
     /**
-     * <code>optional int32 jiatelin = 62 [default = 0];</code>
+     * <code>optional int32 jiatelin = 65 [default = 0];</code>
      *
      * <pre>
      ** 《加特林传》*100 
@@ -1103,7 +1154,7 @@ public final class WorldEventsBytes {
      */
     boolean hasJiatelin();
     /**
-     * <code>optional int32 jiatelin = 62 [default = 0];</code>
+     * <code>optional int32 jiatelin = 65 [default = 0];</code>
      *
      * <pre>
      ** 《加特林传》*100 
@@ -1112,7 +1163,7 @@ public final class WorldEventsBytes {
     int getJiatelin();
 
     /**
-     * <code>optional int32 wbaleite = 63 [default = 0];</code>
+     * <code>optional int32 wbaleite = 66 [default = 0];</code>
      *
      * <pre>
      ** 《巴雷特的笔记》*100 
@@ -1120,7 +1171,7 @@ public final class WorldEventsBytes {
      */
     boolean hasWbaleite();
     /**
-     * <code>optional int32 wbaleite = 63 [default = 0];</code>
+     * <code>optional int32 wbaleite = 66 [default = 0];</code>
      *
      * <pre>
      ** 《巴雷特的笔记》*100 
@@ -1129,7 +1180,7 @@ public final class WorldEventsBytes {
     int getWbaleite();
 
     /**
-     * <code>optional int32 guanren = 64 [default = 0];</code>
+     * <code>optional int32 guanren = 67 [default = 0];</code>
      *
      * <pre>
      ** 《官人吃鸡指南》*100 
@@ -1137,7 +1188,7 @@ public final class WorldEventsBytes {
      */
     boolean hasGuanren();
     /**
-     * <code>optional int32 guanren = 64 [default = 0];</code>
+     * <code>optional int32 guanren = 67 [default = 0];</code>
      *
      * <pre>
      ** 《官人吃鸡指南》*100 
@@ -1146,7 +1197,7 @@ public final class WorldEventsBytes {
     int getGuanren();
 
     /**
-     * <code>optional int32 toukui1 = 65 [default = 0];</code>
+     * <code>optional int32 toukui1 = 68 [default = 0];</code>
      *
      * <pre>
      ** 1级头盔*100 
@@ -1154,7 +1205,7 @@ public final class WorldEventsBytes {
      */
     boolean hasToukui1();
     /**
-     * <code>optional int32 toukui1 = 65 [default = 0];</code>
+     * <code>optional int32 toukui1 = 68 [default = 0];</code>
      *
      * <pre>
      ** 1级头盔*100 
@@ -1163,7 +1214,7 @@ public final class WorldEventsBytes {
     int getToukui1();
 
     /**
-     * <code>optional int32 toukui2 = 66 [default = 0];</code>
+     * <code>optional int32 toukui2 = 69 [default = 0];</code>
      *
      * <pre>
      ** 2级头盔*100 
@@ -1171,7 +1222,7 @@ public final class WorldEventsBytes {
      */
     boolean hasToukui2();
     /**
-     * <code>optional int32 toukui2 = 66 [default = 0];</code>
+     * <code>optional int32 toukui2 = 69 [default = 0];</code>
      *
      * <pre>
      ** 2级头盔*100 
@@ -1180,7 +1231,7 @@ public final class WorldEventsBytes {
     int getToukui2();
 
     /**
-     * <code>optional int32 toukui3 = 67 [default = 0];</code>
+     * <code>optional int32 toukui3 = 70 [default = 0];</code>
      *
      * <pre>
      ** 3级头盔*100 
@@ -1188,7 +1239,7 @@ public final class WorldEventsBytes {
      */
     boolean hasToukui3();
     /**
-     * <code>optional int32 toukui3 = 67 [default = 0];</code>
+     * <code>optional int32 toukui3 = 70 [default = 0];</code>
      *
      * <pre>
      ** 3级头盔*100 
@@ -1197,7 +1248,7 @@ public final class WorldEventsBytes {
     int getToukui3();
 
     /**
-     * <code>optional int32 shouqiang1 = 68 [default = 0];</code>
+     * <code>optional int32 shouqiang1 = 71 [default = 0];</code>
      *
      * <pre>
      ** 手枪*100 
@@ -1205,7 +1256,7 @@ public final class WorldEventsBytes {
      */
     boolean hasShouqiang1();
     /**
-     * <code>optional int32 shouqiang1 = 68 [default = 0];</code>
+     * <code>optional int32 shouqiang1 = 71 [default = 0];</code>
      *
      * <pre>
      ** 手枪*100 
@@ -1214,7 +1265,7 @@ public final class WorldEventsBytes {
     int getShouqiang1();
 
     /**
-     * <code>optional int32 buqiang1 = 69 [default = 0];</code>
+     * <code>optional int32 buqiang1 = 72 [default = 0];</code>
      *
      * <pre>
      ** 步枪*100 
@@ -1222,7 +1273,7 @@ public final class WorldEventsBytes {
      */
     boolean hasBuqiang1();
     /**
-     * <code>optional int32 buqiang1 = 69 [default = 0];</code>
+     * <code>optional int32 buqiang1 = 72 [default = 0];</code>
      *
      * <pre>
      ** 步枪*100 
@@ -1231,7 +1282,7 @@ public final class WorldEventsBytes {
     int getBuqiang1();
 
     /**
-     * <code>optional int32 qingjiqiang1 = 70 [default = 0];</code>
+     * <code>optional int32 qingjiqiang1 = 73 [default = 0];</code>
      *
      * <pre>
      ** 轻机枪*100 
@@ -1239,7 +1290,7 @@ public final class WorldEventsBytes {
      */
     boolean hasQingjiqiang1();
     /**
-     * <code>optional int32 qingjiqiang1 = 70 [default = 0];</code>
+     * <code>optional int32 qingjiqiang1 = 73 [default = 0];</code>
      *
      * <pre>
      ** 轻机枪*100 
@@ -1248,7 +1299,7 @@ public final class WorldEventsBytes {
     int getQingjiqiang1();
 
     /**
-     * <code>optional int32 fangdanyi1 = 71 [default = 0];</code>
+     * <code>optional int32 fangdanyi1 = 74 [default = 0];</code>
      *
      * <pre>
      ** 1级防弹衣*100 
@@ -1256,7 +1307,7 @@ public final class WorldEventsBytes {
      */
     boolean hasFangdanyi1();
     /**
-     * <code>optional int32 fangdanyi1 = 71 [default = 0];</code>
+     * <code>optional int32 fangdanyi1 = 74 [default = 0];</code>
      *
      * <pre>
      ** 1级防弹衣*100 
@@ -1265,7 +1316,7 @@ public final class WorldEventsBytes {
     int getFangdanyi1();
 
     /**
-     * <code>optional int32 fangdanyi2 = 72 [default = 0];</code>
+     * <code>optional int32 fangdanyi2 = 75 [default = 0];</code>
      *
      * <pre>
      ** 2级防弹衣*100 
@@ -1273,7 +1324,7 @@ public final class WorldEventsBytes {
      */
     boolean hasFangdanyi2();
     /**
-     * <code>optional int32 fangdanyi2 = 72 [default = 0];</code>
+     * <code>optional int32 fangdanyi2 = 75 [default = 0];</code>
      *
      * <pre>
      ** 2级防弹衣*100 
@@ -1282,7 +1333,7 @@ public final class WorldEventsBytes {
     int getFangdanyi2();
 
     /**
-     * <code>optional int32 fangdanyi3 = 73 [default = 0];</code>
+     * <code>optional int32 fangdanyi3 = 76 [default = 0];</code>
      *
      * <pre>
      ** 3级防弹衣*100 
@@ -1290,7 +1341,7 @@ public final class WorldEventsBytes {
      */
     boolean hasFangdanyi3();
     /**
-     * <code>optional int32 fangdanyi3 = 73 [default = 0];</code>
+     * <code>optional int32 fangdanyi3 = 76 [default = 0];</code>
      *
      * <pre>
      ** 3级防弹衣*100 
@@ -1299,7 +1350,7 @@ public final class WorldEventsBytes {
     int getFangdanyi3();
 
     /**
-     * <code>optional int32 kuzi1 = 74 [default = 0];</code>
+     * <code>optional int32 kuzi1 = 77 [default = 0];</code>
      *
      * <pre>
      ** 1级作训裤*100 
@@ -1307,7 +1358,7 @@ public final class WorldEventsBytes {
      */
     boolean hasKuzi1();
     /**
-     * <code>optional int32 kuzi1 = 74 [default = 0];</code>
+     * <code>optional int32 kuzi1 = 77 [default = 0];</code>
      *
      * <pre>
      ** 1级作训裤*100 
@@ -1316,7 +1367,7 @@ public final class WorldEventsBytes {
     int getKuzi1();
 
     /**
-     * <code>optional int32 kuzi2 = 75 [default = 0];</code>
+     * <code>optional int32 kuzi2 = 78 [default = 0];</code>
      *
      * <pre>
      ** 2级作训裤*100 
@@ -1324,7 +1375,7 @@ public final class WorldEventsBytes {
      */
     boolean hasKuzi2();
     /**
-     * <code>optional int32 kuzi2 = 75 [default = 0];</code>
+     * <code>optional int32 kuzi2 = 78 [default = 0];</code>
      *
      * <pre>
      ** 2级作训裤*100 
@@ -1333,7 +1384,7 @@ public final class WorldEventsBytes {
     int getKuzi2();
 
     /**
-     * <code>optional int32 kuzi3 = 76 [default = 0];</code>
+     * <code>optional int32 kuzi3 = 79 [default = 0];</code>
      *
      * <pre>
      ** 3级作训裤*100 
@@ -1341,7 +1392,7 @@ public final class WorldEventsBytes {
      */
     boolean hasKuzi3();
     /**
-     * <code>optional int32 kuzi3 = 76 [default = 0];</code>
+     * <code>optional int32 kuzi3 = 79 [default = 0];</code>
      *
      * <pre>
      ** 3级作训裤*100 
@@ -1350,7 +1401,7 @@ public final class WorldEventsBytes {
     int getKuzi3();
 
     /**
-     * <code>optional int32 xiezi1 = 77 [default = 0];</code>
+     * <code>optional int32 xiezi1 = 80 [default = 0];</code>
      *
      * <pre>
      ** 1级越野靴*100 
@@ -1358,7 +1409,7 @@ public final class WorldEventsBytes {
      */
     boolean hasXiezi1();
     /**
-     * <code>optional int32 xiezi1 = 77 [default = 0];</code>
+     * <code>optional int32 xiezi1 = 80 [default = 0];</code>
      *
      * <pre>
      ** 1级越野靴*100 
@@ -1367,7 +1418,7 @@ public final class WorldEventsBytes {
     int getXiezi1();
 
     /**
-     * <code>optional int32 xiezi2 = 78 [default = 0];</code>
+     * <code>optional int32 xiezi2 = 81 [default = 0];</code>
      *
      * <pre>
      ** 2级越野靴*100 
@@ -1375,7 +1426,7 @@ public final class WorldEventsBytes {
      */
     boolean hasXiezi2();
     /**
-     * <code>optional int32 xiezi2 = 78 [default = 0];</code>
+     * <code>optional int32 xiezi2 = 81 [default = 0];</code>
      *
      * <pre>
      ** 2级越野靴*100 
@@ -1384,7 +1435,7 @@ public final class WorldEventsBytes {
     int getXiezi2();
 
     /**
-     * <code>optional int32 xiezi3 = 79 [default = 0];</code>
+     * <code>optional int32 xiezi3 = 82 [default = 0];</code>
      *
      * <pre>
      ** 3级越野靴*100 
@@ -1392,7 +1443,7 @@ public final class WorldEventsBytes {
      */
     boolean hasXiezi3();
     /**
-     * <code>optional int32 xiezi3 = 79 [default = 0];</code>
+     * <code>optional int32 xiezi3 = 82 [default = 0];</code>
      *
      * <pre>
      ** 3级越野靴*100 
@@ -1401,7 +1452,7 @@ public final class WorldEventsBytes {
     int getXiezi3();
 
     /**
-     * <code>optional int32 kuangquanshui = 80 [default = 0];</code>
+     * <code>optional int32 kuangquanshui = 83 [default = 0];</code>
      *
      * <pre>
      ** 矿物质水*100 
@@ -1409,7 +1460,7 @@ public final class WorldEventsBytes {
      */
     boolean hasKuangquanshui();
     /**
-     * <code>optional int32 kuangquanshui = 80 [default = 0];</code>
+     * <code>optional int32 kuangquanshui = 83 [default = 0];</code>
      *
      * <pre>
      ** 矿物质水*100 
@@ -1418,7 +1469,7 @@ public final class WorldEventsBytes {
     int getKuangquanshui();
 
     /**
-     * <code>optional int32 siliao = 81 [default = 0];</code>
+     * <code>optional int32 siliao = 84 [default = 0];</code>
      *
      * <pre>
      ** 饲料*100 
@@ -1426,7 +1477,7 @@ public final class WorldEventsBytes {
      */
     boolean hasSiliao();
     /**
-     * <code>optional int32 siliao = 81 [default = 0];</code>
+     * <code>optional int32 siliao = 84 [default = 0];</code>
      *
      * <pre>
      ** 饲料*100 
@@ -1435,7 +1486,7 @@ public final class WorldEventsBytes {
     int getSiliao();
 
     /**
-     * <code>optional int32 zhurou = 82 [default = 0];</code>
+     * <code>optional int32 zhurou = 85 [default = 0];</code>
      *
      * <pre>
      ** 猪肉*100 
@@ -1443,7 +1494,7 @@ public final class WorldEventsBytes {
      */
     boolean hasZhurou();
     /**
-     * <code>optional int32 zhurou = 82 [default = 0];</code>
+     * <code>optional int32 zhurou = 85 [default = 0];</code>
      *
      * <pre>
      ** 猪肉*100 
@@ -1452,7 +1503,7 @@ public final class WorldEventsBytes {
     int getZhurou();
 
     /**
-     * <code>optional int32 qiyou = 83 [default = 0];</code>
+     * <code>optional int32 qiyou = 86 [default = 0];</code>
      *
      * <pre>
      ** 汽油*100 
@@ -1460,7 +1511,7 @@ public final class WorldEventsBytes {
      */
     boolean hasQiyou();
     /**
-     * <code>optional int32 qiyou = 83 [default = 0];</code>
+     * <code>optional int32 qiyou = 86 [default = 0];</code>
      *
      * <pre>
      ** 汽油*100 
@@ -1469,7 +1520,7 @@ public final class WorldEventsBytes {
     int getQiyou();
 
     /**
-     * <code>optional int32 gang = 84 [default = 0];</code>
+     * <code>optional int32 gang = 87 [default = 0];</code>
      *
      * <pre>
      ** 钢*100 
@@ -1477,7 +1528,7 @@ public final class WorldEventsBytes {
      */
     boolean hasGang();
     /**
-     * <code>optional int32 gang = 84 [default = 0];</code>
+     * <code>optional int32 gang = 87 [default = 0];</code>
      *
      * <pre>
      ** 钢*100 
@@ -1486,7 +1537,7 @@ public final class WorldEventsBytes {
     int getGang();
 
     /**
-     * <code>optional int32 songmuban = 85 [default = 0];</code>
+     * <code>optional int32 songmuban = 88 [default = 0];</code>
      *
      * <pre>
      ** 松木板*100 
@@ -1494,7 +1545,7 @@ public final class WorldEventsBytes {
      */
     boolean hasSongmuban();
     /**
-     * <code>optional int32 songmuban = 85 [default = 0];</code>
+     * <code>optional int32 songmuban = 88 [default = 0];</code>
      *
      * <pre>
      ** 松木板*100 
@@ -1503,7 +1554,7 @@ public final class WorldEventsBytes {
     int getSongmuban();
 
     /**
-     * <code>optional int32 hunningtu = 86 [default = 0];</code>
+     * <code>optional int32 hunningtu = 89 [default = 0];</code>
      *
      * <pre>
      ** 混凝土*100 
@@ -1511,7 +1562,7 @@ public final class WorldEventsBytes {
      */
     boolean hasHunningtu();
     /**
-     * <code>optional int32 hunningtu = 86 [default = 0];</code>
+     * <code>optional int32 hunningtu = 89 [default = 0];</code>
      *
      * <pre>
      ** 混凝土*100 
@@ -1695,316 +1746,331 @@ public final class WorldEventsBytes {
             }
             case 192: {
               bitField0_ |= 0x00800000;
-              damiBldgspd_ = input.readInt32();
+              taiyangnengBldgcap_ = input.readInt32();
               break;
             }
             case 200: {
               bitField0_ |= 0x01000000;
-              shucaiBldgspd_ = input.readInt32();
+              huafeiBldgcap_ = input.readInt32();
               break;
             }
             case 208: {
               bitField0_ |= 0x02000000;
-              shuiguoBldgspd_ = input.readInt32();
+              damiBldgspd_ = input.readInt32();
               break;
             }
             case 216: {
               bitField0_ |= 0x04000000;
-              jingBldgspd_ = input.readInt32();
+              shucaiBldgspd_ = input.readInt32();
               break;
             }
             case 224: {
               bitField0_ |= 0x08000000;
-              lushuiBldgspd_ = input.readInt32();
+              shuiguoBldgspd_ = input.readInt32();
               break;
             }
             case 232: {
               bitField0_ |= 0x10000000;
-              songshuBldgspd_ = input.readInt32();
+              jingBldgspd_ = input.readInt32();
               break;
             }
             case 240: {
               bitField0_ |= 0x20000000;
-              fengliBldgspd_ = input.readInt32();
+              lushuiBldgspd_ = input.readInt32();
               break;
             }
             case 248: {
               bitField0_ |= 0x40000000;
-              wuxiandianBldg_ = input.readInt32();
+              songshuBldgspd_ = input.readInt32();
               break;
             }
             case 256: {
               bitField0_ |= 0x80000000;
-              leidaBldg_ = input.readInt32();
+              taiyangnengBldgspd_ = input.readInt32();
               break;
             }
             case 264: {
               bitField1_ |= 0x00000001;
-              carBldgspd_ = input.readInt32();
+              huafeiBldgspd_ = input.readInt32();
               break;
             }
             case 272: {
               bitField1_ |= 0x00000002;
-              taxCoeff_ = input.readInt32();
+              wuxiandianBldg_ = input.readInt32();
               break;
             }
             case 280: {
               bitField1_ |= 0x00000004;
-              dami_ = input.readInt32();
+              leidaBldg_ = input.readInt32();
               break;
             }
             case 288: {
               bitField1_ |= 0x00000008;
-              shucai_ = input.readInt32();
+              carBldgspd_ = input.readInt32();
               break;
             }
             case 296: {
               bitField1_ |= 0x00000010;
-              shuiguo_ = input.readInt32();
+              taxCoeff_ = input.readInt32();
               break;
             }
             case 304: {
               bitField1_ |= 0x00000020;
-              huafei_ = input.readInt32();
+              dami_ = input.readInt32();
               break;
             }
             case 312: {
               bitField1_ |= 0x00000040;
-              shui_ = input.readInt32();
+              shucai_ = input.readInt32();
               break;
             }
             case 320: {
               bitField1_ |= 0x00000080;
-              songmu_ = input.readInt32();
+              shuiguo_ = input.readInt32();
               break;
             }
             case 328: {
               bitField1_ |= 0x00000100;
-              shuini_ = input.readInt32();
+              huafei_ = input.readInt32();
               break;
             }
             case 336: {
               bitField1_ |= 0x00000200;
-              cao_ = input.readInt32();
+              shui_ = input.readInt32();
               break;
             }
             case 344: {
               bitField1_ |= 0x00000400;
-              yuanyou_ = input.readInt32();
+              songmu_ = input.readInt32();
               break;
             }
             case 352: {
               bitField1_ |= 0x00000800;
-              tie_ = input.readInt32();
+              shuini_ = input.readInt32();
               break;
             }
             case 360: {
               bitField1_ |= 0x00001000;
-              jijiubao_ = input.readInt32();
+              cao_ = input.readInt32();
               break;
             }
             case 368: {
               bitField1_ |= 0x00002000;
-              rizhi_ = input.readInt32();
+              yuanyou_ = input.readInt32();
               break;
             }
             case 376: {
               bitField1_ |= 0x00004000;
-              jiqiangtuzhi_ = input.readInt32();
+              tie_ = input.readInt32();
               break;
             }
             case 384: {
               bitField1_ |= 0x00008000;
-              jujituzhi_ = input.readInt32();
+              jijiubao_ = input.readInt32();
               break;
             }
             case 392: {
               bitField1_ |= 0x00010000;
-              jipaotuzhi_ = input.readInt32();
+              rizhi_ = input.readInt32();
               break;
             }
             case 400: {
               bitField1_ |= 0x00020000;
-              yuanlongping_ = input.readInt32();
+              jiqiangtuzhi_ = input.readInt32();
               break;
             }
             case 408: {
               bitField1_ |= 0x00040000;
-              huafeigongye_ = input.readInt32();
+              jujituzhi_ = input.readInt32();
               break;
             }
             case 416: {
               bitField1_ |= 0x00080000;
-              yangzhu_ = input.readInt32();
+              jipaotuzhi_ = input.readInt32();
               break;
             }
             case 424: {
               bitField1_ |= 0x00100000;
-              cangchu_ = input.readInt32();
+              yuanlongping_ = input.readInt32();
               break;
             }
             case 432: {
               bitField1_ |= 0x00200000;
-              tesila_ = input.readInt32();
+              huafeigongye_ = input.readInt32();
               break;
             }
             case 440: {
               bitField1_ |= 0x00400000;
-              luokefeile_ = input.readInt32();
+              yangzhu_ = input.readInt32();
               break;
             }
             case 448: {
               bitField1_ |= 0x00800000;
-              kanaiji_ = input.readInt32();
+              cangchu_ = input.readInt32();
               break;
             }
             case 456: {
               bitField1_ |= 0x01000000;
-              luban_ = input.readInt32();
+              tesila_ = input.readInt32();
               break;
             }
             case 464: {
               bitField1_ |= 0x02000000;
-              tumu_ = input.readInt32();
+              luokefeile_ = input.readInt32();
               break;
             }
             case 472: {
               bitField1_ |= 0x04000000;
-              fangdao_ = input.readInt32();
+              kanaiji_ = input.readInt32();
               break;
             }
             case 480: {
               bitField1_ |= 0x08000000;
-              makeqin_ = input.readInt32();
+              luban_ = input.readInt32();
               break;
             }
             case 488: {
               bitField1_ |= 0x10000000;
-              wodefendou_ = input.readInt32();
+              tumu_ = input.readInt32();
               break;
             }
             case 496: {
               bitField1_ |= 0x20000000;
-              jiatelin_ = input.readInt32();
+              fangdao_ = input.readInt32();
               break;
             }
             case 504: {
               bitField1_ |= 0x40000000;
-              wbaleite_ = input.readInt32();
+              makeqin_ = input.readInt32();
               break;
             }
             case 512: {
               bitField1_ |= 0x80000000;
-              guanren_ = input.readInt32();
+              wodefendou_ = input.readInt32();
               break;
             }
             case 520: {
               bitField2_ |= 0x00000001;
-              toukui1_ = input.readInt32();
+              jiatelin_ = input.readInt32();
               break;
             }
             case 528: {
               bitField2_ |= 0x00000002;
-              toukui2_ = input.readInt32();
+              wbaleite_ = input.readInt32();
               break;
             }
             case 536: {
               bitField2_ |= 0x00000004;
-              toukui3_ = input.readInt32();
+              guanren_ = input.readInt32();
               break;
             }
             case 544: {
               bitField2_ |= 0x00000008;
-              shouqiang1_ = input.readInt32();
+              toukui1_ = input.readInt32();
               break;
             }
             case 552: {
               bitField2_ |= 0x00000010;
-              buqiang1_ = input.readInt32();
+              toukui2_ = input.readInt32();
               break;
             }
             case 560: {
               bitField2_ |= 0x00000020;
-              qingjiqiang1_ = input.readInt32();
+              toukui3_ = input.readInt32();
               break;
             }
             case 568: {
               bitField2_ |= 0x00000040;
-              fangdanyi1_ = input.readInt32();
+              shouqiang1_ = input.readInt32();
               break;
             }
             case 576: {
               bitField2_ |= 0x00000080;
-              fangdanyi2_ = input.readInt32();
+              buqiang1_ = input.readInt32();
               break;
             }
             case 584: {
               bitField2_ |= 0x00000100;
-              fangdanyi3_ = input.readInt32();
+              qingjiqiang1_ = input.readInt32();
               break;
             }
             case 592: {
               bitField2_ |= 0x00000200;
-              kuzi1_ = input.readInt32();
+              fangdanyi1_ = input.readInt32();
               break;
             }
             case 600: {
               bitField2_ |= 0x00000400;
-              kuzi2_ = input.readInt32();
+              fangdanyi2_ = input.readInt32();
               break;
             }
             case 608: {
               bitField2_ |= 0x00000800;
-              kuzi3_ = input.readInt32();
+              fangdanyi3_ = input.readInt32();
               break;
             }
             case 616: {
               bitField2_ |= 0x00001000;
-              xiezi1_ = input.readInt32();
+              kuzi1_ = input.readInt32();
               break;
             }
             case 624: {
               bitField2_ |= 0x00002000;
-              xiezi2_ = input.readInt32();
+              kuzi2_ = input.readInt32();
               break;
             }
             case 632: {
               bitField2_ |= 0x00004000;
-              xiezi3_ = input.readInt32();
+              kuzi3_ = input.readInt32();
               break;
             }
             case 640: {
               bitField2_ |= 0x00008000;
-              kuangquanshui_ = input.readInt32();
+              xiezi1_ = input.readInt32();
               break;
             }
             case 648: {
               bitField2_ |= 0x00010000;
-              siliao_ = input.readInt32();
+              xiezi2_ = input.readInt32();
               break;
             }
             case 656: {
               bitField2_ |= 0x00020000;
-              zhurou_ = input.readInt32();
+              xiezi3_ = input.readInt32();
               break;
             }
             case 664: {
               bitField2_ |= 0x00040000;
-              qiyou_ = input.readInt32();
+              kuangquanshui_ = input.readInt32();
               break;
             }
             case 672: {
               bitField2_ |= 0x00080000;
-              gang_ = input.readInt32();
+              siliao_ = input.readInt32();
               break;
             }
             case 680: {
               bitField2_ |= 0x00100000;
-              songmuban_ = input.readInt32();
+              zhurou_ = input.readInt32();
               break;
             }
             case 688: {
               bitField2_ |= 0x00200000;
+              qiyou_ = input.readInt32();
+              break;
+            }
+            case 696: {
+              bitField2_ |= 0x00400000;
+              gang_ = input.readInt32();
+              break;
+            }
+            case 704: {
+              bitField2_ |= 0x00800000;
+              songmuban_ = input.readInt32();
+              break;
+            }
+            case 712: {
+              bitField2_ |= 0x01000000;
               hunningtu_ = input.readInt32();
               break;
             }
@@ -2734,20 +2800,66 @@ public final class WorldEventsBytes {
       return songshuBldgcap_;
     }
 
-    public static final int DAMI_BLDGSPD_FIELD_NUMBER = 24;
+    public static final int TAIYANGNENG_BLDGCAP_FIELD_NUMBER = 24;
+    private int taiyangnengBldgcap_;
+    /**
+     * <code>optional int32 taiyangneng_bldgcap = 24 [default = 0];</code>
+     *
+     * <pre>
+     ** 风力发电机 
+     * </pre>
+     */
+    public boolean hasTaiyangnengBldgcap() {
+      return ((bitField0_ & 0x00800000) == 0x00800000);
+    }
+    /**
+     * <code>optional int32 taiyangneng_bldgcap = 24 [default = 0];</code>
+     *
+     * <pre>
+     ** 风力发电机 
+     * </pre>
+     */
+    public int getTaiyangnengBldgcap() {
+      return taiyangnengBldgcap_;
+    }
+
+    public static final int HUAFEI_BLDGCAP_FIELD_NUMBER = 25;
+    private int huafeiBldgcap_;
+    /**
+     * <code>optional int32 huafei_bldgcap = 25 [default = 0];</code>
+     *
+     * <pre>
+     ** 化肥系数*100 
+     * </pre>
+     */
+    public boolean hasHuafeiBldgcap() {
+      return ((bitField0_ & 0x01000000) == 0x01000000);
+    }
+    /**
+     * <code>optional int32 huafei_bldgcap = 25 [default = 0];</code>
+     *
+     * <pre>
+     ** 化肥系数*100 
+     * </pre>
+     */
+    public int getHuafeiBldgcap() {
+      return huafeiBldgcap_;
+    }
+
+    public static final int DAMI_BLDGSPD_FIELD_NUMBER = 26;
     private int damiBldgspd_;
     /**
-     * <code>optional int32 dami_bldgspd = 24 [default = 0];</code>
+     * <code>optional int32 dami_bldgspd = 26 [default = 0];</code>
      *
      * <pre>
      ** 水稻种植场产速系数*100 
      * </pre>
      */
     public boolean hasDamiBldgspd() {
-      return ((bitField0_ & 0x00800000) == 0x00800000);
+      return ((bitField0_ & 0x02000000) == 0x02000000);
     }
     /**
-     * <code>optional int32 dami_bldgspd = 24 [default = 0];</code>
+     * <code>optional int32 dami_bldgspd = 26 [default = 0];</code>
      *
      * <pre>
      ** 水稻种植场产速系数*100 
@@ -2757,20 +2869,20 @@ public final class WorldEventsBytes {
       return damiBldgspd_;
     }
 
-    public static final int SHUCAI_BLDGSPD_FIELD_NUMBER = 25;
+    public static final int SHUCAI_BLDGSPD_FIELD_NUMBER = 27;
     private int shucaiBldgspd_;
     /**
-     * <code>optional int32 shucai_bldgspd = 25 [default = 0];</code>
+     * <code>optional int32 shucai_bldgspd = 27 [default = 0];</code>
      *
      * <pre>
      ** 蔬菜种植场产速系数*100 
      * </pre>
      */
     public boolean hasShucaiBldgspd() {
-      return ((bitField0_ & 0x01000000) == 0x01000000);
+      return ((bitField0_ & 0x04000000) == 0x04000000);
     }
     /**
-     * <code>optional int32 shucai_bldgspd = 25 [default = 0];</code>
+     * <code>optional int32 shucai_bldgspd = 27 [default = 0];</code>
      *
      * <pre>
      ** 蔬菜种植场产速系数*100 
@@ -2780,20 +2892,20 @@ public final class WorldEventsBytes {
       return shucaiBldgspd_;
     }
 
-    public static final int SHUIGUO_BLDGSPD_FIELD_NUMBER = 26;
+    public static final int SHUIGUO_BLDGSPD_FIELD_NUMBER = 28;
     private int shuiguoBldgspd_;
     /**
-     * <code>optional int32 shuiguo_bldgspd = 26 [default = 0];</code>
+     * <code>optional int32 shuiguo_bldgspd = 28 [default = 0];</code>
      *
      * <pre>
      ** 水果园产速系数*100 
      * </pre>
      */
     public boolean hasShuiguoBldgspd() {
-      return ((bitField0_ & 0x02000000) == 0x02000000);
+      return ((bitField0_ & 0x08000000) == 0x08000000);
     }
     /**
-     * <code>optional int32 shuiguo_bldgspd = 26 [default = 0];</code>
+     * <code>optional int32 shuiguo_bldgspd = 28 [default = 0];</code>
      *
      * <pre>
      ** 水果园产速系数*100 
@@ -2803,20 +2915,20 @@ public final class WorldEventsBytes {
       return shuiguoBldgspd_;
     }
 
-    public static final int JING_BLDGSPD_FIELD_NUMBER = 27;
+    public static final int JING_BLDGSPD_FIELD_NUMBER = 29;
     private int jingBldgspd_;
     /**
-     * <code>optional int32 jing_bldgspd = 27 [default = 0];</code>
+     * <code>optional int32 jing_bldgspd = 29 [default = 0];</code>
      *
      * <pre>
      ** 井产速系数*100 
      * </pre>
      */
     public boolean hasJingBldgspd() {
-      return ((bitField0_ & 0x04000000) == 0x04000000);
+      return ((bitField0_ & 0x10000000) == 0x10000000);
     }
     /**
-     * <code>optional int32 jing_bldgspd = 27 [default = 0];</code>
+     * <code>optional int32 jing_bldgspd = 29 [default = 0];</code>
      *
      * <pre>
      ** 井产速系数*100 
@@ -2826,20 +2938,20 @@ public final class WorldEventsBytes {
       return jingBldgspd_;
     }
 
-    public static final int LUSHUI_BLDGSPD_FIELD_NUMBER = 28;
+    public static final int LUSHUI_BLDGSPD_FIELD_NUMBER = 30;
     private int lushuiBldgspd_;
     /**
-     * <code>optional int32 lushui_bldgspd = 28 [default = 0];</code>
+     * <code>optional int32 lushui_bldgspd = 30 [default = 0];</code>
      *
      * <pre>
      ** 露水收集器产速系数*100 
      * </pre>
      */
     public boolean hasLushuiBldgspd() {
-      return ((bitField0_ & 0x08000000) == 0x08000000);
+      return ((bitField0_ & 0x20000000) == 0x20000000);
     }
     /**
-     * <code>optional int32 lushui_bldgspd = 28 [default = 0];</code>
+     * <code>optional int32 lushui_bldgspd = 30 [default = 0];</code>
      *
      * <pre>
      ** 露水收集器产速系数*100 
@@ -2849,20 +2961,20 @@ public final class WorldEventsBytes {
       return lushuiBldgspd_;
     }
 
-    public static final int SONGSHU_BLDGSPD_FIELD_NUMBER = 29;
+    public static final int SONGSHU_BLDGSPD_FIELD_NUMBER = 31;
     private int songshuBldgspd_;
     /**
-     * <code>optional int32 songshu_bldgspd = 29 [default = 0];</code>
+     * <code>optional int32 songshu_bldgspd = 31 [default = 0];</code>
      *
      * <pre>
      ** 松树林产速系数*100 
      * </pre>
      */
     public boolean hasSongshuBldgspd() {
-      return ((bitField0_ & 0x10000000) == 0x10000000);
+      return ((bitField0_ & 0x40000000) == 0x40000000);
     }
     /**
-     * <code>optional int32 songshu_bldgspd = 29 [default = 0];</code>
+     * <code>optional int32 songshu_bldgspd = 31 [default = 0];</code>
      *
      * <pre>
      ** 松树林产速系数*100 
@@ -2872,43 +2984,66 @@ public final class WorldEventsBytes {
       return songshuBldgspd_;
     }
 
-    public static final int FENGLI_BLDGSPD_FIELD_NUMBER = 30;
-    private int fengliBldgspd_;
+    public static final int TAIYANGNENG_BLDGSPD_FIELD_NUMBER = 32;
+    private int taiyangnengBldgspd_;
     /**
-     * <code>optional int32 fengli_bldgspd = 30 [default = 0];</code>
+     * <code>optional int32 taiyangneng_bldgspd = 32 [default = 0];</code>
      *
      * <pre>
      ** 风力发电机（原太阳能）产速系数*100 
      * </pre>
      */
-    public boolean hasFengliBldgspd() {
-      return ((bitField0_ & 0x20000000) == 0x20000000);
+    public boolean hasTaiyangnengBldgspd() {
+      return ((bitField0_ & 0x80000000) == 0x80000000);
     }
     /**
-     * <code>optional int32 fengli_bldgspd = 30 [default = 0];</code>
+     * <code>optional int32 taiyangneng_bldgspd = 32 [default = 0];</code>
      *
      * <pre>
      ** 风力发电机（原太阳能）产速系数*100 
      * </pre>
      */
-    public int getFengliBldgspd() {
-      return fengliBldgspd_;
+    public int getTaiyangnengBldgspd() {
+      return taiyangnengBldgspd_;
     }
 
-    public static final int WUXIANDIAN_BLDG_FIELD_NUMBER = 31;
+    public static final int HUAFEI_BLDGSPD_FIELD_NUMBER = 33;
+    private int huafeiBldgspd_;
+    /**
+     * <code>optional int32 huafei_bldgspd = 33 [default = 0];</code>
+     *
+     * <pre>
+     ** 化肥产速系数*100 
+     * </pre>
+     */
+    public boolean hasHuafeiBldgspd() {
+      return ((bitField1_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 huafei_bldgspd = 33 [default = 0];</code>
+     *
+     * <pre>
+     ** 化肥产速系数*100 
+     * </pre>
+     */
+    public int getHuafeiBldgspd() {
+      return huafeiBldgspd_;
+    }
+
+    public static final int WUXIANDIAN_BLDG_FIELD_NUMBER = 34;
     private int wuxiandianBldg_;
     /**
-     * <code>optional int32 wuxiandian_bldg = 31 [default = 0];</code>
+     * <code>optional int32 wuxiandian_bldg = 34 [default = 0];</code>
      *
      * <pre>
      ** 无线电提前接收系数*100 
      * </pre>
      */
     public boolean hasWuxiandianBldg() {
-      return ((bitField0_ & 0x40000000) == 0x40000000);
+      return ((bitField1_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 wuxiandian_bldg = 31 [default = 0];</code>
+     * <code>optional int32 wuxiandian_bldg = 34 [default = 0];</code>
      *
      * <pre>
      ** 无线电提前接收系数*100 
@@ -2918,20 +3053,20 @@ public final class WorldEventsBytes {
       return wuxiandianBldg_;
     }
 
-    public static final int LEIDA_BLDG_FIELD_NUMBER = 32;
+    public static final int LEIDA_BLDG_FIELD_NUMBER = 35;
     private int leidaBldg_;
     /**
-     * <code>optional int32 leida_bldg = 32 [default = 0];</code>
+     * <code>optional int32 leida_bldg = 35 [default = 0];</code>
      *
      * <pre>
      ** 雷达提前接收系数*100 
      * </pre>
      */
     public boolean hasLeidaBldg() {
-      return ((bitField0_ & 0x80000000) == 0x80000000);
+      return ((bitField1_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 leida_bldg = 32 [default = 0];</code>
+     * <code>optional int32 leida_bldg = 35 [default = 0];</code>
      *
      * <pre>
      ** 雷达提前接收系数*100 
@@ -2941,20 +3076,20 @@ public final class WorldEventsBytes {
       return leidaBldg_;
     }
 
-    public static final int CAR_BLDGSPD_FIELD_NUMBER = 33;
+    public static final int CAR_BLDGSPD_FIELD_NUMBER = 36;
     private int carBldgspd_;
     /**
-     * <code>optional int32 car_bldgspd = 33 [default = 0];</code>
+     * <code>optional int32 car_bldgspd = 36 [default = 0];</code>
      *
      * <pre>
      ** 车辆速度系数*100 
      * </pre>
      */
     public boolean hasCarBldgspd() {
-      return ((bitField1_ & 0x00000001) == 0x00000001);
+      return ((bitField1_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional int32 car_bldgspd = 33 [default = 0];</code>
+     * <code>optional int32 car_bldgspd = 36 [default = 0];</code>
      *
      * <pre>
      ** 车辆速度系数*100 
@@ -2964,20 +3099,20 @@ public final class WorldEventsBytes {
       return carBldgspd_;
     }
 
-    public static final int TAX_COEFF_FIELD_NUMBER = 34;
+    public static final int TAX_COEFF_FIELD_NUMBER = 37;
     private int taxCoeff_;
     /**
-     * <code>optional int32 tax_coeff = 34 [default = 0];</code>
+     * <code>optional int32 tax_coeff = 37 [default = 0];</code>
      *
      * <pre>
      ** 交易税率系数*100 
      * </pre>
      */
     public boolean hasTaxCoeff() {
-      return ((bitField1_ & 0x00000002) == 0x00000002);
+      return ((bitField1_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional int32 tax_coeff = 34 [default = 0];</code>
+     * <code>optional int32 tax_coeff = 37 [default = 0];</code>
      *
      * <pre>
      ** 交易税率系数*100 
@@ -2987,20 +3122,20 @@ public final class WorldEventsBytes {
       return taxCoeff_;
     }
 
-    public static final int DAMI_FIELD_NUMBER = 35;
+    public static final int DAMI_FIELD_NUMBER = 38;
     private int dami_;
     /**
-     * <code>optional int32 dami = 35 [default = 0];</code>
+     * <code>optional int32 dami = 38 [default = 0];</code>
      *
      * <pre>
      ** 大米*100 
      * </pre>
      */
     public boolean hasDami() {
-      return ((bitField1_ & 0x00000004) == 0x00000004);
+      return ((bitField1_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional int32 dami = 35 [default = 0];</code>
+     * <code>optional int32 dami = 38 [default = 0];</code>
      *
      * <pre>
      ** 大米*100 
@@ -3010,20 +3145,20 @@ public final class WorldEventsBytes {
       return dami_;
     }
 
-    public static final int SHUCAI_FIELD_NUMBER = 36;
+    public static final int SHUCAI_FIELD_NUMBER = 39;
     private int shucai_;
     /**
-     * <code>optional int32 shucai = 36 [default = 0];</code>
+     * <code>optional int32 shucai = 39 [default = 0];</code>
      *
      * <pre>
      ** 蔬菜*100 
      * </pre>
      */
     public boolean hasShucai() {
-      return ((bitField1_ & 0x00000008) == 0x00000008);
+      return ((bitField1_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional int32 shucai = 36 [default = 0];</code>
+     * <code>optional int32 shucai = 39 [default = 0];</code>
      *
      * <pre>
      ** 蔬菜*100 
@@ -3033,20 +3168,20 @@ public final class WorldEventsBytes {
       return shucai_;
     }
 
-    public static final int SHUIGUO_FIELD_NUMBER = 37;
+    public static final int SHUIGUO_FIELD_NUMBER = 40;
     private int shuiguo_;
     /**
-     * <code>optional int32 shuiguo = 37 [default = 0];</code>
+     * <code>optional int32 shuiguo = 40 [default = 0];</code>
      *
      * <pre>
      ** 水果*100 
      * </pre>
      */
     public boolean hasShuiguo() {
-      return ((bitField1_ & 0x00000010) == 0x00000010);
+      return ((bitField1_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional int32 shuiguo = 37 [default = 0];</code>
+     * <code>optional int32 shuiguo = 40 [default = 0];</code>
      *
      * <pre>
      ** 水果*100 
@@ -3056,20 +3191,20 @@ public final class WorldEventsBytes {
       return shuiguo_;
     }
 
-    public static final int HUAFEI_FIELD_NUMBER = 38;
+    public static final int HUAFEI_FIELD_NUMBER = 41;
     private int huafei_;
     /**
-     * <code>optional int32 huafei = 38 [default = 0];</code>
+     * <code>optional int32 huafei = 41 [default = 0];</code>
      *
      * <pre>
      ** 化肥*100 
      * </pre>
      */
     public boolean hasHuafei() {
-      return ((bitField1_ & 0x00000020) == 0x00000020);
+      return ((bitField1_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional int32 huafei = 38 [default = 0];</code>
+     * <code>optional int32 huafei = 41 [default = 0];</code>
      *
      * <pre>
      ** 化肥*100 
@@ -3079,20 +3214,20 @@ public final class WorldEventsBytes {
       return huafei_;
     }
 
-    public static final int SHUI_FIELD_NUMBER = 39;
+    public static final int SHUI_FIELD_NUMBER = 42;
     private int shui_;
     /**
-     * <code>optional int32 shui = 39 [default = 0];</code>
+     * <code>optional int32 shui = 42 [default = 0];</code>
      *
      * <pre>
      ** 纯净水*100 
      * </pre>
      */
     public boolean hasShui() {
-      return ((bitField1_ & 0x00000040) == 0x00000040);
+      return ((bitField1_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional int32 shui = 39 [default = 0];</code>
+     * <code>optional int32 shui = 42 [default = 0];</code>
      *
      * <pre>
      ** 纯净水*100 
@@ -3102,20 +3237,20 @@ public final class WorldEventsBytes {
       return shui_;
     }
 
-    public static final int SONGMU_FIELD_NUMBER = 40;
+    public static final int SONGMU_FIELD_NUMBER = 43;
     private int songmu_;
     /**
-     * <code>optional int32 songmu = 40 [default = 0];</code>
+     * <code>optional int32 songmu = 43 [default = 0];</code>
      *
      * <pre>
      ** 松木*100 
      * </pre>
      */
     public boolean hasSongmu() {
-      return ((bitField1_ & 0x00000080) == 0x00000080);
+      return ((bitField1_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional int32 songmu = 40 [default = 0];</code>
+     * <code>optional int32 songmu = 43 [default = 0];</code>
      *
      * <pre>
      ** 松木*100 
@@ -3125,20 +3260,20 @@ public final class WorldEventsBytes {
       return songmu_;
     }
 
-    public static final int SHUINI_FIELD_NUMBER = 41;
+    public static final int SHUINI_FIELD_NUMBER = 44;
     private int shuini_;
     /**
-     * <code>optional int32 shuini = 41 [default = 0];</code>
+     * <code>optional int32 shuini = 44 [default = 0];</code>
      *
      * <pre>
      ** 水泥*100 
      * </pre>
      */
     public boolean hasShuini() {
-      return ((bitField1_ & 0x00000100) == 0x00000100);
+      return ((bitField1_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional int32 shuini = 41 [default = 0];</code>
+     * <code>optional int32 shuini = 44 [default = 0];</code>
      *
      * <pre>
      ** 水泥*100 
@@ -3148,20 +3283,20 @@ public final class WorldEventsBytes {
       return shuini_;
     }
 
-    public static final int CAO_FIELD_NUMBER = 42;
+    public static final int CAO_FIELD_NUMBER = 45;
     private int cao_;
     /**
-     * <code>optional int32 cao = 42 [default = 0];</code>
+     * <code>optional int32 cao = 45 [default = 0];</code>
      *
      * <pre>
      ** 草*100 
      * </pre>
      */
     public boolean hasCao() {
-      return ((bitField1_ & 0x00000200) == 0x00000200);
+      return ((bitField1_ & 0x00001000) == 0x00001000);
     }
     /**
-     * <code>optional int32 cao = 42 [default = 0];</code>
+     * <code>optional int32 cao = 45 [default = 0];</code>
      *
      * <pre>
      ** 草*100 
@@ -3171,20 +3306,20 @@ public final class WorldEventsBytes {
       return cao_;
     }
 
-    public static final int YUANYOU_FIELD_NUMBER = 43;
+    public static final int YUANYOU_FIELD_NUMBER = 46;
     private int yuanyou_;
     /**
-     * <code>optional int32 yuanyou = 43 [default = 0];</code>
+     * <code>optional int32 yuanyou = 46 [default = 0];</code>
      *
      * <pre>
      ** 原油*100 
      * </pre>
      */
     public boolean hasYuanyou() {
-      return ((bitField1_ & 0x00000400) == 0x00000400);
+      return ((bitField1_ & 0x00002000) == 0x00002000);
     }
     /**
-     * <code>optional int32 yuanyou = 43 [default = 0];</code>
+     * <code>optional int32 yuanyou = 46 [default = 0];</code>
      *
      * <pre>
      ** 原油*100 
@@ -3194,20 +3329,20 @@ public final class WorldEventsBytes {
       return yuanyou_;
     }
 
-    public static final int TIE_FIELD_NUMBER = 44;
+    public static final int TIE_FIELD_NUMBER = 47;
     private int tie_;
     /**
-     * <code>optional int32 tie = 44 [default = 0];</code>
+     * <code>optional int32 tie = 47 [default = 0];</code>
      *
      * <pre>
      ** 铁*100 
      * </pre>
      */
     public boolean hasTie() {
-      return ((bitField1_ & 0x00000800) == 0x00000800);
+      return ((bitField1_ & 0x00004000) == 0x00004000);
     }
     /**
-     * <code>optional int32 tie = 44 [default = 0];</code>
+     * <code>optional int32 tie = 47 [default = 0];</code>
      *
      * <pre>
      ** 铁*100 
@@ -3217,20 +3352,20 @@ public final class WorldEventsBytes {
       return tie_;
     }
 
-    public static final int JIJIUBAO_FIELD_NUMBER = 45;
+    public static final int JIJIUBAO_FIELD_NUMBER = 48;
     private int jijiubao_;
     /**
-     * <code>optional int32 jijiubao = 45 [default = 0];</code>
+     * <code>optional int32 jijiubao = 48 [default = 0];</code>
      *
      * <pre>
      ** 急救包*100 
      * </pre>
      */
     public boolean hasJijiubao() {
-      return ((bitField1_ & 0x00001000) == 0x00001000);
+      return ((bitField1_ & 0x00008000) == 0x00008000);
     }
     /**
-     * <code>optional int32 jijiubao = 45 [default = 0];</code>
+     * <code>optional int32 jijiubao = 48 [default = 0];</code>
      *
      * <pre>
      ** 急救包*100 
@@ -3240,20 +3375,20 @@ public final class WorldEventsBytes {
       return jijiubao_;
     }
 
-    public static final int RIZHI_FIELD_NUMBER = 46;
+    public static final int RIZHI_FIELD_NUMBER = 49;
     private int rizhi_;
     /**
-     * <code>optional int32 rizhi = 46 [default = 0];</code>
+     * <code>optional int32 rizhi = 49 [default = 0];</code>
      *
      * <pre>
      ** 庄园日志*100 
      * </pre>
      */
     public boolean hasRizhi() {
-      return ((bitField1_ & 0x00002000) == 0x00002000);
+      return ((bitField1_ & 0x00010000) == 0x00010000);
     }
     /**
-     * <code>optional int32 rizhi = 46 [default = 0];</code>
+     * <code>optional int32 rizhi = 49 [default = 0];</code>
      *
      * <pre>
      ** 庄园日志*100 
@@ -3263,20 +3398,20 @@ public final class WorldEventsBytes {
       return rizhi_;
     }
 
-    public static final int JIQIANGTUZHI_FIELD_NUMBER = 47;
+    public static final int JIQIANGTUZHI_FIELD_NUMBER = 50;
     private int jiqiangtuzhi_;
     /**
-     * <code>optional int32 jiqiangtuzhi = 47 [default = 0];</code>
+     * <code>optional int32 jiqiangtuzhi = 50 [default = 0];</code>
      *
      * <pre>
      ** 重机枪图纸*100 
      * </pre>
      */
     public boolean hasJiqiangtuzhi() {
-      return ((bitField1_ & 0x00004000) == 0x00004000);
+      return ((bitField1_ & 0x00020000) == 0x00020000);
     }
     /**
-     * <code>optional int32 jiqiangtuzhi = 47 [default = 0];</code>
+     * <code>optional int32 jiqiangtuzhi = 50 [default = 0];</code>
      *
      * <pre>
      ** 重机枪图纸*100 
@@ -3286,20 +3421,20 @@ public final class WorldEventsBytes {
       return jiqiangtuzhi_;
     }
 
-    public static final int JUJITUZHI_FIELD_NUMBER = 48;
+    public static final int JUJITUZHI_FIELD_NUMBER = 51;
     private int jujituzhi_;
     /**
-     * <code>optional int32 jujituzhi = 48 [default = 0];</code>
+     * <code>optional int32 jujituzhi = 51 [default = 0];</code>
      *
      * <pre>
      ** 狙击枪图纸*100 
      * </pre>
      */
     public boolean hasJujituzhi() {
-      return ((bitField1_ & 0x00008000) == 0x00008000);
+      return ((bitField1_ & 0x00040000) == 0x00040000);
     }
     /**
-     * <code>optional int32 jujituzhi = 48 [default = 0];</code>
+     * <code>optional int32 jujituzhi = 51 [default = 0];</code>
      *
      * <pre>
      ** 狙击枪图纸*100 
@@ -3309,20 +3444,20 @@ public final class WorldEventsBytes {
       return jujituzhi_;
     }
 
-    public static final int JIPAOTUZHI_FIELD_NUMBER = 49;
+    public static final int JIPAOTUZHI_FIELD_NUMBER = 52;
     private int jipaotuzhi_;
     /**
-     * <code>optional int32 jipaotuzhi = 49 [default = 0];</code>
+     * <code>optional int32 jipaotuzhi = 52 [default = 0];</code>
      *
      * <pre>
      ** 机炮设计图*100 
      * </pre>
      */
     public boolean hasJipaotuzhi() {
-      return ((bitField1_ & 0x00010000) == 0x00010000);
+      return ((bitField1_ & 0x00080000) == 0x00080000);
     }
     /**
-     * <code>optional int32 jipaotuzhi = 49 [default = 0];</code>
+     * <code>optional int32 jipaotuzhi = 52 [default = 0];</code>
      *
      * <pre>
      ** 机炮设计图*100 
@@ -3332,20 +3467,20 @@ public final class WorldEventsBytes {
       return jipaotuzhi_;
     }
 
-    public static final int YUANLONGPING_FIELD_NUMBER = 50;
+    public static final int YUANLONGPING_FIELD_NUMBER = 53;
     private int yuanlongping_;
     /**
-     * <code>optional int32 yuanlongping = 50 [default = 0];</code>
+     * <code>optional int32 yuanlongping = 53 [default = 0];</code>
      *
      * <pre>
      ** 《袁隆平传》*100 
      * </pre>
      */
     public boolean hasYuanlongping() {
-      return ((bitField1_ & 0x00020000) == 0x00020000);
+      return ((bitField1_ & 0x00100000) == 0x00100000);
     }
     /**
-     * <code>optional int32 yuanlongping = 50 [default = 0];</code>
+     * <code>optional int32 yuanlongping = 53 [default = 0];</code>
      *
      * <pre>
      ** 《袁隆平传》*100 
@@ -3355,20 +3490,20 @@ public final class WorldEventsBytes {
       return yuanlongping_;
     }
 
-    public static final int HUAFEIGONGYE_FIELD_NUMBER = 51;
+    public static final int HUAFEIGONGYE_FIELD_NUMBER = 54;
     private int huafeigongye_;
     /**
-     * <code>optional int32 huafeigongye = 51 [default = 0];</code>
+     * <code>optional int32 huafeigongye = 54 [default = 0];</code>
      *
      * <pre>
      ** 《化肥工业概论》*100 
      * </pre>
      */
     public boolean hasHuafeigongye() {
-      return ((bitField1_ & 0x00040000) == 0x00040000);
+      return ((bitField1_ & 0x00200000) == 0x00200000);
     }
     /**
-     * <code>optional int32 huafeigongye = 51 [default = 0];</code>
+     * <code>optional int32 huafeigongye = 54 [default = 0];</code>
      *
      * <pre>
      ** 《化肥工业概论》*100 
@@ -3378,20 +3513,20 @@ public final class WorldEventsBytes {
       return huafeigongye_;
     }
 
-    public static final int YANGZHU_FIELD_NUMBER = 52;
+    public static final int YANGZHU_FIELD_NUMBER = 55;
     private int yangzhu_;
     /**
-     * <code>optional int32 yangzhu = 52 [default = 0];</code>
+     * <code>optional int32 yangzhu = 55 [default = 0];</code>
      *
      * <pre>
      ** 《论如何养猪》*100 
      * </pre>
      */
     public boolean hasYangzhu() {
-      return ((bitField1_ & 0x00080000) == 0x00080000);
+      return ((bitField1_ & 0x00400000) == 0x00400000);
     }
     /**
-     * <code>optional int32 yangzhu = 52 [default = 0];</code>
+     * <code>optional int32 yangzhu = 55 [default = 0];</code>
      *
      * <pre>
      ** 《论如何养猪》*100 
@@ -3401,20 +3536,20 @@ public final class WorldEventsBytes {
       return yangzhu_;
     }
 
-    public static final int CANGCHU_FIELD_NUMBER = 53;
+    public static final int CANGCHU_FIELD_NUMBER = 56;
     private int cangchu_;
     /**
-     * <code>optional int32 cangchu = 53 [default = 0];</code>
+     * <code>optional int32 cangchu = 56 [default = 0];</code>
      *
      * <pre>
      ** 《仓储管理》*100 
      * </pre>
      */
     public boolean hasCangchu() {
-      return ((bitField1_ & 0x00100000) == 0x00100000);
+      return ((bitField1_ & 0x00800000) == 0x00800000);
     }
     /**
-     * <code>optional int32 cangchu = 53 [default = 0];</code>
+     * <code>optional int32 cangchu = 56 [default = 0];</code>
      *
      * <pre>
      ** 《仓储管理》*100 
@@ -3424,20 +3559,20 @@ public final class WorldEventsBytes {
       return cangchu_;
     }
 
-    public static final int TESILA_FIELD_NUMBER = 54;
+    public static final int TESILA_FIELD_NUMBER = 57;
     private int tesila_;
     /**
-     * <code>optional int32 tesila = 54 [default = 0];</code>
+     * <code>optional int32 tesila = 57 [default = 0];</code>
      *
      * <pre>
      ** 《特斯拉传》*100 
      * </pre>
      */
     public boolean hasTesila() {
-      return ((bitField1_ & 0x00200000) == 0x00200000);
+      return ((bitField1_ & 0x01000000) == 0x01000000);
     }
     /**
-     * <code>optional int32 tesila = 54 [default = 0];</code>
+     * <code>optional int32 tesila = 57 [default = 0];</code>
      *
      * <pre>
      ** 《特斯拉传》*100 
@@ -3447,20 +3582,20 @@ public final class WorldEventsBytes {
       return tesila_;
     }
 
-    public static final int LUOKEFEILE_FIELD_NUMBER = 55;
+    public static final int LUOKEFEILE_FIELD_NUMBER = 58;
     private int luokefeile_;
     /**
-     * <code>optional int32 luokefeile = 55 [default = 0];</code>
+     * <code>optional int32 luokefeile = 58 [default = 0];</code>
      *
      * <pre>
      ** 《洛克菲勒传》*100 
      * </pre>
      */
     public boolean hasLuokefeile() {
-      return ((bitField1_ & 0x00400000) == 0x00400000);
+      return ((bitField1_ & 0x02000000) == 0x02000000);
     }
     /**
-     * <code>optional int32 luokefeile = 55 [default = 0];</code>
+     * <code>optional int32 luokefeile = 58 [default = 0];</code>
      *
      * <pre>
      ** 《洛克菲勒传》*100 
@@ -3470,20 +3605,20 @@ public final class WorldEventsBytes {
       return luokefeile_;
     }
 
-    public static final int KANAIJI_FIELD_NUMBER = 56;
+    public static final int KANAIJI_FIELD_NUMBER = 59;
     private int kanaiji_;
     /**
-     * <code>optional int32 kanaiji = 56 [default = 0];</code>
+     * <code>optional int32 kanaiji = 59 [default = 0];</code>
      *
      * <pre>
      ** 《卡耐基传》*100 
      * </pre>
      */
     public boolean hasKanaiji() {
-      return ((bitField1_ & 0x00800000) == 0x00800000);
+      return ((bitField1_ & 0x04000000) == 0x04000000);
     }
     /**
-     * <code>optional int32 kanaiji = 56 [default = 0];</code>
+     * <code>optional int32 kanaiji = 59 [default = 0];</code>
      *
      * <pre>
      ** 《卡耐基传》*100 
@@ -3493,20 +3628,20 @@ public final class WorldEventsBytes {
       return kanaiji_;
     }
 
-    public static final int LUBAN_FIELD_NUMBER = 57;
+    public static final int LUBAN_FIELD_NUMBER = 60;
     private int luban_;
     /**
-     * <code>optional int32 luban = 57 [default = 0];</code>
+     * <code>optional int32 luban = 60 [default = 0];</code>
      *
      * <pre>
      ** 《鲁班传》*100 
      * </pre>
      */
     public boolean hasLuban() {
-      return ((bitField1_ & 0x01000000) == 0x01000000);
+      return ((bitField1_ & 0x08000000) == 0x08000000);
     }
     /**
-     * <code>optional int32 luban = 57 [default = 0];</code>
+     * <code>optional int32 luban = 60 [default = 0];</code>
      *
      * <pre>
      ** 《鲁班传》*100 
@@ -3516,20 +3651,20 @@ public final class WorldEventsBytes {
       return luban_;
     }
 
-    public static final int TUMU_FIELD_NUMBER = 58;
+    public static final int TUMU_FIELD_NUMBER = 61;
     private int tumu_;
     /**
-     * <code>optional int32 tumu = 58 [default = 0];</code>
+     * <code>optional int32 tumu = 61 [default = 0];</code>
      *
      * <pre>
      ** 《土木工程概论》*100 
      * </pre>
      */
     public boolean hasTumu() {
-      return ((bitField1_ & 0x02000000) == 0x02000000);
+      return ((bitField1_ & 0x10000000) == 0x10000000);
     }
     /**
-     * <code>optional int32 tumu = 58 [default = 0];</code>
+     * <code>optional int32 tumu = 61 [default = 0];</code>
      *
      * <pre>
      ** 《土木工程概论》*100 
@@ -3539,20 +3674,20 @@ public final class WorldEventsBytes {
       return tumu_;
     }
 
-    public static final int FANGDAO_FIELD_NUMBER = 59;
+    public static final int FANGDAO_FIELD_NUMBER = 62;
     private int fangdao_;
     /**
-     * <code>optional int32 fangdao = 59 [default = 0];</code>
+     * <code>optional int32 fangdao = 62 [default = 0];</code>
      *
      * <pre>
      ** 《防盗门技术》*100 
      * </pre>
      */
     public boolean hasFangdao() {
-      return ((bitField1_ & 0x04000000) == 0x04000000);
+      return ((bitField1_ & 0x20000000) == 0x20000000);
     }
     /**
-     * <code>optional int32 fangdao = 59 [default = 0];</code>
+     * <code>optional int32 fangdao = 62 [default = 0];</code>
      *
      * <pre>
      ** 《防盗门技术》*100 
@@ -3562,20 +3697,20 @@ public final class WorldEventsBytes {
       return fangdao_;
     }
 
-    public static final int MAKEQIN_FIELD_NUMBER = 60;
+    public static final int MAKEQIN_FIELD_NUMBER = 63;
     private int makeqin_;
     /**
-     * <code>optional int32 makeqin = 60 [default = 0];</code>
+     * <code>optional int32 makeqin = 63 [default = 0];</code>
      *
      * <pre>
      ** 《马克沁传》*100 
      * </pre>
      */
     public boolean hasMakeqin() {
-      return ((bitField1_ & 0x08000000) == 0x08000000);
+      return ((bitField1_ & 0x40000000) == 0x40000000);
     }
     /**
-     * <code>optional int32 makeqin = 60 [default = 0];</code>
+     * <code>optional int32 makeqin = 63 [default = 0];</code>
      *
      * <pre>
      ** 《马克沁传》*100 
@@ -3585,20 +3720,20 @@ public final class WorldEventsBytes {
       return makeqin_;
     }
 
-    public static final int WODEFENDOU_FIELD_NUMBER = 61;
+    public static final int WODEFENDOU_FIELD_NUMBER = 64;
     private int wodefendou_;
     /**
-     * <code>optional int32 wodefendou = 61 [default = 0];</code>
+     * <code>optional int32 wodefendou = 64 [default = 0];</code>
      *
      * <pre>
      ** 《我的奋斗》*100 
      * </pre>
      */
     public boolean hasWodefendou() {
-      return ((bitField1_ & 0x10000000) == 0x10000000);
+      return ((bitField1_ & 0x80000000) == 0x80000000);
     }
     /**
-     * <code>optional int32 wodefendou = 61 [default = 0];</code>
+     * <code>optional int32 wodefendou = 64 [default = 0];</code>
      *
      * <pre>
      ** 《我的奋斗》*100 
@@ -3608,20 +3743,20 @@ public final class WorldEventsBytes {
       return wodefendou_;
     }
 
-    public static final int JIATELIN_FIELD_NUMBER = 62;
+    public static final int JIATELIN_FIELD_NUMBER = 65;
     private int jiatelin_;
     /**
-     * <code>optional int32 jiatelin = 62 [default = 0];</code>
+     * <code>optional int32 jiatelin = 65 [default = 0];</code>
      *
      * <pre>
      ** 《加特林传》*100 
      * </pre>
      */
     public boolean hasJiatelin() {
-      return ((bitField1_ & 0x20000000) == 0x20000000);
+      return ((bitField2_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional int32 jiatelin = 62 [default = 0];</code>
+     * <code>optional int32 jiatelin = 65 [default = 0];</code>
      *
      * <pre>
      ** 《加特林传》*100 
@@ -3631,20 +3766,20 @@ public final class WorldEventsBytes {
       return jiatelin_;
     }
 
-    public static final int WBALEITE_FIELD_NUMBER = 63;
+    public static final int WBALEITE_FIELD_NUMBER = 66;
     private int wbaleite_;
     /**
-     * <code>optional int32 wbaleite = 63 [default = 0];</code>
+     * <code>optional int32 wbaleite = 66 [default = 0];</code>
      *
      * <pre>
      ** 《巴雷特的笔记》*100 
      * </pre>
      */
     public boolean hasWbaleite() {
-      return ((bitField1_ & 0x40000000) == 0x40000000);
+      return ((bitField2_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 wbaleite = 63 [default = 0];</code>
+     * <code>optional int32 wbaleite = 66 [default = 0];</code>
      *
      * <pre>
      ** 《巴雷特的笔记》*100 
@@ -3654,20 +3789,20 @@ public final class WorldEventsBytes {
       return wbaleite_;
     }
 
-    public static final int GUANREN_FIELD_NUMBER = 64;
+    public static final int GUANREN_FIELD_NUMBER = 67;
     private int guanren_;
     /**
-     * <code>optional int32 guanren = 64 [default = 0];</code>
+     * <code>optional int32 guanren = 67 [default = 0];</code>
      *
      * <pre>
      ** 《官人吃鸡指南》*100 
      * </pre>
      */
     public boolean hasGuanren() {
-      return ((bitField1_ & 0x80000000) == 0x80000000);
+      return ((bitField2_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 guanren = 64 [default = 0];</code>
+     * <code>optional int32 guanren = 67 [default = 0];</code>
      *
      * <pre>
      ** 《官人吃鸡指南》*100 
@@ -3677,20 +3812,20 @@ public final class WorldEventsBytes {
       return guanren_;
     }
 
-    public static final int TOUKUI1_FIELD_NUMBER = 65;
+    public static final int TOUKUI1_FIELD_NUMBER = 68;
     private int toukui1_;
     /**
-     * <code>optional int32 toukui1 = 65 [default = 0];</code>
+     * <code>optional int32 toukui1 = 68 [default = 0];</code>
      *
      * <pre>
      ** 1级头盔*100 
      * </pre>
      */
     public boolean hasToukui1() {
-      return ((bitField2_ & 0x00000001) == 0x00000001);
+      return ((bitField2_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional int32 toukui1 = 65 [default = 0];</code>
+     * <code>optional int32 toukui1 = 68 [default = 0];</code>
      *
      * <pre>
      ** 1级头盔*100 
@@ -3700,20 +3835,20 @@ public final class WorldEventsBytes {
       return toukui1_;
     }
 
-    public static final int TOUKUI2_FIELD_NUMBER = 66;
+    public static final int TOUKUI2_FIELD_NUMBER = 69;
     private int toukui2_;
     /**
-     * <code>optional int32 toukui2 = 66 [default = 0];</code>
+     * <code>optional int32 toukui2 = 69 [default = 0];</code>
      *
      * <pre>
      ** 2级头盔*100 
      * </pre>
      */
     public boolean hasToukui2() {
-      return ((bitField2_ & 0x00000002) == 0x00000002);
+      return ((bitField2_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional int32 toukui2 = 66 [default = 0];</code>
+     * <code>optional int32 toukui2 = 69 [default = 0];</code>
      *
      * <pre>
      ** 2级头盔*100 
@@ -3723,20 +3858,20 @@ public final class WorldEventsBytes {
       return toukui2_;
     }
 
-    public static final int TOUKUI3_FIELD_NUMBER = 67;
+    public static final int TOUKUI3_FIELD_NUMBER = 70;
     private int toukui3_;
     /**
-     * <code>optional int32 toukui3 = 67 [default = 0];</code>
+     * <code>optional int32 toukui3 = 70 [default = 0];</code>
      *
      * <pre>
      ** 3级头盔*100 
      * </pre>
      */
     public boolean hasToukui3() {
-      return ((bitField2_ & 0x00000004) == 0x00000004);
+      return ((bitField2_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional int32 toukui3 = 67 [default = 0];</code>
+     * <code>optional int32 toukui3 = 70 [default = 0];</code>
      *
      * <pre>
      ** 3级头盔*100 
@@ -3746,20 +3881,20 @@ public final class WorldEventsBytes {
       return toukui3_;
     }
 
-    public static final int SHOUQIANG1_FIELD_NUMBER = 68;
+    public static final int SHOUQIANG1_FIELD_NUMBER = 71;
     private int shouqiang1_;
     /**
-     * <code>optional int32 shouqiang1 = 68 [default = 0];</code>
+     * <code>optional int32 shouqiang1 = 71 [default = 0];</code>
      *
      * <pre>
      ** 手枪*100 
      * </pre>
      */
     public boolean hasShouqiang1() {
-      return ((bitField2_ & 0x00000008) == 0x00000008);
+      return ((bitField2_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional int32 shouqiang1 = 68 [default = 0];</code>
+     * <code>optional int32 shouqiang1 = 71 [default = 0];</code>
      *
      * <pre>
      ** 手枪*100 
@@ -3769,20 +3904,20 @@ public final class WorldEventsBytes {
       return shouqiang1_;
     }
 
-    public static final int BUQIANG1_FIELD_NUMBER = 69;
+    public static final int BUQIANG1_FIELD_NUMBER = 72;
     private int buqiang1_;
     /**
-     * <code>optional int32 buqiang1 = 69 [default = 0];</code>
+     * <code>optional int32 buqiang1 = 72 [default = 0];</code>
      *
      * <pre>
      ** 步枪*100 
      * </pre>
      */
     public boolean hasBuqiang1() {
-      return ((bitField2_ & 0x00000010) == 0x00000010);
+      return ((bitField2_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional int32 buqiang1 = 69 [default = 0];</code>
+     * <code>optional int32 buqiang1 = 72 [default = 0];</code>
      *
      * <pre>
      ** 步枪*100 
@@ -3792,20 +3927,20 @@ public final class WorldEventsBytes {
       return buqiang1_;
     }
 
-    public static final int QINGJIQIANG1_FIELD_NUMBER = 70;
+    public static final int QINGJIQIANG1_FIELD_NUMBER = 73;
     private int qingjiqiang1_;
     /**
-     * <code>optional int32 qingjiqiang1 = 70 [default = 0];</code>
+     * <code>optional int32 qingjiqiang1 = 73 [default = 0];</code>
      *
      * <pre>
      ** 轻机枪*100 
      * </pre>
      */
     public boolean hasQingjiqiang1() {
-      return ((bitField2_ & 0x00000020) == 0x00000020);
+      return ((bitField2_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional int32 qingjiqiang1 = 70 [default = 0];</code>
+     * <code>optional int32 qingjiqiang1 = 73 [default = 0];</code>
      *
      * <pre>
      ** 轻机枪*100 
@@ -3815,20 +3950,20 @@ public final class WorldEventsBytes {
       return qingjiqiang1_;
     }
 
-    public static final int FANGDANYI1_FIELD_NUMBER = 71;
+    public static final int FANGDANYI1_FIELD_NUMBER = 74;
     private int fangdanyi1_;
     /**
-     * <code>optional int32 fangdanyi1 = 71 [default = 0];</code>
+     * <code>optional int32 fangdanyi1 = 74 [default = 0];</code>
      *
      * <pre>
      ** 1级防弹衣*100 
      * </pre>
      */
     public boolean hasFangdanyi1() {
-      return ((bitField2_ & 0x00000040) == 0x00000040);
+      return ((bitField2_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional int32 fangdanyi1 = 71 [default = 0];</code>
+     * <code>optional int32 fangdanyi1 = 74 [default = 0];</code>
      *
      * <pre>
      ** 1级防弹衣*100 
@@ -3838,20 +3973,20 @@ public final class WorldEventsBytes {
       return fangdanyi1_;
     }
 
-    public static final int FANGDANYI2_FIELD_NUMBER = 72;
+    public static final int FANGDANYI2_FIELD_NUMBER = 75;
     private int fangdanyi2_;
     /**
-     * <code>optional int32 fangdanyi2 = 72 [default = 0];</code>
+     * <code>optional int32 fangdanyi2 = 75 [default = 0];</code>
      *
      * <pre>
      ** 2级防弹衣*100 
      * </pre>
      */
     public boolean hasFangdanyi2() {
-      return ((bitField2_ & 0x00000080) == 0x00000080);
+      return ((bitField2_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional int32 fangdanyi2 = 72 [default = 0];</code>
+     * <code>optional int32 fangdanyi2 = 75 [default = 0];</code>
      *
      * <pre>
      ** 2级防弹衣*100 
@@ -3861,20 +3996,20 @@ public final class WorldEventsBytes {
       return fangdanyi2_;
     }
 
-    public static final int FANGDANYI3_FIELD_NUMBER = 73;
+    public static final int FANGDANYI3_FIELD_NUMBER = 76;
     private int fangdanyi3_;
     /**
-     * <code>optional int32 fangdanyi3 = 73 [default = 0];</code>
+     * <code>optional int32 fangdanyi3 = 76 [default = 0];</code>
      *
      * <pre>
      ** 3级防弹衣*100 
      * </pre>
      */
     public boolean hasFangdanyi3() {
-      return ((bitField2_ & 0x00000100) == 0x00000100);
+      return ((bitField2_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional int32 fangdanyi3 = 73 [default = 0];</code>
+     * <code>optional int32 fangdanyi3 = 76 [default = 0];</code>
      *
      * <pre>
      ** 3级防弹衣*100 
@@ -3884,20 +4019,20 @@ public final class WorldEventsBytes {
       return fangdanyi3_;
     }
 
-    public static final int KUZI1_FIELD_NUMBER = 74;
+    public static final int KUZI1_FIELD_NUMBER = 77;
     private int kuzi1_;
     /**
-     * <code>optional int32 kuzi1 = 74 [default = 0];</code>
+     * <code>optional int32 kuzi1 = 77 [default = 0];</code>
      *
      * <pre>
      ** 1级作训裤*100 
      * </pre>
      */
     public boolean hasKuzi1() {
-      return ((bitField2_ & 0x00000200) == 0x00000200);
+      return ((bitField2_ & 0x00001000) == 0x00001000);
     }
     /**
-     * <code>optional int32 kuzi1 = 74 [default = 0];</code>
+     * <code>optional int32 kuzi1 = 77 [default = 0];</code>
      *
      * <pre>
      ** 1级作训裤*100 
@@ -3907,20 +4042,20 @@ public final class WorldEventsBytes {
       return kuzi1_;
     }
 
-    public static final int KUZI2_FIELD_NUMBER = 75;
+    public static final int KUZI2_FIELD_NUMBER = 78;
     private int kuzi2_;
     /**
-     * <code>optional int32 kuzi2 = 75 [default = 0];</code>
+     * <code>optional int32 kuzi2 = 78 [default = 0];</code>
      *
      * <pre>
      ** 2级作训裤*100 
      * </pre>
      */
     public boolean hasKuzi2() {
-      return ((bitField2_ & 0x00000400) == 0x00000400);
+      return ((bitField2_ & 0x00002000) == 0x00002000);
     }
     /**
-     * <code>optional int32 kuzi2 = 75 [default = 0];</code>
+     * <code>optional int32 kuzi2 = 78 [default = 0];</code>
      *
      * <pre>
      ** 2级作训裤*100 
@@ -3930,20 +4065,20 @@ public final class WorldEventsBytes {
       return kuzi2_;
     }
 
-    public static final int KUZI3_FIELD_NUMBER = 76;
+    public static final int KUZI3_FIELD_NUMBER = 79;
     private int kuzi3_;
     /**
-     * <code>optional int32 kuzi3 = 76 [default = 0];</code>
+     * <code>optional int32 kuzi3 = 79 [default = 0];</code>
      *
      * <pre>
      ** 3级作训裤*100 
      * </pre>
      */
     public boolean hasKuzi3() {
-      return ((bitField2_ & 0x00000800) == 0x00000800);
+      return ((bitField2_ & 0x00004000) == 0x00004000);
     }
     /**
-     * <code>optional int32 kuzi3 = 76 [default = 0];</code>
+     * <code>optional int32 kuzi3 = 79 [default = 0];</code>
      *
      * <pre>
      ** 3级作训裤*100 
@@ -3953,20 +4088,20 @@ public final class WorldEventsBytes {
       return kuzi3_;
     }
 
-    public static final int XIEZI1_FIELD_NUMBER = 77;
+    public static final int XIEZI1_FIELD_NUMBER = 80;
     private int xiezi1_;
     /**
-     * <code>optional int32 xiezi1 = 77 [default = 0];</code>
+     * <code>optional int32 xiezi1 = 80 [default = 0];</code>
      *
      * <pre>
      ** 1级越野靴*100 
      * </pre>
      */
     public boolean hasXiezi1() {
-      return ((bitField2_ & 0x00001000) == 0x00001000);
+      return ((bitField2_ & 0x00008000) == 0x00008000);
     }
     /**
-     * <code>optional int32 xiezi1 = 77 [default = 0];</code>
+     * <code>optional int32 xiezi1 = 80 [default = 0];</code>
      *
      * <pre>
      ** 1级越野靴*100 
@@ -3976,20 +4111,20 @@ public final class WorldEventsBytes {
       return xiezi1_;
     }
 
-    public static final int XIEZI2_FIELD_NUMBER = 78;
+    public static final int XIEZI2_FIELD_NUMBER = 81;
     private int xiezi2_;
     /**
-     * <code>optional int32 xiezi2 = 78 [default = 0];</code>
+     * <code>optional int32 xiezi2 = 81 [default = 0];</code>
      *
      * <pre>
      ** 2级越野靴*100 
      * </pre>
      */
     public boolean hasXiezi2() {
-      return ((bitField2_ & 0x00002000) == 0x00002000);
+      return ((bitField2_ & 0x00010000) == 0x00010000);
     }
     /**
-     * <code>optional int32 xiezi2 = 78 [default = 0];</code>
+     * <code>optional int32 xiezi2 = 81 [default = 0];</code>
      *
      * <pre>
      ** 2级越野靴*100 
@@ -3999,20 +4134,20 @@ public final class WorldEventsBytes {
       return xiezi2_;
     }
 
-    public static final int XIEZI3_FIELD_NUMBER = 79;
+    public static final int XIEZI3_FIELD_NUMBER = 82;
     private int xiezi3_;
     /**
-     * <code>optional int32 xiezi3 = 79 [default = 0];</code>
+     * <code>optional int32 xiezi3 = 82 [default = 0];</code>
      *
      * <pre>
      ** 3级越野靴*100 
      * </pre>
      */
     public boolean hasXiezi3() {
-      return ((bitField2_ & 0x00004000) == 0x00004000);
+      return ((bitField2_ & 0x00020000) == 0x00020000);
     }
     /**
-     * <code>optional int32 xiezi3 = 79 [default = 0];</code>
+     * <code>optional int32 xiezi3 = 82 [default = 0];</code>
      *
      * <pre>
      ** 3级越野靴*100 
@@ -4022,20 +4157,20 @@ public final class WorldEventsBytes {
       return xiezi3_;
     }
 
-    public static final int KUANGQUANSHUI_FIELD_NUMBER = 80;
+    public static final int KUANGQUANSHUI_FIELD_NUMBER = 83;
     private int kuangquanshui_;
     /**
-     * <code>optional int32 kuangquanshui = 80 [default = 0];</code>
+     * <code>optional int32 kuangquanshui = 83 [default = 0];</code>
      *
      * <pre>
      ** 矿物质水*100 
      * </pre>
      */
     public boolean hasKuangquanshui() {
-      return ((bitField2_ & 0x00008000) == 0x00008000);
+      return ((bitField2_ & 0x00040000) == 0x00040000);
     }
     /**
-     * <code>optional int32 kuangquanshui = 80 [default = 0];</code>
+     * <code>optional int32 kuangquanshui = 83 [default = 0];</code>
      *
      * <pre>
      ** 矿物质水*100 
@@ -4045,20 +4180,20 @@ public final class WorldEventsBytes {
       return kuangquanshui_;
     }
 
-    public static final int SILIAO_FIELD_NUMBER = 81;
+    public static final int SILIAO_FIELD_NUMBER = 84;
     private int siliao_;
     /**
-     * <code>optional int32 siliao = 81 [default = 0];</code>
+     * <code>optional int32 siliao = 84 [default = 0];</code>
      *
      * <pre>
      ** 饲料*100 
      * </pre>
      */
     public boolean hasSiliao() {
-      return ((bitField2_ & 0x00010000) == 0x00010000);
+      return ((bitField2_ & 0x00080000) == 0x00080000);
     }
     /**
-     * <code>optional int32 siliao = 81 [default = 0];</code>
+     * <code>optional int32 siliao = 84 [default = 0];</code>
      *
      * <pre>
      ** 饲料*100 
@@ -4068,20 +4203,20 @@ public final class WorldEventsBytes {
       return siliao_;
     }
 
-    public static final int ZHUROU_FIELD_NUMBER = 82;
+    public static final int ZHUROU_FIELD_NUMBER = 85;
     private int zhurou_;
     /**
-     * <code>optional int32 zhurou = 82 [default = 0];</code>
+     * <code>optional int32 zhurou = 85 [default = 0];</code>
      *
      * <pre>
      ** 猪肉*100 
      * </pre>
      */
     public boolean hasZhurou() {
-      return ((bitField2_ & 0x00020000) == 0x00020000);
+      return ((bitField2_ & 0x00100000) == 0x00100000);
     }
     /**
-     * <code>optional int32 zhurou = 82 [default = 0];</code>
+     * <code>optional int32 zhurou = 85 [default = 0];</code>
      *
      * <pre>
      ** 猪肉*100 
@@ -4091,20 +4226,20 @@ public final class WorldEventsBytes {
       return zhurou_;
     }
 
-    public static final int QIYOU_FIELD_NUMBER = 83;
+    public static final int QIYOU_FIELD_NUMBER = 86;
     private int qiyou_;
     /**
-     * <code>optional int32 qiyou = 83 [default = 0];</code>
+     * <code>optional int32 qiyou = 86 [default = 0];</code>
      *
      * <pre>
      ** 汽油*100 
      * </pre>
      */
     public boolean hasQiyou() {
-      return ((bitField2_ & 0x00040000) == 0x00040000);
+      return ((bitField2_ & 0x00200000) == 0x00200000);
     }
     /**
-     * <code>optional int32 qiyou = 83 [default = 0];</code>
+     * <code>optional int32 qiyou = 86 [default = 0];</code>
      *
      * <pre>
      ** 汽油*100 
@@ -4114,20 +4249,20 @@ public final class WorldEventsBytes {
       return qiyou_;
     }
 
-    public static final int GANG_FIELD_NUMBER = 84;
+    public static final int GANG_FIELD_NUMBER = 87;
     private int gang_;
     /**
-     * <code>optional int32 gang = 84 [default = 0];</code>
+     * <code>optional int32 gang = 87 [default = 0];</code>
      *
      * <pre>
      ** 钢*100 
      * </pre>
      */
     public boolean hasGang() {
-      return ((bitField2_ & 0x00080000) == 0x00080000);
+      return ((bitField2_ & 0x00400000) == 0x00400000);
     }
     /**
-     * <code>optional int32 gang = 84 [default = 0];</code>
+     * <code>optional int32 gang = 87 [default = 0];</code>
      *
      * <pre>
      ** 钢*100 
@@ -4137,20 +4272,20 @@ public final class WorldEventsBytes {
       return gang_;
     }
 
-    public static final int SONGMUBAN_FIELD_NUMBER = 85;
+    public static final int SONGMUBAN_FIELD_NUMBER = 88;
     private int songmuban_;
     /**
-     * <code>optional int32 songmuban = 85 [default = 0];</code>
+     * <code>optional int32 songmuban = 88 [default = 0];</code>
      *
      * <pre>
      ** 松木板*100 
      * </pre>
      */
     public boolean hasSongmuban() {
-      return ((bitField2_ & 0x00100000) == 0x00100000);
+      return ((bitField2_ & 0x00800000) == 0x00800000);
     }
     /**
-     * <code>optional int32 songmuban = 85 [default = 0];</code>
+     * <code>optional int32 songmuban = 88 [default = 0];</code>
      *
      * <pre>
      ** 松木板*100 
@@ -4160,20 +4295,20 @@ public final class WorldEventsBytes {
       return songmuban_;
     }
 
-    public static final int HUNNINGTU_FIELD_NUMBER = 86;
+    public static final int HUNNINGTU_FIELD_NUMBER = 89;
     private int hunningtu_;
     /**
-     * <code>optional int32 hunningtu = 86 [default = 0];</code>
+     * <code>optional int32 hunningtu = 89 [default = 0];</code>
      *
      * <pre>
      ** 混凝土*100 
      * </pre>
      */
     public boolean hasHunningtu() {
-      return ((bitField2_ & 0x00200000) == 0x00200000);
+      return ((bitField2_ & 0x01000000) == 0x01000000);
     }
     /**
-     * <code>optional int32 hunningtu = 86 [default = 0];</code>
+     * <code>optional int32 hunningtu = 89 [default = 0];</code>
      *
      * <pre>
      ** 混凝土*100 
@@ -4207,13 +4342,16 @@ public final class WorldEventsBytes {
       jingBldgcap_ = 0;
       lushuiBldgcap_ = 0;
       songshuBldgcap_ = 0;
+      taiyangnengBldgcap_ = 0;
+      huafeiBldgcap_ = 0;
       damiBldgspd_ = 0;
       shucaiBldgspd_ = 0;
       shuiguoBldgspd_ = 0;
       jingBldgspd_ = 0;
       lushuiBldgspd_ = 0;
       songshuBldgspd_ = 0;
-      fengliBldgspd_ = 0;
+      taiyangnengBldgspd_ = 0;
+      huafeiBldgspd_ = 0;
       wuxiandianBldg_ = 0;
       leidaBldg_ = 0;
       carBldgspd_ = 0;
@@ -4358,193 +4496,202 @@ public final class WorldEventsBytes {
         output.writeInt32(23, songshuBldgcap_);
       }
       if (((bitField0_ & 0x00800000) == 0x00800000)) {
-        output.writeInt32(24, damiBldgspd_);
+        output.writeInt32(24, taiyangnengBldgcap_);
       }
       if (((bitField0_ & 0x01000000) == 0x01000000)) {
-        output.writeInt32(25, shucaiBldgspd_);
+        output.writeInt32(25, huafeiBldgcap_);
       }
       if (((bitField0_ & 0x02000000) == 0x02000000)) {
-        output.writeInt32(26, shuiguoBldgspd_);
+        output.writeInt32(26, damiBldgspd_);
       }
       if (((bitField0_ & 0x04000000) == 0x04000000)) {
-        output.writeInt32(27, jingBldgspd_);
+        output.writeInt32(27, shucaiBldgspd_);
       }
       if (((bitField0_ & 0x08000000) == 0x08000000)) {
-        output.writeInt32(28, lushuiBldgspd_);
+        output.writeInt32(28, shuiguoBldgspd_);
       }
       if (((bitField0_ & 0x10000000) == 0x10000000)) {
-        output.writeInt32(29, songshuBldgspd_);
+        output.writeInt32(29, jingBldgspd_);
       }
       if (((bitField0_ & 0x20000000) == 0x20000000)) {
-        output.writeInt32(30, fengliBldgspd_);
+        output.writeInt32(30, lushuiBldgspd_);
       }
       if (((bitField0_ & 0x40000000) == 0x40000000)) {
-        output.writeInt32(31, wuxiandianBldg_);
+        output.writeInt32(31, songshuBldgspd_);
       }
       if (((bitField0_ & 0x80000000) == 0x80000000)) {
-        output.writeInt32(32, leidaBldg_);
+        output.writeInt32(32, taiyangnengBldgspd_);
       }
       if (((bitField1_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(33, carBldgspd_);
+        output.writeInt32(33, huafeiBldgspd_);
       }
       if (((bitField1_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(34, taxCoeff_);
+        output.writeInt32(34, wuxiandianBldg_);
       }
       if (((bitField1_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(35, dami_);
+        output.writeInt32(35, leidaBldg_);
       }
       if (((bitField1_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(36, shucai_);
+        output.writeInt32(36, carBldgspd_);
       }
       if (((bitField1_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(37, shuiguo_);
+        output.writeInt32(37, taxCoeff_);
       }
       if (((bitField1_ & 0x00000020) == 0x00000020)) {
-        output.writeInt32(38, huafei_);
+        output.writeInt32(38, dami_);
       }
       if (((bitField1_ & 0x00000040) == 0x00000040)) {
-        output.writeInt32(39, shui_);
+        output.writeInt32(39, shucai_);
       }
       if (((bitField1_ & 0x00000080) == 0x00000080)) {
-        output.writeInt32(40, songmu_);
+        output.writeInt32(40, shuiguo_);
       }
       if (((bitField1_ & 0x00000100) == 0x00000100)) {
-        output.writeInt32(41, shuini_);
+        output.writeInt32(41, huafei_);
       }
       if (((bitField1_ & 0x00000200) == 0x00000200)) {
-        output.writeInt32(42, cao_);
+        output.writeInt32(42, shui_);
       }
       if (((bitField1_ & 0x00000400) == 0x00000400)) {
-        output.writeInt32(43, yuanyou_);
+        output.writeInt32(43, songmu_);
       }
       if (((bitField1_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(44, tie_);
+        output.writeInt32(44, shuini_);
       }
       if (((bitField1_ & 0x00001000) == 0x00001000)) {
-        output.writeInt32(45, jijiubao_);
+        output.writeInt32(45, cao_);
       }
       if (((bitField1_ & 0x00002000) == 0x00002000)) {
-        output.writeInt32(46, rizhi_);
+        output.writeInt32(46, yuanyou_);
       }
       if (((bitField1_ & 0x00004000) == 0x00004000)) {
-        output.writeInt32(47, jiqiangtuzhi_);
+        output.writeInt32(47, tie_);
       }
       if (((bitField1_ & 0x00008000) == 0x00008000)) {
-        output.writeInt32(48, jujituzhi_);
+        output.writeInt32(48, jijiubao_);
       }
       if (((bitField1_ & 0x00010000) == 0x00010000)) {
-        output.writeInt32(49, jipaotuzhi_);
+        output.writeInt32(49, rizhi_);
       }
       if (((bitField1_ & 0x00020000) == 0x00020000)) {
-        output.writeInt32(50, yuanlongping_);
+        output.writeInt32(50, jiqiangtuzhi_);
       }
       if (((bitField1_ & 0x00040000) == 0x00040000)) {
-        output.writeInt32(51, huafeigongye_);
+        output.writeInt32(51, jujituzhi_);
       }
       if (((bitField1_ & 0x00080000) == 0x00080000)) {
-        output.writeInt32(52, yangzhu_);
+        output.writeInt32(52, jipaotuzhi_);
       }
       if (((bitField1_ & 0x00100000) == 0x00100000)) {
-        output.writeInt32(53, cangchu_);
+        output.writeInt32(53, yuanlongping_);
       }
       if (((bitField1_ & 0x00200000) == 0x00200000)) {
-        output.writeInt32(54, tesila_);
+        output.writeInt32(54, huafeigongye_);
       }
       if (((bitField1_ & 0x00400000) == 0x00400000)) {
-        output.writeInt32(55, luokefeile_);
+        output.writeInt32(55, yangzhu_);
       }
       if (((bitField1_ & 0x00800000) == 0x00800000)) {
-        output.writeInt32(56, kanaiji_);
+        output.writeInt32(56, cangchu_);
       }
       if (((bitField1_ & 0x01000000) == 0x01000000)) {
-        output.writeInt32(57, luban_);
+        output.writeInt32(57, tesila_);
       }
       if (((bitField1_ & 0x02000000) == 0x02000000)) {
-        output.writeInt32(58, tumu_);
+        output.writeInt32(58, luokefeile_);
       }
       if (((bitField1_ & 0x04000000) == 0x04000000)) {
-        output.writeInt32(59, fangdao_);
+        output.writeInt32(59, kanaiji_);
       }
       if (((bitField1_ & 0x08000000) == 0x08000000)) {
-        output.writeInt32(60, makeqin_);
+        output.writeInt32(60, luban_);
       }
       if (((bitField1_ & 0x10000000) == 0x10000000)) {
-        output.writeInt32(61, wodefendou_);
+        output.writeInt32(61, tumu_);
       }
       if (((bitField1_ & 0x20000000) == 0x20000000)) {
-        output.writeInt32(62, jiatelin_);
+        output.writeInt32(62, fangdao_);
       }
       if (((bitField1_ & 0x40000000) == 0x40000000)) {
-        output.writeInt32(63, wbaleite_);
+        output.writeInt32(63, makeqin_);
       }
       if (((bitField1_ & 0x80000000) == 0x80000000)) {
-        output.writeInt32(64, guanren_);
+        output.writeInt32(64, wodefendou_);
       }
       if (((bitField2_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(65, toukui1_);
+        output.writeInt32(65, jiatelin_);
       }
       if (((bitField2_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(66, toukui2_);
+        output.writeInt32(66, wbaleite_);
       }
       if (((bitField2_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(67, toukui3_);
+        output.writeInt32(67, guanren_);
       }
       if (((bitField2_ & 0x00000008) == 0x00000008)) {
-        output.writeInt32(68, shouqiang1_);
+        output.writeInt32(68, toukui1_);
       }
       if (((bitField2_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(69, buqiang1_);
+        output.writeInt32(69, toukui2_);
       }
       if (((bitField2_ & 0x00000020) == 0x00000020)) {
-        output.writeInt32(70, qingjiqiang1_);
+        output.writeInt32(70, toukui3_);
       }
       if (((bitField2_ & 0x00000040) == 0x00000040)) {
-        output.writeInt32(71, fangdanyi1_);
+        output.writeInt32(71, shouqiang1_);
       }
       if (((bitField2_ & 0x00000080) == 0x00000080)) {
-        output.writeInt32(72, fangdanyi2_);
+        output.writeInt32(72, buqiang1_);
       }
       if (((bitField2_ & 0x00000100) == 0x00000100)) {
-        output.writeInt32(73, fangdanyi3_);
+        output.writeInt32(73, qingjiqiang1_);
       }
       if (((bitField2_ & 0x00000200) == 0x00000200)) {
-        output.writeInt32(74, kuzi1_);
+        output.writeInt32(74, fangdanyi1_);
       }
       if (((bitField2_ & 0x00000400) == 0x00000400)) {
-        output.writeInt32(75, kuzi2_);
+        output.writeInt32(75, fangdanyi2_);
       }
       if (((bitField2_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(76, kuzi3_);
+        output.writeInt32(76, fangdanyi3_);
       }
       if (((bitField2_ & 0x00001000) == 0x00001000)) {
-        output.writeInt32(77, xiezi1_);
+        output.writeInt32(77, kuzi1_);
       }
       if (((bitField2_ & 0x00002000) == 0x00002000)) {
-        output.writeInt32(78, xiezi2_);
+        output.writeInt32(78, kuzi2_);
       }
       if (((bitField2_ & 0x00004000) == 0x00004000)) {
-        output.writeInt32(79, xiezi3_);
+        output.writeInt32(79, kuzi3_);
       }
       if (((bitField2_ & 0x00008000) == 0x00008000)) {
-        output.writeInt32(80, kuangquanshui_);
+        output.writeInt32(80, xiezi1_);
       }
       if (((bitField2_ & 0x00010000) == 0x00010000)) {
-        output.writeInt32(81, siliao_);
+        output.writeInt32(81, xiezi2_);
       }
       if (((bitField2_ & 0x00020000) == 0x00020000)) {
-        output.writeInt32(82, zhurou_);
+        output.writeInt32(82, xiezi3_);
       }
       if (((bitField2_ & 0x00040000) == 0x00040000)) {
-        output.writeInt32(83, qiyou_);
+        output.writeInt32(83, kuangquanshui_);
       }
       if (((bitField2_ & 0x00080000) == 0x00080000)) {
-        output.writeInt32(84, gang_);
+        output.writeInt32(84, siliao_);
       }
       if (((bitField2_ & 0x00100000) == 0x00100000)) {
-        output.writeInt32(85, songmuban_);
+        output.writeInt32(85, zhurou_);
       }
       if (((bitField2_ & 0x00200000) == 0x00200000)) {
-        output.writeInt32(86, hunningtu_);
+        output.writeInt32(86, qiyou_);
+      }
+      if (((bitField2_ & 0x00400000) == 0x00400000)) {
+        output.writeInt32(87, gang_);
+      }
+      if (((bitField2_ & 0x00800000) == 0x00800000)) {
+        output.writeInt32(88, songmuban_);
+      }
+      if (((bitField2_ & 0x01000000) == 0x01000000)) {
+        output.writeInt32(89, hunningtu_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -4649,255 +4796,267 @@ public final class WorldEventsBytes {
       }
       if (((bitField0_ & 0x00800000) == 0x00800000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(24, damiBldgspd_);
+          .computeInt32Size(24, taiyangnengBldgcap_);
       }
       if (((bitField0_ & 0x01000000) == 0x01000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(25, shucaiBldgspd_);
+          .computeInt32Size(25, huafeiBldgcap_);
       }
       if (((bitField0_ & 0x02000000) == 0x02000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(26, shuiguoBldgspd_);
+          .computeInt32Size(26, damiBldgspd_);
       }
       if (((bitField0_ & 0x04000000) == 0x04000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(27, jingBldgspd_);
+          .computeInt32Size(27, shucaiBldgspd_);
       }
       if (((bitField0_ & 0x08000000) == 0x08000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(28, lushuiBldgspd_);
+          .computeInt32Size(28, shuiguoBldgspd_);
       }
       if (((bitField0_ & 0x10000000) == 0x10000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(29, songshuBldgspd_);
+          .computeInt32Size(29, jingBldgspd_);
       }
       if (((bitField0_ & 0x20000000) == 0x20000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(30, fengliBldgspd_);
+          .computeInt32Size(30, lushuiBldgspd_);
       }
       if (((bitField0_ & 0x40000000) == 0x40000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(31, wuxiandianBldg_);
+          .computeInt32Size(31, songshuBldgspd_);
       }
       if (((bitField0_ & 0x80000000) == 0x80000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(32, leidaBldg_);
+          .computeInt32Size(32, taiyangnengBldgspd_);
       }
       if (((bitField1_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(33, carBldgspd_);
+          .computeInt32Size(33, huafeiBldgspd_);
       }
       if (((bitField1_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(34, taxCoeff_);
+          .computeInt32Size(34, wuxiandianBldg_);
       }
       if (((bitField1_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(35, dami_);
+          .computeInt32Size(35, leidaBldg_);
       }
       if (((bitField1_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(36, shucai_);
+          .computeInt32Size(36, carBldgspd_);
       }
       if (((bitField1_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(37, shuiguo_);
+          .computeInt32Size(37, taxCoeff_);
       }
       if (((bitField1_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(38, huafei_);
+          .computeInt32Size(38, dami_);
       }
       if (((bitField1_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(39, shui_);
+          .computeInt32Size(39, shucai_);
       }
       if (((bitField1_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(40, songmu_);
+          .computeInt32Size(40, shuiguo_);
       }
       if (((bitField1_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(41, shuini_);
+          .computeInt32Size(41, huafei_);
       }
       if (((bitField1_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(42, cao_);
+          .computeInt32Size(42, shui_);
       }
       if (((bitField1_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(43, yuanyou_);
+          .computeInt32Size(43, songmu_);
       }
       if (((bitField1_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(44, tie_);
+          .computeInt32Size(44, shuini_);
       }
       if (((bitField1_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(45, jijiubao_);
+          .computeInt32Size(45, cao_);
       }
       if (((bitField1_ & 0x00002000) == 0x00002000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(46, rizhi_);
+          .computeInt32Size(46, yuanyou_);
       }
       if (((bitField1_ & 0x00004000) == 0x00004000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(47, jiqiangtuzhi_);
+          .computeInt32Size(47, tie_);
       }
       if (((bitField1_ & 0x00008000) == 0x00008000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(48, jujituzhi_);
+          .computeInt32Size(48, jijiubao_);
       }
       if (((bitField1_ & 0x00010000) == 0x00010000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(49, jipaotuzhi_);
+          .computeInt32Size(49, rizhi_);
       }
       if (((bitField1_ & 0x00020000) == 0x00020000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(50, yuanlongping_);
+          .computeInt32Size(50, jiqiangtuzhi_);
       }
       if (((bitField1_ & 0x00040000) == 0x00040000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(51, huafeigongye_);
+          .computeInt32Size(51, jujituzhi_);
       }
       if (((bitField1_ & 0x00080000) == 0x00080000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(52, yangzhu_);
+          .computeInt32Size(52, jipaotuzhi_);
       }
       if (((bitField1_ & 0x00100000) == 0x00100000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(53, cangchu_);
+          .computeInt32Size(53, yuanlongping_);
       }
       if (((bitField1_ & 0x00200000) == 0x00200000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(54, tesila_);
+          .computeInt32Size(54, huafeigongye_);
       }
       if (((bitField1_ & 0x00400000) == 0x00400000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(55, luokefeile_);
+          .computeInt32Size(55, yangzhu_);
       }
       if (((bitField1_ & 0x00800000) == 0x00800000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(56, kanaiji_);
+          .computeInt32Size(56, cangchu_);
       }
       if (((bitField1_ & 0x01000000) == 0x01000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(57, luban_);
+          .computeInt32Size(57, tesila_);
       }
       if (((bitField1_ & 0x02000000) == 0x02000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(58, tumu_);
+          .computeInt32Size(58, luokefeile_);
       }
       if (((bitField1_ & 0x04000000) == 0x04000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(59, fangdao_);
+          .computeInt32Size(59, kanaiji_);
       }
       if (((bitField1_ & 0x08000000) == 0x08000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(60, makeqin_);
+          .computeInt32Size(60, luban_);
       }
       if (((bitField1_ & 0x10000000) == 0x10000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(61, wodefendou_);
+          .computeInt32Size(61, tumu_);
       }
       if (((bitField1_ & 0x20000000) == 0x20000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(62, jiatelin_);
+          .computeInt32Size(62, fangdao_);
       }
       if (((bitField1_ & 0x40000000) == 0x40000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(63, wbaleite_);
+          .computeInt32Size(63, makeqin_);
       }
       if (((bitField1_ & 0x80000000) == 0x80000000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(64, guanren_);
+          .computeInt32Size(64, wodefendou_);
       }
       if (((bitField2_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(65, toukui1_);
+          .computeInt32Size(65, jiatelin_);
       }
       if (((bitField2_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(66, toukui2_);
+          .computeInt32Size(66, wbaleite_);
       }
       if (((bitField2_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(67, toukui3_);
+          .computeInt32Size(67, guanren_);
       }
       if (((bitField2_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(68, shouqiang1_);
+          .computeInt32Size(68, toukui1_);
       }
       if (((bitField2_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(69, buqiang1_);
+          .computeInt32Size(69, toukui2_);
       }
       if (((bitField2_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(70, qingjiqiang1_);
+          .computeInt32Size(70, toukui3_);
       }
       if (((bitField2_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(71, fangdanyi1_);
+          .computeInt32Size(71, shouqiang1_);
       }
       if (((bitField2_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(72, fangdanyi2_);
+          .computeInt32Size(72, buqiang1_);
       }
       if (((bitField2_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(73, fangdanyi3_);
+          .computeInt32Size(73, qingjiqiang1_);
       }
       if (((bitField2_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(74, kuzi1_);
+          .computeInt32Size(74, fangdanyi1_);
       }
       if (((bitField2_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(75, kuzi2_);
+          .computeInt32Size(75, fangdanyi2_);
       }
       if (((bitField2_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(76, kuzi3_);
+          .computeInt32Size(76, fangdanyi3_);
       }
       if (((bitField2_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(77, xiezi1_);
+          .computeInt32Size(77, kuzi1_);
       }
       if (((bitField2_ & 0x00002000) == 0x00002000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(78, xiezi2_);
+          .computeInt32Size(78, kuzi2_);
       }
       if (((bitField2_ & 0x00004000) == 0x00004000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(79, xiezi3_);
+          .computeInt32Size(79, kuzi3_);
       }
       if (((bitField2_ & 0x00008000) == 0x00008000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(80, kuangquanshui_);
+          .computeInt32Size(80, xiezi1_);
       }
       if (((bitField2_ & 0x00010000) == 0x00010000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(81, siliao_);
+          .computeInt32Size(81, xiezi2_);
       }
       if (((bitField2_ & 0x00020000) == 0x00020000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(82, zhurou_);
+          .computeInt32Size(82, xiezi3_);
       }
       if (((bitField2_ & 0x00040000) == 0x00040000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(83, qiyou_);
+          .computeInt32Size(83, kuangquanshui_);
       }
       if (((bitField2_ & 0x00080000) == 0x00080000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(84, gang_);
+          .computeInt32Size(84, siliao_);
       }
       if (((bitField2_ & 0x00100000) == 0x00100000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(85, songmuban_);
+          .computeInt32Size(85, zhurou_);
       }
       if (((bitField2_ & 0x00200000) == 0x00200000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(86, hunningtu_);
+          .computeInt32Size(86, qiyou_);
+      }
+      if (((bitField2_ & 0x00400000) == 0x00400000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(87, gang_);
+      }
+      if (((bitField2_ & 0x00800000) == 0x00800000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(88, songmuban_);
+      }
+      if (((bitField2_ & 0x01000000) == 0x01000000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(89, hunningtu_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -5062,132 +5221,138 @@ public final class WorldEventsBytes {
         bitField0_ = (bitField0_ & ~0x00200000);
         songshuBldgcap_ = 0;
         bitField0_ = (bitField0_ & ~0x00400000);
-        damiBldgspd_ = 0;
+        taiyangnengBldgcap_ = 0;
         bitField0_ = (bitField0_ & ~0x00800000);
-        shucaiBldgspd_ = 0;
+        huafeiBldgcap_ = 0;
         bitField0_ = (bitField0_ & ~0x01000000);
-        shuiguoBldgspd_ = 0;
+        damiBldgspd_ = 0;
         bitField0_ = (bitField0_ & ~0x02000000);
-        jingBldgspd_ = 0;
+        shucaiBldgspd_ = 0;
         bitField0_ = (bitField0_ & ~0x04000000);
-        lushuiBldgspd_ = 0;
+        shuiguoBldgspd_ = 0;
         bitField0_ = (bitField0_ & ~0x08000000);
-        songshuBldgspd_ = 0;
+        jingBldgspd_ = 0;
         bitField0_ = (bitField0_ & ~0x10000000);
-        fengliBldgspd_ = 0;
+        lushuiBldgspd_ = 0;
         bitField0_ = (bitField0_ & ~0x20000000);
-        wuxiandianBldg_ = 0;
+        songshuBldgspd_ = 0;
         bitField0_ = (bitField0_ & ~0x40000000);
-        leidaBldg_ = 0;
+        taiyangnengBldgspd_ = 0;
         bitField0_ = (bitField0_ & ~0x80000000);
-        carBldgspd_ = 0;
+        huafeiBldgspd_ = 0;
         bitField1_ = (bitField1_ & ~0x00000001);
-        taxCoeff_ = 0;
+        wuxiandianBldg_ = 0;
         bitField1_ = (bitField1_ & ~0x00000002);
-        dami_ = 0;
+        leidaBldg_ = 0;
         bitField1_ = (bitField1_ & ~0x00000004);
-        shucai_ = 0;
+        carBldgspd_ = 0;
         bitField1_ = (bitField1_ & ~0x00000008);
-        shuiguo_ = 0;
+        taxCoeff_ = 0;
         bitField1_ = (bitField1_ & ~0x00000010);
-        huafei_ = 0;
+        dami_ = 0;
         bitField1_ = (bitField1_ & ~0x00000020);
-        shui_ = 0;
+        shucai_ = 0;
         bitField1_ = (bitField1_ & ~0x00000040);
-        songmu_ = 0;
+        shuiguo_ = 0;
         bitField1_ = (bitField1_ & ~0x00000080);
-        shuini_ = 0;
+        huafei_ = 0;
         bitField1_ = (bitField1_ & ~0x00000100);
-        cao_ = 0;
+        shui_ = 0;
         bitField1_ = (bitField1_ & ~0x00000200);
-        yuanyou_ = 0;
+        songmu_ = 0;
         bitField1_ = (bitField1_ & ~0x00000400);
-        tie_ = 0;
+        shuini_ = 0;
         bitField1_ = (bitField1_ & ~0x00000800);
-        jijiubao_ = 0;
+        cao_ = 0;
         bitField1_ = (bitField1_ & ~0x00001000);
-        rizhi_ = 0;
+        yuanyou_ = 0;
         bitField1_ = (bitField1_ & ~0x00002000);
-        jiqiangtuzhi_ = 0;
+        tie_ = 0;
         bitField1_ = (bitField1_ & ~0x00004000);
-        jujituzhi_ = 0;
+        jijiubao_ = 0;
         bitField1_ = (bitField1_ & ~0x00008000);
-        jipaotuzhi_ = 0;
+        rizhi_ = 0;
         bitField1_ = (bitField1_ & ~0x00010000);
-        yuanlongping_ = 0;
+        jiqiangtuzhi_ = 0;
         bitField1_ = (bitField1_ & ~0x00020000);
-        huafeigongye_ = 0;
+        jujituzhi_ = 0;
         bitField1_ = (bitField1_ & ~0x00040000);
-        yangzhu_ = 0;
+        jipaotuzhi_ = 0;
         bitField1_ = (bitField1_ & ~0x00080000);
-        cangchu_ = 0;
+        yuanlongping_ = 0;
         bitField1_ = (bitField1_ & ~0x00100000);
-        tesila_ = 0;
+        huafeigongye_ = 0;
         bitField1_ = (bitField1_ & ~0x00200000);
-        luokefeile_ = 0;
+        yangzhu_ = 0;
         bitField1_ = (bitField1_ & ~0x00400000);
-        kanaiji_ = 0;
+        cangchu_ = 0;
         bitField1_ = (bitField1_ & ~0x00800000);
-        luban_ = 0;
+        tesila_ = 0;
         bitField1_ = (bitField1_ & ~0x01000000);
-        tumu_ = 0;
+        luokefeile_ = 0;
         bitField1_ = (bitField1_ & ~0x02000000);
-        fangdao_ = 0;
+        kanaiji_ = 0;
         bitField1_ = (bitField1_ & ~0x04000000);
-        makeqin_ = 0;
+        luban_ = 0;
         bitField1_ = (bitField1_ & ~0x08000000);
-        wodefendou_ = 0;
+        tumu_ = 0;
         bitField1_ = (bitField1_ & ~0x10000000);
-        jiatelin_ = 0;
+        fangdao_ = 0;
         bitField1_ = (bitField1_ & ~0x20000000);
-        wbaleite_ = 0;
+        makeqin_ = 0;
         bitField1_ = (bitField1_ & ~0x40000000);
-        guanren_ = 0;
+        wodefendou_ = 0;
         bitField1_ = (bitField1_ & ~0x80000000);
-        toukui1_ = 0;
+        jiatelin_ = 0;
         bitField2_ = (bitField2_ & ~0x00000001);
-        toukui2_ = 0;
+        wbaleite_ = 0;
         bitField2_ = (bitField2_ & ~0x00000002);
-        toukui3_ = 0;
+        guanren_ = 0;
         bitField2_ = (bitField2_ & ~0x00000004);
-        shouqiang1_ = 0;
+        toukui1_ = 0;
         bitField2_ = (bitField2_ & ~0x00000008);
-        buqiang1_ = 0;
+        toukui2_ = 0;
         bitField2_ = (bitField2_ & ~0x00000010);
-        qingjiqiang1_ = 0;
+        toukui3_ = 0;
         bitField2_ = (bitField2_ & ~0x00000020);
-        fangdanyi1_ = 0;
+        shouqiang1_ = 0;
         bitField2_ = (bitField2_ & ~0x00000040);
-        fangdanyi2_ = 0;
+        buqiang1_ = 0;
         bitField2_ = (bitField2_ & ~0x00000080);
-        fangdanyi3_ = 0;
+        qingjiqiang1_ = 0;
         bitField2_ = (bitField2_ & ~0x00000100);
-        kuzi1_ = 0;
+        fangdanyi1_ = 0;
         bitField2_ = (bitField2_ & ~0x00000200);
-        kuzi2_ = 0;
+        fangdanyi2_ = 0;
         bitField2_ = (bitField2_ & ~0x00000400);
-        kuzi3_ = 0;
+        fangdanyi3_ = 0;
         bitField2_ = (bitField2_ & ~0x00000800);
-        xiezi1_ = 0;
+        kuzi1_ = 0;
         bitField2_ = (bitField2_ & ~0x00001000);
-        xiezi2_ = 0;
+        kuzi2_ = 0;
         bitField2_ = (bitField2_ & ~0x00002000);
-        xiezi3_ = 0;
+        kuzi3_ = 0;
         bitField2_ = (bitField2_ & ~0x00004000);
-        kuangquanshui_ = 0;
+        xiezi1_ = 0;
         bitField2_ = (bitField2_ & ~0x00008000);
-        siliao_ = 0;
+        xiezi2_ = 0;
         bitField2_ = (bitField2_ & ~0x00010000);
-        zhurou_ = 0;
+        xiezi3_ = 0;
         bitField2_ = (bitField2_ & ~0x00020000);
-        qiyou_ = 0;
+        kuangquanshui_ = 0;
         bitField2_ = (bitField2_ & ~0x00040000);
-        gang_ = 0;
+        siliao_ = 0;
         bitField2_ = (bitField2_ & ~0x00080000);
-        songmuban_ = 0;
+        zhurou_ = 0;
         bitField2_ = (bitField2_ & ~0x00100000);
-        hunningtu_ = 0;
+        qiyou_ = 0;
         bitField2_ = (bitField2_ & ~0x00200000);
+        gang_ = 0;
+        bitField2_ = (bitField2_ & ~0x00400000);
+        songmuban_ = 0;
+        bitField2_ = (bitField2_ & ~0x00800000);
+        hunningtu_ = 0;
+        bitField2_ = (bitField2_ & ~0x01000000);
         return this;
       }
 
@@ -5315,253 +5480,265 @@ public final class WorldEventsBytes {
         if (((from_bitField0_ & 0x00800000) == 0x00800000)) {
           to_bitField0_ |= 0x00800000;
         }
-        result.damiBldgspd_ = damiBldgspd_;
+        result.taiyangnengBldgcap_ = taiyangnengBldgcap_;
         if (((from_bitField0_ & 0x01000000) == 0x01000000)) {
           to_bitField0_ |= 0x01000000;
         }
-        result.shucaiBldgspd_ = shucaiBldgspd_;
+        result.huafeiBldgcap_ = huafeiBldgcap_;
         if (((from_bitField0_ & 0x02000000) == 0x02000000)) {
           to_bitField0_ |= 0x02000000;
         }
-        result.shuiguoBldgspd_ = shuiguoBldgspd_;
+        result.damiBldgspd_ = damiBldgspd_;
         if (((from_bitField0_ & 0x04000000) == 0x04000000)) {
           to_bitField0_ |= 0x04000000;
         }
-        result.jingBldgspd_ = jingBldgspd_;
+        result.shucaiBldgspd_ = shucaiBldgspd_;
         if (((from_bitField0_ & 0x08000000) == 0x08000000)) {
           to_bitField0_ |= 0x08000000;
         }
-        result.lushuiBldgspd_ = lushuiBldgspd_;
+        result.shuiguoBldgspd_ = shuiguoBldgspd_;
         if (((from_bitField0_ & 0x10000000) == 0x10000000)) {
           to_bitField0_ |= 0x10000000;
         }
-        result.songshuBldgspd_ = songshuBldgspd_;
+        result.jingBldgspd_ = jingBldgspd_;
         if (((from_bitField0_ & 0x20000000) == 0x20000000)) {
           to_bitField0_ |= 0x20000000;
         }
-        result.fengliBldgspd_ = fengliBldgspd_;
+        result.lushuiBldgspd_ = lushuiBldgspd_;
         if (((from_bitField0_ & 0x40000000) == 0x40000000)) {
           to_bitField0_ |= 0x40000000;
         }
-        result.wuxiandianBldg_ = wuxiandianBldg_;
+        result.songshuBldgspd_ = songshuBldgspd_;
         if (((from_bitField0_ & 0x80000000) == 0x80000000)) {
           to_bitField0_ |= 0x80000000;
         }
-        result.leidaBldg_ = leidaBldg_;
+        result.taiyangnengBldgspd_ = taiyangnengBldgspd_;
         if (((from_bitField1_ & 0x00000001) == 0x00000001)) {
           to_bitField1_ |= 0x00000001;
         }
-        result.carBldgspd_ = carBldgspd_;
+        result.huafeiBldgspd_ = huafeiBldgspd_;
         if (((from_bitField1_ & 0x00000002) == 0x00000002)) {
           to_bitField1_ |= 0x00000002;
         }
-        result.taxCoeff_ = taxCoeff_;
+        result.wuxiandianBldg_ = wuxiandianBldg_;
         if (((from_bitField1_ & 0x00000004) == 0x00000004)) {
           to_bitField1_ |= 0x00000004;
         }
-        result.dami_ = dami_;
+        result.leidaBldg_ = leidaBldg_;
         if (((from_bitField1_ & 0x00000008) == 0x00000008)) {
           to_bitField1_ |= 0x00000008;
         }
-        result.shucai_ = shucai_;
+        result.carBldgspd_ = carBldgspd_;
         if (((from_bitField1_ & 0x00000010) == 0x00000010)) {
           to_bitField1_ |= 0x00000010;
         }
-        result.shuiguo_ = shuiguo_;
+        result.taxCoeff_ = taxCoeff_;
         if (((from_bitField1_ & 0x00000020) == 0x00000020)) {
           to_bitField1_ |= 0x00000020;
         }
-        result.huafei_ = huafei_;
+        result.dami_ = dami_;
         if (((from_bitField1_ & 0x00000040) == 0x00000040)) {
           to_bitField1_ |= 0x00000040;
         }
-        result.shui_ = shui_;
+        result.shucai_ = shucai_;
         if (((from_bitField1_ & 0x00000080) == 0x00000080)) {
           to_bitField1_ |= 0x00000080;
         }
-        result.songmu_ = songmu_;
+        result.shuiguo_ = shuiguo_;
         if (((from_bitField1_ & 0x00000100) == 0x00000100)) {
           to_bitField1_ |= 0x00000100;
         }
-        result.shuini_ = shuini_;
+        result.huafei_ = huafei_;
         if (((from_bitField1_ & 0x00000200) == 0x00000200)) {
           to_bitField1_ |= 0x00000200;
         }
-        result.cao_ = cao_;
+        result.shui_ = shui_;
         if (((from_bitField1_ & 0x00000400) == 0x00000400)) {
           to_bitField1_ |= 0x00000400;
         }
-        result.yuanyou_ = yuanyou_;
+        result.songmu_ = songmu_;
         if (((from_bitField1_ & 0x00000800) == 0x00000800)) {
           to_bitField1_ |= 0x00000800;
         }
-        result.tie_ = tie_;
+        result.shuini_ = shuini_;
         if (((from_bitField1_ & 0x00001000) == 0x00001000)) {
           to_bitField1_ |= 0x00001000;
         }
-        result.jijiubao_ = jijiubao_;
+        result.cao_ = cao_;
         if (((from_bitField1_ & 0x00002000) == 0x00002000)) {
           to_bitField1_ |= 0x00002000;
         }
-        result.rizhi_ = rizhi_;
+        result.yuanyou_ = yuanyou_;
         if (((from_bitField1_ & 0x00004000) == 0x00004000)) {
           to_bitField1_ |= 0x00004000;
         }
-        result.jiqiangtuzhi_ = jiqiangtuzhi_;
+        result.tie_ = tie_;
         if (((from_bitField1_ & 0x00008000) == 0x00008000)) {
           to_bitField1_ |= 0x00008000;
         }
-        result.jujituzhi_ = jujituzhi_;
+        result.jijiubao_ = jijiubao_;
         if (((from_bitField1_ & 0x00010000) == 0x00010000)) {
           to_bitField1_ |= 0x00010000;
         }
-        result.jipaotuzhi_ = jipaotuzhi_;
+        result.rizhi_ = rizhi_;
         if (((from_bitField1_ & 0x00020000) == 0x00020000)) {
           to_bitField1_ |= 0x00020000;
         }
-        result.yuanlongping_ = yuanlongping_;
+        result.jiqiangtuzhi_ = jiqiangtuzhi_;
         if (((from_bitField1_ & 0x00040000) == 0x00040000)) {
           to_bitField1_ |= 0x00040000;
         }
-        result.huafeigongye_ = huafeigongye_;
+        result.jujituzhi_ = jujituzhi_;
         if (((from_bitField1_ & 0x00080000) == 0x00080000)) {
           to_bitField1_ |= 0x00080000;
         }
-        result.yangzhu_ = yangzhu_;
+        result.jipaotuzhi_ = jipaotuzhi_;
         if (((from_bitField1_ & 0x00100000) == 0x00100000)) {
           to_bitField1_ |= 0x00100000;
         }
-        result.cangchu_ = cangchu_;
+        result.yuanlongping_ = yuanlongping_;
         if (((from_bitField1_ & 0x00200000) == 0x00200000)) {
           to_bitField1_ |= 0x00200000;
         }
-        result.tesila_ = tesila_;
+        result.huafeigongye_ = huafeigongye_;
         if (((from_bitField1_ & 0x00400000) == 0x00400000)) {
           to_bitField1_ |= 0x00400000;
         }
-        result.luokefeile_ = luokefeile_;
+        result.yangzhu_ = yangzhu_;
         if (((from_bitField1_ & 0x00800000) == 0x00800000)) {
           to_bitField1_ |= 0x00800000;
         }
-        result.kanaiji_ = kanaiji_;
+        result.cangchu_ = cangchu_;
         if (((from_bitField1_ & 0x01000000) == 0x01000000)) {
           to_bitField1_ |= 0x01000000;
         }
-        result.luban_ = luban_;
+        result.tesila_ = tesila_;
         if (((from_bitField1_ & 0x02000000) == 0x02000000)) {
           to_bitField1_ |= 0x02000000;
         }
-        result.tumu_ = tumu_;
+        result.luokefeile_ = luokefeile_;
         if (((from_bitField1_ & 0x04000000) == 0x04000000)) {
           to_bitField1_ |= 0x04000000;
         }
-        result.fangdao_ = fangdao_;
+        result.kanaiji_ = kanaiji_;
         if (((from_bitField1_ & 0x08000000) == 0x08000000)) {
           to_bitField1_ |= 0x08000000;
         }
-        result.makeqin_ = makeqin_;
+        result.luban_ = luban_;
         if (((from_bitField1_ & 0x10000000) == 0x10000000)) {
           to_bitField1_ |= 0x10000000;
         }
-        result.wodefendou_ = wodefendou_;
+        result.tumu_ = tumu_;
         if (((from_bitField1_ & 0x20000000) == 0x20000000)) {
           to_bitField1_ |= 0x20000000;
         }
-        result.jiatelin_ = jiatelin_;
+        result.fangdao_ = fangdao_;
         if (((from_bitField1_ & 0x40000000) == 0x40000000)) {
           to_bitField1_ |= 0x40000000;
         }
-        result.wbaleite_ = wbaleite_;
+        result.makeqin_ = makeqin_;
         if (((from_bitField1_ & 0x80000000) == 0x80000000)) {
           to_bitField1_ |= 0x80000000;
         }
-        result.guanren_ = guanren_;
+        result.wodefendou_ = wodefendou_;
         if (((from_bitField2_ & 0x00000001) == 0x00000001)) {
           to_bitField2_ |= 0x00000001;
         }
-        result.toukui1_ = toukui1_;
+        result.jiatelin_ = jiatelin_;
         if (((from_bitField2_ & 0x00000002) == 0x00000002)) {
           to_bitField2_ |= 0x00000002;
         }
-        result.toukui2_ = toukui2_;
+        result.wbaleite_ = wbaleite_;
         if (((from_bitField2_ & 0x00000004) == 0x00000004)) {
           to_bitField2_ |= 0x00000004;
         }
-        result.toukui3_ = toukui3_;
+        result.guanren_ = guanren_;
         if (((from_bitField2_ & 0x00000008) == 0x00000008)) {
           to_bitField2_ |= 0x00000008;
         }
-        result.shouqiang1_ = shouqiang1_;
+        result.toukui1_ = toukui1_;
         if (((from_bitField2_ & 0x00000010) == 0x00000010)) {
           to_bitField2_ |= 0x00000010;
         }
-        result.buqiang1_ = buqiang1_;
+        result.toukui2_ = toukui2_;
         if (((from_bitField2_ & 0x00000020) == 0x00000020)) {
           to_bitField2_ |= 0x00000020;
         }
-        result.qingjiqiang1_ = qingjiqiang1_;
+        result.toukui3_ = toukui3_;
         if (((from_bitField2_ & 0x00000040) == 0x00000040)) {
           to_bitField2_ |= 0x00000040;
         }
-        result.fangdanyi1_ = fangdanyi1_;
+        result.shouqiang1_ = shouqiang1_;
         if (((from_bitField2_ & 0x00000080) == 0x00000080)) {
           to_bitField2_ |= 0x00000080;
         }
-        result.fangdanyi2_ = fangdanyi2_;
+        result.buqiang1_ = buqiang1_;
         if (((from_bitField2_ & 0x00000100) == 0x00000100)) {
           to_bitField2_ |= 0x00000100;
         }
-        result.fangdanyi3_ = fangdanyi3_;
+        result.qingjiqiang1_ = qingjiqiang1_;
         if (((from_bitField2_ & 0x00000200) == 0x00000200)) {
           to_bitField2_ |= 0x00000200;
         }
-        result.kuzi1_ = kuzi1_;
+        result.fangdanyi1_ = fangdanyi1_;
         if (((from_bitField2_ & 0x00000400) == 0x00000400)) {
           to_bitField2_ |= 0x00000400;
         }
-        result.kuzi2_ = kuzi2_;
+        result.fangdanyi2_ = fangdanyi2_;
         if (((from_bitField2_ & 0x00000800) == 0x00000800)) {
           to_bitField2_ |= 0x00000800;
         }
-        result.kuzi3_ = kuzi3_;
+        result.fangdanyi3_ = fangdanyi3_;
         if (((from_bitField2_ & 0x00001000) == 0x00001000)) {
           to_bitField2_ |= 0x00001000;
         }
-        result.xiezi1_ = xiezi1_;
+        result.kuzi1_ = kuzi1_;
         if (((from_bitField2_ & 0x00002000) == 0x00002000)) {
           to_bitField2_ |= 0x00002000;
         }
-        result.xiezi2_ = xiezi2_;
+        result.kuzi2_ = kuzi2_;
         if (((from_bitField2_ & 0x00004000) == 0x00004000)) {
           to_bitField2_ |= 0x00004000;
         }
-        result.xiezi3_ = xiezi3_;
+        result.kuzi3_ = kuzi3_;
         if (((from_bitField2_ & 0x00008000) == 0x00008000)) {
           to_bitField2_ |= 0x00008000;
         }
-        result.kuangquanshui_ = kuangquanshui_;
+        result.xiezi1_ = xiezi1_;
         if (((from_bitField2_ & 0x00010000) == 0x00010000)) {
           to_bitField2_ |= 0x00010000;
         }
-        result.siliao_ = siliao_;
+        result.xiezi2_ = xiezi2_;
         if (((from_bitField2_ & 0x00020000) == 0x00020000)) {
           to_bitField2_ |= 0x00020000;
         }
-        result.zhurou_ = zhurou_;
+        result.xiezi3_ = xiezi3_;
         if (((from_bitField2_ & 0x00040000) == 0x00040000)) {
           to_bitField2_ |= 0x00040000;
         }
-        result.qiyou_ = qiyou_;
+        result.kuangquanshui_ = kuangquanshui_;
         if (((from_bitField2_ & 0x00080000) == 0x00080000)) {
           to_bitField2_ |= 0x00080000;
         }
-        result.gang_ = gang_;
+        result.siliao_ = siliao_;
         if (((from_bitField2_ & 0x00100000) == 0x00100000)) {
           to_bitField2_ |= 0x00100000;
         }
-        result.songmuban_ = songmuban_;
+        result.zhurou_ = zhurou_;
         if (((from_bitField2_ & 0x00200000) == 0x00200000)) {
           to_bitField2_ |= 0x00200000;
+        }
+        result.qiyou_ = qiyou_;
+        if (((from_bitField2_ & 0x00400000) == 0x00400000)) {
+          to_bitField2_ |= 0x00400000;
+        }
+        result.gang_ = gang_;
+        if (((from_bitField2_ & 0x00800000) == 0x00800000)) {
+          to_bitField2_ |= 0x00800000;
+        }
+        result.songmuban_ = songmuban_;
+        if (((from_bitField2_ & 0x01000000) == 0x01000000)) {
+          to_bitField2_ |= 0x01000000;
         }
         result.hunningtu_ = hunningtu_;
         result.bitField0_ = to_bitField0_;
@@ -5661,6 +5838,12 @@ public final class WorldEventsBytes {
         if (other.hasSongshuBldgcap()) {
           setSongshuBldgcap(other.getSongshuBldgcap());
         }
+        if (other.hasTaiyangnengBldgcap()) {
+          setTaiyangnengBldgcap(other.getTaiyangnengBldgcap());
+        }
+        if (other.hasHuafeiBldgcap()) {
+          setHuafeiBldgcap(other.getHuafeiBldgcap());
+        }
         if (other.hasDamiBldgspd()) {
           setDamiBldgspd(other.getDamiBldgspd());
         }
@@ -5679,8 +5862,11 @@ public final class WorldEventsBytes {
         if (other.hasSongshuBldgspd()) {
           setSongshuBldgspd(other.getSongshuBldgspd());
         }
-        if (other.hasFengliBldgspd()) {
-          setFengliBldgspd(other.getFengliBldgspd());
+        if (other.hasTaiyangnengBldgspd()) {
+          setTaiyangnengBldgspd(other.getTaiyangnengBldgspd());
+        }
+        if (other.hasHuafeiBldgspd()) {
+          setHuafeiBldgspd(other.getHuafeiBldgspd());
         }
         if (other.hasWuxiandianBldg()) {
           setWuxiandianBldg(other.getWuxiandianBldg());
@@ -7247,19 +7433,115 @@ public final class WorldEventsBytes {
         return this;
       }
 
+      private int taiyangnengBldgcap_ ;
+      /**
+       * <code>optional int32 taiyangneng_bldgcap = 24 [default = 0];</code>
+       *
+       * <pre>
+       ** 风力发电机 
+       * </pre>
+       */
+      public boolean hasTaiyangnengBldgcap() {
+        return ((bitField0_ & 0x00800000) == 0x00800000);
+      }
+      /**
+       * <code>optional int32 taiyangneng_bldgcap = 24 [default = 0];</code>
+       *
+       * <pre>
+       ** 风力发电机 
+       * </pre>
+       */
+      public int getTaiyangnengBldgcap() {
+        return taiyangnengBldgcap_;
+      }
+      /**
+       * <code>optional int32 taiyangneng_bldgcap = 24 [default = 0];</code>
+       *
+       * <pre>
+       ** 风力发电机 
+       * </pre>
+       */
+      public Builder setTaiyangnengBldgcap(int value) {
+        bitField0_ |= 0x00800000;
+        taiyangnengBldgcap_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 taiyangneng_bldgcap = 24 [default = 0];</code>
+       *
+       * <pre>
+       ** 风力发电机 
+       * </pre>
+       */
+      public Builder clearTaiyangnengBldgcap() {
+        bitField0_ = (bitField0_ & ~0x00800000);
+        taiyangnengBldgcap_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int huafeiBldgcap_ ;
+      /**
+       * <code>optional int32 huafei_bldgcap = 25 [default = 0];</code>
+       *
+       * <pre>
+       ** 化肥系数*100 
+       * </pre>
+       */
+      public boolean hasHuafeiBldgcap() {
+        return ((bitField0_ & 0x01000000) == 0x01000000);
+      }
+      /**
+       * <code>optional int32 huafei_bldgcap = 25 [default = 0];</code>
+       *
+       * <pre>
+       ** 化肥系数*100 
+       * </pre>
+       */
+      public int getHuafeiBldgcap() {
+        return huafeiBldgcap_;
+      }
+      /**
+       * <code>optional int32 huafei_bldgcap = 25 [default = 0];</code>
+       *
+       * <pre>
+       ** 化肥系数*100 
+       * </pre>
+       */
+      public Builder setHuafeiBldgcap(int value) {
+        bitField0_ |= 0x01000000;
+        huafeiBldgcap_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 huafei_bldgcap = 25 [default = 0];</code>
+       *
+       * <pre>
+       ** 化肥系数*100 
+       * </pre>
+       */
+      public Builder clearHuafeiBldgcap() {
+        bitField0_ = (bitField0_ & ~0x01000000);
+        huafeiBldgcap_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int damiBldgspd_ ;
       /**
-       * <code>optional int32 dami_bldgspd = 24 [default = 0];</code>
+       * <code>optional int32 dami_bldgspd = 26 [default = 0];</code>
        *
        * <pre>
        ** 水稻种植场产速系数*100 
        * </pre>
        */
       public boolean hasDamiBldgspd() {
-        return ((bitField0_ & 0x00800000) == 0x00800000);
+        return ((bitField0_ & 0x02000000) == 0x02000000);
       }
       /**
-       * <code>optional int32 dami_bldgspd = 24 [default = 0];</code>
+       * <code>optional int32 dami_bldgspd = 26 [default = 0];</code>
        *
        * <pre>
        ** 水稻种植场产速系数*100 
@@ -7269,27 +7551,27 @@ public final class WorldEventsBytes {
         return damiBldgspd_;
       }
       /**
-       * <code>optional int32 dami_bldgspd = 24 [default = 0];</code>
+       * <code>optional int32 dami_bldgspd = 26 [default = 0];</code>
        *
        * <pre>
        ** 水稻种植场产速系数*100 
        * </pre>
        */
       public Builder setDamiBldgspd(int value) {
-        bitField0_ |= 0x00800000;
+        bitField0_ |= 0x02000000;
         damiBldgspd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 dami_bldgspd = 24 [default = 0];</code>
+       * <code>optional int32 dami_bldgspd = 26 [default = 0];</code>
        *
        * <pre>
        ** 水稻种植场产速系数*100 
        * </pre>
        */
       public Builder clearDamiBldgspd() {
-        bitField0_ = (bitField0_ & ~0x00800000);
+        bitField0_ = (bitField0_ & ~0x02000000);
         damiBldgspd_ = 0;
         onChanged();
         return this;
@@ -7297,17 +7579,17 @@ public final class WorldEventsBytes {
 
       private int shucaiBldgspd_ ;
       /**
-       * <code>optional int32 shucai_bldgspd = 25 [default = 0];</code>
+       * <code>optional int32 shucai_bldgspd = 27 [default = 0];</code>
        *
        * <pre>
        ** 蔬菜种植场产速系数*100 
        * </pre>
        */
       public boolean hasShucaiBldgspd() {
-        return ((bitField0_ & 0x01000000) == 0x01000000);
+        return ((bitField0_ & 0x04000000) == 0x04000000);
       }
       /**
-       * <code>optional int32 shucai_bldgspd = 25 [default = 0];</code>
+       * <code>optional int32 shucai_bldgspd = 27 [default = 0];</code>
        *
        * <pre>
        ** 蔬菜种植场产速系数*100 
@@ -7317,27 +7599,27 @@ public final class WorldEventsBytes {
         return shucaiBldgspd_;
       }
       /**
-       * <code>optional int32 shucai_bldgspd = 25 [default = 0];</code>
+       * <code>optional int32 shucai_bldgspd = 27 [default = 0];</code>
        *
        * <pre>
        ** 蔬菜种植场产速系数*100 
        * </pre>
        */
       public Builder setShucaiBldgspd(int value) {
-        bitField0_ |= 0x01000000;
+        bitField0_ |= 0x04000000;
         shucaiBldgspd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 shucai_bldgspd = 25 [default = 0];</code>
+       * <code>optional int32 shucai_bldgspd = 27 [default = 0];</code>
        *
        * <pre>
        ** 蔬菜种植场产速系数*100 
        * </pre>
        */
       public Builder clearShucaiBldgspd() {
-        bitField0_ = (bitField0_ & ~0x01000000);
+        bitField0_ = (bitField0_ & ~0x04000000);
         shucaiBldgspd_ = 0;
         onChanged();
         return this;
@@ -7345,17 +7627,17 @@ public final class WorldEventsBytes {
 
       private int shuiguoBldgspd_ ;
       /**
-       * <code>optional int32 shuiguo_bldgspd = 26 [default = 0];</code>
+       * <code>optional int32 shuiguo_bldgspd = 28 [default = 0];</code>
        *
        * <pre>
        ** 水果园产速系数*100 
        * </pre>
        */
       public boolean hasShuiguoBldgspd() {
-        return ((bitField0_ & 0x02000000) == 0x02000000);
+        return ((bitField0_ & 0x08000000) == 0x08000000);
       }
       /**
-       * <code>optional int32 shuiguo_bldgspd = 26 [default = 0];</code>
+       * <code>optional int32 shuiguo_bldgspd = 28 [default = 0];</code>
        *
        * <pre>
        ** 水果园产速系数*100 
@@ -7365,27 +7647,27 @@ public final class WorldEventsBytes {
         return shuiguoBldgspd_;
       }
       /**
-       * <code>optional int32 shuiguo_bldgspd = 26 [default = 0];</code>
+       * <code>optional int32 shuiguo_bldgspd = 28 [default = 0];</code>
        *
        * <pre>
        ** 水果园产速系数*100 
        * </pre>
        */
       public Builder setShuiguoBldgspd(int value) {
-        bitField0_ |= 0x02000000;
+        bitField0_ |= 0x08000000;
         shuiguoBldgspd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 shuiguo_bldgspd = 26 [default = 0];</code>
+       * <code>optional int32 shuiguo_bldgspd = 28 [default = 0];</code>
        *
        * <pre>
        ** 水果园产速系数*100 
        * </pre>
        */
       public Builder clearShuiguoBldgspd() {
-        bitField0_ = (bitField0_ & ~0x02000000);
+        bitField0_ = (bitField0_ & ~0x08000000);
         shuiguoBldgspd_ = 0;
         onChanged();
         return this;
@@ -7393,17 +7675,17 @@ public final class WorldEventsBytes {
 
       private int jingBldgspd_ ;
       /**
-       * <code>optional int32 jing_bldgspd = 27 [default = 0];</code>
+       * <code>optional int32 jing_bldgspd = 29 [default = 0];</code>
        *
        * <pre>
        ** 井产速系数*100 
        * </pre>
        */
       public boolean hasJingBldgspd() {
-        return ((bitField0_ & 0x04000000) == 0x04000000);
+        return ((bitField0_ & 0x10000000) == 0x10000000);
       }
       /**
-       * <code>optional int32 jing_bldgspd = 27 [default = 0];</code>
+       * <code>optional int32 jing_bldgspd = 29 [default = 0];</code>
        *
        * <pre>
        ** 井产速系数*100 
@@ -7413,27 +7695,27 @@ public final class WorldEventsBytes {
         return jingBldgspd_;
       }
       /**
-       * <code>optional int32 jing_bldgspd = 27 [default = 0];</code>
+       * <code>optional int32 jing_bldgspd = 29 [default = 0];</code>
        *
        * <pre>
        ** 井产速系数*100 
        * </pre>
        */
       public Builder setJingBldgspd(int value) {
-        bitField0_ |= 0x04000000;
+        bitField0_ |= 0x10000000;
         jingBldgspd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 jing_bldgspd = 27 [default = 0];</code>
+       * <code>optional int32 jing_bldgspd = 29 [default = 0];</code>
        *
        * <pre>
        ** 井产速系数*100 
        * </pre>
        */
       public Builder clearJingBldgspd() {
-        bitField0_ = (bitField0_ & ~0x04000000);
+        bitField0_ = (bitField0_ & ~0x10000000);
         jingBldgspd_ = 0;
         onChanged();
         return this;
@@ -7441,17 +7723,17 @@ public final class WorldEventsBytes {
 
       private int lushuiBldgspd_ ;
       /**
-       * <code>optional int32 lushui_bldgspd = 28 [default = 0];</code>
+       * <code>optional int32 lushui_bldgspd = 30 [default = 0];</code>
        *
        * <pre>
        ** 露水收集器产速系数*100 
        * </pre>
        */
       public boolean hasLushuiBldgspd() {
-        return ((bitField0_ & 0x08000000) == 0x08000000);
+        return ((bitField0_ & 0x20000000) == 0x20000000);
       }
       /**
-       * <code>optional int32 lushui_bldgspd = 28 [default = 0];</code>
+       * <code>optional int32 lushui_bldgspd = 30 [default = 0];</code>
        *
        * <pre>
        ** 露水收集器产速系数*100 
@@ -7461,27 +7743,27 @@ public final class WorldEventsBytes {
         return lushuiBldgspd_;
       }
       /**
-       * <code>optional int32 lushui_bldgspd = 28 [default = 0];</code>
+       * <code>optional int32 lushui_bldgspd = 30 [default = 0];</code>
        *
        * <pre>
        ** 露水收集器产速系数*100 
        * </pre>
        */
       public Builder setLushuiBldgspd(int value) {
-        bitField0_ |= 0x08000000;
+        bitField0_ |= 0x20000000;
         lushuiBldgspd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 lushui_bldgspd = 28 [default = 0];</code>
+       * <code>optional int32 lushui_bldgspd = 30 [default = 0];</code>
        *
        * <pre>
        ** 露水收集器产速系数*100 
        * </pre>
        */
       public Builder clearLushuiBldgspd() {
-        bitField0_ = (bitField0_ & ~0x08000000);
+        bitField0_ = (bitField0_ & ~0x20000000);
         lushuiBldgspd_ = 0;
         onChanged();
         return this;
@@ -7489,17 +7771,17 @@ public final class WorldEventsBytes {
 
       private int songshuBldgspd_ ;
       /**
-       * <code>optional int32 songshu_bldgspd = 29 [default = 0];</code>
+       * <code>optional int32 songshu_bldgspd = 31 [default = 0];</code>
        *
        * <pre>
        ** 松树林产速系数*100 
        * </pre>
        */
       public boolean hasSongshuBldgspd() {
-        return ((bitField0_ & 0x10000000) == 0x10000000);
+        return ((bitField0_ & 0x40000000) == 0x40000000);
       }
       /**
-       * <code>optional int32 songshu_bldgspd = 29 [default = 0];</code>
+       * <code>optional int32 songshu_bldgspd = 31 [default = 0];</code>
        *
        * <pre>
        ** 松树林产速系数*100 
@@ -7509,93 +7791,141 @@ public final class WorldEventsBytes {
         return songshuBldgspd_;
       }
       /**
-       * <code>optional int32 songshu_bldgspd = 29 [default = 0];</code>
+       * <code>optional int32 songshu_bldgspd = 31 [default = 0];</code>
        *
        * <pre>
        ** 松树林产速系数*100 
        * </pre>
        */
       public Builder setSongshuBldgspd(int value) {
-        bitField0_ |= 0x10000000;
+        bitField0_ |= 0x40000000;
         songshuBldgspd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 songshu_bldgspd = 29 [default = 0];</code>
+       * <code>optional int32 songshu_bldgspd = 31 [default = 0];</code>
        *
        * <pre>
        ** 松树林产速系数*100 
        * </pre>
        */
       public Builder clearSongshuBldgspd() {
-        bitField0_ = (bitField0_ & ~0x10000000);
+        bitField0_ = (bitField0_ & ~0x40000000);
         songshuBldgspd_ = 0;
         onChanged();
         return this;
       }
 
-      private int fengliBldgspd_ ;
+      private int taiyangnengBldgspd_ ;
       /**
-       * <code>optional int32 fengli_bldgspd = 30 [default = 0];</code>
+       * <code>optional int32 taiyangneng_bldgspd = 32 [default = 0];</code>
        *
        * <pre>
        ** 风力发电机（原太阳能）产速系数*100 
        * </pre>
        */
-      public boolean hasFengliBldgspd() {
-        return ((bitField0_ & 0x20000000) == 0x20000000);
+      public boolean hasTaiyangnengBldgspd() {
+        return ((bitField0_ & 0x80000000) == 0x80000000);
       }
       /**
-       * <code>optional int32 fengli_bldgspd = 30 [default = 0];</code>
+       * <code>optional int32 taiyangneng_bldgspd = 32 [default = 0];</code>
        *
        * <pre>
        ** 风力发电机（原太阳能）产速系数*100 
        * </pre>
        */
-      public int getFengliBldgspd() {
-        return fengliBldgspd_;
+      public int getTaiyangnengBldgspd() {
+        return taiyangnengBldgspd_;
       }
       /**
-       * <code>optional int32 fengli_bldgspd = 30 [default = 0];</code>
+       * <code>optional int32 taiyangneng_bldgspd = 32 [default = 0];</code>
        *
        * <pre>
        ** 风力发电机（原太阳能）产速系数*100 
        * </pre>
        */
-      public Builder setFengliBldgspd(int value) {
-        bitField0_ |= 0x20000000;
-        fengliBldgspd_ = value;
+      public Builder setTaiyangnengBldgspd(int value) {
+        bitField0_ |= 0x80000000;
+        taiyangnengBldgspd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 fengli_bldgspd = 30 [default = 0];</code>
+       * <code>optional int32 taiyangneng_bldgspd = 32 [default = 0];</code>
        *
        * <pre>
        ** 风力发电机（原太阳能）产速系数*100 
        * </pre>
        */
-      public Builder clearFengliBldgspd() {
-        bitField0_ = (bitField0_ & ~0x20000000);
-        fengliBldgspd_ = 0;
+      public Builder clearTaiyangnengBldgspd() {
+        bitField0_ = (bitField0_ & ~0x80000000);
+        taiyangnengBldgspd_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int huafeiBldgspd_ ;
+      /**
+       * <code>optional int32 huafei_bldgspd = 33 [default = 0];</code>
+       *
+       * <pre>
+       ** 化肥产速系数*100 
+       * </pre>
+       */
+      public boolean hasHuafeiBldgspd() {
+        return ((bitField1_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 huafei_bldgspd = 33 [default = 0];</code>
+       *
+       * <pre>
+       ** 化肥产速系数*100 
+       * </pre>
+       */
+      public int getHuafeiBldgspd() {
+        return huafeiBldgspd_;
+      }
+      /**
+       * <code>optional int32 huafei_bldgspd = 33 [default = 0];</code>
+       *
+       * <pre>
+       ** 化肥产速系数*100 
+       * </pre>
+       */
+      public Builder setHuafeiBldgspd(int value) {
+        bitField1_ |= 0x00000001;
+        huafeiBldgspd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 huafei_bldgspd = 33 [default = 0];</code>
+       *
+       * <pre>
+       ** 化肥产速系数*100 
+       * </pre>
+       */
+      public Builder clearHuafeiBldgspd() {
+        bitField1_ = (bitField1_ & ~0x00000001);
+        huafeiBldgspd_ = 0;
         onChanged();
         return this;
       }
 
       private int wuxiandianBldg_ ;
       /**
-       * <code>optional int32 wuxiandian_bldg = 31 [default = 0];</code>
+       * <code>optional int32 wuxiandian_bldg = 34 [default = 0];</code>
        *
        * <pre>
        ** 无线电提前接收系数*100 
        * </pre>
        */
       public boolean hasWuxiandianBldg() {
-        return ((bitField0_ & 0x40000000) == 0x40000000);
+        return ((bitField1_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 wuxiandian_bldg = 31 [default = 0];</code>
+       * <code>optional int32 wuxiandian_bldg = 34 [default = 0];</code>
        *
        * <pre>
        ** 无线电提前接收系数*100 
@@ -7605,27 +7935,27 @@ public final class WorldEventsBytes {
         return wuxiandianBldg_;
       }
       /**
-       * <code>optional int32 wuxiandian_bldg = 31 [default = 0];</code>
+       * <code>optional int32 wuxiandian_bldg = 34 [default = 0];</code>
        *
        * <pre>
        ** 无线电提前接收系数*100 
        * </pre>
        */
       public Builder setWuxiandianBldg(int value) {
-        bitField0_ |= 0x40000000;
+        bitField1_ |= 0x00000002;
         wuxiandianBldg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 wuxiandian_bldg = 31 [default = 0];</code>
+       * <code>optional int32 wuxiandian_bldg = 34 [default = 0];</code>
        *
        * <pre>
        ** 无线电提前接收系数*100 
        * </pre>
        */
       public Builder clearWuxiandianBldg() {
-        bitField0_ = (bitField0_ & ~0x40000000);
+        bitField1_ = (bitField1_ & ~0x00000002);
         wuxiandianBldg_ = 0;
         onChanged();
         return this;
@@ -7633,17 +7963,17 @@ public final class WorldEventsBytes {
 
       private int leidaBldg_ ;
       /**
-       * <code>optional int32 leida_bldg = 32 [default = 0];</code>
+       * <code>optional int32 leida_bldg = 35 [default = 0];</code>
        *
        * <pre>
        ** 雷达提前接收系数*100 
        * </pre>
        */
       public boolean hasLeidaBldg() {
-        return ((bitField0_ & 0x80000000) == 0x80000000);
+        return ((bitField1_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 leida_bldg = 32 [default = 0];</code>
+       * <code>optional int32 leida_bldg = 35 [default = 0];</code>
        *
        * <pre>
        ** 雷达提前接收系数*100 
@@ -7653,27 +7983,27 @@ public final class WorldEventsBytes {
         return leidaBldg_;
       }
       /**
-       * <code>optional int32 leida_bldg = 32 [default = 0];</code>
+       * <code>optional int32 leida_bldg = 35 [default = 0];</code>
        *
        * <pre>
        ** 雷达提前接收系数*100 
        * </pre>
        */
       public Builder setLeidaBldg(int value) {
-        bitField0_ |= 0x80000000;
+        bitField1_ |= 0x00000004;
         leidaBldg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 leida_bldg = 32 [default = 0];</code>
+       * <code>optional int32 leida_bldg = 35 [default = 0];</code>
        *
        * <pre>
        ** 雷达提前接收系数*100 
        * </pre>
        */
       public Builder clearLeidaBldg() {
-        bitField0_ = (bitField0_ & ~0x80000000);
+        bitField1_ = (bitField1_ & ~0x00000004);
         leidaBldg_ = 0;
         onChanged();
         return this;
@@ -7681,17 +8011,17 @@ public final class WorldEventsBytes {
 
       private int carBldgspd_ ;
       /**
-       * <code>optional int32 car_bldgspd = 33 [default = 0];</code>
+       * <code>optional int32 car_bldgspd = 36 [default = 0];</code>
        *
        * <pre>
        ** 车辆速度系数*100 
        * </pre>
        */
       public boolean hasCarBldgspd() {
-        return ((bitField1_ & 0x00000001) == 0x00000001);
+        return ((bitField1_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional int32 car_bldgspd = 33 [default = 0];</code>
+       * <code>optional int32 car_bldgspd = 36 [default = 0];</code>
        *
        * <pre>
        ** 车辆速度系数*100 
@@ -7701,27 +8031,27 @@ public final class WorldEventsBytes {
         return carBldgspd_;
       }
       /**
-       * <code>optional int32 car_bldgspd = 33 [default = 0];</code>
+       * <code>optional int32 car_bldgspd = 36 [default = 0];</code>
        *
        * <pre>
        ** 车辆速度系数*100 
        * </pre>
        */
       public Builder setCarBldgspd(int value) {
-        bitField1_ |= 0x00000001;
+        bitField1_ |= 0x00000008;
         carBldgspd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 car_bldgspd = 33 [default = 0];</code>
+       * <code>optional int32 car_bldgspd = 36 [default = 0];</code>
        *
        * <pre>
        ** 车辆速度系数*100 
        * </pre>
        */
       public Builder clearCarBldgspd() {
-        bitField1_ = (bitField1_ & ~0x00000001);
+        bitField1_ = (bitField1_ & ~0x00000008);
         carBldgspd_ = 0;
         onChanged();
         return this;
@@ -7729,17 +8059,17 @@ public final class WorldEventsBytes {
 
       private int taxCoeff_ ;
       /**
-       * <code>optional int32 tax_coeff = 34 [default = 0];</code>
+       * <code>optional int32 tax_coeff = 37 [default = 0];</code>
        *
        * <pre>
        ** 交易税率系数*100 
        * </pre>
        */
       public boolean hasTaxCoeff() {
-        return ((bitField1_ & 0x00000002) == 0x00000002);
+        return ((bitField1_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional int32 tax_coeff = 34 [default = 0];</code>
+       * <code>optional int32 tax_coeff = 37 [default = 0];</code>
        *
        * <pre>
        ** 交易税率系数*100 
@@ -7749,27 +8079,27 @@ public final class WorldEventsBytes {
         return taxCoeff_;
       }
       /**
-       * <code>optional int32 tax_coeff = 34 [default = 0];</code>
+       * <code>optional int32 tax_coeff = 37 [default = 0];</code>
        *
        * <pre>
        ** 交易税率系数*100 
        * </pre>
        */
       public Builder setTaxCoeff(int value) {
-        bitField1_ |= 0x00000002;
+        bitField1_ |= 0x00000010;
         taxCoeff_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 tax_coeff = 34 [default = 0];</code>
+       * <code>optional int32 tax_coeff = 37 [default = 0];</code>
        *
        * <pre>
        ** 交易税率系数*100 
        * </pre>
        */
       public Builder clearTaxCoeff() {
-        bitField1_ = (bitField1_ & ~0x00000002);
+        bitField1_ = (bitField1_ & ~0x00000010);
         taxCoeff_ = 0;
         onChanged();
         return this;
@@ -7777,17 +8107,17 @@ public final class WorldEventsBytes {
 
       private int dami_ ;
       /**
-       * <code>optional int32 dami = 35 [default = 0];</code>
+       * <code>optional int32 dami = 38 [default = 0];</code>
        *
        * <pre>
        ** 大米*100 
        * </pre>
        */
       public boolean hasDami() {
-        return ((bitField1_ & 0x00000004) == 0x00000004);
+        return ((bitField1_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional int32 dami = 35 [default = 0];</code>
+       * <code>optional int32 dami = 38 [default = 0];</code>
        *
        * <pre>
        ** 大米*100 
@@ -7797,27 +8127,27 @@ public final class WorldEventsBytes {
         return dami_;
       }
       /**
-       * <code>optional int32 dami = 35 [default = 0];</code>
+       * <code>optional int32 dami = 38 [default = 0];</code>
        *
        * <pre>
        ** 大米*100 
        * </pre>
        */
       public Builder setDami(int value) {
-        bitField1_ |= 0x00000004;
+        bitField1_ |= 0x00000020;
         dami_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 dami = 35 [default = 0];</code>
+       * <code>optional int32 dami = 38 [default = 0];</code>
        *
        * <pre>
        ** 大米*100 
        * </pre>
        */
       public Builder clearDami() {
-        bitField1_ = (bitField1_ & ~0x00000004);
+        bitField1_ = (bitField1_ & ~0x00000020);
         dami_ = 0;
         onChanged();
         return this;
@@ -7825,17 +8155,17 @@ public final class WorldEventsBytes {
 
       private int shucai_ ;
       /**
-       * <code>optional int32 shucai = 36 [default = 0];</code>
+       * <code>optional int32 shucai = 39 [default = 0];</code>
        *
        * <pre>
        ** 蔬菜*100 
        * </pre>
        */
       public boolean hasShucai() {
-        return ((bitField1_ & 0x00000008) == 0x00000008);
+        return ((bitField1_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional int32 shucai = 36 [default = 0];</code>
+       * <code>optional int32 shucai = 39 [default = 0];</code>
        *
        * <pre>
        ** 蔬菜*100 
@@ -7845,27 +8175,27 @@ public final class WorldEventsBytes {
         return shucai_;
       }
       /**
-       * <code>optional int32 shucai = 36 [default = 0];</code>
+       * <code>optional int32 shucai = 39 [default = 0];</code>
        *
        * <pre>
        ** 蔬菜*100 
        * </pre>
        */
       public Builder setShucai(int value) {
-        bitField1_ |= 0x00000008;
+        bitField1_ |= 0x00000040;
         shucai_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 shucai = 36 [default = 0];</code>
+       * <code>optional int32 shucai = 39 [default = 0];</code>
        *
        * <pre>
        ** 蔬菜*100 
        * </pre>
        */
       public Builder clearShucai() {
-        bitField1_ = (bitField1_ & ~0x00000008);
+        bitField1_ = (bitField1_ & ~0x00000040);
         shucai_ = 0;
         onChanged();
         return this;
@@ -7873,17 +8203,17 @@ public final class WorldEventsBytes {
 
       private int shuiguo_ ;
       /**
-       * <code>optional int32 shuiguo = 37 [default = 0];</code>
+       * <code>optional int32 shuiguo = 40 [default = 0];</code>
        *
        * <pre>
        ** 水果*100 
        * </pre>
        */
       public boolean hasShuiguo() {
-        return ((bitField1_ & 0x00000010) == 0x00000010);
+        return ((bitField1_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional int32 shuiguo = 37 [default = 0];</code>
+       * <code>optional int32 shuiguo = 40 [default = 0];</code>
        *
        * <pre>
        ** 水果*100 
@@ -7893,27 +8223,27 @@ public final class WorldEventsBytes {
         return shuiguo_;
       }
       /**
-       * <code>optional int32 shuiguo = 37 [default = 0];</code>
+       * <code>optional int32 shuiguo = 40 [default = 0];</code>
        *
        * <pre>
        ** 水果*100 
        * </pre>
        */
       public Builder setShuiguo(int value) {
-        bitField1_ |= 0x00000010;
+        bitField1_ |= 0x00000080;
         shuiguo_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 shuiguo = 37 [default = 0];</code>
+       * <code>optional int32 shuiguo = 40 [default = 0];</code>
        *
        * <pre>
        ** 水果*100 
        * </pre>
        */
       public Builder clearShuiguo() {
-        bitField1_ = (bitField1_ & ~0x00000010);
+        bitField1_ = (bitField1_ & ~0x00000080);
         shuiguo_ = 0;
         onChanged();
         return this;
@@ -7921,17 +8251,17 @@ public final class WorldEventsBytes {
 
       private int huafei_ ;
       /**
-       * <code>optional int32 huafei = 38 [default = 0];</code>
+       * <code>optional int32 huafei = 41 [default = 0];</code>
        *
        * <pre>
        ** 化肥*100 
        * </pre>
        */
       public boolean hasHuafei() {
-        return ((bitField1_ & 0x00000020) == 0x00000020);
+        return ((bitField1_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional int32 huafei = 38 [default = 0];</code>
+       * <code>optional int32 huafei = 41 [default = 0];</code>
        *
        * <pre>
        ** 化肥*100 
@@ -7941,27 +8271,27 @@ public final class WorldEventsBytes {
         return huafei_;
       }
       /**
-       * <code>optional int32 huafei = 38 [default = 0];</code>
+       * <code>optional int32 huafei = 41 [default = 0];</code>
        *
        * <pre>
        ** 化肥*100 
        * </pre>
        */
       public Builder setHuafei(int value) {
-        bitField1_ |= 0x00000020;
+        bitField1_ |= 0x00000100;
         huafei_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 huafei = 38 [default = 0];</code>
+       * <code>optional int32 huafei = 41 [default = 0];</code>
        *
        * <pre>
        ** 化肥*100 
        * </pre>
        */
       public Builder clearHuafei() {
-        bitField1_ = (bitField1_ & ~0x00000020);
+        bitField1_ = (bitField1_ & ~0x00000100);
         huafei_ = 0;
         onChanged();
         return this;
@@ -7969,17 +8299,17 @@ public final class WorldEventsBytes {
 
       private int shui_ ;
       /**
-       * <code>optional int32 shui = 39 [default = 0];</code>
+       * <code>optional int32 shui = 42 [default = 0];</code>
        *
        * <pre>
        ** 纯净水*100 
        * </pre>
        */
       public boolean hasShui() {
-        return ((bitField1_ & 0x00000040) == 0x00000040);
+        return ((bitField1_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional int32 shui = 39 [default = 0];</code>
+       * <code>optional int32 shui = 42 [default = 0];</code>
        *
        * <pre>
        ** 纯净水*100 
@@ -7989,27 +8319,27 @@ public final class WorldEventsBytes {
         return shui_;
       }
       /**
-       * <code>optional int32 shui = 39 [default = 0];</code>
+       * <code>optional int32 shui = 42 [default = 0];</code>
        *
        * <pre>
        ** 纯净水*100 
        * </pre>
        */
       public Builder setShui(int value) {
-        bitField1_ |= 0x00000040;
+        bitField1_ |= 0x00000200;
         shui_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 shui = 39 [default = 0];</code>
+       * <code>optional int32 shui = 42 [default = 0];</code>
        *
        * <pre>
        ** 纯净水*100 
        * </pre>
        */
       public Builder clearShui() {
-        bitField1_ = (bitField1_ & ~0x00000040);
+        bitField1_ = (bitField1_ & ~0x00000200);
         shui_ = 0;
         onChanged();
         return this;
@@ -8017,17 +8347,17 @@ public final class WorldEventsBytes {
 
       private int songmu_ ;
       /**
-       * <code>optional int32 songmu = 40 [default = 0];</code>
+       * <code>optional int32 songmu = 43 [default = 0];</code>
        *
        * <pre>
        ** 松木*100 
        * </pre>
        */
       public boolean hasSongmu() {
-        return ((bitField1_ & 0x00000080) == 0x00000080);
+        return ((bitField1_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional int32 songmu = 40 [default = 0];</code>
+       * <code>optional int32 songmu = 43 [default = 0];</code>
        *
        * <pre>
        ** 松木*100 
@@ -8037,27 +8367,27 @@ public final class WorldEventsBytes {
         return songmu_;
       }
       /**
-       * <code>optional int32 songmu = 40 [default = 0];</code>
+       * <code>optional int32 songmu = 43 [default = 0];</code>
        *
        * <pre>
        ** 松木*100 
        * </pre>
        */
       public Builder setSongmu(int value) {
-        bitField1_ |= 0x00000080;
+        bitField1_ |= 0x00000400;
         songmu_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 songmu = 40 [default = 0];</code>
+       * <code>optional int32 songmu = 43 [default = 0];</code>
        *
        * <pre>
        ** 松木*100 
        * </pre>
        */
       public Builder clearSongmu() {
-        bitField1_ = (bitField1_ & ~0x00000080);
+        bitField1_ = (bitField1_ & ~0x00000400);
         songmu_ = 0;
         onChanged();
         return this;
@@ -8065,17 +8395,17 @@ public final class WorldEventsBytes {
 
       private int shuini_ ;
       /**
-       * <code>optional int32 shuini = 41 [default = 0];</code>
+       * <code>optional int32 shuini = 44 [default = 0];</code>
        *
        * <pre>
        ** 水泥*100 
        * </pre>
        */
       public boolean hasShuini() {
-        return ((bitField1_ & 0x00000100) == 0x00000100);
+        return ((bitField1_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional int32 shuini = 41 [default = 0];</code>
+       * <code>optional int32 shuini = 44 [default = 0];</code>
        *
        * <pre>
        ** 水泥*100 
@@ -8085,27 +8415,27 @@ public final class WorldEventsBytes {
         return shuini_;
       }
       /**
-       * <code>optional int32 shuini = 41 [default = 0];</code>
+       * <code>optional int32 shuini = 44 [default = 0];</code>
        *
        * <pre>
        ** 水泥*100 
        * </pre>
        */
       public Builder setShuini(int value) {
-        bitField1_ |= 0x00000100;
+        bitField1_ |= 0x00000800;
         shuini_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 shuini = 41 [default = 0];</code>
+       * <code>optional int32 shuini = 44 [default = 0];</code>
        *
        * <pre>
        ** 水泥*100 
        * </pre>
        */
       public Builder clearShuini() {
-        bitField1_ = (bitField1_ & ~0x00000100);
+        bitField1_ = (bitField1_ & ~0x00000800);
         shuini_ = 0;
         onChanged();
         return this;
@@ -8113,17 +8443,17 @@ public final class WorldEventsBytes {
 
       private int cao_ ;
       /**
-       * <code>optional int32 cao = 42 [default = 0];</code>
+       * <code>optional int32 cao = 45 [default = 0];</code>
        *
        * <pre>
        ** 草*100 
        * </pre>
        */
       public boolean hasCao() {
-        return ((bitField1_ & 0x00000200) == 0x00000200);
+        return ((bitField1_ & 0x00001000) == 0x00001000);
       }
       /**
-       * <code>optional int32 cao = 42 [default = 0];</code>
+       * <code>optional int32 cao = 45 [default = 0];</code>
        *
        * <pre>
        ** 草*100 
@@ -8133,27 +8463,27 @@ public final class WorldEventsBytes {
         return cao_;
       }
       /**
-       * <code>optional int32 cao = 42 [default = 0];</code>
+       * <code>optional int32 cao = 45 [default = 0];</code>
        *
        * <pre>
        ** 草*100 
        * </pre>
        */
       public Builder setCao(int value) {
-        bitField1_ |= 0x00000200;
+        bitField1_ |= 0x00001000;
         cao_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 cao = 42 [default = 0];</code>
+       * <code>optional int32 cao = 45 [default = 0];</code>
        *
        * <pre>
        ** 草*100 
        * </pre>
        */
       public Builder clearCao() {
-        bitField1_ = (bitField1_ & ~0x00000200);
+        bitField1_ = (bitField1_ & ~0x00001000);
         cao_ = 0;
         onChanged();
         return this;
@@ -8161,17 +8491,17 @@ public final class WorldEventsBytes {
 
       private int yuanyou_ ;
       /**
-       * <code>optional int32 yuanyou = 43 [default = 0];</code>
+       * <code>optional int32 yuanyou = 46 [default = 0];</code>
        *
        * <pre>
        ** 原油*100 
        * </pre>
        */
       public boolean hasYuanyou() {
-        return ((bitField1_ & 0x00000400) == 0x00000400);
+        return ((bitField1_ & 0x00002000) == 0x00002000);
       }
       /**
-       * <code>optional int32 yuanyou = 43 [default = 0];</code>
+       * <code>optional int32 yuanyou = 46 [default = 0];</code>
        *
        * <pre>
        ** 原油*100 
@@ -8181,27 +8511,27 @@ public final class WorldEventsBytes {
         return yuanyou_;
       }
       /**
-       * <code>optional int32 yuanyou = 43 [default = 0];</code>
+       * <code>optional int32 yuanyou = 46 [default = 0];</code>
        *
        * <pre>
        ** 原油*100 
        * </pre>
        */
       public Builder setYuanyou(int value) {
-        bitField1_ |= 0x00000400;
+        bitField1_ |= 0x00002000;
         yuanyou_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 yuanyou = 43 [default = 0];</code>
+       * <code>optional int32 yuanyou = 46 [default = 0];</code>
        *
        * <pre>
        ** 原油*100 
        * </pre>
        */
       public Builder clearYuanyou() {
-        bitField1_ = (bitField1_ & ~0x00000400);
+        bitField1_ = (bitField1_ & ~0x00002000);
         yuanyou_ = 0;
         onChanged();
         return this;
@@ -8209,17 +8539,17 @@ public final class WorldEventsBytes {
 
       private int tie_ ;
       /**
-       * <code>optional int32 tie = 44 [default = 0];</code>
+       * <code>optional int32 tie = 47 [default = 0];</code>
        *
        * <pre>
        ** 铁*100 
        * </pre>
        */
       public boolean hasTie() {
-        return ((bitField1_ & 0x00000800) == 0x00000800);
+        return ((bitField1_ & 0x00004000) == 0x00004000);
       }
       /**
-       * <code>optional int32 tie = 44 [default = 0];</code>
+       * <code>optional int32 tie = 47 [default = 0];</code>
        *
        * <pre>
        ** 铁*100 
@@ -8229,27 +8559,27 @@ public final class WorldEventsBytes {
         return tie_;
       }
       /**
-       * <code>optional int32 tie = 44 [default = 0];</code>
+       * <code>optional int32 tie = 47 [default = 0];</code>
        *
        * <pre>
        ** 铁*100 
        * </pre>
        */
       public Builder setTie(int value) {
-        bitField1_ |= 0x00000800;
+        bitField1_ |= 0x00004000;
         tie_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 tie = 44 [default = 0];</code>
+       * <code>optional int32 tie = 47 [default = 0];</code>
        *
        * <pre>
        ** 铁*100 
        * </pre>
        */
       public Builder clearTie() {
-        bitField1_ = (bitField1_ & ~0x00000800);
+        bitField1_ = (bitField1_ & ~0x00004000);
         tie_ = 0;
         onChanged();
         return this;
@@ -8257,17 +8587,17 @@ public final class WorldEventsBytes {
 
       private int jijiubao_ ;
       /**
-       * <code>optional int32 jijiubao = 45 [default = 0];</code>
+       * <code>optional int32 jijiubao = 48 [default = 0];</code>
        *
        * <pre>
        ** 急救包*100 
        * </pre>
        */
       public boolean hasJijiubao() {
-        return ((bitField1_ & 0x00001000) == 0x00001000);
+        return ((bitField1_ & 0x00008000) == 0x00008000);
       }
       /**
-       * <code>optional int32 jijiubao = 45 [default = 0];</code>
+       * <code>optional int32 jijiubao = 48 [default = 0];</code>
        *
        * <pre>
        ** 急救包*100 
@@ -8277,27 +8607,27 @@ public final class WorldEventsBytes {
         return jijiubao_;
       }
       /**
-       * <code>optional int32 jijiubao = 45 [default = 0];</code>
+       * <code>optional int32 jijiubao = 48 [default = 0];</code>
        *
        * <pre>
        ** 急救包*100 
        * </pre>
        */
       public Builder setJijiubao(int value) {
-        bitField1_ |= 0x00001000;
+        bitField1_ |= 0x00008000;
         jijiubao_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 jijiubao = 45 [default = 0];</code>
+       * <code>optional int32 jijiubao = 48 [default = 0];</code>
        *
        * <pre>
        ** 急救包*100 
        * </pre>
        */
       public Builder clearJijiubao() {
-        bitField1_ = (bitField1_ & ~0x00001000);
+        bitField1_ = (bitField1_ & ~0x00008000);
         jijiubao_ = 0;
         onChanged();
         return this;
@@ -8305,17 +8635,17 @@ public final class WorldEventsBytes {
 
       private int rizhi_ ;
       /**
-       * <code>optional int32 rizhi = 46 [default = 0];</code>
+       * <code>optional int32 rizhi = 49 [default = 0];</code>
        *
        * <pre>
        ** 庄园日志*100 
        * </pre>
        */
       public boolean hasRizhi() {
-        return ((bitField1_ & 0x00002000) == 0x00002000);
+        return ((bitField1_ & 0x00010000) == 0x00010000);
       }
       /**
-       * <code>optional int32 rizhi = 46 [default = 0];</code>
+       * <code>optional int32 rizhi = 49 [default = 0];</code>
        *
        * <pre>
        ** 庄园日志*100 
@@ -8325,27 +8655,27 @@ public final class WorldEventsBytes {
         return rizhi_;
       }
       /**
-       * <code>optional int32 rizhi = 46 [default = 0];</code>
+       * <code>optional int32 rizhi = 49 [default = 0];</code>
        *
        * <pre>
        ** 庄园日志*100 
        * </pre>
        */
       public Builder setRizhi(int value) {
-        bitField1_ |= 0x00002000;
+        bitField1_ |= 0x00010000;
         rizhi_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 rizhi = 46 [default = 0];</code>
+       * <code>optional int32 rizhi = 49 [default = 0];</code>
        *
        * <pre>
        ** 庄园日志*100 
        * </pre>
        */
       public Builder clearRizhi() {
-        bitField1_ = (bitField1_ & ~0x00002000);
+        bitField1_ = (bitField1_ & ~0x00010000);
         rizhi_ = 0;
         onChanged();
         return this;
@@ -8353,17 +8683,17 @@ public final class WorldEventsBytes {
 
       private int jiqiangtuzhi_ ;
       /**
-       * <code>optional int32 jiqiangtuzhi = 47 [default = 0];</code>
+       * <code>optional int32 jiqiangtuzhi = 50 [default = 0];</code>
        *
        * <pre>
        ** 重机枪图纸*100 
        * </pre>
        */
       public boolean hasJiqiangtuzhi() {
-        return ((bitField1_ & 0x00004000) == 0x00004000);
+        return ((bitField1_ & 0x00020000) == 0x00020000);
       }
       /**
-       * <code>optional int32 jiqiangtuzhi = 47 [default = 0];</code>
+       * <code>optional int32 jiqiangtuzhi = 50 [default = 0];</code>
        *
        * <pre>
        ** 重机枪图纸*100 
@@ -8373,27 +8703,27 @@ public final class WorldEventsBytes {
         return jiqiangtuzhi_;
       }
       /**
-       * <code>optional int32 jiqiangtuzhi = 47 [default = 0];</code>
+       * <code>optional int32 jiqiangtuzhi = 50 [default = 0];</code>
        *
        * <pre>
        ** 重机枪图纸*100 
        * </pre>
        */
       public Builder setJiqiangtuzhi(int value) {
-        bitField1_ |= 0x00004000;
+        bitField1_ |= 0x00020000;
         jiqiangtuzhi_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 jiqiangtuzhi = 47 [default = 0];</code>
+       * <code>optional int32 jiqiangtuzhi = 50 [default = 0];</code>
        *
        * <pre>
        ** 重机枪图纸*100 
        * </pre>
        */
       public Builder clearJiqiangtuzhi() {
-        bitField1_ = (bitField1_ & ~0x00004000);
+        bitField1_ = (bitField1_ & ~0x00020000);
         jiqiangtuzhi_ = 0;
         onChanged();
         return this;
@@ -8401,17 +8731,17 @@ public final class WorldEventsBytes {
 
       private int jujituzhi_ ;
       /**
-       * <code>optional int32 jujituzhi = 48 [default = 0];</code>
+       * <code>optional int32 jujituzhi = 51 [default = 0];</code>
        *
        * <pre>
        ** 狙击枪图纸*100 
        * </pre>
        */
       public boolean hasJujituzhi() {
-        return ((bitField1_ & 0x00008000) == 0x00008000);
+        return ((bitField1_ & 0x00040000) == 0x00040000);
       }
       /**
-       * <code>optional int32 jujituzhi = 48 [default = 0];</code>
+       * <code>optional int32 jujituzhi = 51 [default = 0];</code>
        *
        * <pre>
        ** 狙击枪图纸*100 
@@ -8421,27 +8751,27 @@ public final class WorldEventsBytes {
         return jujituzhi_;
       }
       /**
-       * <code>optional int32 jujituzhi = 48 [default = 0];</code>
+       * <code>optional int32 jujituzhi = 51 [default = 0];</code>
        *
        * <pre>
        ** 狙击枪图纸*100 
        * </pre>
        */
       public Builder setJujituzhi(int value) {
-        bitField1_ |= 0x00008000;
+        bitField1_ |= 0x00040000;
         jujituzhi_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 jujituzhi = 48 [default = 0];</code>
+       * <code>optional int32 jujituzhi = 51 [default = 0];</code>
        *
        * <pre>
        ** 狙击枪图纸*100 
        * </pre>
        */
       public Builder clearJujituzhi() {
-        bitField1_ = (bitField1_ & ~0x00008000);
+        bitField1_ = (bitField1_ & ~0x00040000);
         jujituzhi_ = 0;
         onChanged();
         return this;
@@ -8449,17 +8779,17 @@ public final class WorldEventsBytes {
 
       private int jipaotuzhi_ ;
       /**
-       * <code>optional int32 jipaotuzhi = 49 [default = 0];</code>
+       * <code>optional int32 jipaotuzhi = 52 [default = 0];</code>
        *
        * <pre>
        ** 机炮设计图*100 
        * </pre>
        */
       public boolean hasJipaotuzhi() {
-        return ((bitField1_ & 0x00010000) == 0x00010000);
+        return ((bitField1_ & 0x00080000) == 0x00080000);
       }
       /**
-       * <code>optional int32 jipaotuzhi = 49 [default = 0];</code>
+       * <code>optional int32 jipaotuzhi = 52 [default = 0];</code>
        *
        * <pre>
        ** 机炮设计图*100 
@@ -8469,27 +8799,27 @@ public final class WorldEventsBytes {
         return jipaotuzhi_;
       }
       /**
-       * <code>optional int32 jipaotuzhi = 49 [default = 0];</code>
+       * <code>optional int32 jipaotuzhi = 52 [default = 0];</code>
        *
        * <pre>
        ** 机炮设计图*100 
        * </pre>
        */
       public Builder setJipaotuzhi(int value) {
-        bitField1_ |= 0x00010000;
+        bitField1_ |= 0x00080000;
         jipaotuzhi_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 jipaotuzhi = 49 [default = 0];</code>
+       * <code>optional int32 jipaotuzhi = 52 [default = 0];</code>
        *
        * <pre>
        ** 机炮设计图*100 
        * </pre>
        */
       public Builder clearJipaotuzhi() {
-        bitField1_ = (bitField1_ & ~0x00010000);
+        bitField1_ = (bitField1_ & ~0x00080000);
         jipaotuzhi_ = 0;
         onChanged();
         return this;
@@ -8497,17 +8827,17 @@ public final class WorldEventsBytes {
 
       private int yuanlongping_ ;
       /**
-       * <code>optional int32 yuanlongping = 50 [default = 0];</code>
+       * <code>optional int32 yuanlongping = 53 [default = 0];</code>
        *
        * <pre>
        ** 《袁隆平传》*100 
        * </pre>
        */
       public boolean hasYuanlongping() {
-        return ((bitField1_ & 0x00020000) == 0x00020000);
+        return ((bitField1_ & 0x00100000) == 0x00100000);
       }
       /**
-       * <code>optional int32 yuanlongping = 50 [default = 0];</code>
+       * <code>optional int32 yuanlongping = 53 [default = 0];</code>
        *
        * <pre>
        ** 《袁隆平传》*100 
@@ -8517,27 +8847,27 @@ public final class WorldEventsBytes {
         return yuanlongping_;
       }
       /**
-       * <code>optional int32 yuanlongping = 50 [default = 0];</code>
+       * <code>optional int32 yuanlongping = 53 [default = 0];</code>
        *
        * <pre>
        ** 《袁隆平传》*100 
        * </pre>
        */
       public Builder setYuanlongping(int value) {
-        bitField1_ |= 0x00020000;
+        bitField1_ |= 0x00100000;
         yuanlongping_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 yuanlongping = 50 [default = 0];</code>
+       * <code>optional int32 yuanlongping = 53 [default = 0];</code>
        *
        * <pre>
        ** 《袁隆平传》*100 
        * </pre>
        */
       public Builder clearYuanlongping() {
-        bitField1_ = (bitField1_ & ~0x00020000);
+        bitField1_ = (bitField1_ & ~0x00100000);
         yuanlongping_ = 0;
         onChanged();
         return this;
@@ -8545,17 +8875,17 @@ public final class WorldEventsBytes {
 
       private int huafeigongye_ ;
       /**
-       * <code>optional int32 huafeigongye = 51 [default = 0];</code>
+       * <code>optional int32 huafeigongye = 54 [default = 0];</code>
        *
        * <pre>
        ** 《化肥工业概论》*100 
        * </pre>
        */
       public boolean hasHuafeigongye() {
-        return ((bitField1_ & 0x00040000) == 0x00040000);
+        return ((bitField1_ & 0x00200000) == 0x00200000);
       }
       /**
-       * <code>optional int32 huafeigongye = 51 [default = 0];</code>
+       * <code>optional int32 huafeigongye = 54 [default = 0];</code>
        *
        * <pre>
        ** 《化肥工业概论》*100 
@@ -8565,27 +8895,27 @@ public final class WorldEventsBytes {
         return huafeigongye_;
       }
       /**
-       * <code>optional int32 huafeigongye = 51 [default = 0];</code>
+       * <code>optional int32 huafeigongye = 54 [default = 0];</code>
        *
        * <pre>
        ** 《化肥工业概论》*100 
        * </pre>
        */
       public Builder setHuafeigongye(int value) {
-        bitField1_ |= 0x00040000;
+        bitField1_ |= 0x00200000;
         huafeigongye_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 huafeigongye = 51 [default = 0];</code>
+       * <code>optional int32 huafeigongye = 54 [default = 0];</code>
        *
        * <pre>
        ** 《化肥工业概论》*100 
        * </pre>
        */
       public Builder clearHuafeigongye() {
-        bitField1_ = (bitField1_ & ~0x00040000);
+        bitField1_ = (bitField1_ & ~0x00200000);
         huafeigongye_ = 0;
         onChanged();
         return this;
@@ -8593,17 +8923,17 @@ public final class WorldEventsBytes {
 
       private int yangzhu_ ;
       /**
-       * <code>optional int32 yangzhu = 52 [default = 0];</code>
+       * <code>optional int32 yangzhu = 55 [default = 0];</code>
        *
        * <pre>
        ** 《论如何养猪》*100 
        * </pre>
        */
       public boolean hasYangzhu() {
-        return ((bitField1_ & 0x00080000) == 0x00080000);
+        return ((bitField1_ & 0x00400000) == 0x00400000);
       }
       /**
-       * <code>optional int32 yangzhu = 52 [default = 0];</code>
+       * <code>optional int32 yangzhu = 55 [default = 0];</code>
        *
        * <pre>
        ** 《论如何养猪》*100 
@@ -8613,27 +8943,27 @@ public final class WorldEventsBytes {
         return yangzhu_;
       }
       /**
-       * <code>optional int32 yangzhu = 52 [default = 0];</code>
+       * <code>optional int32 yangzhu = 55 [default = 0];</code>
        *
        * <pre>
        ** 《论如何养猪》*100 
        * </pre>
        */
       public Builder setYangzhu(int value) {
-        bitField1_ |= 0x00080000;
+        bitField1_ |= 0x00400000;
         yangzhu_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 yangzhu = 52 [default = 0];</code>
+       * <code>optional int32 yangzhu = 55 [default = 0];</code>
        *
        * <pre>
        ** 《论如何养猪》*100 
        * </pre>
        */
       public Builder clearYangzhu() {
-        bitField1_ = (bitField1_ & ~0x00080000);
+        bitField1_ = (bitField1_ & ~0x00400000);
         yangzhu_ = 0;
         onChanged();
         return this;
@@ -8641,17 +8971,17 @@ public final class WorldEventsBytes {
 
       private int cangchu_ ;
       /**
-       * <code>optional int32 cangchu = 53 [default = 0];</code>
+       * <code>optional int32 cangchu = 56 [default = 0];</code>
        *
        * <pre>
        ** 《仓储管理》*100 
        * </pre>
        */
       public boolean hasCangchu() {
-        return ((bitField1_ & 0x00100000) == 0x00100000);
+        return ((bitField1_ & 0x00800000) == 0x00800000);
       }
       /**
-       * <code>optional int32 cangchu = 53 [default = 0];</code>
+       * <code>optional int32 cangchu = 56 [default = 0];</code>
        *
        * <pre>
        ** 《仓储管理》*100 
@@ -8661,27 +8991,27 @@ public final class WorldEventsBytes {
         return cangchu_;
       }
       /**
-       * <code>optional int32 cangchu = 53 [default = 0];</code>
+       * <code>optional int32 cangchu = 56 [default = 0];</code>
        *
        * <pre>
        ** 《仓储管理》*100 
        * </pre>
        */
       public Builder setCangchu(int value) {
-        bitField1_ |= 0x00100000;
+        bitField1_ |= 0x00800000;
         cangchu_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 cangchu = 53 [default = 0];</code>
+       * <code>optional int32 cangchu = 56 [default = 0];</code>
        *
        * <pre>
        ** 《仓储管理》*100 
        * </pre>
        */
       public Builder clearCangchu() {
-        bitField1_ = (bitField1_ & ~0x00100000);
+        bitField1_ = (bitField1_ & ~0x00800000);
         cangchu_ = 0;
         onChanged();
         return this;
@@ -8689,17 +9019,17 @@ public final class WorldEventsBytes {
 
       private int tesila_ ;
       /**
-       * <code>optional int32 tesila = 54 [default = 0];</code>
+       * <code>optional int32 tesila = 57 [default = 0];</code>
        *
        * <pre>
        ** 《特斯拉传》*100 
        * </pre>
        */
       public boolean hasTesila() {
-        return ((bitField1_ & 0x00200000) == 0x00200000);
+        return ((bitField1_ & 0x01000000) == 0x01000000);
       }
       /**
-       * <code>optional int32 tesila = 54 [default = 0];</code>
+       * <code>optional int32 tesila = 57 [default = 0];</code>
        *
        * <pre>
        ** 《特斯拉传》*100 
@@ -8709,27 +9039,27 @@ public final class WorldEventsBytes {
         return tesila_;
       }
       /**
-       * <code>optional int32 tesila = 54 [default = 0];</code>
+       * <code>optional int32 tesila = 57 [default = 0];</code>
        *
        * <pre>
        ** 《特斯拉传》*100 
        * </pre>
        */
       public Builder setTesila(int value) {
-        bitField1_ |= 0x00200000;
+        bitField1_ |= 0x01000000;
         tesila_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 tesila = 54 [default = 0];</code>
+       * <code>optional int32 tesila = 57 [default = 0];</code>
        *
        * <pre>
        ** 《特斯拉传》*100 
        * </pre>
        */
       public Builder clearTesila() {
-        bitField1_ = (bitField1_ & ~0x00200000);
+        bitField1_ = (bitField1_ & ~0x01000000);
         tesila_ = 0;
         onChanged();
         return this;
@@ -8737,17 +9067,17 @@ public final class WorldEventsBytes {
 
       private int luokefeile_ ;
       /**
-       * <code>optional int32 luokefeile = 55 [default = 0];</code>
+       * <code>optional int32 luokefeile = 58 [default = 0];</code>
        *
        * <pre>
        ** 《洛克菲勒传》*100 
        * </pre>
        */
       public boolean hasLuokefeile() {
-        return ((bitField1_ & 0x00400000) == 0x00400000);
+        return ((bitField1_ & 0x02000000) == 0x02000000);
       }
       /**
-       * <code>optional int32 luokefeile = 55 [default = 0];</code>
+       * <code>optional int32 luokefeile = 58 [default = 0];</code>
        *
        * <pre>
        ** 《洛克菲勒传》*100 
@@ -8757,27 +9087,27 @@ public final class WorldEventsBytes {
         return luokefeile_;
       }
       /**
-       * <code>optional int32 luokefeile = 55 [default = 0];</code>
+       * <code>optional int32 luokefeile = 58 [default = 0];</code>
        *
        * <pre>
        ** 《洛克菲勒传》*100 
        * </pre>
        */
       public Builder setLuokefeile(int value) {
-        bitField1_ |= 0x00400000;
+        bitField1_ |= 0x02000000;
         luokefeile_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 luokefeile = 55 [default = 0];</code>
+       * <code>optional int32 luokefeile = 58 [default = 0];</code>
        *
        * <pre>
        ** 《洛克菲勒传》*100 
        * </pre>
        */
       public Builder clearLuokefeile() {
-        bitField1_ = (bitField1_ & ~0x00400000);
+        bitField1_ = (bitField1_ & ~0x02000000);
         luokefeile_ = 0;
         onChanged();
         return this;
@@ -8785,17 +9115,17 @@ public final class WorldEventsBytes {
 
       private int kanaiji_ ;
       /**
-       * <code>optional int32 kanaiji = 56 [default = 0];</code>
+       * <code>optional int32 kanaiji = 59 [default = 0];</code>
        *
        * <pre>
        ** 《卡耐基传》*100 
        * </pre>
        */
       public boolean hasKanaiji() {
-        return ((bitField1_ & 0x00800000) == 0x00800000);
+        return ((bitField1_ & 0x04000000) == 0x04000000);
       }
       /**
-       * <code>optional int32 kanaiji = 56 [default = 0];</code>
+       * <code>optional int32 kanaiji = 59 [default = 0];</code>
        *
        * <pre>
        ** 《卡耐基传》*100 
@@ -8805,27 +9135,27 @@ public final class WorldEventsBytes {
         return kanaiji_;
       }
       /**
-       * <code>optional int32 kanaiji = 56 [default = 0];</code>
+       * <code>optional int32 kanaiji = 59 [default = 0];</code>
        *
        * <pre>
        ** 《卡耐基传》*100 
        * </pre>
        */
       public Builder setKanaiji(int value) {
-        bitField1_ |= 0x00800000;
+        bitField1_ |= 0x04000000;
         kanaiji_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 kanaiji = 56 [default = 0];</code>
+       * <code>optional int32 kanaiji = 59 [default = 0];</code>
        *
        * <pre>
        ** 《卡耐基传》*100 
        * </pre>
        */
       public Builder clearKanaiji() {
-        bitField1_ = (bitField1_ & ~0x00800000);
+        bitField1_ = (bitField1_ & ~0x04000000);
         kanaiji_ = 0;
         onChanged();
         return this;
@@ -8833,17 +9163,17 @@ public final class WorldEventsBytes {
 
       private int luban_ ;
       /**
-       * <code>optional int32 luban = 57 [default = 0];</code>
+       * <code>optional int32 luban = 60 [default = 0];</code>
        *
        * <pre>
        ** 《鲁班传》*100 
        * </pre>
        */
       public boolean hasLuban() {
-        return ((bitField1_ & 0x01000000) == 0x01000000);
+        return ((bitField1_ & 0x08000000) == 0x08000000);
       }
       /**
-       * <code>optional int32 luban = 57 [default = 0];</code>
+       * <code>optional int32 luban = 60 [default = 0];</code>
        *
        * <pre>
        ** 《鲁班传》*100 
@@ -8853,27 +9183,27 @@ public final class WorldEventsBytes {
         return luban_;
       }
       /**
-       * <code>optional int32 luban = 57 [default = 0];</code>
+       * <code>optional int32 luban = 60 [default = 0];</code>
        *
        * <pre>
        ** 《鲁班传》*100 
        * </pre>
        */
       public Builder setLuban(int value) {
-        bitField1_ |= 0x01000000;
+        bitField1_ |= 0x08000000;
         luban_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 luban = 57 [default = 0];</code>
+       * <code>optional int32 luban = 60 [default = 0];</code>
        *
        * <pre>
        ** 《鲁班传》*100 
        * </pre>
        */
       public Builder clearLuban() {
-        bitField1_ = (bitField1_ & ~0x01000000);
+        bitField1_ = (bitField1_ & ~0x08000000);
         luban_ = 0;
         onChanged();
         return this;
@@ -8881,17 +9211,17 @@ public final class WorldEventsBytes {
 
       private int tumu_ ;
       /**
-       * <code>optional int32 tumu = 58 [default = 0];</code>
+       * <code>optional int32 tumu = 61 [default = 0];</code>
        *
        * <pre>
        ** 《土木工程概论》*100 
        * </pre>
        */
       public boolean hasTumu() {
-        return ((bitField1_ & 0x02000000) == 0x02000000);
+        return ((bitField1_ & 0x10000000) == 0x10000000);
       }
       /**
-       * <code>optional int32 tumu = 58 [default = 0];</code>
+       * <code>optional int32 tumu = 61 [default = 0];</code>
        *
        * <pre>
        ** 《土木工程概论》*100 
@@ -8901,27 +9231,27 @@ public final class WorldEventsBytes {
         return tumu_;
       }
       /**
-       * <code>optional int32 tumu = 58 [default = 0];</code>
+       * <code>optional int32 tumu = 61 [default = 0];</code>
        *
        * <pre>
        ** 《土木工程概论》*100 
        * </pre>
        */
       public Builder setTumu(int value) {
-        bitField1_ |= 0x02000000;
+        bitField1_ |= 0x10000000;
         tumu_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 tumu = 58 [default = 0];</code>
+       * <code>optional int32 tumu = 61 [default = 0];</code>
        *
        * <pre>
        ** 《土木工程概论》*100 
        * </pre>
        */
       public Builder clearTumu() {
-        bitField1_ = (bitField1_ & ~0x02000000);
+        bitField1_ = (bitField1_ & ~0x10000000);
         tumu_ = 0;
         onChanged();
         return this;
@@ -8929,17 +9259,17 @@ public final class WorldEventsBytes {
 
       private int fangdao_ ;
       /**
-       * <code>optional int32 fangdao = 59 [default = 0];</code>
+       * <code>optional int32 fangdao = 62 [default = 0];</code>
        *
        * <pre>
        ** 《防盗门技术》*100 
        * </pre>
        */
       public boolean hasFangdao() {
-        return ((bitField1_ & 0x04000000) == 0x04000000);
+        return ((bitField1_ & 0x20000000) == 0x20000000);
       }
       /**
-       * <code>optional int32 fangdao = 59 [default = 0];</code>
+       * <code>optional int32 fangdao = 62 [default = 0];</code>
        *
        * <pre>
        ** 《防盗门技术》*100 
@@ -8949,27 +9279,27 @@ public final class WorldEventsBytes {
         return fangdao_;
       }
       /**
-       * <code>optional int32 fangdao = 59 [default = 0];</code>
+       * <code>optional int32 fangdao = 62 [default = 0];</code>
        *
        * <pre>
        ** 《防盗门技术》*100 
        * </pre>
        */
       public Builder setFangdao(int value) {
-        bitField1_ |= 0x04000000;
+        bitField1_ |= 0x20000000;
         fangdao_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 fangdao = 59 [default = 0];</code>
+       * <code>optional int32 fangdao = 62 [default = 0];</code>
        *
        * <pre>
        ** 《防盗门技术》*100 
        * </pre>
        */
       public Builder clearFangdao() {
-        bitField1_ = (bitField1_ & ~0x04000000);
+        bitField1_ = (bitField1_ & ~0x20000000);
         fangdao_ = 0;
         onChanged();
         return this;
@@ -8977,17 +9307,17 @@ public final class WorldEventsBytes {
 
       private int makeqin_ ;
       /**
-       * <code>optional int32 makeqin = 60 [default = 0];</code>
+       * <code>optional int32 makeqin = 63 [default = 0];</code>
        *
        * <pre>
        ** 《马克沁传》*100 
        * </pre>
        */
       public boolean hasMakeqin() {
-        return ((bitField1_ & 0x08000000) == 0x08000000);
+        return ((bitField1_ & 0x40000000) == 0x40000000);
       }
       /**
-       * <code>optional int32 makeqin = 60 [default = 0];</code>
+       * <code>optional int32 makeqin = 63 [default = 0];</code>
        *
        * <pre>
        ** 《马克沁传》*100 
@@ -8997,27 +9327,27 @@ public final class WorldEventsBytes {
         return makeqin_;
       }
       /**
-       * <code>optional int32 makeqin = 60 [default = 0];</code>
+       * <code>optional int32 makeqin = 63 [default = 0];</code>
        *
        * <pre>
        ** 《马克沁传》*100 
        * </pre>
        */
       public Builder setMakeqin(int value) {
-        bitField1_ |= 0x08000000;
+        bitField1_ |= 0x40000000;
         makeqin_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 makeqin = 60 [default = 0];</code>
+       * <code>optional int32 makeqin = 63 [default = 0];</code>
        *
        * <pre>
        ** 《马克沁传》*100 
        * </pre>
        */
       public Builder clearMakeqin() {
-        bitField1_ = (bitField1_ & ~0x08000000);
+        bitField1_ = (bitField1_ & ~0x40000000);
         makeqin_ = 0;
         onChanged();
         return this;
@@ -9025,17 +9355,17 @@ public final class WorldEventsBytes {
 
       private int wodefendou_ ;
       /**
-       * <code>optional int32 wodefendou = 61 [default = 0];</code>
+       * <code>optional int32 wodefendou = 64 [default = 0];</code>
        *
        * <pre>
        ** 《我的奋斗》*100 
        * </pre>
        */
       public boolean hasWodefendou() {
-        return ((bitField1_ & 0x10000000) == 0x10000000);
+        return ((bitField1_ & 0x80000000) == 0x80000000);
       }
       /**
-       * <code>optional int32 wodefendou = 61 [default = 0];</code>
+       * <code>optional int32 wodefendou = 64 [default = 0];</code>
        *
        * <pre>
        ** 《我的奋斗》*100 
@@ -9045,27 +9375,27 @@ public final class WorldEventsBytes {
         return wodefendou_;
       }
       /**
-       * <code>optional int32 wodefendou = 61 [default = 0];</code>
+       * <code>optional int32 wodefendou = 64 [default = 0];</code>
        *
        * <pre>
        ** 《我的奋斗》*100 
        * </pre>
        */
       public Builder setWodefendou(int value) {
-        bitField1_ |= 0x10000000;
+        bitField1_ |= 0x80000000;
         wodefendou_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 wodefendou = 61 [default = 0];</code>
+       * <code>optional int32 wodefendou = 64 [default = 0];</code>
        *
        * <pre>
        ** 《我的奋斗》*100 
        * </pre>
        */
       public Builder clearWodefendou() {
-        bitField1_ = (bitField1_ & ~0x10000000);
+        bitField1_ = (bitField1_ & ~0x80000000);
         wodefendou_ = 0;
         onChanged();
         return this;
@@ -9073,17 +9403,17 @@ public final class WorldEventsBytes {
 
       private int jiatelin_ ;
       /**
-       * <code>optional int32 jiatelin = 62 [default = 0];</code>
+       * <code>optional int32 jiatelin = 65 [default = 0];</code>
        *
        * <pre>
        ** 《加特林传》*100 
        * </pre>
        */
       public boolean hasJiatelin() {
-        return ((bitField1_ & 0x20000000) == 0x20000000);
+        return ((bitField2_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional int32 jiatelin = 62 [default = 0];</code>
+       * <code>optional int32 jiatelin = 65 [default = 0];</code>
        *
        * <pre>
        ** 《加特林传》*100 
@@ -9093,27 +9423,27 @@ public final class WorldEventsBytes {
         return jiatelin_;
       }
       /**
-       * <code>optional int32 jiatelin = 62 [default = 0];</code>
+       * <code>optional int32 jiatelin = 65 [default = 0];</code>
        *
        * <pre>
        ** 《加特林传》*100 
        * </pre>
        */
       public Builder setJiatelin(int value) {
-        bitField1_ |= 0x20000000;
+        bitField2_ |= 0x00000001;
         jiatelin_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 jiatelin = 62 [default = 0];</code>
+       * <code>optional int32 jiatelin = 65 [default = 0];</code>
        *
        * <pre>
        ** 《加特林传》*100 
        * </pre>
        */
       public Builder clearJiatelin() {
-        bitField1_ = (bitField1_ & ~0x20000000);
+        bitField2_ = (bitField2_ & ~0x00000001);
         jiatelin_ = 0;
         onChanged();
         return this;
@@ -9121,17 +9451,17 @@ public final class WorldEventsBytes {
 
       private int wbaleite_ ;
       /**
-       * <code>optional int32 wbaleite = 63 [default = 0];</code>
+       * <code>optional int32 wbaleite = 66 [default = 0];</code>
        *
        * <pre>
        ** 《巴雷特的笔记》*100 
        * </pre>
        */
       public boolean hasWbaleite() {
-        return ((bitField1_ & 0x40000000) == 0x40000000);
+        return ((bitField2_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 wbaleite = 63 [default = 0];</code>
+       * <code>optional int32 wbaleite = 66 [default = 0];</code>
        *
        * <pre>
        ** 《巴雷特的笔记》*100 
@@ -9141,27 +9471,27 @@ public final class WorldEventsBytes {
         return wbaleite_;
       }
       /**
-       * <code>optional int32 wbaleite = 63 [default = 0];</code>
+       * <code>optional int32 wbaleite = 66 [default = 0];</code>
        *
        * <pre>
        ** 《巴雷特的笔记》*100 
        * </pre>
        */
       public Builder setWbaleite(int value) {
-        bitField1_ |= 0x40000000;
+        bitField2_ |= 0x00000002;
         wbaleite_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 wbaleite = 63 [default = 0];</code>
+       * <code>optional int32 wbaleite = 66 [default = 0];</code>
        *
        * <pre>
        ** 《巴雷特的笔记》*100 
        * </pre>
        */
       public Builder clearWbaleite() {
-        bitField1_ = (bitField1_ & ~0x40000000);
+        bitField2_ = (bitField2_ & ~0x00000002);
         wbaleite_ = 0;
         onChanged();
         return this;
@@ -9169,17 +9499,17 @@ public final class WorldEventsBytes {
 
       private int guanren_ ;
       /**
-       * <code>optional int32 guanren = 64 [default = 0];</code>
+       * <code>optional int32 guanren = 67 [default = 0];</code>
        *
        * <pre>
        ** 《官人吃鸡指南》*100 
        * </pre>
        */
       public boolean hasGuanren() {
-        return ((bitField1_ & 0x80000000) == 0x80000000);
+        return ((bitField2_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 guanren = 64 [default = 0];</code>
+       * <code>optional int32 guanren = 67 [default = 0];</code>
        *
        * <pre>
        ** 《官人吃鸡指南》*100 
@@ -9189,27 +9519,27 @@ public final class WorldEventsBytes {
         return guanren_;
       }
       /**
-       * <code>optional int32 guanren = 64 [default = 0];</code>
+       * <code>optional int32 guanren = 67 [default = 0];</code>
        *
        * <pre>
        ** 《官人吃鸡指南》*100 
        * </pre>
        */
       public Builder setGuanren(int value) {
-        bitField1_ |= 0x80000000;
+        bitField2_ |= 0x00000004;
         guanren_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 guanren = 64 [default = 0];</code>
+       * <code>optional int32 guanren = 67 [default = 0];</code>
        *
        * <pre>
        ** 《官人吃鸡指南》*100 
        * </pre>
        */
       public Builder clearGuanren() {
-        bitField1_ = (bitField1_ & ~0x80000000);
+        bitField2_ = (bitField2_ & ~0x00000004);
         guanren_ = 0;
         onChanged();
         return this;
@@ -9217,17 +9547,17 @@ public final class WorldEventsBytes {
 
       private int toukui1_ ;
       /**
-       * <code>optional int32 toukui1 = 65 [default = 0];</code>
+       * <code>optional int32 toukui1 = 68 [default = 0];</code>
        *
        * <pre>
        ** 1级头盔*100 
        * </pre>
        */
       public boolean hasToukui1() {
-        return ((bitField2_ & 0x00000001) == 0x00000001);
+        return ((bitField2_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional int32 toukui1 = 65 [default = 0];</code>
+       * <code>optional int32 toukui1 = 68 [default = 0];</code>
        *
        * <pre>
        ** 1级头盔*100 
@@ -9237,27 +9567,27 @@ public final class WorldEventsBytes {
         return toukui1_;
       }
       /**
-       * <code>optional int32 toukui1 = 65 [default = 0];</code>
+       * <code>optional int32 toukui1 = 68 [default = 0];</code>
        *
        * <pre>
        ** 1级头盔*100 
        * </pre>
        */
       public Builder setToukui1(int value) {
-        bitField2_ |= 0x00000001;
+        bitField2_ |= 0x00000008;
         toukui1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 toukui1 = 65 [default = 0];</code>
+       * <code>optional int32 toukui1 = 68 [default = 0];</code>
        *
        * <pre>
        ** 1级头盔*100 
        * </pre>
        */
       public Builder clearToukui1() {
-        bitField2_ = (bitField2_ & ~0x00000001);
+        bitField2_ = (bitField2_ & ~0x00000008);
         toukui1_ = 0;
         onChanged();
         return this;
@@ -9265,17 +9595,17 @@ public final class WorldEventsBytes {
 
       private int toukui2_ ;
       /**
-       * <code>optional int32 toukui2 = 66 [default = 0];</code>
+       * <code>optional int32 toukui2 = 69 [default = 0];</code>
        *
        * <pre>
        ** 2级头盔*100 
        * </pre>
        */
       public boolean hasToukui2() {
-        return ((bitField2_ & 0x00000002) == 0x00000002);
+        return ((bitField2_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional int32 toukui2 = 66 [default = 0];</code>
+       * <code>optional int32 toukui2 = 69 [default = 0];</code>
        *
        * <pre>
        ** 2级头盔*100 
@@ -9285,27 +9615,27 @@ public final class WorldEventsBytes {
         return toukui2_;
       }
       /**
-       * <code>optional int32 toukui2 = 66 [default = 0];</code>
+       * <code>optional int32 toukui2 = 69 [default = 0];</code>
        *
        * <pre>
        ** 2级头盔*100 
        * </pre>
        */
       public Builder setToukui2(int value) {
-        bitField2_ |= 0x00000002;
+        bitField2_ |= 0x00000010;
         toukui2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 toukui2 = 66 [default = 0];</code>
+       * <code>optional int32 toukui2 = 69 [default = 0];</code>
        *
        * <pre>
        ** 2级头盔*100 
        * </pre>
        */
       public Builder clearToukui2() {
-        bitField2_ = (bitField2_ & ~0x00000002);
+        bitField2_ = (bitField2_ & ~0x00000010);
         toukui2_ = 0;
         onChanged();
         return this;
@@ -9313,17 +9643,17 @@ public final class WorldEventsBytes {
 
       private int toukui3_ ;
       /**
-       * <code>optional int32 toukui3 = 67 [default = 0];</code>
+       * <code>optional int32 toukui3 = 70 [default = 0];</code>
        *
        * <pre>
        ** 3级头盔*100 
        * </pre>
        */
       public boolean hasToukui3() {
-        return ((bitField2_ & 0x00000004) == 0x00000004);
+        return ((bitField2_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional int32 toukui3 = 67 [default = 0];</code>
+       * <code>optional int32 toukui3 = 70 [default = 0];</code>
        *
        * <pre>
        ** 3级头盔*100 
@@ -9333,27 +9663,27 @@ public final class WorldEventsBytes {
         return toukui3_;
       }
       /**
-       * <code>optional int32 toukui3 = 67 [default = 0];</code>
+       * <code>optional int32 toukui3 = 70 [default = 0];</code>
        *
        * <pre>
        ** 3级头盔*100 
        * </pre>
        */
       public Builder setToukui3(int value) {
-        bitField2_ |= 0x00000004;
+        bitField2_ |= 0x00000020;
         toukui3_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 toukui3 = 67 [default = 0];</code>
+       * <code>optional int32 toukui3 = 70 [default = 0];</code>
        *
        * <pre>
        ** 3级头盔*100 
        * </pre>
        */
       public Builder clearToukui3() {
-        bitField2_ = (bitField2_ & ~0x00000004);
+        bitField2_ = (bitField2_ & ~0x00000020);
         toukui3_ = 0;
         onChanged();
         return this;
@@ -9361,17 +9691,17 @@ public final class WorldEventsBytes {
 
       private int shouqiang1_ ;
       /**
-       * <code>optional int32 shouqiang1 = 68 [default = 0];</code>
+       * <code>optional int32 shouqiang1 = 71 [default = 0];</code>
        *
        * <pre>
        ** 手枪*100 
        * </pre>
        */
       public boolean hasShouqiang1() {
-        return ((bitField2_ & 0x00000008) == 0x00000008);
+        return ((bitField2_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional int32 shouqiang1 = 68 [default = 0];</code>
+       * <code>optional int32 shouqiang1 = 71 [default = 0];</code>
        *
        * <pre>
        ** 手枪*100 
@@ -9381,27 +9711,27 @@ public final class WorldEventsBytes {
         return shouqiang1_;
       }
       /**
-       * <code>optional int32 shouqiang1 = 68 [default = 0];</code>
+       * <code>optional int32 shouqiang1 = 71 [default = 0];</code>
        *
        * <pre>
        ** 手枪*100 
        * </pre>
        */
       public Builder setShouqiang1(int value) {
-        bitField2_ |= 0x00000008;
+        bitField2_ |= 0x00000040;
         shouqiang1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 shouqiang1 = 68 [default = 0];</code>
+       * <code>optional int32 shouqiang1 = 71 [default = 0];</code>
        *
        * <pre>
        ** 手枪*100 
        * </pre>
        */
       public Builder clearShouqiang1() {
-        bitField2_ = (bitField2_ & ~0x00000008);
+        bitField2_ = (bitField2_ & ~0x00000040);
         shouqiang1_ = 0;
         onChanged();
         return this;
@@ -9409,17 +9739,17 @@ public final class WorldEventsBytes {
 
       private int buqiang1_ ;
       /**
-       * <code>optional int32 buqiang1 = 69 [default = 0];</code>
+       * <code>optional int32 buqiang1 = 72 [default = 0];</code>
        *
        * <pre>
        ** 步枪*100 
        * </pre>
        */
       public boolean hasBuqiang1() {
-        return ((bitField2_ & 0x00000010) == 0x00000010);
+        return ((bitField2_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional int32 buqiang1 = 69 [default = 0];</code>
+       * <code>optional int32 buqiang1 = 72 [default = 0];</code>
        *
        * <pre>
        ** 步枪*100 
@@ -9429,27 +9759,27 @@ public final class WorldEventsBytes {
         return buqiang1_;
       }
       /**
-       * <code>optional int32 buqiang1 = 69 [default = 0];</code>
+       * <code>optional int32 buqiang1 = 72 [default = 0];</code>
        *
        * <pre>
        ** 步枪*100 
        * </pre>
        */
       public Builder setBuqiang1(int value) {
-        bitField2_ |= 0x00000010;
+        bitField2_ |= 0x00000080;
         buqiang1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 buqiang1 = 69 [default = 0];</code>
+       * <code>optional int32 buqiang1 = 72 [default = 0];</code>
        *
        * <pre>
        ** 步枪*100 
        * </pre>
        */
       public Builder clearBuqiang1() {
-        bitField2_ = (bitField2_ & ~0x00000010);
+        bitField2_ = (bitField2_ & ~0x00000080);
         buqiang1_ = 0;
         onChanged();
         return this;
@@ -9457,17 +9787,17 @@ public final class WorldEventsBytes {
 
       private int qingjiqiang1_ ;
       /**
-       * <code>optional int32 qingjiqiang1 = 70 [default = 0];</code>
+       * <code>optional int32 qingjiqiang1 = 73 [default = 0];</code>
        *
        * <pre>
        ** 轻机枪*100 
        * </pre>
        */
       public boolean hasQingjiqiang1() {
-        return ((bitField2_ & 0x00000020) == 0x00000020);
+        return ((bitField2_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional int32 qingjiqiang1 = 70 [default = 0];</code>
+       * <code>optional int32 qingjiqiang1 = 73 [default = 0];</code>
        *
        * <pre>
        ** 轻机枪*100 
@@ -9477,27 +9807,27 @@ public final class WorldEventsBytes {
         return qingjiqiang1_;
       }
       /**
-       * <code>optional int32 qingjiqiang1 = 70 [default = 0];</code>
+       * <code>optional int32 qingjiqiang1 = 73 [default = 0];</code>
        *
        * <pre>
        ** 轻机枪*100 
        * </pre>
        */
       public Builder setQingjiqiang1(int value) {
-        bitField2_ |= 0x00000020;
+        bitField2_ |= 0x00000100;
         qingjiqiang1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 qingjiqiang1 = 70 [default = 0];</code>
+       * <code>optional int32 qingjiqiang1 = 73 [default = 0];</code>
        *
        * <pre>
        ** 轻机枪*100 
        * </pre>
        */
       public Builder clearQingjiqiang1() {
-        bitField2_ = (bitField2_ & ~0x00000020);
+        bitField2_ = (bitField2_ & ~0x00000100);
         qingjiqiang1_ = 0;
         onChanged();
         return this;
@@ -9505,17 +9835,17 @@ public final class WorldEventsBytes {
 
       private int fangdanyi1_ ;
       /**
-       * <code>optional int32 fangdanyi1 = 71 [default = 0];</code>
+       * <code>optional int32 fangdanyi1 = 74 [default = 0];</code>
        *
        * <pre>
        ** 1级防弹衣*100 
        * </pre>
        */
       public boolean hasFangdanyi1() {
-        return ((bitField2_ & 0x00000040) == 0x00000040);
+        return ((bitField2_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional int32 fangdanyi1 = 71 [default = 0];</code>
+       * <code>optional int32 fangdanyi1 = 74 [default = 0];</code>
        *
        * <pre>
        ** 1级防弹衣*100 
@@ -9525,27 +9855,27 @@ public final class WorldEventsBytes {
         return fangdanyi1_;
       }
       /**
-       * <code>optional int32 fangdanyi1 = 71 [default = 0];</code>
+       * <code>optional int32 fangdanyi1 = 74 [default = 0];</code>
        *
        * <pre>
        ** 1级防弹衣*100 
        * </pre>
        */
       public Builder setFangdanyi1(int value) {
-        bitField2_ |= 0x00000040;
+        bitField2_ |= 0x00000200;
         fangdanyi1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 fangdanyi1 = 71 [default = 0];</code>
+       * <code>optional int32 fangdanyi1 = 74 [default = 0];</code>
        *
        * <pre>
        ** 1级防弹衣*100 
        * </pre>
        */
       public Builder clearFangdanyi1() {
-        bitField2_ = (bitField2_ & ~0x00000040);
+        bitField2_ = (bitField2_ & ~0x00000200);
         fangdanyi1_ = 0;
         onChanged();
         return this;
@@ -9553,17 +9883,17 @@ public final class WorldEventsBytes {
 
       private int fangdanyi2_ ;
       /**
-       * <code>optional int32 fangdanyi2 = 72 [default = 0];</code>
+       * <code>optional int32 fangdanyi2 = 75 [default = 0];</code>
        *
        * <pre>
        ** 2级防弹衣*100 
        * </pre>
        */
       public boolean hasFangdanyi2() {
-        return ((bitField2_ & 0x00000080) == 0x00000080);
+        return ((bitField2_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional int32 fangdanyi2 = 72 [default = 0];</code>
+       * <code>optional int32 fangdanyi2 = 75 [default = 0];</code>
        *
        * <pre>
        ** 2级防弹衣*100 
@@ -9573,27 +9903,27 @@ public final class WorldEventsBytes {
         return fangdanyi2_;
       }
       /**
-       * <code>optional int32 fangdanyi2 = 72 [default = 0];</code>
+       * <code>optional int32 fangdanyi2 = 75 [default = 0];</code>
        *
        * <pre>
        ** 2级防弹衣*100 
        * </pre>
        */
       public Builder setFangdanyi2(int value) {
-        bitField2_ |= 0x00000080;
+        bitField2_ |= 0x00000400;
         fangdanyi2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 fangdanyi2 = 72 [default = 0];</code>
+       * <code>optional int32 fangdanyi2 = 75 [default = 0];</code>
        *
        * <pre>
        ** 2级防弹衣*100 
        * </pre>
        */
       public Builder clearFangdanyi2() {
-        bitField2_ = (bitField2_ & ~0x00000080);
+        bitField2_ = (bitField2_ & ~0x00000400);
         fangdanyi2_ = 0;
         onChanged();
         return this;
@@ -9601,17 +9931,17 @@ public final class WorldEventsBytes {
 
       private int fangdanyi3_ ;
       /**
-       * <code>optional int32 fangdanyi3 = 73 [default = 0];</code>
+       * <code>optional int32 fangdanyi3 = 76 [default = 0];</code>
        *
        * <pre>
        ** 3级防弹衣*100 
        * </pre>
        */
       public boolean hasFangdanyi3() {
-        return ((bitField2_ & 0x00000100) == 0x00000100);
+        return ((bitField2_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional int32 fangdanyi3 = 73 [default = 0];</code>
+       * <code>optional int32 fangdanyi3 = 76 [default = 0];</code>
        *
        * <pre>
        ** 3级防弹衣*100 
@@ -9621,27 +9951,27 @@ public final class WorldEventsBytes {
         return fangdanyi3_;
       }
       /**
-       * <code>optional int32 fangdanyi3 = 73 [default = 0];</code>
+       * <code>optional int32 fangdanyi3 = 76 [default = 0];</code>
        *
        * <pre>
        ** 3级防弹衣*100 
        * </pre>
        */
       public Builder setFangdanyi3(int value) {
-        bitField2_ |= 0x00000100;
+        bitField2_ |= 0x00000800;
         fangdanyi3_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 fangdanyi3 = 73 [default = 0];</code>
+       * <code>optional int32 fangdanyi3 = 76 [default = 0];</code>
        *
        * <pre>
        ** 3级防弹衣*100 
        * </pre>
        */
       public Builder clearFangdanyi3() {
-        bitField2_ = (bitField2_ & ~0x00000100);
+        bitField2_ = (bitField2_ & ~0x00000800);
         fangdanyi3_ = 0;
         onChanged();
         return this;
@@ -9649,17 +9979,17 @@ public final class WorldEventsBytes {
 
       private int kuzi1_ ;
       /**
-       * <code>optional int32 kuzi1 = 74 [default = 0];</code>
+       * <code>optional int32 kuzi1 = 77 [default = 0];</code>
        *
        * <pre>
        ** 1级作训裤*100 
        * </pre>
        */
       public boolean hasKuzi1() {
-        return ((bitField2_ & 0x00000200) == 0x00000200);
+        return ((bitField2_ & 0x00001000) == 0x00001000);
       }
       /**
-       * <code>optional int32 kuzi1 = 74 [default = 0];</code>
+       * <code>optional int32 kuzi1 = 77 [default = 0];</code>
        *
        * <pre>
        ** 1级作训裤*100 
@@ -9669,27 +9999,27 @@ public final class WorldEventsBytes {
         return kuzi1_;
       }
       /**
-       * <code>optional int32 kuzi1 = 74 [default = 0];</code>
+       * <code>optional int32 kuzi1 = 77 [default = 0];</code>
        *
        * <pre>
        ** 1级作训裤*100 
        * </pre>
        */
       public Builder setKuzi1(int value) {
-        bitField2_ |= 0x00000200;
+        bitField2_ |= 0x00001000;
         kuzi1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 kuzi1 = 74 [default = 0];</code>
+       * <code>optional int32 kuzi1 = 77 [default = 0];</code>
        *
        * <pre>
        ** 1级作训裤*100 
        * </pre>
        */
       public Builder clearKuzi1() {
-        bitField2_ = (bitField2_ & ~0x00000200);
+        bitField2_ = (bitField2_ & ~0x00001000);
         kuzi1_ = 0;
         onChanged();
         return this;
@@ -9697,17 +10027,17 @@ public final class WorldEventsBytes {
 
       private int kuzi2_ ;
       /**
-       * <code>optional int32 kuzi2 = 75 [default = 0];</code>
+       * <code>optional int32 kuzi2 = 78 [default = 0];</code>
        *
        * <pre>
        ** 2级作训裤*100 
        * </pre>
        */
       public boolean hasKuzi2() {
-        return ((bitField2_ & 0x00000400) == 0x00000400);
+        return ((bitField2_ & 0x00002000) == 0x00002000);
       }
       /**
-       * <code>optional int32 kuzi2 = 75 [default = 0];</code>
+       * <code>optional int32 kuzi2 = 78 [default = 0];</code>
        *
        * <pre>
        ** 2级作训裤*100 
@@ -9717,27 +10047,27 @@ public final class WorldEventsBytes {
         return kuzi2_;
       }
       /**
-       * <code>optional int32 kuzi2 = 75 [default = 0];</code>
+       * <code>optional int32 kuzi2 = 78 [default = 0];</code>
        *
        * <pre>
        ** 2级作训裤*100 
        * </pre>
        */
       public Builder setKuzi2(int value) {
-        bitField2_ |= 0x00000400;
+        bitField2_ |= 0x00002000;
         kuzi2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 kuzi2 = 75 [default = 0];</code>
+       * <code>optional int32 kuzi2 = 78 [default = 0];</code>
        *
        * <pre>
        ** 2级作训裤*100 
        * </pre>
        */
       public Builder clearKuzi2() {
-        bitField2_ = (bitField2_ & ~0x00000400);
+        bitField2_ = (bitField2_ & ~0x00002000);
         kuzi2_ = 0;
         onChanged();
         return this;
@@ -9745,17 +10075,17 @@ public final class WorldEventsBytes {
 
       private int kuzi3_ ;
       /**
-       * <code>optional int32 kuzi3 = 76 [default = 0];</code>
+       * <code>optional int32 kuzi3 = 79 [default = 0];</code>
        *
        * <pre>
        ** 3级作训裤*100 
        * </pre>
        */
       public boolean hasKuzi3() {
-        return ((bitField2_ & 0x00000800) == 0x00000800);
+        return ((bitField2_ & 0x00004000) == 0x00004000);
       }
       /**
-       * <code>optional int32 kuzi3 = 76 [default = 0];</code>
+       * <code>optional int32 kuzi3 = 79 [default = 0];</code>
        *
        * <pre>
        ** 3级作训裤*100 
@@ -9765,27 +10095,27 @@ public final class WorldEventsBytes {
         return kuzi3_;
       }
       /**
-       * <code>optional int32 kuzi3 = 76 [default = 0];</code>
+       * <code>optional int32 kuzi3 = 79 [default = 0];</code>
        *
        * <pre>
        ** 3级作训裤*100 
        * </pre>
        */
       public Builder setKuzi3(int value) {
-        bitField2_ |= 0x00000800;
+        bitField2_ |= 0x00004000;
         kuzi3_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 kuzi3 = 76 [default = 0];</code>
+       * <code>optional int32 kuzi3 = 79 [default = 0];</code>
        *
        * <pre>
        ** 3级作训裤*100 
        * </pre>
        */
       public Builder clearKuzi3() {
-        bitField2_ = (bitField2_ & ~0x00000800);
+        bitField2_ = (bitField2_ & ~0x00004000);
         kuzi3_ = 0;
         onChanged();
         return this;
@@ -9793,17 +10123,17 @@ public final class WorldEventsBytes {
 
       private int xiezi1_ ;
       /**
-       * <code>optional int32 xiezi1 = 77 [default = 0];</code>
+       * <code>optional int32 xiezi1 = 80 [default = 0];</code>
        *
        * <pre>
        ** 1级越野靴*100 
        * </pre>
        */
       public boolean hasXiezi1() {
-        return ((bitField2_ & 0x00001000) == 0x00001000);
+        return ((bitField2_ & 0x00008000) == 0x00008000);
       }
       /**
-       * <code>optional int32 xiezi1 = 77 [default = 0];</code>
+       * <code>optional int32 xiezi1 = 80 [default = 0];</code>
        *
        * <pre>
        ** 1级越野靴*100 
@@ -9813,27 +10143,27 @@ public final class WorldEventsBytes {
         return xiezi1_;
       }
       /**
-       * <code>optional int32 xiezi1 = 77 [default = 0];</code>
+       * <code>optional int32 xiezi1 = 80 [default = 0];</code>
        *
        * <pre>
        ** 1级越野靴*100 
        * </pre>
        */
       public Builder setXiezi1(int value) {
-        bitField2_ |= 0x00001000;
+        bitField2_ |= 0x00008000;
         xiezi1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 xiezi1 = 77 [default = 0];</code>
+       * <code>optional int32 xiezi1 = 80 [default = 0];</code>
        *
        * <pre>
        ** 1级越野靴*100 
        * </pre>
        */
       public Builder clearXiezi1() {
-        bitField2_ = (bitField2_ & ~0x00001000);
+        bitField2_ = (bitField2_ & ~0x00008000);
         xiezi1_ = 0;
         onChanged();
         return this;
@@ -9841,17 +10171,17 @@ public final class WorldEventsBytes {
 
       private int xiezi2_ ;
       /**
-       * <code>optional int32 xiezi2 = 78 [default = 0];</code>
+       * <code>optional int32 xiezi2 = 81 [default = 0];</code>
        *
        * <pre>
        ** 2级越野靴*100 
        * </pre>
        */
       public boolean hasXiezi2() {
-        return ((bitField2_ & 0x00002000) == 0x00002000);
+        return ((bitField2_ & 0x00010000) == 0x00010000);
       }
       /**
-       * <code>optional int32 xiezi2 = 78 [default = 0];</code>
+       * <code>optional int32 xiezi2 = 81 [default = 0];</code>
        *
        * <pre>
        ** 2级越野靴*100 
@@ -9861,27 +10191,27 @@ public final class WorldEventsBytes {
         return xiezi2_;
       }
       /**
-       * <code>optional int32 xiezi2 = 78 [default = 0];</code>
+       * <code>optional int32 xiezi2 = 81 [default = 0];</code>
        *
        * <pre>
        ** 2级越野靴*100 
        * </pre>
        */
       public Builder setXiezi2(int value) {
-        bitField2_ |= 0x00002000;
+        bitField2_ |= 0x00010000;
         xiezi2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 xiezi2 = 78 [default = 0];</code>
+       * <code>optional int32 xiezi2 = 81 [default = 0];</code>
        *
        * <pre>
        ** 2级越野靴*100 
        * </pre>
        */
       public Builder clearXiezi2() {
-        bitField2_ = (bitField2_ & ~0x00002000);
+        bitField2_ = (bitField2_ & ~0x00010000);
         xiezi2_ = 0;
         onChanged();
         return this;
@@ -9889,17 +10219,17 @@ public final class WorldEventsBytes {
 
       private int xiezi3_ ;
       /**
-       * <code>optional int32 xiezi3 = 79 [default = 0];</code>
+       * <code>optional int32 xiezi3 = 82 [default = 0];</code>
        *
        * <pre>
        ** 3级越野靴*100 
        * </pre>
        */
       public boolean hasXiezi3() {
-        return ((bitField2_ & 0x00004000) == 0x00004000);
+        return ((bitField2_ & 0x00020000) == 0x00020000);
       }
       /**
-       * <code>optional int32 xiezi3 = 79 [default = 0];</code>
+       * <code>optional int32 xiezi3 = 82 [default = 0];</code>
        *
        * <pre>
        ** 3级越野靴*100 
@@ -9909,27 +10239,27 @@ public final class WorldEventsBytes {
         return xiezi3_;
       }
       /**
-       * <code>optional int32 xiezi3 = 79 [default = 0];</code>
+       * <code>optional int32 xiezi3 = 82 [default = 0];</code>
        *
        * <pre>
        ** 3级越野靴*100 
        * </pre>
        */
       public Builder setXiezi3(int value) {
-        bitField2_ |= 0x00004000;
+        bitField2_ |= 0x00020000;
         xiezi3_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 xiezi3 = 79 [default = 0];</code>
+       * <code>optional int32 xiezi3 = 82 [default = 0];</code>
        *
        * <pre>
        ** 3级越野靴*100 
        * </pre>
        */
       public Builder clearXiezi3() {
-        bitField2_ = (bitField2_ & ~0x00004000);
+        bitField2_ = (bitField2_ & ~0x00020000);
         xiezi3_ = 0;
         onChanged();
         return this;
@@ -9937,17 +10267,17 @@ public final class WorldEventsBytes {
 
       private int kuangquanshui_ ;
       /**
-       * <code>optional int32 kuangquanshui = 80 [default = 0];</code>
+       * <code>optional int32 kuangquanshui = 83 [default = 0];</code>
        *
        * <pre>
        ** 矿物质水*100 
        * </pre>
        */
       public boolean hasKuangquanshui() {
-        return ((bitField2_ & 0x00008000) == 0x00008000);
+        return ((bitField2_ & 0x00040000) == 0x00040000);
       }
       /**
-       * <code>optional int32 kuangquanshui = 80 [default = 0];</code>
+       * <code>optional int32 kuangquanshui = 83 [default = 0];</code>
        *
        * <pre>
        ** 矿物质水*100 
@@ -9957,27 +10287,27 @@ public final class WorldEventsBytes {
         return kuangquanshui_;
       }
       /**
-       * <code>optional int32 kuangquanshui = 80 [default = 0];</code>
+       * <code>optional int32 kuangquanshui = 83 [default = 0];</code>
        *
        * <pre>
        ** 矿物质水*100 
        * </pre>
        */
       public Builder setKuangquanshui(int value) {
-        bitField2_ |= 0x00008000;
+        bitField2_ |= 0x00040000;
         kuangquanshui_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 kuangquanshui = 80 [default = 0];</code>
+       * <code>optional int32 kuangquanshui = 83 [default = 0];</code>
        *
        * <pre>
        ** 矿物质水*100 
        * </pre>
        */
       public Builder clearKuangquanshui() {
-        bitField2_ = (bitField2_ & ~0x00008000);
+        bitField2_ = (bitField2_ & ~0x00040000);
         kuangquanshui_ = 0;
         onChanged();
         return this;
@@ -9985,17 +10315,17 @@ public final class WorldEventsBytes {
 
       private int siliao_ ;
       /**
-       * <code>optional int32 siliao = 81 [default = 0];</code>
+       * <code>optional int32 siliao = 84 [default = 0];</code>
        *
        * <pre>
        ** 饲料*100 
        * </pre>
        */
       public boolean hasSiliao() {
-        return ((bitField2_ & 0x00010000) == 0x00010000);
+        return ((bitField2_ & 0x00080000) == 0x00080000);
       }
       /**
-       * <code>optional int32 siliao = 81 [default = 0];</code>
+       * <code>optional int32 siliao = 84 [default = 0];</code>
        *
        * <pre>
        ** 饲料*100 
@@ -10005,27 +10335,27 @@ public final class WorldEventsBytes {
         return siliao_;
       }
       /**
-       * <code>optional int32 siliao = 81 [default = 0];</code>
+       * <code>optional int32 siliao = 84 [default = 0];</code>
        *
        * <pre>
        ** 饲料*100 
        * </pre>
        */
       public Builder setSiliao(int value) {
-        bitField2_ |= 0x00010000;
+        bitField2_ |= 0x00080000;
         siliao_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 siliao = 81 [default = 0];</code>
+       * <code>optional int32 siliao = 84 [default = 0];</code>
        *
        * <pre>
        ** 饲料*100 
        * </pre>
        */
       public Builder clearSiliao() {
-        bitField2_ = (bitField2_ & ~0x00010000);
+        bitField2_ = (bitField2_ & ~0x00080000);
         siliao_ = 0;
         onChanged();
         return this;
@@ -10033,17 +10363,17 @@ public final class WorldEventsBytes {
 
       private int zhurou_ ;
       /**
-       * <code>optional int32 zhurou = 82 [default = 0];</code>
+       * <code>optional int32 zhurou = 85 [default = 0];</code>
        *
        * <pre>
        ** 猪肉*100 
        * </pre>
        */
       public boolean hasZhurou() {
-        return ((bitField2_ & 0x00020000) == 0x00020000);
+        return ((bitField2_ & 0x00100000) == 0x00100000);
       }
       /**
-       * <code>optional int32 zhurou = 82 [default = 0];</code>
+       * <code>optional int32 zhurou = 85 [default = 0];</code>
        *
        * <pre>
        ** 猪肉*100 
@@ -10053,27 +10383,27 @@ public final class WorldEventsBytes {
         return zhurou_;
       }
       /**
-       * <code>optional int32 zhurou = 82 [default = 0];</code>
+       * <code>optional int32 zhurou = 85 [default = 0];</code>
        *
        * <pre>
        ** 猪肉*100 
        * </pre>
        */
       public Builder setZhurou(int value) {
-        bitField2_ |= 0x00020000;
+        bitField2_ |= 0x00100000;
         zhurou_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 zhurou = 82 [default = 0];</code>
+       * <code>optional int32 zhurou = 85 [default = 0];</code>
        *
        * <pre>
        ** 猪肉*100 
        * </pre>
        */
       public Builder clearZhurou() {
-        bitField2_ = (bitField2_ & ~0x00020000);
+        bitField2_ = (bitField2_ & ~0x00100000);
         zhurou_ = 0;
         onChanged();
         return this;
@@ -10081,17 +10411,17 @@ public final class WorldEventsBytes {
 
       private int qiyou_ ;
       /**
-       * <code>optional int32 qiyou = 83 [default = 0];</code>
+       * <code>optional int32 qiyou = 86 [default = 0];</code>
        *
        * <pre>
        ** 汽油*100 
        * </pre>
        */
       public boolean hasQiyou() {
-        return ((bitField2_ & 0x00040000) == 0x00040000);
+        return ((bitField2_ & 0x00200000) == 0x00200000);
       }
       /**
-       * <code>optional int32 qiyou = 83 [default = 0];</code>
+       * <code>optional int32 qiyou = 86 [default = 0];</code>
        *
        * <pre>
        ** 汽油*100 
@@ -10101,27 +10431,27 @@ public final class WorldEventsBytes {
         return qiyou_;
       }
       /**
-       * <code>optional int32 qiyou = 83 [default = 0];</code>
+       * <code>optional int32 qiyou = 86 [default = 0];</code>
        *
        * <pre>
        ** 汽油*100 
        * </pre>
        */
       public Builder setQiyou(int value) {
-        bitField2_ |= 0x00040000;
+        bitField2_ |= 0x00200000;
         qiyou_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 qiyou = 83 [default = 0];</code>
+       * <code>optional int32 qiyou = 86 [default = 0];</code>
        *
        * <pre>
        ** 汽油*100 
        * </pre>
        */
       public Builder clearQiyou() {
-        bitField2_ = (bitField2_ & ~0x00040000);
+        bitField2_ = (bitField2_ & ~0x00200000);
         qiyou_ = 0;
         onChanged();
         return this;
@@ -10129,17 +10459,17 @@ public final class WorldEventsBytes {
 
       private int gang_ ;
       /**
-       * <code>optional int32 gang = 84 [default = 0];</code>
+       * <code>optional int32 gang = 87 [default = 0];</code>
        *
        * <pre>
        ** 钢*100 
        * </pre>
        */
       public boolean hasGang() {
-        return ((bitField2_ & 0x00080000) == 0x00080000);
+        return ((bitField2_ & 0x00400000) == 0x00400000);
       }
       /**
-       * <code>optional int32 gang = 84 [default = 0];</code>
+       * <code>optional int32 gang = 87 [default = 0];</code>
        *
        * <pre>
        ** 钢*100 
@@ -10149,27 +10479,27 @@ public final class WorldEventsBytes {
         return gang_;
       }
       /**
-       * <code>optional int32 gang = 84 [default = 0];</code>
+       * <code>optional int32 gang = 87 [default = 0];</code>
        *
        * <pre>
        ** 钢*100 
        * </pre>
        */
       public Builder setGang(int value) {
-        bitField2_ |= 0x00080000;
+        bitField2_ |= 0x00400000;
         gang_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gang = 84 [default = 0];</code>
+       * <code>optional int32 gang = 87 [default = 0];</code>
        *
        * <pre>
        ** 钢*100 
        * </pre>
        */
       public Builder clearGang() {
-        bitField2_ = (bitField2_ & ~0x00080000);
+        bitField2_ = (bitField2_ & ~0x00400000);
         gang_ = 0;
         onChanged();
         return this;
@@ -10177,17 +10507,17 @@ public final class WorldEventsBytes {
 
       private int songmuban_ ;
       /**
-       * <code>optional int32 songmuban = 85 [default = 0];</code>
+       * <code>optional int32 songmuban = 88 [default = 0];</code>
        *
        * <pre>
        ** 松木板*100 
        * </pre>
        */
       public boolean hasSongmuban() {
-        return ((bitField2_ & 0x00100000) == 0x00100000);
+        return ((bitField2_ & 0x00800000) == 0x00800000);
       }
       /**
-       * <code>optional int32 songmuban = 85 [default = 0];</code>
+       * <code>optional int32 songmuban = 88 [default = 0];</code>
        *
        * <pre>
        ** 松木板*100 
@@ -10197,27 +10527,27 @@ public final class WorldEventsBytes {
         return songmuban_;
       }
       /**
-       * <code>optional int32 songmuban = 85 [default = 0];</code>
+       * <code>optional int32 songmuban = 88 [default = 0];</code>
        *
        * <pre>
        ** 松木板*100 
        * </pre>
        */
       public Builder setSongmuban(int value) {
-        bitField2_ |= 0x00100000;
+        bitField2_ |= 0x00800000;
         songmuban_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 songmuban = 85 [default = 0];</code>
+       * <code>optional int32 songmuban = 88 [default = 0];</code>
        *
        * <pre>
        ** 松木板*100 
        * </pre>
        */
       public Builder clearSongmuban() {
-        bitField2_ = (bitField2_ & ~0x00100000);
+        bitField2_ = (bitField2_ & ~0x00800000);
         songmuban_ = 0;
         onChanged();
         return this;
@@ -10225,17 +10555,17 @@ public final class WorldEventsBytes {
 
       private int hunningtu_ ;
       /**
-       * <code>optional int32 hunningtu = 86 [default = 0];</code>
+       * <code>optional int32 hunningtu = 89 [default = 0];</code>
        *
        * <pre>
        ** 混凝土*100 
        * </pre>
        */
       public boolean hasHunningtu() {
-        return ((bitField2_ & 0x00200000) == 0x00200000);
+        return ((bitField2_ & 0x01000000) == 0x01000000);
       }
       /**
-       * <code>optional int32 hunningtu = 86 [default = 0];</code>
+       * <code>optional int32 hunningtu = 89 [default = 0];</code>
        *
        * <pre>
        ** 混凝土*100 
@@ -10245,27 +10575,27 @@ public final class WorldEventsBytes {
         return hunningtu_;
       }
       /**
-       * <code>optional int32 hunningtu = 86 [default = 0];</code>
+       * <code>optional int32 hunningtu = 89 [default = 0];</code>
        *
        * <pre>
        ** 混凝土*100 
        * </pre>
        */
       public Builder setHunningtu(int value) {
-        bitField2_ |= 0x00200000;
+        bitField2_ |= 0x01000000;
         hunningtu_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 hunningtu = 86 [default = 0];</code>
+       * <code>optional int32 hunningtu = 89 [default = 0];</code>
        *
        * <pre>
        ** 混凝土*100 
        * </pre>
        */
       public Builder clearHunningtu() {
-        bitField2_ = (bitField2_ & ~0x00200000);
+        bitField2_ = (bitField2_ & ~0x01000000);
         hunningtu_ = 0;
         onChanged();
         return this;
@@ -10990,7 +11320,7 @@ public final class WorldEventsBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\036proto/world_events_bytes.proto\022 com.ga" +
-      "me.framework.resource.data\"\341\016\n\014WORLD_EVE" +
+      "me.framework.resource.data\"\274\017\n\014WORLD_EVE" +
       "NTS\022\r\n\002id\030\001 \002(\005:\0010\022\024\n\nevent_name\030\002 \001(\t:\000" +
       "\022\027\n\014event_unlock\030\003 \001(\005:\0010\022\024\n\nevent_desc\030" +
       "\004 \001(\t:\000\022\024\n\nevent_news\030\005 \001(\t:\000\022\032\n\020event_n" +
@@ -11004,43 +11334,45 @@ public final class WorldEventsBytes {
       "\005:\0010\022\031\n\016shucai_bldgcap\030\023 \001(\005:\0010\022\032\n\017shuig" +
       "uo_bldgcap\030\024 \001(\005:\0010\022\027\n\014jing_bldgcap\030\025 \001(" +
       "\005:\0010\022\031\n\016lushui_bldgcap\030\026 \001(\005:\0010\022\032\n\017songs" +
-      "hu_bldgcap\030\027 \001(\005:\0010\022\027\n\014dami_bldgspd\030\030 \001(" +
-      "\005:\0010\022\031\n\016shucai_bldgspd\030\031 \001(\005:\0010\022\032\n\017shuig" +
-      "uo_bldgspd\030\032 \001(\005:\0010\022\027\n\014jing_bldgspd\030\033 \001(" +
-      "\005:\0010\022\031\n\016lushui_bldgspd\030\034 \001(\005:\0010\022\032\n\017songs" +
-      "hu_bldgspd\030\035 \001(\005:\0010\022\031\n\016fengli_bldgspd\030\036 ",
-      "\001(\005:\0010\022\032\n\017wuxiandian_bldg\030\037 \001(\005:\0010\022\025\n\nle" +
-      "ida_bldg\030  \001(\005:\0010\022\026\n\013car_bldgspd\030! \001(\005:\001" +
-      "0\022\024\n\ttax_coeff\030\" \001(\005:\0010\022\017\n\004dami\030# \001(\005:\0010" +
-      "\022\021\n\006shucai\030$ \001(\005:\0010\022\022\n\007shuiguo\030% \001(\005:\0010\022" +
-      "\021\n\006huafei\030& \001(\005:\0010\022\017\n\004shui\030\' \001(\005:\0010\022\021\n\006s" +
-      "ongmu\030( \001(\005:\0010\022\021\n\006shuini\030) \001(\005:\0010\022\016\n\003cao" +
-      "\030* \001(\005:\0010\022\022\n\007yuanyou\030+ \001(\005:\0010\022\016\n\003tie\030, \001" +
-      "(\005:\0010\022\023\n\010jijiubao\030- \001(\005:\0010\022\020\n\005rizhi\030. \001(" +
-      "\005:\0010\022\027\n\014jiqiangtuzhi\030/ \001(\005:\0010\022\024\n\tjujituz" +
-      "hi\0300 \001(\005:\0010\022\025\n\njipaotuzhi\0301 \001(\005:\0010\022\027\n\014yu",
-      "anlongping\0302 \001(\005:\0010\022\027\n\014huafeigongye\0303 \001(" +
-      "\005:\0010\022\022\n\007yangzhu\0304 \001(\005:\0010\022\022\n\007cangchu\0305 \001(" +
-      "\005:\0010\022\021\n\006tesila\0306 \001(\005:\0010\022\025\n\nluokefeile\0307 " +
-      "\001(\005:\0010\022\022\n\007kanaiji\0308 \001(\005:\0010\022\020\n\005luban\0309 \001(" +
-      "\005:\0010\022\017\n\004tumu\030: \001(\005:\0010\022\022\n\007fangdao\030; \001(\005:\001" +
-      "0\022\022\n\007makeqin\030< \001(\005:\0010\022\025\n\nwodefendou\030= \001(" +
-      "\005:\0010\022\023\n\010jiatelin\030> \001(\005:\0010\022\023\n\010wbaleite\030? " +
-      "\001(\005:\0010\022\022\n\007guanren\030@ \001(\005:\0010\022\022\n\007toukui1\030A " +
-      "\001(\005:\0010\022\022\n\007toukui2\030B \001(\005:\0010\022\022\n\007toukui3\030C " +
-      "\001(\005:\0010\022\025\n\nshouqiang1\030D \001(\005:\0010\022\023\n\010buqiang",
-      "1\030E \001(\005:\0010\022\027\n\014qingjiqiang1\030F \001(\005:\0010\022\025\n\nf" +
-      "angdanyi1\030G \001(\005:\0010\022\025\n\nfangdanyi2\030H \001(\005:\001" +
-      "0\022\025\n\nfangdanyi3\030I \001(\005:\0010\022\020\n\005kuzi1\030J \001(\005:" +
-      "\0010\022\020\n\005kuzi2\030K \001(\005:\0010\022\020\n\005kuzi3\030L \001(\005:\0010\022\021" +
-      "\n\006xiezi1\030M \001(\005:\0010\022\021\n\006xiezi2\030N \001(\005:\0010\022\021\n\006" +
-      "xiezi3\030O \001(\005:\0010\022\030\n\rkuangquanshui\030P \001(\005:\001" +
-      "0\022\021\n\006siliao\030Q \001(\005:\0010\022\021\n\006zhurou\030R \001(\005:\0010\022" +
-      "\020\n\005qiyou\030S \001(\005:\0010\022\017\n\004gang\030T \001(\005:\0010\022\024\n\tso" +
-      "ngmuban\030U \001(\005:\0010\022\024\n\thunningtu\030V \001(\005:\0010\"S" +
-      "\n\022WORLD_EVENTS_ARRAY\022=\n\005items\030\001 \003(\0132..co",
-      "m.game.framework.resource.data.WORLD_EVE" +
-      "NTS"
+      "hu_bldgcap\030\027 \001(\005:\0010\022\036\n\023taiyangneng_bldgc" +
+      "ap\030\030 \001(\005:\0010\022\031\n\016huafei_bldgcap\030\031 \001(\005:\0010\022\027" +
+      "\n\014dami_bldgspd\030\032 \001(\005:\0010\022\031\n\016shucai_bldgsp" +
+      "d\030\033 \001(\005:\0010\022\032\n\017shuiguo_bldgspd\030\034 \001(\005:\0010\022\027" +
+      "\n\014jing_bldgspd\030\035 \001(\005:\0010\022\031\n\016lushui_bldgsp",
+      "d\030\036 \001(\005:\0010\022\032\n\017songshu_bldgspd\030\037 \001(\005:\0010\022\036" +
+      "\n\023taiyangneng_bldgspd\030  \001(\005:\0010\022\031\n\016huafei" +
+      "_bldgspd\030! \001(\005:\0010\022\032\n\017wuxiandian_bldg\030\" \001" +
+      "(\005:\0010\022\025\n\nleida_bldg\030# \001(\005:\0010\022\026\n\013car_bldg" +
+      "spd\030$ \001(\005:\0010\022\024\n\ttax_coeff\030% \001(\005:\0010\022\017\n\004da" +
+      "mi\030& \001(\005:\0010\022\021\n\006shucai\030\' \001(\005:\0010\022\022\n\007shuigu" +
+      "o\030( \001(\005:\0010\022\021\n\006huafei\030) \001(\005:\0010\022\017\n\004shui\030* " +
+      "\001(\005:\0010\022\021\n\006songmu\030+ \001(\005:\0010\022\021\n\006shuini\030, \001(" +
+      "\005:\0010\022\016\n\003cao\030- \001(\005:\0010\022\022\n\007yuanyou\030. \001(\005:\0010" +
+      "\022\016\n\003tie\030/ \001(\005:\0010\022\023\n\010jijiubao\0300 \001(\005:\0010\022\020\n",
+      "\005rizhi\0301 \001(\005:\0010\022\027\n\014jiqiangtuzhi\0302 \001(\005:\0010" +
+      "\022\024\n\tjujituzhi\0303 \001(\005:\0010\022\025\n\njipaotuzhi\0304 \001" +
+      "(\005:\0010\022\027\n\014yuanlongping\0305 \001(\005:\0010\022\027\n\014huafei" +
+      "gongye\0306 \001(\005:\0010\022\022\n\007yangzhu\0307 \001(\005:\0010\022\022\n\007c" +
+      "angchu\0308 \001(\005:\0010\022\021\n\006tesila\0309 \001(\005:\0010\022\025\n\nlu" +
+      "okefeile\030: \001(\005:\0010\022\022\n\007kanaiji\030; \001(\005:\0010\022\020\n" +
+      "\005luban\030< \001(\005:\0010\022\017\n\004tumu\030= \001(\005:\0010\022\022\n\007fang" +
+      "dao\030> \001(\005:\0010\022\022\n\007makeqin\030? \001(\005:\0010\022\025\n\nwode" +
+      "fendou\030@ \001(\005:\0010\022\023\n\010jiatelin\030A \001(\005:\0010\022\023\n\010" +
+      "wbaleite\030B \001(\005:\0010\022\022\n\007guanren\030C \001(\005:\0010\022\022\n",
+      "\007toukui1\030D \001(\005:\0010\022\022\n\007toukui2\030E \001(\005:\0010\022\022\n" +
+      "\007toukui3\030F \001(\005:\0010\022\025\n\nshouqiang1\030G \001(\005:\0010" +
+      "\022\023\n\010buqiang1\030H \001(\005:\0010\022\027\n\014qingjiqiang1\030I " +
+      "\001(\005:\0010\022\025\n\nfangdanyi1\030J \001(\005:\0010\022\025\n\nfangdan" +
+      "yi2\030K \001(\005:\0010\022\025\n\nfangdanyi3\030L \001(\005:\0010\022\020\n\005k" +
+      "uzi1\030M \001(\005:\0010\022\020\n\005kuzi2\030N \001(\005:\0010\022\020\n\005kuzi3" +
+      "\030O \001(\005:\0010\022\021\n\006xiezi1\030P \001(\005:\0010\022\021\n\006xiezi2\030Q" +
+      " \001(\005:\0010\022\021\n\006xiezi3\030R \001(\005:\0010\022\030\n\rkuangquans" +
+      "hui\030S \001(\005:\0010\022\021\n\006siliao\030T \001(\005:\0010\022\021\n\006zhuro" +
+      "u\030U \001(\005:\0010\022\020\n\005qiyou\030V \001(\005:\0010\022\017\n\004gang\030W \001",
+      "(\005:\0010\022\024\n\tsongmuban\030X \001(\005:\0010\022\024\n\thunningtu" +
+      "\030Y \001(\005:\0010\"S\n\022WORLD_EVENTS_ARRAY\022=\n\005items" +
+      "\030\001 \003(\0132..com.game.framework.resource.dat" +
+      "a.WORLD_EVENTS"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11059,7 +11391,7 @@ public final class WorldEventsBytes {
     internal_static_com_game_framework_resource_data_WORLD_EVENTS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_WORLD_EVENTS_descriptor,
-        new java.lang.String[] { "Id", "EventName", "EventUnlock", "EventDesc", "EventNews", "EventNewsdetail", "EventDuration", "EventIcon", "EventProb", "ConProb", "InvaProb", "ZombieAtk", "ZombieDef", "ZombieHp", "ZombieNum", "Health", "Mood", "DamiBldgcap", "ShucaiBldgcap", "ShuiguoBldgcap", "JingBldgcap", "LushuiBldgcap", "SongshuBldgcap", "DamiBldgspd", "ShucaiBldgspd", "ShuiguoBldgspd", "JingBldgspd", "LushuiBldgspd", "SongshuBldgspd", "FengliBldgspd", "WuxiandianBldg", "LeidaBldg", "CarBldgspd", "TaxCoeff", "Dami", "Shucai", "Shuiguo", "Huafei", "Shui", "Songmu", "Shuini", "Cao", "Yuanyou", "Tie", "Jijiubao", "Rizhi", "Jiqiangtuzhi", "Jujituzhi", "Jipaotuzhi", "Yuanlongping", "Huafeigongye", "Yangzhu", "Cangchu", "Tesila", "Luokefeile", "Kanaiji", "Luban", "Tumu", "Fangdao", "Makeqin", "Wodefendou", "Jiatelin", "Wbaleite", "Guanren", "Toukui1", "Toukui2", "Toukui3", "Shouqiang1", "Buqiang1", "Qingjiqiang1", "Fangdanyi1", "Fangdanyi2", "Fangdanyi3", "Kuzi1", "Kuzi2", "Kuzi3", "Xiezi1", "Xiezi2", "Xiezi3", "Kuangquanshui", "Siliao", "Zhurou", "Qiyou", "Gang", "Songmuban", "Hunningtu", });
+        new java.lang.String[] { "Id", "EventName", "EventUnlock", "EventDesc", "EventNews", "EventNewsdetail", "EventDuration", "EventIcon", "EventProb", "ConProb", "InvaProb", "ZombieAtk", "ZombieDef", "ZombieHp", "ZombieNum", "Health", "Mood", "DamiBldgcap", "ShucaiBldgcap", "ShuiguoBldgcap", "JingBldgcap", "LushuiBldgcap", "SongshuBldgcap", "TaiyangnengBldgcap", "HuafeiBldgcap", "DamiBldgspd", "ShucaiBldgspd", "ShuiguoBldgspd", "JingBldgspd", "LushuiBldgspd", "SongshuBldgspd", "TaiyangnengBldgspd", "HuafeiBldgspd", "WuxiandianBldg", "LeidaBldg", "CarBldgspd", "TaxCoeff", "Dami", "Shucai", "Shuiguo", "Huafei", "Shui", "Songmu", "Shuini", "Cao", "Yuanyou", "Tie", "Jijiubao", "Rizhi", "Jiqiangtuzhi", "Jujituzhi", "Jipaotuzhi", "Yuanlongping", "Huafeigongye", "Yangzhu", "Cangchu", "Tesila", "Luokefeile", "Kanaiji", "Luban", "Tumu", "Fangdao", "Makeqin", "Wodefendou", "Jiatelin", "Wbaleite", "Guanren", "Toukui1", "Toukui2", "Toukui3", "Shouqiang1", "Buqiang1", "Qingjiqiang1", "Fangdanyi1", "Fangdanyi2", "Fangdanyi3", "Kuzi1", "Kuzi2", "Kuzi3", "Xiezi1", "Xiezi2", "Xiezi3", "Kuangquanshui", "Siliao", "Zhurou", "Qiyou", "Gang", "Songmuban", "Hunningtu", });
     internal_static_com_game_framework_resource_data_WORLD_EVENTS_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_WORLD_EVENTS_ARRAY_fieldAccessorTable = new

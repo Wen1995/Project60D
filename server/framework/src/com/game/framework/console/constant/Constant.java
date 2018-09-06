@@ -21,8 +21,6 @@ public class Constant {
 
     public static final int MAX_LEVEL = 20;
 
-    public static final int K = 100000;
-
     public static final double P = 0.95;
 
     public static final int REGULAR_SCHEDULE = 300;

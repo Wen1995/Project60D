@@ -28,8 +28,8 @@ namespace com.game.framework.resource.data {
   public sealed partial class ITEM_RES : pb::GeneratedMessageLite<ITEM_RES, ITEM_RES.Builder> {
     private ITEM_RES() { }
     private static readonly ITEM_RES defaultInstance = new ITEM_RES().MakeReadOnly();
-    private static readonly string[] _iTEMRESFieldNames = new string[] { "desc", "gold_conv", "health_rec", "healthrec_lim", "hp_rec", "icon_name", "id", "if_available", "item_lvl", "key_name", "min_name", "mood_rec", "moodrec_lim", "serviceable_rate", "small_icon_name", "starv_rec", "stor_unit", "water_rec" };
-    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 66, 72, 120, 128, 96, 50, 8, 88, 16, 34, 26, 136, 144, 40, 58, 104, 80, 112 };
+    private static readonly string[] _iTEMRESFieldNames = new string[] { "agi_add", "atk_add", "def_add", "desc", "gold_conv", "health_rec", "healthrec_lim", "hp_rec", "icon_name", "id", "if_available", "item_lvl", "key_name", "load_add", "min_name", "mood_rec", "moodrec_lim", "serviceable_rate", "small_icon_name", "spd_add", "starv_rec", "stor_unit", "water_rec" };
+    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 184, 152, 160, 66, 72, 120, 128, 96, 50, 8, 88, 16, 34, 176, 26, 136, 144, 40, 58, 168, 104, 80, 112 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -283,6 +283,71 @@ namespace com.game.framework.resource.data {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int AtkAddFieldNumber = 19;
+    private bool hasAtkAdd;
+    private int atkAdd_;
+    public bool HasAtkAdd {
+      get { return hasAtkAdd; }
+    }
+    public int AtkAdd {
+      get { return atkAdd_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int DefAddFieldNumber = 20;
+    private bool hasDefAdd;
+    private int defAdd_;
+    public bool HasDefAdd {
+      get { return hasDefAdd; }
+    }
+    public int DefAdd {
+      get { return defAdd_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int SpdAddFieldNumber = 21;
+    private bool hasSpdAdd;
+    private int spdAdd_;
+    public bool HasSpdAdd {
+      get { return hasSpdAdd; }
+    }
+    public int SpdAdd {
+      get { return spdAdd_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int LoadAddFieldNumber = 22;
+    private bool hasLoadAdd;
+    private int loadAdd_;
+    public bool HasLoadAdd {
+      get { return hasLoadAdd; }
+    }
+    public int LoadAdd {
+      get { return loadAdd_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int AgiAddFieldNumber = 23;
+    private bool hasAgiAdd;
+    private int agiAdd_;
+    public bool HasAgiAdd {
+      get { return hasAgiAdd; }
+    }
+    public int AgiAdd {
+      get { return agiAdd_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -299,58 +364,73 @@ namespace com.game.framework.resource.data {
       int size = SerializedSize;
       string[] field_names = _iTEMRESFieldNames;
       if (hasId) {
-        output.WriteInt32(1, field_names[6], Id);
+        output.WriteInt32(1, field_names[9], Id);
       }
       if (hasItemLvl) {
-        output.WriteInt32(2, field_names[8], ItemLvl);
+        output.WriteInt32(2, field_names[11], ItemLvl);
       }
       if (hasMinName) {
-        output.WriteString(3, field_names[10], MinName);
+        output.WriteString(3, field_names[14], MinName);
       }
       if (hasKeyName) {
-        output.WriteString(4, field_names[9], KeyName);
+        output.WriteString(4, field_names[12], KeyName);
       }
       if (hasServiceableRate) {
-        output.WriteInt32(5, field_names[13], ServiceableRate);
+        output.WriteInt32(5, field_names[17], ServiceableRate);
       }
       if (hasIconName) {
-        output.WriteString(6, field_names[5], IconName);
+        output.WriteString(6, field_names[8], IconName);
       }
       if (hasSmallIconName) {
-        output.WriteString(7, field_names[14], SmallIconName);
+        output.WriteString(7, field_names[18], SmallIconName);
       }
       if (hasDesc) {
-        output.WriteString(8, field_names[0], Desc);
+        output.WriteString(8, field_names[3], Desc);
       }
       if (hasGoldConv) {
-        output.WriteInt32(9, field_names[1], GoldConv);
+        output.WriteInt32(9, field_names[4], GoldConv);
       }
       if (hasStorUnit) {
-        output.WriteInt32(10, field_names[16], StorUnit);
+        output.WriteInt32(10, field_names[21], StorUnit);
       }
       if (hasIfAvailable) {
-        output.WriteInt32(11, field_names[7], IfAvailable);
+        output.WriteInt32(11, field_names[10], IfAvailable);
       }
       if (hasHpRec) {
-        output.WriteInt32(12, field_names[4], HpRec);
+        output.WriteInt32(12, field_names[7], HpRec);
       }
       if (hasStarvRec) {
-        output.WriteInt32(13, field_names[15], StarvRec);
+        output.WriteInt32(13, field_names[20], StarvRec);
       }
       if (hasWaterRec) {
-        output.WriteInt32(14, field_names[17], WaterRec);
+        output.WriteInt32(14, field_names[22], WaterRec);
       }
       if (hasHealthRec) {
-        output.WriteInt32(15, field_names[2], HealthRec);
+        output.WriteInt32(15, field_names[5], HealthRec);
       }
       if (hasHealthrecLim) {
-        output.WriteInt32(16, field_names[3], HealthrecLim);
+        output.WriteInt32(16, field_names[6], HealthrecLim);
       }
       if (hasMoodRec) {
-        output.WriteInt32(17, field_names[11], MoodRec);
+        output.WriteInt32(17, field_names[15], MoodRec);
       }
       if (hasMoodrecLim) {
-        output.WriteInt32(18, field_names[12], MoodrecLim);
+        output.WriteInt32(18, field_names[16], MoodrecLim);
+      }
+      if (hasAtkAdd) {
+        output.WriteInt32(19, field_names[1], AtkAdd);
+      }
+      if (hasDefAdd) {
+        output.WriteInt32(20, field_names[2], DefAdd);
+      }
+      if (hasSpdAdd) {
+        output.WriteInt32(21, field_names[19], SpdAdd);
+      }
+      if (hasLoadAdd) {
+        output.WriteInt32(22, field_names[13], LoadAdd);
+      }
+      if (hasAgiAdd) {
+        output.WriteInt32(23, field_names[0], AgiAdd);
       }
     }
     
@@ -418,6 +498,21 @@ namespace com.game.framework.resource.data {
         if (hasMoodrecLim) {
           size += pb::CodedOutputStream.ComputeInt32Size(18, MoodrecLim);
         }
+        if (hasAtkAdd) {
+          size += pb::CodedOutputStream.ComputeInt32Size(19, AtkAdd);
+        }
+        if (hasDefAdd) {
+          size += pb::CodedOutputStream.ComputeInt32Size(20, DefAdd);
+        }
+        if (hasSpdAdd) {
+          size += pb::CodedOutputStream.ComputeInt32Size(21, SpdAdd);
+        }
+        if (hasLoadAdd) {
+          size += pb::CodedOutputStream.ComputeInt32Size(22, LoadAdd);
+        }
+        if (hasAgiAdd) {
+          size += pb::CodedOutputStream.ComputeInt32Size(23, AgiAdd);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -444,6 +539,11 @@ namespace com.game.framework.resource.data {
       if (hasHealthrecLim) hash ^= healthrecLim_.GetHashCode();
       if (hasMoodRec) hash ^= moodRec_.GetHashCode();
       if (hasMoodrecLim) hash ^= moodrecLim_.GetHashCode();
+      if (hasAtkAdd) hash ^= atkAdd_.GetHashCode();
+      if (hasDefAdd) hash ^= defAdd_.GetHashCode();
+      if (hasSpdAdd) hash ^= spdAdd_.GetHashCode();
+      if (hasLoadAdd) hash ^= loadAdd_.GetHashCode();
+      if (hasAgiAdd) hash ^= agiAdd_.GetHashCode();
       return hash;
     }
     
@@ -468,6 +568,11 @@ namespace com.game.framework.resource.data {
       if (hasHealthrecLim != other.hasHealthrecLim || (hasHealthrecLim && !healthrecLim_.Equals(other.healthrecLim_))) return false;
       if (hasMoodRec != other.hasMoodRec || (hasMoodRec && !moodRec_.Equals(other.moodRec_))) return false;
       if (hasMoodrecLim != other.hasMoodrecLim || (hasMoodrecLim && !moodrecLim_.Equals(other.moodrecLim_))) return false;
+      if (hasAtkAdd != other.hasAtkAdd || (hasAtkAdd && !atkAdd_.Equals(other.atkAdd_))) return false;
+      if (hasDefAdd != other.hasDefAdd || (hasDefAdd && !defAdd_.Equals(other.defAdd_))) return false;
+      if (hasSpdAdd != other.hasSpdAdd || (hasSpdAdd && !spdAdd_.Equals(other.spdAdd_))) return false;
+      if (hasLoadAdd != other.hasLoadAdd || (hasLoadAdd && !loadAdd_.Equals(other.loadAdd_))) return false;
+      if (hasAgiAdd != other.hasAgiAdd || (hasAgiAdd && !agiAdd_.Equals(other.agiAdd_))) return false;
       return true;
     }
     
@@ -682,6 +787,21 @@ namespace com.game.framework.resource.data {
         if (other.HasMoodrecLim) {
           MoodrecLim = other.MoodrecLim;
         }
+        if (other.HasAtkAdd) {
+          AtkAdd = other.AtkAdd;
+        }
+        if (other.HasDefAdd) {
+          DefAdd = other.DefAdd;
+        }
+        if (other.HasSpdAdd) {
+          SpdAdd = other.SpdAdd;
+        }
+        if (other.HasLoadAdd) {
+          LoadAdd = other.LoadAdd;
+        }
+        if (other.HasAgiAdd) {
+          AgiAdd = other.AgiAdd;
+        }
         return this;
       }
       
@@ -784,6 +904,26 @@ namespace com.game.framework.resource.data {
             }
             case 144: {
               result.hasMoodrecLim = input.ReadInt32(ref result.moodrecLim_);
+              break;
+            }
+            case 152: {
+              result.hasAtkAdd = input.ReadInt32(ref result.atkAdd_);
+              break;
+            }
+            case 160: {
+              result.hasDefAdd = input.ReadInt32(ref result.defAdd_);
+              break;
+            }
+            case 168: {
+              result.hasSpdAdd = input.ReadInt32(ref result.spdAdd_);
+              break;
+            }
+            case 176: {
+              result.hasLoadAdd = input.ReadInt32(ref result.loadAdd_);
+              break;
+            }
+            case 184: {
+              result.hasAgiAdd = input.ReadInt32(ref result.agiAdd_);
               break;
             }
           }
@@ -1155,6 +1295,106 @@ namespace com.game.framework.resource.data {
         PrepareBuilder();
         result.hasMoodrecLim = false;
         result.moodrecLim_ = 0;
+        return this;
+      }
+      
+      public bool HasAtkAdd {
+        get { return result.hasAtkAdd; }
+      }
+      public int AtkAdd {
+        get { return result.AtkAdd; }
+        set { SetAtkAdd(value); }
+      }
+      public Builder SetAtkAdd(int value) {
+        PrepareBuilder();
+        result.hasAtkAdd = true;
+        result.atkAdd_ = value;
+        return this;
+      }
+      public Builder ClearAtkAdd() {
+        PrepareBuilder();
+        result.hasAtkAdd = false;
+        result.atkAdd_ = 0;
+        return this;
+      }
+      
+      public bool HasDefAdd {
+        get { return result.hasDefAdd; }
+      }
+      public int DefAdd {
+        get { return result.DefAdd; }
+        set { SetDefAdd(value); }
+      }
+      public Builder SetDefAdd(int value) {
+        PrepareBuilder();
+        result.hasDefAdd = true;
+        result.defAdd_ = value;
+        return this;
+      }
+      public Builder ClearDefAdd() {
+        PrepareBuilder();
+        result.hasDefAdd = false;
+        result.defAdd_ = 0;
+        return this;
+      }
+      
+      public bool HasSpdAdd {
+        get { return result.hasSpdAdd; }
+      }
+      public int SpdAdd {
+        get { return result.SpdAdd; }
+        set { SetSpdAdd(value); }
+      }
+      public Builder SetSpdAdd(int value) {
+        PrepareBuilder();
+        result.hasSpdAdd = true;
+        result.spdAdd_ = value;
+        return this;
+      }
+      public Builder ClearSpdAdd() {
+        PrepareBuilder();
+        result.hasSpdAdd = false;
+        result.spdAdd_ = 0;
+        return this;
+      }
+      
+      public bool HasLoadAdd {
+        get { return result.hasLoadAdd; }
+      }
+      public int LoadAdd {
+        get { return result.LoadAdd; }
+        set { SetLoadAdd(value); }
+      }
+      public Builder SetLoadAdd(int value) {
+        PrepareBuilder();
+        result.hasLoadAdd = true;
+        result.loadAdd_ = value;
+        return this;
+      }
+      public Builder ClearLoadAdd() {
+        PrepareBuilder();
+        result.hasLoadAdd = false;
+        result.loadAdd_ = 0;
+        return this;
+      }
+      
+      public bool HasAgiAdd {
+        get { return result.hasAgiAdd; }
+      }
+      public int AgiAdd {
+        get { return result.AgiAdd; }
+        set { SetAgiAdd(value); }
+      }
+      public Builder SetAgiAdd(int value) {
+        PrepareBuilder();
+        result.hasAgiAdd = true;
+        result.agiAdd_ = value;
+        return this;
+      }
+      public Builder ClearAgiAdd() {
+        PrepareBuilder();
+        result.hasAgiAdd = false;
+        result.agiAdd_ = 0;
         return this;
       }
     }

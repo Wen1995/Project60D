@@ -26,6 +26,7 @@ import com.game.framework.protocol.Database.BuildingState;
 import com.game.framework.protocol.Database.ProcessInfo;
 import com.game.framework.protocol.Database.ReceiveInfo;
 import com.game.framework.protocol.Database.UpgradeInfo;
+import com.game.framework.protocol.Message.UserInfo;
 import com.game.framework.protocol.Scene.BuildingInfo;
 import com.game.framework.protocol.Scene.TCSFinishUnlock;
 import com.game.framework.protocol.Scene.TCSFinishUpgrade;
@@ -40,13 +41,12 @@ import com.game.framework.protocol.Scene.TSCUnlock;
 import com.game.framework.protocol.Scene.TSCUpgrade;
 import com.game.framework.protocol.User.ResourceInfo;
 import com.game.framework.protocol.User.UserResource;
-import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.resource.StaticDataManager;
+import com.game.framework.resource.data.ArithmeticCoefficientBytes.ARITHMETIC_COEFFICIENT;
 import com.game.framework.resource.data.BuildingBytes.BUILDING;
 import com.game.framework.resource.data.BuildingBytes.BUILDING.CostStruct;
 import com.game.framework.task.TimerManager;
 import com.game.framework.utils.BuildingUtil;
-import com.game.framework.utils.GroupUtil;
 import com.game.framework.utils.ReadOnlyMap;
 
 public class SceneServiceImpl implements SceneService {
@@ -64,6 +64,7 @@ public class SceneServiceImpl implements SceneService {
         User user = userDao.get(uid);
         Long groupId = user.getGroupId();
         Group group = groupDao.get(groupId);
+        List<User> users = userDao.getAllByGroupId(groupId);
         List<Building> buildings = buildingDao.getAllByGroupId(groupId);
         
         List<BuildingInfo> buildingInfos = new ArrayList<>();
@@ -100,10 +101,17 @@ public class SceneServiceImpl implements SceneService {
             buildingInfos.add(buildingInfoBuilder.build());
         }
         
+        List<UserInfo> userInfos = new ArrayList<>();
+        for (User u : users) {
+            UserInfo userInfo = UserInfo.newBuilder().setUid(u.getId()).setAccount(u.getAccount())
+                    .setBlood(u.getBlood()).setHealth(u.getHealth()).build();
+            userInfos.add(userInfo);
+        }
+        
         TSCGetSceneInfo p = TSCGetSceneInfo.newBuilder()
                 .addAllBuildingInfos(buildingInfos)
                 .setTotalContribution(group.getTotalContribution())
-                .setPeopleNum(group.getPeopleNumber())
+                .addAllUserInfos(userInfos)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
@@ -250,7 +258,6 @@ public class SceneServiceImpl implements SceneService {
                         totalContribution += addContribution;
                         group.setTotalContribution(totalContribution);
                         groupDao.update(group);
-                        DynamicDataManager.GetInstance().groupId2Level.put(groupId, GroupUtil.getGroupLevel(totalContribution));
                         
                         // 更新建筑升级状态
                         String timerKey = TimerConstant.UPGRADE + buildingId;
@@ -395,7 +402,6 @@ public class SceneServiceImpl implements SceneService {
                     totalContribution += addContribution;
                     group.setTotalContribution(totalContribution);
                     groupDao.update(group);
-                    DynamicDataManager.GetInstance().groupId2Level.put(groupId, GroupUtil.getGroupLevel(totalContribution));
                     
                     // 更新建筑升级状态
                     String timerKey = TimerConstant.UNLOCK + buildingId;
@@ -838,13 +844,18 @@ public class SceneServiceImpl implements SceneService {
      */
     private int receiveTemp(ReadOnlyMap<Integer, BUILDING> buildingMap, Integer configId, 
             User user, Group group, BuildingState.Builder buildingStateBuilder, Building building, Long thisReceiveTime) {
+        ReadOnlyMap<Integer, ARITHMETIC_COEFFICIENT> arithmeticCoefficientMap = StaticDataManager.GetInstance().arithmeticCoefficientMap;
+        ARITHMETIC_COEFFICIENT arithmeticCoefficient = arithmeticCoefficientMap.get(30020000);
+        int K1 = arithmeticCoefficient.getAcK1()/100;
+        double K2 = arithmeticCoefficient.getAcK2()*1.0/100;
+        double K3 = arithmeticCoefficient.getAcK3()*1.0/100;
         int number = 0;
         String tableName = buildingMap.get(configId).getBldgFuncTableName();
         Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
         Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
         double speed = BuildingUtil.getSpeed(tableName, tableId);
         double peopleNumber = group.getPeopleNumber();
-        double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
+        double stake = (1 + (peopleNumber - 1)*K3)*(1/peopleNumber + ((user.getContribution() + K1)/(group.getTotalContribution() + peopleNumber*K1) - 1/peopleNumber)*K2);
         
         for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
             ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
@@ -905,13 +916,18 @@ public class SceneServiceImpl implements SceneService {
     private int receiveTemp(ReadOnlyMap<Integer, BUILDING> buildingMap, Integer configId, 
             User user, Group group, BuildingState.Builder buildingStateBuilder, 
             Building building, Long thisReceiveTime, Integer storehouseCapacity) {
+        ReadOnlyMap<Integer, ARITHMETIC_COEFFICIENT> arithmeticCoefficientMap = StaticDataManager.GetInstance().arithmeticCoefficientMap;
+        ARITHMETIC_COEFFICIENT arithmeticCoefficient = arithmeticCoefficientMap.get(30020000);
+        int K1 = arithmeticCoefficient.getAcK1()/100;
+        double K2 = arithmeticCoefficient.getAcK2()*1.0/100;
+        double K3 = arithmeticCoefficient.getAcK3()*1.0/100;
         int number = 0;
         String tableName = buildingMap.get(configId).getBldgFuncTableName();
         Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
         Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
         double speed = BuildingUtil.getSpeed(tableName, tableId);
         double peopleNumber = group.getPeopleNumber();
-        double stake = 1/peopleNumber + ((user.getContribution() + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
+        double stake = (1 + (peopleNumber - 1)*K3)*(1/peopleNumber + ((user.getContribution() + K1)/(group.getTotalContribution() + peopleNumber*K1) - 1/peopleNumber)*K2);
         
         for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
             ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
@@ -980,6 +996,11 @@ public class SceneServiceImpl implements SceneService {
      */
     private BuildingState.Builder receiveTemp(ReadOnlyMap<Integer, BUILDING> buildingMap, Integer configId, 
             List<User> users, Group group, BuildingState.Builder buildingStateBuilder) {
+        ReadOnlyMap<Integer, ARITHMETIC_COEFFICIENT> arithmeticCoefficientMap = StaticDataManager.GetInstance().arithmeticCoefficientMap;
+        ARITHMETIC_COEFFICIENT arithmeticCoefficient = arithmeticCoefficientMap.get(30020000);
+        int K1 = arithmeticCoefficient.getAcK1()/100;
+        double K2 = arithmeticCoefficient.getAcK2()*1.0/100;
+        double K3 = arithmeticCoefficient.getAcK3()*1.0/100;
         int number = 0;
         String tableName = buildingMap.get(configId).getBldgFuncTableName();
         Integer tableId = buildingMap.get(configId).getBldgFuncTableId();
@@ -993,7 +1014,7 @@ public class SceneServiceImpl implements SceneService {
         long thisReceiveTime = System.currentTimeMillis();
         for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
             ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
-            double stake = 1/peopleNumber + ((uid2Contribution.get(rBuilder.getUid()) + Constant.K)/(group.getTotalContribution() + peopleNumber*Constant.K) - 1/peopleNumber)*0.6;
+            double stake = (1 + (peopleNumber - 1)*K3)*(1/peopleNumber + ((uid2Contribution.get(rBuilder.getUid()) + K1)/(group.getTotalContribution() + peopleNumber*K1) - 1/peopleNumber)*K2);
             // 计算一段时间内发生的事件造成的影响
             long lastReceiveTime = rBuilder.getLastReceiveTime();
             List<WorldEvent> worldEvents = worldEventDao.getWorldEvent(thisReceiveTime, lastReceiveTime);

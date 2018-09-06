@@ -18,9 +18,8 @@ import com.game.framework.console.config.ServerConfig;
  * 
  * @author zB
  */
-public class IdManager 
-{
-	static Logger logger = LoggerFactory.getLogger(IdManager.class);
+public class IdManager {
+    private static Logger logger = LoggerFactory.getLogger(IdManager.class);
 	
 	//单例
 	private static Object obj = new Object();
@@ -45,8 +44,7 @@ public class IdManager
 	private Map<IdType, AtomicInteger> map = new ConcurrentHashMap<IdType, AtomicInteger>(); 
 	private final ReentrantLock lock = new ReentrantLock();
 	
-	IdManager()
-	{
+	IdManager() {
 		try {
 			init();
 		} catch (Exception e) {
@@ -54,17 +52,14 @@ public class IdManager
 		}
 	}
 	
-	private void init() throws Exception
-	{
+	private void init() throws Exception {
 		serverId = ServerConfig.getServerId();
 		restartTimes = ServerConfig.getRestartTimes();
 		
-		if (serverId >= MAX_SERVER_ID) 
-		{
+		if (serverId >= MAX_SERVER_ID) {
 			throw new Exception(String.format("IdManager serverId out of max: %d", serverId));
 		}
-		if (restartTimes >= MAX_TIMES) 
-		{
+		if (restartTimes >= MAX_TIMES) {
 			throw new Exception(String.format("IdManager restartTimes out of max: %d", restartTimes));
 		}
 
@@ -72,22 +67,17 @@ public class IdManager
 		registerType();
 	}
 	
-	private long buildPrefix() 
-	{
+	private long buildPrefix() {
 		return ((long) serverId << 36) | ((long) restartTimes << 26);
 	}
 	
-	private int registerType() throws Exception 
-	{
+	private int registerType() throws Exception {
 		int ret = 0;
 		IdType[] values = IdType.values();
-		for (IdType idType : values) 
-		{
-			try 
-			{
+		for (IdType idType : values) {
+			try {
 				byte type = idType.getVal();
-				if (type >= MAX_TYPE) 
-				{
+				if (type >= MAX_TYPE) {
 					throw new Exception(String.format("IdManager IdType out of max: %d", type));
 				}
 				map.put(idType, new AtomicInteger(1));

@@ -9,7 +9,7 @@ import com.game.framework.dbcache.model.WorldEventMapper;
 public interface IWorldEventDao extends IBaseDao<WorldEvent, WorldEventMapper, WorldEventExample> {
     
     /**
-     * 一段时间内的所有世界事件
+     * 一段时间内的所有世界事件（至多七天）
      */
     List<WorldEvent> getWorldEvent(Long thisTime, Long lastTime);
 }

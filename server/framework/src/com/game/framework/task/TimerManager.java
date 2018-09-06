@@ -122,7 +122,6 @@ public class TimerManager {
                         DynamicDataManager.GetInstance().groupId2InvadeTime;
                 for (Map.Entry<Long, Long> entry : groupId2InvadeTime.entrySet()) {
                     long groupId = entry.getKey();
-                    int level = DynamicDataManager.GetInstance().groupId2Level.get(groupId);
                     long currentTime = System.currentTimeMillis();
                     // 是否多天未被进攻
                     if (currentTime - entry.getValue() > Constant.TIME_DAY * day) {
@@ -133,7 +132,7 @@ public class TimerManager {
                         p.setReceiveTime(currentTime);
                         p.setBuffer(pInvade.toByteArray());
                         GateServer.GetInstance().sendInner(p);
-                    } else if (new Random().nextInt(10000) < ZombieUtil.getZombieInvadeRate(level)) {
+                    } else if (new Random().nextInt(10000) < ZombieUtil.getZombieInvadeRate()) {
                         // 是否可以进攻
                         if (entry.getValue() + Constant.TIME_HOUR * hour < currentTime) {
                             TCSZombieInvade pInvade =
@@ -169,8 +168,6 @@ public class TimerManager {
                 Map<Integer, Long> worldEventConfigId2HappenTime =
                         DynamicDataManager.GetInstance().worldEventConfigId2HappenTime;
                 long currentTime = System.currentTimeMillis();
-                long delay = currentTime
-                        + arithmeticCoefficientMap.get(30090000).getAcK4() * Constant.TIME_MINUTE;
 
                 // 删除过期任务
                 Iterator<Map.Entry<Integer, Long>> entries =
@@ -185,6 +182,21 @@ public class TimerManager {
                             * Constant.TIME_MINUTE;
 
                     if (currentTime > endTime) {
+                        entries.remove();
+                        eventTypes.remove(type);
+                    }
+                }
+
+                long happenTime = currentTime
+                        + arithmeticCoefficientMap.get(30090000).getAcK4() * Constant.TIME_MINUTE;
+                for (Map.Entry<Integer, WORLD_EVENTS> entry : worldEventsMap.entrySet()) {
+                    int congigId = entry.getKey();
+                    int type = congigId / 100 % 10000;
+                    if (eventTypes.contains(type)) {
+                        continue;
+                    }
+                    int rate = entry.getValue().getEventProb();
+                    if (new Random().nextInt(100000) < rate) {
                         Long id = IdManager.GetInstance().genId(IdType.WORLDEVENT);
                         WorldEvent worldEvent = new WorldEvent();
                         worldEvent.setId(id);
@@ -193,6 +205,8 @@ public class TimerManager {
                         worldEvent.setTime(new Date(happenTime));
                         worldEventDao.insert(worldEvent);
 
+                        long endTime = happenTime + worldEventsMap.get(congigId).getEventDuration()
+                                * Constant.TIME_MINUTE;
                         id = IdManager.GetInstance().genId(IdType.WORLDEVENT);
                         worldEvent = new WorldEvent();
                         worldEvent.setId(id);
@@ -201,19 +215,7 @@ public class TimerManager {
                         worldEvent.setTime(new Date(endTime));
                         worldEventDao.insert(worldEvent);
                         
-                        entries.remove();
-                        eventTypes.remove(type);
-                    }
-                }
-
-                for (Map.Entry<Integer, WORLD_EVENTS> entry : worldEventsMap.entrySet()) {
-                    int type = entry.getKey() / 100 % 10000;
-                    if (eventTypes.contains(type)) {
-                        continue;
-                    }
-                    int rate = entry.getValue().getEventProb();
-                    if (new Random().nextInt(100000) < rate) {
-                        worldEventConfigId2HappenTime.put(entry.getKey(), delay);
+                        worldEventConfigId2HappenTime.put(congigId, happenTime);
                         eventTypes.add(type);
                     }
                 }

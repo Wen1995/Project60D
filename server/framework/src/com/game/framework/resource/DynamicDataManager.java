@@ -12,7 +12,6 @@ import com.game.framework.dbcache.dao.IGroupDao;
 import com.game.framework.dbcache.dao.IUserDao;
 import com.game.framework.dbcache.model.Group;
 import com.game.framework.dbcache.model.User;
-import com.game.framework.utils.GroupUtil;
 import com.game.framework.utils.StringUtil;
 
 public class DynamicDataManager {
@@ -37,7 +36,6 @@ public class DynamicDataManager {
     public Map<String, Long> account2Uid = new HashMap<>();
     public Map<Long, Long> uid2HeartTime = new HashMap<>();
     public Map<Long, Long> groupId2InvadeTime = new HashMap<>();
-    public Map<Long, Integer> groupId2Level = new HashMap<>();
     public Map<Long, Long> uid2GroupId = new HashMap<>();
     public Map<Integer, Long> worldEventConfigId2HappenTime = new HashMap<>();
     public List<Integer> eventTypes = new ArrayList<>();
@@ -60,7 +58,6 @@ public class DynamicDataManager {
             for (Group group : groups) {
                 groupId = group.getId();
                 groupId2InvadeTime.put(groupId, group.getInvadeTime().getTime());
-                groupId2Level.put(groupId, GroupUtil.getGroupLevel(group.getTotalContribution()));
             }
         }
         long endTime = System.currentTimeMillis();

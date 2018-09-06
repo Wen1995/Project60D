@@ -9,6 +9,11 @@ set JAVA_TARGET_PATH=..\server\framework\src\
 for /f "delims=" %%i in ('dir /b ".\*.proto"') do (
     ::echo %JAVA_COMPILER_PATH% --java_out=%JAVA_TARGET_PATH% %SOURCE_FOLDER%\%%i
     %JAVA_COMPILER_PATH% --java_out=%JAVA_TARGET_PATH% %%i
-	%PROTOCS% %%i
+
+	if "%%i" == "scene.proto" (
+    	%PROTOCS% %%i --include_imports message.proto
+	) else (
+		%PROTOCS% %%i
+	)
 )
 pause

@@ -28,7 +28,7 @@ message ITEM_RES{
     /** 储存体积
 占用 */
     optional int32 stor_unit = 10 [default = 0];
-    /** 是否可直接使用（1可用，0不可用） */
+    /** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 */
     optional int32 if_available = 11 [default = 0];
     /** 回复血量 */
     optional int32 hp_rec = 12 [default = 0];
@@ -44,6 +44,16 @@ message ITEM_RES{
     optional int32 mood_rec = 17 [default = 0];
     /** 可回复心情上限*100 */
     optional int32 moodrec_lim = 18 [default = 0];
+    /** 攻击 */
+    optional int32 atk_add = 19 [default = 0];
+    /** 防御 */
+    optional int32 def_add = 20 [default = 0];
+    /** 移速 */
+    optional int32 spd_add = 21 [default = 0];
+    /** 负载 */
+    optional int32 load_add = 22 [default = 0];
+    /** 敏捷 */
+    optional int32 agi_add = 23 [default = 0];
 }
 
 message ITEM_RES_ARRAY {

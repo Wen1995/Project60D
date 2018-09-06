@@ -2349,8 +2349,8 @@ namespace com.game.framework.protocol {
   public sealed partial class UserInfo : pb::GeneratedMessageLite<UserInfo, UserInfo.Builder> {
     private UserInfo() { }
     private static readonly UserInfo defaultInstance = new UserInfo().MakeReadOnly();
-    private static readonly string[] _userInfoFieldNames = new string[] { "blood", "health", "uid" };
-    private static readonly uint[] _userInfoFieldTags = new uint[] { 16, 24, 8 };
+    private static readonly string[] _userInfoFieldNames = new string[] { "account", "blood", "health", "uid" };
+    private static readonly uint[] _userInfoFieldTags = new uint[] { 18, 24, 32, 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -2385,7 +2385,20 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int BloodFieldNumber = 2;
+    public const int AccountFieldNumber = 2;
+    private bool hasAccount;
+    private string account_ = "";
+    public bool HasAccount {
+      get { return hasAccount; }
+    }
+    public string Account {
+      get { return account_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int BloodFieldNumber = 3;
     private bool hasBlood;
     private int blood_;
     public bool HasBlood {
@@ -2398,7 +2411,7 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HealthFieldNumber = 3;
+    public const int HealthFieldNumber = 4;
     private bool hasHealth;
     private int health_;
     public bool HasHealth {
@@ -2424,13 +2437,16 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _userInfoFieldNames;
       if (hasUid) {
-        output.WriteInt64(1, field_names[2], Uid);
+        output.WriteInt64(1, field_names[3], Uid);
+      }
+      if (hasAccount) {
+        output.WriteString(2, field_names[0], Account);
       }
       if (hasBlood) {
-        output.WriteInt32(2, field_names[0], Blood);
+        output.WriteInt32(3, field_names[1], Blood);
       }
       if (hasHealth) {
-        output.WriteInt32(3, field_names[1], Health);
+        output.WriteInt32(4, field_names[2], Health);
       }
     }
     
@@ -2447,11 +2463,14 @@ namespace com.game.framework.protocol {
         if (hasUid) {
           size += pb::CodedOutputStream.ComputeInt64Size(1, Uid);
         }
+        if (hasAccount) {
+          size += pb::CodedOutputStream.ComputeStringSize(2, Account);
+        }
         if (hasBlood) {
-          size += pb::CodedOutputStream.ComputeInt32Size(2, Blood);
+          size += pb::CodedOutputStream.ComputeInt32Size(3, Blood);
         }
         if (hasHealth) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, Health);
+          size += pb::CodedOutputStream.ComputeInt32Size(4, Health);
         }
         memoizedSerializedSize = size;
         return size;
@@ -2462,6 +2481,7 @@ namespace com.game.framework.protocol {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasUid) hash ^= uid_.GetHashCode();
+      if (hasAccount) hash ^= account_.GetHashCode();
       if (hasBlood) hash ^= blood_.GetHashCode();
       if (hasHealth) hash ^= health_.GetHashCode();
       return hash;
@@ -2471,6 +2491,7 @@ namespace com.game.framework.protocol {
       UserInfo other = obj as UserInfo;
       if (other == null) return false;
       if (hasUid != other.hasUid || (hasUid && !uid_.Equals(other.uid_))) return false;
+      if (hasAccount != other.hasAccount || (hasAccount && !account_.Equals(other.account_))) return false;
       if (hasBlood != other.hasBlood || (hasBlood && !blood_.Equals(other.blood_))) return false;
       if (hasHealth != other.hasHealth || (hasHealth && !health_.Equals(other.health_))) return false;
       return true;
@@ -2636,6 +2657,9 @@ namespace com.game.framework.protocol {
         if (other.HasUid) {
           Uid = other.Uid;
         }
+        if (other.HasAccount) {
+          Account = other.Account;
+        }
         if (other.HasBlood) {
           Blood = other.Blood;
         }
@@ -2678,11 +2702,15 @@ namespace com.game.framework.protocol {
               result.hasUid = input.ReadInt64(ref result.uid_);
               break;
             }
-            case 16: {
-              result.hasBlood = input.ReadInt32(ref result.blood_);
+            case 18: {
+              result.hasAccount = input.ReadString(ref result.account_);
               break;
             }
             case 24: {
+              result.hasBlood = input.ReadInt32(ref result.blood_);
+              break;
+            }
+            case 32: {
               result.hasHealth = input.ReadInt32(ref result.health_);
               break;
             }
@@ -2710,6 +2738,27 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasUid = false;
         result.uid_ = 0L;
+        return this;
+      }
+      
+      public bool HasAccount {
+        get { return result.hasAccount; }
+      }
+      public string Account {
+        get { return result.Account; }
+        set { SetAccount(value); }
+      }
+      public Builder SetAccount(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasAccount = true;
+        result.account_ = value;
+        return this;
+      }
+      public Builder ClearAccount() {
+        PrepareBuilder();
+        result.hasAccount = false;
+        result.account_ = "";
         return this;
       }
       

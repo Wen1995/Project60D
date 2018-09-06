@@ -1,3 +1,4 @@
+import "message.proto";
 package com.game.framework.protocol;
 
 option optimize_for = SPEED;
@@ -10,8 +11,8 @@ message TSCGetSceneInfo {
 	repeated BuildingInfo buildingInfos = 1;
 	// 庄园总贡献
 	optional int32 totalContribution = 2;
-	// 人数
-	optional int32 peopleNum = 3;
+	// 玩家信息
+	repeated UserInfo userInfos = 3;
 }
 
 message TCSGetBuildingInfo {

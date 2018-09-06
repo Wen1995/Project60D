@@ -99,14 +99,10 @@ public class Building : Controller {
             else if(info.number > 0)
             {
                 mState = BuildingState.Collect;
-                if(funcType == BuildingFunc.Collect)
-                    StopCoroutine(CollectTimer());
             }
             else
             {
                 mState = BuildingState.Idle;
-                if(funcType == BuildingFunc.Collect)
-                    StartCoroutine(CollectTimer());
             }
         }
         switch(mState)
@@ -165,6 +161,7 @@ public class Building : Controller {
         HudBinder binder = buildingGo.GetComponent<HudBinder>();
         if(binder == null) return;
         binder.ClearHud();
+        
         if(mState == BuildingState.Collect)
         {
             binder.AddHud(HudType.Collect);

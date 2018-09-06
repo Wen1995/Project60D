@@ -11,10 +11,12 @@ public class SSanctuaryController : SceneController
     SanctuaryPackage sanctuaryPackage = null;
     ItemPackage itemPackage = null;
     UserPackage userPackage = null;
+    EventPackage eventPackage = null;
 
     //register or bind something
     public void Awake()
     {
+        FacadeSingleton.Instance.RegisterData(ConstVal.Package_Event, typeof(EventPackage));
         //register object pool
         ObjectPoolSingleton.Instance.RegisterComPool<HudCollect>(Resources.Load<GameObject>("Prefabs/Hud/Collect"));
         ObjectPoolSingleton.Instance.RegisterComPool<HudCountDown>(Resources.Load<GameObject>("Prefabs/Hud/CountDown"));
@@ -49,6 +51,7 @@ public class SSanctuaryController : SceneController
         //register event
         RegisterEvent("SelectBuilding", OnSelectBuilding);
         //bind event
+        FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.HEART, OnGetHeart);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETSCENEINFO, OnGetSceneInfo);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.UNLOCK, OnBuildingUnlock);
         FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.UPGRADE, OnBuildingUpgrade);
@@ -64,6 +67,8 @@ public class SSanctuaryController : SceneController
         sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
         itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
         userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+        eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
+
     }
     //actually do something
     public void Start()
@@ -103,6 +108,12 @@ public class SSanctuaryController : SceneController
 
     #region RPC responce
     
+    void OnGetHeart(NetMsgDef msg)
+    {
+        TSCHeart res = TSCHeart.ParseFrom(msg.mBtsData);
+        eventPackage.SetWorldEvent(res);
+    }
+
     void OnGetSceneInfo(NetMsgDef msg)
     {
         //print("Get Scene Info");
@@ -113,7 +124,7 @@ public class SSanctuaryController : SceneController
             sanctuaryPackage.AddBuilding(info);
         }
         userPackage.SetTotalContribution(sceneInfo.TotalContribution);
-        userPackage.SetManorNumber(sceneInfo.PeopleNum);
+        //userPackage.SetManorNumber(sceneInfo.PeopleNum);
         SendEvent("RefreshManorLevel");
         SendEvent("RefreshBuildingView");
     }

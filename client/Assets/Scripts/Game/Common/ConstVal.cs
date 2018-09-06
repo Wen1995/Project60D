@@ -11,6 +11,7 @@ public static class ConstVal{
     public static string Package_Sanctuary = "SanctuaryData";
     public static string Package_Item = "ItemPackage";
     public static string Package_Mail = "MailPackage";
+    public static string Package_Event = "EventPackage";
     #endregion
 
     #region Panel

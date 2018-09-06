@@ -49,6 +49,24 @@ public class PlayerState
     }
 }
 
+public class NUserInfo
+{
+    public long uID;
+    public string name;
+    public int blood;
+    public int health;
+
+    public NUserInfo()
+    {}
+    public NUserInfo(UserInfo info)
+    {
+        uID = info.Uid;
+        name = info.Account;
+        blood = info.Blood;
+        health = info.Health;
+    }
+}
+
 public class UserPackage : ModelBase {
 
     private long mGroupID;

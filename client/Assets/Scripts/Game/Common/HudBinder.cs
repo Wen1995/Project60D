@@ -23,7 +23,7 @@ public class HudBinder : MonoBehaviour {
 	List<HudInfo> hudInfoList = new List<HudInfo>();
 
 	private void Awake() {
-		uirootTrans = GameObject.Find("UI Root").transform;
+		uirootTrans = GameObject.Find("UI Root/HudContainer").transform;
 	}
 	public void SetTarget(GameObject go, HudType type, NDictionary args = null)
 	{
@@ -53,7 +53,8 @@ public class HudBinder : MonoBehaviour {
 	private void Update() {
 		if(hudInfoList.Count <= 0) return;
 		//check if gameobject is visible
-		Vector3 pos = Camera.main.WorldToViewportPoint(gameObject.transform.position);
+		Vector3 pos3d = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 10, gameObject.transform.position.z);
+		Vector3 pos = Camera.main.WorldToViewportPoint(pos3d);
 		if(IsVisible(pos))
 		{
 			UpdateHud(UICamera.mainCamera.ViewportToWorldPoint(pos));

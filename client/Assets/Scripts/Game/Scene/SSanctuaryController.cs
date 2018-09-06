@@ -43,6 +43,7 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UIBuildingUpgradePanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIWorldEventPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIBuildingUnlockPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UIManorRankingPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);
@@ -124,7 +125,8 @@ public class SSanctuaryController : SceneController
             sanctuaryPackage.AddBuilding(info);
         }
         userPackage.SetTotalContribution(sceneInfo.TotalContribution);
-        //userPackage.SetManorNumber(sceneInfo.PeopleNum);
+        for(int i=0;i<sceneInfo.UserInfosCount;i++)
+            userPackage.AddUserInfo(sceneInfo.GetUserInfos(i));
         SendEvent("RefreshManorLevel");
         SendEvent("RefreshBuildingView");
     }

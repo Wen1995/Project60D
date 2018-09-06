@@ -23,11 +23,12 @@ public class EventPackage : ModelBase
 	#region Set Data
     public void SetWorldEvent(TSCHeart res)
     {
+        eventList.Clear();
+        Debug.Log("eventCount = " + res.WorldEventConfigId2HappenTimeCount);
         for(int i=0;i<res.WorldEventConfigId2HappenTimeCount;i++)
         {
             NWorldEventInfo info = new NWorldEventInfo(res.GetWorldEventConfigId2HappenTime(i));
             eventList.Add(info);
-            Debug.Log(string.Format("configID={0}, happenTime={1}", info.configID, info.happenTime));;
         }
     }
 	

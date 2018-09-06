@@ -77,7 +77,7 @@ public class UIManorMenuPanel : PanelBase {
 
 	void OnRanking()
 	{
-		//TODO
+		FacadeSingleton.Instance.OverlayerPanel("UIManorRankingPanel");
 	}
 
 	void OnGetMessgeTag(NetMsgDef msg)

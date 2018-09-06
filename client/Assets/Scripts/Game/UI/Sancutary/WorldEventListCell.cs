@@ -14,9 +14,9 @@ public class WorldEventListCell : NListCell {
 	protected override void Awake()
 	{
 		base.Awake();
-		titleLabel = transform.Find("title").GetComponent<UILabel>();
-		timeLabel = transform.Find("text").GetComponent<UILabel>();
-		contentLabel = transform.Find("text").GetComponent<UILabel>();
+		titleLabel = transform.Find("content/title").GetComponent<UILabel>();
+		timeLabel = transform.Find("content/text").GetComponent<UILabel>();
+		contentLabel = transform.Find("content/text").GetComponent<UILabel>();
 		eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
 	}
 

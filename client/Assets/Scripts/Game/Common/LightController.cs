@@ -8,7 +8,7 @@ public class LightController : MonoBehaviour {
 
 	private void Awake() {
 		light = GetComponent<Light>();
-		if(!IsDayTime())
+		if(IsDayTime())
 			light.color = new Color((float)0xBF / 255f , (float)0xAA / 255f, (float)0x40 / 255f, 1f);
 		else
 			light.color = new Color(0, 0, 0, 1);

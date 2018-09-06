@@ -131,14 +131,20 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.SENDMESSAGETAG, msg.ToByteArray());
     }
 
+    public void RPCGetGroupCount()
+    {
+        var builder = TSCGetGroupPageCount.CreateBuilder();
+        TSCGetGroupPageCount msg = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETGROUPPAGECOUNT, msg.ToByteArray());
+    }
+
     public void RPCGetGroupRanking(NDictionary args)
     {
         var builder = TCSGetGroupRanking.CreateBuilder();
-        builder.CurrentPage = 1;
+        builder.CurrentPage = args.Value<int>("pagecount");
         TCSGetGroupRanking msg = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETGROUPRANKING, msg.ToByteArray());
     }
-
 
     /// <summary>
     /// Use a extra camera to render the object you give

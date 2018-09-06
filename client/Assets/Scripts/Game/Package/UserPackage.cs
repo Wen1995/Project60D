@@ -67,6 +67,23 @@ public class NUserInfo
     }
 }
 
+public class NGroupInfo
+{
+    public long ID;
+    public string name;
+    public int peopleNumber;
+    public int contribution;
+
+    public NGroupInfo(){}
+    public NGroupInfo(GroupInfo info)
+    {
+        ID = info.Id;
+        name = info.Name;
+        peopleNumber = info.PeopleNumber;
+        contribution = info.TotalContribution;
+    }
+}
+
 public class UserPackage : ModelBase {
 
     private long mGroupID;
@@ -80,7 +97,9 @@ public class UserPackage : ModelBase {
     private int manorPersonNumber;
 
     PlayerState playerState = new PlayerState();
-    
+
+    Dictionary<long, NUserInfo> userInfoMap = new Dictionary<long, NUserInfo>();
+    List<NGroupInfo> groupList = new List<NGroupInfo>();
 
     public long GroupID
     {
@@ -196,12 +215,22 @@ public class UserPackage : ModelBase {
 
     public int GetManorPersonNumber()
     {
-        return manorPersonNumber;
+        return userInfoMap.Count;
     }
 
     public double GetPlayerInterest()
     {
         return 1/manorPersonNumber + (( (personContribution + 100000) / (totalContribution + manorPersonNumber * 100000) ) - 1 / manorPersonNumber) * 0.6;
+    }
+
+    public NUserInfo GetUserInfo(long uid)
+    {
+        return userInfoMap[uid];
+    }
+
+    public List<NGroupInfo> GetGroupInfoList()
+    {
+        return groupList;
     }
 
     #endregion
@@ -240,9 +269,21 @@ public class UserPackage : ModelBase {
         personContribution = person;
     }
 
-    public void SetManorNumber(int number)
+    public void AddUserInfo(UserInfo info)
     {
-        manorPersonNumber = number;
+        NUserInfo userInfo = new NUserInfo(info);
+        userInfoMap[info.Uid] = userInfo;
     }
+
+    public void SetGroupInfo(TSCGetGroupRanking res)
+    {
+        groupList.Clear();
+        for(int i=0;i<res.GroupInfosCount;i++)
+        {
+            NGroupInfo info = new NGroupInfo(res.GetGroupInfos(i));
+            groupList.Add(info);
+        }
+    }
+
     #endregion
 }

@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.Random;
 import javax.annotation.Resource;
 import com.game.framework.console.GateServer;
-import com.game.framework.console.constant.Constant;
 import com.game.framework.console.constant.TimerConstant;
 import com.game.framework.console.disruptor.TPacket;
 import com.game.framework.dbcache.dao.IBuildingDao;
@@ -69,7 +68,7 @@ public class FightingServiceImpl implements FightingService {
                 StaticDataManager.GetInstance().playerAttrMap;
         ReadOnlyMap<Integer, ZOMBIE_ATTR> zombieAttrMap =
                 StaticDataManager.GetInstance().zombieAttrMap;
-        
+
         Integer matchValue = 0;
         List<Building> buildings = buildingDao.getAllByGroupId(groupId);
         int k1_5 = arithmeticCoefficientMap.get(30050000).getAcK1();
@@ -136,8 +135,8 @@ public class FightingServiceImpl implements FightingService {
         }
         Random rand = new Random();
         configId += rand.nextInt(10);
-        configId = 20010003;//TODO
-        
+        configId = 20010003;// TODO
+
         // 更新僵尸入侵时间
         int zombieInvadeTime = arithmeticCoefficientMap.get(30100000).getAcK4() * 60;
         long time = System.currentTimeMillis() + zombieInvadeTime * 1000;
@@ -149,50 +148,42 @@ public class FightingServiceImpl implements FightingService {
         // 开启接收僵尸入侵消息的定时器
         if (radar != null) {
             ReadOnlyMap<Integer, LEIDA> leidaMap = StaticDataManager.GetInstance().leidaMap;
-            int leftTime = leidaMap.get(buildingMap.get(radar.getConfigId()).getBldgFuncTableId()).getLeidaDis();
+            int leftTime = leidaMap.get(buildingMap.get(radar.getConfigId()).getBldgFuncTableId())
+                    .getLeidaDis();
             leftTime *= BuildingUtil.getRadarCoefficient();
             int receiveTime = zombieInvadeTime - leftTime;
             String timerKey = TimerConstant.RECEIVEZOMBIEMESSAGE + groupId;
-            receiveTime = 5;//TODO
-            TCSReceiveZombieMessage p = TCSReceiveZombieMessage.newBuilder()
-                    .setGroupId(groupId)
-                    .setConfigId(configId)
-                    .setZombieInvadeTime(time)
-                    .build();
+            receiveTime = 5;// TODO
+            TCSReceiveZombieMessage p = TCSReceiveZombieMessage.newBuilder().setGroupId(groupId)
+                    .setConfigId(configId).setZombieInvadeTime(time).build();
             TimerManager.GetInstance().sumbit(timerKey, uid, Cmd.RECEIVEZOMBIEMESSAGE_VALUE,
                     p.toByteArray(), receiveTime);
         }
 
         // 开启僵尸入侵结果的定时器
-        TCSZombieInvadeResult p = TCSZombieInvadeResult.newBuilder()
-                .setGroupId(groupId)
-                .setConfigId(configId)
-                .setDoorId(doorId)
-                .build();
+        TCSZombieInvadeResult p = TCSZombieInvadeResult.newBuilder().setGroupId(groupId)
+                .setConfigId(configId).setDoorId(doorId).build();
         String timerKey = TimerConstant.ZOMBIEINVADERESULT + groupId;
-        zombieInvadeTime = 10;//TODO
+        zombieInvadeTime = 10;// TODO
         TimerManager.GetInstance().sumbit(timerKey, uid, Cmd.ZOMBIEINVADERESULT_VALUE,
                 p.toByteArray(), zombieInvadeTime);
         return null;
     }
 
     @Override
-    public TPacket receiveZombieMessage(Long uid, Long groupId, Integer configId, Long zombieInvadeTime) throws Exception {
+    public TPacket receiveZombieMessage(Long uid, Long groupId, Integer configId,
+            Long zombieInvadeTime) throws Exception {
         // 保存消息
-        ZombieInfo.Builder zBuilder = ZombieInfo.newBuilder()
-                .setConfigId(configId)
-                .setZombieInvadeTime(zombieInvadeTime);
-        TCSSaveMessage p = TCSSaveMessage.newBuilder()
-                .setGroupId(groupId)
-                .setType(MessageType.ZOMBIE_INFO_VALUE)
-                .setZombieInfo(zBuilder)
-                .build();
+        ZombieInfo.Builder zBuilder =
+                ZombieInfo.newBuilder().setConfigId(configId).setZombieInvadeTime(zombieInvadeTime);
+        TCSSaveMessage p = TCSSaveMessage.newBuilder().setGroupId(groupId)
+                .setType(MessageType.ZOMBIE_INFO_VALUE).setZombieInfo(zBuilder).build();
         TPacket resp = new TPacket();
         resp.setCmd(Cmd.SAVEMESSAGE_VALUE);
         resp.setReceiveTime(System.currentTimeMillis());
         resp.setBuffer(p.toByteArray());
         GateServer.GetInstance().sendInner(resp);
-        
+
         // 向在线玩家推送消息
         List<User> users = userDao.getAllByGroupId(groupId);
         for (User u : users) {
@@ -208,7 +199,7 @@ public class FightingServiceImpl implements FightingService {
         }
         return null;
     }
-    
+
     @Override
     public TPacket zombieInvadeResult(Long uid, Long groupId, Integer configId, Long doorId)
             throws Exception {
@@ -223,7 +214,7 @@ public class FightingServiceImpl implements FightingService {
         double K1 = arithmeticCoefficientMap.get(30060000).getAcK1() / 100;
         double intoDoorTime = 0;
         double maxTime = 1.0 * arithmeticCoefficientMap.get(30080000).getAcK1() / 100;
-        
+
         int zombieNum = (int) (zombieAttr.getZombieNum() * ZombieUtil.getZombieNumberCoefficient());
         double zombieDefence = zombieAttr.getZombieDef() * ZombieUtil.getZombieDefenceCoefficient();
         double zombieAttack = zombieAttr.getZombieAtk() * ZombieUtil.getZombieAttackCoefficient();
@@ -231,8 +222,8 @@ public class FightingServiceImpl implements FightingService {
         double blood4AllZombie = blood4PerZombie * zombieNum;
 
         List<InvadeResultInfo> invadeResultInfos = new ArrayList<>();
-
         List<User> users = userDao.getAllByGroupId(groupId);
+        HashMap<Long, Integer> uid2Contribution = new HashMap<>();
         List<LossInfo> lossInfos = new ArrayList<>();
         List<UserInfo> userInfos = new ArrayList<>();
         for (User u : users) {
@@ -243,18 +234,14 @@ public class FightingServiceImpl implements FightingService {
                 }
             }
             uid = u.getId();
-            
-            LossInfo lossInfo = LossInfo.newBuilder()
-                    .setUid(uid)
-                    .build();
+
+            LossInfo lossInfo = LossInfo.newBuilder().setUid(uid).build();
             lossInfos.add(lossInfo);
-            
-            UserInfo userInfo = UserInfo.newBuilder()
-                    .setUid(uid)
-                    .setBlood(u.getBlood())
-                    .setHealth(u.getHealth())
-                    .build();
+
+            UserInfo userInfo = UserInfo.newBuilder().setUid(uid).setAccount(u.getAccount())
+                    .setBlood(u.getBlood()).setHealth(u.getHealth()).build();
             userInfos.add(userInfo);
+            uid2Contribution.put(uid, u.getContribution());
         }
 
         // 第一阶段
@@ -279,9 +266,7 @@ public class FightingServiceImpl implements FightingService {
 
                 // 进攻大门
                 InvadeResultInfo.Builder invadeResultInfoBuilder = InvadeResultInfo.newBuilder()
-                        .setType(InvadeResultType.BUILDING_VALUE)
-                        .setId(doorId)
-                        .setBlood(damenDura);
+                        .setType(InvadeResultType.BUILDING_VALUE).setId(doorId).setBlood(damenDura);
                 invadeResultInfos.add(invadeResultInfoBuilder.build());
 
                 double doorTime = 1.0 * damenDura / zombieAttack;
@@ -295,32 +280,29 @@ public class FightingServiceImpl implements FightingService {
                     zombieNum -= deadZombieNum;
                     caculateResult(deadZombieNum, allDps, zombieDefence, K1, judgeBlood, users,
                             invadeResultInfos);
-                    
+
                     // 大门攻破
                     invadeResultInfoBuilder = InvadeResultInfo.newBuilder()
-                            .setType(InvadeResultType.BUILDING_VALUE)
-                            .setId(doorId)
-                            .setBlood(0);
+                            .setType(InvadeResultType.BUILDING_VALUE).setId(doorId).setBlood(0);
                     invadeResultInfos.add(invadeResultInfoBuilder.build());
-                    
+
                     // 第三阶段
-                    intoDoorTime = intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime, 
+                    intoDoorTime = intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime,
                             maxTime, judgeBlood, zombieAttack, zombieDefence, K1, users, zombieNum,
                             invadeResultInfos);
                 }
             } else {
                 // 建筑类型 id = -1 没有大门
                 InvadeResultInfo.Builder invadeResultInfoBuilder = InvadeResultInfo.newBuilder()
-                        .setType(InvadeResultType.BUILDING_VALUE)
-                        .setId(-1);
+                        .setType(InvadeResultType.BUILDING_VALUE).setId(-1);
                 invadeResultInfos.add(invadeResultInfoBuilder.build());
                 // 第三阶段
-                intoDoorTime = intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime, 
+                intoDoorTime = intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime,
                         maxTime, judgeBlood, zombieAttack, zombieDefence, K1, users, zombieNum,
                         invadeResultInfos);
             }
         }
-        
+
         // 计算损失
         if (intoDoorTime > 0) {
             Group group = groupDao.get(groupId);
@@ -332,7 +314,7 @@ public class FightingServiceImpl implements FightingService {
             int receiveBuilding100Rate = robProportion.getTransitDepot();
             int storeHouse100Rate = robProportion.getBigWarehouse();
             int gold100Rate = robProportion.getGoldProp();
-            
+
             double lossRate = intoDoorTime / maxTime;
             Map<Long, Integer> uid2LossResource = new HashMap<>();
             Map<Long, Integer> uid2LossGold = new HashMap<>();
@@ -363,7 +345,7 @@ public class FightingServiceImpl implements FightingService {
                 if (goldLoss > goldLimit) {
                     goldLoss = goldLimit;
                 }
-                
+
                 u.setGold(goldNum - goldLoss);
                 u.setResource(resourceBuilder.build().toByteArray());
                 userDao.update(u);
@@ -376,35 +358,40 @@ public class FightingServiceImpl implements FightingService {
             // 领取类建筑资源
             long thisTime = System.currentTimeMillis();
             List<Building> buildings = buildingDao.getAllByGroupId(groupId);
+            ARITHMETIC_COEFFICIENT arithmeticCoefficient = arithmeticCoefficientMap.get(30020000);
+            int K11 = arithmeticCoefficient.getAcK1() / 100;
+            double K2 = arithmeticCoefficient.getAcK2() * 1.0 / 100;
+            double K3 = arithmeticCoefficient.getAcK3() * 1.0 / 100;
             for (Building b : buildings) {
                 if (BuildingUtil.isReceiveBuilding(b)) {
                     BuildingState.Builder buildingStateBuilder =
                             BuildingState.parseFrom(b.getState()).toBuilder();
                     for (int i = 0; i < buildingStateBuilder.getReceiveInfosCount(); i++) {
-                        ReceiveInfo.Builder rBuilder = buildingStateBuilder.getReceiveInfosBuilder(i);
+                        ReceiveInfo.Builder rBuilder =
+                                buildingStateBuilder.getReceiveInfosBuilder(i);
                         int leftNumber = rBuilder.getNumber();
                         long time = thisTime - rBuilder.getLastReceiveTime();
-                        User user = userDao.get(rBuilder.getUid());
 
                         String tableName = buildingMap.get(b.getConfigId()).getBldgFuncTableName();
                         Integer tableId = buildingMap.get(b.getConfigId()).getBldgFuncTableId();
                         Integer speed = BuildingUtil.getSpeed(tableName, tableId);
                         Integer capacity = BuildingUtil.getCapacity(tableName, tableId);
                         double peopleNumber = group.getPeopleNumber();
-                        double stake = 1 / peopleNumber + ((user.getContribution() + Constant.K)
-                                / (group.getTotalContribution() + peopleNumber * Constant.K)
-                                - 1 / peopleNumber) * 0.6;
+                        double stake = (1 + (peopleNumber - 1) * K3) * (1 / peopleNumber
+                                + ((uid2Contribution.get(rBuilder.getUid()) + K11)
+                                        / (group.getTotalContribution() + peopleNumber * K11)
+                                        - 1 / peopleNumber) * K2);
                         int number = (int) (time * speed * stake / 1000 / 3600) + leftNumber;
                         capacity = (int) (capacity * stake);
                         if (number > capacity) {
                             number = capacity;
                         }
                         int loss = (int) (number * lossRate * receiveBuilding100Rate / 100);
-                        
+
                         // 更新生产类建筑状态
                         rBuilder.setLastReceiveTime(thisTime).setNumber(number - loss);
                         buildingStateBuilder.setReceiveInfos(i, rBuilder);
-                        
+
                         uid = rBuilder.getUid();
                         uid2LossResource.put(uid, uid2LossResource.get(uid) + loss);
                     }
@@ -412,32 +399,27 @@ public class FightingServiceImpl implements FightingService {
                     buildingDao.update(b);
                 }
             }
-            
+
             for (int i = 0; i < lossInfos.size(); i++) {
                 LossInfo.Builder lBuilder = lossInfos.get(i).toBuilder();
                 uid = lBuilder.getUid();
-                lBuilder.setResource(uid2LossResource.get(uid))
-                        .setGold(uid2LossGold.get(uid));
+                lBuilder.setResource(uid2LossResource.get(uid)).setGold(uid2LossGold.get(uid));
                 lossInfos.set(i, lBuilder.build());
             }
-        } 
-        
+        }
+
         // 保存消息
-        FightingInfo.Builder fBuilder = FightingInfo.newBuilder()
-                .addAllInvadeResultInfos(invadeResultInfos)
-                .addAllUserInfos(userInfos)
-                .addAllLossInfos(lossInfos);
-        TCSSaveMessage p = TCSSaveMessage.newBuilder()
-                .setGroupId(groupId)
-                .setType(MessageType.FIGHTING_INFO_VALUE)
-                .setFightingInfo(fBuilder)
-                .build();
+        FightingInfo.Builder fBuilder =
+                FightingInfo.newBuilder().addAllInvadeResultInfos(invadeResultInfos)
+                        .addAllUserInfos(userInfos).addAllLossInfos(lossInfos);
+        TCSSaveMessage p = TCSSaveMessage.newBuilder().setGroupId(groupId)
+                .setType(MessageType.FIGHTING_INFO_VALUE).setFightingInfo(fBuilder).build();
         TPacket resp = new TPacket();
         resp.setCmd(Cmd.SAVEMESSAGE_VALUE);
         resp.setReceiveTime(System.currentTimeMillis());
         resp.setBuffer(p.toByteArray());
         GateServer.GetInstance().sendInner(resp);
-        
+
         // 向在线玩家推送消息
         for (User u : users) {
             uid = u.getId();
@@ -466,6 +448,7 @@ public class FightingServiceImpl implements FightingService {
             }
         }
         if (invadeResultInfoMap.size() > 0) {
+            // 余数
             int leftZombieNum = zombieNum - alreadyKillZombieNum;
             Map<User, Integer> resultMap = MapUtil.sortMapByValue(invadeResultInfoMap);
             Iterator<Map.Entry<User, Integer>> entries = resultMap.entrySet().iterator();
@@ -477,10 +460,8 @@ public class FightingServiceImpl implements FightingService {
             for (Map.Entry<User, Integer> entry : resultMap.entrySet()) {
                 // TODO 根据Id区分类型
                 InvadeResultInfo.Builder invadeResultInfoBuilder = InvadeResultInfo.newBuilder()
-                        .setType(InvadeResultType.PLAYER_VALUE)
-                        .setId(entry.getKey().getId())
-                        .setNum(entry.getValue())
-                        .setBlood(entry.getKey().getBlood());
+                        .setType(InvadeResultType.PLAYER_VALUE).setId(entry.getKey().getId())
+                        .setNum(entry.getValue()).setBlood(entry.getKey().getBlood());
                 invadeResultInfos.add(invadeResultInfoBuilder.build());
             }
         }
@@ -553,7 +534,7 @@ public class FightingServiceImpl implements FightingService {
                             }
                         }
                     }
-                    intoDoorTime += intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime, 
+                    intoDoorTime += intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime,
                             maxTime, judgeBlood, zombieAttack, zombieDefence, K1, users, zombieNum,
                             invadeResultInfos);
                 }

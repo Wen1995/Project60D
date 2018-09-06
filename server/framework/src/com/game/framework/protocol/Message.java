@@ -5025,9 +5025,36 @@ public final class Message {
      */
     long getUid();
 
-    // optional int32 blood = 2;
+    // optional string account = 2;
     /**
-     * <code>optional int32 blood = 2;</code>
+     * <code>optional string account = 2;</code>
+     *
+     * <pre>
+     * 名字
+     * </pre>
+     */
+    boolean hasAccount();
+    /**
+     * <code>optional string account = 2;</code>
+     *
+     * <pre>
+     * 名字
+     * </pre>
+     */
+    java.lang.String getAccount();
+    /**
+     * <code>optional string account = 2;</code>
+     *
+     * <pre>
+     * 名字
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getAccountBytes();
+
+    // optional int32 blood = 3;
+    /**
+     * <code>optional int32 blood = 3;</code>
      *
      * <pre>
      * 血量
@@ -5035,7 +5062,7 @@ public final class Message {
      */
     boolean hasBlood();
     /**
-     * <code>optional int32 blood = 2;</code>
+     * <code>optional int32 blood = 3;</code>
      *
      * <pre>
      * 血量
@@ -5043,9 +5070,9 @@ public final class Message {
      */
     int getBlood();
 
-    // optional int32 health = 3;
+    // optional int32 health = 4;
     /**
-     * <code>optional int32 health = 3;</code>
+     * <code>optional int32 health = 4;</code>
      *
      * <pre>
      * 健康
@@ -5053,7 +5080,7 @@ public final class Message {
      */
     boolean hasHealth();
     /**
-     * <code>optional int32 health = 3;</code>
+     * <code>optional int32 health = 4;</code>
      *
      * <pre>
      * 健康
@@ -5117,13 +5144,18 @@ public final class Message {
               uid_ = input.readInt64();
               break;
             }
-            case 16: {
+            case 18: {
               bitField0_ |= 0x00000002;
-              blood_ = input.readInt32();
+              account_ = input.readBytes();
               break;
             }
             case 24: {
               bitField0_ |= 0x00000004;
+              blood_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
               health_ = input.readInt32();
               break;
             }
@@ -5191,21 +5223,76 @@ public final class Message {
       return uid_;
     }
 
-    // optional int32 blood = 2;
-    public static final int BLOOD_FIELD_NUMBER = 2;
+    // optional string account = 2;
+    public static final int ACCOUNT_FIELD_NUMBER = 2;
+    private java.lang.Object account_;
+    /**
+     * <code>optional string account = 2;</code>
+     *
+     * <pre>
+     * 名字
+     * </pre>
+     */
+    public boolean hasAccount() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string account = 2;</code>
+     *
+     * <pre>
+     * 名字
+     * </pre>
+     */
+    public java.lang.String getAccount() {
+      java.lang.Object ref = account_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          account_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string account = 2;</code>
+     *
+     * <pre>
+     * 名字
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getAccountBytes() {
+      java.lang.Object ref = account_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        account_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional int32 blood = 3;
+    public static final int BLOOD_FIELD_NUMBER = 3;
     private int blood_;
     /**
-     * <code>optional int32 blood = 2;</code>
+     * <code>optional int32 blood = 3;</code>
      *
      * <pre>
      * 血量
      * </pre>
      */
     public boolean hasBlood() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 blood = 2;</code>
+     * <code>optional int32 blood = 3;</code>
      *
      * <pre>
      * 血量
@@ -5215,21 +5302,21 @@ public final class Message {
       return blood_;
     }
 
-    // optional int32 health = 3;
-    public static final int HEALTH_FIELD_NUMBER = 3;
+    // optional int32 health = 4;
+    public static final int HEALTH_FIELD_NUMBER = 4;
     private int health_;
     /**
-     * <code>optional int32 health = 3;</code>
+     * <code>optional int32 health = 4;</code>
      *
      * <pre>
      * 健康
      * </pre>
      */
     public boolean hasHealth() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional int32 health = 3;</code>
+     * <code>optional int32 health = 4;</code>
      *
      * <pre>
      * 健康
@@ -5241,6 +5328,7 @@ public final class Message {
 
     private void initFields() {
       uid_ = 0L;
+      account_ = "";
       blood_ = 0;
       health_ = 0;
     }
@@ -5260,10 +5348,13 @@ public final class Message {
         output.writeInt64(1, uid_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, blood_);
+        output.writeBytes(2, getAccountBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, health_);
+        output.writeInt32(3, blood_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, health_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -5280,11 +5371,15 @@ public final class Message {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, blood_);
+          .computeBytesSize(2, getAccountBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, health_);
+          .computeInt32Size(3, blood_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, health_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -5404,10 +5499,12 @@ public final class Message {
         super.clear();
         uid_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        blood_ = 0;
+        account_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        health_ = 0;
+        blood_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
+        health_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -5443,9 +5540,13 @@ public final class Message {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.blood_ = blood_;
+        result.account_ = account_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
+        }
+        result.blood_ = blood_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
         }
         result.health_ = health_;
         result.bitField0_ = to_bitField0_;
@@ -5466,6 +5567,11 @@ public final class Message {
         if (other == com.game.framework.protocol.Message.UserInfo.getDefaultInstance()) return this;
         if (other.hasUid()) {
           setUid(other.getUid());
+        }
+        if (other.hasAccount()) {
+          bitField0_ |= 0x00000002;
+          account_ = other.account_;
+          onChanged();
         }
         if (other.hasBlood()) {
           setBlood(other.getBlood());
@@ -5549,20 +5655,118 @@ public final class Message {
         return this;
       }
 
-      // optional int32 blood = 2;
+      // optional string account = 2;
+      private java.lang.Object account_ = "";
+      /**
+       * <code>optional string account = 2;</code>
+       *
+       * <pre>
+       * 名字
+       * </pre>
+       */
+      public boolean hasAccount() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string account = 2;</code>
+       *
+       * <pre>
+       * 名字
+       * </pre>
+       */
+      public java.lang.String getAccount() {
+        java.lang.Object ref = account_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          account_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string account = 2;</code>
+       *
+       * <pre>
+       * 名字
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getAccountBytes() {
+        java.lang.Object ref = account_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          account_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string account = 2;</code>
+       *
+       * <pre>
+       * 名字
+       * </pre>
+       */
+      public Builder setAccount(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        account_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string account = 2;</code>
+       *
+       * <pre>
+       * 名字
+       * </pre>
+       */
+      public Builder clearAccount() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        account_ = getDefaultInstance().getAccount();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string account = 2;</code>
+       *
+       * <pre>
+       * 名字
+       * </pre>
+       */
+      public Builder setAccountBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        account_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 blood = 3;
       private int blood_ ;
       /**
-       * <code>optional int32 blood = 2;</code>
+       * <code>optional int32 blood = 3;</code>
        *
        * <pre>
        * 血量
        * </pre>
        */
       public boolean hasBlood() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 blood = 2;</code>
+       * <code>optional int32 blood = 3;</code>
        *
        * <pre>
        * 血量
@@ -5572,46 +5776,46 @@ public final class Message {
         return blood_;
       }
       /**
-       * <code>optional int32 blood = 2;</code>
+       * <code>optional int32 blood = 3;</code>
        *
        * <pre>
        * 血量
        * </pre>
        */
       public Builder setBlood(int value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         blood_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 blood = 2;</code>
+       * <code>optional int32 blood = 3;</code>
        *
        * <pre>
        * 血量
        * </pre>
        */
       public Builder clearBlood() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         blood_ = 0;
         onChanged();
         return this;
       }
 
-      // optional int32 health = 3;
+      // optional int32 health = 4;
       private int health_ ;
       /**
-       * <code>optional int32 health = 3;</code>
+       * <code>optional int32 health = 4;</code>
        *
        * <pre>
        * 健康
        * </pre>
        */
       public boolean hasHealth() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional int32 health = 3;</code>
+       * <code>optional int32 health = 4;</code>
        *
        * <pre>
        * 健康
@@ -5621,27 +5825,27 @@ public final class Message {
         return health_;
       }
       /**
-       * <code>optional int32 health = 3;</code>
+       * <code>optional int32 health = 4;</code>
        *
        * <pre>
        * 健康
        * </pre>
        */
       public Builder setHealth(int value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         health_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 health = 3;</code>
+       * <code>optional int32 health = 4;</code>
        *
        * <pre>
        * 健康
        * </pre>
        */
       public Builder clearHealth() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         health_ = 0;
         onChanged();
         return this;
@@ -10372,22 +10576,22 @@ public final class Message {
       "work.protocol.LossInfo\"H\n\020InvadeResultIn" +
       "fo\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\003\022\013\n\003num\030\003 \001(" +
       "\005\022\r\n\005blood\030\004 \001(\005\"7\n\010LossInfo\022\013\n\003uid\030\001 \001(" +
-      "\003\022\020\n\010resource\030\002 \001(\005\022\014\n\004gold\030\003 \001(\005\"6\n\010Use" +
-      "rInfo\022\013\n\003uid\030\001 \001(\003\022\r\n\005blood\030\002 \001(\005\022\016\n\006hea" +
-      "lth\030\003 \001(\005\"\"\n\017TCSGetPageCount\022\017\n\007groupId\030" +
-      "\001 \001(\003\"$\n\017TSCGetPageCount\022\021\n\tpageCount\030\001 ",
-      "\001(\005\"6\n\016TCSGetPageList\022\023\n\013currentPage\030\001 \001" +
-      "(\005\022\017\n\007groupId\030\002 \001(\003\"O\n\016TSCGetPageList\022=\n" +
-      "\013messageInfo\030\001 \003(\0132(.com.game.framework." +
-      "protocol.MessageInfo\"\303\001\n\013MessageInfo\022\n\n\002" +
-      "id\030\001 \001(\003\022\014\n\004type\030\002 \001(\005\022;\n\nzombieInfo\030\003 \001" +
-      "(\0132\'.com.game.framework.protocol.ZombieI" +
-      "nfo\022?\n\014fightingInfo\030\004 \001(\0132).com.game.fra" +
-      "mework.protocol.FightingInfo\022\014\n\004time\030\005 \001" +
-      "(\003\022\016\n\006isRead\030\006 \001(\010\"\022\n\020TCSGetMessageTag\"&" +
-      "\n\020TSCGetMessageTag\022\022\n\nmessageNum\030\001 \001(\005\"&",
-      "\n\021TCSSendMessageTag\022\021\n\tmessageId\030\001 \001(\003B\002" +
-      "H\001"
+      "\003\022\020\n\010resource\030\002 \001(\005\022\014\n\004gold\030\003 \001(\005\"G\n\010Use" +
+      "rInfo\022\013\n\003uid\030\001 \001(\003\022\017\n\007account\030\002 \001(\t\022\r\n\005b" +
+      "lood\030\003 \001(\005\022\016\n\006health\030\004 \001(\005\"\"\n\017TCSGetPage" +
+      "Count\022\017\n\007groupId\030\001 \001(\003\"$\n\017TSCGetPageCoun",
+      "t\022\021\n\tpageCount\030\001 \001(\005\"6\n\016TCSGetPageList\022\023" +
+      "\n\013currentPage\030\001 \001(\005\022\017\n\007groupId\030\002 \001(\003\"O\n\016" +
+      "TSCGetPageList\022=\n\013messageInfo\030\001 \003(\0132(.co" +
+      "m.game.framework.protocol.MessageInfo\"\303\001" +
+      "\n\013MessageInfo\022\n\n\002id\030\001 \001(\003\022\014\n\004type\030\002 \001(\005\022" +
+      ";\n\nzombieInfo\030\003 \001(\0132\'.com.game.framework" +
+      ".protocol.ZombieInfo\022?\n\014fightingInfo\030\004 \001" +
+      "(\0132).com.game.framework.protocol.Fightin" +
+      "gInfo\022\014\n\004time\030\005 \001(\003\022\016\n\006isRead\030\006 \001(\010\"\022\n\020T" +
+      "CSGetMessageTag\"&\n\020TSCGetMessageTag\022\022\n\nm",
+      "essageNum\030\001 \001(\005\"&\n\021TCSSendMessageTag\022\021\n\t" +
+      "messageId\030\001 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -10429,7 +10633,7 @@ public final class Message {
           internal_static_com_game_framework_protocol_UserInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_UserInfo_descriptor,
-              new java.lang.String[] { "Uid", "Blood", "Health", });
+              new java.lang.String[] { "Uid", "Account", "Blood", "Health", });
           internal_static_com_game_framework_protocol_TCSGetPageCount_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_com_game_framework_protocol_TCSGetPageCount_fieldAccessorTable = new

@@ -383,23 +383,50 @@ public final class Scene {
      */
     int getTotalContribution();
 
-    // optional int32 peopleNum = 3;
+    // repeated .com.game.framework.protocol.UserInfo userInfos = 3;
     /**
-     * <code>optional int32 peopleNum = 3;</code>
+     * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
      *
      * <pre>
-     * 人数
+     * 玩家信息
      * </pre>
      */
-    boolean hasPeopleNum();
+    java.util.List<com.game.framework.protocol.Message.UserInfo> 
+        getUserInfosList();
     /**
-     * <code>optional int32 peopleNum = 3;</code>
+     * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
      *
      * <pre>
-     * 人数
+     * 玩家信息
      * </pre>
      */
-    int getPeopleNum();
+    com.game.framework.protocol.Message.UserInfo getUserInfos(int index);
+    /**
+     * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    int getUserInfosCount();
+    /**
+     * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    java.util.List<? extends com.game.framework.protocol.Message.UserInfoOrBuilder> 
+        getUserInfosOrBuilderList();
+    /**
+     * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    com.game.framework.protocol.Message.UserInfoOrBuilder getUserInfosOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetSceneInfo}
@@ -465,9 +492,12 @@ public final class Scene {
               totalContribution_ = input.readInt32();
               break;
             }
-            case 24: {
-              bitField0_ |= 0x00000002;
-              peopleNum_ = input.readInt32();
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                userInfos_ = new java.util.ArrayList<com.game.framework.protocol.Message.UserInfo>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              userInfos_.add(input.readMessage(com.game.framework.protocol.Message.UserInfo.PARSER, extensionRegistry));
               break;
             }
           }
@@ -480,6 +510,9 @@ public final class Scene {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           buildingInfos_ = java.util.Collections.unmodifiableList(buildingInfos_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          userInfos_ = java.util.Collections.unmodifiableList(userInfos_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -593,34 +626,66 @@ public final class Scene {
       return totalContribution_;
     }
 
-    // optional int32 peopleNum = 3;
-    public static final int PEOPLENUM_FIELD_NUMBER = 3;
-    private int peopleNum_;
+    // repeated .com.game.framework.protocol.UserInfo userInfos = 3;
+    public static final int USERINFOS_FIELD_NUMBER = 3;
+    private java.util.List<com.game.framework.protocol.Message.UserInfo> userInfos_;
     /**
-     * <code>optional int32 peopleNum = 3;</code>
+     * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
      *
      * <pre>
-     * 人数
+     * 玩家信息
      * </pre>
      */
-    public boolean hasPeopleNum() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+    public java.util.List<com.game.framework.protocol.Message.UserInfo> getUserInfosList() {
+      return userInfos_;
     }
     /**
-     * <code>optional int32 peopleNum = 3;</code>
+     * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
      *
      * <pre>
-     * 人数
+     * 玩家信息
      * </pre>
      */
-    public int getPeopleNum() {
-      return peopleNum_;
+    public java.util.List<? extends com.game.framework.protocol.Message.UserInfoOrBuilder> 
+        getUserInfosOrBuilderList() {
+      return userInfos_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    public int getUserInfosCount() {
+      return userInfos_.size();
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    public com.game.framework.protocol.Message.UserInfo getUserInfos(int index) {
+      return userInfos_.get(index);
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    public com.game.framework.protocol.Message.UserInfoOrBuilder getUserInfosOrBuilder(
+        int index) {
+      return userInfos_.get(index);
     }
 
     private void initFields() {
       buildingInfos_ = java.util.Collections.emptyList();
       totalContribution_ = 0;
-      peopleNum_ = 0;
+      userInfos_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -640,8 +705,8 @@ public final class Scene {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(2, totalContribution_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(3, peopleNum_);
+      for (int i = 0; i < userInfos_.size(); i++) {
+        output.writeMessage(3, userInfos_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -660,9 +725,9 @@ public final class Scene {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, totalContribution_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      for (int i = 0; i < userInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, peopleNum_);
+          .computeMessageSize(3, userInfos_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -773,6 +838,7 @@ public final class Scene {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getBuildingInfosFieldBuilder();
+          getUserInfosFieldBuilder();
         }
       }
       private static Builder create() {
@@ -789,8 +855,12 @@ public final class Scene {
         }
         totalContribution_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        peopleNum_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        if (userInfosBuilder_ == null) {
+          userInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          userInfosBuilder_.clear();
+        }
         return this;
       }
 
@@ -832,10 +902,15 @@ public final class Scene {
           to_bitField0_ |= 0x00000001;
         }
         result.totalContribution_ = totalContribution_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000002;
+        if (userInfosBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            userInfos_ = java.util.Collections.unmodifiableList(userInfos_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.userInfos_ = userInfos_;
+        } else {
+          result.userInfos_ = userInfosBuilder_.build();
         }
-        result.peopleNum_ = peopleNum_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -881,8 +956,31 @@ public final class Scene {
         if (other.hasTotalContribution()) {
           setTotalContribution(other.getTotalContribution());
         }
-        if (other.hasPeopleNum()) {
-          setPeopleNum(other.getPeopleNum());
+        if (userInfosBuilder_ == null) {
+          if (!other.userInfos_.isEmpty()) {
+            if (userInfos_.isEmpty()) {
+              userInfos_ = other.userInfos_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureUserInfosIsMutable();
+              userInfos_.addAll(other.userInfos_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.userInfos_.isEmpty()) {
+            if (userInfosBuilder_.isEmpty()) {
+              userInfosBuilder_.dispose();
+              userInfosBuilder_ = null;
+              userInfos_ = other.userInfos_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              userInfosBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getUserInfosFieldBuilder() : null;
+            } else {
+              userInfosBuilder_.addAllMessages(other.userInfos_);
+            }
+          }
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1272,53 +1370,316 @@ public final class Scene {
         return this;
       }
 
-      // optional int32 peopleNum = 3;
-      private int peopleNum_ ;
+      // repeated .com.game.framework.protocol.UserInfo userInfos = 3;
+      private java.util.List<com.game.framework.protocol.Message.UserInfo> userInfos_ =
+        java.util.Collections.emptyList();
+      private void ensureUserInfosIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          userInfos_ = new java.util.ArrayList<com.game.framework.protocol.Message.UserInfo>(userInfos_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.Message.UserInfo, com.game.framework.protocol.Message.UserInfo.Builder, com.game.framework.protocol.Message.UserInfoOrBuilder> userInfosBuilder_;
+
       /**
-       * <code>optional int32 peopleNum = 3;</code>
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
        *
        * <pre>
-       * 人数
+       * 玩家信息
        * </pre>
        */
-      public boolean hasPeopleNum() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+      public java.util.List<com.game.framework.protocol.Message.UserInfo> getUserInfosList() {
+        if (userInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(userInfos_);
+        } else {
+          return userInfosBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>optional int32 peopleNum = 3;</code>
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
        *
        * <pre>
-       * 人数
+       * 玩家信息
        * </pre>
        */
-      public int getPeopleNum() {
-        return peopleNum_;
+      public int getUserInfosCount() {
+        if (userInfosBuilder_ == null) {
+          return userInfos_.size();
+        } else {
+          return userInfosBuilder_.getCount();
+        }
       }
       /**
-       * <code>optional int32 peopleNum = 3;</code>
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
        *
        * <pre>
-       * 人数
+       * 玩家信息
        * </pre>
        */
-      public Builder setPeopleNum(int value) {
-        bitField0_ |= 0x00000004;
-        peopleNum_ = value;
-        onChanged();
+      public com.game.framework.protocol.Message.UserInfo getUserInfos(int index) {
+        if (userInfosBuilder_ == null) {
+          return userInfos_.get(index);
+        } else {
+          return userInfosBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder setUserInfos(
+          int index, com.game.framework.protocol.Message.UserInfo value) {
+        if (userInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserInfosIsMutable();
+          userInfos_.set(index, value);
+          onChanged();
+        } else {
+          userInfosBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>optional int32 peopleNum = 3;</code>
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
        *
        * <pre>
-       * 人数
+       * 玩家信息
        * </pre>
        */
-      public Builder clearPeopleNum() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        peopleNum_ = 0;
-        onChanged();
+      public Builder setUserInfos(
+          int index, com.game.framework.protocol.Message.UserInfo.Builder builderForValue) {
+        if (userInfosBuilder_ == null) {
+          ensureUserInfosIsMutable();
+          userInfos_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          userInfosBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder addUserInfos(com.game.framework.protocol.Message.UserInfo value) {
+        if (userInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserInfosIsMutable();
+          userInfos_.add(value);
+          onChanged();
+        } else {
+          userInfosBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder addUserInfos(
+          int index, com.game.framework.protocol.Message.UserInfo value) {
+        if (userInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserInfosIsMutable();
+          userInfos_.add(index, value);
+          onChanged();
+        } else {
+          userInfosBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder addUserInfos(
+          com.game.framework.protocol.Message.UserInfo.Builder builderForValue) {
+        if (userInfosBuilder_ == null) {
+          ensureUserInfosIsMutable();
+          userInfos_.add(builderForValue.build());
+          onChanged();
+        } else {
+          userInfosBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder addUserInfos(
+          int index, com.game.framework.protocol.Message.UserInfo.Builder builderForValue) {
+        if (userInfosBuilder_ == null) {
+          ensureUserInfosIsMutable();
+          userInfos_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          userInfosBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder addAllUserInfos(
+          java.lang.Iterable<? extends com.game.framework.protocol.Message.UserInfo> values) {
+        if (userInfosBuilder_ == null) {
+          ensureUserInfosIsMutable();
+          super.addAll(values, userInfos_);
+          onChanged();
+        } else {
+          userInfosBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder clearUserInfos() {
+        if (userInfosBuilder_ == null) {
+          userInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          userInfosBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder removeUserInfos(int index) {
+        if (userInfosBuilder_ == null) {
+          ensureUserInfosIsMutable();
+          userInfos_.remove(index);
+          onChanged();
+        } else {
+          userInfosBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Message.UserInfo.Builder getUserInfosBuilder(
+          int index) {
+        return getUserInfosFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Message.UserInfoOrBuilder getUserInfosOrBuilder(
+          int index) {
+        if (userInfosBuilder_ == null) {
+          return userInfos_.get(index);  } else {
+          return userInfosBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public java.util.List<? extends com.game.framework.protocol.Message.UserInfoOrBuilder> 
+           getUserInfosOrBuilderList() {
+        if (userInfosBuilder_ != null) {
+          return userInfosBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(userInfos_);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Message.UserInfo.Builder addUserInfosBuilder() {
+        return getUserInfosFieldBuilder().addBuilder(
+            com.game.framework.protocol.Message.UserInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public com.game.framework.protocol.Message.UserInfo.Builder addUserInfosBuilder(
+          int index) {
+        return getUserInfosFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.Message.UserInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.UserInfo userInfos = 3;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public java.util.List<com.game.framework.protocol.Message.UserInfo.Builder> 
+           getUserInfosBuilderList() {
+        return getUserInfosFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.Message.UserInfo, com.game.framework.protocol.Message.UserInfo.Builder, com.game.framework.protocol.Message.UserInfoOrBuilder> 
+          getUserInfosFieldBuilder() {
+        if (userInfosBuilder_ == null) {
+          userInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.Message.UserInfo, com.game.framework.protocol.Message.UserInfo.Builder, com.game.framework.protocol.Message.UserInfoOrBuilder>(
+                  userInfos_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          userInfos_ = null;
+        }
+        return userInfosBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetSceneInfo)
@@ -11225,37 +11586,39 @@ public final class Scene {
   static {
     java.lang.String[] descriptorData = {
       "\n\013scene.proto\022\033com.game.framework.protoc" +
-      "ol\"\021\n\017TCSGetSceneInfo\"\201\001\n\017TSCGetSceneInf" +
-      "o\022@\n\rbuildingInfos\030\001 \003(\0132).com.game.fram" +
-      "ework.protocol.BuildingInfo\022\031\n\021totalCont" +
-      "ribution\030\002 \001(\005\022\021\n\tpeopleNum\030\003 \001(\005\"(\n\022TCS" +
-      "GetBuildingInfo\022\022\n\nbuildingId\030\001 \001(\003\"U\n\022T" +
-      "SCGetBuildingInfo\022?\n\014buildingInfo\030\001 \001(\0132" +
+      "ol\032\rmessage.proto\"\021\n\017TCSGetSceneInfo\"\250\001\n" +
+      "\017TSCGetSceneInfo\022@\n\rbuildingInfos\030\001 \003(\0132" +
       ").com.game.framework.protocol.BuildingIn" +
-      "fo\"\242\001\n\014BuildingInfo\022\022\n\nbuildingId\030\001 \001(\003\022" +
-      "\020\n\010configId\030\002 \001(\005\022\031\n\021upgradeFinishTime\030\003",
-      " \001(\003\022\022\n\nupgradeUid\030\004 \001(\003\022\031\n\021processFinis" +
-      "hTime\030\005 \001(\003\022\022\n\nprocessUid\030\006 \001(\003\022\016\n\006numbe" +
-      "r\030\007 \001(\005\" \n\nTCSUpgrade\022\022\n\nbuildingId\030\001 \001(" +
-      "\003\"\200\001\n\nTSCUpgrade\022\017\n\007isState\030\001 \001(\010\022\017\n\007isG" +
-      "roup\030\002 \001(\010\022\022\n\nisResource\030\003 \001(\010\022\024\n\014isProd" +
-      "uction\030\004 \001(\010\022\022\n\nfinishTime\030\005 \001(\003\022\022\n\nbuil" +
-      "dingId\030\006 \001(\003\"&\n\020TCSFinishUpgrade\022\022\n\nbuil" +
-      "dingId\030\001 \001(\003\"&\n\020TSCFinishUpgrade\022\022\n\nbuil" +
-      "dingId\030\001 \001(\003\"\035\n\tTCSUnlock\022\020\n\010configId\030\001 " +
-      "\001(\005\"n\n\tTSCUnlock\022\022\n\nbuildingId\030\001 \001(\003\022\017\n\007",
-      "isGroup\030\002 \001(\010\022\022\n\nisResource\030\003 \001(\010\022\024\n\014isP" +
-      "roduction\030\004 \001(\010\022\022\n\nfinishTime\030\005 \001(\003\"%\n\017T" +
-      "CSFinishUnlock\022\022\n\nbuildingId\030\001 \001(\003\"%\n\017TS" +
-      "CFinishUnlock\022\022\n\nbuildingId\030\001 \001(\003\" \n\nTCS" +
-      "Receive\022\022\n\nbuildingId\030\001 \001(\003\"B\n\nTSCReceiv" +
-      "e\022\022\n\nbuildingId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022" +
-      "\016\n\006number\030\003 \001(\005\"0\n\nTCSProcess\022\022\n\nbuildin" +
-      "gId\030\001 \001(\003\022\016\n\006number\030\002 \001(\005\"Q\n\nTSCProcess\022" +
-      "\022\n\nbuildingId\030\001 \001(\003\022\022\n\nfinishTime\030\002 \001(\003\022" +
-      "\013\n\003uid\030\003 \001(\003\022\016\n\006number\030\004 \001(\005\")\n\023TCSInter",
-      "ruptProcess\022\022\n\nbuildingId\030\001 \001(\003\")\n\023TSCIn" +
-      "terruptProcess\022\022\n\nbuildingId\030\001 \001(\003B\002H\001"
+      "fo\022\031\n\021totalContribution\030\002 \001(\005\0228\n\tuserInf" +
+      "os\030\003 \003(\0132%.com.game.framework.protocol.U" +
+      "serInfo\"(\n\022TCSGetBuildingInfo\022\022\n\nbuildin" +
+      "gId\030\001 \001(\003\"U\n\022TSCGetBuildingInfo\022?\n\014build" +
+      "ingInfo\030\001 \001(\0132).com.game.framework.proto" +
+      "col.BuildingInfo\"\242\001\n\014BuildingInfo\022\022\n\nbui",
+      "ldingId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022\031\n\021upgra" +
+      "deFinishTime\030\003 \001(\003\022\022\n\nupgradeUid\030\004 \001(\003\022\031" +
+      "\n\021processFinishTime\030\005 \001(\003\022\022\n\nprocessUid\030" +
+      "\006 \001(\003\022\016\n\006number\030\007 \001(\005\" \n\nTCSUpgrade\022\022\n\nb" +
+      "uildingId\030\001 \001(\003\"\200\001\n\nTSCUpgrade\022\017\n\007isStat" +
+      "e\030\001 \001(\010\022\017\n\007isGroup\030\002 \001(\010\022\022\n\nisResource\030\003" +
+      " \001(\010\022\024\n\014isProduction\030\004 \001(\010\022\022\n\nfinishTime" +
+      "\030\005 \001(\003\022\022\n\nbuildingId\030\006 \001(\003\"&\n\020TCSFinishU" +
+      "pgrade\022\022\n\nbuildingId\030\001 \001(\003\"&\n\020TSCFinishU" +
+      "pgrade\022\022\n\nbuildingId\030\001 \001(\003\"\035\n\tTCSUnlock\022",
+      "\020\n\010configId\030\001 \001(\005\"n\n\tTSCUnlock\022\022\n\nbuildi" +
+      "ngId\030\001 \001(\003\022\017\n\007isGroup\030\002 \001(\010\022\022\n\nisResourc" +
+      "e\030\003 \001(\010\022\024\n\014isProduction\030\004 \001(\010\022\022\n\nfinishT" +
+      "ime\030\005 \001(\003\"%\n\017TCSFinishUnlock\022\022\n\nbuilding" +
+      "Id\030\001 \001(\003\"%\n\017TSCFinishUnlock\022\022\n\nbuildingI" +
+      "d\030\001 \001(\003\" \n\nTCSReceive\022\022\n\nbuildingId\030\001 \001(" +
+      "\003\"B\n\nTSCReceive\022\022\n\nbuildingId\030\001 \001(\003\022\020\n\010c" +
+      "onfigId\030\002 \001(\005\022\016\n\006number\030\003 \001(\005\"0\n\nTCSProc" +
+      "ess\022\022\n\nbuildingId\030\001 \001(\003\022\016\n\006number\030\002 \001(\005\"" +
+      "Q\n\nTSCProcess\022\022\n\nbuildingId\030\001 \001(\003\022\022\n\nfin",
+      "ishTime\030\002 \001(\003\022\013\n\003uid\030\003 \001(\003\022\016\n\006number\030\004 \001" +
+      "(\005\")\n\023TCSInterruptProcess\022\022\n\nbuildingId\030" +
+      "\001 \001(\003\")\n\023TSCInterruptProcess\022\022\n\nbuilding" +
+      "Id\030\001 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -11273,7 +11636,7 @@ public final class Scene {
           internal_static_com_game_framework_protocol_TSCGetSceneInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetSceneInfo_descriptor,
-              new java.lang.String[] { "BuildingInfos", "TotalContribution", "PeopleNum", });
+              new java.lang.String[] { "BuildingInfos", "TotalContribution", "UserInfos", });
           internal_static_com_game_framework_protocol_TCSGetBuildingInfo_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_TCSGetBuildingInfo_fieldAccessorTable = new
@@ -11382,6 +11745,7 @@ public final class Scene {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.game.framework.protocol.Message.getDescriptor(),
         }, assigner);
   }
 

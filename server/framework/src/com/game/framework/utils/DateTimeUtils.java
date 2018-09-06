@@ -1,48 +1,27 @@
 package com.game.framework.utils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
 public class DateTimeUtils {
-
     private static String datePattern = "yyyy-MM-dd HH:mm:ss";
-    private static String timePattern = "HH:mm:ss";
-    private static String dayPattern = "yyyy-MM-dd";
-    private static String hourPattern = "yyyy-MM-dd-HH";
-    private static String monthPattern = "yyyy_MM";
 
     public static String getDateFormateStr(Date date) {
-        return new SimpleDateFormat(datePattern).format(date);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(datePattern);
+        Instant instant = date.toInstant();
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+        return formatter.format(localDateTime);
     }
 
-    public static Date getDateFormateParse(String dateStr) throws ParseException {
-        return new SimpleDateFormat(datePattern).parse(dateStr);
-    }
-
-    public static String getTimeFormateStr(Date date) {
-        return new SimpleDateFormat(timePattern).format(date);
-    }
-
-    public static Date getTimeFormateParse(String dateStr) throws ParseException {
-        return new SimpleDateFormat(timePattern).parse(dateStr);
-    }
-
-    public static String getDayDataFormateStr(Date date) {
-        return new SimpleDateFormat(dayPattern).format(date);
-    }
-
-    public static Date getDayFormateParse(String dateStr) throws ParseException {
-        return new SimpleDateFormat(dayPattern).parse(dateStr);
-    }
-    
-    public static String getHourDataFormateStr(Date date) {
-        return new SimpleDateFormat(hourPattern).format(date);
-    }
-
-    public static String getMonthDataFormateStr(Date date) {
-        return new SimpleDateFormat(monthPattern).format(date);
+    public static Date getDateFormateParse(String dateStr) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(datePattern);
+        LocalDateTime localDateTime = LocalDateTime.parse(dateStr, formatter);
+        Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+        return Date.from(instant);
     }
 
     public static Date getNextMonth(Date date) {
@@ -75,11 +54,18 @@ public class DateTimeUtils {
     /**
      * 一周前时间
      */
-    public static long getAWeekBefore(Long thisTime) {
+    public static long getWeekBefore(Long thisTime) {
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(thisTime);
         cal.add(Calendar.DATE, -7);
         return cal.getTimeInMillis();
+    }
+    
+    public static Date getWeekBefore(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, -7);
+        return cal.getTime();
     }
 
     /**

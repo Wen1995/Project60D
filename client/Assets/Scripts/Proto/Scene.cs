@@ -296,8 +296,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetSceneInfo : pb::GeneratedMessageLite<TSCGetSceneInfo, TSCGetSceneInfo.Builder> {
     private TSCGetSceneInfo() { }
     private static readonly TSCGetSceneInfo defaultInstance = new TSCGetSceneInfo().MakeReadOnly();
-    private static readonly string[] _tSCGetSceneInfoFieldNames = new string[] { "buildingInfos", "peopleNum", "totalContribution" };
-    private static readonly uint[] _tSCGetSceneInfoFieldTags = new uint[] { 10, 24, 16 };
+    private static readonly string[] _tSCGetSceneInfoFieldNames = new string[] { "buildingInfos", "totalContribution", "userInfos" };
+    private static readonly uint[] _tSCGetSceneInfoFieldTags = new uint[] { 10, 16, 26 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -347,14 +347,16 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int PeopleNumFieldNumber = 3;
-    private bool hasPeopleNum;
-    private int peopleNum_;
-    public bool HasPeopleNum {
-      get { return hasPeopleNum; }
+    public const int UserInfosFieldNumber = 3;
+    private pbc::PopsicleList<global::com.game.framework.protocol.UserInfo> userInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.UserInfo>();
+    public scg::IList<global::com.game.framework.protocol.UserInfo> UserInfosList {
+      get { return userInfos_; }
     }
-    public int PeopleNum {
-      get { return peopleNum_; }
+    public int UserInfosCount {
+      get { return userInfos_.Count; }
+    }
+    public global::com.game.framework.protocol.UserInfo GetUserInfos(int index) {
+      return userInfos_[index];
     }
     
     #if UNITY_EDITOR
@@ -376,10 +378,10 @@ namespace com.game.framework.protocol {
         output.WriteMessageArray(1, field_names[0], buildingInfos_);
       }
       if (hasTotalContribution) {
-        output.WriteInt32(2, field_names[2], TotalContribution);
+        output.WriteInt32(2, field_names[1], TotalContribution);
       }
-      if (hasPeopleNum) {
-        output.WriteInt32(3, field_names[1], PeopleNum);
+      if (userInfos_.Count > 0) {
+        output.WriteMessageArray(3, field_names[2], userInfos_);
       }
     }
     
@@ -399,8 +401,8 @@ namespace com.game.framework.protocol {
         if (hasTotalContribution) {
           size += pb::CodedOutputStream.ComputeInt32Size(2, TotalContribution);
         }
-        if (hasPeopleNum) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, PeopleNum);
+        foreach (global::com.game.framework.protocol.UserInfo element in UserInfosList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(3, element);
         }
         memoizedSerializedSize = size;
         return size;
@@ -413,7 +415,8 @@ namespace com.game.framework.protocol {
       foreach(global::com.game.framework.protocol.BuildingInfo i in buildingInfos_)
         hash ^= i.GetHashCode();
       if (hasTotalContribution) hash ^= totalContribution_.GetHashCode();
-      if (hasPeopleNum) hash ^= peopleNum_.GetHashCode();
+      foreach(global::com.game.framework.protocol.UserInfo i in userInfos_)
+        hash ^= i.GetHashCode();
       return hash;
     }
     
@@ -424,7 +427,9 @@ namespace com.game.framework.protocol {
       for(int ix=0; ix < buildingInfos_.Count; ix++)
         if(!buildingInfos_[ix].Equals(other.buildingInfos_[ix])) return false;
       if (hasTotalContribution != other.hasTotalContribution || (hasTotalContribution && !totalContribution_.Equals(other.totalContribution_))) return false;
-      if (hasPeopleNum != other.hasPeopleNum || (hasPeopleNum && !peopleNum_.Equals(other.peopleNum_))) return false;
+      if(userInfos_.Count != other.userInfos_.Count) return false;
+      for(int ix=0; ix < userInfos_.Count; ix++)
+        if(!userInfos_[ix].Equals(other.userInfos_[ix])) return false;
       return true;
     }
     
@@ -492,6 +497,7 @@ namespace com.game.framework.protocol {
     }
     private TSCGetSceneInfo MakeReadOnly() {
       buildingInfos_.MakeReadOnly();
+      userInfos_.MakeReadOnly();
       return this;
     }
     
@@ -592,8 +598,8 @@ namespace com.game.framework.protocol {
         if (other.HasTotalContribution) {
           TotalContribution = other.TotalContribution;
         }
-        if (other.HasPeopleNum) {
-          PeopleNum = other.PeopleNum;
+        if (other.userInfos_.Count != 0) {
+          result.userInfos_.Add(other.userInfos_);
         }
         return this;
       }
@@ -635,8 +641,8 @@ namespace com.game.framework.protocol {
               result.hasTotalContribution = input.ReadInt32(ref result.totalContribution_);
               break;
             }
-            case 24: {
-              result.hasPeopleNum = input.ReadInt32(ref result.peopleNum_);
+            case 26: {
+              input.ReadMessageArray(tag, field_name, result.userInfos_, global::com.game.framework.protocol.UserInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -710,23 +716,47 @@ namespace com.game.framework.protocol {
         return this;
       }
       
-      public bool HasPeopleNum {
-        get { return result.hasPeopleNum; }
+      public pbc::IPopsicleList<global::com.game.framework.protocol.UserInfo> UserInfosList {
+        get { return PrepareBuilder().userInfos_; }
       }
-      public int PeopleNum {
-        get { return result.PeopleNum; }
-        set { SetPeopleNum(value); }
+      public int UserInfosCount {
+        get { return result.UserInfosCount; }
       }
-      public Builder SetPeopleNum(int value) {
+      public global::com.game.framework.protocol.UserInfo GetUserInfos(int index) {
+        return result.GetUserInfos(index);
+      }
+      public Builder SetUserInfos(int index, global::com.game.framework.protocol.UserInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.hasPeopleNum = true;
-        result.peopleNum_ = value;
+        result.userInfos_[index] = value;
         return this;
       }
-      public Builder ClearPeopleNum() {
+      public Builder SetUserInfos(int index, global::com.game.framework.protocol.UserInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.hasPeopleNum = false;
-        result.peopleNum_ = 0;
+        result.userInfos_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddUserInfos(global::com.game.framework.protocol.UserInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.userInfos_.Add(value);
+        return this;
+      }
+      public Builder AddUserInfos(global::com.game.framework.protocol.UserInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.userInfos_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeUserInfos(scg::IEnumerable<global::com.game.framework.protocol.UserInfo> values) {
+        PrepareBuilder();
+        result.userInfos_.Add(values);
+        return this;
+      }
+      public Builder ClearUserInfos() {
+        PrepareBuilder();
+        result.userInfos_.Clear();
         return this;
       }
     }

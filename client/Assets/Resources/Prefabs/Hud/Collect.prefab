@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4330657520067252}
   - component: {fileID: 114505780116926482}
+  - component: {fileID: 111750934630459794}
   m_Layer: 5
   m_Name: Collect
   m_TagString: Untagged
@@ -40,6 +41,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &111750934630459794
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547110818117412}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 42de21d2c38c816409d45a2ca17b8bab, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 42de21d2c38c816409d45a2ca17b8bab, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114505780116926482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,5 +108,5 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114612255973949970, guid: 6c5478af496c34f469108fb5f6ddebba, type: 2}
-  mSpriteName: Box-Icon
+  mSpriteName: Chat-Bubble-Amount-Icon
   mFillCenter: 1

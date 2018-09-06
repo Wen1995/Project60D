@@ -220,7 +220,7 @@ public class UserPackage : ModelBase {
 
     public double GetPlayerInterest()
     {
-        return 1/manorPersonNumber + (( (personContribution + 100000) / (totalContribution + manorPersonNumber * 100000) ) - 1 / manorPersonNumber) * 0.6;
+        return 1/manorPersonNumber + (( (personContribution + 100000) / (totalContribution + manorPersonNumber * 100000) ) - 1 / GetManorPersonNumber()) * 0.6;
     }
 
     public NUserInfo GetUserInfo(long uid)

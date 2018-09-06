@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Arrow-Left-Icon
-    x: 626
-    y: 650
+    x: 639
+    y: 601
     width: 37
     height: 63
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Arrow-Right-Icon
-    x: 626
-    y: 586
+    x: 639
+    y: 537
     width: 37
     height: 63
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Body-Man-Icon
-    x: 990
-    y: 822
+    x: 988
+    y: 821
     width: 29
     height: 70
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Box-Icon
-    x: 626
-    y: 765
+    x: 571
+    y: 502
     width: 56
     height: 53
     borderLeft: 0
@@ -183,9 +183,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Chat-Bubble-Amount-Icon
+    x: 922
+    y: 892
+    width: 65
+    height: 62
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Chat-Bubble-Points-Icon
     x: 922
-    y: 893
+    y: 830
     width: 65
     height: 61
     borderLeft: 0
@@ -224,7 +237,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Coins-Sack-Dollar-Icon
     x: 571
-    y: 684
+    y: 624
     width: 54
     height: 66
     borderLeft: 0
@@ -263,7 +276,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Hammer-Icon
     x: 571
-    y: 751
+    y: 691
     width: 54
     height: 67
     borderLeft: 0
@@ -275,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Heart-Health-Icon
-    x: 626
-    y: 714
+    x: 639
+    y: 768
     width: 55
     height: 50
     borderLeft: 0
@@ -288,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Mail-Icon-Small
-    x: 626
-    y: 547
+    x: 639
+    y: 498
     width: 45
     height: 38
     borderLeft: 0
@@ -301,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ManorIcon
-    x: 571
-    y: 564
+    x: 639
+    y: 716
     width: 51
     height: 51
     borderLeft: 0
@@ -328,7 +341,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Minus-Icon
     x: 922
-    y: 824
+    y: 821
     width: 65
     height: 8
     borderLeft: 0
@@ -379,8 +392,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Time-Icon
-    x: 571
-    y: 513
+    x: 639
+    y: 665
     width: 50
     height: 50
     borderLeft: 0
@@ -393,7 +406,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Trash-Icon-Small
     x: 571
-    y: 466
+    y: 455
     width: 42
     height: 46
     borderLeft: 0
@@ -405,8 +418,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Unlock-Icon-Small
-    x: 626
-    y: 511
+    x: 639
+    y: 462
     width: 30
     height: 35
     borderLeft: 0
@@ -418,8 +431,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: User-Question-Icon
-    x: 922
-    y: 833
+    x: 571
+    y: 759
     width: 67
     height: 59
     borderLeft: 0
@@ -432,7 +445,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Water-Icon
     x: 571
-    y: 616
+    y: 556
     width: 48
     height: 67
     borderLeft: 0

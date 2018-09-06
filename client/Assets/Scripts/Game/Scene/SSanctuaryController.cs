@@ -125,6 +125,7 @@ public class SSanctuaryController : SceneController
             sanctuaryPackage.AddBuilding(info);
         }
         userPackage.SetTotalContribution(sceneInfo.TotalContribution);
+        Debug.Log("manor number = " + sceneInfo.UserInfosCount);
         for(int i=0;i<sceneInfo.UserInfosCount;i++)
             userPackage.AddUserInfo(sceneInfo.GetUserInfos(i));
         SendEvent("RefreshManorLevel");

@@ -130,6 +130,40 @@ public class BuildingUtil {
         }
         return capacity;
     }
+    
+    /**
+     * 获得武器威力
+     */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static int getWeaponPower(String tableName, Integer tableId) {
+        String lowerCamelName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
+        String name = StringUtil.FirstLetterToUpper(lowerCamelName);
+        String classPath = "com.game.framework.resource.data." + name + "Bytes$"
+                + StringUtil.AllLetterToUpper(lowerCamelName);
+        int weaponMight = 0;
+        try {
+            Field f = StaticDataManager.class.getDeclaredField(lowerCamelName + "Map");
+            ReadOnlyMap map = (ReadOnlyMap) f.get(StaticDataManager.GetInstance());
+            Class clazz = Thread.currentThread().getContextClassLoader().loadClass(classPath);
+            Method method = clazz.getDeclaredMethod("getWeaponMight");
+            weaponMight = (int) method.invoke(map.get(tableId));
+        } catch (ClassNotFoundException e) {
+            logger.error("", e);
+        } catch (NoSuchFieldException e) {
+            logger.error("", e);
+        } catch (SecurityException e) {
+            logger.error("", e);
+        } catch (IllegalArgumentException e) {
+            logger.error("", e);
+        } catch (IllegalAccessException e) {
+            logger.error("", e);
+        } catch (NoSuchMethodException e) {
+            logger.error("", e);
+        } catch (InvocationTargetException e) {
+            logger.error("", e);
+        }
+        return weaponMight;
+    }
 
     /**
      * 获得领取类建筑临时仓库影响系数

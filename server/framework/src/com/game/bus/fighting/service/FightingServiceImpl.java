@@ -243,19 +243,33 @@ public class FightingServiceImpl implements FightingService {
             userInfos.add(userInfo);
             uid2Contribution.put(uid, u.getContribution());
         }
-
+        List<Building> buildings = buildingDao.getAllByGroupId(groupId);
+        List<Building> weapons = new ArrayList<>();
+        for (Building b : buildings) {
+            if (BuildingUtil.isWeaponBuilding(b)) {
+                weapons.add(b);
+            }
+        }
+        for (Building b : weapons) {
+            String tableName = buildingMap.get(b.getConfigId()).getBldgFuncTableName();
+            Integer tableId = buildingMap.get(b.getConfigId()).getBldgFuncTableId();
+            double dps = BuildingUtil.getWeaponPower(tableName, tableId) - K1 * zombieDefence;
+            if (dps > 0) {
+                allDps += dps;
+            }
+        }
         // 第一阶段
         double blood4ZombieDecrease =
                 allDps * arithmeticCoefficientMap.get(30070000).getAcK1() / 100;
         blood4AllZombie -= blood4ZombieDecrease;
         if (blood4AllZombie <= 0) {
-            caculateResult(zombieNum, allDps, zombieDefence, K1, judgeBlood, users,
-                    invadeResultInfos);
+            caculateResult(zombieNum, allDps, zombieDefence, K1, judgeBlood, users, 
+                    weapons, invadeResultInfos);
         } else {
             int deadZombieNum = (int) (blood4ZombieDecrease / blood4PerZombie);
             zombieNum -= deadZombieNum;
-            caculateResult(deadZombieNum, allDps, zombieDefence, K1, judgeBlood, users,
-                    invadeResultInfos);
+            caculateResult(deadZombieNum, allDps, zombieDefence, K1, judgeBlood, users, 
+                    weapons, invadeResultInfos);
 
             // 第二阶段
             if (doorId != 0) {
@@ -274,12 +288,12 @@ public class FightingServiceImpl implements FightingService {
                 blood4AllZombie -= blood4ZombieDecrease;
                 if (blood4AllZombie <= 0) {
                     caculateResult(zombieNum, allDps, zombieDefence, K1, judgeBlood, users,
-                            invadeResultInfos);
+                            weapons,invadeResultInfos);
                 } else {
                     deadZombieNum = (int) (blood4ZombieDecrease / blood4PerZombie);
                     zombieNum -= deadZombieNum;
                     caculateResult(deadZombieNum, allDps, zombieDefence, K1, judgeBlood, users,
-                            invadeResultInfos);
+                            weapons,invadeResultInfos);
 
                     // 大门攻破
                     invadeResultInfoBuilder = InvadeResultInfo.newBuilder()
@@ -288,8 +302,8 @@ public class FightingServiceImpl implements FightingService {
 
                     // 第三阶段
                     intoDoorTime = intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime,
-                            maxTime, judgeBlood, zombieAttack, zombieDefence, K1, users, zombieNum,
-                            invadeResultInfos);
+                            maxTime, judgeBlood, zombieAttack, zombieDefence, K1, users, weapons,
+                            zombieNum, invadeResultInfos);
                 }
             } else {
                 // 建筑类型 id = -1 没有大门
@@ -298,8 +312,8 @@ public class FightingServiceImpl implements FightingService {
                 invadeResultInfos.add(invadeResultInfoBuilder.build());
                 // 第三阶段
                 intoDoorTime = intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime,
-                        maxTime, judgeBlood, zombieAttack, zombieDefence, K1, users, zombieNum,
-                        invadeResultInfos);
+                        maxTime, judgeBlood, zombieAttack, zombieDefence, K1, users, weapons,
+                        zombieNum, invadeResultInfos);
             }
         }
 
@@ -357,7 +371,6 @@ public class FightingServiceImpl implements FightingService {
 
             // 领取类建筑资源
             long thisTime = System.currentTimeMillis();
-            List<Building> buildings = buildingDao.getAllByGroupId(groupId);
             ARITHMETIC_COEFFICIENT arithmeticCoefficient = arithmeticCoefficientMap.get(30020000);
             int K11 = arithmeticCoefficient.getAcK1() / 100;
             double K2 = arithmeticCoefficient.getAcK2() * 1.0 / 100;
@@ -435,33 +448,59 @@ public class FightingServiceImpl implements FightingService {
         return null;
     }
 
-    void caculateResult(int zombieNum, double allDps, double zombieDefence, double K1,
-            int judgeBlood, List<User> users, List<InvadeResultInfo> invadeResultInfos) {
-        Map<User, Integer> invadeResultInfoMap = new HashMap<>();
+    void caculateResult(int zombieNum, double allDps, double zombieDefence, double K1, int judgeBlood, 
+            List<User> users, List<Building> weapons, List<InvadeResultInfo> invadeResultInfos) {
+        Map<Object, Integer> invadeResultInfoMap = new HashMap<>();
         int alreadyKillZombieNum = 0;
+        int leftZombieNum = zombieNum;
         for (User u : users) {
             if (u.getBlood() >= judgeBlood) {
                 double dps = u.getAttack() - K1 * zombieDefence;
+                if (dps < 0) {
+                    dps = 0;
+                }
                 int killZombieNum = (int) (zombieNum * dps / allDps);
                 alreadyKillZombieNum += killZombieNum;
                 invadeResultInfoMap.put(u, killZombieNum);
             }
         }
+        ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+        for (Building b : weapons) {
+            String tableName = buildingMap.get(b.getConfigId()).getBldgFuncTableName();
+            Integer tableId = buildingMap.get(b.getConfigId()).getBldgFuncTableId();
+            double dps = BuildingUtil.getWeaponPower(tableName, tableId) - K1 * zombieDefence;
+            if (dps < 0) {
+                dps = 0;
+            }
+            int killZombieNum = (int) (zombieNum * dps / allDps);
+            alreadyKillZombieNum += killZombieNum;
+            invadeResultInfoMap.put(b, killZombieNum);
+        }
         if (invadeResultInfoMap.size() > 0) {
             // 余数
-            int leftZombieNum = zombieNum - alreadyKillZombieNum;
-            Map<User, Integer> resultMap = MapUtil.sortMapByValue(invadeResultInfoMap);
-            Iterator<Map.Entry<User, Integer>> entries = resultMap.entrySet().iterator();
+            leftZombieNum = zombieNum - alreadyKillZombieNum;
+            Map<Object, Integer> resultMap = MapUtil.sortMapByValue(invadeResultInfoMap);
+            Iterator<Map.Entry<Object, Integer>> entries = resultMap.entrySet().iterator();
             while (leftZombieNum > 0 && entries.hasNext()) {
-                Map.Entry<User, Integer> entry = entries.next();
+                Map.Entry<Object, Integer> entry = entries.next();
                 entry.setValue(entry.getValue() + 1);
                 leftZombieNum--;
             }
-            for (Map.Entry<User, Integer> entry : resultMap.entrySet()) {
-                // TODO 根据Id区分类型
-                InvadeResultInfo.Builder invadeResultInfoBuilder = InvadeResultInfo.newBuilder()
-                        .setType(InvadeResultType.PLAYER_VALUE).setId(entry.getKey().getId())
-                        .setNum(entry.getValue()).setBlood(entry.getKey().getBlood());
+            for (Map.Entry<Object, Integer> entry : resultMap.entrySet()) {
+                Object o = entry.getKey();
+                InvadeResultInfo.Builder invadeResultInfoBuilder = InvadeResultInfo.newBuilder();
+                if (o instanceof User) {
+                    User u = (User) o;
+                    invadeResultInfoBuilder.setType(InvadeResultType.PLAYER_VALUE)
+                            .setId(u.getId())
+                            .setNum(entry.getValue())
+                            .setBlood(u.getBlood());
+                } else {
+                    Building b = (Building) o;
+                    invadeResultInfoBuilder.setType(InvadeResultType.BUILDING_VALUE)
+                            .setId(b.getId())
+                            .setNum(entry.getValue());
+                }
                 invadeResultInfos.add(invadeResultInfoBuilder.build());
             }
         }
@@ -469,8 +508,8 @@ public class FightingServiceImpl implements FightingService {
 
     double intoDoor(double allDps, double blood4AllZombie, double blood4PerZombie,
             double intoDoorTime, double maxTime, int judgeBlood, double zombieAttack,
-            double zombieDefence, double K1, List<User> users, int zombieNum,
-            List<InvadeResultInfo> invadeResultInfos) {
+            double zombieDefence, double K1, List<User> users, List<Building> weapons,
+            int zombieNum, List<InvadeResultInfo> invadeResultInfos) {
         if (allDps > 0) {
             double zombieTime = blood4AllZombie / allDps;
             double humanTime = maxTime - intoDoorTime;
@@ -494,20 +533,20 @@ public class FightingServiceImpl implements FightingService {
                     intoDoorTime = maxTime;
                 }
                 caculateResult(zombieNum, allDps, zombieDefence, K1, judgeBlood, users,
-                        invadeResultInfos);
+                        weapons, invadeResultInfos);
             } else {
                 intoDoorTime += humanTime;
                 if (intoDoorTime > maxTime) {
                     double blood4ZombieDecrease = allDps * (intoDoorTime - maxTime);
                     int deadZombieNum = (int) (blood4ZombieDecrease / blood4PerZombie);
                     caculateResult(deadZombieNum, allDps, zombieDefence, K1, judgeBlood, users,
-                            invadeResultInfos);
+                            weapons, invadeResultInfos);
                 } else {
                     // 僵尸扣血
                     double blood4ZombieDecrease = allDps * humanTime;
                     int deadZombieNum = (int) (blood4ZombieDecrease / blood4PerZombie);
                     caculateResult(deadZombieNum, allDps, zombieDefence, K1, judgeBlood, users,
-                            invadeResultInfos);
+                            weapons, invadeResultInfos);
                     blood4AllZombie -= blood4ZombieDecrease;
 
                     // 玩家扣血、重新计算dps
@@ -535,8 +574,8 @@ public class FightingServiceImpl implements FightingService {
                         }
                     }
                     intoDoorTime += intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime,
-                            maxTime, judgeBlood, zombieAttack, zombieDefence, K1, users, zombieNum,
-                            invadeResultInfos);
+                            maxTime, judgeBlood, zombieAttack, zombieDefence, K1, users, weapons,
+                            zombieNum, invadeResultInfos);
                 }
             }
         }

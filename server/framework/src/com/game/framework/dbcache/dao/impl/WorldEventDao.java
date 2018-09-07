@@ -14,8 +14,8 @@ public class WorldEventDao extends BaseDao<WorldEvent, WorldEventMapper, WorldEv
 
     @Override
     public List<WorldEvent> getWorldEvent(Long thisTime, Long lastTime) {
-        long aWeekBeforeTime = DateTimeUtils.getWeekBefore(thisTime);
-        lastTime = lastTime > aWeekBeforeTime ? aWeekBeforeTime : lastTime;
+        long weekBeforeTime = DateTimeUtils.getWeekBefore(thisTime);
+        lastTime = lastTime > weekBeforeTime ? lastTime : weekBeforeTime;
         WorldEventExample example = new WorldEventExample();
         example.createCriteria().andTimeBetween(new Date(lastTime), new Date(thisTime));
         example.setOrderByClause("time");

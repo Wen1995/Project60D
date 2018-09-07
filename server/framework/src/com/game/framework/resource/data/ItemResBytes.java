@@ -233,7 +233,7 @@ public final class ItemResBytes {
      * <code>optional int32 if_available = 11 [default = 0];</code>
      *
      * <pre>
-     ** 是否可直接使用（1可用，0不可用） 
+     ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
      * </pre>
      */
     boolean hasIfAvailable();
@@ -241,7 +241,7 @@ public final class ItemResBytes {
      * <code>optional int32 if_available = 11 [default = 0];</code>
      *
      * <pre>
-     ** 是否可直接使用（1可用，0不可用） 
+     ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
      * </pre>
      */
     int getIfAvailable();
@@ -364,6 +364,91 @@ public final class ItemResBytes {
      * </pre>
      */
     int getMoodrecLim();
+
+    /**
+     * <code>optional int32 atk_add = 19 [default = 0];</code>
+     *
+     * <pre>
+     ** 攻击 
+     * </pre>
+     */
+    boolean hasAtkAdd();
+    /**
+     * <code>optional int32 atk_add = 19 [default = 0];</code>
+     *
+     * <pre>
+     ** 攻击 
+     * </pre>
+     */
+    int getAtkAdd();
+
+    /**
+     * <code>optional int32 def_add = 20 [default = 0];</code>
+     *
+     * <pre>
+     ** 防御 
+     * </pre>
+     */
+    boolean hasDefAdd();
+    /**
+     * <code>optional int32 def_add = 20 [default = 0];</code>
+     *
+     * <pre>
+     ** 防御 
+     * </pre>
+     */
+    int getDefAdd();
+
+    /**
+     * <code>optional int32 spd_add = 21 [default = 0];</code>
+     *
+     * <pre>
+     ** 移速 
+     * </pre>
+     */
+    boolean hasSpdAdd();
+    /**
+     * <code>optional int32 spd_add = 21 [default = 0];</code>
+     *
+     * <pre>
+     ** 移速 
+     * </pre>
+     */
+    int getSpdAdd();
+
+    /**
+     * <code>optional int32 load_add = 22 [default = 0];</code>
+     *
+     * <pre>
+     ** 负载 
+     * </pre>
+     */
+    boolean hasLoadAdd();
+    /**
+     * <code>optional int32 load_add = 22 [default = 0];</code>
+     *
+     * <pre>
+     ** 负载 
+     * </pre>
+     */
+    int getLoadAdd();
+
+    /**
+     * <code>optional int32 agi_add = 23 [default = 0];</code>
+     *
+     * <pre>
+     ** 敏捷 
+     * </pre>
+     */
+    boolean hasAgiAdd();
+    /**
+     * <code>optional int32 agi_add = 23 [default = 0];</code>
+     *
+     * <pre>
+     ** 敏捷 
+     * </pre>
+     */
+    int getAgiAdd();
   }
   /**
    * Protobuf type {@code com.game.framework.resource.data.ITEM_RES}
@@ -510,6 +595,31 @@ public final class ItemResBytes {
             case 144: {
               bitField0_ |= 0x00020000;
               moodrecLim_ = input.readInt32();
+              break;
+            }
+            case 152: {
+              bitField0_ |= 0x00040000;
+              atkAdd_ = input.readInt32();
+              break;
+            }
+            case 160: {
+              bitField0_ |= 0x00080000;
+              defAdd_ = input.readInt32();
+              break;
+            }
+            case 168: {
+              bitField0_ |= 0x00100000;
+              spdAdd_ = input.readInt32();
+              break;
+            }
+            case 176: {
+              bitField0_ |= 0x00200000;
+              loadAdd_ = input.readInt32();
+              break;
+            }
+            case 184: {
+              bitField0_ |= 0x00400000;
+              agiAdd_ = input.readInt32();
               break;
             }
           }
@@ -945,7 +1055,7 @@ public final class ItemResBytes {
      * <code>optional int32 if_available = 11 [default = 0];</code>
      *
      * <pre>
-     ** 是否可直接使用（1可用，0不可用） 
+     ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
      * </pre>
      */
     public boolean hasIfAvailable() {
@@ -955,7 +1065,7 @@ public final class ItemResBytes {
      * <code>optional int32 if_available = 11 [default = 0];</code>
      *
      * <pre>
-     ** 是否可直接使用（1可用，0不可用） 
+     ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
      * </pre>
      */
     public int getIfAvailable() {
@@ -1123,6 +1233,121 @@ public final class ItemResBytes {
       return moodrecLim_;
     }
 
+    public static final int ATK_ADD_FIELD_NUMBER = 19;
+    private int atkAdd_;
+    /**
+     * <code>optional int32 atk_add = 19 [default = 0];</code>
+     *
+     * <pre>
+     ** 攻击 
+     * </pre>
+     */
+    public boolean hasAtkAdd() {
+      return ((bitField0_ & 0x00040000) == 0x00040000);
+    }
+    /**
+     * <code>optional int32 atk_add = 19 [default = 0];</code>
+     *
+     * <pre>
+     ** 攻击 
+     * </pre>
+     */
+    public int getAtkAdd() {
+      return atkAdd_;
+    }
+
+    public static final int DEF_ADD_FIELD_NUMBER = 20;
+    private int defAdd_;
+    /**
+     * <code>optional int32 def_add = 20 [default = 0];</code>
+     *
+     * <pre>
+     ** 防御 
+     * </pre>
+     */
+    public boolean hasDefAdd() {
+      return ((bitField0_ & 0x00080000) == 0x00080000);
+    }
+    /**
+     * <code>optional int32 def_add = 20 [default = 0];</code>
+     *
+     * <pre>
+     ** 防御 
+     * </pre>
+     */
+    public int getDefAdd() {
+      return defAdd_;
+    }
+
+    public static final int SPD_ADD_FIELD_NUMBER = 21;
+    private int spdAdd_;
+    /**
+     * <code>optional int32 spd_add = 21 [default = 0];</code>
+     *
+     * <pre>
+     ** 移速 
+     * </pre>
+     */
+    public boolean hasSpdAdd() {
+      return ((bitField0_ & 0x00100000) == 0x00100000);
+    }
+    /**
+     * <code>optional int32 spd_add = 21 [default = 0];</code>
+     *
+     * <pre>
+     ** 移速 
+     * </pre>
+     */
+    public int getSpdAdd() {
+      return spdAdd_;
+    }
+
+    public static final int LOAD_ADD_FIELD_NUMBER = 22;
+    private int loadAdd_;
+    /**
+     * <code>optional int32 load_add = 22 [default = 0];</code>
+     *
+     * <pre>
+     ** 负载 
+     * </pre>
+     */
+    public boolean hasLoadAdd() {
+      return ((bitField0_ & 0x00200000) == 0x00200000);
+    }
+    /**
+     * <code>optional int32 load_add = 22 [default = 0];</code>
+     *
+     * <pre>
+     ** 负载 
+     * </pre>
+     */
+    public int getLoadAdd() {
+      return loadAdd_;
+    }
+
+    public static final int AGI_ADD_FIELD_NUMBER = 23;
+    private int agiAdd_;
+    /**
+     * <code>optional int32 agi_add = 23 [default = 0];</code>
+     *
+     * <pre>
+     ** 敏捷 
+     * </pre>
+     */
+    public boolean hasAgiAdd() {
+      return ((bitField0_ & 0x00400000) == 0x00400000);
+    }
+    /**
+     * <code>optional int32 agi_add = 23 [default = 0];</code>
+     *
+     * <pre>
+     ** 敏捷 
+     * </pre>
+     */
+    public int getAgiAdd() {
+      return agiAdd_;
+    }
+
     private void initFields() {
       id_ = 0;
       itemLvl_ = 0;
@@ -1142,6 +1367,11 @@ public final class ItemResBytes {
       healthrecLim_ = 0;
       moodRec_ = 0;
       moodrecLim_ = 0;
+      atkAdd_ = 0;
+      defAdd_ = 0;
+      spdAdd_ = 0;
+      loadAdd_ = 0;
+      agiAdd_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1213,6 +1443,21 @@ public final class ItemResBytes {
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
         output.writeInt32(18, moodrecLim_);
+      }
+      if (((bitField0_ & 0x00040000) == 0x00040000)) {
+        output.writeInt32(19, atkAdd_);
+      }
+      if (((bitField0_ & 0x00080000) == 0x00080000)) {
+        output.writeInt32(20, defAdd_);
+      }
+      if (((bitField0_ & 0x00100000) == 0x00100000)) {
+        output.writeInt32(21, spdAdd_);
+      }
+      if (((bitField0_ & 0x00200000) == 0x00200000)) {
+        output.writeInt32(22, loadAdd_);
+      }
+      if (((bitField0_ & 0x00400000) == 0x00400000)) {
+        output.writeInt32(23, agiAdd_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1294,6 +1539,26 @@ public final class ItemResBytes {
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(18, moodrecLim_);
+      }
+      if (((bitField0_ & 0x00040000) == 0x00040000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(19, atkAdd_);
+      }
+      if (((bitField0_ & 0x00080000) == 0x00080000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(20, defAdd_);
+      }
+      if (((bitField0_ & 0x00100000) == 0x00100000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(21, spdAdd_);
+      }
+      if (((bitField0_ & 0x00200000) == 0x00200000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(22, loadAdd_);
+      }
+      if (((bitField0_ & 0x00400000) == 0x00400000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(23, agiAdd_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1448,6 +1713,16 @@ public final class ItemResBytes {
         bitField0_ = (bitField0_ & ~0x00010000);
         moodrecLim_ = 0;
         bitField0_ = (bitField0_ & ~0x00020000);
+        atkAdd_ = 0;
+        bitField0_ = (bitField0_ & ~0x00040000);
+        defAdd_ = 0;
+        bitField0_ = (bitField0_ & ~0x00080000);
+        spdAdd_ = 0;
+        bitField0_ = (bitField0_ & ~0x00100000);
+        loadAdd_ = 0;
+        bitField0_ = (bitField0_ & ~0x00200000);
+        agiAdd_ = 0;
+        bitField0_ = (bitField0_ & ~0x00400000);
         return this;
       }
 
@@ -1548,6 +1823,26 @@ public final class ItemResBytes {
           to_bitField0_ |= 0x00020000;
         }
         result.moodrecLim_ = moodrecLim_;
+        if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
+          to_bitField0_ |= 0x00040000;
+        }
+        result.atkAdd_ = atkAdd_;
+        if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
+          to_bitField0_ |= 0x00080000;
+        }
+        result.defAdd_ = defAdd_;
+        if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
+          to_bitField0_ |= 0x00100000;
+        }
+        result.spdAdd_ = spdAdd_;
+        if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
+          to_bitField0_ |= 0x00200000;
+        }
+        result.loadAdd_ = loadAdd_;
+        if (((from_bitField0_ & 0x00400000) == 0x00400000)) {
+          to_bitField0_ |= 0x00400000;
+        }
+        result.agiAdd_ = agiAdd_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1627,6 +1922,21 @@ public final class ItemResBytes {
         }
         if (other.hasMoodrecLim()) {
           setMoodrecLim(other.getMoodrecLim());
+        }
+        if (other.hasAtkAdd()) {
+          setAtkAdd(other.getAtkAdd());
+        }
+        if (other.hasDefAdd()) {
+          setDefAdd(other.getDefAdd());
+        }
+        if (other.hasSpdAdd()) {
+          setSpdAdd(other.getSpdAdd());
+        }
+        if (other.hasLoadAdd()) {
+          setLoadAdd(other.getLoadAdd());
+        }
+        if (other.hasAgiAdd()) {
+          setAgiAdd(other.getAgiAdd());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -2408,7 +2718,7 @@ public final class ItemResBytes {
        * <code>optional int32 if_available = 11 [default = 0];</code>
        *
        * <pre>
-       ** 是否可直接使用（1可用，0不可用） 
+       ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
        * </pre>
        */
       public boolean hasIfAvailable() {
@@ -2418,7 +2728,7 @@ public final class ItemResBytes {
        * <code>optional int32 if_available = 11 [default = 0];</code>
        *
        * <pre>
-       ** 是否可直接使用（1可用，0不可用） 
+       ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
        * </pre>
        */
       public int getIfAvailable() {
@@ -2428,7 +2738,7 @@ public final class ItemResBytes {
        * <code>optional int32 if_available = 11 [default = 0];</code>
        *
        * <pre>
-       ** 是否可直接使用（1可用，0不可用） 
+       ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
        * </pre>
        */
       public Builder setIfAvailable(int value) {
@@ -2441,7 +2751,7 @@ public final class ItemResBytes {
        * <code>optional int32 if_available = 11 [default = 0];</code>
        *
        * <pre>
-       ** 是否可直接使用（1可用，0不可用） 
+       ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
        * </pre>
        */
       public Builder clearIfAvailable() {
@@ -2783,6 +3093,246 @@ public final class ItemResBytes {
       public Builder clearMoodrecLim() {
         bitField0_ = (bitField0_ & ~0x00020000);
         moodrecLim_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int atkAdd_ ;
+      /**
+       * <code>optional int32 atk_add = 19 [default = 0];</code>
+       *
+       * <pre>
+       ** 攻击 
+       * </pre>
+       */
+      public boolean hasAtkAdd() {
+        return ((bitField0_ & 0x00040000) == 0x00040000);
+      }
+      /**
+       * <code>optional int32 atk_add = 19 [default = 0];</code>
+       *
+       * <pre>
+       ** 攻击 
+       * </pre>
+       */
+      public int getAtkAdd() {
+        return atkAdd_;
+      }
+      /**
+       * <code>optional int32 atk_add = 19 [default = 0];</code>
+       *
+       * <pre>
+       ** 攻击 
+       * </pre>
+       */
+      public Builder setAtkAdd(int value) {
+        bitField0_ |= 0x00040000;
+        atkAdd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 atk_add = 19 [default = 0];</code>
+       *
+       * <pre>
+       ** 攻击 
+       * </pre>
+       */
+      public Builder clearAtkAdd() {
+        bitField0_ = (bitField0_ & ~0x00040000);
+        atkAdd_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int defAdd_ ;
+      /**
+       * <code>optional int32 def_add = 20 [default = 0];</code>
+       *
+       * <pre>
+       ** 防御 
+       * </pre>
+       */
+      public boolean hasDefAdd() {
+        return ((bitField0_ & 0x00080000) == 0x00080000);
+      }
+      /**
+       * <code>optional int32 def_add = 20 [default = 0];</code>
+       *
+       * <pre>
+       ** 防御 
+       * </pre>
+       */
+      public int getDefAdd() {
+        return defAdd_;
+      }
+      /**
+       * <code>optional int32 def_add = 20 [default = 0];</code>
+       *
+       * <pre>
+       ** 防御 
+       * </pre>
+       */
+      public Builder setDefAdd(int value) {
+        bitField0_ |= 0x00080000;
+        defAdd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 def_add = 20 [default = 0];</code>
+       *
+       * <pre>
+       ** 防御 
+       * </pre>
+       */
+      public Builder clearDefAdd() {
+        bitField0_ = (bitField0_ & ~0x00080000);
+        defAdd_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int spdAdd_ ;
+      /**
+       * <code>optional int32 spd_add = 21 [default = 0];</code>
+       *
+       * <pre>
+       ** 移速 
+       * </pre>
+       */
+      public boolean hasSpdAdd() {
+        return ((bitField0_ & 0x00100000) == 0x00100000);
+      }
+      /**
+       * <code>optional int32 spd_add = 21 [default = 0];</code>
+       *
+       * <pre>
+       ** 移速 
+       * </pre>
+       */
+      public int getSpdAdd() {
+        return spdAdd_;
+      }
+      /**
+       * <code>optional int32 spd_add = 21 [default = 0];</code>
+       *
+       * <pre>
+       ** 移速 
+       * </pre>
+       */
+      public Builder setSpdAdd(int value) {
+        bitField0_ |= 0x00100000;
+        spdAdd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 spd_add = 21 [default = 0];</code>
+       *
+       * <pre>
+       ** 移速 
+       * </pre>
+       */
+      public Builder clearSpdAdd() {
+        bitField0_ = (bitField0_ & ~0x00100000);
+        spdAdd_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int loadAdd_ ;
+      /**
+       * <code>optional int32 load_add = 22 [default = 0];</code>
+       *
+       * <pre>
+       ** 负载 
+       * </pre>
+       */
+      public boolean hasLoadAdd() {
+        return ((bitField0_ & 0x00200000) == 0x00200000);
+      }
+      /**
+       * <code>optional int32 load_add = 22 [default = 0];</code>
+       *
+       * <pre>
+       ** 负载 
+       * </pre>
+       */
+      public int getLoadAdd() {
+        return loadAdd_;
+      }
+      /**
+       * <code>optional int32 load_add = 22 [default = 0];</code>
+       *
+       * <pre>
+       ** 负载 
+       * </pre>
+       */
+      public Builder setLoadAdd(int value) {
+        bitField0_ |= 0x00200000;
+        loadAdd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 load_add = 22 [default = 0];</code>
+       *
+       * <pre>
+       ** 负载 
+       * </pre>
+       */
+      public Builder clearLoadAdd() {
+        bitField0_ = (bitField0_ & ~0x00200000);
+        loadAdd_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int agiAdd_ ;
+      /**
+       * <code>optional int32 agi_add = 23 [default = 0];</code>
+       *
+       * <pre>
+       ** 敏捷 
+       * </pre>
+       */
+      public boolean hasAgiAdd() {
+        return ((bitField0_ & 0x00400000) == 0x00400000);
+      }
+      /**
+       * <code>optional int32 agi_add = 23 [default = 0];</code>
+       *
+       * <pre>
+       ** 敏捷 
+       * </pre>
+       */
+      public int getAgiAdd() {
+        return agiAdd_;
+      }
+      /**
+       * <code>optional int32 agi_add = 23 [default = 0];</code>
+       *
+       * <pre>
+       ** 敏捷 
+       * </pre>
+       */
+      public Builder setAgiAdd(int value) {
+        bitField0_ |= 0x00400000;
+        agiAdd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 agi_add = 23 [default = 0];</code>
+       *
+       * <pre>
+       ** 敏捷 
+       * </pre>
+       */
+      public Builder clearAgiAdd() {
+        bitField0_ = (bitField0_ & ~0x00400000);
+        agiAdd_ = 0;
         onChanged();
         return this;
       }
@@ -3506,7 +4056,7 @@ public final class ItemResBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\032proto/item_res_bytes.proto\022 com.game.f" +
-      "ramework.resource.data\"\225\003\n\010ITEM_RES\022\r\n\002i" +
+      "ramework.resource.data\"\372\003\n\010ITEM_RES\022\r\n\002i" +
       "d\030\001 \002(\005:\0010\022\023\n\010item_lvl\030\002 \001(\005:\0010\022\022\n\010min_n" +
       "ame\030\003 \001(\t:\000\022\022\n\010key_name\030\004 \001(\t:\000\022\033\n\020servi" +
       "ceable_rate\030\005 \001(\005:\0010\022\023\n\ticon_name\030\006 \001(\t:" +
@@ -3516,9 +4066,12 @@ public final class ItemResBytes {
       "rec\030\014 \001(\005:\0010\022\024\n\tstarv_rec\030\r \001(\005:\0010\022\024\n\twa" +
       "ter_rec\030\016 \001(\005:\0010\022\025\n\nhealth_rec\030\017 \001(\005:\0010\022",
       "\030\n\rhealthrec_lim\030\020 \001(\005:\0010\022\023\n\010mood_rec\030\021 " +
-      "\001(\005:\0010\022\026\n\013moodrec_lim\030\022 \001(\005:\0010\"K\n\016ITEM_R" +
-      "ES_ARRAY\0229\n\005items\030\001 \003(\0132*.com.game.frame" +
-      "work.resource.data.ITEM_RES"
+      "\001(\005:\0010\022\026\n\013moodrec_lim\030\022 \001(\005:\0010\022\022\n\007atk_ad" +
+      "d\030\023 \001(\005:\0010\022\022\n\007def_add\030\024 \001(\005:\0010\022\022\n\007spd_ad" +
+      "d\030\025 \001(\005:\0010\022\023\n\010load_add\030\026 \001(\005:\0010\022\022\n\007agi_a" +
+      "dd\030\027 \001(\005:\0010\"K\n\016ITEM_RES_ARRAY\0229\n\005items\030\001" +
+      " \003(\0132*.com.game.framework.resource.data." +
+      "ITEM_RES"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3537,7 +4090,7 @@ public final class ItemResBytes {
     internal_static_com_game_framework_resource_data_ITEM_RES_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_game_framework_resource_data_ITEM_RES_descriptor,
-        new java.lang.String[] { "Id", "ItemLvl", "MinName", "KeyName", "ServiceableRate", "IconName", "SmallIconName", "Desc", "GoldConv", "StorUnit", "IfAvailable", "HpRec", "StarvRec", "WaterRec", "HealthRec", "HealthrecLim", "MoodRec", "MoodrecLim", });
+        new java.lang.String[] { "Id", "ItemLvl", "MinName", "KeyName", "ServiceableRate", "IconName", "SmallIconName", "Desc", "GoldConv", "StorUnit", "IfAvailable", "HpRec", "StarvRec", "WaterRec", "HealthRec", "HealthrecLim", "MoodRec", "MoodrecLim", "AtkAdd", "DefAdd", "SpdAdd", "LoadAdd", "AgiAdd", });
     internal_static_com_game_framework_resource_data_ITEM_RES_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_game_framework_resource_data_ITEM_RES_ARRAY_fieldAccessorTable = new

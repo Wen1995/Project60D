@@ -4308,7 +4308,7 @@ namespace com.game.framework.protocol {
   public sealed partial class TCSSellGoods : pb::GeneratedMessageLite<TCSSellGoods, TCSSellGoods.Builder> {
     private TCSSellGoods() { }
     private static readonly TCSSellGoods defaultInstance = new TCSSellGoods().MakeReadOnly();
-    private static readonly string[] _tCSSellGoodsFieldNames = new string[] { "configId", "number", "worldEventConfigIds" };
+    private static readonly string[] _tCSSellGoodsFieldNames = new string[] { "configId", "number", "price" };
     private static readonly uint[] _tCSSellGoodsFieldTags = new uint[] { 8, 16, 24 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -4357,16 +4357,14 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int WorldEventConfigIdsFieldNumber = 3;
-    private pbc::PopsicleList<int> worldEventConfigIds_ = new pbc::PopsicleList<int>();
-    public scg::IList<int> WorldEventConfigIdsList {
-      get { return pbc::Lists.AsReadOnly(worldEventConfigIds_); }
+    public const int PriceFieldNumber = 3;
+    private bool hasPrice;
+    private int price_;
+    public bool HasPrice {
+      get { return hasPrice; }
     }
-    public int WorldEventConfigIdsCount {
-      get { return worldEventConfigIds_.Count; }
-    }
-    public int GetWorldEventConfigIds(int index) {
-      return worldEventConfigIds_[index];
+    public int Price {
+      get { return price_; }
     }
     
     #if UNITY_EDITOR
@@ -4390,8 +4388,8 @@ namespace com.game.framework.protocol {
       if (hasNumber) {
         output.WriteInt32(2, field_names[1], Number);
       }
-      if (worldEventConfigIds_.Count > 0) {
-        output.WriteInt32Array(3, field_names[2], worldEventConfigIds_);
+      if (hasPrice) {
+        output.WriteInt32(3, field_names[2], Price);
       }
     }
     
@@ -4411,13 +4409,8 @@ namespace com.game.framework.protocol {
         if (hasNumber) {
           size += pb::CodedOutputStream.ComputeInt32Size(2, Number);
         }
-        {
-          int dataSize = 0;
-          foreach (int element in WorldEventConfigIdsList) {
-            dataSize += pb::CodedOutputStream.ComputeInt32SizeNoTag(element);
-          }
-          size += dataSize;
-          size += 1 * worldEventConfigIds_.Count;
+        if (hasPrice) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, Price);
         }
         memoizedSerializedSize = size;
         return size;
@@ -4429,8 +4422,7 @@ namespace com.game.framework.protocol {
       int hash = GetType().GetHashCode();
       if (hasConfigId) hash ^= configId_.GetHashCode();
       if (hasNumber) hash ^= number_.GetHashCode();
-      foreach(int i in worldEventConfigIds_)
-        hash ^= i.GetHashCode();
+      if (hasPrice) hash ^= price_.GetHashCode();
       return hash;
     }
     
@@ -4439,9 +4431,7 @@ namespace com.game.framework.protocol {
       if (other == null) return false;
       if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
       if (hasNumber != other.hasNumber || (hasNumber && !number_.Equals(other.number_))) return false;
-      if(worldEventConfigIds_.Count != other.worldEventConfigIds_.Count) return false;
-      for(int ix=0; ix < worldEventConfigIds_.Count; ix++)
-        if(!worldEventConfigIds_[ix].Equals(other.worldEventConfigIds_[ix])) return false;
+      if (hasPrice != other.hasPrice || (hasPrice && !price_.Equals(other.price_))) return false;
       return true;
     }
     
@@ -4508,7 +4498,6 @@ namespace com.game.framework.protocol {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private TCSSellGoods MakeReadOnly() {
-      worldEventConfigIds_.MakeReadOnly();
       return this;
     }
     
@@ -4609,8 +4598,8 @@ namespace com.game.framework.protocol {
         if (other.HasNumber) {
           Number = other.Number;
         }
-        if (other.worldEventConfigIds_.Count != 0) {
-          result.worldEventConfigIds_.Add(other.worldEventConfigIds_);
+        if (other.HasPrice) {
+          Price = other.Price;
         }
         return this;
       }
@@ -4652,9 +4641,8 @@ namespace com.game.framework.protocol {
               result.hasNumber = input.ReadInt32(ref result.number_);
               break;
             }
-            case 26:
             case 24: {
-              input.ReadInt32Array(tag, field_name, result.worldEventConfigIds_);
+              result.hasPrice = input.ReadInt32(ref result.price_);
               break;
             }
           }
@@ -4704,33 +4692,23 @@ namespace com.game.framework.protocol {
         return this;
       }
       
-      public pbc::IPopsicleList<int> WorldEventConfigIdsList {
-        get { return PrepareBuilder().worldEventConfigIds_; }
+      public bool HasPrice {
+        get { return result.hasPrice; }
       }
-      public int WorldEventConfigIdsCount {
-        get { return result.WorldEventConfigIdsCount; }
+      public int Price {
+        get { return result.Price; }
+        set { SetPrice(value); }
       }
-      public int GetWorldEventConfigIds(int index) {
-        return result.GetWorldEventConfigIds(index);
-      }
-      public Builder SetWorldEventConfigIds(int index, int value) {
+      public Builder SetPrice(int value) {
         PrepareBuilder();
-        result.worldEventConfigIds_[index] = value;
+        result.hasPrice = true;
+        result.price_ = value;
         return this;
       }
-      public Builder AddWorldEventConfigIds(int value) {
+      public Builder ClearPrice() {
         PrepareBuilder();
-        result.worldEventConfigIds_.Add(value);
-        return this;
-      }
-      public Builder AddRangeWorldEventConfigIds(scg::IEnumerable<int> values) {
-        PrepareBuilder();
-        result.worldEventConfigIds_.Add(values);
-        return this;
-      }
-      public Builder ClearWorldEventConfigIds() {
-        PrepareBuilder();
-        result.worldEventConfigIds_.Clear();
+        result.hasPrice = false;
+        result.price_ = 0;
         return this;
       }
     }
@@ -4742,7 +4720,7 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCSellGoods : pb::GeneratedMessageLite<TSCSellGoods, TSCSellGoods.Builder> {
     private TSCSellGoods() { }
     private static readonly TSCSellGoods defaultInstance = new TSCSellGoods().MakeReadOnly();
-    private static readonly string[] _tSCSellGoodsFieldNames = new string[] { "gold", "isWorldEvent" };
+    private static readonly string[] _tSCSellGoodsFieldNames = new string[] { "gold", "isPriceChange" };
     private static readonly uint[] _tSCSellGoodsFieldTags = new uint[] { 16, 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -4765,14 +4743,14 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int IsWorldEventFieldNumber = 1;
-    private bool hasIsWorldEvent;
-    private bool isWorldEvent_;
-    public bool HasIsWorldEvent {
-      get { return hasIsWorldEvent; }
+    public const int IsPriceChangeFieldNumber = 1;
+    private bool hasIsPriceChange;
+    private bool isPriceChange_;
+    public bool HasIsPriceChange {
+      get { return hasIsPriceChange; }
     }
-    public bool IsWorldEvent {
-      get { return isWorldEvent_; }
+    public bool IsPriceChange {
+      get { return isPriceChange_; }
     }
     
     #if UNITY_EDITOR
@@ -4803,8 +4781,8 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _tSCSellGoodsFieldNames;
-      if (hasIsWorldEvent) {
-        output.WriteBool(1, field_names[1], IsWorldEvent);
+      if (hasIsPriceChange) {
+        output.WriteBool(1, field_names[1], IsPriceChange);
       }
       if (hasGold) {
         output.WriteInt32(2, field_names[0], Gold);
@@ -4821,8 +4799,8 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        if (hasIsWorldEvent) {
-          size += pb::CodedOutputStream.ComputeBoolSize(1, IsWorldEvent);
+        if (hasIsPriceChange) {
+          size += pb::CodedOutputStream.ComputeBoolSize(1, IsPriceChange);
         }
         if (hasGold) {
           size += pb::CodedOutputStream.ComputeInt32Size(2, Gold);
@@ -4835,7 +4813,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      if (hasIsWorldEvent) hash ^= isWorldEvent_.GetHashCode();
+      if (hasIsPriceChange) hash ^= isPriceChange_.GetHashCode();
       if (hasGold) hash ^= gold_.GetHashCode();
       return hash;
     }
@@ -4843,7 +4821,7 @@ namespace com.game.framework.protocol {
     public override bool Equals(object obj) {
       TSCSellGoods other = obj as TSCSellGoods;
       if (other == null) return false;
-      if (hasIsWorldEvent != other.hasIsWorldEvent || (hasIsWorldEvent && !isWorldEvent_.Equals(other.isWorldEvent_))) return false;
+      if (hasIsPriceChange != other.hasIsPriceChange || (hasIsPriceChange && !isPriceChange_.Equals(other.isPriceChange_))) return false;
       if (hasGold != other.hasGold || (hasGold && !gold_.Equals(other.gold_))) return false;
       return true;
     }
@@ -5005,8 +4983,8 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(TSCSellGoods other) {
         if (other == global::com.game.framework.protocol.TSCSellGoods.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasIsWorldEvent) {
-          IsWorldEvent = other.IsWorldEvent;
+        if (other.HasIsPriceChange) {
+          IsPriceChange = other.IsPriceChange;
         }
         if (other.HasGold) {
           Gold = other.Gold;
@@ -5044,7 +5022,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 8: {
-              result.hasIsWorldEvent = input.ReadBool(ref result.isWorldEvent_);
+              result.hasIsPriceChange = input.ReadBool(ref result.isPriceChange_);
               break;
             }
             case 16: {
@@ -5058,23 +5036,23 @@ namespace com.game.framework.protocol {
       }
       
       
-      public bool HasIsWorldEvent {
-        get { return result.hasIsWorldEvent; }
+      public bool HasIsPriceChange {
+        get { return result.hasIsPriceChange; }
       }
-      public bool IsWorldEvent {
-        get { return result.IsWorldEvent; }
-        set { SetIsWorldEvent(value); }
+      public bool IsPriceChange {
+        get { return result.IsPriceChange; }
+        set { SetIsPriceChange(value); }
       }
-      public Builder SetIsWorldEvent(bool value) {
+      public Builder SetIsPriceChange(bool value) {
         PrepareBuilder();
-        result.hasIsWorldEvent = true;
-        result.isWorldEvent_ = value;
+        result.hasIsPriceChange = true;
+        result.isPriceChange_ = value;
         return this;
       }
-      public Builder ClearIsWorldEvent() {
+      public Builder ClearIsPriceChange() {
         PrepareBuilder();
-        result.hasIsWorldEvent = false;
-        result.isWorldEvent_ = false;
+        result.hasIsPriceChange = false;
+        result.isPriceChange_ = false;
         return this;
       }
       

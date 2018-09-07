@@ -7852,31 +7852,23 @@ public final class User {
      */
     int getNumber();
 
-    // repeated int32 worldEventConfigIds = 3;
+    // optional int32 price = 3;
     /**
-     * <code>repeated int32 worldEventConfigIds = 3;</code>
+     * <code>optional int32 price = 3;</code>
      *
      * <pre>
-     * 世界事件
+     * 价格
      * </pre>
      */
-    java.util.List<java.lang.Integer> getWorldEventConfigIdsList();
+    boolean hasPrice();
     /**
-     * <code>repeated int32 worldEventConfigIds = 3;</code>
+     * <code>optional int32 price = 3;</code>
      *
      * <pre>
-     * 世界事件
+     * 价格
      * </pre>
      */
-    int getWorldEventConfigIdsCount();
-    /**
-     * <code>repeated int32 worldEventConfigIds = 3;</code>
-     *
-     * <pre>
-     * 世界事件
-     * </pre>
-     */
-    int getWorldEventConfigIds(int index);
+    int getPrice();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TCSSellGoods}
@@ -7940,24 +7932,8 @@ public final class User {
               break;
             }
             case 24: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                worldEventConfigIds_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              worldEventConfigIds_.add(input.readInt32());
-              break;
-            }
-            case 26: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
-                worldEventConfigIds_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                worldEventConfigIds_.add(input.readInt32());
-              }
-              input.popLimit(limit);
+              bitField0_ |= 0x00000004;
+              price_ = input.readInt32();
               break;
             }
           }
@@ -7968,9 +7944,6 @@ public final class User {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          worldEventConfigIds_ = java.util.Collections.unmodifiableList(worldEventConfigIds_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -8051,45 +8024,34 @@ public final class User {
       return number_;
     }
 
-    // repeated int32 worldEventConfigIds = 3;
-    public static final int WORLDEVENTCONFIGIDS_FIELD_NUMBER = 3;
-    private java.util.List<java.lang.Integer> worldEventConfigIds_;
+    // optional int32 price = 3;
+    public static final int PRICE_FIELD_NUMBER = 3;
+    private int price_;
     /**
-     * <code>repeated int32 worldEventConfigIds = 3;</code>
+     * <code>optional int32 price = 3;</code>
      *
      * <pre>
-     * 世界事件
+     * 价格
      * </pre>
      */
-    public java.util.List<java.lang.Integer>
-        getWorldEventConfigIdsList() {
-      return worldEventConfigIds_;
+    public boolean hasPrice() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>repeated int32 worldEventConfigIds = 3;</code>
+     * <code>optional int32 price = 3;</code>
      *
      * <pre>
-     * 世界事件
+     * 价格
      * </pre>
      */
-    public int getWorldEventConfigIdsCount() {
-      return worldEventConfigIds_.size();
-    }
-    /**
-     * <code>repeated int32 worldEventConfigIds = 3;</code>
-     *
-     * <pre>
-     * 世界事件
-     * </pre>
-     */
-    public int getWorldEventConfigIds(int index) {
-      return worldEventConfigIds_.get(index);
+    public int getPrice() {
+      return price_;
     }
 
     private void initFields() {
       configId_ = 0;
       number_ = 0;
-      worldEventConfigIds_ = java.util.Collections.emptyList();
+      price_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -8109,8 +8071,8 @@ public final class User {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, number_);
       }
-      for (int i = 0; i < worldEventConfigIds_.size(); i++) {
-        output.writeInt32(3, worldEventConfigIds_.get(i));
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, price_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -8129,14 +8091,9 @@ public final class User {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, number_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < worldEventConfigIds_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(worldEventConfigIds_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getWorldEventConfigIdsList().size();
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, price_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -8258,7 +8215,7 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000001);
         number_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        worldEventConfigIds_ = java.util.Collections.emptyList();
+        price_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -8296,11 +8253,10 @@ public final class User {
           to_bitField0_ |= 0x00000002;
         }
         result.number_ = number_;
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          worldEventConfigIds_ = java.util.Collections.unmodifiableList(worldEventConfigIds_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
         }
-        result.worldEventConfigIds_ = worldEventConfigIds_;
+        result.price_ = price_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8323,15 +8279,8 @@ public final class User {
         if (other.hasNumber()) {
           setNumber(other.getNumber());
         }
-        if (!other.worldEventConfigIds_.isEmpty()) {
-          if (worldEventConfigIds_.isEmpty()) {
-            worldEventConfigIds_ = other.worldEventConfigIds_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureWorldEventConfigIdsIsMutable();
-            worldEventConfigIds_.addAll(other.worldEventConfigIds_);
-          }
-          onChanged();
+        if (other.hasPrice()) {
+          setPrice(other.getPrice());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -8458,96 +8407,51 @@ public final class User {
         return this;
       }
 
-      // repeated int32 worldEventConfigIds = 3;
-      private java.util.List<java.lang.Integer> worldEventConfigIds_ = java.util.Collections.emptyList();
-      private void ensureWorldEventConfigIdsIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          worldEventConfigIds_ = new java.util.ArrayList<java.lang.Integer>(worldEventConfigIds_);
-          bitField0_ |= 0x00000004;
-         }
-      }
+      // optional int32 price = 3;
+      private int price_ ;
       /**
-       * <code>repeated int32 worldEventConfigIds = 3;</code>
+       * <code>optional int32 price = 3;</code>
        *
        * <pre>
-       * 世界事件
+       * 价格
        * </pre>
        */
-      public java.util.List<java.lang.Integer>
-          getWorldEventConfigIdsList() {
-        return java.util.Collections.unmodifiableList(worldEventConfigIds_);
+      public boolean hasPrice() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>repeated int32 worldEventConfigIds = 3;</code>
+       * <code>optional int32 price = 3;</code>
        *
        * <pre>
-       * 世界事件
+       * 价格
        * </pre>
        */
-      public int getWorldEventConfigIdsCount() {
-        return worldEventConfigIds_.size();
+      public int getPrice() {
+        return price_;
       }
       /**
-       * <code>repeated int32 worldEventConfigIds = 3;</code>
+       * <code>optional int32 price = 3;</code>
        *
        * <pre>
-       * 世界事件
+       * 价格
        * </pre>
        */
-      public int getWorldEventConfigIds(int index) {
-        return worldEventConfigIds_.get(index);
-      }
-      /**
-       * <code>repeated int32 worldEventConfigIds = 3;</code>
-       *
-       * <pre>
-       * 世界事件
-       * </pre>
-       */
-      public Builder setWorldEventConfigIds(
-          int index, int value) {
-        ensureWorldEventConfigIdsIsMutable();
-        worldEventConfigIds_.set(index, value);
+      public Builder setPrice(int value) {
+        bitField0_ |= 0x00000004;
+        price_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated int32 worldEventConfigIds = 3;</code>
+       * <code>optional int32 price = 3;</code>
        *
        * <pre>
-       * 世界事件
+       * 价格
        * </pre>
        */
-      public Builder addWorldEventConfigIds(int value) {
-        ensureWorldEventConfigIdsIsMutable();
-        worldEventConfigIds_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 worldEventConfigIds = 3;</code>
-       *
-       * <pre>
-       * 世界事件
-       * </pre>
-       */
-      public Builder addAllWorldEventConfigIds(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureWorldEventConfigIdsIsMutable();
-        super.addAll(values, worldEventConfigIds_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 worldEventConfigIds = 3;</code>
-       *
-       * <pre>
-       * 世界事件
-       * </pre>
-       */
-      public Builder clearWorldEventConfigIds() {
-        worldEventConfigIds_ = java.util.Collections.emptyList();
+      public Builder clearPrice() {
         bitField0_ = (bitField0_ & ~0x00000004);
+        price_ = 0;
         onChanged();
         return this;
       }
@@ -8566,23 +8470,23 @@ public final class User {
   public interface TSCSellGoodsOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional bool isWorldEvent = 1;
+    // optional bool isPriceChange = 1;
     /**
-     * <code>optional bool isWorldEvent = 1;</code>
+     * <code>optional bool isPriceChange = 1;</code>
      *
      * <pre>
-     * 是否世界事件改变
+     * 是否价格改变
      * </pre>
      */
-    boolean hasIsWorldEvent();
+    boolean hasIsPriceChange();
     /**
-     * <code>optional bool isWorldEvent = 1;</code>
+     * <code>optional bool isPriceChange = 1;</code>
      *
      * <pre>
-     * 是否世界事件改变
+     * 是否价格改变
      * </pre>
      */
-    boolean getIsWorldEvent();
+    boolean getIsPriceChange();
 
     // optional int32 gold = 2;
     /**
@@ -8655,7 +8559,7 @@ public final class User {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              isWorldEvent_ = input.readBool();
+              isPriceChange_ = input.readBool();
               break;
             }
             case 16: {
@@ -8703,28 +8607,28 @@ public final class User {
     }
 
     private int bitField0_;
-    // optional bool isWorldEvent = 1;
-    public static final int ISWORLDEVENT_FIELD_NUMBER = 1;
-    private boolean isWorldEvent_;
+    // optional bool isPriceChange = 1;
+    public static final int ISPRICECHANGE_FIELD_NUMBER = 1;
+    private boolean isPriceChange_;
     /**
-     * <code>optional bool isWorldEvent = 1;</code>
+     * <code>optional bool isPriceChange = 1;</code>
      *
      * <pre>
-     * 是否世界事件改变
+     * 是否价格改变
      * </pre>
      */
-    public boolean hasIsWorldEvent() {
+    public boolean hasIsPriceChange() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional bool isWorldEvent = 1;</code>
+     * <code>optional bool isPriceChange = 1;</code>
      *
      * <pre>
-     * 是否世界事件改变
+     * 是否价格改变
      * </pre>
      */
-    public boolean getIsWorldEvent() {
-      return isWorldEvent_;
+    public boolean getIsPriceChange() {
+      return isPriceChange_;
     }
 
     // optional int32 gold = 2;
@@ -8752,7 +8656,7 @@ public final class User {
     }
 
     private void initFields() {
-      isWorldEvent_ = false;
+      isPriceChange_ = false;
       gold_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -8768,7 +8672,7 @@ public final class User {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBool(1, isWorldEvent_);
+        output.writeBool(1, isPriceChange_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, gold_);
@@ -8784,7 +8688,7 @@ public final class User {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, isWorldEvent_);
+          .computeBoolSize(1, isPriceChange_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8906,7 +8810,7 @@ public final class User {
 
       public Builder clear() {
         super.clear();
-        isWorldEvent_ = false;
+        isPriceChange_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
         gold_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -8941,7 +8845,7 @@ public final class User {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.isWorldEvent_ = isWorldEvent_;
+        result.isPriceChange_ = isPriceChange_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -8962,8 +8866,8 @@ public final class User {
 
       public Builder mergeFrom(com.game.framework.protocol.User.TSCSellGoods other) {
         if (other == com.game.framework.protocol.User.TSCSellGoods.getDefaultInstance()) return this;
-        if (other.hasIsWorldEvent()) {
-          setIsWorldEvent(other.getIsWorldEvent());
+        if (other.hasIsPriceChange()) {
+          setIsPriceChange(other.getIsPriceChange());
         }
         if (other.hasGold()) {
           setGold(other.getGold());
@@ -8995,51 +8899,51 @@ public final class User {
       }
       private int bitField0_;
 
-      // optional bool isWorldEvent = 1;
-      private boolean isWorldEvent_ ;
+      // optional bool isPriceChange = 1;
+      private boolean isPriceChange_ ;
       /**
-       * <code>optional bool isWorldEvent = 1;</code>
+       * <code>optional bool isPriceChange = 1;</code>
        *
        * <pre>
-       * 是否世界事件改变
+       * 是否价格改变
        * </pre>
        */
-      public boolean hasIsWorldEvent() {
+      public boolean hasIsPriceChange() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional bool isWorldEvent = 1;</code>
+       * <code>optional bool isPriceChange = 1;</code>
        *
        * <pre>
-       * 是否世界事件改变
+       * 是否价格改变
        * </pre>
        */
-      public boolean getIsWorldEvent() {
-        return isWorldEvent_;
+      public boolean getIsPriceChange() {
+        return isPriceChange_;
       }
       /**
-       * <code>optional bool isWorldEvent = 1;</code>
+       * <code>optional bool isPriceChange = 1;</code>
        *
        * <pre>
-       * 是否世界事件改变
+       * 是否价格改变
        * </pre>
        */
-      public Builder setIsWorldEvent(boolean value) {
+      public Builder setIsPriceChange(boolean value) {
         bitField0_ |= 0x00000001;
-        isWorldEvent_ = value;
+        isPriceChange_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool isWorldEvent = 1;</code>
+       * <code>optional bool isPriceChange = 1;</code>
        *
        * <pre>
-       * 是否世界事件改变
+       * 是否价格改变
        * </pre>
        */
-      public Builder clearIsWorldEvent() {
+      public Builder clearIsPriceChange() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        isWorldEvent_ = false;
+        isPriceChange_ = false;
         onChanged();
         return this;
       }
@@ -9196,10 +9100,10 @@ public final class User {
       "mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007defense\030\007 " +
       "\001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t \001(\005\022\021\n\tint" +
       "ellect\030\n \001(\005\022\024\n\014contribution\030\013 \001(\005\022\014\n\004go" +
-      "ld\030\014 \001(\005\"M\n\014TCSSellGoods\022\020\n\010configId\030\001 \001" +
-      "(\005\022\016\n\006number\030\002 \001(\005\022\033\n\023worldEventConfigId" +
-      "s\030\003 \003(\005\"2\n\014TSCSellGoods\022\024\n\014isWorldEvent\030" +
-      "\001 \001(\010\022\014\n\004gold\030\002 \001(\005B\002H\001"
+      "ld\030\014 \001(\005\"?\n\014TCSSellGoods\022\020\n\010configId\030\001 \001" +
+      "(\005\022\016\n\006number\030\002 \001(\005\022\r\n\005price\030\003 \001(\005\"3\n\014TSC" +
+      "SellGoods\022\025\n\risPriceChange\030\001 \001(\010\022\014\n\004gold" +
+      "\030\002 \001(\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -9271,13 +9175,13 @@ public final class User {
           internal_static_com_game_framework_protocol_TCSSellGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TCSSellGoods_descriptor,
-              new java.lang.String[] { "ConfigId", "Number", "WorldEventConfigIds", });
+              new java.lang.String[] { "ConfigId", "Number", "Price", });
           internal_static_com_game_framework_protocol_TSCSellGoods_descriptor =
             getDescriptor().getMessageTypes().get(11);
           internal_static_com_game_framework_protocol_TSCSellGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCSellGoods_descriptor,
-              new java.lang.String[] { "IsWorldEvent", "Gold", });
+              new java.lang.String[] { "IsPriceChange", "Gold", });
           return null;
         }
       };

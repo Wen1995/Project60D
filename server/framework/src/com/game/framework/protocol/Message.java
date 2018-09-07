@@ -5087,6 +5087,24 @@ public final class Message {
      * </pre>
      */
     int getHealth();
+
+    // optional int32 contribution = 5;
+    /**
+     * <code>optional int32 contribution = 5;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    boolean hasContribution();
+    /**
+     * <code>optional int32 contribution = 5;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    int getContribution();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.UserInfo}
@@ -5157,6 +5175,11 @@ public final class Message {
             case 32: {
               bitField0_ |= 0x00000008;
               health_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              contribution_ = input.readInt32();
               break;
             }
           }
@@ -5326,11 +5349,36 @@ public final class Message {
       return health_;
     }
 
+    // optional int32 contribution = 5;
+    public static final int CONTRIBUTION_FIELD_NUMBER = 5;
+    private int contribution_;
+    /**
+     * <code>optional int32 contribution = 5;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    public boolean hasContribution() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int32 contribution = 5;</code>
+     *
+     * <pre>
+     * 贡献
+     * </pre>
+     */
+    public int getContribution() {
+      return contribution_;
+    }
+
     private void initFields() {
       uid_ = 0L;
       account_ = "";
       blood_ = 0;
       health_ = 0;
+      contribution_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -5356,6 +5404,9 @@ public final class Message {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(4, health_);
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, contribution_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -5380,6 +5431,10 @@ public final class Message {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, health_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, contribution_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -5505,6 +5560,8 @@ public final class Message {
         bitField0_ = (bitField0_ & ~0x00000004);
         health_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
+        contribution_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -5549,6 +5606,10 @@ public final class Message {
           to_bitField0_ |= 0x00000008;
         }
         result.health_ = health_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.contribution_ = contribution_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5578,6 +5639,9 @@ public final class Message {
         }
         if (other.hasHealth()) {
           setHealth(other.getHealth());
+        }
+        if (other.hasContribution()) {
+          setContribution(other.getContribution());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -5847,6 +5911,55 @@ public final class Message {
       public Builder clearHealth() {
         bitField0_ = (bitField0_ & ~0x00000008);
         health_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 contribution = 5;
+      private int contribution_ ;
+      /**
+       * <code>optional int32 contribution = 5;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public boolean hasContribution() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 contribution = 5;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public int getContribution() {
+        return contribution_;
+      }
+      /**
+       * <code>optional int32 contribution = 5;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public Builder setContribution(int value) {
+        bitField0_ |= 0x00000010;
+        contribution_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 contribution = 5;</code>
+       *
+       * <pre>
+       * 贡献
+       * </pre>
+       */
+      public Builder clearContribution() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        contribution_ = 0;
         onChanged();
         return this;
       }
@@ -10576,22 +10689,23 @@ public final class Message {
       "work.protocol.LossInfo\"H\n\020InvadeResultIn" +
       "fo\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\003\022\013\n\003num\030\003 \001(" +
       "\005\022\r\n\005blood\030\004 \001(\005\"7\n\010LossInfo\022\013\n\003uid\030\001 \001(" +
-      "\003\022\020\n\010resource\030\002 \001(\005\022\014\n\004gold\030\003 \001(\005\"G\n\010Use" +
+      "\003\022\020\n\010resource\030\002 \001(\005\022\014\n\004gold\030\003 \001(\005\"]\n\010Use" +
       "rInfo\022\013\n\003uid\030\001 \001(\003\022\017\n\007account\030\002 \001(\t\022\r\n\005b" +
-      "lood\030\003 \001(\005\022\016\n\006health\030\004 \001(\005\"\"\n\017TCSGetPage" +
-      "Count\022\017\n\007groupId\030\001 \001(\003\"$\n\017TSCGetPageCoun",
-      "t\022\021\n\tpageCount\030\001 \001(\005\"6\n\016TCSGetPageList\022\023" +
-      "\n\013currentPage\030\001 \001(\005\022\017\n\007groupId\030\002 \001(\003\"O\n\016" +
-      "TSCGetPageList\022=\n\013messageInfo\030\001 \003(\0132(.co" +
-      "m.game.framework.protocol.MessageInfo\"\303\001" +
-      "\n\013MessageInfo\022\n\n\002id\030\001 \001(\003\022\014\n\004type\030\002 \001(\005\022" +
-      ";\n\nzombieInfo\030\003 \001(\0132\'.com.game.framework" +
-      ".protocol.ZombieInfo\022?\n\014fightingInfo\030\004 \001" +
-      "(\0132).com.game.framework.protocol.Fightin" +
-      "gInfo\022\014\n\004time\030\005 \001(\003\022\016\n\006isRead\030\006 \001(\010\"\022\n\020T" +
-      "CSGetMessageTag\"&\n\020TSCGetMessageTag\022\022\n\nm",
-      "essageNum\030\001 \001(\005\"&\n\021TCSSendMessageTag\022\021\n\t" +
-      "messageId\030\001 \001(\003B\002H\001"
+      "lood\030\003 \001(\005\022\016\n\006health\030\004 \001(\005\022\024\n\014contributi" +
+      "on\030\005 \001(\005\"\"\n\017TCSGetPageCount\022\017\n\007groupId\030\001",
+      " \001(\003\"$\n\017TSCGetPageCount\022\021\n\tpageCount\030\001 \001" +
+      "(\005\"6\n\016TCSGetPageList\022\023\n\013currentPage\030\001 \001(" +
+      "\005\022\017\n\007groupId\030\002 \001(\003\"O\n\016TSCGetPageList\022=\n\013" +
+      "messageInfo\030\001 \003(\0132(.com.game.framework.p" +
+      "rotocol.MessageInfo\"\303\001\n\013MessageInfo\022\n\n\002i" +
+      "d\030\001 \001(\003\022\014\n\004type\030\002 \001(\005\022;\n\nzombieInfo\030\003 \001(" +
+      "\0132\'.com.game.framework.protocol.ZombieIn" +
+      "fo\022?\n\014fightingInfo\030\004 \001(\0132).com.game.fram" +
+      "ework.protocol.FightingInfo\022\014\n\004time\030\005 \001(" +
+      "\003\022\016\n\006isRead\030\006 \001(\010\"\022\n\020TCSGetMessageTag\"&\n",
+      "\020TSCGetMessageTag\022\022\n\nmessageNum\030\001 \001(\005\"&\n" +
+      "\021TCSSendMessageTag\022\021\n\tmessageId\030\001 \001(\003B\002H" +
+      "\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -10633,7 +10747,7 @@ public final class Message {
           internal_static_com_game_framework_protocol_UserInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_UserInfo_descriptor,
-              new java.lang.String[] { "Uid", "Account", "Blood", "Health", });
+              new java.lang.String[] { "Uid", "Account", "Blood", "Health", "Contribution", });
           internal_static_com_game_framework_protocol_TCSGetPageCount_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_com_game_framework_protocol_TCSGetPageCount_fieldAccessorTable = new

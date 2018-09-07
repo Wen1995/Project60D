@@ -238,10 +238,16 @@ public class FightingServiceImpl implements FightingService {
             LossInfo lossInfo = LossInfo.newBuilder().setUid(uid).build();
             lossInfos.add(lossInfo);
 
-            UserInfo userInfo = UserInfo.newBuilder().setUid(uid).setAccount(u.getAccount())
-                    .setBlood(u.getBlood()).setHealth(u.getHealth()).build();
+            int contribution = u.getContribution();
+            UserInfo userInfo = UserInfo.newBuilder()
+                    .setUid(uid)
+                    .setAccount(u.getAccount())
+                    .setBlood(u.getBlood())
+                    .setHealth(u.getHealth())
+                    .setContribution(contribution)
+                    .build();
             userInfos.add(userInfo);
-            uid2Contribution.put(uid, u.getContribution());
+            uid2Contribution.put(uid, contribution);
         }
         List<Building> buildings = buildingDao.getAllByGroupId(groupId);
         List<Building> weapons = new ArrayList<>();

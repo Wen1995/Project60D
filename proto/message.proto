@@ -60,6 +60,8 @@ message UserInfo {
 	optional int32 blood = 3;
 	// 健康
 	optional int32 health = 4;
+	// 贡献
+	optional int32 contribution = 5;
 }
 
 message TCSGetPageCount {

@@ -2349,8 +2349,8 @@ namespace com.game.framework.protocol {
   public sealed partial class UserInfo : pb::GeneratedMessageLite<UserInfo, UserInfo.Builder> {
     private UserInfo() { }
     private static readonly UserInfo defaultInstance = new UserInfo().MakeReadOnly();
-    private static readonly string[] _userInfoFieldNames = new string[] { "account", "blood", "health", "uid" };
-    private static readonly uint[] _userInfoFieldTags = new uint[] { 18, 24, 32, 8 };
+    private static readonly string[] _userInfoFieldNames = new string[] { "account", "blood", "contribution", "health", "uid" };
+    private static readonly uint[] _userInfoFieldTags = new uint[] { 18, 24, 40, 32, 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -2422,6 +2422,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ContributionFieldNumber = 5;
+    private bool hasContribution;
+    private int contribution_;
+    public bool HasContribution {
+      get { return hasContribution; }
+    }
+    public int Contribution {
+      get { return contribution_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -2437,7 +2450,7 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _userInfoFieldNames;
       if (hasUid) {
-        output.WriteInt64(1, field_names[3], Uid);
+        output.WriteInt64(1, field_names[4], Uid);
       }
       if (hasAccount) {
         output.WriteString(2, field_names[0], Account);
@@ -2446,7 +2459,10 @@ namespace com.game.framework.protocol {
         output.WriteInt32(3, field_names[1], Blood);
       }
       if (hasHealth) {
-        output.WriteInt32(4, field_names[2], Health);
+        output.WriteInt32(4, field_names[3], Health);
+      }
+      if (hasContribution) {
+        output.WriteInt32(5, field_names[2], Contribution);
       }
     }
     
@@ -2472,6 +2488,9 @@ namespace com.game.framework.protocol {
         if (hasHealth) {
           size += pb::CodedOutputStream.ComputeInt32Size(4, Health);
         }
+        if (hasContribution) {
+          size += pb::CodedOutputStream.ComputeInt32Size(5, Contribution);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -2484,6 +2503,7 @@ namespace com.game.framework.protocol {
       if (hasAccount) hash ^= account_.GetHashCode();
       if (hasBlood) hash ^= blood_.GetHashCode();
       if (hasHealth) hash ^= health_.GetHashCode();
+      if (hasContribution) hash ^= contribution_.GetHashCode();
       return hash;
     }
     
@@ -2494,6 +2514,7 @@ namespace com.game.framework.protocol {
       if (hasAccount != other.hasAccount || (hasAccount && !account_.Equals(other.account_))) return false;
       if (hasBlood != other.hasBlood || (hasBlood && !blood_.Equals(other.blood_))) return false;
       if (hasHealth != other.hasHealth || (hasHealth && !health_.Equals(other.health_))) return false;
+      if (hasContribution != other.hasContribution || (hasContribution && !contribution_.Equals(other.contribution_))) return false;
       return true;
     }
     
@@ -2666,6 +2687,9 @@ namespace com.game.framework.protocol {
         if (other.HasHealth) {
           Health = other.Health;
         }
+        if (other.HasContribution) {
+          Contribution = other.Contribution;
+        }
         return this;
       }
       
@@ -2712,6 +2736,10 @@ namespace com.game.framework.protocol {
             }
             case 32: {
               result.hasHealth = input.ReadInt32(ref result.health_);
+              break;
+            }
+            case 40: {
+              result.hasContribution = input.ReadInt32(ref result.contribution_);
               break;
             }
           }
@@ -2799,6 +2827,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasHealth = false;
         result.health_ = 0;
+        return this;
+      }
+      
+      public bool HasContribution {
+        get { return result.hasContribution; }
+      }
+      public int Contribution {
+        get { return result.Contribution; }
+        set { SetContribution(value); }
+      }
+      public Builder SetContribution(int value) {
+        PrepareBuilder();
+        result.hasContribution = true;
+        result.contribution_ = value;
+        return this;
+      }
+      public Builder ClearContribution() {
+        PrepareBuilder();
+        result.hasContribution = false;
+        result.contribution_ = 0;
         return this;
       }
     }

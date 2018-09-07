@@ -64,8 +64,8 @@ public class UserHandler {
 	@HandlerMethodMapping(cmd = Cmd.SELLGOODS_VALUE)
 	public void sellGoods(TPacket p) throws Exception {
 		TCSSellGoods msg = TCSSellGoods.parseFrom(p.getBuffer());
-		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		List<Integer> worldEventConfigIdsList = msg.getWorldEventConfigIdsList();		
-		TPacket resp = service.sellGoods(p.getUid(), configId, number, worldEventConfigIdsList);
+		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		Integer price = msg.getPrice();		
+		TPacket resp = service.sellGoods(p.getUid(), configId, number, price);
 		resp.setCmd(Cmd.SELLGOODS_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}

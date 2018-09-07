@@ -98,12 +98,12 @@ message TCSSellGoods {
 	optional int32 configId = 1;
 	// 商品数量
 	optional int32 number = 2;
-	// 世界事件
-	repeated int32 worldEventConfigIds = 3;
+	// 价格
+	optional int32 price = 3;
 }
 message TSCSellGoods {
-	// 是否世界事件改变
-	optional bool isWorldEvent = 1;
+	// 是否价格改变
+	optional bool isPriceChange = 1;
 	// 获得金币
 	optional int32 gold = 2;
 }

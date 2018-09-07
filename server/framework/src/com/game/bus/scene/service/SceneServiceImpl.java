@@ -103,8 +103,13 @@ public class SceneServiceImpl implements SceneService {
         
         List<UserInfo> userInfos = new ArrayList<>();
         for (User u : users) {
-            UserInfo userInfo = UserInfo.newBuilder().setUid(u.getId()).setAccount(u.getAccount())
-                    .setBlood(u.getBlood()).setHealth(u.getHealth()).build();
+            UserInfo userInfo = UserInfo.newBuilder()
+                    .setUid(u.getId())
+                    .setAccount(u.getAccount())
+                    .setBlood(u.getBlood())
+                    .setHealth(u.getHealth())
+                    .setContribution(u.getContribution())
+                    .build();
             userInfos.add(userInfo);
         }
         
@@ -954,7 +959,7 @@ public class SceneServiceImpl implements SceneService {
                             double tempSpeedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, eventConfigId);
                             if (w.getType().equals(TimeType.START_TIME_VALUE)) {
                                 speedCoefficient *= tempSpeedCoefficient;
-                                if (configId/10000 != 11108) {      // 风力发电机
+                                if (configId/10000 != 11108) {      // 不是风力发电机
                                     number *= BuildingUtil.getReceiHverCapacityCoefficient(tableName, eventConfigId);   // 影响临时仓库
                                 }
                             } else {
@@ -1022,11 +1027,14 @@ public class SceneServiceImpl implements SceneService {
             number = rBuilder.getNumber();
             double speedCoefficient = 1.0;
             if (worldEvents != null && worldEvents.size() > 0) {
+                int j = 0;
                 if (worldEvents.get(0).getType().equals(TimeType.END_TIME_VALUE)) {
                     speedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, worldEvents.get(0).getConfigId());
+                    j = 1;
                 }
             
-                for (WorldEvent w : worldEvents) {
+                for (; j < worldEvents.size(); j++) {
+                    WorldEvent w = worldEvents.get(j);
                     if (w.getConfigId()/10000%100 == EventType.NATURE_VALUE) {       // 自然的世界事件
                         long tempTime = w.getTime().getTime();
                         time = tempTime - lastReceiveTime;

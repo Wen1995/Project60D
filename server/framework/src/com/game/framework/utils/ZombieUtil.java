@@ -22,11 +22,9 @@ public class ZombieUtil {
         double probability = 1.0;
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
-            // 世界事件正在发生
             int congigId = entry.getKey();
-            long happenTime = entry.getValue();
             WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
-
+            long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
                 probability *= 1.0 * worldEvent.getInvaProb() / 100;
@@ -44,11 +42,9 @@ public class ZombieUtil {
         double probability = 1.0;
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
-            // 世界事件正在发生
             int congigId = entry.getKey();
-            long happenTime = entry.getValue();
             WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
-
+            long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
                 probability *= 1.0 * worldEvent.getZombieAtk() / 100;
@@ -65,11 +61,9 @@ public class ZombieUtil {
         double probability = 1.0;
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
-            // 世界事件正在发生
             int congigId = entry.getKey();
-            long happenTime = entry.getValue();
             WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
-            
+            long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
                 probability *= 1.0 * worldEvent.getZombieDef() / 100;
@@ -86,11 +80,9 @@ public class ZombieUtil {
         double probability = 1.0;
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
-            // 世界事件正在发生
             int congigId = entry.getKey();
-            long happenTime = entry.getValue();
             WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
-
+            long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
                 probability *= 1.0 * worldEvent.getZombieHp() / 100;
@@ -107,11 +99,9 @@ public class ZombieUtil {
         double probability = 1.0;
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
-            // 世界事件正在发生
             int congigId = entry.getKey();
-            long happenTime = entry.getValue();
             WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
-
+            long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
                 probability *= 1.0 * worldEvent.getZombieNum() / 100;

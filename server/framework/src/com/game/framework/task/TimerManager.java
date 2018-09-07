@@ -196,7 +196,7 @@ public class TimerManager {
                         continue;
                     }
                     int rate = entry.getValue().getEventProb();
-                    if (new Random().nextInt(100000) < rate) {
+                    if (/*new Random().nextInt(100000)*/new Random().nextInt(30) < rate) {
                         Long id = IdManager.GetInstance().genId(IdType.WORLDEVENT);
                         WorldEvent worldEvent = new WorldEvent();
                         worldEvent.setId(id);

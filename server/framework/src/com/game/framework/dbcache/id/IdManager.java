@@ -68,7 +68,7 @@ public class IdManager {
 	}
 	
 	private long buildPrefix() {
-		return ((long) serverId << 36) | ((long) restartTimes << 26);
+		return ((long) serverId << 50) | ((long) restartTimes << 40);
 	}
 	
 	private int registerType() throws Exception {
@@ -89,24 +89,19 @@ public class IdManager {
 		return ret;
 	}
 	
-	public long genId(IdType idType)
-	{
+	public long genId(IdType idType) {
 		AtomicInteger sequence = map.get(idType);
 		int seqId = sequence.getAndIncrement();
 		int objectType = idType.getVal();
-		long id = ID_PREFIX | ((long) objectType << 22) | seqId;
-		// logger.debug("objectType={},seqId={},id={}", objectType, seqId,
-		// Long.toHexString(id));
-		
+		long id = ID_PREFIX | ((long) objectType << 32) | seqId;
 		if (seqId >= MAX_SEQ_ID) {
-				
 			try {
 				lock.lock();
 				logger.warn("objectType{} id max !!!", objectType);
 				// 防止其他线程进入时再次修改这个值
 				sequence = map.get(idType);
 				seqId = sequence.get();
-				id = ID_PREFIX | ((long) objectType << 22) | seqId;
+				id = ID_PREFIX | ((long) objectType << 32) | seqId;
 				if (seqId >= MAX_SEQ_ID) {
 					restartTimes ++;
 					ID_PREFIX = buildPrefix();

@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
+    Camera camera;
     public Vector2 movingArea;
     public float zoomArea;
     public float dragSpeed;
@@ -15,6 +16,10 @@ public class CameraController : MonoBehaviour {
 
     public float zoomInMax;
     public float zoomOutMax;
+
+    [Tooltip("Rect Area To Constrict Camera's Movement")]
+    public Transform bottomLeft;
+    public Transform topRight;
 
     //Movement state flag
     private Vector3 mouseOrigin;
@@ -38,6 +43,7 @@ public class CameraController : MonoBehaviour {
     {
         cameraOrigin = transform.position;
         layerMask = LayerMask.GetMask("Building");
+        camera = GetComponent<Camera>();
     }
 
     private void Update()
@@ -163,12 +169,14 @@ public class CameraController : MonoBehaviour {
     /// </summary>
     public void CameraRestriant()
     {
+        //camera.ViewportToWorldPoint()
         transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, cameraOrigin.x - movingArea.x, cameraOrigin.x + movingArea.x),
+            Mathf.Clamp(transform.position.x, bottomLeft.position.x, topRight.position.x),
             transform.position.y,
-            Mathf.Clamp(transform.position.z, cameraOrigin.z - movingArea.y, cameraOrigin.z + movingArea.y)
+            Mathf.Clamp(transform.position.z, bottomLeft.position.z, topRight.position.z)
             );
     }
+
     #endregion
 
     #region Click Event

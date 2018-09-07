@@ -107,6 +107,11 @@ public class SSanctuaryController : SceneController
             FacadeSingleton.Instance.OverlayerPanel("UIBuildingInteractionPanel");
     }
 
+    void InitManor()
+    {
+        
+    }
+
     #region RPC responce
     
     void OnGetHeart(NetMsgDef msg)

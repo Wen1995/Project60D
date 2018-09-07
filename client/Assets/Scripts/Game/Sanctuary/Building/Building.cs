@@ -40,11 +40,6 @@ public class Building : Controller {
 
     private void Awake()
     {
-        floatingIconTrans = transform.Find("FloatingPos");
-        // buildingGo = transform.Find("building").gameObject;
-        // Destroy(buildingGo);
-        // buildingGo = null;
-        // lockGo = transform.Find("lock").gameObject;
         RegisterEvent("RefreshBuildingView", InitView);
     }
 

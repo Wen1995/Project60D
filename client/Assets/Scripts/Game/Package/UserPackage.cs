@@ -96,6 +96,8 @@ public class UserPackage : ModelBase {
 
     private int manorPersonNumber;
 
+    private long selectionUserID = 0;
+
     PlayerState playerState = new PlayerState();
 
     Dictionary<long, NUserInfo> userInfoMap = new Dictionary<long, NUserInfo>();
@@ -237,6 +239,11 @@ public class UserPackage : ModelBase {
         return groupList;
     }
 
+    public long GetSelectionUserID()
+    {
+        return selectionUserID;
+    }
+
     #endregion
 
     #region Set Data
@@ -287,6 +294,11 @@ public class UserPackage : ModelBase {
             NGroupInfo info = new NGroupInfo(res.GetGroupInfos(i));
             groupList.Add(info);
         }
+    }
+
+    public void SetSelectionUserID(long userID)
+    {
+        selectionUserID = userID;
     }
 
     #endregion

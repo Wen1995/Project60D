@@ -13,6 +13,8 @@ public class SSanctuaryController : SceneController
     UserPackage userPackage = null;
     EventPackage eventPackage = null;
 
+    public ManorController[] manors;
+
     //register or bind something
     public void Awake()
     {
@@ -109,7 +111,9 @@ public class SSanctuaryController : SceneController
 
     void InitManor()
     {
-        
+        int number = userPackage.GetManorPersonNumber();
+        for(int i=number;i<4;i++)
+            manors[i].gameObject.SetActive(false);
     }
 
     #region RPC responce
@@ -130,9 +134,11 @@ public class SSanctuaryController : SceneController
             sanctuaryPackage.AddBuilding(info);
         }
         userPackage.SetTotalContribution(sceneInfo.TotalContribution);
-        Debug.Log("manor number = " + sceneInfo.UserInfosCount);
         for(int i=0;i<sceneInfo.UserInfosCount;i++)
+        {
             userPackage.AddUserInfo(sceneInfo.GetUserInfos(i));
+            manors[i].SetUserID(sceneInfo.GetUserInfos(i).Uid);
+        }
         SendEvent("RefreshManorLevel");
         SendEvent("RefreshBuildingView");
     }
@@ -151,6 +157,7 @@ public class SSanctuaryController : SceneController
         userPackage.SetPlayerState(userState);  
         itemPackage.SetGoldNum(userState.Gold);
         BuildSanctuary();
+        InitManor();
         //SendEvent("RefreshUserState"); 
     }
 

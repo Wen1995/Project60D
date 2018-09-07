@@ -45,6 +45,9 @@ python tool.py SONGSHU xls\Bldg_Func.xlsm
 python tool.py MUCAIJIAGONG xls\Bldg_Func.xlsm
 python tool.py QIANG xls\Bldg_Func.xlsm
 python tool.py DAMEN xls\Bldg_Func.xlsm
+python tool.py MAKEQIN xls\Bldg_Func.xlsm
+python tool.py MG42 xls\Bldg_Func.xlsm
+
 
 protoc.exe --java_out=./java proto/*.proto
 

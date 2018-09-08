@@ -16,22 +16,25 @@ public enum HudType
 	CountDown,
 }
 
+public interface IHudObject
+{
+	void Initialize(NDictionary args);
+}
+
 public class HudBinder : MonoBehaviour {
 
 	Transform uirootTrans = null;
 	List<HudInfo> hudInfoList = new List<HudInfo>();
 
+	GameObject targetGo = null;
+
 	private void Awake() {
+		targetGo = gameObject;
 		uirootTrans = GameObject.Find("UI Root/HudContainer").transform;
 	}
-	public void SetTarget(GameObject go, HudType type, NDictionary args = null)
+	public void SetTarget(GameObject go)
 	{
-		HudInfo info = new HudInfo();
-		info.type = type;
-		info.args = args;
-		if(hudInfoList == null)
-			hudInfoList = new List<HudInfo>();
-		hudInfoList.Add(info);
+		targetGo = go;
 	}
 
 	public void AddHud(HudType type, NDictionary args = null)
@@ -51,8 +54,7 @@ public class HudBinder : MonoBehaviour {
 	private void Update() {
 		if(hudInfoList.Count <= 0) return;
 		//check if gameobject is visible
-		Vector3 pos3d = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 10, gameObject.transform.position.z);
-		Vector3 pos = Camera.main.WorldToViewportPoint(pos3d);
+		Vector3 pos = Camera.main.WorldToViewportPoint(targetGo.transform.position);
 		if(IsVisible(pos))
 		{
 			UpdateHud(UICamera.mainCamera.ViewportToWorldPoint(pos));
@@ -71,6 +73,8 @@ public class HudBinder : MonoBehaviour {
 			{
 				//create a new hud instance
 				info.hudGo = CreateHudInstance(info, pos, Quaternion.identity);
+				if(info.args != null)
+					info.hudGo.GetComponent<IHudObject>().Initialize(info.args);
 			}
 			else
 			{

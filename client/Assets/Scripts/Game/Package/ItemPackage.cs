@@ -65,10 +65,10 @@ public class ItemPackage : ModelBase
     Dictionary<int, NItemInfo> mItemInfoMap = new Dictionary<int, NItemInfo>();
     List<NItemInfo> mItemFilterInfoList = new List<NItemInfo>();
     List<ItemEffect> mItemEffectList = new List<ItemEffect>();
-    Dictionary<int, int> mItmePriceMap = new Dictionary<int, int>();
+    Dictionary<int, double> mItmePriceMap = new Dictionary<int, double>();
     NItemInfo selectionItem = null;
     private int elecNum;
-    private int goldNum;
+    private double goldNum;
     private double taxRate;
     public ITEM_RES GetItemDataByConfigID(int configID)
     {
@@ -111,7 +111,7 @@ public class ItemPackage : ModelBase
         return sum;
     }
 
-    public int GetGoldNumber()
+    public double GetGoldNumber()
     {
         return goldNum;
     }
@@ -213,7 +213,7 @@ public class ItemPackage : ModelBase
         return taxRate;
     }
 
-    public int GetItemPrice(int configID)
+    public double GetItemPrice(int configID)
     {
         if(!mItmePriceMap.ContainsKey(configID))
         {
@@ -261,12 +261,11 @@ public class ItemPackage : ModelBase
             mItmePriceMap[data.ConfigId] = data.Price;
             ITEM_RES config = GetItemDataByConfigID(data.ConfigId);
             Debug.Log(string.Format("item{0}, {1}", config.MinName, data.Price));
-            //Debug.Log(string.Format("{0}, {1}", mItmePriceMap[data.ConfigId], ))
         }
         taxRate = msg.TaxRate;
     }
 
-    public void SetGoldNum(int number)
+    public void SetGoldNum(double number)
     {
         goldNum = number;
     }

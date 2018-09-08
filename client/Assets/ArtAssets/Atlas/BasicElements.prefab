@@ -55,7 +55,7 @@ MonoBehaviour:
   mSprites:
   - name: Arrow-Right-Icon_2
     x: 2650
-    y: 3253
+    y: 3193
     width: 66
     height: 57
     borderLeft: 11
@@ -170,6 +170,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Chat-Bubble-Icon_2
+    x: 2650
+    y: 3251
+    width: 66
+    height: 59
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Circle
     x: 2718
     y: 3094
@@ -211,7 +224,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Dot
     x: 2650
-    y: 3232
+    y: 3172
     width: 20
     height: 20
     borderLeft: 0
@@ -262,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: LightSkinTextfield
-    x: 0
-    y: 1371
+    x: 901
+    y: 1233
     width: 900
     height: 137
     borderLeft: 0
@@ -276,7 +289,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: LightSkinTextfield-Border
     x: 0
-    y: 1095
+    y: 1371
     width: 900
     height: 137
     borderLeft: 0
@@ -496,8 +509,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Yellow-Outline
-    x: 901
-    y: 1233
+    x: 0
+    y: 1095
     width: 900
     height: 137
     borderLeft: 0

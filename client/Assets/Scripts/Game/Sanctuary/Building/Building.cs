@@ -143,7 +143,11 @@ public class Building : Controller {
         buildingGo.transform.parent = transform;
         buildingGo.transform.localPosition = Vector3.zero;
         buildingGo.transform.localRotation = Quaternion.identity;
-        buildingGo.AddComponent<HudBinder>();
+        HudBinder binder = buildingGo.AddComponent<HudBinder>();
+        Transform pos = buildingGo.transform.Find("pos");
+        if(pos != null)
+            binder.SetTarget(pos.gameObject);
+        
         NEventListener listener = buildingGo.AddComponent<NEventListener>();
         listener.AddClick(OnClick);
     }
@@ -154,15 +158,20 @@ public class Building : Controller {
         HudBinder binder = buildingGo.GetComponent<HudBinder>();
         if(binder == null) return;
         binder.ClearHud();
+        NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+        if(info == null) return;
+        BUILDING config = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
         
         if(mState == BuildingState.Collect)
         {
-            binder.AddHud(HudType.Collect);
+            NDictionary args = new NDictionary();
+            args.Add("id", config.ProId);
+            binder.AddHud(HudType.Collect, args);
         }
         else if(mState == BuildingState.Upgrade)
         {
             NDictionary args = new NDictionary();
-            NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+            //NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
             args.Add("finishtime", info.upgradeFinishTime);
             binder.AddHud(HudType.CountDown, args);
         }

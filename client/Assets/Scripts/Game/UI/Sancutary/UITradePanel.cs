@@ -60,6 +60,7 @@ public class UITradePanel : PanelBase {
 
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPRICES, OnGetPrice);
+		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.SELLGOODS, SellItemResponce);
 		base.Awake();
 	}
 
@@ -109,18 +110,16 @@ public class UITradePanel : PanelBase {
 	void RefreshItemInfo()
 	{
 		if(selectionItem == null) return;
-		print("asdasda");
 		ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(selectionItem.configID);
 		curPriceLabel.text = itemPackage.GetItemPrice(selectionItem.configID).ToString();
 		avgPriceLabel.text = "0";
-		taxLabel.text = string.Format("{0}%", (int)(itemPackage.GetTaxRate() * 100));
+		taxLabel.text = string.Format("{0}%", itemPackage.GetTaxRate() * 100);
 		nameLabel.text = itemConfig.MinName;
 		curNum = 0;
 		if(itemConfig.GoldConv >= 1000)
 			ratio = 1;
 		else
 			ratio = 1000 / itemConfig.GoldConv;
-
 		UpdateNum();
 	}
 
@@ -136,8 +135,19 @@ public class UITradePanel : PanelBase {
 
 	void OnSellItem()
 	{
-		//TODO
-		FacadeSingleton.Instance.InvokeService("RPCSellItem", ConstVal.Service_Sanctuary);
+		NDictionary args = new NDictionary();
+		args.Add("id", selectionItem.configID);
+		args.Add("num", curNum);
+		args.Add("price", itemPackage.GetItemPrice(selectionItem.configID));
+		args.Add("tax", itemPackage.GetTaxRate());
+		FacadeSingleton.Instance.InvokeService("RPCSellItem", ConstVal.Service_Sanctuary, args);
+	}
+
+	void SellItemResponce(NetMsgDef msg)
+	{
+		TSCSellGoods res = TSCSellGoods.ParseFrom(msg.mBtsData);
+		print(res.IsChange);
+		print(res.Gold);
 	}
 
 	void OnBuyItem()

@@ -158,12 +158,16 @@ public class SanctuaryService : ServiceBase {
         var builder = TCSSellGoods.CreateBuilder();
         int id = args.Value<int>("id");
         int num = args.Value<int>("num");
-        int price = args.Value<int>("price");
-        double taxRate = args.Value<int>("tax");
+        double price = args.Value<double>("price");
+        double taxRate = args.Value<double>("tax");
         builder.ConfigId = id;
         builder.Number = num;
         builder.Price = price;
         builder.TaxRate = taxRate;
+        Debug.Log(id);
+        Debug.Log(num);
+        Debug.Log(price);
+        Debug.Log(taxRate);
         TCSSellGoods msg = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.SELLGOODS, msg.ToByteArray());
     }

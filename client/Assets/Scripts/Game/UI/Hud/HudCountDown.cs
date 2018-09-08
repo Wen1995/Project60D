@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HudCountDown : MonoBehaviour, IPoolUnit {
+public class HudCountDown : MonoBehaviour, IPoolUnit , IHudObject{
 
 	UnitState mState = new UnitState();
 
@@ -17,7 +17,6 @@ public class HudCountDown : MonoBehaviour, IPoolUnit {
 	{
 		if(GlobalFunction.GetRemainTime(finishTime, out remainTime))
 			StartCoroutine(CoTimer());
-			
 	}
 
 	IEnumerator CoTimer()
@@ -55,5 +54,10 @@ public class HudCountDown : MonoBehaviour, IPoolUnit {
     public UnitState State()
     {
 		return mState;
+    }
+
+    public void Initialize(NDictionary args)
+    {
+        throw new System.NotImplementedException();
     }
 }

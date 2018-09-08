@@ -1,10 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using com.game.framework.resource.data;
 using UnityEngine;
 
-public class HudCollect : MonoBehaviour , IPoolUnit{
+public class HudCollect : MonoBehaviour , IPoolUnit, IHudObject{
 
 	UnitState mUnitState = new UnitState();
+    NDictionary args = null;
+    UISprite iconSprite = null;
+
+    private void Awake() {
+        iconSprite = transform.Find("icon").GetComponent<UISprite>();
+    }
+    public void Initialize(NDictionary data)
+    {
+        args = data;
+        int id = args.Value<int>("id");
+        SetIcon(id);
+    }
+
+    void SetIcon(int configID)
+    {
+        ItemPackage itemPackge = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
+        ITEM_RES config = itemPackge.GetItemDataByConfigID(configID);
+        iconSprite.spriteName = config.IconName;
+    }
 
     public void OnRestore()
     {

@@ -32,7 +32,7 @@ message ResourceInfo {
 	// 资源数量
 	optional int32 number = 2;
 	// 价格
-	optional int32 price = 3;
+	optional double price = 3;
 }
 
 message TCSGetUserState {
@@ -62,7 +62,7 @@ message TSCGetUserState {
 	// 贡献
 	optional int32 contribution = 11;
 	// 黄金
-	optional int32 gold = 12;
+	optional double gold = 12;
 }
 
 message TCSGetUserStateRegular {
@@ -92,7 +92,7 @@ message TSCGetUserStateRegular {
 	// 贡献
 	optional int32 contribution = 11;
 	// 黄金
-	optional int32 gold = 12;
+	optional double gold = 12;
 }
 
 message TCSSellGoods {
@@ -101,7 +101,7 @@ message TCSSellGoods {
 	// 商品数量
 	optional int32 number = 2;
 	// 单价
-	optional int32 price = 3;
+	optional double price = 3;
 	// 税率
 	optional double taxRate = 4;
 }
@@ -109,7 +109,7 @@ message TSCSellGoods {
 	// 是否(税率)改变
 	optional bool isChange = 1;
 	// 获得金币
-	optional int32 gold = 2;
+	optional double gold = 2;
 }
 
 message TCSBuyGoods {
@@ -118,7 +118,7 @@ message TCSBuyGoods {
 	// 商品数量
 	optional int32 number = 2;
 	// 单价
-	optional int32 price = 3;
+	optional double price = 3;
 	// 税率
 	optional double taxRate = 4;
 }

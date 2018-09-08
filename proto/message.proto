@@ -48,7 +48,7 @@ message LossInfo {
 	// 资源损失
 	optional int32 resource = 2;
 	// 金币损失
-	optional int32 gold = 3;
+	optional double gold = 3;
 }
 
 message UserInfo {

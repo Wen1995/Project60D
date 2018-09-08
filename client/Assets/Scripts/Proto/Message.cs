@@ -1938,7 +1938,7 @@ namespace com.game.framework.protocol {
     private LossInfo() { }
     private static readonly LossInfo defaultInstance = new LossInfo().MakeReadOnly();
     private static readonly string[] _lossInfoFieldNames = new string[] { "gold", "resource", "uid" };
-    private static readonly uint[] _lossInfoFieldTags = new uint[] { 24, 16, 8 };
+    private static readonly uint[] _lossInfoFieldTags = new uint[] { 25, 16, 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -1988,11 +1988,11 @@ namespace com.game.framework.protocol {
     #endif//
     public const int GoldFieldNumber = 3;
     private bool hasGold;
-    private int gold_;
+    private double gold_;
     public bool HasGold {
       get { return hasGold; }
     }
-    public int Gold {
+    public double Gold {
       get { return gold_; }
     }
     
@@ -2018,7 +2018,7 @@ namespace com.game.framework.protocol {
         output.WriteInt32(2, field_names[1], Resource);
       }
       if (hasGold) {
-        output.WriteInt32(3, field_names[0], Gold);
+        output.WriteDouble(3, field_names[0], Gold);
       }
     }
     
@@ -2039,7 +2039,7 @@ namespace com.game.framework.protocol {
           size += pb::CodedOutputStream.ComputeInt32Size(2, Resource);
         }
         if (hasGold) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, Gold);
+          size += pb::CodedOutputStream.ComputeDoubleSize(3, Gold);
         }
         memoizedSerializedSize = size;
         return size;
@@ -2270,8 +2270,8 @@ namespace com.game.framework.protocol {
               result.hasResource = input.ReadInt32(ref result.resource_);
               break;
             }
-            case 24: {
-              result.hasGold = input.ReadInt32(ref result.gold_);
+            case 25: {
+              result.hasGold = input.ReadDouble(ref result.gold_);
               break;
             }
           }
@@ -2324,11 +2324,11 @@ namespace com.game.framework.protocol {
       public bool HasGold {
         get { return result.hasGold; }
       }
-      public int Gold {
+      public double Gold {
         get { return result.Gold; }
         set { SetGold(value); }
       }
-      public Builder SetGold(int value) {
+      public Builder SetGold(double value) {
         PrepareBuilder();
         result.hasGold = true;
         result.gold_ = value;
@@ -2337,7 +2337,7 @@ namespace com.game.framework.protocol {
       public Builder ClearGold() {
         PrepareBuilder();
         result.hasGold = false;
-        result.gold_ = 0;
+        result.gold_ = 0D;
         return this;
       }
     }

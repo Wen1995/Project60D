@@ -256,9 +256,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public TPacket sellGoods(Long uid, Integer configId, Integer number, Integer price, Double taxRate) throws Exception {
+    public TPacket sellGoods(Long uid, Integer configId, Integer number, Double price, Double taxRate) throws Exception {
         boolean isChange = false;
-        int gold = 0;
+        double gold = 0;
         
         ITEM_RES itemRes = StaticDataManager.GetInstance().itemResMap.get(configId);
         int goldRate = itemRes.getGoldConv();
@@ -269,9 +269,9 @@ public class UserServiceImpl implements UserService {
             }
         }
         double probability = UserUtil.getPriceCoefficient(itemRes.getKeyName());
-        int priceNow = (int) (probability * goldRate / 1000);
+        double priceNow = probability * goldRate / 1000;
         double taxCoff = UserUtil.getTaxCoefficient();
-        if (!price.equals(priceNow) || !taxRate.equals(taxCoff)) {             // 判断是否变动
+        if (Math.abs(price - priceNow) > 0.01 || Math.abs(taxRate - taxCoff) > 0.01) {             // 判断是否变动
             isChange = true;
         } else {
             // 资源是否满足 
@@ -303,7 +303,7 @@ public class UserServiceImpl implements UserService {
             }
             ARITHMETIC_COEFFICIENT arithmeticCoefficient = StaticDataManager.GetInstance().arithmeticCoefficientMap.get(30140000);
             int K1 = arithmeticCoefficient.getAcK1();
-            gold = (int) (priceNow * number * (1 - K1 * taxCoff));
+            gold = priceNow * number * (1 - K1 * taxCoff);
             user.setResource(userResourceBuilder.build().toByteArray());
             user.setGold(user.getGold() + gold);
             userDao.update(user);
@@ -320,7 +320,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public TPacket buyGoods(Long uid, Integer configId, Integer number, Integer price, Double taxRate) throws Exception {
+    public TPacket buyGoods(Long uid, Integer configId, Integer number, Double price, Double taxRate) throws Exception {
         boolean isChange = false;
         boolean isLimit = false;
         
@@ -334,9 +334,9 @@ public class UserServiceImpl implements UserService {
         }
         String tableName = itemRes.getKeyName();
         double probability = UserUtil.getPriceCoefficient(tableName);
-        int priceNow = (int) (probability * goldRate / 1000);
+        double priceNow = probability * goldRate / 1000;
         double taxCoff = UserUtil.getTaxCoefficient();
-        if (!price.equals(priceNow) || !taxRate.equals(taxCoff)) {         // 判断是否变动
+        if (Math.abs(price - priceNow) > 0.01 || Math.abs(taxRate - taxCoff) > 0.01) {         // 判断是否变动
             isChange = true;
         } else {
             // 购买数量限制
@@ -384,7 +384,7 @@ public class UserServiceImpl implements UserService {
                 if (storehouseCapacity > 0) {                   // 是否有足够的仓库资源
                     ARITHMETIC_COEFFICIENT arithmeticCoefficient = StaticDataManager.GetInstance().arithmeticCoefficientMap.get(30140000);
                     int K1 = arithmeticCoefficient.getAcK1();
-                    int leftGold = user.getGold() - (int) (priceNow * number * (1 + K1 * taxCoff));
+                    double leftGold = user.getGold() - priceNow * number * (1 + K1 * taxCoff);
                     if (leftGold > 0) {                         // 是否有足够的钱
                         ResourceInfo.Builder rBuilder;
                         if (resourceIndex == -1) {

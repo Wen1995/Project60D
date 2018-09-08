@@ -7,7 +7,7 @@
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="group_id" property="groupId" jdbcType="BIGINT" />
     <result column="contribution" property="contribution" jdbcType="INTEGER" />
-    <result column="gold" property="gold" jdbcType="INTEGER" />
+    <result column="gold" property="gold" jdbcType="DOUBLE" />
     <result column="blood" property="blood" jdbcType="INTEGER" />
     <result column="food" property="food" jdbcType="INTEGER" />
     <result column="water" property="water" jdbcType="INTEGER" />
@@ -150,7 +150,7 @@
       create_time, logout_time, resource
       )
     values (#{id,jdbcType=BIGINT}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{groupId,jdbcType=BIGINT}, #{contribution,jdbcType=INTEGER}, #{gold,jdbcType=INTEGER}, 
+      #{groupId,jdbcType=BIGINT}, #{contribution,jdbcType=INTEGER}, #{gold,jdbcType=DOUBLE}, 
       #{blood,jdbcType=INTEGER}, #{food,jdbcType=INTEGER}, #{water,jdbcType=INTEGER}, 
       #{health,jdbcType=INTEGER}, #{mood,jdbcType=INTEGER}, #{attack,jdbcType=INTEGER}, 
       #{defense,jdbcType=INTEGER}, #{agile,jdbcType=INTEGER}, #{speed,jdbcType=INTEGER}, 
@@ -242,7 +242,7 @@
         #{contribution,jdbcType=INTEGER},
       </if>
       <if test="gold != null" >
-        #{gold,jdbcType=INTEGER},
+        #{gold,jdbcType=DOUBLE},
       </if>
       <if test="blood != null" >
         #{blood,jdbcType=INTEGER},
@@ -316,7 +316,7 @@
         contribution = #{record.contribution,jdbcType=INTEGER},
       </if>
       <if test="record.gold != null" >
-        gold = #{record.gold,jdbcType=INTEGER},
+        gold = #{record.gold,jdbcType=DOUBLE},
       </if>
       <if test="record.blood != null" >
         blood = #{record.blood,jdbcType=INTEGER},
@@ -375,7 +375,7 @@
       password = #{record.password,jdbcType=VARCHAR},
       group_id = #{record.groupId,jdbcType=BIGINT},
       contribution = #{record.contribution,jdbcType=INTEGER},
-      gold = #{record.gold,jdbcType=INTEGER},
+      gold = #{record.gold,jdbcType=DOUBLE},
       blood = #{record.blood,jdbcType=INTEGER},
       food = #{record.food,jdbcType=INTEGER},
       water = #{record.water,jdbcType=INTEGER},
@@ -402,7 +402,7 @@
       password = #{record.password,jdbcType=VARCHAR},
       group_id = #{record.groupId,jdbcType=BIGINT},
       contribution = #{record.contribution,jdbcType=INTEGER},
-      gold = #{record.gold,jdbcType=INTEGER},
+      gold = #{record.gold,jdbcType=DOUBLE},
       blood = #{record.blood,jdbcType=INTEGER},
       food = #{record.food,jdbcType=INTEGER},
       water = #{record.water,jdbcType=INTEGER},
@@ -437,7 +437,7 @@
         contribution = #{contribution,jdbcType=INTEGER},
       </if>
       <if test="gold != null" >
-        gold = #{gold,jdbcType=INTEGER},
+        gold = #{gold,jdbcType=DOUBLE},
       </if>
       <if test="blood != null" >
         blood = #{blood,jdbcType=INTEGER},
@@ -493,7 +493,7 @@
       password = #{password,jdbcType=VARCHAR},
       group_id = #{groupId,jdbcType=BIGINT},
       contribution = #{contribution,jdbcType=INTEGER},
-      gold = #{gold,jdbcType=INTEGER},
+      gold = #{gold,jdbcType=DOUBLE},
       blood = #{blood,jdbcType=INTEGER},
       food = #{food,jdbcType=INTEGER},
       water = #{water,jdbcType=INTEGER},
@@ -517,7 +517,7 @@
       password = #{password,jdbcType=VARCHAR},
       group_id = #{groupId,jdbcType=BIGINT},
       contribution = #{contribution,jdbcType=INTEGER},
-      gold = #{gold,jdbcType=INTEGER},
+      gold = #{gold,jdbcType=DOUBLE},
       blood = #{blood,jdbcType=INTEGER},
       food = #{food,jdbcType=INTEGER},
       water = #{water,jdbcType=INTEGER},

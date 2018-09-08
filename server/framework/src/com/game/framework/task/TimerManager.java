@@ -233,7 +233,7 @@ public class TimerManager {
                         Integer configId = entry.getKey();
                         ITEM_RES itemRes = StaticDataManager.GetInstance().itemResMap.get(configId);
                         double probability = UserUtil.getPriceCoefficient(itemRes.getKeyName());
-                        int price = (int) (probability * itemRes.getGoldConv() / 1000);
+                        double price = probability * itemRes.getGoldConv() / 1000;
                         ResourceInfo r = ResourceInfo.newBuilder()
                                 .setConfigId(configId)
                                 .setPrice(price)

@@ -13,7 +13,7 @@ public class User {
 
     private Integer contribution;
 
-    private Integer gold;
+    private Double gold;
 
     private Integer blood;
 
@@ -85,11 +85,11 @@ public class User {
         this.contribution = contribution;
     }
 
-    public Integer getGold() {
+    public Double getGold() {
         return gold;
     }
 
-    public void setGold(Integer gold) {
+    public void setGold(Double gold) {
         this.gold = gold;
     }
 

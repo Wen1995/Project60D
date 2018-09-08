@@ -19,7 +19,6 @@ public class UIManorMenuPanel : PanelBase {
 	{
 		base.Awake();
 		//get component
-		invadeProgress = transform.Find("Eventinfo/Invade/bar").GetComponent<UIProgressBar>();
 		manorExpProgress = transform.Find("Manor/exp").GetComponent<UIProgressBar>();
 		levelLabel = transform.Find("Manor/level").GetComponent<UILabel>();
 		IDLabel = transform.Find("Manor/idlabel").GetComponent<UILabel>();
@@ -55,7 +54,6 @@ public class UIManorMenuPanel : PanelBase {
 
 	void InitView(NDictionary data = null)
 	{
-		invadeProgress.value = 0;
 		manorExpProgress.value = 0;
 		IDLabel.text = userPackage.GroupID.ToString();
 		float progress = 0f;

@@ -92,10 +92,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 		preLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID));
 		nextLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID + 1));
 		//show cost
-		int strength = configData.BldgStrengthLim;
-		NDictionary args = new NDictionary();
-		args.Add("strength", strength);
-		int level = (int)FacadeSingleton.Instance.InvokeService("GetManorLevelByStrength", ConstVal.Service_Sanctuary, args);
+		int level = nextConfigData.BldgLvLim;
 		levelLabel.text = string.Format("等级限制: {0}", level);
 		int curLevel = userPackage.GetManorLevel();
 		if(level > curLevel)

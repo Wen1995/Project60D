@@ -1721,7 +1721,7 @@ namespace com.game.framework.protocol {
     private ResourceInfo() { }
     private static readonly ResourceInfo defaultInstance = new ResourceInfo().MakeReadOnly();
     private static readonly string[] _resourceInfoFieldNames = new string[] { "configId", "number", "price" };
-    private static readonly uint[] _resourceInfoFieldTags = new uint[] { 8, 16, 24 };
+    private static readonly uint[] _resourceInfoFieldTags = new uint[] { 8, 16, 25 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -1771,11 +1771,11 @@ namespace com.game.framework.protocol {
     #endif//
     public const int PriceFieldNumber = 3;
     private bool hasPrice;
-    private int price_;
+    private double price_;
     public bool HasPrice {
       get { return hasPrice; }
     }
-    public int Price {
+    public double Price {
       get { return price_; }
     }
     
@@ -1801,7 +1801,7 @@ namespace com.game.framework.protocol {
         output.WriteInt32(2, field_names[1], Number);
       }
       if (hasPrice) {
-        output.WriteInt32(3, field_names[2], Price);
+        output.WriteDouble(3, field_names[2], Price);
       }
     }
     
@@ -1822,7 +1822,7 @@ namespace com.game.framework.protocol {
           size += pb::CodedOutputStream.ComputeInt32Size(2, Number);
         }
         if (hasPrice) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, Price);
+          size += pb::CodedOutputStream.ComputeDoubleSize(3, Price);
         }
         memoizedSerializedSize = size;
         return size;
@@ -2053,8 +2053,8 @@ namespace com.game.framework.protocol {
               result.hasNumber = input.ReadInt32(ref result.number_);
               break;
             }
-            case 24: {
-              result.hasPrice = input.ReadInt32(ref result.price_);
+            case 25: {
+              result.hasPrice = input.ReadDouble(ref result.price_);
               break;
             }
           }
@@ -2107,11 +2107,11 @@ namespace com.game.framework.protocol {
       public bool HasPrice {
         get { return result.hasPrice; }
       }
-      public int Price {
+      public double Price {
         get { return result.Price; }
         set { SetPrice(value); }
       }
-      public Builder SetPrice(int value) {
+      public Builder SetPrice(double value) {
         PrepareBuilder();
         result.hasPrice = true;
         result.price_ = value;
@@ -2120,7 +2120,7 @@ namespace com.game.framework.protocol {
       public Builder ClearPrice() {
         PrepareBuilder();
         result.hasPrice = false;
-        result.price_ = 0;
+        result.price_ = 0D;
         return this;
       }
     }
@@ -2401,7 +2401,7 @@ namespace com.game.framework.protocol {
     private TSCGetUserState() { }
     private static readonly TSCGetUserState defaultInstance = new TSCGetUserState().MakeReadOnly();
     private static readonly string[] _tSCGetUserStateFieldNames = new string[] { "agile", "attack", "blood", "contribution", "defense", "food", "gold", "health", "intellect", "mood", "speed", "water" };
-    private static readonly uint[] _tSCGetUserStateFieldTags = new uint[] { 64, 48, 8, 88, 56, 16, 96, 32, 80, 40, 72, 24 };
+    private static readonly uint[] _tSCGetUserStateFieldTags = new uint[] { 64, 48, 8, 88, 56, 16, 97, 32, 80, 40, 72, 24 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -2568,11 +2568,11 @@ namespace com.game.framework.protocol {
     #endif//
     public const int GoldFieldNumber = 12;
     private bool hasGold;
-    private int gold_;
+    private double gold_;
     public bool HasGold {
       get { return hasGold; }
     }
-    public int Gold {
+    public double Gold {
       get { return gold_; }
     }
     
@@ -2625,7 +2625,7 @@ namespace com.game.framework.protocol {
         output.WriteInt32(11, field_names[3], Contribution);
       }
       if (hasGold) {
-        output.WriteInt32(12, field_names[6], Gold);
+        output.WriteDouble(12, field_names[6], Gold);
       }
     }
     
@@ -2673,7 +2673,7 @@ namespace com.game.framework.protocol {
           size += pb::CodedOutputStream.ComputeInt32Size(11, Contribution);
         }
         if (hasGold) {
-          size += pb::CodedOutputStream.ComputeInt32Size(12, Gold);
+          size += pb::CodedOutputStream.ComputeDoubleSize(12, Gold);
         }
         memoizedSerializedSize = size;
         return size;
@@ -2985,8 +2985,8 @@ namespace com.game.framework.protocol {
               result.hasContribution = input.ReadInt32(ref result.contribution_);
               break;
             }
-            case 96: {
-              result.hasGold = input.ReadInt32(ref result.gold_);
+            case 97: {
+              result.hasGold = input.ReadDouble(ref result.gold_);
               break;
             }
           }
@@ -3219,11 +3219,11 @@ namespace com.game.framework.protocol {
       public bool HasGold {
         get { return result.hasGold; }
       }
-      public int Gold {
+      public double Gold {
         get { return result.Gold; }
         set { SetGold(value); }
       }
-      public Builder SetGold(int value) {
+      public Builder SetGold(double value) {
         PrepareBuilder();
         result.hasGold = true;
         result.gold_ = value;
@@ -3232,7 +3232,7 @@ namespace com.game.framework.protocol {
       public Builder ClearGold() {
         PrepareBuilder();
         result.hasGold = false;
-        result.gold_ = 0;
+        result.gold_ = 0D;
         return this;
       }
     }
@@ -3513,7 +3513,7 @@ namespace com.game.framework.protocol {
     private TSCGetUserStateRegular() { }
     private static readonly TSCGetUserStateRegular defaultInstance = new TSCGetUserStateRegular().MakeReadOnly();
     private static readonly string[] _tSCGetUserStateRegularFieldNames = new string[] { "agile", "attack", "blood", "contribution", "defense", "food", "gold", "health", "intellect", "mood", "speed", "water" };
-    private static readonly uint[] _tSCGetUserStateRegularFieldTags = new uint[] { 64, 48, 8, 88, 56, 16, 96, 32, 80, 40, 72, 24 };
+    private static readonly uint[] _tSCGetUserStateRegularFieldTags = new uint[] { 64, 48, 8, 88, 56, 16, 97, 32, 80, 40, 72, 24 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -3680,11 +3680,11 @@ namespace com.game.framework.protocol {
     #endif//
     public const int GoldFieldNumber = 12;
     private bool hasGold;
-    private int gold_;
+    private double gold_;
     public bool HasGold {
       get { return hasGold; }
     }
-    public int Gold {
+    public double Gold {
       get { return gold_; }
     }
     
@@ -3737,7 +3737,7 @@ namespace com.game.framework.protocol {
         output.WriteInt32(11, field_names[3], Contribution);
       }
       if (hasGold) {
-        output.WriteInt32(12, field_names[6], Gold);
+        output.WriteDouble(12, field_names[6], Gold);
       }
     }
     
@@ -3785,7 +3785,7 @@ namespace com.game.framework.protocol {
           size += pb::CodedOutputStream.ComputeInt32Size(11, Contribution);
         }
         if (hasGold) {
-          size += pb::CodedOutputStream.ComputeInt32Size(12, Gold);
+          size += pb::CodedOutputStream.ComputeDoubleSize(12, Gold);
         }
         memoizedSerializedSize = size;
         return size;
@@ -4097,8 +4097,8 @@ namespace com.game.framework.protocol {
               result.hasContribution = input.ReadInt32(ref result.contribution_);
               break;
             }
-            case 96: {
-              result.hasGold = input.ReadInt32(ref result.gold_);
+            case 97: {
+              result.hasGold = input.ReadDouble(ref result.gold_);
               break;
             }
           }
@@ -4331,11 +4331,11 @@ namespace com.game.framework.protocol {
       public bool HasGold {
         get { return result.hasGold; }
       }
-      public int Gold {
+      public double Gold {
         get { return result.Gold; }
         set { SetGold(value); }
       }
-      public Builder SetGold(int value) {
+      public Builder SetGold(double value) {
         PrepareBuilder();
         result.hasGold = true;
         result.gold_ = value;
@@ -4344,7 +4344,7 @@ namespace com.game.framework.protocol {
       public Builder ClearGold() {
         PrepareBuilder();
         result.hasGold = false;
-        result.gold_ = 0;
+        result.gold_ = 0D;
         return this;
       }
     }
@@ -4357,7 +4357,7 @@ namespace com.game.framework.protocol {
     private TCSSellGoods() { }
     private static readonly TCSSellGoods defaultInstance = new TCSSellGoods().MakeReadOnly();
     private static readonly string[] _tCSSellGoodsFieldNames = new string[] { "configId", "number", "price", "taxRate" };
-    private static readonly uint[] _tCSSellGoodsFieldTags = new uint[] { 8, 16, 24, 33 };
+    private static readonly uint[] _tCSSellGoodsFieldTags = new uint[] { 8, 16, 25, 33 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -4407,11 +4407,11 @@ namespace com.game.framework.protocol {
     #endif//
     public const int PriceFieldNumber = 3;
     private bool hasPrice;
-    private int price_;
+    private double price_;
     public bool HasPrice {
       get { return hasPrice; }
     }
-    public int Price {
+    public double Price {
       get { return price_; }
     }
     
@@ -4450,7 +4450,7 @@ namespace com.game.framework.protocol {
         output.WriteInt32(2, field_names[1], Number);
       }
       if (hasPrice) {
-        output.WriteInt32(3, field_names[2], Price);
+        output.WriteDouble(3, field_names[2], Price);
       }
       if (hasTaxRate) {
         output.WriteDouble(4, field_names[3], TaxRate);
@@ -4474,7 +4474,7 @@ namespace com.game.framework.protocol {
           size += pb::CodedOutputStream.ComputeInt32Size(2, Number);
         }
         if (hasPrice) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, Price);
+          size += pb::CodedOutputStream.ComputeDoubleSize(3, Price);
         }
         if (hasTaxRate) {
           size += pb::CodedOutputStream.ComputeDoubleSize(4, TaxRate);
@@ -4713,8 +4713,8 @@ namespace com.game.framework.protocol {
               result.hasNumber = input.ReadInt32(ref result.number_);
               break;
             }
-            case 24: {
-              result.hasPrice = input.ReadInt32(ref result.price_);
+            case 25: {
+              result.hasPrice = input.ReadDouble(ref result.price_);
               break;
             }
             case 33: {
@@ -4771,11 +4771,11 @@ namespace com.game.framework.protocol {
       public bool HasPrice {
         get { return result.hasPrice; }
       }
-      public int Price {
+      public double Price {
         get { return result.Price; }
         set { SetPrice(value); }
       }
-      public Builder SetPrice(int value) {
+      public Builder SetPrice(double value) {
         PrepareBuilder();
         result.hasPrice = true;
         result.price_ = value;
@@ -4784,7 +4784,7 @@ namespace com.game.framework.protocol {
       public Builder ClearPrice() {
         PrepareBuilder();
         result.hasPrice = false;
-        result.price_ = 0;
+        result.price_ = 0D;
         return this;
       }
       
@@ -4817,7 +4817,7 @@ namespace com.game.framework.protocol {
     private TSCSellGoods() { }
     private static readonly TSCSellGoods defaultInstance = new TSCSellGoods().MakeReadOnly();
     private static readonly string[] _tSCSellGoodsFieldNames = new string[] { "gold", "isChange" };
-    private static readonly uint[] _tSCSellGoodsFieldTags = new uint[] { 16, 8 };
+    private static readonly uint[] _tSCSellGoodsFieldTags = new uint[] { 17, 8 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -4854,11 +4854,11 @@ namespace com.game.framework.protocol {
     #endif//
     public const int GoldFieldNumber = 2;
     private bool hasGold;
-    private int gold_;
+    private double gold_;
     public bool HasGold {
       get { return hasGold; }
     }
-    public int Gold {
+    public double Gold {
       get { return gold_; }
     }
     
@@ -4881,7 +4881,7 @@ namespace com.game.framework.protocol {
         output.WriteBool(1, field_names[1], IsChange);
       }
       if (hasGold) {
-        output.WriteInt32(2, field_names[0], Gold);
+        output.WriteDouble(2, field_names[0], Gold);
       }
     }
     
@@ -4899,7 +4899,7 @@ namespace com.game.framework.protocol {
           size += pb::CodedOutputStream.ComputeBoolSize(1, IsChange);
         }
         if (hasGold) {
-          size += pb::CodedOutputStream.ComputeInt32Size(2, Gold);
+          size += pb::CodedOutputStream.ComputeDoubleSize(2, Gold);
         }
         memoizedSerializedSize = size;
         return size;
@@ -5121,8 +5121,8 @@ namespace com.game.framework.protocol {
               result.hasIsChange = input.ReadBool(ref result.isChange_);
               break;
             }
-            case 16: {
-              result.hasGold = input.ReadInt32(ref result.gold_);
+            case 17: {
+              result.hasGold = input.ReadDouble(ref result.gold_);
               break;
             }
           }
@@ -5155,11 +5155,11 @@ namespace com.game.framework.protocol {
       public bool HasGold {
         get { return result.hasGold; }
       }
-      public int Gold {
+      public double Gold {
         get { return result.Gold; }
         set { SetGold(value); }
       }
-      public Builder SetGold(int value) {
+      public Builder SetGold(double value) {
         PrepareBuilder();
         result.hasGold = true;
         result.gold_ = value;
@@ -5168,7 +5168,7 @@ namespace com.game.framework.protocol {
       public Builder ClearGold() {
         PrepareBuilder();
         result.hasGold = false;
-        result.gold_ = 0;
+        result.gold_ = 0D;
         return this;
       }
     }
@@ -5181,7 +5181,7 @@ namespace com.game.framework.protocol {
     private TCSBuyGoods() { }
     private static readonly TCSBuyGoods defaultInstance = new TCSBuyGoods().MakeReadOnly();
     private static readonly string[] _tCSBuyGoodsFieldNames = new string[] { "configId", "number", "price", "taxRate" };
-    private static readonly uint[] _tCSBuyGoodsFieldTags = new uint[] { 8, 16, 24, 33 };
+    private static readonly uint[] _tCSBuyGoodsFieldTags = new uint[] { 8, 16, 25, 33 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -5231,11 +5231,11 @@ namespace com.game.framework.protocol {
     #endif//
     public const int PriceFieldNumber = 3;
     private bool hasPrice;
-    private int price_;
+    private double price_;
     public bool HasPrice {
       get { return hasPrice; }
     }
-    public int Price {
+    public double Price {
       get { return price_; }
     }
     
@@ -5274,7 +5274,7 @@ namespace com.game.framework.protocol {
         output.WriteInt32(2, field_names[1], Number);
       }
       if (hasPrice) {
-        output.WriteInt32(3, field_names[2], Price);
+        output.WriteDouble(3, field_names[2], Price);
       }
       if (hasTaxRate) {
         output.WriteDouble(4, field_names[3], TaxRate);
@@ -5298,7 +5298,7 @@ namespace com.game.framework.protocol {
           size += pb::CodedOutputStream.ComputeInt32Size(2, Number);
         }
         if (hasPrice) {
-          size += pb::CodedOutputStream.ComputeInt32Size(3, Price);
+          size += pb::CodedOutputStream.ComputeDoubleSize(3, Price);
         }
         if (hasTaxRate) {
           size += pb::CodedOutputStream.ComputeDoubleSize(4, TaxRate);
@@ -5537,8 +5537,8 @@ namespace com.game.framework.protocol {
               result.hasNumber = input.ReadInt32(ref result.number_);
               break;
             }
-            case 24: {
-              result.hasPrice = input.ReadInt32(ref result.price_);
+            case 25: {
+              result.hasPrice = input.ReadDouble(ref result.price_);
               break;
             }
             case 33: {
@@ -5595,11 +5595,11 @@ namespace com.game.framework.protocol {
       public bool HasPrice {
         get { return result.hasPrice; }
       }
-      public int Price {
+      public double Price {
         get { return result.Price; }
         set { SetPrice(value); }
       }
-      public Builder SetPrice(int value) {
+      public Builder SetPrice(double value) {
         PrepareBuilder();
         result.hasPrice = true;
         result.price_ = value;
@@ -5608,7 +5608,7 @@ namespace com.game.framework.protocol {
       public Builder ClearPrice() {
         PrepareBuilder();
         result.hasPrice = false;
-        result.price_ = 0;
+        result.price_ = 0D;
         return this;
       }
       
@@ -5640,7 +5640,7 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCBuyGoods : pb::GeneratedMessageLite<TSCBuyGoods, TSCBuyGoods.Builder> {
     private TSCBuyGoods() { }
     private static readonly TSCBuyGoods defaultInstance = new TSCBuyGoods().MakeReadOnly();
-    private static readonly string[] _tSCBuyGoodsFieldNames = new string[] { "isChange", "limit" };
+    private static readonly string[] _tSCBuyGoodsFieldNames = new string[] { "isChange", "isLimit" };
     private static readonly uint[] _tSCBuyGoodsFieldTags = new uint[] { 8, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -5676,14 +5676,14 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int LimitFieldNumber = 2;
-    private bool hasLimit;
-    private bool limit_;
-    public bool HasLimit {
-      get { return hasLimit; }
+    public const int IsLimitFieldNumber = 2;
+    private bool hasIsLimit;
+    private bool isLimit_;
+    public bool HasIsLimit {
+      get { return hasIsLimit; }
     }
-    public bool Limit {
-      get { return limit_; }
+    public bool IsLimit {
+      get { return isLimit_; }
     }
     
     #if UNITY_EDITOR
@@ -5704,8 +5704,8 @@ namespace com.game.framework.protocol {
       if (hasIsChange) {
         output.WriteBool(1, field_names[0], IsChange);
       }
-      if (hasLimit) {
-        output.WriteBool(2, field_names[1], Limit);
+      if (hasIsLimit) {
+        output.WriteBool(2, field_names[1], IsLimit);
       }
     }
     
@@ -5722,8 +5722,8 @@ namespace com.game.framework.protocol {
         if (hasIsChange) {
           size += pb::CodedOutputStream.ComputeBoolSize(1, IsChange);
         }
-        if (hasLimit) {
-          size += pb::CodedOutputStream.ComputeBoolSize(2, Limit);
+        if (hasIsLimit) {
+          size += pb::CodedOutputStream.ComputeBoolSize(2, IsLimit);
         }
         memoizedSerializedSize = size;
         return size;
@@ -5734,7 +5734,7 @@ namespace com.game.framework.protocol {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasIsChange) hash ^= isChange_.GetHashCode();
-      if (hasLimit) hash ^= limit_.GetHashCode();
+      if (hasIsLimit) hash ^= isLimit_.GetHashCode();
       return hash;
     }
     
@@ -5742,7 +5742,7 @@ namespace com.game.framework.protocol {
       TSCBuyGoods other = obj as TSCBuyGoods;
       if (other == null) return false;
       if (hasIsChange != other.hasIsChange || (hasIsChange && !isChange_.Equals(other.isChange_))) return false;
-      if (hasLimit != other.hasLimit || (hasLimit && !limit_.Equals(other.limit_))) return false;
+      if (hasIsLimit != other.hasIsLimit || (hasIsLimit && !isLimit_.Equals(other.isLimit_))) return false;
       return true;
     }
     
@@ -5906,8 +5906,8 @@ namespace com.game.framework.protocol {
         if (other.HasIsChange) {
           IsChange = other.IsChange;
         }
-        if (other.HasLimit) {
-          Limit = other.Limit;
+        if (other.HasIsLimit) {
+          IsLimit = other.IsLimit;
         }
         return this;
       }
@@ -5946,7 +5946,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 16: {
-              result.hasLimit = input.ReadBool(ref result.limit_);
+              result.hasIsLimit = input.ReadBool(ref result.isLimit_);
               break;
             }
           }
@@ -5976,23 +5976,23 @@ namespace com.game.framework.protocol {
         return this;
       }
       
-      public bool HasLimit {
-        get { return result.hasLimit; }
+      public bool HasIsLimit {
+        get { return result.hasIsLimit; }
       }
-      public bool Limit {
-        get { return result.Limit; }
-        set { SetLimit(value); }
+      public bool IsLimit {
+        get { return result.IsLimit; }
+        set { SetIsLimit(value); }
       }
-      public Builder SetLimit(bool value) {
+      public Builder SetIsLimit(bool value) {
         PrepareBuilder();
-        result.hasLimit = true;
-        result.limit_ = value;
+        result.hasIsLimit = true;
+        result.isLimit_ = value;
         return this;
       }
-      public Builder ClearLimit() {
+      public Builder ClearIsLimit() {
         PrepareBuilder();
-        result.hasLimit = false;
-        result.limit_ = false;
+        result.hasIsLimit = false;
+        result.isLimit_ = false;
         return this;
       }
     }

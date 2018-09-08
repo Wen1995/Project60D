@@ -71,15 +71,15 @@ public final class UserCache {
      */
     int getContribution();
 
-    // optional int32 gold = 6;
+    // optional double gold = 6;
     /**
-     * <code>optional int32 gold = 6;</code>
+     * <code>optional double gold = 6;</code>
      */
     boolean hasGold();
     /**
-     * <code>optional int32 gold = 6;</code>
+     * <code>optional double gold = 6;</code>
      */
-    int getGold();
+    double getGold();
 
     // optional int32 blood = 7;
     /**
@@ -307,9 +307,9 @@ public final class UserCache {
               contribution_ = input.readInt32();
               break;
             }
-            case 48: {
+            case 49: {
               bitField0_ |= 0x00000020;
-              gold_ = input.readInt32();
+              gold_ = input.readDouble();
               break;
             }
             case 56: {
@@ -561,19 +561,19 @@ public final class UserCache {
       return contribution_;
     }
 
-    // optional int32 gold = 6;
+    // optional double gold = 6;
     public static final int GOLD_FIELD_NUMBER = 6;
-    private int gold_;
+    private double gold_;
     /**
-     * <code>optional int32 gold = 6;</code>
+     * <code>optional double gold = 6;</code>
      */
     public boolean hasGold() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional int32 gold = 6;</code>
+     * <code>optional double gold = 6;</code>
      */
-    public int getGold() {
+    public double getGold() {
       return gold_;
     }
 
@@ -823,7 +823,7 @@ public final class UserCache {
       password_ = "";
       groupId_ = 0L;
       contribution_ = 0;
-      gold_ = 0;
+      gold_ = 0D;
       blood_ = 0;
       food_ = 0;
       water_ = 0;
@@ -868,7 +868,7 @@ public final class UserCache {
         output.writeInt32(5, contribution_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeInt32(6, gold_);
+        output.writeDouble(6, gold_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeInt32(7, blood_);
@@ -946,7 +946,7 @@ public final class UserCache {
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, gold_);
+          .computeDoubleSize(6, gold_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1134,7 +1134,7 @@ public final class UserCache {
         bitField0_ = (bitField0_ & ~0x00000008);
         contribution_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
-        gold_ = 0;
+        gold_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000020);
         blood_ = 0;
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -1635,35 +1635,35 @@ public final class UserCache {
         return this;
       }
 
-      // optional int32 gold = 6;
-      private int gold_ ;
+      // optional double gold = 6;
+      private double gold_ ;
       /**
-       * <code>optional int32 gold = 6;</code>
+       * <code>optional double gold = 6;</code>
        */
       public boolean hasGold() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional int32 gold = 6;</code>
+       * <code>optional double gold = 6;</code>
        */
-      public int getGold() {
+      public double getGold() {
         return gold_;
       }
       /**
-       * <code>optional int32 gold = 6;</code>
+       * <code>optional double gold = 6;</code>
        */
-      public Builder setGold(int value) {
+      public Builder setGold(double value) {
         bitField0_ |= 0x00000020;
         gold_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold = 6;</code>
+       * <code>optional double gold = 6;</code>
        */
       public Builder clearGold() {
         bitField0_ = (bitField0_ & ~0x00000020);
-        gold_ = 0;
+        gold_ = 0D;
         onChanged();
         return this;
       }
@@ -2195,7 +2195,7 @@ public final class UserCache {
       "cache.model\"\356\002\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n" +
       "\007account\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\017\n\007grou" +
       "pId\030\004 \001(\003\022\024\n\014contribution\030\005 \001(\005\022\014\n\004gold\030" +
-      "\006 \001(\005\022\r\n\005blood\030\007 \001(\005\022\014\n\004food\030\010 \001(\005\022\r\n\005wa" +
+      "\006 \001(\001\022\r\n\005blood\030\007 \001(\005\022\014\n\004food\030\010 \001(\005\022\r\n\005wa" +
       "ter\030\t \001(\005\022\016\n\006health\030\n \001(\005\022\014\n\004mood\030\013 \001(\005\022" +
       "\016\n\006attack\030\014 \001(\005\022\017\n\007defense\030\r \001(\005\022\r\n\005agil" +
       "e\030\016 \001(\005\022\r\n\005speed\030\017 \001(\005\022\021\n\tintellect\030\020 \001(" +

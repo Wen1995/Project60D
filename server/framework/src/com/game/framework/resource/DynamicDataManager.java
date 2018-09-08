@@ -12,6 +12,8 @@ import com.game.framework.dbcache.dao.IGroupDao;
 import com.game.framework.dbcache.dao.IUserDao;
 import com.game.framework.dbcache.model.Group;
 import com.game.framework.dbcache.model.User;
+import com.game.framework.protocol.User.ResourceInfo;
+import com.game.framework.protocol.User.UserResource;
 import com.game.framework.utils.StringUtil;
 
 public class DynamicDataManager {
@@ -39,6 +41,9 @@ public class DynamicDataManager {
     public Map<Long, Long> uid2GroupId = new HashMap<>();
     public Map<Integer, Long> worldEventConfigId2HappenTime = new HashMap<>();
     public List<Integer> eventTypes = new ArrayList<>();
+    public List<ResourceInfo> resourceInfos = new ArrayList<>();
+    public Map<Long, UserResource> uid2Purchase = new HashMap<>();
+    public double taxRate = 0;
     
     public void init() {
         long startTime = System.currentTimeMillis();

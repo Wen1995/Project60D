@@ -26,12 +26,16 @@ import com.game.framework.dbcache.model.WorldEvent;
 import com.game.framework.protocol.Common.Cmd;
 import com.game.framework.protocol.Common.TimeType;
 import com.game.framework.protocol.Fighting.TCSZombieInvade;
+import com.game.framework.protocol.User.ResourceInfo;
 import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.resource.StaticDataManager;
 import com.game.framework.resource.data.ArithmeticCoefficientBytes.ARITHMETIC_COEFFICIENT;
+import com.game.framework.resource.data.ItemResBytes.ITEM_RES;
 import com.game.framework.resource.data.WorldEventsBytes.WORLD_EVENTS;
 import com.game.framework.socket.MessageDealHandler;
+import com.game.framework.utils.DateTimeUtils;
 import com.game.framework.utils.ReadOnlyMap;
+import com.game.framework.utils.UserUtil;
 import com.game.framework.utils.ZombieUtil;
 import io.netty.channel.Channel;
 
@@ -189,6 +193,8 @@ public class TimerManager {
 
                 long happenTime = currentTime
                         + arithmeticCoefficientMap.get(30090000).getAcK4() * Constant.TIME_MINUTE;
+                
+                boolean changeFlag = false;
                 for (Map.Entry<Integer, WORLD_EVENTS> entry : worldEventsMap.entrySet()) {
                     int congigId = entry.getKey();
                     int type = congigId / 100 % 10000;
@@ -197,6 +203,7 @@ public class TimerManager {
                     }
                     int rate = entry.getValue().getEventProb();
                     if (/*new Random().nextInt(100000)*/new Random().nextInt(30) < rate) {
+                        changeFlag = true;
                         Long id = IdManager.GetInstance().genId(IdType.WORLDEVENT);
                         WorldEvent worldEvent = new WorldEvent();
                         worldEvent.setId(id);
@@ -219,8 +226,36 @@ public class TimerManager {
                         eventTypes.add(type);
                     }
                 }
+                if (changeFlag) {       // 更新价格
+                    List<ResourceInfo> resourceInfos = DynamicDataManager.GetInstance().resourceInfos;
+                    resourceInfos.clear();
+                    for (Map.Entry<Integer, ITEM_RES> entry : StaticDataManager.GetInstance().itemResMap.entrySet()) {
+                        Integer configId = entry.getKey();
+                        ITEM_RES itemRes = StaticDataManager.GetInstance().itemResMap.get(configId);
+                        double probability = UserUtil.getPriceCoefficient(itemRes.getKeyName());
+                        double price = probability * itemRes.getGoldConv() / 1000;
+                        ResourceInfo r = ResourceInfo.newBuilder()
+                                .setConfigId(configId)
+                                .setPrice(price)
+                                .build();
+                        resourceInfos.add(r);
+                    }
+                    
+                    DynamicDataManager.GetInstance().taxRate = UserUtil.getTaxCoefficient();
+                }
             }
         }, 60, 60, TimeUnit.SECONDS);
+        
+        
+        // 定时清空购买数量
+        int hour = 2;
+        Date nextHour = DateTimeUtils.getNextHour(new Date(), hour);
+        scheduleTask.scheduleWithFixedDelay(new Runnable() {
+            @Override
+            public void run() {
+                DynamicDataManager.GetInstance().uid2Purchase.clear();
+            }
+        }, nextHour.getTime() - System.currentTimeMillis(), Constant.TIME_HOUR * hour, TimeUnit.MILLISECONDS);
     }
 
     public ScheduledFuture<?> sumbit(String key, final Long uid, final Integer cmd,

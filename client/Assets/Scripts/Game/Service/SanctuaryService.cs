@@ -146,14 +146,26 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETGROUPRANKING, msg.ToByteArray());
     }
 
-    public void RPCGetItemTradeInfo(NDictionary args)
+    public void RPCGetItemTradeInfo()
     {
-        if(args == null) return;
+        TCSGetPrices msg = TCSGetPrices.CreateBuilder().Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETPRICES, msg.ToByteArray());
     }
 
     public void RPCSellItem(NDictionary args)
     {
         if(args == null) return;
+        var builder = TCSSellGoods.CreateBuilder();
+        int id = args.Value<int>("id");
+        int num = args.Value<int>("num");
+        int price = args.Value<int>("price");
+        double taxRate = args.Value<int>("tax");
+        builder.ConfigId = id;
+        builder.Number = num;
+        builder.Price = price;
+        builder.TaxRate = taxRate;
+        TCSSellGoods msg = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.SELLGOODS, msg.ToByteArray());
     }
 
     public void RPCBuyItem(NDictionary args)

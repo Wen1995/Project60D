@@ -18,5 +18,11 @@ public interface UserService {
 	TPacket getUserStateRegular(Long uid) throws Exception;
 
 	/** 卖出商品 */
-	TPacket sellGoods(Long uid, Integer configId, Integer number, Integer price) throws Exception;
+	TPacket sellGoods(Long uid, Integer configId, Integer number, Double price, Double taxRate) throws Exception;
+
+	/** 买商品 */
+	TPacket buyGoods(Long uid, Integer configId, Integer number, Double price, Double taxRate) throws Exception;
+
+	/** 商品价格 */
+	TPacket getPrices(Long uid) throws Exception;
 }

@@ -4389,9 +4389,9 @@ public final class Message {
      */
     int getResource();
 
-    // optional int32 gold = 3;
+    // optional double gold = 3;
     /**
-     * <code>optional int32 gold = 3;</code>
+     * <code>optional double gold = 3;</code>
      *
      * <pre>
      * 金币损失
@@ -4399,13 +4399,13 @@ public final class Message {
      */
     boolean hasGold();
     /**
-     * <code>optional int32 gold = 3;</code>
+     * <code>optional double gold = 3;</code>
      *
      * <pre>
      * 金币损失
      * </pre>
      */
-    int getGold();
+    double getGold();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.LossInfo}
@@ -4468,9 +4468,9 @@ public final class Message {
               resource_ = input.readInt32();
               break;
             }
-            case 24: {
+            case 25: {
               bitField0_ |= 0x00000004;
-              gold_ = input.readInt32();
+              gold_ = input.readDouble();
               break;
             }
           }
@@ -4561,11 +4561,11 @@ public final class Message {
       return resource_;
     }
 
-    // optional int32 gold = 3;
+    // optional double gold = 3;
     public static final int GOLD_FIELD_NUMBER = 3;
-    private int gold_;
+    private double gold_;
     /**
-     * <code>optional int32 gold = 3;</code>
+     * <code>optional double gold = 3;</code>
      *
      * <pre>
      * 金币损失
@@ -4575,20 +4575,20 @@ public final class Message {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 gold = 3;</code>
+     * <code>optional double gold = 3;</code>
      *
      * <pre>
      * 金币损失
      * </pre>
      */
-    public int getGold() {
+    public double getGold() {
       return gold_;
     }
 
     private void initFields() {
       uid_ = 0L;
       resource_ = 0;
-      gold_ = 0;
+      gold_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4609,7 +4609,7 @@ public final class Message {
         output.writeInt32(2, resource_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, gold_);
+        output.writeDouble(3, gold_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -4630,7 +4630,7 @@ public final class Message {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, gold_);
+          .computeDoubleSize(3, gold_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -4752,7 +4752,7 @@ public final class Message {
         bitField0_ = (bitField0_ & ~0x00000001);
         resource_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        gold_ = 0;
+        gold_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -4944,10 +4944,10 @@ public final class Message {
         return this;
       }
 
-      // optional int32 gold = 3;
-      private int gold_ ;
+      // optional double gold = 3;
+      private double gold_ ;
       /**
-       * <code>optional int32 gold = 3;</code>
+       * <code>optional double gold = 3;</code>
        *
        * <pre>
        * 金币损失
@@ -4957,30 +4957,30 @@ public final class Message {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 gold = 3;</code>
+       * <code>optional double gold = 3;</code>
        *
        * <pre>
        * 金币损失
        * </pre>
        */
-      public int getGold() {
+      public double getGold() {
         return gold_;
       }
       /**
-       * <code>optional int32 gold = 3;</code>
+       * <code>optional double gold = 3;</code>
        *
        * <pre>
        * 金币损失
        * </pre>
        */
-      public Builder setGold(int value) {
+      public Builder setGold(double value) {
         bitField0_ |= 0x00000004;
         gold_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold = 3;</code>
+       * <code>optional double gold = 3;</code>
        *
        * <pre>
        * 金币损失
@@ -4988,7 +4988,7 @@ public final class Message {
        */
       public Builder clearGold() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        gold_ = 0;
+        gold_ = 0D;
         onChanged();
         return this;
       }
@@ -10689,7 +10689,7 @@ public final class Message {
       "work.protocol.LossInfo\"H\n\020InvadeResultIn" +
       "fo\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\003\022\013\n\003num\030\003 \001(" +
       "\005\022\r\n\005blood\030\004 \001(\005\"7\n\010LossInfo\022\013\n\003uid\030\001 \001(" +
-      "\003\022\020\n\010resource\030\002 \001(\005\022\014\n\004gold\030\003 \001(\005\"]\n\010Use" +
+      "\003\022\020\n\010resource\030\002 \001(\005\022\014\n\004gold\030\003 \001(\001\"]\n\010Use" +
       "rInfo\022\013\n\003uid\030\001 \001(\003\022\017\n\007account\030\002 \001(\t\022\r\n\005b" +
       "lood\030\003 \001(\005\022\016\n\006health\030\004 \001(\005\022\024\n\014contributi" +
       "on\030\005 \001(\005\"\"\n\017TCSGetPageCount\022\017\n\007groupId\030\001",

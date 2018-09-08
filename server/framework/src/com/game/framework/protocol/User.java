@@ -3350,6 +3350,24 @@ public final class User {
      * </pre>
      */
     int getNumber();
+
+    // optional double price = 3;
+    /**
+     * <code>optional double price = 3;</code>
+     *
+     * <pre>
+     * 价格
+     * </pre>
+     */
+    boolean hasPrice();
+    /**
+     * <code>optional double price = 3;</code>
+     *
+     * <pre>
+     * 价格
+     * </pre>
+     */
+    double getPrice();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.ResourceInfo}
@@ -3410,6 +3428,11 @@ public final class User {
             case 16: {
               bitField0_ |= 0x00000002;
               number_ = input.readInt32();
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000004;
+              price_ = input.readDouble();
               break;
             }
           }
@@ -3500,9 +3523,34 @@ public final class User {
       return number_;
     }
 
+    // optional double price = 3;
+    public static final int PRICE_FIELD_NUMBER = 3;
+    private double price_;
+    /**
+     * <code>optional double price = 3;</code>
+     *
+     * <pre>
+     * 价格
+     * </pre>
+     */
+    public boolean hasPrice() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional double price = 3;</code>
+     *
+     * <pre>
+     * 价格
+     * </pre>
+     */
+    public double getPrice() {
+      return price_;
+    }
+
     private void initFields() {
       configId_ = 0;
       number_ = 0;
+      price_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3522,6 +3570,9 @@ public final class User {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, number_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeDouble(3, price_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -3538,6 +3589,10 @@ public final class User {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, number_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, price_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3659,6 +3714,8 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000001);
         number_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
+        price_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3695,6 +3752,10 @@ public final class User {
           to_bitField0_ |= 0x00000002;
         }
         result.number_ = number_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.price_ = price_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3716,6 +3777,9 @@ public final class User {
         }
         if (other.hasNumber()) {
           setNumber(other.getNumber());
+        }
+        if (other.hasPrice()) {
+          setPrice(other.getPrice());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -3838,6 +3902,55 @@ public final class User {
       public Builder clearNumber() {
         bitField0_ = (bitField0_ & ~0x00000002);
         number_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional double price = 3;
+      private double price_ ;
+      /**
+       * <code>optional double price = 3;</code>
+       *
+       * <pre>
+       * 价格
+       * </pre>
+       */
+      public boolean hasPrice() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional double price = 3;</code>
+       *
+       * <pre>
+       * 价格
+       * </pre>
+       */
+      public double getPrice() {
+        return price_;
+      }
+      /**
+       * <code>optional double price = 3;</code>
+       *
+       * <pre>
+       * 价格
+       * </pre>
+       */
+      public Builder setPrice(double value) {
+        bitField0_ |= 0x00000004;
+        price_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double price = 3;</code>
+       *
+       * <pre>
+       * 价格
+       * </pre>
+       */
+      public Builder clearPrice() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        price_ = 0D;
         onChanged();
         return this;
       }
@@ -4363,9 +4476,9 @@ public final class User {
      */
     int getContribution();
 
-    // optional int32 gold = 12;
+    // optional double gold = 12;
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
@@ -4373,13 +4486,13 @@ public final class User {
      */
     boolean hasGold();
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
      * </pre>
      */
-    int getGold();
+    double getGold();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetUserState}
@@ -4487,9 +4600,9 @@ public final class User {
               contribution_ = input.readInt32();
               break;
             }
-            case 96: {
+            case 97: {
               bitField0_ |= 0x00000800;
-              gold_ = input.readInt32();
+              gold_ = input.readDouble();
               break;
             }
           }
@@ -4796,11 +4909,11 @@ public final class User {
       return contribution_;
     }
 
-    // optional int32 gold = 12;
+    // optional double gold = 12;
     public static final int GOLD_FIELD_NUMBER = 12;
-    private int gold_;
+    private double gold_;
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
@@ -4810,13 +4923,13 @@ public final class User {
       return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
      * </pre>
      */
-    public int getGold() {
+    public double getGold() {
       return gold_;
     }
 
@@ -4832,7 +4945,7 @@ public final class User {
       speed_ = 0;
       intellect_ = 0;
       contribution_ = 0;
-      gold_ = 0;
+      gold_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4880,7 +4993,7 @@ public final class User {
         output.writeInt32(11, contribution_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(12, gold_);
+        output.writeDouble(12, gold_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -4937,7 +5050,7 @@ public final class User {
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, gold_);
+          .computeDoubleSize(12, gold_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -5077,7 +5190,7 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000200);
         contribution_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
-        gold_ = 0;
+        gold_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
@@ -5773,10 +5886,10 @@ public final class User {
         return this;
       }
 
-      // optional int32 gold = 12;
-      private int gold_ ;
+      // optional double gold = 12;
+      private double gold_ ;
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
@@ -5786,30 +5899,30 @@ public final class User {
         return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
        * </pre>
        */
-      public int getGold() {
+      public double getGold() {
         return gold_;
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
        * </pre>
        */
-      public Builder setGold(int value) {
+      public Builder setGold(double value) {
         bitField0_ |= 0x00000800;
         gold_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
@@ -5817,7 +5930,7 @@ public final class User {
        */
       public Builder clearGold() {
         bitField0_ = (bitField0_ & ~0x00000800);
-        gold_ = 0;
+        gold_ = 0D;
         onChanged();
         return this;
       }
@@ -6343,9 +6456,9 @@ public final class User {
      */
     int getContribution();
 
-    // optional int32 gold = 12;
+    // optional double gold = 12;
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
@@ -6353,13 +6466,13 @@ public final class User {
      */
     boolean hasGold();
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
      * </pre>
      */
-    int getGold();
+    double getGold();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetUserStateRegular}
@@ -6467,9 +6580,9 @@ public final class User {
               contribution_ = input.readInt32();
               break;
             }
-            case 96: {
+            case 97: {
               bitField0_ |= 0x00000800;
-              gold_ = input.readInt32();
+              gold_ = input.readDouble();
               break;
             }
           }
@@ -6776,11 +6889,11 @@ public final class User {
       return contribution_;
     }
 
-    // optional int32 gold = 12;
+    // optional double gold = 12;
     public static final int GOLD_FIELD_NUMBER = 12;
-    private int gold_;
+    private double gold_;
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
@@ -6790,13 +6903,13 @@ public final class User {
       return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
      * </pre>
      */
-    public int getGold() {
+    public double getGold() {
       return gold_;
     }
 
@@ -6812,7 +6925,7 @@ public final class User {
       speed_ = 0;
       intellect_ = 0;
       contribution_ = 0;
-      gold_ = 0;
+      gold_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -6860,7 +6973,7 @@ public final class User {
         output.writeInt32(11, contribution_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(12, gold_);
+        output.writeDouble(12, gold_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6917,7 +7030,7 @@ public final class User {
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, gold_);
+          .computeDoubleSize(12, gold_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -7057,7 +7170,7 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000200);
         contribution_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
-        gold_ = 0;
+        gold_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
@@ -7753,10 +7866,10 @@ public final class User {
         return this;
       }
 
-      // optional int32 gold = 12;
-      private int gold_ ;
+      // optional double gold = 12;
+      private double gold_ ;
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
@@ -7766,30 +7879,30 @@ public final class User {
         return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
        * </pre>
        */
-      public int getGold() {
+      public double getGold() {
         return gold_;
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
        * </pre>
        */
-      public Builder setGold(int value) {
+      public Builder setGold(double value) {
         bitField0_ |= 0x00000800;
         gold_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
@@ -7797,7 +7910,7 @@ public final class User {
        */
       public Builder clearGold() {
         bitField0_ = (bitField0_ & ~0x00000800);
-        gold_ = 0;
+        gold_ = 0D;
         onChanged();
         return this;
       }
@@ -7852,23 +7965,41 @@ public final class User {
      */
     int getNumber();
 
-    // optional int32 price = 3;
+    // optional double price = 3;
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
-     * 价格
+     * 单价
      * </pre>
      */
     boolean hasPrice();
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
-     * 价格
+     * 单价
      * </pre>
      */
-    int getPrice();
+    double getPrice();
+
+    // optional double taxRate = 4;
+    /**
+     * <code>optional double taxRate = 4;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    boolean hasTaxRate();
+    /**
+     * <code>optional double taxRate = 4;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    double getTaxRate();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TCSSellGoods}
@@ -7931,9 +8062,14 @@ public final class User {
               number_ = input.readInt32();
               break;
             }
-            case 24: {
+            case 25: {
               bitField0_ |= 0x00000004;
-              price_ = input.readInt32();
+              price_ = input.readDouble();
+              break;
+            }
+            case 33: {
+              bitField0_ |= 0x00000008;
+              taxRate_ = input.readDouble();
               break;
             }
           }
@@ -8024,34 +8160,59 @@ public final class User {
       return number_;
     }
 
-    // optional int32 price = 3;
+    // optional double price = 3;
     public static final int PRICE_FIELD_NUMBER = 3;
-    private int price_;
+    private double price_;
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
-     * 价格
+     * 单价
      * </pre>
      */
     public boolean hasPrice() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
-     * 价格
+     * 单价
      * </pre>
      */
-    public int getPrice() {
+    public double getPrice() {
       return price_;
+    }
+
+    // optional double taxRate = 4;
+    public static final int TAXRATE_FIELD_NUMBER = 4;
+    private double taxRate_;
+    /**
+     * <code>optional double taxRate = 4;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    public boolean hasTaxRate() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional double taxRate = 4;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    public double getTaxRate() {
+      return taxRate_;
     }
 
     private void initFields() {
       configId_ = 0;
       number_ = 0;
-      price_ = 0;
+      price_ = 0D;
+      taxRate_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -8072,7 +8233,10 @@ public final class User {
         output.writeInt32(2, number_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, price_);
+        output.writeDouble(3, price_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeDouble(4, taxRate_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -8093,7 +8257,11 @@ public final class User {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, price_);
+          .computeDoubleSize(3, price_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, taxRate_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -8215,8 +8383,10 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000001);
         number_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        price_ = 0;
+        price_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000004);
+        taxRate_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -8257,6 +8427,10 @@ public final class User {
           to_bitField0_ |= 0x00000004;
         }
         result.price_ = price_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.taxRate_ = taxRate_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8281,6 +8455,9 @@ public final class User {
         }
         if (other.hasPrice()) {
           setPrice(other.getPrice());
+        }
+        if (other.hasTaxRate()) {
+          setTaxRate(other.getTaxRate());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -8407,51 +8584,100 @@ public final class User {
         return this;
       }
 
-      // optional int32 price = 3;
-      private int price_ ;
+      // optional double price = 3;
+      private double price_ ;
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
-       * 价格
+       * 单价
        * </pre>
        */
       public boolean hasPrice() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
-       * 价格
+       * 单价
        * </pre>
        */
-      public int getPrice() {
+      public double getPrice() {
         return price_;
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
-       * 价格
+       * 单价
        * </pre>
        */
-      public Builder setPrice(int value) {
+      public Builder setPrice(double value) {
         bitField0_ |= 0x00000004;
         price_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
-       * 价格
+       * 单价
        * </pre>
        */
       public Builder clearPrice() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        price_ = 0;
+        price_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      // optional double taxRate = 4;
+      private double taxRate_ ;
+      /**
+       * <code>optional double taxRate = 4;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public boolean hasTaxRate() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional double taxRate = 4;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public double getTaxRate() {
+        return taxRate_;
+      }
+      /**
+       * <code>optional double taxRate = 4;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public Builder setTaxRate(double value) {
+        bitField0_ |= 0x00000008;
+        taxRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double taxRate = 4;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public Builder clearTaxRate() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        taxRate_ = 0D;
         onChanged();
         return this;
       }
@@ -8470,27 +8696,27 @@ public final class User {
   public interface TSCSellGoodsOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional bool isPriceChange = 1;
+    // optional bool isChange = 1;
     /**
-     * <code>optional bool isPriceChange = 1;</code>
+     * <code>optional bool isChange = 1;</code>
      *
      * <pre>
-     * 是否价格改变
+     * 是否(税率)改变
      * </pre>
      */
-    boolean hasIsPriceChange();
+    boolean hasIsChange();
     /**
-     * <code>optional bool isPriceChange = 1;</code>
+     * <code>optional bool isChange = 1;</code>
      *
      * <pre>
-     * 是否价格改变
+     * 是否(税率)改变
      * </pre>
      */
-    boolean getIsPriceChange();
+    boolean getIsChange();
 
-    // optional int32 gold = 2;
+    // optional double gold = 2;
     /**
-     * <code>optional int32 gold = 2;</code>
+     * <code>optional double gold = 2;</code>
      *
      * <pre>
      * 获得金币
@@ -8498,13 +8724,13 @@ public final class User {
      */
     boolean hasGold();
     /**
-     * <code>optional int32 gold = 2;</code>
+     * <code>optional double gold = 2;</code>
      *
      * <pre>
      * 获得金币
      * </pre>
      */
-    int getGold();
+    double getGold();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCSellGoods}
@@ -8559,12 +8785,12 @@ public final class User {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              isPriceChange_ = input.readBool();
+              isChange_ = input.readBool();
               break;
             }
-            case 16: {
+            case 17: {
               bitField0_ |= 0x00000002;
-              gold_ = input.readInt32();
+              gold_ = input.readDouble();
               break;
             }
           }
@@ -8607,35 +8833,35 @@ public final class User {
     }
 
     private int bitField0_;
-    // optional bool isPriceChange = 1;
-    public static final int ISPRICECHANGE_FIELD_NUMBER = 1;
-    private boolean isPriceChange_;
+    // optional bool isChange = 1;
+    public static final int ISCHANGE_FIELD_NUMBER = 1;
+    private boolean isChange_;
     /**
-     * <code>optional bool isPriceChange = 1;</code>
+     * <code>optional bool isChange = 1;</code>
      *
      * <pre>
-     * 是否价格改变
+     * 是否(税率)改变
      * </pre>
      */
-    public boolean hasIsPriceChange() {
+    public boolean hasIsChange() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional bool isPriceChange = 1;</code>
+     * <code>optional bool isChange = 1;</code>
      *
      * <pre>
-     * 是否价格改变
+     * 是否(税率)改变
      * </pre>
      */
-    public boolean getIsPriceChange() {
-      return isPriceChange_;
+    public boolean getIsChange() {
+      return isChange_;
     }
 
-    // optional int32 gold = 2;
+    // optional double gold = 2;
     public static final int GOLD_FIELD_NUMBER = 2;
-    private int gold_;
+    private double gold_;
     /**
-     * <code>optional int32 gold = 2;</code>
+     * <code>optional double gold = 2;</code>
      *
      * <pre>
      * 获得金币
@@ -8645,19 +8871,19 @@ public final class User {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 gold = 2;</code>
+     * <code>optional double gold = 2;</code>
      *
      * <pre>
      * 获得金币
      * </pre>
      */
-    public int getGold() {
+    public double getGold() {
       return gold_;
     }
 
     private void initFields() {
-      isPriceChange_ = false;
-      gold_ = 0;
+      isChange_ = false;
+      gold_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -8672,10 +8898,10 @@ public final class User {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBool(1, isPriceChange_);
+        output.writeBool(1, isChange_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, gold_);
+        output.writeDouble(2, gold_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -8688,11 +8914,11 @@ public final class User {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, isPriceChange_);
+          .computeBoolSize(1, isChange_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, gold_);
+          .computeDoubleSize(2, gold_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -8810,9 +9036,9 @@ public final class User {
 
       public Builder clear() {
         super.clear();
-        isPriceChange_ = false;
+        isChange_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
-        gold_ = 0;
+        gold_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -8845,7 +9071,7 @@ public final class User {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.isPriceChange_ = isPriceChange_;
+        result.isChange_ = isChange_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -8866,8 +9092,8 @@ public final class User {
 
       public Builder mergeFrom(com.game.framework.protocol.User.TSCSellGoods other) {
         if (other == com.game.framework.protocol.User.TSCSellGoods.getDefaultInstance()) return this;
-        if (other.hasIsPriceChange()) {
-          setIsPriceChange(other.getIsPriceChange());
+        if (other.hasIsChange()) {
+          setIsChange(other.getIsChange());
         }
         if (other.hasGold()) {
           setGold(other.getGold());
@@ -8899,59 +9125,59 @@ public final class User {
       }
       private int bitField0_;
 
-      // optional bool isPriceChange = 1;
-      private boolean isPriceChange_ ;
+      // optional bool isChange = 1;
+      private boolean isChange_ ;
       /**
-       * <code>optional bool isPriceChange = 1;</code>
+       * <code>optional bool isChange = 1;</code>
        *
        * <pre>
-       * 是否价格改变
+       * 是否(税率)改变
        * </pre>
        */
-      public boolean hasIsPriceChange() {
+      public boolean hasIsChange() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional bool isPriceChange = 1;</code>
+       * <code>optional bool isChange = 1;</code>
        *
        * <pre>
-       * 是否价格改变
+       * 是否(税率)改变
        * </pre>
        */
-      public boolean getIsPriceChange() {
-        return isPriceChange_;
+      public boolean getIsChange() {
+        return isChange_;
       }
       /**
-       * <code>optional bool isPriceChange = 1;</code>
+       * <code>optional bool isChange = 1;</code>
        *
        * <pre>
-       * 是否价格改变
+       * 是否(税率)改变
        * </pre>
        */
-      public Builder setIsPriceChange(boolean value) {
+      public Builder setIsChange(boolean value) {
         bitField0_ |= 0x00000001;
-        isPriceChange_ = value;
+        isChange_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool isPriceChange = 1;</code>
+       * <code>optional bool isChange = 1;</code>
        *
        * <pre>
-       * 是否价格改变
+       * 是否(税率)改变
        * </pre>
        */
-      public Builder clearIsPriceChange() {
+      public Builder clearIsChange() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        isPriceChange_ = false;
+        isChange_ = false;
         onChanged();
         return this;
       }
 
-      // optional int32 gold = 2;
-      private int gold_ ;
+      // optional double gold = 2;
+      private double gold_ ;
       /**
-       * <code>optional int32 gold = 2;</code>
+       * <code>optional double gold = 2;</code>
        *
        * <pre>
        * 获得金币
@@ -8961,30 +9187,30 @@ public final class User {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 gold = 2;</code>
+       * <code>optional double gold = 2;</code>
        *
        * <pre>
        * 获得金币
        * </pre>
        */
-      public int getGold() {
+      public double getGold() {
         return gold_;
       }
       /**
-       * <code>optional int32 gold = 2;</code>
+       * <code>optional double gold = 2;</code>
        *
        * <pre>
        * 获得金币
        * </pre>
        */
-      public Builder setGold(int value) {
+      public Builder setGold(double value) {
         bitField0_ |= 0x00000002;
         gold_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold = 2;</code>
+       * <code>optional double gold = 2;</code>
        *
        * <pre>
        * 获得金币
@@ -8992,7 +9218,7 @@ public final class User {
        */
       public Builder clearGold() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        gold_ = 0;
+        gold_ = 0D;
         onChanged();
         return this;
       }
@@ -9006,6 +9232,2525 @@ public final class User {
     }
 
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCSellGoods)
+  }
+
+  public interface TCSBuyGoodsOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int32 configId = 1;
+    /**
+     * <code>optional int32 configId = 1;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    boolean hasConfigId();
+    /**
+     * <code>optional int32 configId = 1;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    int getConfigId();
+
+    // optional int32 number = 2;
+    /**
+     * <code>optional int32 number = 2;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    boolean hasNumber();
+    /**
+     * <code>optional int32 number = 2;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    int getNumber();
+
+    // optional double price = 3;
+    /**
+     * <code>optional double price = 3;</code>
+     *
+     * <pre>
+     * 单价
+     * </pre>
+     */
+    boolean hasPrice();
+    /**
+     * <code>optional double price = 3;</code>
+     *
+     * <pre>
+     * 单价
+     * </pre>
+     */
+    double getPrice();
+
+    // optional double taxRate = 4;
+    /**
+     * <code>optional double taxRate = 4;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    boolean hasTaxRate();
+    /**
+     * <code>optional double taxRate = 4;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    double getTaxRate();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TCSBuyGoods}
+   */
+  public static final class TCSBuyGoods extends
+      com.google.protobuf.GeneratedMessage
+      implements TCSBuyGoodsOrBuilder {
+    // Use TCSBuyGoods.newBuilder() to construct.
+    private TCSBuyGoods(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TCSBuyGoods(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TCSBuyGoods defaultInstance;
+    public static TCSBuyGoods getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TCSBuyGoods getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TCSBuyGoods(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              configId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              number_ = input.readInt32();
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000004;
+              price_ = input.readDouble();
+              break;
+            }
+            case 33: {
+              bitField0_ |= 0x00000008;
+              taxRate_ = input.readDouble();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSBuyGoods_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSBuyGoods_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.User.TCSBuyGoods.class, com.game.framework.protocol.User.TCSBuyGoods.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TCSBuyGoods> PARSER =
+        new com.google.protobuf.AbstractParser<TCSBuyGoods>() {
+      public TCSBuyGoods parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TCSBuyGoods(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TCSBuyGoods> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int32 configId = 1;
+    public static final int CONFIGID_FIELD_NUMBER = 1;
+    private int configId_;
+    /**
+     * <code>optional int32 configId = 1;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    public boolean hasConfigId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 configId = 1;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    public int getConfigId() {
+      return configId_;
+    }
+
+    // optional int32 number = 2;
+    public static final int NUMBER_FIELD_NUMBER = 2;
+    private int number_;
+    /**
+     * <code>optional int32 number = 2;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    public boolean hasNumber() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 number = 2;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    public int getNumber() {
+      return number_;
+    }
+
+    // optional double price = 3;
+    public static final int PRICE_FIELD_NUMBER = 3;
+    private double price_;
+    /**
+     * <code>optional double price = 3;</code>
+     *
+     * <pre>
+     * 单价
+     * </pre>
+     */
+    public boolean hasPrice() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional double price = 3;</code>
+     *
+     * <pre>
+     * 单价
+     * </pre>
+     */
+    public double getPrice() {
+      return price_;
+    }
+
+    // optional double taxRate = 4;
+    public static final int TAXRATE_FIELD_NUMBER = 4;
+    private double taxRate_;
+    /**
+     * <code>optional double taxRate = 4;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    public boolean hasTaxRate() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional double taxRate = 4;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    public double getTaxRate() {
+      return taxRate_;
+    }
+
+    private void initFields() {
+      configId_ = 0;
+      number_ = 0;
+      price_ = 0D;
+      taxRate_ = 0D;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, configId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, number_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeDouble(3, price_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeDouble(4, taxRate_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, configId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, number_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, price_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, taxRate_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.User.TCSBuyGoods parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TCSBuyGoods parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSBuyGoods parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TCSBuyGoods parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSBuyGoods parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSBuyGoods parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSBuyGoods parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSBuyGoods parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSBuyGoods parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSBuyGoods parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.User.TCSBuyGoods prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TCSBuyGoods}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.User.TCSBuyGoodsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSBuyGoods_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSBuyGoods_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.User.TCSBuyGoods.class, com.game.framework.protocol.User.TCSBuyGoods.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.User.TCSBuyGoods.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        configId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        number_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        price_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        taxRate_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSBuyGoods_descriptor;
+      }
+
+      public com.game.framework.protocol.User.TCSBuyGoods getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.TCSBuyGoods.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.User.TCSBuyGoods build() {
+        com.game.framework.protocol.User.TCSBuyGoods result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.User.TCSBuyGoods buildPartial() {
+        com.game.framework.protocol.User.TCSBuyGoods result = new com.game.framework.protocol.User.TCSBuyGoods(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.configId_ = configId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.number_ = number_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.price_ = price_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.taxRate_ = taxRate_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.User.TCSBuyGoods) {
+          return mergeFrom((com.game.framework.protocol.User.TCSBuyGoods)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.User.TCSBuyGoods other) {
+        if (other == com.game.framework.protocol.User.TCSBuyGoods.getDefaultInstance()) return this;
+        if (other.hasConfigId()) {
+          setConfigId(other.getConfigId());
+        }
+        if (other.hasNumber()) {
+          setNumber(other.getNumber());
+        }
+        if (other.hasPrice()) {
+          setPrice(other.getPrice());
+        }
+        if (other.hasTaxRate()) {
+          setTaxRate(other.getTaxRate());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.User.TCSBuyGoods parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.User.TCSBuyGoods) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int32 configId = 1;
+      private int configId_ ;
+      /**
+       * <code>optional int32 configId = 1;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public boolean hasConfigId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 configId = 1;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public int getConfigId() {
+        return configId_;
+      }
+      /**
+       * <code>optional int32 configId = 1;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public Builder setConfigId(int value) {
+        bitField0_ |= 0x00000001;
+        configId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 configId = 1;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public Builder clearConfigId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        configId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 number = 2;
+      private int number_ ;
+      /**
+       * <code>optional int32 number = 2;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 number = 2;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public int getNumber() {
+        return number_;
+      }
+      /**
+       * <code>optional int32 number = 2;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public Builder setNumber(int value) {
+        bitField0_ |= 0x00000002;
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 number = 2;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public Builder clearNumber() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        number_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional double price = 3;
+      private double price_ ;
+      /**
+       * <code>optional double price = 3;</code>
+       *
+       * <pre>
+       * 单价
+       * </pre>
+       */
+      public boolean hasPrice() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional double price = 3;</code>
+       *
+       * <pre>
+       * 单价
+       * </pre>
+       */
+      public double getPrice() {
+        return price_;
+      }
+      /**
+       * <code>optional double price = 3;</code>
+       *
+       * <pre>
+       * 单价
+       * </pre>
+       */
+      public Builder setPrice(double value) {
+        bitField0_ |= 0x00000004;
+        price_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double price = 3;</code>
+       *
+       * <pre>
+       * 单价
+       * </pre>
+       */
+      public Builder clearPrice() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        price_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      // optional double taxRate = 4;
+      private double taxRate_ ;
+      /**
+       * <code>optional double taxRate = 4;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public boolean hasTaxRate() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional double taxRate = 4;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public double getTaxRate() {
+        return taxRate_;
+      }
+      /**
+       * <code>optional double taxRate = 4;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public Builder setTaxRate(double value) {
+        bitField0_ |= 0x00000008;
+        taxRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double taxRate = 4;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public Builder clearTaxRate() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        taxRate_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSBuyGoods)
+    }
+
+    static {
+      defaultInstance = new TCSBuyGoods(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSBuyGoods)
+  }
+
+  public interface TSCBuyGoodsOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional bool isChange = 1;
+    /**
+     * <code>optional bool isChange = 1;</code>
+     *
+     * <pre>
+     * 是否价格(税率)改变
+     * </pre>
+     */
+    boolean hasIsChange();
+    /**
+     * <code>optional bool isChange = 1;</code>
+     *
+     * <pre>
+     * 是否价格(税率)改变
+     * </pre>
+     */
+    boolean getIsChange();
+
+    // optional bool isLimit = 2;
+    /**
+     * <code>optional bool isLimit = 2;</code>
+     *
+     * <pre>
+     * 是否达到购买上限
+     * </pre>
+     */
+    boolean hasIsLimit();
+    /**
+     * <code>optional bool isLimit = 2;</code>
+     *
+     * <pre>
+     * 是否达到购买上限
+     * </pre>
+     */
+    boolean getIsLimit();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TSCBuyGoods}
+   */
+  public static final class TSCBuyGoods extends
+      com.google.protobuf.GeneratedMessage
+      implements TSCBuyGoodsOrBuilder {
+    // Use TSCBuyGoods.newBuilder() to construct.
+    private TSCBuyGoods(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TSCBuyGoods(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TSCBuyGoods defaultInstance;
+    public static TSCBuyGoods getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TSCBuyGoods getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSCBuyGoods(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              isChange_ = input.readBool();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              isLimit_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCBuyGoods_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCBuyGoods_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.User.TSCBuyGoods.class, com.game.framework.protocol.User.TSCBuyGoods.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TSCBuyGoods> PARSER =
+        new com.google.protobuf.AbstractParser<TSCBuyGoods>() {
+      public TSCBuyGoods parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSCBuyGoods(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TSCBuyGoods> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional bool isChange = 1;
+    public static final int ISCHANGE_FIELD_NUMBER = 1;
+    private boolean isChange_;
+    /**
+     * <code>optional bool isChange = 1;</code>
+     *
+     * <pre>
+     * 是否价格(税率)改变
+     * </pre>
+     */
+    public boolean hasIsChange() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional bool isChange = 1;</code>
+     *
+     * <pre>
+     * 是否价格(税率)改变
+     * </pre>
+     */
+    public boolean getIsChange() {
+      return isChange_;
+    }
+
+    // optional bool isLimit = 2;
+    public static final int ISLIMIT_FIELD_NUMBER = 2;
+    private boolean isLimit_;
+    /**
+     * <code>optional bool isLimit = 2;</code>
+     *
+     * <pre>
+     * 是否达到购买上限
+     * </pre>
+     */
+    public boolean hasIsLimit() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional bool isLimit = 2;</code>
+     *
+     * <pre>
+     * 是否达到购买上限
+     * </pre>
+     */
+    public boolean getIsLimit() {
+      return isLimit_;
+    }
+
+    private void initFields() {
+      isChange_ = false;
+      isLimit_ = false;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, isChange_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(2, isLimit_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, isChange_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, isLimit_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.User.TSCBuyGoods parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TSCBuyGoods parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCBuyGoods parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TSCBuyGoods parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCBuyGoods parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCBuyGoods parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCBuyGoods parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCBuyGoods parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCBuyGoods parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCBuyGoods parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.User.TSCBuyGoods prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TSCBuyGoods}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.User.TSCBuyGoodsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCBuyGoods_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCBuyGoods_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.User.TSCBuyGoods.class, com.game.framework.protocol.User.TSCBuyGoods.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.User.TSCBuyGoods.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        isChange_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        isLimit_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCBuyGoods_descriptor;
+      }
+
+      public com.game.framework.protocol.User.TSCBuyGoods getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.TSCBuyGoods.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.User.TSCBuyGoods build() {
+        com.game.framework.protocol.User.TSCBuyGoods result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.User.TSCBuyGoods buildPartial() {
+        com.game.framework.protocol.User.TSCBuyGoods result = new com.game.framework.protocol.User.TSCBuyGoods(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.isChange_ = isChange_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.isLimit_ = isLimit_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.User.TSCBuyGoods) {
+          return mergeFrom((com.game.framework.protocol.User.TSCBuyGoods)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.User.TSCBuyGoods other) {
+        if (other == com.game.framework.protocol.User.TSCBuyGoods.getDefaultInstance()) return this;
+        if (other.hasIsChange()) {
+          setIsChange(other.getIsChange());
+        }
+        if (other.hasIsLimit()) {
+          setIsLimit(other.getIsLimit());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.User.TSCBuyGoods parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.User.TSCBuyGoods) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional bool isChange = 1;
+      private boolean isChange_ ;
+      /**
+       * <code>optional bool isChange = 1;</code>
+       *
+       * <pre>
+       * 是否价格(税率)改变
+       * </pre>
+       */
+      public boolean hasIsChange() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional bool isChange = 1;</code>
+       *
+       * <pre>
+       * 是否价格(税率)改变
+       * </pre>
+       */
+      public boolean getIsChange() {
+        return isChange_;
+      }
+      /**
+       * <code>optional bool isChange = 1;</code>
+       *
+       * <pre>
+       * 是否价格(税率)改变
+       * </pre>
+       */
+      public Builder setIsChange(boolean value) {
+        bitField0_ |= 0x00000001;
+        isChange_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool isChange = 1;</code>
+       *
+       * <pre>
+       * 是否价格(税率)改变
+       * </pre>
+       */
+      public Builder clearIsChange() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        isChange_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional bool isLimit = 2;
+      private boolean isLimit_ ;
+      /**
+       * <code>optional bool isLimit = 2;</code>
+       *
+       * <pre>
+       * 是否达到购买上限
+       * </pre>
+       */
+      public boolean hasIsLimit() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional bool isLimit = 2;</code>
+       *
+       * <pre>
+       * 是否达到购买上限
+       * </pre>
+       */
+      public boolean getIsLimit() {
+        return isLimit_;
+      }
+      /**
+       * <code>optional bool isLimit = 2;</code>
+       *
+       * <pre>
+       * 是否达到购买上限
+       * </pre>
+       */
+      public Builder setIsLimit(boolean value) {
+        bitField0_ |= 0x00000002;
+        isLimit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool isLimit = 2;</code>
+       *
+       * <pre>
+       * 是否达到购买上限
+       * </pre>
+       */
+      public Builder clearIsLimit() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        isLimit_ = false;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCBuyGoods)
+    }
+
+    static {
+      defaultInstance = new TSCBuyGoods(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCBuyGoods)
+  }
+
+  public interface TCSGetPricesOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TCSGetPrices}
+   */
+  public static final class TCSGetPrices extends
+      com.google.protobuf.GeneratedMessage
+      implements TCSGetPricesOrBuilder {
+    // Use TCSGetPrices.newBuilder() to construct.
+    private TCSGetPrices(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TCSGetPrices(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TCSGetPrices defaultInstance;
+    public static TCSGetPrices getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TCSGetPrices getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TCSGetPrices(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetPrices_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetPrices_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.User.TCSGetPrices.class, com.game.framework.protocol.User.TCSGetPrices.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TCSGetPrices> PARSER =
+        new com.google.protobuf.AbstractParser<TCSGetPrices>() {
+      public TCSGetPrices parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TCSGetPrices(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TCSGetPrices> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.User.TCSGetPrices parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TCSGetPrices parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetPrices parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TCSGetPrices parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetPrices parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetPrices parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetPrices parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetPrices parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetPrices parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetPrices parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.User.TCSGetPrices prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TCSGetPrices}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.User.TCSGetPricesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetPrices_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetPrices_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.User.TCSGetPrices.class, com.game.framework.protocol.User.TCSGetPrices.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.User.TCSGetPrices.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetPrices_descriptor;
+      }
+
+      public com.game.framework.protocol.User.TCSGetPrices getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.TCSGetPrices.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.User.TCSGetPrices build() {
+        com.game.framework.protocol.User.TCSGetPrices result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.User.TCSGetPrices buildPartial() {
+        com.game.framework.protocol.User.TCSGetPrices result = new com.game.framework.protocol.User.TCSGetPrices(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.User.TCSGetPrices) {
+          return mergeFrom((com.game.framework.protocol.User.TCSGetPrices)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.User.TCSGetPrices other) {
+        if (other == com.game.framework.protocol.User.TCSGetPrices.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.User.TCSGetPrices parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.User.TCSGetPrices) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSGetPrices)
+    }
+
+    static {
+      defaultInstance = new TCSGetPrices(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSGetPrices)
+  }
+
+  public interface TSCGetPricesOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    java.util.List<com.game.framework.protocol.User.ResourceInfo> 
+        getResourceInfosList();
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index);
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    int getResourceInfosCount();
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+        getResourceInfosOrBuilderList();
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+        int index);
+
+    // optional double taxRate = 2;
+    /**
+     * <code>optional double taxRate = 2;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    boolean hasTaxRate();
+    /**
+     * <code>optional double taxRate = 2;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    double getTaxRate();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TSCGetPrices}
+   */
+  public static final class TSCGetPrices extends
+      com.google.protobuf.GeneratedMessage
+      implements TSCGetPricesOrBuilder {
+    // Use TSCGetPrices.newBuilder() to construct.
+    private TSCGetPrices(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TSCGetPrices(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TSCGetPrices defaultInstance;
+    public static TSCGetPrices getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TSCGetPrices getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSCGetPrices(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.ResourceInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              resourceInfos_.add(input.readMessage(com.game.framework.protocol.User.ResourceInfo.PARSER, extensionRegistry));
+              break;
+            }
+            case 17: {
+              bitField0_ |= 0x00000001;
+              taxRate_ = input.readDouble();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetPrices_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetPrices_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.User.TSCGetPrices.class, com.game.framework.protocol.User.TSCGetPrices.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TSCGetPrices> PARSER =
+        new com.google.protobuf.AbstractParser<TSCGetPrices>() {
+      public TSCGetPrices parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSCGetPrices(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TSCGetPrices> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+    public static final int RESOURCEINFOS_FIELD_NUMBER = 1;
+    private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_;
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public java.util.List<com.game.framework.protocol.User.ResourceInfo> getResourceInfosList() {
+      return resourceInfos_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+        getResourceInfosOrBuilderList() {
+      return resourceInfos_;
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public int getResourceInfosCount() {
+      return resourceInfos_.size();
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index) {
+      return resourceInfos_.get(index);
+    }
+    /**
+     * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+     *
+     * <pre>
+     * 资源信息
+     * </pre>
+     */
+    public com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+        int index) {
+      return resourceInfos_.get(index);
+    }
+
+    // optional double taxRate = 2;
+    public static final int TAXRATE_FIELD_NUMBER = 2;
+    private double taxRate_;
+    /**
+     * <code>optional double taxRate = 2;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    public boolean hasTaxRate() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional double taxRate = 2;</code>
+     *
+     * <pre>
+     * 税率
+     * </pre>
+     */
+    public double getTaxRate() {
+      return taxRate_;
+    }
+
+    private void initFields() {
+      resourceInfos_ = java.util.Collections.emptyList();
+      taxRate_ = 0D;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < resourceInfos_.size(); i++) {
+        output.writeMessage(1, resourceInfos_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeDouble(2, taxRate_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < resourceInfos_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, resourceInfos_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, taxRate_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.User.TSCGetPrices parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TSCGetPrices parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetPrices parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TSCGetPrices parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetPrices parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCGetPrices parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetPrices parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCGetPrices parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetPrices parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCGetPrices parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.User.TSCGetPrices prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TSCGetPrices}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.User.TSCGetPricesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetPrices_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetPrices_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.User.TSCGetPrices.class, com.game.framework.protocol.User.TSCGetPrices.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.User.TSCGetPrices.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getResourceInfosFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (resourceInfosBuilder_ == null) {
+          resourceInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          resourceInfosBuilder_.clear();
+        }
+        taxRate_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetPrices_descriptor;
+      }
+
+      public com.game.framework.protocol.User.TSCGetPrices getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.TSCGetPrices.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.User.TSCGetPrices build() {
+        com.game.framework.protocol.User.TSCGetPrices result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.User.TSCGetPrices buildPartial() {
+        com.game.framework.protocol.User.TSCGetPrices result = new com.game.framework.protocol.User.TSCGetPrices(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (resourceInfosBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            resourceInfos_ = java.util.Collections.unmodifiableList(resourceInfos_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.resourceInfos_ = resourceInfos_;
+        } else {
+          result.resourceInfos_ = resourceInfosBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.taxRate_ = taxRate_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.User.TSCGetPrices) {
+          return mergeFrom((com.game.framework.protocol.User.TSCGetPrices)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.User.TSCGetPrices other) {
+        if (other == com.game.framework.protocol.User.TSCGetPrices.getDefaultInstance()) return this;
+        if (resourceInfosBuilder_ == null) {
+          if (!other.resourceInfos_.isEmpty()) {
+            if (resourceInfos_.isEmpty()) {
+              resourceInfos_ = other.resourceInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureResourceInfosIsMutable();
+              resourceInfos_.addAll(other.resourceInfos_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.resourceInfos_.isEmpty()) {
+            if (resourceInfosBuilder_.isEmpty()) {
+              resourceInfosBuilder_.dispose();
+              resourceInfosBuilder_ = null;
+              resourceInfos_ = other.resourceInfos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              resourceInfosBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getResourceInfosFieldBuilder() : null;
+            } else {
+              resourceInfosBuilder_.addAllMessages(other.resourceInfos_);
+            }
+          }
+        }
+        if (other.hasTaxRate()) {
+          setTaxRate(other.getTaxRate());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.User.TSCGetPrices parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.User.TSCGetPrices) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;
+      private java.util.List<com.game.framework.protocol.User.ResourceInfo> resourceInfos_ =
+        java.util.Collections.emptyList();
+      private void ensureResourceInfosIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          resourceInfos_ = new java.util.ArrayList<com.game.framework.protocol.User.ResourceInfo>(resourceInfos_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder> resourceInfosBuilder_;
+
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public java.util.List<com.game.framework.protocol.User.ResourceInfo> getResourceInfosList() {
+        if (resourceInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(resourceInfos_);
+        } else {
+          return resourceInfosBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public int getResourceInfosCount() {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.size();
+        } else {
+          return resourceInfosBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.ResourceInfo getResourceInfos(int index) {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.get(index);
+        } else {
+          return resourceInfosBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder setResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourceInfosIsMutable();
+          resourceInfos_.set(index, value);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder setResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          resourceInfosBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addResourceInfos(com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(value);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo value) {
+        if (resourceInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(index, value);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addResourceInfos(
+          com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(builderForValue.build());
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addResourceInfos(
+          int index, com.game.framework.protocol.User.ResourceInfo.Builder builderForValue) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder addAllResourceInfos(
+          java.lang.Iterable<? extends com.game.framework.protocol.User.ResourceInfo> values) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          super.addAll(values, resourceInfos_);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder clearResourceInfos() {
+        if (resourceInfosBuilder_ == null) {
+          resourceInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public Builder removeResourceInfos(int index) {
+        if (resourceInfosBuilder_ == null) {
+          ensureResourceInfosIsMutable();
+          resourceInfos_.remove(index);
+          onChanged();
+        } else {
+          resourceInfosBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.ResourceInfo.Builder getResourceInfosBuilder(
+          int index) {
+        return getResourceInfosFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.ResourceInfoOrBuilder getResourceInfosOrBuilder(
+          int index) {
+        if (resourceInfosBuilder_ == null) {
+          return resourceInfos_.get(index);  } else {
+          return resourceInfosBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public java.util.List<? extends com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+           getResourceInfosOrBuilderList() {
+        if (resourceInfosBuilder_ != null) {
+          return resourceInfosBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(resourceInfos_);
+        }
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.ResourceInfo.Builder addResourceInfosBuilder() {
+        return getResourceInfosFieldBuilder().addBuilder(
+            com.game.framework.protocol.User.ResourceInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public com.game.framework.protocol.User.ResourceInfo.Builder addResourceInfosBuilder(
+          int index) {
+        return getResourceInfosFieldBuilder().addBuilder(
+            index, com.game.framework.protocol.User.ResourceInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.game.framework.protocol.ResourceInfo resourceInfos = 1;</code>
+       *
+       * <pre>
+       * 资源信息
+       * </pre>
+       */
+      public java.util.List<com.game.framework.protocol.User.ResourceInfo.Builder> 
+           getResourceInfosBuilderList() {
+        return getResourceInfosFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder> 
+          getResourceInfosFieldBuilder() {
+        if (resourceInfosBuilder_ == null) {
+          resourceInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.game.framework.protocol.User.ResourceInfo, com.game.framework.protocol.User.ResourceInfo.Builder, com.game.framework.protocol.User.ResourceInfoOrBuilder>(
+                  resourceInfos_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          resourceInfos_ = null;
+        }
+        return resourceInfosBuilder_;
+      }
+
+      // optional double taxRate = 2;
+      private double taxRate_ ;
+      /**
+       * <code>optional double taxRate = 2;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public boolean hasTaxRate() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional double taxRate = 2;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public double getTaxRate() {
+        return taxRate_;
+      }
+      /**
+       * <code>optional double taxRate = 2;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public Builder setTaxRate(double value) {
+        bitField0_ |= 0x00000002;
+        taxRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double taxRate = 2;</code>
+       *
+       * <pre>
+       * 税率
+       * </pre>
+       */
+      public Builder clearTaxRate() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        taxRate_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetPrices)
+    }
+
+    static {
+      defaultInstance = new TSCGetPrices(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetPrices)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -9068,6 +11813,26 @@ public final class User {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TSCSellGoods_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TCSBuyGoods_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TCSBuyGoods_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TSCBuyGoods_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TSCBuyGoods_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TCSGetPrices_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TCSGetPrices_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TSCGetPrices_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TSCGetPrices_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -9087,23 +11852,30 @@ public final class User {
       "com.game.framework.protocol.ResourceInfo" +
       "\"P\n\014UserResource\022@\n\rresourceInfos\030\001 \003(\0132" +
       ").com.game.framework.protocol.ResourceIn",
-      "fo\"0\n\014ResourceInfo\022\020\n\010configId\030\001 \001(\005\022\016\n\006" +
-      "number\030\002 \001(\005\"\021\n\017TCSGetUserState\"\321\001\n\017TSCG" +
-      "etUserState\022\r\n\005blood\030\001 \001(\005\022\014\n\004food\030\002 \001(\005" +
-      "\022\r\n\005water\030\003 \001(\005\022\016\n\006health\030\004 \001(\005\022\014\n\004mood\030" +
-      "\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007defense\030\007 \001(\005\022\r" +
-      "\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t \001(\005\022\021\n\tintellec" +
-      "t\030\n \001(\005\022\024\n\014contribution\030\013 \001(\005\022\014\n\004gold\030\014 " +
-      "\001(\005\"\030\n\026TCSGetUserStateRegular\"\330\001\n\026TSCGet" +
-      "UserStateRegular\022\r\n\005blood\030\001 \001(\005\022\014\n\004food\030" +
-      "\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006health\030\004 \001(\005\022\014\n\004",
-      "mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007defense\030\007 " +
-      "\001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t \001(\005\022\021\n\tint" +
-      "ellect\030\n \001(\005\022\024\n\014contribution\030\013 \001(\005\022\014\n\004go" +
-      "ld\030\014 \001(\005\"?\n\014TCSSellGoods\022\020\n\010configId\030\001 \001" +
-      "(\005\022\016\n\006number\030\002 \001(\005\022\r\n\005price\030\003 \001(\005\"3\n\014TSC" +
-      "SellGoods\022\025\n\risPriceChange\030\001 \001(\010\022\014\n\004gold" +
-      "\030\002 \001(\005B\002H\001"
+      "fo\"?\n\014ResourceInfo\022\020\n\010configId\030\001 \001(\005\022\016\n\006" +
+      "number\030\002 \001(\005\022\r\n\005price\030\003 \001(\001\"\021\n\017TCSGetUse" +
+      "rState\"\321\001\n\017TSCGetUserState\022\r\n\005blood\030\001 \001(" +
+      "\005\022\014\n\004food\030\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006health" +
+      "\030\004 \001(\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007" +
+      "defense\030\007 \001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t " +
+      "\001(\005\022\021\n\tintellect\030\n \001(\005\022\024\n\014contribution\030\013" +
+      " \001(\005\022\014\n\004gold\030\014 \001(\001\"\030\n\026TCSGetUserStateReg" +
+      "ular\"\330\001\n\026TSCGetUserStateRegular\022\r\n\005blood" +
+      "\030\001 \001(\005\022\014\n\004food\030\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006h",
+      "ealth\030\004 \001(\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(" +
+      "\005\022\017\n\007defense\030\007 \001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005spe" +
+      "ed\030\t \001(\005\022\021\n\tintellect\030\n \001(\005\022\024\n\014contribut" +
+      "ion\030\013 \001(\005\022\014\n\004gold\030\014 \001(\001\"P\n\014TCSSellGoods\022" +
+      "\020\n\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\022\r\n\005pri" +
+      "ce\030\003 \001(\001\022\017\n\007taxRate\030\004 \001(\001\".\n\014TSCSellGood" +
+      "s\022\020\n\010isChange\030\001 \001(\010\022\014\n\004gold\030\002 \001(\001\"O\n\013TCS" +
+      "BuyGoods\022\020\n\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001" +
+      "(\005\022\r\n\005price\030\003 \001(\001\022\017\n\007taxRate\030\004 \001(\001\"0\n\013TS" +
+      "CBuyGoods\022\020\n\010isChange\030\001 \001(\010\022\017\n\007isLimit\030\002",
+      " \001(\010\"\016\n\014TCSGetPrices\"a\n\014TSCGetPrices\022@\n\r" +
+      "resourceInfos\030\001 \003(\0132).com.game.framework" +
+      ".protocol.ResourceInfo\022\017\n\007taxRate\030\002 \001(\001B" +
+      "\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -9145,7 +11917,7 @@ public final class User {
           internal_static_com_game_framework_protocol_ResourceInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_ResourceInfo_descriptor,
-              new java.lang.String[] { "ConfigId", "Number", });
+              new java.lang.String[] { "ConfigId", "Number", "Price", });
           internal_static_com_game_framework_protocol_TCSGetUserState_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_com_game_framework_protocol_TCSGetUserState_fieldAccessorTable = new
@@ -9175,13 +11947,37 @@ public final class User {
           internal_static_com_game_framework_protocol_TCSSellGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TCSSellGoods_descriptor,
-              new java.lang.String[] { "ConfigId", "Number", "Price", });
+              new java.lang.String[] { "ConfigId", "Number", "Price", "TaxRate", });
           internal_static_com_game_framework_protocol_TSCSellGoods_descriptor =
             getDescriptor().getMessageTypes().get(11);
           internal_static_com_game_framework_protocol_TSCSellGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCSellGoods_descriptor,
-              new java.lang.String[] { "IsPriceChange", "Gold", });
+              new java.lang.String[] { "IsChange", "Gold", });
+          internal_static_com_game_framework_protocol_TCSBuyGoods_descriptor =
+            getDescriptor().getMessageTypes().get(12);
+          internal_static_com_game_framework_protocol_TCSBuyGoods_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TCSBuyGoods_descriptor,
+              new java.lang.String[] { "ConfigId", "Number", "Price", "TaxRate", });
+          internal_static_com_game_framework_protocol_TSCBuyGoods_descriptor =
+            getDescriptor().getMessageTypes().get(13);
+          internal_static_com_game_framework_protocol_TSCBuyGoods_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TSCBuyGoods_descriptor,
+              new java.lang.String[] { "IsChange", "IsLimit", });
+          internal_static_com_game_framework_protocol_TCSGetPrices_descriptor =
+            getDescriptor().getMessageTypes().get(14);
+          internal_static_com_game_framework_protocol_TCSGetPrices_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TCSGetPrices_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_game_framework_protocol_TSCGetPrices_descriptor =
+            getDescriptor().getMessageTypes().get(15);
+          internal_static_com_game_framework_protocol_TSCGetPrices_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TSCGetPrices_descriptor,
+              new java.lang.String[] { "ResourceInfos", "TaxRate", });
           return null;
         }
       };

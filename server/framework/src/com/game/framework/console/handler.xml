@@ -37,6 +37,8 @@
 		<Handler model="User" method="getUserState" description="玩家状态"/>
 		<Handler model="User" method="getUserStateRegular" description="玩家状态（周期）" isInner="true"/>
 		<Handler model="User" method="sellGoods" description="卖出商品"/>
+		<Handler model="User" method="buyGoods" description="买商品"/>
+		<Handler model="User" method="getPrices" description="商品价格"/>
 	</HandlerGroup>
 	
 	<HandlerGroup name="Match" thread="1" clean="60">

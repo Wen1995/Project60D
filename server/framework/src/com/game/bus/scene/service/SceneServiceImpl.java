@@ -387,14 +387,14 @@ public class SceneServiceImpl implements SceneService {
                     user.setContribution(contribution);
                     for (CostStruct c : costStructs) {
                         for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
-                            ResourceInfo.Builder rbBuilder = userResourceBuilder.getResourceInfosBuilder(i);
-                            if (rbBuilder.getConfigId() == c.getCostId()) {
-                                int result = rbBuilder.getNumber() - c.getCostQty();
+                            ResourceInfo.Builder rBuilder = userResourceBuilder.getResourceInfosBuilder(i);
+                            if (rBuilder.getConfigId() == c.getCostId()) {
+                                int result = rBuilder.getNumber() - c.getCostQty();
                                 if (result == 0) {
                                     userResourceBuilder.removeResourceInfos(i);
                                 } else {
-                                    rbBuilder.setNumber(result);
-                                    userResourceBuilder.setResourceInfos(i, rbBuilder);
+                                    rBuilder.setNumber(result);
+                                    userResourceBuilder.setResourceInfos(i, rBuilder);
                                 }
                                 break;
                             }

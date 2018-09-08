@@ -337,7 +337,7 @@ public class FightingServiceImpl implements FightingService {
 
             double lossRate = intoDoorTime / maxTime;
             Map<Long, Integer> uid2LossResource = new HashMap<>();
-            Map<Long, Integer> uid2LossGold = new HashMap<>();
+            Map<Long, Double> uid2LossGold = new HashMap<>();
 
             // 玩家仓库资源和黄金
             for (User u : users) {
@@ -360,8 +360,8 @@ public class FightingServiceImpl implements FightingService {
                     }
                 }
 
-                int goldNum = u.getGold();
-                int goldLoss = (int) (goldNum * lossRate * gold100Rate / 100);
+                double goldNum = u.getGold();
+                double goldLoss = goldNum * lossRate * gold100Rate / 100;
                 if (goldLoss > goldLimit) {
                     goldLoss = goldLimit;
                 }

@@ -435,52 +435,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andGoldEqualTo(Integer value) {
+        public Criteria andGoldEqualTo(Double value) {
             addCriterion("gold =", value, "gold");
             return (Criteria) this;
         }
 
-        public Criteria andGoldNotEqualTo(Integer value) {
+        public Criteria andGoldNotEqualTo(Double value) {
             addCriterion("gold <>", value, "gold");
             return (Criteria) this;
         }
 
-        public Criteria andGoldGreaterThan(Integer value) {
+        public Criteria andGoldGreaterThan(Double value) {
             addCriterion("gold >", value, "gold");
             return (Criteria) this;
         }
 
-        public Criteria andGoldGreaterThanOrEqualTo(Integer value) {
+        public Criteria andGoldGreaterThanOrEqualTo(Double value) {
             addCriterion("gold >=", value, "gold");
             return (Criteria) this;
         }
 
-        public Criteria andGoldLessThan(Integer value) {
+        public Criteria andGoldLessThan(Double value) {
             addCriterion("gold <", value, "gold");
             return (Criteria) this;
         }
 
-        public Criteria andGoldLessThanOrEqualTo(Integer value) {
+        public Criteria andGoldLessThanOrEqualTo(Double value) {
             addCriterion("gold <=", value, "gold");
             return (Criteria) this;
         }
 
-        public Criteria andGoldIn(List<Integer> values) {
+        public Criteria andGoldIn(List<Double> values) {
             addCriterion("gold in", values, "gold");
             return (Criteria) this;
         }
 
-        public Criteria andGoldNotIn(List<Integer> values) {
+        public Criteria andGoldNotIn(List<Double> values) {
             addCriterion("gold not in", values, "gold");
             return (Criteria) this;
         }
 
-        public Criteria andGoldBetween(Integer value1, Integer value2) {
+        public Criteria andGoldBetween(Double value1, Double value2) {
             addCriterion("gold between", value1, value2, "gold");
             return (Criteria) this;
         }
 
-        public Criteria andGoldNotBetween(Integer value1, Integer value2) {
+        public Criteria andGoldNotBetween(Double value1, Double value2) {
             addCriterion("gold not between", value1, value2, "gold");
             return (Criteria) this;
         }

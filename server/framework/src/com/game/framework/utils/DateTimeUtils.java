@@ -31,10 +31,10 @@ public class DateTimeUtils {
         return cal.getTime();
     }
     
-    public static Date getNextHour(Date date) {
+    public static Date getNextHour(Date date, int t) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.HOUR_OF_DAY, +1);
+        cal.add(Calendar.HOUR_OF_DAY, t);
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.MILLISECOND, 0);

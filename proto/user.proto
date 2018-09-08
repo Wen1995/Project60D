@@ -126,7 +126,7 @@ message TSCBuyGoods {
 	// 是否价格(税率)改变
 	optional bool isChange = 1;
 	// 是否达到购买上限
-	optional bool limit = 2;
+	optional bool isLimit = 2;
 }
 
 message TCSGetPrices {

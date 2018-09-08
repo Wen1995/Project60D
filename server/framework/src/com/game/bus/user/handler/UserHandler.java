@@ -14,6 +14,8 @@ import com.game.framework.protocol.User.TCSGetResourceInfoByConfigId;
 import com.game.framework.protocol.User.TCSGetUserState;
 import com.game.framework.protocol.User.TCSGetUserStateRegular;
 import com.game.framework.protocol.User.TCSSellGoods;
+import com.game.framework.protocol.User.TCSBuyGoods;
+import com.game.framework.protocol.User.TCSGetPrices;
 
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Bus, module = HandlerConstant.Model_User)
 public class UserHandler {
@@ -64,9 +66,29 @@ public class UserHandler {
 	@HandlerMethodMapping(cmd = Cmd.SELLGOODS_VALUE)
 	public void sellGoods(TPacket p) throws Exception {
 		TCSSellGoods msg = TCSSellGoods.parseFrom(p.getBuffer());
-		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		Integer price = msg.getPrice();		
-		TPacket resp = service.sellGoods(p.getUid(), configId, number, price);
+		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		Integer price = msg.getPrice();		Double taxRate = msg.getTaxRate();		
+		TPacket resp = service.sellGoods(p.getUid(), configId, number, price, taxRate);
 		resp.setCmd(Cmd.SELLGOODS_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 买商品 */
+	@HandlerMethodMapping(cmd = Cmd.BUYGOODS_VALUE)
+	public void buyGoods(TPacket p) throws Exception {
+		TCSBuyGoods msg = TCSBuyGoods.parseFrom(p.getBuffer());
+		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		Integer price = msg.getPrice();		Double taxRate = msg.getTaxRate();		
+		TPacket resp = service.buyGoods(p.getUid(), configId, number, price, taxRate);
+		resp.setCmd(Cmd.BUYGOODS_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 商品价格 */
+	@HandlerMethodMapping(cmd = Cmd.GETPRICES_VALUE)
+	public void getPrices(TPacket p) throws Exception {
+		TCSGetPrices msg = TCSGetPrices.parseFrom(p.getBuffer());
+		
+		TPacket resp = service.getPrices(p.getUid());
+		resp.setCmd(Cmd.GETPRICES_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}
 

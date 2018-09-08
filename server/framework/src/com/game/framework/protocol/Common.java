@@ -223,6 +223,22 @@ public final class Common {
      */
     SELLGOODS(25, 91),
     /**
+     * <code>BUYGOODS = 92;</code>
+     *
+     * <pre>
+     * 买商品
+     * </pre>
+     */
+    BUYGOODS(26, 92),
+    /**
+     * <code>GETPRICES = 93;</code>
+     *
+     * <pre>
+     * 商品价格
+     * </pre>
+     */
+    GETPRICES(27, 93),
+    /**
      * <code>SAVEMESSAGE = 101;</code>
      *
      * <pre>
@@ -230,7 +246,7 @@ public final class Common {
      * 保存消息
      * </pre>
      */
-    SAVEMESSAGE(26, 101),
+    SAVEMESSAGE(28, 101),
     /**
      * <code>GETPAGECOUNT = 102;</code>
      *
@@ -238,7 +254,7 @@ public final class Common {
      * 消息页数
      * </pre>
      */
-    GETPAGECOUNT(27, 102),
+    GETPAGECOUNT(29, 102),
     /**
      * <code>GETPAGELIST = 103;</code>
      *
@@ -246,7 +262,7 @@ public final class Common {
      * 得到消息
      * </pre>
      */
-    GETPAGELIST(28, 103),
+    GETPAGELIST(30, 103),
     /**
      * <code>GETMESSAGETAG = 104;</code>
      *
@@ -254,7 +270,7 @@ public final class Common {
      * 未读数量
      * </pre>
      */
-    GETMESSAGETAG(29, 104),
+    GETMESSAGETAG(31, 104),
     /**
      * <code>SENDMESSAGETAG = 105;</code>
      *
@@ -262,7 +278,7 @@ public final class Common {
      * 消息已读
      * </pre>
      */
-    SENDMESSAGETAG(30, 105),
+    SENDMESSAGETAG(32, 105),
     ;
 
     /**
@@ -475,6 +491,22 @@ public final class Common {
      */
     public static final int SELLGOODS_VALUE = 91;
     /**
+     * <code>BUYGOODS = 92;</code>
+     *
+     * <pre>
+     * 买商品
+     * </pre>
+     */
+    public static final int BUYGOODS_VALUE = 92;
+    /**
+     * <code>GETPRICES = 93;</code>
+     *
+     * <pre>
+     * 商品价格
+     * </pre>
+     */
+    public static final int GETPRICES_VALUE = 93;
+    /**
      * <code>SAVEMESSAGE = 101;</code>
      *
      * <pre>
@@ -547,6 +579,8 @@ public final class Common {
         case 84: return GETUSERSTATEREGULAR;
         case 90: return GETWORLDEVENT;
         case 91: return SELLGOODS;
+        case 92: return BUYGOODS;
+        case 93: return GETPRICES;
         case 101: return SAVEMESSAGE;
         case 102: return GETPAGECOUNT;
         case 103: return GETPAGELIST;
@@ -680,6 +714,14 @@ public final class Common {
      * </pre>
      */
     NO_MORE_CAPACITY(8, 10),
+    /**
+     * <code>NO_ENOUGH_GOLD = 11;</code>
+     *
+     * <pre>
+     * 没有足够的金币
+     * </pre>
+     */
+    NO_ENOUGH_GOLD(9, 11),
     ;
 
     /**
@@ -754,6 +796,14 @@ public final class Common {
      * </pre>
      */
     public static final int NO_MORE_CAPACITY_VALUE = 10;
+    /**
+     * <code>NO_ENOUGH_GOLD = 11;</code>
+     *
+     * <pre>
+     * 没有足够的金币
+     * </pre>
+     */
+    public static final int NO_ENOUGH_GOLD_VALUE = 11;
 
 
     public final int getNumber() { return value; }
@@ -769,6 +819,7 @@ public final class Common {
         case 7: return TIME_ERR;
         case 8: return LEFT_RESOURCE;
         case 10: return NO_MORE_CAPACITY;
+        case 11: return NO_ENOUGH_GOLD;
         default: return null;
       }
     }
@@ -1520,7 +1571,7 @@ public final class Common {
   static {
     java.lang.String[] descriptorData = {
       "\n\014common.proto\022\033com.game.framework.proto" +
-      "col*\275\004\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005HEART" +
+      "col*\332\004\n\003Cmd\022\022\n\005ERROR\020\377\377\377\377\377\377\377\377\377\001\022\t\n\005HEART" +
       "\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGOUT\020\002\022\017\n\013CREATEGROUP" +
       "\020\013\022\016\n\nAPPLYGROUP\020\014\022\025\n\021GETGROUPPAGECOUNT\020" +
       "\024\022\023\n\017GETGROUPRANKING\020\025\022\020\n\014GETSCENEINFO\020\037" +
@@ -1532,23 +1583,24 @@ public final class Common {
       "\023\n\017GETRESOURCEINFO\020Q\022\035\n\031GETRESOURCEINFOB" +
       "YCONFIGID\020R\022\020\n\014GETUSERSTATE\020S\022\027\n\023GETUSER" +
       "STATEREGULAR\020T\022\021\n\rGETWORLDEVENT\020Z\022\r\n\tSEL" +
-      "LGOODS\020[\022\017\n\013SAVEMESSAGE\020e\022\020\n\014GETPAGECOUN" +
-      "T\020f\022\017\n\013GETPAGELIST\020g\022\021\n\rGETMESSAGETAG\020h\022" +
-      "\022\n\016SENDMESSAGETAG\020i*\252\001\n\005Error\022\016\n\nSERVER_" +
-      "ERR\020\001\022\020\n\014RIGHT_HANDLE\020\002\022\017\n\013NO_BUILDING\020\003" +
-      "\022\016\n\nLEVEL_OVER\020\004\022\025\n\021BUILDING_TYPE_ERR\020\005\022" +
-      "\020\n\014RESOURCE_ERR\020\006\022\014\n\010TIME_ERR\020\007\022\021\n\rLEFT_" +
-      "RESOURCE\020\010\022\024\n\020NO_MORE_CAPACITY\020\n*f\n\014Buil",
-      "dingType\022\024\n\020RECEIVE_BUILDING\020\001\022\024\n\020PROCES" +
-      "S_BUILDING\020\002\022\025\n\021FUNCTION_BUILDING\020\003\022\023\n\017W" +
-      "EAPON_BUILDING\020\005*C\n\010ItemType\022\021\n\rRESOURCE" +
-      "_ITEM\020\001\022\022\n\016EQUIPMENT_ITEM\020\002\022\020\n\014SPECIAL_I" +
-      "TEM\020\003*,\n\020InvadeResultType\022\n\n\006PLAYER\020\001\022\014\n" +
-      "\010BUILDING\020\002*G\n\013MessageType\022\024\n\020WORLD_EVEN" +
-      "T_INFO\020\001\022\017\n\013ZOMBIE_INFO\020\002\022\021\n\rFIGHTING_IN" +
-      "FO\020\003*(\n\010TimeType\022\016\n\nSTART_TIME\020\001\022\014\n\010END_" +
-      "TIME\020\002*7\n\tEventType\022\n\n\006ZOMBIE\020\001\022\007\n\003WAR\020\002" +
-      "\022\n\n\006NATURE\020\003\022\t\n\005HUMAN\020\004B\002H\001"
+      "LGOODS\020[\022\014\n\010BUYGOODS\020\\\022\r\n\tGETPRICES\020]\022\017\n" +
+      "\013SAVEMESSAGE\020e\022\020\n\014GETPAGECOUNT\020f\022\017\n\013GETP" +
+      "AGELIST\020g\022\021\n\rGETMESSAGETAG\020h\022\022\n\016SENDMESS" +
+      "AGETAG\020i*\276\001\n\005Error\022\016\n\nSERVER_ERR\020\001\022\020\n\014RI" +
+      "GHT_HANDLE\020\002\022\017\n\013NO_BUILDING\020\003\022\016\n\nLEVEL_O" +
+      "VER\020\004\022\025\n\021BUILDING_TYPE_ERR\020\005\022\020\n\014RESOURCE" +
+      "_ERR\020\006\022\014\n\010TIME_ERR\020\007\022\021\n\rLEFT_RESOURCE\020\010\022",
+      "\024\n\020NO_MORE_CAPACITY\020\n\022\022\n\016NO_ENOUGH_GOLD\020" +
+      "\013*f\n\014BuildingType\022\024\n\020RECEIVE_BUILDING\020\001\022" +
+      "\024\n\020PROCESS_BUILDING\020\002\022\025\n\021FUNCTION_BUILDI" +
+      "NG\020\003\022\023\n\017WEAPON_BUILDING\020\005*C\n\010ItemType\022\021\n" +
+      "\rRESOURCE_ITEM\020\001\022\022\n\016EQUIPMENT_ITEM\020\002\022\020\n\014" +
+      "SPECIAL_ITEM\020\003*,\n\020InvadeResultType\022\n\n\006PL" +
+      "AYER\020\001\022\014\n\010BUILDING\020\002*G\n\013MessageType\022\024\n\020W" +
+      "ORLD_EVENT_INFO\020\001\022\017\n\013ZOMBIE_INFO\020\002\022\021\n\rFI" +
+      "GHTING_INFO\020\003*(\n\010TimeType\022\016\n\nSTART_TIME\020" +
+      "\001\022\014\n\010END_TIME\020\002*7\n\tEventType\022\n\n\006ZOMBIE\020\001",
+      "\022\007\n\003WAR\020\002\022\n\n\006NATURE\020\003\022\t\n\005HUMAN\020\004B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

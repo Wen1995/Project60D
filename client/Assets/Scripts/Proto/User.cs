@@ -5640,7 +5640,7 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCBuyGoods : pb::GeneratedMessageLite<TSCBuyGoods, TSCBuyGoods.Builder> {
     private TSCBuyGoods() { }
     private static readonly TSCBuyGoods defaultInstance = new TSCBuyGoods().MakeReadOnly();
-    private static readonly string[] _tSCBuyGoodsFieldNames = new string[] { "isChange", "limit" };
+    private static readonly string[] _tSCBuyGoodsFieldNames = new string[] { "isChange", "isLimit" };
     private static readonly uint[] _tSCBuyGoodsFieldTags = new uint[] { 8, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
@@ -5676,14 +5676,14 @@ namespace com.game.framework.protocol {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int LimitFieldNumber = 2;
-    private bool hasLimit;
-    private bool limit_;
-    public bool HasLimit {
-      get { return hasLimit; }
+    public const int IsLimitFieldNumber = 2;
+    private bool hasIsLimit;
+    private bool isLimit_;
+    public bool HasIsLimit {
+      get { return hasIsLimit; }
     }
-    public bool Limit {
-      get { return limit_; }
+    public bool IsLimit {
+      get { return isLimit_; }
     }
     
     #if UNITY_EDITOR
@@ -5704,8 +5704,8 @@ namespace com.game.framework.protocol {
       if (hasIsChange) {
         output.WriteBool(1, field_names[0], IsChange);
       }
-      if (hasLimit) {
-        output.WriteBool(2, field_names[1], Limit);
+      if (hasIsLimit) {
+        output.WriteBool(2, field_names[1], IsLimit);
       }
     }
     
@@ -5722,8 +5722,8 @@ namespace com.game.framework.protocol {
         if (hasIsChange) {
           size += pb::CodedOutputStream.ComputeBoolSize(1, IsChange);
         }
-        if (hasLimit) {
-          size += pb::CodedOutputStream.ComputeBoolSize(2, Limit);
+        if (hasIsLimit) {
+          size += pb::CodedOutputStream.ComputeBoolSize(2, IsLimit);
         }
         memoizedSerializedSize = size;
         return size;
@@ -5734,7 +5734,7 @@ namespace com.game.framework.protocol {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasIsChange) hash ^= isChange_.GetHashCode();
-      if (hasLimit) hash ^= limit_.GetHashCode();
+      if (hasIsLimit) hash ^= isLimit_.GetHashCode();
       return hash;
     }
     
@@ -5742,7 +5742,7 @@ namespace com.game.framework.protocol {
       TSCBuyGoods other = obj as TSCBuyGoods;
       if (other == null) return false;
       if (hasIsChange != other.hasIsChange || (hasIsChange && !isChange_.Equals(other.isChange_))) return false;
-      if (hasLimit != other.hasLimit || (hasLimit && !limit_.Equals(other.limit_))) return false;
+      if (hasIsLimit != other.hasIsLimit || (hasIsLimit && !isLimit_.Equals(other.isLimit_))) return false;
       return true;
     }
     
@@ -5906,8 +5906,8 @@ namespace com.game.framework.protocol {
         if (other.HasIsChange) {
           IsChange = other.IsChange;
         }
-        if (other.HasLimit) {
-          Limit = other.Limit;
+        if (other.HasIsLimit) {
+          IsLimit = other.IsLimit;
         }
         return this;
       }
@@ -5946,7 +5946,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 16: {
-              result.hasLimit = input.ReadBool(ref result.limit_);
+              result.hasIsLimit = input.ReadBool(ref result.isLimit_);
               break;
             }
           }
@@ -5976,23 +5976,23 @@ namespace com.game.framework.protocol {
         return this;
       }
       
-      public bool HasLimit {
-        get { return result.hasLimit; }
+      public bool HasIsLimit {
+        get { return result.hasIsLimit; }
       }
-      public bool Limit {
-        get { return result.Limit; }
-        set { SetLimit(value); }
+      public bool IsLimit {
+        get { return result.IsLimit; }
+        set { SetIsLimit(value); }
       }
-      public Builder SetLimit(bool value) {
+      public Builder SetIsLimit(bool value) {
         PrepareBuilder();
-        result.hasLimit = true;
-        result.limit_ = value;
+        result.hasIsLimit = true;
+        result.isLimit_ = value;
         return this;
       }
-      public Builder ClearLimit() {
+      public Builder ClearIsLimit() {
         PrepareBuilder();
-        result.hasLimit = false;
-        result.limit_ = false;
+        result.hasIsLimit = false;
+        result.isLimit_ = false;
         return this;
       }
     }

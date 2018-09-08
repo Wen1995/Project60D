@@ -104,6 +104,12 @@ public class UITradePanel : PanelBase {
 		taxLabel.text = "5%";
 		nameLabel.text = itemConfig.MinName;
 		curNum = 0;
+		if(itemConfig.GoldConv >= 1000)
+			ratio = 1;
+		else
+			ratio = 1000 / itemConfig.GoldConv;
+
+		
 		UpdateNum();
 	}
 
@@ -116,7 +122,6 @@ public class UITradePanel : PanelBase {
 			yield return new WaitForSeconds(1.0f);
 		}
 	}
-
 
 	void OnSellItem()
 	{

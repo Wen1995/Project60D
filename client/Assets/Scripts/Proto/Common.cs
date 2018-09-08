@@ -52,6 +52,8 @@ namespace com.game.framework.protocol {
     GETUSERSTATEREGULAR = 84,
     GETWORLDEVENT = 90,
     SELLGOODS = 91,
+    BUYGOODS = 92,
+    GETPRICES = 93,
     SAVEMESSAGE = 101,
     GETPAGECOUNT = 102,
     GETPAGELIST = 103,
@@ -69,6 +71,7 @@ namespace com.game.framework.protocol {
     TIME_ERR = 7,
     LEFT_RESOURCE = 8,
     NO_MORE_CAPACITY = 10,
+    NO_ENOUGH_GOLD = 11,
   }
   
   public enum BuildingType {

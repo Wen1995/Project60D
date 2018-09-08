@@ -104,7 +104,7 @@ public class Turret : MonoBehaviour
 	void Fire()
 	{
 		if(target == null) return;
-		//target.SendMessage("TakeDamage");
+		target.SendMessage("TakeDamage");
 		//play effect
 		for(int i=0;i<fireEffects.Length;i++)
 			fireEffects[i].Play();

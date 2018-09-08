@@ -150,6 +150,27 @@ public class ItemPackage : ModelBase
         {
             mItemEffectList.Add(new ItemEffect("回复心情", configData.MoodRec.ToString()));
         }
+        if(configData.HasAtkAdd)
+        {
+            mItemEffectList.Add(new ItemEffect("攻击", configData.AtkAdd.ToString()));
+        }
+        if(configData.HasDefAdd)
+        {
+            mItemEffectList.Add(new ItemEffect("防御", configData.DefAdd.ToString()));
+        }
+        if(configData.HasSpdAdd)
+        {
+            mItemEffectList.Add(new ItemEffect("移速", configData.SpdAdd.ToString()));
+        }
+
+        if(configData.HasLoadAdd)
+        {
+            mItemEffectList.Add(new ItemEffect("负载", configData.LoadAdd.ToString()));
+        }
+        if(configData.HasAgiAdd)
+        {
+            mItemEffectList.Add(new ItemEffect("敏捷", configData.AgiAdd.ToString()));
+        }
     }
 
     public List<ItemEffect> GetItemEffectList()

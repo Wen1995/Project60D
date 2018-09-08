@@ -31,6 +31,8 @@ message ResourceInfo {
 	optional int32 configId = 1;
 	// 资源数量
 	optional int32 number = 2;
+	// 价格
+	optional int32 price = 3;
 }
 
 message TCSGetUserState {
@@ -98,12 +100,41 @@ message TCSSellGoods {
 	optional int32 configId = 1;
 	// 商品数量
 	optional int32 number = 2;
-	// 价格
+	// 单价
 	optional int32 price = 3;
+	// 税率
+	optional double taxRate = 4;
 }
 message TSCSellGoods {
-	// 是否价格改变
-	optional bool isPriceChange = 1;
+	// 是否(税率)改变
+	optional bool isChange = 1;
 	// 获得金币
 	optional int32 gold = 2;
+}
+
+message TCSBuyGoods {
+	// 商品Id
+	optional int32 configId = 1;
+	// 商品数量
+	optional int32 number = 2;
+	// 单价
+	optional int32 price = 3;
+	// 税率
+	optional double taxRate = 4;
+}
+message TSCBuyGoods {
+	// 是否价格(税率)改变
+	optional bool isChange = 1;
+	// 是否达到购买上限
+	optional bool limit = 2;
+}
+
+message TCSGetPrices {
+
+}
+message TSCGetPrices {
+	// 资源信息
+	repeated ResourceInfo resourceInfos = 1;
+	// 税率
+	optional double taxRate = 2;
 }

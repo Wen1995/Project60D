@@ -146,6 +146,21 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETGROUPRANKING, msg.ToByteArray());
     }
 
+    public void RPCGetItemTradeInfo(NDictionary args)
+    {
+        if(args == null) return;
+    }
+
+    public void RPCSellItem(NDictionary args)
+    {
+        if(args == null) return;
+    }
+
+    public void RPCBuyItem(NDictionary args)
+    {
+        if(args == null) return;
+    }
+
     /// <summary>
     /// Use a extra camera to render the object you give
     /// Normally used to render a 3d model in UI

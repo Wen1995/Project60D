@@ -5640,8 +5640,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCBuyGoods : pb::GeneratedMessageLite<TSCBuyGoods, TSCBuyGoods.Builder> {
     private TSCBuyGoods() { }
     private static readonly TSCBuyGoods defaultInstance = new TSCBuyGoods().MakeReadOnly();
-    private static readonly string[] _tSCBuyGoodsFieldNames = new string[] { "isChange" };
-    private static readonly uint[] _tSCBuyGoodsFieldTags = new uint[] { 8 };
+    private static readonly string[] _tSCBuyGoodsFieldNames = new string[] { "isChange", "limit" };
+    private static readonly uint[] _tSCBuyGoodsFieldTags = new uint[] { 8, 16 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -5674,6 +5674,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int LimitFieldNumber = 2;
+    private bool hasLimit;
+    private bool limit_;
+    public bool HasLimit {
+      get { return hasLimit; }
+    }
+    public bool Limit {
+      get { return limit_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -5691,6 +5704,9 @@ namespace com.game.framework.protocol {
       if (hasIsChange) {
         output.WriteBool(1, field_names[0], IsChange);
       }
+      if (hasLimit) {
+        output.WriteBool(2, field_names[1], Limit);
+      }
     }
     
     private int memoizedSerializedSize = -1;
@@ -5706,6 +5722,9 @@ namespace com.game.framework.protocol {
         if (hasIsChange) {
           size += pb::CodedOutputStream.ComputeBoolSize(1, IsChange);
         }
+        if (hasLimit) {
+          size += pb::CodedOutputStream.ComputeBoolSize(2, Limit);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -5715,6 +5734,7 @@ namespace com.game.framework.protocol {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasIsChange) hash ^= isChange_.GetHashCode();
+      if (hasLimit) hash ^= limit_.GetHashCode();
       return hash;
     }
     
@@ -5722,6 +5742,7 @@ namespace com.game.framework.protocol {
       TSCBuyGoods other = obj as TSCBuyGoods;
       if (other == null) return false;
       if (hasIsChange != other.hasIsChange || (hasIsChange && !isChange_.Equals(other.isChange_))) return false;
+      if (hasLimit != other.hasLimit || (hasLimit && !limit_.Equals(other.limit_))) return false;
       return true;
     }
     
@@ -5885,6 +5906,9 @@ namespace com.game.framework.protocol {
         if (other.HasIsChange) {
           IsChange = other.IsChange;
         }
+        if (other.HasLimit) {
+          Limit = other.Limit;
+        }
         return this;
       }
       
@@ -5921,6 +5945,10 @@ namespace com.game.framework.protocol {
               result.hasIsChange = input.ReadBool(ref result.isChange_);
               break;
             }
+            case 16: {
+              result.hasLimit = input.ReadBool(ref result.limit_);
+              break;
+            }
           }
         }
         
@@ -5945,6 +5973,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasIsChange = false;
         result.isChange_ = false;
+        return this;
+      }
+      
+      public bool HasLimit {
+        get { return result.hasLimit; }
+      }
+      public bool Limit {
+        get { return result.Limit; }
+        set { SetLimit(value); }
+      }
+      public Builder SetLimit(bool value) {
+        PrepareBuilder();
+        result.hasLimit = true;
+        result.limit_ = value;
+        return this;
+      }
+      public Builder ClearLimit() {
+        PrepareBuilder();
+        result.hasLimit = false;
+        result.limit_ = false;
         return this;
       }
     }

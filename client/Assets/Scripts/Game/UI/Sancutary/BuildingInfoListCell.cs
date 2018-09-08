@@ -18,7 +18,7 @@ public class BuildingInfoListCell : NListCell {
 	{
 		List<BuildingAttributeData> dataList = sanctuaryPackage.GetBuildingAttributeDataList();
 		BuildingAttributeData data = dataList[index];
-		nameLabel.text=  data.name;
+		nameLabel.text=  data.name + ": ";
 		valueLabel.text = data.value.ToString();
 		base.DrawCell(index, count);
 	}

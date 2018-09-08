@@ -66,7 +66,7 @@ public class UITradePanel : PanelBase {
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
-		FacadeSingleton.Instance.InvokeService("RPCGetItemTradeInfo", ConstVal.Package_Sanctuary);
+		FacadeSingleton.Instance.InvokeService("RPCGetItemTradeInfo", ConstVal.Service_Sanctuary);
 	}
 
 	public override void ClosePanel()
@@ -109,9 +109,9 @@ public class UITradePanel : PanelBase {
 	void RefreshItemInfo()
 	{
 		if(selectionItem == null) return;
-		NItemInfo info = itemPackage.GetSelectionItem();
+		print("asdasda");
 		ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(selectionItem.configID);
-		curPriceLabel.text = ((float)info.price / 1000).ToString(); 
+		curPriceLabel.text = itemPackage.GetItemPrice(selectionItem.configID).ToString();
 		avgPriceLabel.text = "0";
 		taxLabel.text = string.Format("{0}%", (int)(itemPackage.GetTaxRate() * 100));
 		nameLabel.text = itemConfig.MinName;
@@ -137,7 +137,7 @@ public class UITradePanel : PanelBase {
 	void OnSellItem()
 	{
 		//TODO
-
+		FacadeSingleton.Instance.InvokeService("RPCSellItem", ConstVal.Service_Sanctuary);
 	}
 
 	void OnBuyItem()

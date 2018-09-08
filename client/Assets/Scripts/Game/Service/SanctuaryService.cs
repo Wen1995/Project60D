@@ -155,6 +155,17 @@ public class SanctuaryService : ServiceBase {
     public void RPCSellItem(NDictionary args)
     {
         if(args == null) return;
+        var builder = TCSSellGoods.CreateBuilder();
+        int id = args.Value<int>("id");
+        int num = args.Value<int>("num");
+        int price = args.Value<int>("price");
+        double taxRate = args.Value<int>("tax");
+        builder.ConfigId = id;
+        builder.Number = num;
+        builder.Price = price;
+        builder.TaxRate = taxRate;
+        TCSSellGoods msg = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.SELLGOODS, msg.ToByteArray());
     }
 
     public void RPCBuyItem(NDictionary args)

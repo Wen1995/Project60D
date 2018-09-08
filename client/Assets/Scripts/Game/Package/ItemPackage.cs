@@ -14,19 +14,11 @@ public class NItemInfo
     {
         configID = resInfo.ConfigId;
         number = resInfo.Number;
-        price = resInfo.Price;
     }
     public NItemInfo()
     {
         configID = 0;
         number = 0;
-    }
-
-    public void Refresh(ResourceInfo info)
-    {
-        configID = info.ConfigId;
-        number = info.Number;
-        price = info.Price;
     }
 }
 
@@ -73,6 +65,7 @@ public class ItemPackage : ModelBase
     Dictionary<int, NItemInfo> mItemInfoMap = new Dictionary<int, NItemInfo>();
     List<NItemInfo> mItemFilterInfoList = new List<NItemInfo>();
     List<ItemEffect> mItemEffectList = new List<ItemEffect>();
+    Dictionary<int, int> mItmePriceMap = new Dictionary<int, int>();
     NItemInfo selectionItem = null;
     private int elecNum;
     private int goldNum;
@@ -102,6 +95,7 @@ public class ItemPackage : ModelBase
             if(FilterItemType(sortMask, itemType))
                 mItemFilterInfoList.Add(pair.Value);
         }
+        mItemFilterInfoList.Sort((x ,y) => x.configID.CompareTo(y.configID));
     }
 
     public int GetResourceTotolNumber()
@@ -191,11 +185,6 @@ public class ItemPackage : ModelBase
 
     
     #region Acess Data
-    public int GetPlayerItemNum(int configID)
-    {
-        //TODO
-        return 0;
-    }
 
     public NItemInfo GetItemInfo(int configID)
     {
@@ -204,7 +193,9 @@ public class ItemPackage : ModelBase
             Debug.Log(string.Format("item{0} not exist", GetItemDataByConfigID(configID)));
             return null;
         }
-        return mItemInfoMap[configID];
+        NItemInfo info = mItemInfoMap[configID];
+        if(info.number <= 0) return null;
+        return info;
     }
 
     public ItemType GetItemTypeByConfigID(int configID)
@@ -220,6 +211,16 @@ public class ItemPackage : ModelBase
     public double GetTaxRate()
     {
         return taxRate;
+    }
+
+    public int GetItemPrice(int configID)
+    {
+        if(!mItmePriceMap.ContainsKey(configID))
+        {
+            Debug.Log("missing configID =" + configID);
+            return 0;
+        }
+        return mItmePriceMap[configID];
     }
     #endregion
 
@@ -246,6 +247,7 @@ public class ItemPackage : ModelBase
 
     public void SetResourceInfo(TSCGetResourceInfo msg)
     {
+        
         for(int i=0;i<msg.ResourceInfosCount;i++)
             AddItem(msg.GetResourceInfos(i));
         elecNum = msg.Electricity;
@@ -254,7 +256,13 @@ public class ItemPackage : ModelBase
     public void SetResourceInfo(TSCGetPrices msg)
     {
         for(int i=0;i<msg.ResourceInfosCount;i++)
-            AddItem(msg.GetResourceInfos(i));
+        {
+            var data = msg.GetResourceInfos(i);
+            mItmePriceMap[data.ConfigId] = data.Price;
+            ITEM_RES config = GetItemDataByConfigID(data.ConfigId);
+            Debug.Log(string.Format("item{0}, {1}", config.MinName, data.Price));
+            //Debug.Log(string.Format("{0}, {1}", mItmePriceMap[data.ConfigId], ))
+        }
         taxRate = msg.TaxRate;
     }
 

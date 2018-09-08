@@ -3351,9 +3351,9 @@ public final class User {
      */
     int getNumber();
 
-    // optional int32 price = 3;
+    // optional double price = 3;
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 价格
@@ -3361,13 +3361,13 @@ public final class User {
      */
     boolean hasPrice();
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 价格
      * </pre>
      */
-    int getPrice();
+    double getPrice();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.ResourceInfo}
@@ -3430,9 +3430,9 @@ public final class User {
               number_ = input.readInt32();
               break;
             }
-            case 24: {
+            case 25: {
               bitField0_ |= 0x00000004;
-              price_ = input.readInt32();
+              price_ = input.readDouble();
               break;
             }
           }
@@ -3523,11 +3523,11 @@ public final class User {
       return number_;
     }
 
-    // optional int32 price = 3;
+    // optional double price = 3;
     public static final int PRICE_FIELD_NUMBER = 3;
-    private int price_;
+    private double price_;
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 价格
@@ -3537,20 +3537,20 @@ public final class User {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 价格
      * </pre>
      */
-    public int getPrice() {
+    public double getPrice() {
       return price_;
     }
 
     private void initFields() {
       configId_ = 0;
       number_ = 0;
-      price_ = 0;
+      price_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3571,7 +3571,7 @@ public final class User {
         output.writeInt32(2, number_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, price_);
+        output.writeDouble(3, price_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -3592,7 +3592,7 @@ public final class User {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, price_);
+          .computeDoubleSize(3, price_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3714,7 +3714,7 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000001);
         number_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        price_ = 0;
+        price_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -3906,10 +3906,10 @@ public final class User {
         return this;
       }
 
-      // optional int32 price = 3;
-      private int price_ ;
+      // optional double price = 3;
+      private double price_ ;
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 价格
@@ -3919,30 +3919,30 @@ public final class User {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 价格
        * </pre>
        */
-      public int getPrice() {
+      public double getPrice() {
         return price_;
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 价格
        * </pre>
        */
-      public Builder setPrice(int value) {
+      public Builder setPrice(double value) {
         bitField0_ |= 0x00000004;
         price_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 价格
@@ -3950,7 +3950,7 @@ public final class User {
        */
       public Builder clearPrice() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        price_ = 0;
+        price_ = 0D;
         onChanged();
         return this;
       }
@@ -4476,9 +4476,9 @@ public final class User {
      */
     int getContribution();
 
-    // optional int32 gold = 12;
+    // optional double gold = 12;
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
@@ -4486,13 +4486,13 @@ public final class User {
      */
     boolean hasGold();
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
      * </pre>
      */
-    int getGold();
+    double getGold();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetUserState}
@@ -4600,9 +4600,9 @@ public final class User {
               contribution_ = input.readInt32();
               break;
             }
-            case 96: {
+            case 97: {
               bitField0_ |= 0x00000800;
-              gold_ = input.readInt32();
+              gold_ = input.readDouble();
               break;
             }
           }
@@ -4909,11 +4909,11 @@ public final class User {
       return contribution_;
     }
 
-    // optional int32 gold = 12;
+    // optional double gold = 12;
     public static final int GOLD_FIELD_NUMBER = 12;
-    private int gold_;
+    private double gold_;
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
@@ -4923,13 +4923,13 @@ public final class User {
       return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
      * </pre>
      */
-    public int getGold() {
+    public double getGold() {
       return gold_;
     }
 
@@ -4945,7 +4945,7 @@ public final class User {
       speed_ = 0;
       intellect_ = 0;
       contribution_ = 0;
-      gold_ = 0;
+      gold_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4993,7 +4993,7 @@ public final class User {
         output.writeInt32(11, contribution_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(12, gold_);
+        output.writeDouble(12, gold_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -5050,7 +5050,7 @@ public final class User {
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, gold_);
+          .computeDoubleSize(12, gold_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -5190,7 +5190,7 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000200);
         contribution_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
-        gold_ = 0;
+        gold_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
@@ -5886,10 +5886,10 @@ public final class User {
         return this;
       }
 
-      // optional int32 gold = 12;
-      private int gold_ ;
+      // optional double gold = 12;
+      private double gold_ ;
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
@@ -5899,30 +5899,30 @@ public final class User {
         return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
        * </pre>
        */
-      public int getGold() {
+      public double getGold() {
         return gold_;
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
        * </pre>
        */
-      public Builder setGold(int value) {
+      public Builder setGold(double value) {
         bitField0_ |= 0x00000800;
         gold_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
@@ -5930,7 +5930,7 @@ public final class User {
        */
       public Builder clearGold() {
         bitField0_ = (bitField0_ & ~0x00000800);
-        gold_ = 0;
+        gold_ = 0D;
         onChanged();
         return this;
       }
@@ -6456,9 +6456,9 @@ public final class User {
      */
     int getContribution();
 
-    // optional int32 gold = 12;
+    // optional double gold = 12;
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
@@ -6466,13 +6466,13 @@ public final class User {
      */
     boolean hasGold();
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
      * </pre>
      */
-    int getGold();
+    double getGold();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetUserStateRegular}
@@ -6580,9 +6580,9 @@ public final class User {
               contribution_ = input.readInt32();
               break;
             }
-            case 96: {
+            case 97: {
               bitField0_ |= 0x00000800;
-              gold_ = input.readInt32();
+              gold_ = input.readDouble();
               break;
             }
           }
@@ -6889,11 +6889,11 @@ public final class User {
       return contribution_;
     }
 
-    // optional int32 gold = 12;
+    // optional double gold = 12;
     public static final int GOLD_FIELD_NUMBER = 12;
-    private int gold_;
+    private double gold_;
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
@@ -6903,13 +6903,13 @@ public final class User {
       return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional int32 gold = 12;</code>
+     * <code>optional double gold = 12;</code>
      *
      * <pre>
      * 黄金
      * </pre>
      */
-    public int getGold() {
+    public double getGold() {
       return gold_;
     }
 
@@ -6925,7 +6925,7 @@ public final class User {
       speed_ = 0;
       intellect_ = 0;
       contribution_ = 0;
-      gold_ = 0;
+      gold_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -6973,7 +6973,7 @@ public final class User {
         output.writeInt32(11, contribution_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(12, gold_);
+        output.writeDouble(12, gold_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -7030,7 +7030,7 @@ public final class User {
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, gold_);
+          .computeDoubleSize(12, gold_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -7170,7 +7170,7 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000200);
         contribution_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
-        gold_ = 0;
+        gold_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
@@ -7866,10 +7866,10 @@ public final class User {
         return this;
       }
 
-      // optional int32 gold = 12;
-      private int gold_ ;
+      // optional double gold = 12;
+      private double gold_ ;
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
@@ -7879,30 +7879,30 @@ public final class User {
         return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
        * </pre>
        */
-      public int getGold() {
+      public double getGold() {
         return gold_;
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
        * </pre>
        */
-      public Builder setGold(int value) {
+      public Builder setGold(double value) {
         bitField0_ |= 0x00000800;
         gold_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold = 12;</code>
+       * <code>optional double gold = 12;</code>
        *
        * <pre>
        * 黄金
@@ -7910,7 +7910,7 @@ public final class User {
        */
       public Builder clearGold() {
         bitField0_ = (bitField0_ & ~0x00000800);
-        gold_ = 0;
+        gold_ = 0D;
         onChanged();
         return this;
       }
@@ -7965,9 +7965,9 @@ public final class User {
      */
     int getNumber();
 
-    // optional int32 price = 3;
+    // optional double price = 3;
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 单价
@@ -7975,13 +7975,13 @@ public final class User {
      */
     boolean hasPrice();
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 单价
      * </pre>
      */
-    int getPrice();
+    double getPrice();
 
     // optional double taxRate = 4;
     /**
@@ -8062,9 +8062,9 @@ public final class User {
               number_ = input.readInt32();
               break;
             }
-            case 24: {
+            case 25: {
               bitField0_ |= 0x00000004;
-              price_ = input.readInt32();
+              price_ = input.readDouble();
               break;
             }
             case 33: {
@@ -8160,11 +8160,11 @@ public final class User {
       return number_;
     }
 
-    // optional int32 price = 3;
+    // optional double price = 3;
     public static final int PRICE_FIELD_NUMBER = 3;
-    private int price_;
+    private double price_;
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 单价
@@ -8174,13 +8174,13 @@ public final class User {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 单价
      * </pre>
      */
-    public int getPrice() {
+    public double getPrice() {
       return price_;
     }
 
@@ -8211,7 +8211,7 @@ public final class User {
     private void initFields() {
       configId_ = 0;
       number_ = 0;
-      price_ = 0;
+      price_ = 0D;
       taxRate_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
@@ -8233,7 +8233,7 @@ public final class User {
         output.writeInt32(2, number_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, price_);
+        output.writeDouble(3, price_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeDouble(4, taxRate_);
@@ -8257,7 +8257,7 @@ public final class User {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, price_);
+          .computeDoubleSize(3, price_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8383,7 +8383,7 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000001);
         number_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        price_ = 0;
+        price_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000004);
         taxRate_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -8584,10 +8584,10 @@ public final class User {
         return this;
       }
 
-      // optional int32 price = 3;
-      private int price_ ;
+      // optional double price = 3;
+      private double price_ ;
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 单价
@@ -8597,30 +8597,30 @@ public final class User {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 单价
        * </pre>
        */
-      public int getPrice() {
+      public double getPrice() {
         return price_;
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 单价
        * </pre>
        */
-      public Builder setPrice(int value) {
+      public Builder setPrice(double value) {
         bitField0_ |= 0x00000004;
         price_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 单价
@@ -8628,7 +8628,7 @@ public final class User {
        */
       public Builder clearPrice() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        price_ = 0;
+        price_ = 0D;
         onChanged();
         return this;
       }
@@ -8714,9 +8714,9 @@ public final class User {
      */
     boolean getIsChange();
 
-    // optional int32 gold = 2;
+    // optional double gold = 2;
     /**
-     * <code>optional int32 gold = 2;</code>
+     * <code>optional double gold = 2;</code>
      *
      * <pre>
      * 获得金币
@@ -8724,13 +8724,13 @@ public final class User {
      */
     boolean hasGold();
     /**
-     * <code>optional int32 gold = 2;</code>
+     * <code>optional double gold = 2;</code>
      *
      * <pre>
      * 获得金币
      * </pre>
      */
-    int getGold();
+    double getGold();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCSellGoods}
@@ -8788,9 +8788,9 @@ public final class User {
               isChange_ = input.readBool();
               break;
             }
-            case 16: {
+            case 17: {
               bitField0_ |= 0x00000002;
-              gold_ = input.readInt32();
+              gold_ = input.readDouble();
               break;
             }
           }
@@ -8857,11 +8857,11 @@ public final class User {
       return isChange_;
     }
 
-    // optional int32 gold = 2;
+    // optional double gold = 2;
     public static final int GOLD_FIELD_NUMBER = 2;
-    private int gold_;
+    private double gold_;
     /**
-     * <code>optional int32 gold = 2;</code>
+     * <code>optional double gold = 2;</code>
      *
      * <pre>
      * 获得金币
@@ -8871,19 +8871,19 @@ public final class User {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 gold = 2;</code>
+     * <code>optional double gold = 2;</code>
      *
      * <pre>
      * 获得金币
      * </pre>
      */
-    public int getGold() {
+    public double getGold() {
       return gold_;
     }
 
     private void initFields() {
       isChange_ = false;
-      gold_ = 0;
+      gold_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -8901,7 +8901,7 @@ public final class User {
         output.writeBool(1, isChange_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, gold_);
+        output.writeDouble(2, gold_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -8918,7 +8918,7 @@ public final class User {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, gold_);
+          .computeDoubleSize(2, gold_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -9038,7 +9038,7 @@ public final class User {
         super.clear();
         isChange_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
-        gold_ = 0;
+        gold_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -9174,10 +9174,10 @@ public final class User {
         return this;
       }
 
-      // optional int32 gold = 2;
-      private int gold_ ;
+      // optional double gold = 2;
+      private double gold_ ;
       /**
-       * <code>optional int32 gold = 2;</code>
+       * <code>optional double gold = 2;</code>
        *
        * <pre>
        * 获得金币
@@ -9187,30 +9187,30 @@ public final class User {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 gold = 2;</code>
+       * <code>optional double gold = 2;</code>
        *
        * <pre>
        * 获得金币
        * </pre>
        */
-      public int getGold() {
+      public double getGold() {
         return gold_;
       }
       /**
-       * <code>optional int32 gold = 2;</code>
+       * <code>optional double gold = 2;</code>
        *
        * <pre>
        * 获得金币
        * </pre>
        */
-      public Builder setGold(int value) {
+      public Builder setGold(double value) {
         bitField0_ |= 0x00000002;
         gold_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold = 2;</code>
+       * <code>optional double gold = 2;</code>
        *
        * <pre>
        * 获得金币
@@ -9218,7 +9218,7 @@ public final class User {
        */
       public Builder clearGold() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        gold_ = 0;
+        gold_ = 0D;
         onChanged();
         return this;
       }
@@ -9273,9 +9273,9 @@ public final class User {
      */
     int getNumber();
 
-    // optional int32 price = 3;
+    // optional double price = 3;
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 单价
@@ -9283,13 +9283,13 @@ public final class User {
      */
     boolean hasPrice();
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 单价
      * </pre>
      */
-    int getPrice();
+    double getPrice();
 
     // optional double taxRate = 4;
     /**
@@ -9370,9 +9370,9 @@ public final class User {
               number_ = input.readInt32();
               break;
             }
-            case 24: {
+            case 25: {
               bitField0_ |= 0x00000004;
-              price_ = input.readInt32();
+              price_ = input.readDouble();
               break;
             }
             case 33: {
@@ -9468,11 +9468,11 @@ public final class User {
       return number_;
     }
 
-    // optional int32 price = 3;
+    // optional double price = 3;
     public static final int PRICE_FIELD_NUMBER = 3;
-    private int price_;
+    private double price_;
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 单价
@@ -9482,13 +9482,13 @@ public final class User {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int32 price = 3;</code>
+     * <code>optional double price = 3;</code>
      *
      * <pre>
      * 单价
      * </pre>
      */
-    public int getPrice() {
+    public double getPrice() {
       return price_;
     }
 
@@ -9519,7 +9519,7 @@ public final class User {
     private void initFields() {
       configId_ = 0;
       number_ = 0;
-      price_ = 0;
+      price_ = 0D;
       taxRate_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
@@ -9541,7 +9541,7 @@ public final class User {
         output.writeInt32(2, number_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, price_);
+        output.writeDouble(3, price_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeDouble(4, taxRate_);
@@ -9565,7 +9565,7 @@ public final class User {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, price_);
+          .computeDoubleSize(3, price_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
@@ -9691,7 +9691,7 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000001);
         number_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        price_ = 0;
+        price_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000004);
         taxRate_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -9892,10 +9892,10 @@ public final class User {
         return this;
       }
 
-      // optional int32 price = 3;
-      private int price_ ;
+      // optional double price = 3;
+      private double price_ ;
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 单价
@@ -9905,30 +9905,30 @@ public final class User {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 单价
        * </pre>
        */
-      public int getPrice() {
+      public double getPrice() {
         return price_;
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 单价
        * </pre>
        */
-      public Builder setPrice(int value) {
+      public Builder setPrice(double value) {
         bitField0_ |= 0x00000004;
         price_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 price = 3;</code>
+       * <code>optional double price = 3;</code>
        *
        * <pre>
        * 单价
@@ -9936,7 +9936,7 @@ public final class User {
        */
       public Builder clearPrice() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        price_ = 0;
+        price_ = 0D;
         onChanged();
         return this;
       }
@@ -11853,24 +11853,24 @@ public final class User {
       "\"P\n\014UserResource\022@\n\rresourceInfos\030\001 \003(\0132" +
       ").com.game.framework.protocol.ResourceIn",
       "fo\"?\n\014ResourceInfo\022\020\n\010configId\030\001 \001(\005\022\016\n\006" +
-      "number\030\002 \001(\005\022\r\n\005price\030\003 \001(\005\"\021\n\017TCSGetUse" +
+      "number\030\002 \001(\005\022\r\n\005price\030\003 \001(\001\"\021\n\017TCSGetUse" +
       "rState\"\321\001\n\017TSCGetUserState\022\r\n\005blood\030\001 \001(" +
       "\005\022\014\n\004food\030\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006health" +
       "\030\004 \001(\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n\007" +
       "defense\030\007 \001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t " +
       "\001(\005\022\021\n\tintellect\030\n \001(\005\022\024\n\014contribution\030\013" +
-      " \001(\005\022\014\n\004gold\030\014 \001(\005\"\030\n\026TCSGetUserStateReg" +
+      " \001(\005\022\014\n\004gold\030\014 \001(\001\"\030\n\026TCSGetUserStateReg" +
       "ular\"\330\001\n\026TSCGetUserStateRegular\022\r\n\005blood" +
       "\030\001 \001(\005\022\014\n\004food\030\002 \001(\005\022\r\n\005water\030\003 \001(\005\022\016\n\006h",
       "ealth\030\004 \001(\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(" +
       "\005\022\017\n\007defense\030\007 \001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005spe" +
       "ed\030\t \001(\005\022\021\n\tintellect\030\n \001(\005\022\024\n\014contribut" +
-      "ion\030\013 \001(\005\022\014\n\004gold\030\014 \001(\005\"P\n\014TCSSellGoods\022" +
+      "ion\030\013 \001(\005\022\014\n\004gold\030\014 \001(\001\"P\n\014TCSSellGoods\022" +
       "\020\n\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\022\r\n\005pri" +
-      "ce\030\003 \001(\005\022\017\n\007taxRate\030\004 \001(\001\".\n\014TSCSellGood" +
-      "s\022\020\n\010isChange\030\001 \001(\010\022\014\n\004gold\030\002 \001(\005\"O\n\013TCS" +
+      "ce\030\003 \001(\001\022\017\n\007taxRate\030\004 \001(\001\".\n\014TSCSellGood" +
+      "s\022\020\n\010isChange\030\001 \001(\010\022\014\n\004gold\030\002 \001(\001\"O\n\013TCS" +
       "BuyGoods\022\020\n\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001" +
-      "(\005\022\r\n\005price\030\003 \001(\005\022\017\n\007taxRate\030\004 \001(\001\"0\n\013TS" +
+      "(\005\022\r\n\005price\030\003 \001(\001\022\017\n\007taxRate\030\004 \001(\001\"0\n\013TS" +
       "CBuyGoods\022\020\n\010isChange\030\001 \001(\010\022\017\n\007isLimit\030\002",
       " \001(\010\"\016\n\014TCSGetPrices\"a\n\014TSCGetPrices\022@\n\r" +
       "resourceInfos\030\001 \003(\0132).com.game.framework" +

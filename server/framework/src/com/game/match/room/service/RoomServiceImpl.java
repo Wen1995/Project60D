@@ -165,7 +165,7 @@ public class RoomServiceImpl implements RoomService {
         user.setMood(playerAttrMap.get(10020001).getBeginNum());
         // TODO
         user.setElectricity(1000);
-        user.setGold(100);
+        user.setGold(100.0);
         
         PLAYER_ATTR attackAttr = playerAttrMap.get(12010001);
         user.setAttack(attackAttr.getBeginNum() + user.getHealth()*100/attackAttr.getAttrK1());

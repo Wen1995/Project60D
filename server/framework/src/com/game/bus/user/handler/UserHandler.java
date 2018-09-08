@@ -66,7 +66,7 @@ public class UserHandler {
 	@HandlerMethodMapping(cmd = Cmd.SELLGOODS_VALUE)
 	public void sellGoods(TPacket p) throws Exception {
 		TCSSellGoods msg = TCSSellGoods.parseFrom(p.getBuffer());
-		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		Integer price = msg.getPrice();		Double taxRate = msg.getTaxRate();		
+		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		Double price = msg.getPrice();		Double taxRate = msg.getTaxRate();		
 		TPacket resp = service.sellGoods(p.getUid(), configId, number, price, taxRate);
 		resp.setCmd(Cmd.SELLGOODS_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
@@ -76,7 +76,7 @@ public class UserHandler {
 	@HandlerMethodMapping(cmd = Cmd.BUYGOODS_VALUE)
 	public void buyGoods(TPacket p) throws Exception {
 		TCSBuyGoods msg = TCSBuyGoods.parseFrom(p.getBuffer());
-		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		Integer price = msg.getPrice();		Double taxRate = msg.getTaxRate();		
+		Integer configId = msg.getConfigId();		Integer number = msg.getNumber();		Double price = msg.getPrice();		Double taxRate = msg.getTaxRate();		
 		TPacket resp = service.buyGoods(p.getUid(), configId, number, price, taxRate);
 		resp.setCmd(Cmd.BUYGOODS_VALUE + 1000);
 		GateServer.GetInstance().send(resp);

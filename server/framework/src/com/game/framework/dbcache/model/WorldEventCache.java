@@ -31,25 +31,25 @@ public final class WorldEventCache {
      */
     int getConfigId();
 
-    // optional sint64 startTime = 3;
+    // optional int32 type = 3;
     /**
-     * <code>optional sint64 startTime = 3;</code>
+     * <code>optional int32 type = 3;</code>
      */
-    boolean hasStartTime();
+    boolean hasType();
     /**
-     * <code>optional sint64 startTime = 3;</code>
+     * <code>optional int32 type = 3;</code>
      */
-    long getStartTime();
+    int getType();
 
-    // optional sint64 endTime = 4;
+    // optional sint64 time = 4;
     /**
-     * <code>optional sint64 endTime = 4;</code>
+     * <code>optional sint64 time = 4;</code>
      */
-    boolean hasEndTime();
+    boolean hasTime();
     /**
-     * <code>optional sint64 endTime = 4;</code>
+     * <code>optional sint64 time = 4;</code>
      */
-    long getEndTime();
+    long getTime();
   }
   /**
    * Protobuf type {@code com.game.framework.dbcache.model.ProtoWorldEvent}
@@ -114,12 +114,12 @@ public final class WorldEventCache {
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              startTime_ = input.readSInt64();
+              type_ = input.readInt32();
               break;
             }
             case 32: {
               bitField0_ |= 0x00000008;
-              endTime_ = input.readSInt64();
+              time_ = input.readSInt64();
               break;
             }
           }
@@ -194,43 +194,43 @@ public final class WorldEventCache {
       return configId_;
     }
 
-    // optional sint64 startTime = 3;
-    public static final int STARTTIME_FIELD_NUMBER = 3;
-    private long startTime_;
+    // optional int32 type = 3;
+    public static final int TYPE_FIELD_NUMBER = 3;
+    private int type_;
     /**
-     * <code>optional sint64 startTime = 3;</code>
+     * <code>optional int32 type = 3;</code>
      */
-    public boolean hasStartTime() {
+    public boolean hasType() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional sint64 startTime = 3;</code>
+     * <code>optional int32 type = 3;</code>
      */
-    public long getStartTime() {
-      return startTime_;
+    public int getType() {
+      return type_;
     }
 
-    // optional sint64 endTime = 4;
-    public static final int ENDTIME_FIELD_NUMBER = 4;
-    private long endTime_;
+    // optional sint64 time = 4;
+    public static final int TIME_FIELD_NUMBER = 4;
+    private long time_;
     /**
-     * <code>optional sint64 endTime = 4;</code>
+     * <code>optional sint64 time = 4;</code>
      */
-    public boolean hasEndTime() {
+    public boolean hasTime() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional sint64 endTime = 4;</code>
+     * <code>optional sint64 time = 4;</code>
      */
-    public long getEndTime() {
-      return endTime_;
+    public long getTime() {
+      return time_;
     }
 
     private void initFields() {
       id_ = 0L;
       configId_ = 0;
-      startTime_ = 0L;
-      endTime_ = 0L;
+      type_ = 0;
+      time_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -251,10 +251,10 @@ public final class WorldEventCache {
         output.writeInt32(2, configId_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeSInt64(3, startTime_);
+        output.writeInt32(3, type_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeSInt64(4, endTime_);
+        output.writeSInt64(4, time_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -275,11 +275,11 @@ public final class WorldEventCache {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt64Size(3, startTime_);
+          .computeInt32Size(3, type_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt64Size(4, endTime_);
+          .computeSInt64Size(4, time_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -401,9 +401,9 @@ public final class WorldEventCache {
         bitField0_ = (bitField0_ & ~0x00000001);
         configId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        startTime_ = 0L;
+        type_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        endTime_ = 0L;
+        time_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
@@ -444,11 +444,11 @@ public final class WorldEventCache {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.startTime_ = startTime_;
+        result.type_ = type_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.endTime_ = endTime_;
+        result.time_ = time_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -471,11 +471,11 @@ public final class WorldEventCache {
         if (other.hasConfigId()) {
           setConfigId(other.getConfigId());
         }
-        if (other.hasStartTime()) {
-          setStartTime(other.getStartTime());
+        if (other.hasType()) {
+          setType(other.getType());
         }
-        if (other.hasEndTime()) {
-          setEndTime(other.getEndTime());
+        if (other.hasTime()) {
+          setTime(other.getTime());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -570,68 +570,68 @@ public final class WorldEventCache {
         return this;
       }
 
-      // optional sint64 startTime = 3;
-      private long startTime_ ;
+      // optional int32 type = 3;
+      private int type_ ;
       /**
-       * <code>optional sint64 startTime = 3;</code>
+       * <code>optional int32 type = 3;</code>
        */
-      public boolean hasStartTime() {
+      public boolean hasType() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional sint64 startTime = 3;</code>
+       * <code>optional int32 type = 3;</code>
        */
-      public long getStartTime() {
-        return startTime_;
+      public int getType() {
+        return type_;
       }
       /**
-       * <code>optional sint64 startTime = 3;</code>
+       * <code>optional int32 type = 3;</code>
        */
-      public Builder setStartTime(long value) {
+      public Builder setType(int value) {
         bitField0_ |= 0x00000004;
-        startTime_ = value;
+        type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional sint64 startTime = 3;</code>
+       * <code>optional int32 type = 3;</code>
        */
-      public Builder clearStartTime() {
+      public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        startTime_ = 0L;
+        type_ = 0;
         onChanged();
         return this;
       }
 
-      // optional sint64 endTime = 4;
-      private long endTime_ ;
+      // optional sint64 time = 4;
+      private long time_ ;
       /**
-       * <code>optional sint64 endTime = 4;</code>
+       * <code>optional sint64 time = 4;</code>
        */
-      public boolean hasEndTime() {
+      public boolean hasTime() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional sint64 endTime = 4;</code>
+       * <code>optional sint64 time = 4;</code>
        */
-      public long getEndTime() {
-        return endTime_;
+      public long getTime() {
+        return time_;
       }
       /**
-       * <code>optional sint64 endTime = 4;</code>
+       * <code>optional sint64 time = 4;</code>
        */
-      public Builder setEndTime(long value) {
+      public Builder setTime(long value) {
         bitField0_ |= 0x00000008;
-        endTime_ = value;
+        time_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional sint64 endTime = 4;</code>
+       * <code>optional sint64 time = 4;</code>
        */
-      public Builder clearEndTime() {
+      public Builder clearTime() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        endTime_ = 0L;
+        time_ = 0L;
         onChanged();
         return this;
       }
@@ -662,9 +662,9 @@ public final class WorldEventCache {
   static {
     java.lang.String[] descriptorData = {
       "\n\025WorldEventCache.proto\022 com.game.framew" +
-      "ork.dbcache.model\"S\n\017ProtoWorldEvent\022\n\n\002" +
-      "id\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022\021\n\tstartTime\030" +
-      "\003 \001(\022\022\017\n\007endTime\030\004 \001(\022B\002H\001"
+      "ork.dbcache.model\"K\n\017ProtoWorldEvent\022\n\n\002" +
+      "id\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022\014\n\004type\030\003 \001(\005" +
+      "\022\014\n\004time\030\004 \001(\022B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -676,7 +676,7 @@ public final class WorldEventCache {
           internal_static_com_game_framework_dbcache_model_ProtoWorldEvent_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_dbcache_model_ProtoWorldEvent_descriptor,
-              new java.lang.String[] { "Id", "ConfigId", "StartTime", "EndTime", });
+              new java.lang.String[] { "Id", "ConfigId", "Type", "Time", });
           return null;
         }
       };

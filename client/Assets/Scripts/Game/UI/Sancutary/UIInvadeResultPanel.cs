@@ -172,7 +172,6 @@ public class UIInvadeResultPanel : PanelBase {
 	void UpdatePlayerView(long uID, int blood)
 	{
 		int index = PlayerIndexMap[uID];
-		PlayerView view = playerViewList[index];
 		if(blood <= 20)
 		{
 			playerViewList[index].blood.value = 20f / (float)playerViewList[index].bloodMax;
@@ -185,7 +184,6 @@ public class UIInvadeResultPanel : PanelBase {
 	
 	void ShowResult(LossInfo info, out string resStr)
 	{
-		StringBuilder builder = new StringBuilder();
 		resStr = "战斗结果:\n\n";
 		if(info.Resource + info.Gold <= 0)
 		{

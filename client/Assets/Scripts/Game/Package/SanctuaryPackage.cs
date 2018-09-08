@@ -205,7 +205,6 @@ public class SanctuaryPackage : ModelBase {
             buildingCostList.Add(cost);
         }
         //res cost
-        ItemPackage itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
         for(int i=0;i<configData.CostTableCount;i++)
         {
             cost = new NCostDef();
@@ -696,11 +695,5 @@ public class SanctuaryPackage : ModelBase {
     public List<UpgradeEffect> GetBuildingUpgradeEffect()
     {
         return upgradeEffectList;
-    }
-    public void GenerateAnimation()
-    {
-        AnimationClip ani = new AnimationClip();
-        
-        
     }
 }

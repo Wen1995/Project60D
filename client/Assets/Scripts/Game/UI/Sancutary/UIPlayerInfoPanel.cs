@@ -134,7 +134,7 @@ public class UIPlayerInfoPanel : PanelBase {
 		moodLabel.text = state.mood.ToString();
 		loadLabel.text = "0";
 		float progress;
-		int level = userPackage.GetPlayerLevel(out progress);
+		userPackage.GetPlayerLevel(out progress);
 		expProgress.value = progress;
 		expLabel.text = string.Format("个人实力:{0}", userPackage.GetPersonContribution());
 	}

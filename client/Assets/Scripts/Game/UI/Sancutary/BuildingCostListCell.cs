@@ -44,6 +44,7 @@ public class BuildingCostListCell : NListCell {
 		else
 		{
 			ITEM_RES itemData = itemPackage.GetItemDataByConfigID(cost.configID);
+			if(itemData == null) return;
 			nameLabel.text = string.Format("{0}:", itemData.MinName);	
 			NItemInfo itemInfo = itemPackage.GetItemInfo(cost.configID);
 			valueLabel.text = string.Format("{0}/{1}", cost.value, itemInfo.number);

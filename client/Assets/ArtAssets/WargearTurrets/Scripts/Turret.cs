@@ -16,11 +16,15 @@ public class Turret : MonoBehaviour
 	public float pitchSpeed = 10;
 	
 	public float dampSpeed = 0.1f;
+
+	public float fireInterval = 1.0f;
+
+	public ParticleSystem[] fireEffects;
 	
 	float yawVelocity;
 	float pitchVelocity;
 	
-	
+	float timer = 0f;
  
 	void Reset() {
 		if (transform.childCount == 1) {
@@ -61,11 +65,28 @@ public class Turret : MonoBehaviour
 
 	void Update ()
 	{
+		if(timer < fireInterval)
+			timer += Time.deltaTime;
+
 		if (target == null || yaw == null || pitch == null)
 			return;
-        
+
+		//check if zombie is dead
+		if(target.tag != "Zombie")
+		{
+			target = null;
+			return;
+		}
+			
+
+		if(timer >= fireInterval)
+		{
+			timer = 0;
+			Fire();
+		}
+
 		if (enableYaw) {
-			var LE = Quaternion.LookRotation(target.position - yaw.position).eulerAngles;
+			var LE = Quaternion.LookRotation(yaw.position -target.position).eulerAngles;
 			var E = yaw.localEulerAngles;
 			E.z = Mathf.SmoothDampAngle (E.z, LE.y, ref yawVelocity, dampSpeed, yawSpeed);
 			yaw.localEulerAngles = E;
@@ -79,9 +100,34 @@ public class Turret : MonoBehaviour
 			}
 		}    
 	}
-	
-   
 
+	void Fire()
+	{
+		if(target == null) return;
+		//target.SendMessage("TakeDamage");
+		//play effect
+		for(int i=0;i<fireEffects.Length;i++)
+			fireEffects[i].Play();
+	}
 
- 
+	   private void OnCollisionEnter(Collision other) 
+   {
+	   if(other.gameObject.tag == "Zombie")
+	   {
+		   target = other.gameObject.transform;
+	   }
+	   		
+   }
+
+   private void OnCollisionStay(Collision other) 
+   {
+	   if(target != null) return;
+	   if(other.gameObject.tag == "Zombie")
+			target = other.gameObject.transform;   
+   }
+
+   private void OnCollisionExit(Collision other) 
+   {
+	   target = null;
+   }
 }

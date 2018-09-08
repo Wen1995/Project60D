@@ -19,7 +19,6 @@ public class GroupRankingListCell : NListCell {
 
 	public override void DrawCell(int index, int count = 0)
 	{
-		FogVolume volume;
 		base.DrawCell(index, count);
 		var dataList = userPackage.GetGroupInfoList();
 		if(index >= dataList.Count) return;

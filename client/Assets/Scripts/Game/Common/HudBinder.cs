@@ -18,7 +18,6 @@ public enum HudType
 
 public class HudBinder : MonoBehaviour {
 
-	GameObject targetGo = null;
 	Transform uirootTrans = null;
 	List<HudInfo> hudInfoList = new List<HudInfo>();
 
@@ -27,7 +26,6 @@ public class HudBinder : MonoBehaviour {
 	}
 	public void SetTarget(GameObject go, HudType type, NDictionary args = null)
 	{
-		targetGo = go;
 		HudInfo info = new HudInfo();
 		info.type = type;
 		info.args = args;

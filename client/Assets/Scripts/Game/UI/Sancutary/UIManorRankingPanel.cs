@@ -44,7 +44,6 @@ public class UIManorRankingPanel : PanelBase {
 	{
 		TSCGetGroupPageCount res = TSCGetGroupPageCount.ParseFrom(msg.mBtsData);
 		pageCountMax = res.PageCount;
-		NDictionary args = new NDictionary();
 		GetGroupRanking(1);
 	}
 

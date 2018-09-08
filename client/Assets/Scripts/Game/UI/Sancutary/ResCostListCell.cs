@@ -7,7 +7,7 @@ public class ResCostListCell : NListCell {
 	UILabel nameLabel = null;
 	UILabel valueLabel = null;
 
-	void Awake()
+	protected override void Awake()
 	{
 		nameLabel = transform.Find("name").GetComponent<UILabel>();
 		valueLabel = transform.Find("value").GetComponent<UILabel>();	

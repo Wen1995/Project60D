@@ -276,7 +276,6 @@ public class SSanctuaryController : SceneController
         sanctuaryPackage.CancelCraft(process.BuildingId);
         SendEvent("RefreshCraftPanel");
     }
-
     #endregion
 
 

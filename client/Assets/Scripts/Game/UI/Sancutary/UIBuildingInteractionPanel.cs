@@ -147,7 +147,6 @@ public class UIBuildingInteractionPanel : PanelBase{
 
     void OnUpgrade()
     {
-        NDictionary args = new NDictionary();
         NBuildingInfo buildingInfo = sanctuaryPackage.GetBuildingInfo(selectBuilding.BuildingID);
         if(sanctuaryPackage.GetBulidingLevelByConfigID(buildingInfo.configID) >= 20)
         {

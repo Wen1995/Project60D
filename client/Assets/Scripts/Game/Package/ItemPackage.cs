@@ -130,7 +130,6 @@ public class ItemPackage : ModelBase
         if(configData == null || configData.IfAvailable != 1)
             return;
         mItemEffectList.Clear();
-        ItemType type = GetItemTypeByConfigID(configID);
         if(configData.HasHpRec)
         {
             mItemEffectList.Add(new ItemEffect("回复血量", configData.HpRec.ToString()));
@@ -199,7 +198,6 @@ public class ItemPackage : ModelBase
         else
         {
             NItemInfo info = new NItemInfo(resInfo);
-            ITEM_RES itemData = GetItemDataByConfigID(resInfo.ConfigId);
             mItemInfoMap[info.configID] = info;
         }
     }

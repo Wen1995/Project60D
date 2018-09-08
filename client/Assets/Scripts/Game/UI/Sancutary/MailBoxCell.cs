@@ -10,7 +10,7 @@ public class MailBoxCell : NListCell {
 	MailPackage mailPackage = null;
 	GameObject pointGo = null;
 	// Use this for initialization
-	void Awake () {
+	protected override void Awake () {
 		nameLabel = transform.Find("title").GetComponent<UILabel>();
 		contentLabel = transform.Find("content").GetComponent<UILabel>();
 		pointGo = transform.Find("point").gameObject;

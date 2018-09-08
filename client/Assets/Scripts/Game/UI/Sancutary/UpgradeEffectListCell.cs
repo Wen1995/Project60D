@@ -9,7 +9,7 @@ public class UpgradeEffectListCell : NListCell {
 	UILabel nameLabel = null;
 
 	SanctuaryPackage sanctuaryPackage = null;
-	void Awake()
+	protected override void Awake()
 	{
 		preLabel = transform.Find("pre/value").GetComponent<UILabel>();
 		nextLabel = transform.Find("next/value").GetComponent<UILabel>();

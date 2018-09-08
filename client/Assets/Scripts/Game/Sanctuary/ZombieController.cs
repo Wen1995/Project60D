@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public enum ZombieState
 {
@@ -16,27 +17,38 @@ public class ZombieController : Controller, IPoolUnit
     Animation mAnimation = null;
     float mSpeed = 1f;
     ZombieState mState = ZombieState.Idle;
+    NavMeshAgent nav = null;
 
+    public Transform target;
+
+    //zombie data
+    int HP;
     void Start()
     {
-        mTarget = GameObject.Find("mainscene/buildings/gate").transform;
+        // mTarget = GameObject.Find("mainscene/buildings/gate").transform;
         mAnimation = GetComponent<Animation>();
+        nav = GetComponent<NavMeshAgent>();
+        nav.SetDestination(target.position);
+        HP = 3;
         InitView();
     }
 
     void FixedUpdate()
     {
-        if (Mathf.Abs(Vector3.Distance(transform.position, mTarget.position)) <= 1f)
-        {
+        // if (Mathf.Abs(Vector3.Distance(transform.position, mTarget.position)) <= 1f)
+        // {
+        //     ChangeState(ZombieState.Attack);
+        // }
+        // else
+        // {
+        //     transform.LookAt(mTarget);
+        //     Vector3 dir = (transform.position - mTarget.position).normalized;
+        //     transform.Translate(dir * Time.deltaTime * mSpeed);
+        //     //transform.Translate((transform.position - mTarget.position).normalized * Time.deltaTime * mSpeed);
+        // }
+
+        if(Vector3.SqrMagnitude(transform.position - target.position) <= 30)
             ChangeState(ZombieState.Attack);
-        }
-        else
-        {
-            transform.LookAt(mTarget);
-            Vector3 dir = (transform.position - mTarget.position).normalized;
-            transform.Translate(dir * Time.deltaTime * mSpeed);
-            //transform.Translate((transform.position - mTarget.position).normalized * Time.deltaTime * mSpeed);
-        }
     }
 
     public void SetTarget(Transform target)
@@ -76,6 +88,28 @@ public class ZombieController : Controller, IPoolUnit
                 }
         }
     }
+
+    void TakeDamage()
+    {
+        HP--;
+        if(HP <= 0)
+            Dead();
+    }
+
+    void Dead()
+    {
+        gameObject.tag = "Untagged";
+        ChangeState(ZombieState.Dead);
+        nav.isStopped = true;
+        Invoke("DestroySelf", 2.0f);
+    }
+
+    void DestroySelf()
+    {
+        Destroy(this);
+    }
+
+
 
     #region IPoolUnit member
     protected UnitState mPoolState;

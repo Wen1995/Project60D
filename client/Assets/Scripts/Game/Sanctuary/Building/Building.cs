@@ -23,7 +23,6 @@ public class Building : Controller {
     private SanctuaryPackage mSanctuaryPackage = null;
 
     GameObject buildingGo = null;
-    GameObject lockGo = null;
 
     public long BuildingID
     { get { return buildingID; } }
@@ -82,7 +81,6 @@ public class Building : Controller {
         else
         {
             info.building.gameObject.SetActive(true);
-            BuildingFunc funcType = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
             if(info.upgradeFinishTime > 0 && GlobalFunction.GetRemainTime(info.upgradeFinishTime, out remainTime))
             {    
                 mState = BuildingState.Upgrade;
@@ -145,7 +143,7 @@ public class Building : Controller {
         buildingGo.transform.parent = transform;
         buildingGo.transform.localPosition = Vector3.zero;
         buildingGo.transform.localRotation = Quaternion.identity;
-        HudBinder binder = buildingGo.AddComponent<HudBinder>();
+        buildingGo.AddComponent<HudBinder>();
         NEventListener listener = buildingGo.AddComponent<NEventListener>();
         listener.AddClick(OnClick);
     }

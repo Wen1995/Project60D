@@ -7,7 +7,7 @@ public class BuildingInfoListCell : NListCell {
 	UILabel nameLabel = null;
 	UILabel valueLabel = null;
 	SanctuaryPackage sanctuaryPackage = null;
-	void Awake()
+	protected override void Awake()
 	{
 		sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
 		nameLabel = transform.Find("title").GetComponent<UILabel>();

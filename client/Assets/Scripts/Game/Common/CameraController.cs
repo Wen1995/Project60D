@@ -8,7 +8,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    Camera camera;
     public Vector2 movingArea;
     public float zoomArea;
     public float dragSpeed;
@@ -43,7 +42,6 @@ public class CameraController : MonoBehaviour {
     {
         cameraOrigin = transform.position;
         layerMask = LayerMask.GetMask("Building");
-        camera = GetComponent<Camera>();
     }
 
     private void Update()

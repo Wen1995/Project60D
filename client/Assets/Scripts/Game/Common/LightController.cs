@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class LightController : MonoBehaviour {
 	
-	Light light = null;
+	Light mLight = null;
 
 	private void Awake() {
-		light = GetComponent<Light>();
+		mLight = GetComponent<Light>();
 		if(IsDayTime())
-			light.color = new Color((float)0xBF / 255f , (float)0xAA / 255f, (float)0x40 / 255f, 1f);
+			mLight.color = new Color((float)0xBF / 255f , (float)0xAA / 255f, (float)0x40 / 255f, 1f);
 		else
-			light.color = new Color(0, 0, 0, 1);
+			mLight.color = new Color(0, 0, 0, 1);
 	}
 
 	//check if is day time via local date

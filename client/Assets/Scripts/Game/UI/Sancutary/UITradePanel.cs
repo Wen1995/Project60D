@@ -114,8 +114,6 @@ public class UITradePanel : PanelBase {
 		curPriceLabel.text = ((float)info.price / 1000).ToString(); 
 		avgPriceLabel.text = "0";
 		taxLabel.text = string.Format("{0}%", (int)(itemPackage.GetTaxRate() * 100));
-		//taxLabel.text = itemPackage
-		taxLabel.text = "5%";
 		nameLabel.text = itemConfig.MinName;
 		curNum = 0;
 		if(itemConfig.GoldConv >= 1000)

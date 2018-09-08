@@ -146,9 +146,10 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETGROUPRANKING, msg.ToByteArray());
     }
 
-    public void RPCGetItemTradeInfo(NDictionary args)
+    public void RPCGetItemTradeInfo()
     {
-        if(args == null) return;
+        TCSGetPrices msg = TCSGetPrices.CreateBuilder().Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETPRICES, msg.ToByteArray());
     }
 
     public void RPCSellItem(NDictionary args)

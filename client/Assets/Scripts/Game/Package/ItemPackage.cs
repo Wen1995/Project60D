@@ -8,15 +8,25 @@ public class NItemInfo
 {
     public int configID;
     public int number;
+    public int price;
+    public int buyLimit;
     public NItemInfo(ResourceInfo resInfo)
     {
         configID = resInfo.ConfigId;
         number = resInfo.Number;
+        price = resInfo.Price;
     }
     public NItemInfo()
     {
         configID = 0;
         number = 0;
+    }
+
+    public void Refresh(ResourceInfo info)
+    {
+        configID = info.ConfigId;
+        number = info.Number;
+        price = info.Price;
     }
 }
 
@@ -66,6 +76,7 @@ public class ItemPackage : ModelBase
     NItemInfo selectionItem = null;
     private int elecNum;
     private int goldNum;
+    private double taxRate;
     public ITEM_RES GetItemDataByConfigID(int configID)
     {
         var itemConfigTable = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
@@ -205,6 +216,11 @@ public class ItemPackage : ModelBase
     {
         return selectionItem;
     }
+
+    public double GetTaxRate()
+    {
+        return taxRate;
+    }
     #endregion
 
     #region Set Data
@@ -233,6 +249,13 @@ public class ItemPackage : ModelBase
         for(int i=0;i<msg.ResourceInfosCount;i++)
             AddItem(msg.GetResourceInfos(i));
         elecNum = msg.Electricity;
+    }
+
+    public void SetResourceInfo(TSCGetPrices msg)
+    {
+        for(int i=0;i<msg.ResourceInfosCount;i++)
+            AddItem(msg.GetResourceInfos(i));
+        taxRate = msg.TaxRate;
     }
 
     public void SetGoldNum(int number)

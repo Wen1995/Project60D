@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using com.game.framework.protocol;
 using com.game.framework.resource.data;
 using UnityEngine;
 
@@ -58,19 +59,27 @@ public class UITradePanel : PanelBase {
 		FacadeSingleton.Instance.RegisterEvent("TradeSelecItem", OnSelectItem);
 
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
+		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPRICES, OnGetPrice);
 		base.Awake();
 	}
 
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
-		InitView();
+		FacadeSingleton.Instance.InvokeService("RPCGetItemTradeInfo", ConstVal.Package_Sanctuary);
 	}
 
 	public override void ClosePanel()
 	{
 		StopCoroutine(RefreshDate());
 		base.ClosePanel();
+	}
+
+	void OnGetPrice(NetMsgDef msg)
+	{
+		TSCGetPrices res = TSCGetPrices.ParseFrom(msg.mBtsData);
+		itemPackage.SetResourceInfo(res);
+		InitView();
 	}
 
 	void InitView()
@@ -95,12 +104,17 @@ public class UITradePanel : PanelBase {
 		RefreshItemInfo();
 	}
 
+	
+
 	void RefreshItemInfo()
 	{
 		if(selectionItem == null) return;
+		NItemInfo info = itemPackage.GetSelectionItem();
 		ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(selectionItem.configID);
-		curPriceLabel.text = ((float)itemConfig.GoldConv / 1000).ToString(); 
+		curPriceLabel.text = ((float)info.price / 1000).ToString(); 
 		avgPriceLabel.text = "0";
+		taxLabel.text = string.Format("{0}%", (int)(itemPackage.GetTaxRate() * 100));
+		//taxLabel.text = itemPackage
 		taxLabel.text = "5%";
 		nameLabel.text = itemConfig.MinName;
 		curNum = 0;
@@ -109,7 +123,6 @@ public class UITradePanel : PanelBase {
 		else
 			ratio = 1000 / itemConfig.GoldConv;
 
-		
 		UpdateNum();
 	}
 
@@ -126,6 +139,7 @@ public class UITradePanel : PanelBase {
 	void OnSellItem()
 	{
 		//TODO
+
 	}
 
 	void OnBuyItem()

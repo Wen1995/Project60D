@@ -50,6 +50,7 @@ public class UITradePanel : PanelBase {
 		button.onClick.Add(new EventDelegate(OnTab2));
 
 		FacadeSingleton.Instance.RegisterEvent("TradeSelecItem", OnSelectItem);
+		FacadeSingleton.Instance.RegisterEvent("RefreshItem", RefreshView);
 
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPRICES, OnGetPrice);
@@ -99,6 +100,13 @@ public class UITradePanel : PanelBase {
 		StartCoroutine(RefreshDate());
 	}
 
+	void RefreshView(NDictionary data = null)
+	{
+		tableView.TableChange();
+		RefreshItemInfo();
+		RefreshResinfo();
+	}
+
 	void RefreshResinfo()
 	{
 		resNumLabel.text = itemPackage.GetResourceTotolNumber().ToString();
@@ -111,7 +119,6 @@ public class UITradePanel : PanelBase {
 		if(info == null)  return;
 		selectionItem = info;
 		RefreshItemInfo();
-		RefreshBuyLimit();
 	}
 
 	void RefreshItemInfo()
@@ -122,6 +129,7 @@ public class UITradePanel : PanelBase {
 		avgPriceLabel.text = "0";
 		taxLabel.text = string.Format("{0}%", itemPackage.GetTaxRate() * 100);
 		nameLabel.text = itemConfig.MinName;
+		RefreshBuyLimit();
 	}
 
 	IEnumerator RefreshDate()
@@ -169,8 +177,6 @@ public class UITradePanel : PanelBase {
 		print(res.IsChange);
 		print(res.IsLimit);
 	}
-
-
 
 	void Close()
 	{

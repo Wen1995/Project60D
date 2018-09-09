@@ -151,24 +151,21 @@ public class SSanctuaryController : SceneController
         TSCGetResourceInfo resInfos = TSCGetResourceInfo.ParseFrom(msg.mBtsData);
         itemPackage.SetResourceInfo(resInfos);
         SendEvent("RefreshUserState");
+        SendEvent("RefreshItem");
     }
 
     void OnGetUserState(NetMsgDef msg)
     {
-        //print("get user state");
         TSCGetUserState userState = TSCGetUserState.ParseFrom(msg.mBtsData);
         userPackage.SetPlayerState(userState);  
-        itemPackage.SetGoldNum(userState.Gold);
         BuildSanctuary();
         InitManor();
-        //SendEvent("RefreshUserState"); 
     }
 
     void OnGetUserStateRegular(NetMsgDef msg)
     {
         TSCGetUserStateRegular userState = TSCGetUserStateRegular.ParseFrom(msg.mBtsData);
         userPackage.SetPlayerState(userState);
-        itemPackage.SetGoldNum(userState.Gold);
         SendEvent("RefreshUserState");
     }
 

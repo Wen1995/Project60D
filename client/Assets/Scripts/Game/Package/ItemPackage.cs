@@ -260,6 +260,7 @@ public class ItemPackage : ModelBase
         for(int i=0;i<msg.ResourceInfosCount;i++)
             AddItem(msg.GetResourceInfos(i));
         elecNum = msg.Electricity;
+        goldNum = msg.Gold;
     }
 
     public void SetPrice(TSCGetPrices msg)

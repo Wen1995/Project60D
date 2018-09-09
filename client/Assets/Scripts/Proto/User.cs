@@ -296,8 +296,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetResourceInfo : pb::GeneratedMessageLite<TSCGetResourceInfo, TSCGetResourceInfo.Builder> {
     private TSCGetResourceInfo() { }
     private static readonly TSCGetResourceInfo defaultInstance = new TSCGetResourceInfo().MakeReadOnly();
-    private static readonly string[] _tSCGetResourceInfoFieldNames = new string[] { "electricity", "resourceInfos" };
-    private static readonly uint[] _tSCGetResourceInfoFieldTags = new uint[] { 16, 10 };
+    private static readonly string[] _tSCGetResourceInfoFieldNames = new string[] { "electricity", "gold", "resourceInfos" };
+    private static readonly uint[] _tSCGetResourceInfoFieldTags = new uint[] { 16, 25, 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -345,6 +345,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int GoldFieldNumber = 3;
+    private bool hasGold;
+    private double gold_;
+    public bool HasGold {
+      get { return hasGold; }
+    }
+    public double Gold {
+      get { return gold_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -360,10 +373,13 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _tSCGetResourceInfoFieldNames;
       if (resourceInfos_.Count > 0) {
-        output.WriteMessageArray(1, field_names[1], resourceInfos_);
+        output.WriteMessageArray(1, field_names[2], resourceInfos_);
       }
       if (hasElectricity) {
         output.WriteInt32(2, field_names[0], Electricity);
+      }
+      if (hasGold) {
+        output.WriteDouble(3, field_names[1], Gold);
       }
     }
     
@@ -383,6 +399,9 @@ namespace com.game.framework.protocol {
         if (hasElectricity) {
           size += pb::CodedOutputStream.ComputeInt32Size(2, Electricity);
         }
+        if (hasGold) {
+          size += pb::CodedOutputStream.ComputeDoubleSize(3, Gold);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -394,6 +413,7 @@ namespace com.game.framework.protocol {
       foreach(global::com.game.framework.protocol.ResourceInfo i in resourceInfos_)
         hash ^= i.GetHashCode();
       if (hasElectricity) hash ^= electricity_.GetHashCode();
+      if (hasGold) hash ^= gold_.GetHashCode();
       return hash;
     }
     
@@ -404,6 +424,7 @@ namespace com.game.framework.protocol {
       for(int ix=0; ix < resourceInfos_.Count; ix++)
         if(!resourceInfos_[ix].Equals(other.resourceInfos_[ix])) return false;
       if (hasElectricity != other.hasElectricity || (hasElectricity && !electricity_.Equals(other.electricity_))) return false;
+      if (hasGold != other.hasGold || (hasGold && !gold_.Equals(other.gold_))) return false;
       return true;
     }
     
@@ -571,6 +592,9 @@ namespace com.game.framework.protocol {
         if (other.HasElectricity) {
           Electricity = other.Electricity;
         }
+        if (other.HasGold) {
+          Gold = other.Gold;
+        }
         return this;
       }
       
@@ -609,6 +633,10 @@ namespace com.game.framework.protocol {
             }
             case 16: {
               result.hasElectricity = input.ReadInt32(ref result.electricity_);
+              break;
+            }
+            case 25: {
+              result.hasGold = input.ReadDouble(ref result.gold_);
               break;
             }
           }
@@ -679,6 +707,26 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasElectricity = false;
         result.electricity_ = 0;
+        return this;
+      }
+      
+      public bool HasGold {
+        get { return result.hasGold; }
+      }
+      public double Gold {
+        get { return result.Gold; }
+        set { SetGold(value); }
+      }
+      public Builder SetGold(double value) {
+        PrepareBuilder();
+        result.hasGold = true;
+        result.gold_ = value;
+        return this;
+      }
+      public Builder ClearGold() {
+        PrepareBuilder();
+        result.hasGold = false;
+        result.gold_ = 0D;
         return this;
       }
     }
@@ -2400,8 +2448,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetUserState : pb::GeneratedMessageLite<TSCGetUserState, TSCGetUserState.Builder> {
     private TSCGetUserState() { }
     private static readonly TSCGetUserState defaultInstance = new TSCGetUserState().MakeReadOnly();
-    private static readonly string[] _tSCGetUserStateFieldNames = new string[] { "agile", "attack", "blood", "contribution", "defense", "food", "gold", "health", "intellect", "mood", "speed", "water" };
-    private static readonly uint[] _tSCGetUserStateFieldTags = new uint[] { 64, 48, 8, 88, 56, 16, 97, 32, 80, 40, 72, 24 };
+    private static readonly string[] _tSCGetUserStateFieldNames = new string[] { "agile", "attack", "blood", "contribution", "defense", "food", "health", "intellect", "mood", "speed", "water" };
+    private static readonly uint[] _tSCGetUserStateFieldTags = new uint[] { 64, 48, 8, 88, 56, 16, 32, 80, 40, 72, 24 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -2564,19 +2612,6 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int GoldFieldNumber = 12;
-    private bool hasGold;
-    private double gold_;
-    public bool HasGold {
-      get { return hasGold; }
-    }
-    public double Gold {
-      get { return gold_; }
-    }
-    
-    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -2598,13 +2633,13 @@ namespace com.game.framework.protocol {
         output.WriteInt32(2, field_names[5], Food);
       }
       if (hasWater) {
-        output.WriteInt32(3, field_names[11], Water);
+        output.WriteInt32(3, field_names[10], Water);
       }
       if (hasHealth) {
-        output.WriteInt32(4, field_names[7], Health);
+        output.WriteInt32(4, field_names[6], Health);
       }
       if (hasMood) {
-        output.WriteInt32(5, field_names[9], Mood);
+        output.WriteInt32(5, field_names[8], Mood);
       }
       if (hasAttack) {
         output.WriteInt32(6, field_names[1], Attack);
@@ -2616,16 +2651,13 @@ namespace com.game.framework.protocol {
         output.WriteInt32(8, field_names[0], Agile);
       }
       if (hasSpeed) {
-        output.WriteInt32(9, field_names[10], Speed);
+        output.WriteInt32(9, field_names[9], Speed);
       }
       if (hasIntellect) {
-        output.WriteInt32(10, field_names[8], Intellect);
+        output.WriteInt32(10, field_names[7], Intellect);
       }
       if (hasContribution) {
         output.WriteInt32(11, field_names[3], Contribution);
-      }
-      if (hasGold) {
-        output.WriteDouble(12, field_names[6], Gold);
       }
     }
     
@@ -2672,9 +2704,6 @@ namespace com.game.framework.protocol {
         if (hasContribution) {
           size += pb::CodedOutputStream.ComputeInt32Size(11, Contribution);
         }
-        if (hasGold) {
-          size += pb::CodedOutputStream.ComputeDoubleSize(12, Gold);
-        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -2694,7 +2723,6 @@ namespace com.game.framework.protocol {
       if (hasSpeed) hash ^= speed_.GetHashCode();
       if (hasIntellect) hash ^= intellect_.GetHashCode();
       if (hasContribution) hash ^= contribution_.GetHashCode();
-      if (hasGold) hash ^= gold_.GetHashCode();
       return hash;
     }
     
@@ -2712,7 +2740,6 @@ namespace com.game.framework.protocol {
       if (hasSpeed != other.hasSpeed || (hasSpeed && !speed_.Equals(other.speed_))) return false;
       if (hasIntellect != other.hasIntellect || (hasIntellect && !intellect_.Equals(other.intellect_))) return false;
       if (hasContribution != other.hasContribution || (hasContribution && !contribution_.Equals(other.contribution_))) return false;
-      if (hasGold != other.hasGold || (hasGold && !gold_.Equals(other.gold_))) return false;
       return true;
     }
     
@@ -2906,9 +2933,6 @@ namespace com.game.framework.protocol {
         if (other.HasContribution) {
           Contribution = other.Contribution;
         }
-        if (other.HasGold) {
-          Gold = other.Gold;
-        }
         return this;
       }
       
@@ -2983,10 +3007,6 @@ namespace com.game.framework.protocol {
             }
             case 88: {
               result.hasContribution = input.ReadInt32(ref result.contribution_);
-              break;
-            }
-            case 97: {
-              result.hasGold = input.ReadDouble(ref result.gold_);
               break;
             }
           }
@@ -3213,26 +3233,6 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasContribution = false;
         result.contribution_ = 0;
-        return this;
-      }
-      
-      public bool HasGold {
-        get { return result.hasGold; }
-      }
-      public double Gold {
-        get { return result.Gold; }
-        set { SetGold(value); }
-      }
-      public Builder SetGold(double value) {
-        PrepareBuilder();
-        result.hasGold = true;
-        result.gold_ = value;
-        return this;
-      }
-      public Builder ClearGold() {
-        PrepareBuilder();
-        result.hasGold = false;
-        result.gold_ = 0D;
         return this;
       }
     }
@@ -3512,8 +3512,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetUserStateRegular : pb::GeneratedMessageLite<TSCGetUserStateRegular, TSCGetUserStateRegular.Builder> {
     private TSCGetUserStateRegular() { }
     private static readonly TSCGetUserStateRegular defaultInstance = new TSCGetUserStateRegular().MakeReadOnly();
-    private static readonly string[] _tSCGetUserStateRegularFieldNames = new string[] { "agile", "attack", "blood", "contribution", "defense", "food", "gold", "health", "intellect", "mood", "speed", "water" };
-    private static readonly uint[] _tSCGetUserStateRegularFieldTags = new uint[] { 64, 48, 8, 88, 56, 16, 97, 32, 80, 40, 72, 24 };
+    private static readonly string[] _tSCGetUserStateRegularFieldNames = new string[] { "agile", "attack", "blood", "contribution", "defense", "food", "health", "intellect", "mood", "speed", "water" };
+    private static readonly uint[] _tSCGetUserStateRegularFieldTags = new uint[] { 64, 48, 8, 88, 56, 16, 32, 80, 40, 72, 24 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -3676,19 +3676,6 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int GoldFieldNumber = 12;
-    private bool hasGold;
-    private double gold_;
-    public bool HasGold {
-      get { return hasGold; }
-    }
-    public double Gold {
-      get { return gold_; }
-    }
-    
-    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -3710,13 +3697,13 @@ namespace com.game.framework.protocol {
         output.WriteInt32(2, field_names[5], Food);
       }
       if (hasWater) {
-        output.WriteInt32(3, field_names[11], Water);
+        output.WriteInt32(3, field_names[10], Water);
       }
       if (hasHealth) {
-        output.WriteInt32(4, field_names[7], Health);
+        output.WriteInt32(4, field_names[6], Health);
       }
       if (hasMood) {
-        output.WriteInt32(5, field_names[9], Mood);
+        output.WriteInt32(5, field_names[8], Mood);
       }
       if (hasAttack) {
         output.WriteInt32(6, field_names[1], Attack);
@@ -3728,16 +3715,13 @@ namespace com.game.framework.protocol {
         output.WriteInt32(8, field_names[0], Agile);
       }
       if (hasSpeed) {
-        output.WriteInt32(9, field_names[10], Speed);
+        output.WriteInt32(9, field_names[9], Speed);
       }
       if (hasIntellect) {
-        output.WriteInt32(10, field_names[8], Intellect);
+        output.WriteInt32(10, field_names[7], Intellect);
       }
       if (hasContribution) {
         output.WriteInt32(11, field_names[3], Contribution);
-      }
-      if (hasGold) {
-        output.WriteDouble(12, field_names[6], Gold);
       }
     }
     
@@ -3784,9 +3768,6 @@ namespace com.game.framework.protocol {
         if (hasContribution) {
           size += pb::CodedOutputStream.ComputeInt32Size(11, Contribution);
         }
-        if (hasGold) {
-          size += pb::CodedOutputStream.ComputeDoubleSize(12, Gold);
-        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -3806,7 +3787,6 @@ namespace com.game.framework.protocol {
       if (hasSpeed) hash ^= speed_.GetHashCode();
       if (hasIntellect) hash ^= intellect_.GetHashCode();
       if (hasContribution) hash ^= contribution_.GetHashCode();
-      if (hasGold) hash ^= gold_.GetHashCode();
       return hash;
     }
     
@@ -3824,7 +3804,6 @@ namespace com.game.framework.protocol {
       if (hasSpeed != other.hasSpeed || (hasSpeed && !speed_.Equals(other.speed_))) return false;
       if (hasIntellect != other.hasIntellect || (hasIntellect && !intellect_.Equals(other.intellect_))) return false;
       if (hasContribution != other.hasContribution || (hasContribution && !contribution_.Equals(other.contribution_))) return false;
-      if (hasGold != other.hasGold || (hasGold && !gold_.Equals(other.gold_))) return false;
       return true;
     }
     
@@ -4018,9 +3997,6 @@ namespace com.game.framework.protocol {
         if (other.HasContribution) {
           Contribution = other.Contribution;
         }
-        if (other.HasGold) {
-          Gold = other.Gold;
-        }
         return this;
       }
       
@@ -4095,10 +4071,6 @@ namespace com.game.framework.protocol {
             }
             case 88: {
               result.hasContribution = input.ReadInt32(ref result.contribution_);
-              break;
-            }
-            case 97: {
-              result.hasGold = input.ReadDouble(ref result.gold_);
               break;
             }
           }
@@ -4325,26 +4297,6 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasContribution = false;
         result.contribution_ = 0;
-        return this;
-      }
-      
-      public bool HasGold {
-        get { return result.hasGold; }
-      }
-      public double Gold {
-        get { return result.Gold; }
-        set { SetGold(value); }
-      }
-      public Builder SetGold(double value) {
-        PrepareBuilder();
-        result.hasGold = true;
-        result.gold_ = value;
-        return this;
-      }
-      public Builder ClearGold() {
-        PrepareBuilder();
-        result.hasGold = false;
-        result.gold_ = 0D;
         return this;
       }
     }

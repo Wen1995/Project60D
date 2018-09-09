@@ -10,6 +10,8 @@ message TSCGetResourceInfo {
 	repeated ResourceInfo resourceInfos = 1;
 	// 电力信息
 	optional int32 electricity = 2;
+	// 黄金
+	optional double gold = 3;
 }
 
 message TCSGetResourceInfoByConfigId {
@@ -61,8 +63,6 @@ message TSCGetUserState {
 	optional int32 intellect = 10;
 	// 贡献
 	optional int32 contribution = 11;
-	// 黄金
-	optional double gold = 12;
 }
 
 message TCSGetUserStateRegular {
@@ -91,8 +91,6 @@ message TSCGetUserStateRegular {
 	optional int32 intellect = 10;
 	// 贡献
 	optional int32 contribution = 11;
-	// 黄金
-	optional double gold = 12;
 }
 
 message TCSSellGoods {

@@ -51,6 +51,7 @@ public class UserServiceImpl implements UserService {
         TSCGetResourceInfo p = TSCGetResourceInfo.newBuilder()
                 .addAllResourceInfos(userResource.getResourceInfosList())
                 .setElectricity(user.getElectricity())
+                .setGold(user.getGold())
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
@@ -181,7 +182,7 @@ public class UserServiceImpl implements UserService {
                 .setMood(user.getMood()).setAttack(user.getAttack()).setDefense(user.getDefense())
                 .setAgile(user.getAgile()).setSpeed(user.getSpeed())
                 .setIntellect(user.getIntellect()).setContribution(user.getContribution())
-                .setGold(user.getGold()).build();
+                .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());
@@ -248,7 +249,7 @@ public class UserServiceImpl implements UserService {
                 .setMood(user.getMood()).setAttack(user.getAttack()).setDefense(user.getDefense())
                 .setAgile(user.getAgile()).setSpeed(user.getSpeed())
                 .setIntellect(user.getIntellect()).setContribution(user.getContribution())
-                .setGold(user.getGold()).build();
+                .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());

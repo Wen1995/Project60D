@@ -10,6 +10,7 @@ import com.game.framework.console.constant.Constant;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.resource.StaticDataManager;
+import com.game.framework.resource.data.ArithmeticCoefficientBytes.ARITHMETIC_COEFFICIENT;
 import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.game.framework.resource.data.PlayerLevelBytes.PLAYER_LEVEL;
 import com.game.framework.resource.data.WorldEventsBytes.WORLD_EVENTS;
@@ -50,10 +51,11 @@ public class UserUtil {
     }
     
     /**
-     * 税率系数
+     * 税率
      */
     public static double getTaxCoefficient() {
-        double probability = 1.0;
+        ARITHMETIC_COEFFICIENT arithmeticCoefficient = StaticDataManager.GetInstance().arithmeticCoefficientMap.get(30140000);
+        double probability = 1.0 * arithmeticCoefficient.getAcK1() / 100;
         long currentTime = System.currentTimeMillis();
         for (Map.Entry<Integer, Long> entry : DynamicDataManager.GetInstance().worldEventConfigId2HappenTime.entrySet()) {
             int congigId = entry.getKey();

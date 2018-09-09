@@ -14,7 +14,9 @@ import com.game.framework.dbcache.model.Group;
 import com.game.framework.dbcache.model.User;
 import com.game.framework.protocol.User.ResourceInfo;
 import com.game.framework.protocol.User.UserResource;
+import com.game.framework.resource.data.ItemResBytes.ITEM_RES;
 import com.game.framework.utils.StringUtil;
+import com.game.framework.utils.UserUtil;
 
 public class DynamicDataManager {
     private static final Logger logger = LoggerFactory.getLogger(DynamicDataManager.class);
@@ -65,6 +67,17 @@ public class DynamicDataManager {
                 groupId2InvadeTime.put(groupId, group.getInvadeTime().getTime());
             }
         }
+        for (Map.Entry<Integer, ITEM_RES> entry : StaticDataManager.GetInstance().itemResMap.entrySet()) {
+            Integer configId = entry.getKey();
+            ITEM_RES itemRes = StaticDataManager.GetInstance().itemResMap.get(configId);
+            double price = itemRes.getGoldConv() * 1.0 / 1000;
+            ResourceInfo r = ResourceInfo.newBuilder()
+                    .setConfigId(configId)
+                    .setPrice(price)
+                    .build();
+            resourceInfos.add(r);
+        }
+        taxRate = UserUtil.getTaxCoefficient();
         long endTime = System.currentTimeMillis();
         logger.info("loading data cost {}", (endTime - startTime));
     }

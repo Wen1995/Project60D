@@ -138,3 +138,10 @@ message TSCGetPrices {
 	// 税率
 	optional double taxRate = 2;
 }
+
+message TCSGetPurchase {
+
+}
+message TSCGetPurchase {
+	optional UserResource userResource = 1;
+}

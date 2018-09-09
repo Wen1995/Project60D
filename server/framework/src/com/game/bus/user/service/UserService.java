@@ -25,4 +25,7 @@ public interface UserService {
 
 	/** 商品价格 */
 	TPacket getPrices(Long uid) throws Exception;
+
+	/** 已买数量 */
+	TPacket getPurchase(Long uid) throws Exception;
 }

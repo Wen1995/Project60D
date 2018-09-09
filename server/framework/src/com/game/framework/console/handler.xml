@@ -39,6 +39,7 @@
 		<Handler model="User" method="sellGoods" description="卖出商品"/>
 		<Handler model="User" method="buyGoods" description="买商品"/>
 		<Handler model="User" method="getPrices" description="商品价格"/>
+		<Handler model="User" method="getPurchase" description="已买数量"/>
 	</HandlerGroup>
 	
 	<HandlerGroup name="Match" thread="1" clean="60">

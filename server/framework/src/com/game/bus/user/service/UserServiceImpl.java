@@ -19,6 +19,7 @@ import com.game.framework.protocol.User.ResourceInfo;
 import com.game.framework.protocol.User.TCSGetUserStateRegular;
 import com.game.framework.protocol.User.TSCBuyGoods;
 import com.game.framework.protocol.User.TSCGetPrices;
+import com.game.framework.protocol.User.TSCGetPurchase;
 import com.game.framework.protocol.User.TSCGetResourceInfo;
 import com.game.framework.protocol.User.TSCGetResourceInfoByConfigId;
 import com.game.framework.protocol.User.TSCGetUserState;
@@ -27,7 +28,6 @@ import com.game.framework.protocol.User.TSCSellGoods;
 import com.game.framework.protocol.User.UserResource;
 import com.game.framework.resource.DynamicDataManager;
 import com.game.framework.resource.StaticDataManager;
-import com.game.framework.resource.data.ArithmeticCoefficientBytes.ARITHMETIC_COEFFICIENT;
 import com.game.framework.resource.data.BuildingBytes.BUILDING;
 import com.game.framework.resource.data.ItemResBytes.ITEM_RES;
 import com.game.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
@@ -301,9 +301,7 @@ public class UserServiceImpl implements UserService {
                 rBuilder.setNumber(leftNumber);
                 userResourceBuilder.setResourceInfos(index, rBuilder.build());
             }
-            ARITHMETIC_COEFFICIENT arithmeticCoefficient = StaticDataManager.GetInstance().arithmeticCoefficientMap.get(30140000);
-            int K1 = arithmeticCoefficient.getAcK1();
-            gold = priceNow * number * (1 - K1 * taxCoff);
+            gold = priceNow * number * (1 - taxCoff);
             user.setResource(userResourceBuilder.build().toByteArray());
             user.setGold(user.getGold() + gold);
             userDao.update(user);
@@ -382,9 +380,7 @@ public class UserServiceImpl implements UserService {
                     }
                 }
                 if (storehouseCapacity > 0) {                   // 是否有足够的仓库资源
-                    ARITHMETIC_COEFFICIENT arithmeticCoefficient = StaticDataManager.GetInstance().arithmeticCoefficientMap.get(30140000);
-                    int K1 = arithmeticCoefficient.getAcK1();
-                    double leftGold = user.getGold() - priceNow * number * (1 + K1 * taxCoff);
+                    double leftGold = user.getGold() - priceNow * number * (1 + taxCoff);
                     if (leftGold > 0) {                         // 是否有足够的钱
                         ResourceInfo.Builder rBuilder;
                         if (resourceIndex == -1) {
@@ -433,6 +429,18 @@ public class UserServiceImpl implements UserService {
         TSCGetPrices p = TSCGetPrices.newBuilder()
                 .addAllResourceInfos(DynamicDataManager.GetInstance().resourceInfos)
                 .setTaxRate(DynamicDataManager.GetInstance().taxRate)
+                .build();
+        TPacket resp = new TPacket();
+        resp.setUid(uid);
+        resp.setBuffer(p.toByteArray());
+        return resp;
+    }
+
+    @Override
+    public TPacket getPurchase(Long uid) throws Exception {
+        UserResource userResource = DynamicDataManager.GetInstance().uid2Purchase.get(uid);
+        TSCGetPurchase p = TSCGetPurchase.newBuilder()
+                .setUserResource(userResource)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);

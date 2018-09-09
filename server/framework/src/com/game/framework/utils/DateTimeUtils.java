@@ -31,9 +31,21 @@ public class DateTimeUtils {
         return cal.getTime();
     }
     
-    public static Date getNextHour(Date date, int t) {
+    public static Date getNextHour(Date date) {
+        int t = 0;
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+        if (hour < 13 && hour >= 1) {
+            t = 13 - hour;
+        } else {
+            if (hour < 24) {
+                t = 25 - hour;
+            } else {
+                t = 1;
+            }
+        }
+        
         cal.add(Calendar.HOUR_OF_DAY, t);
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MINUTE, 0);

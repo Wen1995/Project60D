@@ -54,6 +54,7 @@ namespace com.game.framework.protocol {
     SELLGOODS = 91,
     BUYGOODS = 92,
     GETPRICES = 93,
+    GETPURCHASE = 94,
     SAVEMESSAGE = 101,
     GETPAGECOUNT = 102,
     GETPAGELIST = 103,

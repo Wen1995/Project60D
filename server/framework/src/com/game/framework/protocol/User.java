@@ -11753,6 +11753,822 @@ public final class User {
     // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetPrices)
   }
 
+  public interface TCSGetPurchaseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TCSGetPurchase}
+   */
+  public static final class TCSGetPurchase extends
+      com.google.protobuf.GeneratedMessage
+      implements TCSGetPurchaseOrBuilder {
+    // Use TCSGetPurchase.newBuilder() to construct.
+    private TCSGetPurchase(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TCSGetPurchase(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TCSGetPurchase defaultInstance;
+    public static TCSGetPurchase getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TCSGetPurchase getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TCSGetPurchase(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetPurchase_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetPurchase_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.User.TCSGetPurchase.class, com.game.framework.protocol.User.TCSGetPurchase.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TCSGetPurchase> PARSER =
+        new com.google.protobuf.AbstractParser<TCSGetPurchase>() {
+      public TCSGetPurchase parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TCSGetPurchase(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TCSGetPurchase> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.User.TCSGetPurchase parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TCSGetPurchase parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetPurchase parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TCSGetPurchase parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetPurchase parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetPurchase parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetPurchase parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetPurchase parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TCSGetPurchase parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TCSGetPurchase parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.User.TCSGetPurchase prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TCSGetPurchase}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.User.TCSGetPurchaseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetPurchase_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetPurchase_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.User.TCSGetPurchase.class, com.game.framework.protocol.User.TCSGetPurchase.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.User.TCSGetPurchase.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TCSGetPurchase_descriptor;
+      }
+
+      public com.game.framework.protocol.User.TCSGetPurchase getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.TCSGetPurchase.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.User.TCSGetPurchase build() {
+        com.game.framework.protocol.User.TCSGetPurchase result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.User.TCSGetPurchase buildPartial() {
+        com.game.framework.protocol.User.TCSGetPurchase result = new com.game.framework.protocol.User.TCSGetPurchase(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.User.TCSGetPurchase) {
+          return mergeFrom((com.game.framework.protocol.User.TCSGetPurchase)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.User.TCSGetPurchase other) {
+        if (other == com.game.framework.protocol.User.TCSGetPurchase.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.User.TCSGetPurchase parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.User.TCSGetPurchase) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TCSGetPurchase)
+    }
+
+    static {
+      defaultInstance = new TCSGetPurchase(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TCSGetPurchase)
+  }
+
+  public interface TSCGetPurchaseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional .com.game.framework.protocol.UserResource userResource = 1;
+    /**
+     * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+     */
+    boolean hasUserResource();
+    /**
+     * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+     */
+    com.game.framework.protocol.User.UserResource getUserResource();
+    /**
+     * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+     */
+    com.game.framework.protocol.User.UserResourceOrBuilder getUserResourceOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.game.framework.protocol.TSCGetPurchase}
+   */
+  public static final class TSCGetPurchase extends
+      com.google.protobuf.GeneratedMessage
+      implements TSCGetPurchaseOrBuilder {
+    // Use TSCGetPurchase.newBuilder() to construct.
+    private TSCGetPurchase(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TSCGetPurchase(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TSCGetPurchase defaultInstance;
+    public static TSCGetPurchase getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TSCGetPurchase getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSCGetPurchase(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.game.framework.protocol.User.UserResource.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = userResource_.toBuilder();
+              }
+              userResource_ = input.readMessage(com.game.framework.protocol.User.UserResource.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(userResource_);
+                userResource_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetPurchase_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetPurchase_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.framework.protocol.User.TSCGetPurchase.class, com.game.framework.protocol.User.TSCGetPurchase.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TSCGetPurchase> PARSER =
+        new com.google.protobuf.AbstractParser<TSCGetPurchase>() {
+      public TSCGetPurchase parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSCGetPurchase(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TSCGetPurchase> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional .com.game.framework.protocol.UserResource userResource = 1;
+    public static final int USERRESOURCE_FIELD_NUMBER = 1;
+    private com.game.framework.protocol.User.UserResource userResource_;
+    /**
+     * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+     */
+    public boolean hasUserResource() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+     */
+    public com.game.framework.protocol.User.UserResource getUserResource() {
+      return userResource_;
+    }
+    /**
+     * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+     */
+    public com.game.framework.protocol.User.UserResourceOrBuilder getUserResourceOrBuilder() {
+      return userResource_;
+    }
+
+    private void initFields() {
+      userResource_ = com.game.framework.protocol.User.UserResource.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, userResource_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, userResource_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.game.framework.protocol.User.TSCGetPurchase parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TSCGetPurchase parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetPurchase parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.framework.protocol.User.TSCGetPurchase parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetPurchase parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCGetPurchase parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetPurchase parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCGetPurchase parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.game.framework.protocol.User.TSCGetPurchase parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.game.framework.protocol.User.TSCGetPurchase parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.game.framework.protocol.User.TSCGetPurchase prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.game.framework.protocol.TSCGetPurchase}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.game.framework.protocol.User.TSCGetPurchaseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetPurchase_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetPurchase_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.framework.protocol.User.TSCGetPurchase.class, com.game.framework.protocol.User.TSCGetPurchase.Builder.class);
+      }
+
+      // Construct using com.game.framework.protocol.User.TSCGetPurchase.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getUserResourceFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (userResourceBuilder_ == null) {
+          userResource_ = com.game.framework.protocol.User.UserResource.getDefaultInstance();
+        } else {
+          userResourceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.framework.protocol.User.internal_static_com_game_framework_protocol_TSCGetPurchase_descriptor;
+      }
+
+      public com.game.framework.protocol.User.TSCGetPurchase getDefaultInstanceForType() {
+        return com.game.framework.protocol.User.TSCGetPurchase.getDefaultInstance();
+      }
+
+      public com.game.framework.protocol.User.TSCGetPurchase build() {
+        com.game.framework.protocol.User.TSCGetPurchase result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.game.framework.protocol.User.TSCGetPurchase buildPartial() {
+        com.game.framework.protocol.User.TSCGetPurchase result = new com.game.framework.protocol.User.TSCGetPurchase(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (userResourceBuilder_ == null) {
+          result.userResource_ = userResource_;
+        } else {
+          result.userResource_ = userResourceBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.framework.protocol.User.TSCGetPurchase) {
+          return mergeFrom((com.game.framework.protocol.User.TSCGetPurchase)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.framework.protocol.User.TSCGetPurchase other) {
+        if (other == com.game.framework.protocol.User.TSCGetPurchase.getDefaultInstance()) return this;
+        if (other.hasUserResource()) {
+          mergeUserResource(other.getUserResource());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.framework.protocol.User.TSCGetPurchase parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.framework.protocol.User.TSCGetPurchase) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional .com.game.framework.protocol.UserResource userResource = 1;
+      private com.game.framework.protocol.User.UserResource userResource_ = com.game.framework.protocol.User.UserResource.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.framework.protocol.User.UserResource, com.game.framework.protocol.User.UserResource.Builder, com.game.framework.protocol.User.UserResourceOrBuilder> userResourceBuilder_;
+      /**
+       * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+       */
+      public boolean hasUserResource() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+       */
+      public com.game.framework.protocol.User.UserResource getUserResource() {
+        if (userResourceBuilder_ == null) {
+          return userResource_;
+        } else {
+          return userResourceBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+       */
+      public Builder setUserResource(com.game.framework.protocol.User.UserResource value) {
+        if (userResourceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          userResource_ = value;
+          onChanged();
+        } else {
+          userResourceBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+       */
+      public Builder setUserResource(
+          com.game.framework.protocol.User.UserResource.Builder builderForValue) {
+        if (userResourceBuilder_ == null) {
+          userResource_ = builderForValue.build();
+          onChanged();
+        } else {
+          userResourceBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+       */
+      public Builder mergeUserResource(com.game.framework.protocol.User.UserResource value) {
+        if (userResourceBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              userResource_ != com.game.framework.protocol.User.UserResource.getDefaultInstance()) {
+            userResource_ =
+              com.game.framework.protocol.User.UserResource.newBuilder(userResource_).mergeFrom(value).buildPartial();
+          } else {
+            userResource_ = value;
+          }
+          onChanged();
+        } else {
+          userResourceBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+       */
+      public Builder clearUserResource() {
+        if (userResourceBuilder_ == null) {
+          userResource_ = com.game.framework.protocol.User.UserResource.getDefaultInstance();
+          onChanged();
+        } else {
+          userResourceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+       */
+      public com.game.framework.protocol.User.UserResource.Builder getUserResourceBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getUserResourceFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+       */
+      public com.game.framework.protocol.User.UserResourceOrBuilder getUserResourceOrBuilder() {
+        if (userResourceBuilder_ != null) {
+          return userResourceBuilder_.getMessageOrBuilder();
+        } else {
+          return userResource_;
+        }
+      }
+      /**
+       * <code>optional .com.game.framework.protocol.UserResource userResource = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.game.framework.protocol.User.UserResource, com.game.framework.protocol.User.UserResource.Builder, com.game.framework.protocol.User.UserResourceOrBuilder> 
+          getUserResourceFieldBuilder() {
+        if (userResourceBuilder_ == null) {
+          userResourceBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.game.framework.protocol.User.UserResource, com.game.framework.protocol.User.UserResource.Builder, com.game.framework.protocol.User.UserResourceOrBuilder>(
+                  userResource_,
+                  getParentForChildren(),
+                  isClean());
+          userResource_ = null;
+        }
+        return userResourceBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetPurchase)
+    }
+
+    static {
+      defaultInstance = new TSCGetPurchase(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.game.framework.protocol.TSCGetPurchase)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_game_framework_protocol_TCSGetResourceInfo_descriptor;
   private static
@@ -11833,6 +12649,16 @@ public final class User {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_game_framework_protocol_TSCGetPrices_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TCSGetPurchase_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TCSGetPurchase_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_game_framework_protocol_TSCGetPurchase_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_game_framework_protocol_TSCGetPurchase_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -11874,8 +12700,10 @@ public final class User {
       "CBuyGoods\022\020\n\010isChange\030\001 \001(\010\022\017\n\007isLimit\030\002",
       " \001(\010\"\016\n\014TCSGetPrices\"a\n\014TSCGetPrices\022@\n\r" +
       "resourceInfos\030\001 \003(\0132).com.game.framework" +
-      ".protocol.ResourceInfo\022\017\n\007taxRate\030\002 \001(\001B" +
-      "\002H\001"
+      ".protocol.ResourceInfo\022\017\n\007taxRate\030\002 \001(\001\"" +
+      "\020\n\016TCSGetPurchase\"Q\n\016TSCGetPurchase\022?\n\014u" +
+      "serResource\030\001 \001(\0132).com.game.framework.p" +
+      "rotocol.UserResourceB\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -11978,6 +12806,18 @@ public final class User {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetPrices_descriptor,
               new java.lang.String[] { "ResourceInfos", "TaxRate", });
+          internal_static_com_game_framework_protocol_TCSGetPurchase_descriptor =
+            getDescriptor().getMessageTypes().get(16);
+          internal_static_com_game_framework_protocol_TCSGetPurchase_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TCSGetPurchase_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_game_framework_protocol_TSCGetPurchase_descriptor =
+            getDescriptor().getMessageTypes().get(17);
+          internal_static_com_game_framework_protocol_TSCGetPurchase_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_game_framework_protocol_TSCGetPurchase_descriptor,
+              new java.lang.String[] { "UserResource", });
           return null;
         }
       };

@@ -16,6 +16,7 @@ import com.game.framework.protocol.User.TCSGetUserStateRegular;
 import com.game.framework.protocol.User.TCSSellGoods;
 import com.game.framework.protocol.User.TCSBuyGoods;
 import com.game.framework.protocol.User.TCSGetPrices;
+import com.game.framework.protocol.User.TCSGetPurchase;
 
 @HandlerMapping(group = HandlerConstant.HandlerGroup_Bus, module = HandlerConstant.Model_User)
 public class UserHandler {
@@ -89,6 +90,16 @@ public class UserHandler {
 		
 		TPacket resp = service.getPrices(p.getUid());
 		resp.setCmd(Cmd.GETPRICES_VALUE + 1000);
+		GateServer.GetInstance().send(resp);
+	}
+
+	/** 已买数量 */
+	@HandlerMethodMapping(cmd = Cmd.GETPURCHASE_VALUE)
+	public void getPurchase(TPacket p) throws Exception {
+		TCSGetPurchase msg = TCSGetPurchase.parseFrom(p.getBuffer());
+		
+		TPacket resp = service.getPurchase(p.getUid());
+		resp.setCmd(Cmd.GETPURCHASE_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}
 

@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Text;
 using com.game.framework.protocol;
 using com.game.framework.resource.data;
 using UnityEngine;
@@ -8,8 +11,6 @@ public class NItemInfo
 {
     public int configID;
     public int number;
-    public int price;
-    public int buyLimit;
     public NItemInfo(ResourceInfo resInfo)
     {
         configID = resInfo.ConfigId;
@@ -20,6 +21,12 @@ public class NItemInfo
         configID = 0;
         number = 0;
     }
+}
+
+public class NItemServerData
+{
+    public double price;
+    public int boughtNum;
 }
 
 //the value is used to filtering item
@@ -66,6 +73,7 @@ public class ItemPackage : ModelBase
     List<NItemInfo> mItemFilterInfoList = new List<NItemInfo>();
     List<ItemEffect> mItemEffectList = new List<ItemEffect>();
     Dictionary<int, double> mItmePriceMap = new Dictionary<int, double>();
+    Dictionary<int, NItemServerData> mItemServerData = new Dictionary<int, NItemServerData>();
     NItemInfo selectionItem = null;
     private int elecNum;
     private double goldNum;
@@ -215,12 +223,13 @@ public class ItemPackage : ModelBase
 
     public double GetItemPrice(int configID)
     {
-        if(!mItmePriceMap.ContainsKey(configID))
+        if(!mItemServerData.ContainsKey(configID))
         {
             Debug.Log("missing configID =" + configID);
             return 0;
         }
-        return mItmePriceMap[configID];
+        NItemServerData data = mItemServerData[configID];
+        return data.price;
     }
     #endregion
 
@@ -253,16 +262,55 @@ public class ItemPackage : ModelBase
         elecNum = msg.Electricity;
     }
 
-    public void SetResourceInfo(TSCGetPrices msg)
+    public void SetPrice(TSCGetPrices msg)
     {
         for(int i=0;i<msg.ResourceInfosCount;i++)
         {
             var data = msg.GetResourceInfos(i);
-            mItmePriceMap[data.ConfigId] = data.Price;
-            ITEM_RES config = GetItemDataByConfigID(data.ConfigId);
-            Debug.Log(string.Format("item{0}, {1}", config.MinName, data.Price));
+            if(!mItemServerData.ContainsKey(data.ConfigId))
+                mItemServerData[data.ConfigId] = new NItemServerData();
+            mItemServerData[data.ConfigId].price = data.Price;
         }
-        taxRate = msg.TaxRate;
+    }
+
+    public void SetBuyLimit(TSCGetPurchase msg)
+    {
+        if(!msg.HasUserResource || msg.UserResource.ResourceInfosCount <= 0)
+            foreach(var pair in mItemServerData)
+                pair.Value.boughtNum = 0;
+        else
+        {
+            UserResource array = msg.UserResource;
+            for(int i=0;i<array.ResourceInfosCount;i++)
+            {
+                var data = array.GetResourceInfos(i);
+                if(!mItemServerData.ContainsKey(data.ConfigId))
+                    mItemServerData[data.ConfigId] = new NItemServerData();
+                mItemServerData[data.ConfigId].boughtNum = data.Number;
+            }
+        }
+    }
+
+    public int GetBuyLimit(int configID)
+    {
+        UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+        ITEM_RES configData = GetItemDataByConfigID(configID);
+        var dataMap = ConfigDataStatic.GetConfigDataTable("PURCHASE_LIM");
+        int boughtNum;
+        if(!mItemServerData.ContainsKey(configID))
+            boughtNum = 0;
+        else
+            boughtNum = mItemServerData[configID].boughtNum;
+        Type type = Type.GetType("com.game.framework.resource.data.PURCHASE_LIM");
+        string key = configData.KeyName;
+        if(key.Length <= 1)
+            key = key.ToUpper();
+        else
+            key = char.ToUpper(key[0]) + key.Substring(1);
+        PropertyInfo valInfo = type.GetProperty(key);
+        int res = (int)valInfo.GetValue(dataMap[userPackage.GetPlayerLevel()], null) - boughtNum;
+        if(res > 0) return res;
+        else return 0;
     }
 
     public void SetGoldNum(double number)

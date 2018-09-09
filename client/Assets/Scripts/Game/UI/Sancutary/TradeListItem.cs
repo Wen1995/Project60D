@@ -9,6 +9,7 @@ public class TradeListItem : StoreListCellItem {
 		NDictionary data = new NDictionary();
 		data.Add("info", info);
 		FacadeSingleton.Instance.SendEvent("TradeSelecItem", data);	
+		itemPackage.SetSelectionItem(info);
 	}
 
 }

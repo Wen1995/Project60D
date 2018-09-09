@@ -152,22 +152,20 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETPRICES, msg.ToByteArray());
     }
 
+    public void RPCGetPurchase()
+    {
+        TCSGetPurchase msg = TCSGetPurchase.CreateBuilder().Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETPURCHASE, msg.ToByteArray());
+    }
+
     public void RPCSellItem(NDictionary args)
     {
         if(args == null) return;
         var builder = TCSSellGoods.CreateBuilder();
-        int id = args.Value<int>("id");
-        int num = args.Value<int>("num");
-        double price = args.Value<double>("price");
-        double taxRate = args.Value<double>("tax");
-        builder.ConfigId = id;
-        builder.Number = num;
-        builder.Price = price;
-        builder.TaxRate = taxRate;
-        Debug.Log(id);
-        Debug.Log(num);
-        Debug.Log(price);
-        Debug.Log(taxRate);
+        builder.ConfigId = args.Value<int>("id");
+        builder.Number = args.Value<int>("num");
+        builder.Price = args.Value<double>("price");
+        builder.TaxRate = args.Value<double>("tax");
         TCSSellGoods msg = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.SELLGOODS, msg.ToByteArray());
     }
@@ -175,6 +173,13 @@ public class SanctuaryService : ServiceBase {
     public void RPCBuyItem(NDictionary args)
     {
         if(args == null) return;
+        var builder = TCSBuyGoods.CreateBuilder();
+        builder.ConfigId = args.Value<int>("id");
+        builder.Number = args.Value<int>("num");
+        builder.Price = args.Value<double>("price");
+        builder.TaxRate = args.Value<double>("tax");
+        TCSBuyGoods msg = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.BUYGOODS, msg.ToByteArray());        
     }
 
     /// <summary>

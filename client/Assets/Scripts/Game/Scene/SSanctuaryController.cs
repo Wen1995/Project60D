@@ -46,6 +46,9 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.RegisterUIPanel("UIWorldEventPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIBuildingUnlockPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         FacadeSingleton.Instance.RegisterUIPanel("UIManorRankingPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UITradeSelectPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UIBuyItemPanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.RegisterUIPanel("UIItemValuePanel", "Prefabs/UI/Sanctuary", 0, PanelAnchor.Center);
         //register service
         FacadeSingleton.Instance.RegisterService<CommonService>(ConstVal.Service_Common);
         FacadeSingleton.Instance.RegisterService<SanctuaryService>(ConstVal.Service_Sanctuary);

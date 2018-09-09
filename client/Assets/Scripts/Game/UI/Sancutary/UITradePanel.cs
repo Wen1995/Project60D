@@ -17,13 +17,10 @@ public class UITradePanel : PanelBase {
 	UILabel elecNumLabel = null;
 	UILabel dateLabel = null;
 	UILabel itemNumLabel = null;
+	UILabel limitLabel = null;
 
 	NTableView tableView = null;
 
-
-	//
-	int curNum = 0;
-	int ratio = 1;
 	protected override void Awake()
 	{
 		//get component
@@ -35,8 +32,8 @@ public class UITradePanel : PanelBase {
 		resNumLabel = transform.Find("resinfo/res/resouce/label").GetComponent<UILabel>();
 		goldNumLabel = transform.Find("resinfo/res/money/label").GetComponent<UILabel>();
 		elecNumLabel = transform.Find("resinfo/res/elec/label").GetComponent<UILabel>();
-		itemNumLabel = transform.Find("iteminfo/value/num").GetComponent<UILabel>();
 		dateLabel = transform.Find("timelabel").GetComponent<UILabel>();
+		limitLabel = transform.Find("iteminfo/buylimit").GetComponent<UILabel>();
 		//bind event
 		UIButton button = transform.Find("iteminfo/sellbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnSellItem));
@@ -44,10 +41,6 @@ public class UITradePanel : PanelBase {
 		button.onClick.Add(new EventDelegate(OnBuyItem));
 		button = transform.Find("closebtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
-		button = transform.Find("iteminfo/value/plus").GetComponent<UIButton>();
-		button.onClick.Add(new EventDelegate(OnPlus));
-		button = transform.Find("iteminfo/value/minus").GetComponent<UIButton>();
-		button.onClick.Add(new EventDelegate(OnMinus));
 		
 		button = transform.Find("store/tabgroup/grid/tab0").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnTab0));
@@ -60,14 +53,16 @@ public class UITradePanel : PanelBase {
 
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPRICES, OnGetPrice);
+		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPURCHASE, OnGetLimit);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.SELLGOODS, SellItemResponce);
+		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.BUYGOODS, BuyItemResponce);
 		base.Awake();
 	}
 
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
-		FacadeSingleton.Instance.InvokeService("RPCGetItemTradeInfo", ConstVal.Service_Sanctuary);
+		AskDataFromServer();
 	}
 
 	public override void ClosePanel()
@@ -76,11 +71,24 @@ public class UITradePanel : PanelBase {
 		base.ClosePanel();
 	}
 
+	void AskDataFromServer()
+	{
+		FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
+		FacadeSingleton.Instance.InvokeService("RPCGetItemTradeInfo", ConstVal.Service_Sanctuary);
+		FacadeSingleton.Instance.InvokeService("RPCGetPurchase", ConstVal.Service_Sanctuary);
+	}
+
 	void OnGetPrice(NetMsgDef msg)
 	{
 		TSCGetPrices res = TSCGetPrices.ParseFrom(msg.mBtsData);
-		itemPackage.SetResourceInfo(res);
+		itemPackage.SetPrice(res);
 		InitView();
+	}
+
+	void OnGetLimit(NetMsgDef msg)
+	{
+		TSCGetPurchase res = TSCGetPurchase.ParseFrom(msg.mBtsData);
+		itemPackage.SetBuyLimit(res);
 	}
 
 	void InitView()
@@ -103,9 +111,8 @@ public class UITradePanel : PanelBase {
 		if(info == null)  return;
 		selectionItem = info;
 		RefreshItemInfo();
+		RefreshBuyLimit();
 	}
-
-	
 
 	void RefreshItemInfo()
 	{
@@ -115,12 +122,6 @@ public class UITradePanel : PanelBase {
 		avgPriceLabel.text = "0";
 		taxLabel.text = string.Format("{0}%", itemPackage.GetTaxRate() * 100);
 		nameLabel.text = itemConfig.MinName;
-		curNum = 0;
-		if(itemConfig.GoldConv >= 1000)
-			ratio = 1;
-		else
-			ratio = 1000 / itemConfig.GoldConv;
-		UpdateNum();
 	}
 
 	IEnumerator RefreshDate()
@@ -133,14 +134,26 @@ public class UITradePanel : PanelBase {
 		}
 	}
 
+	void RefreshBuyLimit()
+	{
+		int val = itemPackage.GetBuyLimit(selectionItem.configID);
+		limitLabel.text = string.Format("商店存量: {0}", val);
+	}
+
 	void OnSellItem()
 	{
 		NDictionary args = new NDictionary();
-		args.Add("id", selectionItem.configID);
-		args.Add("num", curNum);
-		args.Add("price", itemPackage.GetItemPrice(selectionItem.configID));
-		args.Add("tax", itemPackage.GetTaxRate());
-		FacadeSingleton.Instance.InvokeService("RPCSellItem", ConstVal.Service_Sanctuary, args);
+		args.Add("isbuy", false);
+		FacadeSingleton.Instance.OverlayerPanel("UIItemValuePanel");
+		FacadeSingleton.Instance.SendEvent("OpenItemValue", args);
+	}
+
+	void OnBuyItem()
+	{
+		NDictionary args = new NDictionary();
+		args.Add("isbuy", true);
+		FacadeSingleton.Instance.OverlayerPanel("UIItemValuePanel");
+		FacadeSingleton.Instance.SendEvent("OpenItemValue", args);
 	}
 
 	void SellItemResponce(NetMsgDef msg)
@@ -150,32 +163,18 @@ public class UITradePanel : PanelBase {
 		print(res.Gold);
 	}
 
-	void OnBuyItem()
+	void BuyItemResponce(NetMsgDef msg)
 	{
-		//TODO
+		TSCBuyGoods res = TSCBuyGoods.ParseFrom(msg.mBtsData);
+		print(res.IsChange);
+		print(res.IsLimit);
 	}
+
+
 
 	void Close()
 	{
 		FacadeSingleton.Instance.BackPanel();
-	}
-
-	void UpdateNum()
-	{
-		itemNumLabel.text = curNum.ToString();
-	}
-
-	void OnPlus()
-	{
-		curNum += ratio;
-		UpdateNum();
-	}
-
-	void OnMinus()
-	{
-		if(curNum - ratio < 0) return;
-		curNum -= ratio;
-		UpdateNum();
 	}
 
 	void OnTab0()

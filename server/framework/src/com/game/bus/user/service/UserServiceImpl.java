@@ -341,8 +341,10 @@ public class UserServiceImpl implements UserService {
             int purchaseIndex = -1;
             int haveNumber = 0;
             Map<Long, UserResource> uid2Purchase = DynamicDataManager.GetInstance().uid2Purchase;
-            UserResource.Builder uBuilder = uid2Purchase.get(uid).toBuilder();
-            if (uBuilder != null) {
+            UserResource userResource = uid2Purchase.get(uid);
+            UserResource.Builder uBuilder;
+            if (userResource != null) {
+                uBuilder = userResource.toBuilder();
                 for (int i = 0; i < uBuilder.getResourceInfosCount(); i++) {
                     ResourceInfo r = uBuilder.getResourceInfos(i);
                     if (configId.equals(r.getConfigId())) {

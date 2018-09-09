@@ -4768,8 +4768,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCSellGoods : pb::GeneratedMessageLite<TSCSellGoods, TSCSellGoods.Builder> {
     private TSCSellGoods() { }
     private static readonly TSCSellGoods defaultInstance = new TSCSellGoods().MakeReadOnly();
-    private static readonly string[] _tSCSellGoodsFieldNames = new string[] { "gold", "isChange" };
-    private static readonly uint[] _tSCSellGoodsFieldTags = new uint[] { 17, 8 };
+    private static readonly string[] _tSCSellGoodsFieldNames = new string[] { "configId", "gold", "isChange", "number" };
+    private static readonly uint[] _tSCSellGoodsFieldTags = new uint[] { 24, 17, 8, 32 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -4815,6 +4815,32 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ConfigIdFieldNumber = 3;
+    private bool hasConfigId;
+    private int configId_;
+    public bool HasConfigId {
+      get { return hasConfigId; }
+    }
+    public int ConfigId {
+      get { return configId_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int NumberFieldNumber = 4;
+    private bool hasNumber;
+    private int number_;
+    public bool HasNumber {
+      get { return hasNumber; }
+    }
+    public int Number {
+      get { return number_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -4830,10 +4856,16 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _tSCSellGoodsFieldNames;
       if (hasIsChange) {
-        output.WriteBool(1, field_names[1], IsChange);
+        output.WriteBool(1, field_names[2], IsChange);
       }
       if (hasGold) {
-        output.WriteDouble(2, field_names[0], Gold);
+        output.WriteDouble(2, field_names[1], Gold);
+      }
+      if (hasConfigId) {
+        output.WriteInt32(3, field_names[0], ConfigId);
+      }
+      if (hasNumber) {
+        output.WriteInt32(4, field_names[3], Number);
       }
     }
     
@@ -4853,6 +4885,12 @@ namespace com.game.framework.protocol {
         if (hasGold) {
           size += pb::CodedOutputStream.ComputeDoubleSize(2, Gold);
         }
+        if (hasConfigId) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, ConfigId);
+        }
+        if (hasNumber) {
+          size += pb::CodedOutputStream.ComputeInt32Size(4, Number);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -4863,6 +4901,8 @@ namespace com.game.framework.protocol {
       int hash = GetType().GetHashCode();
       if (hasIsChange) hash ^= isChange_.GetHashCode();
       if (hasGold) hash ^= gold_.GetHashCode();
+      if (hasConfigId) hash ^= configId_.GetHashCode();
+      if (hasNumber) hash ^= number_.GetHashCode();
       return hash;
     }
     
@@ -4871,6 +4911,8 @@ namespace com.game.framework.protocol {
       if (other == null) return false;
       if (hasIsChange != other.hasIsChange || (hasIsChange && !isChange_.Equals(other.isChange_))) return false;
       if (hasGold != other.hasGold || (hasGold && !gold_.Equals(other.gold_))) return false;
+      if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
+      if (hasNumber != other.hasNumber || (hasNumber && !number_.Equals(other.number_))) return false;
       return true;
     }
     
@@ -5037,6 +5079,12 @@ namespace com.game.framework.protocol {
         if (other.HasGold) {
           Gold = other.Gold;
         }
+        if (other.HasConfigId) {
+          ConfigId = other.ConfigId;
+        }
+        if (other.HasNumber) {
+          Number = other.Number;
+        }
         return this;
       }
       
@@ -5075,6 +5123,14 @@ namespace com.game.framework.protocol {
             }
             case 17: {
               result.hasGold = input.ReadDouble(ref result.gold_);
+              break;
+            }
+            case 24: {
+              result.hasConfigId = input.ReadInt32(ref result.configId_);
+              break;
+            }
+            case 32: {
+              result.hasNumber = input.ReadInt32(ref result.number_);
               break;
             }
           }
@@ -5121,6 +5177,46 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasGold = false;
         result.gold_ = 0D;
+        return this;
+      }
+      
+      public bool HasConfigId {
+        get { return result.hasConfigId; }
+      }
+      public int ConfigId {
+        get { return result.ConfigId; }
+        set { SetConfigId(value); }
+      }
+      public Builder SetConfigId(int value) {
+        PrepareBuilder();
+        result.hasConfigId = true;
+        result.configId_ = value;
+        return this;
+      }
+      public Builder ClearConfigId() {
+        PrepareBuilder();
+        result.hasConfigId = false;
+        result.configId_ = 0;
+        return this;
+      }
+      
+      public bool HasNumber {
+        get { return result.hasNumber; }
+      }
+      public int Number {
+        get { return result.Number; }
+        set { SetNumber(value); }
+      }
+      public Builder SetNumber(int value) {
+        PrepareBuilder();
+        result.hasNumber = true;
+        result.number_ = value;
+        return this;
+      }
+      public Builder ClearNumber() {
+        PrepareBuilder();
+        result.hasNumber = false;
+        result.number_ = 0;
         return this;
       }
     }
@@ -5592,8 +5688,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCBuyGoods : pb::GeneratedMessageLite<TSCBuyGoods, TSCBuyGoods.Builder> {
     private TSCBuyGoods() { }
     private static readonly TSCBuyGoods defaultInstance = new TSCBuyGoods().MakeReadOnly();
-    private static readonly string[] _tSCBuyGoodsFieldNames = new string[] { "isChange", "isLimit" };
-    private static readonly uint[] _tSCBuyGoodsFieldTags = new uint[] { 8, 16 };
+    private static readonly string[] _tSCBuyGoodsFieldNames = new string[] { "configId", "isChange", "isLimit", "number" };
+    private static readonly uint[] _tSCBuyGoodsFieldTags = new uint[] { 24, 8, 16, 32 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -5639,6 +5735,32 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ConfigIdFieldNumber = 3;
+    private bool hasConfigId;
+    private int configId_;
+    public bool HasConfigId {
+      get { return hasConfigId; }
+    }
+    public int ConfigId {
+      get { return configId_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int NumberFieldNumber = 4;
+    private bool hasNumber;
+    private int number_;
+    public bool HasNumber {
+      get { return hasNumber; }
+    }
+    public int Number {
+      get { return number_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -5654,10 +5776,16 @@ namespace com.game.framework.protocol {
       int size = SerializedSize;
       string[] field_names = _tSCBuyGoodsFieldNames;
       if (hasIsChange) {
-        output.WriteBool(1, field_names[0], IsChange);
+        output.WriteBool(1, field_names[1], IsChange);
       }
       if (hasIsLimit) {
-        output.WriteBool(2, field_names[1], IsLimit);
+        output.WriteBool(2, field_names[2], IsLimit);
+      }
+      if (hasConfigId) {
+        output.WriteInt32(3, field_names[0], ConfigId);
+      }
+      if (hasNumber) {
+        output.WriteInt32(4, field_names[3], Number);
       }
     }
     
@@ -5677,6 +5805,12 @@ namespace com.game.framework.protocol {
         if (hasIsLimit) {
           size += pb::CodedOutputStream.ComputeBoolSize(2, IsLimit);
         }
+        if (hasConfigId) {
+          size += pb::CodedOutputStream.ComputeInt32Size(3, ConfigId);
+        }
+        if (hasNumber) {
+          size += pb::CodedOutputStream.ComputeInt32Size(4, Number);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -5687,6 +5821,8 @@ namespace com.game.framework.protocol {
       int hash = GetType().GetHashCode();
       if (hasIsChange) hash ^= isChange_.GetHashCode();
       if (hasIsLimit) hash ^= isLimit_.GetHashCode();
+      if (hasConfigId) hash ^= configId_.GetHashCode();
+      if (hasNumber) hash ^= number_.GetHashCode();
       return hash;
     }
     
@@ -5695,6 +5831,8 @@ namespace com.game.framework.protocol {
       if (other == null) return false;
       if (hasIsChange != other.hasIsChange || (hasIsChange && !isChange_.Equals(other.isChange_))) return false;
       if (hasIsLimit != other.hasIsLimit || (hasIsLimit && !isLimit_.Equals(other.isLimit_))) return false;
+      if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
+      if (hasNumber != other.hasNumber || (hasNumber && !number_.Equals(other.number_))) return false;
       return true;
     }
     
@@ -5861,6 +5999,12 @@ namespace com.game.framework.protocol {
         if (other.HasIsLimit) {
           IsLimit = other.IsLimit;
         }
+        if (other.HasConfigId) {
+          ConfigId = other.ConfigId;
+        }
+        if (other.HasNumber) {
+          Number = other.Number;
+        }
         return this;
       }
       
@@ -5899,6 +6043,14 @@ namespace com.game.framework.protocol {
             }
             case 16: {
               result.hasIsLimit = input.ReadBool(ref result.isLimit_);
+              break;
+            }
+            case 24: {
+              result.hasConfigId = input.ReadInt32(ref result.configId_);
+              break;
+            }
+            case 32: {
+              result.hasNumber = input.ReadInt32(ref result.number_);
               break;
             }
           }
@@ -5945,6 +6097,46 @@ namespace com.game.framework.protocol {
         PrepareBuilder();
         result.hasIsLimit = false;
         result.isLimit_ = false;
+        return this;
+      }
+      
+      public bool HasConfigId {
+        get { return result.hasConfigId; }
+      }
+      public int ConfigId {
+        get { return result.ConfigId; }
+        set { SetConfigId(value); }
+      }
+      public Builder SetConfigId(int value) {
+        PrepareBuilder();
+        result.hasConfigId = true;
+        result.configId_ = value;
+        return this;
+      }
+      public Builder ClearConfigId() {
+        PrepareBuilder();
+        result.hasConfigId = false;
+        result.configId_ = 0;
+        return this;
+      }
+      
+      public bool HasNumber {
+        get { return result.hasNumber; }
+      }
+      public int Number {
+        get { return result.Number; }
+        set { SetNumber(value); }
+      }
+      public Builder SetNumber(int value) {
+        PrepareBuilder();
+        result.hasNumber = true;
+        result.number_ = value;
+        return this;
+      }
+      public Builder ClearNumber() {
+        PrepareBuilder();
+        result.hasNumber = false;
+        result.number_ = 0;
         return this;
       }
     }

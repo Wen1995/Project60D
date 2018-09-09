@@ -8618,6 +8618,42 @@ public final class User {
      * </pre>
      */
     double getGold();
+
+    // optional int32 configId = 3;
+    /**
+     * <code>optional int32 configId = 3;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    boolean hasConfigId();
+    /**
+     * <code>optional int32 configId = 3;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    int getConfigId();
+
+    // optional int32 number = 4;
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    boolean hasNumber();
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    int getNumber();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCSellGoods}
@@ -8678,6 +8714,16 @@ public final class User {
             case 17: {
               bitField0_ |= 0x00000002;
               gold_ = input.readDouble();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              configId_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              number_ = input.readInt32();
               break;
             }
           }
@@ -8768,9 +8814,59 @@ public final class User {
       return gold_;
     }
 
+    // optional int32 configId = 3;
+    public static final int CONFIGID_FIELD_NUMBER = 3;
+    private int configId_;
+    /**
+     * <code>optional int32 configId = 3;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    public boolean hasConfigId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 configId = 3;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    public int getConfigId() {
+      return configId_;
+    }
+
+    // optional int32 number = 4;
+    public static final int NUMBER_FIELD_NUMBER = 4;
+    private int number_;
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    public boolean hasNumber() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    public int getNumber() {
+      return number_;
+    }
+
     private void initFields() {
       isChange_ = false;
       gold_ = 0D;
+      configId_ = 0;
+      number_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -8790,6 +8886,12 @@ public final class User {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeDouble(2, gold_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, configId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, number_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -8806,6 +8908,14 @@ public final class User {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, gold_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, configId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, number_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -8927,6 +9037,10 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000001);
         gold_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000002);
+        configId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        number_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -8963,6 +9077,14 @@ public final class User {
           to_bitField0_ |= 0x00000002;
         }
         result.gold_ = gold_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.configId_ = configId_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.number_ = number_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8984,6 +9106,12 @@ public final class User {
         }
         if (other.hasGold()) {
           setGold(other.getGold());
+        }
+        if (other.hasConfigId()) {
+          setConfigId(other.getConfigId());
+        }
+        if (other.hasNumber()) {
+          setNumber(other.getNumber());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -9106,6 +9234,104 @@ public final class User {
       public Builder clearGold() {
         bitField0_ = (bitField0_ & ~0x00000002);
         gold_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 configId = 3;
+      private int configId_ ;
+      /**
+       * <code>optional int32 configId = 3;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public boolean hasConfigId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 configId = 3;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public int getConfigId() {
+        return configId_;
+      }
+      /**
+       * <code>optional int32 configId = 3;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public Builder setConfigId(int value) {
+        bitField0_ |= 0x00000004;
+        configId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 configId = 3;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public Builder clearConfigId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        configId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 number = 4;
+      private int number_ ;
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public int getNumber() {
+        return number_;
+      }
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public Builder setNumber(int value) {
+        bitField0_ |= 0x00000008;
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public Builder clearNumber() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        number_ = 0;
         onChanged();
         return this;
       }
@@ -9926,6 +10152,42 @@ public final class User {
      * </pre>
      */
     boolean getIsLimit();
+
+    // optional int32 configId = 3;
+    /**
+     * <code>optional int32 configId = 3;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    boolean hasConfigId();
+    /**
+     * <code>optional int32 configId = 3;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    int getConfigId();
+
+    // optional int32 number = 4;
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    boolean hasNumber();
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    int getNumber();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCBuyGoods}
@@ -9986,6 +10248,16 @@ public final class User {
             case 16: {
               bitField0_ |= 0x00000002;
               isLimit_ = input.readBool();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              configId_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              number_ = input.readInt32();
               break;
             }
           }
@@ -10076,9 +10348,59 @@ public final class User {
       return isLimit_;
     }
 
+    // optional int32 configId = 3;
+    public static final int CONFIGID_FIELD_NUMBER = 3;
+    private int configId_;
+    /**
+     * <code>optional int32 configId = 3;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    public boolean hasConfigId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 configId = 3;</code>
+     *
+     * <pre>
+     * 商品Id
+     * </pre>
+     */
+    public int getConfigId() {
+      return configId_;
+    }
+
+    // optional int32 number = 4;
+    public static final int NUMBER_FIELD_NUMBER = 4;
+    private int number_;
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    public boolean hasNumber() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 number = 4;</code>
+     *
+     * <pre>
+     * 商品数量
+     * </pre>
+     */
+    public int getNumber() {
+      return number_;
+    }
+
     private void initFields() {
       isChange_ = false;
       isLimit_ = false;
+      configId_ = 0;
+      number_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -10098,6 +10420,12 @@ public final class User {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBool(2, isLimit_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, configId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, number_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -10114,6 +10442,14 @@ public final class User {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, isLimit_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, configId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, number_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -10235,6 +10571,10 @@ public final class User {
         bitField0_ = (bitField0_ & ~0x00000001);
         isLimit_ = false;
         bitField0_ = (bitField0_ & ~0x00000002);
+        configId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        number_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -10271,6 +10611,14 @@ public final class User {
           to_bitField0_ |= 0x00000002;
         }
         result.isLimit_ = isLimit_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.configId_ = configId_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.number_ = number_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10292,6 +10640,12 @@ public final class User {
         }
         if (other.hasIsLimit()) {
           setIsLimit(other.getIsLimit());
+        }
+        if (other.hasConfigId()) {
+          setConfigId(other.getConfigId());
+        }
+        if (other.hasNumber()) {
+          setNumber(other.getNumber());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -10414,6 +10768,104 @@ public final class User {
       public Builder clearIsLimit() {
         bitField0_ = (bitField0_ & ~0x00000002);
         isLimit_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 configId = 3;
+      private int configId_ ;
+      /**
+       * <code>optional int32 configId = 3;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public boolean hasConfigId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 configId = 3;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public int getConfigId() {
+        return configId_;
+      }
+      /**
+       * <code>optional int32 configId = 3;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public Builder setConfigId(int value) {
+        bitField0_ |= 0x00000004;
+        configId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 configId = 3;</code>
+       *
+       * <pre>
+       * 商品Id
+       * </pre>
+       */
+      public Builder clearConfigId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        configId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 number = 4;
+      private int number_ ;
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public int getNumber() {
+        return number_;
+      }
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public Builder setNumber(int value) {
+        bitField0_ |= 0x00000008;
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 number = 4;</code>
+       *
+       * <pre>
+       * 商品数量
+       * </pre>
+       */
+      public Builder clearNumber() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        number_ = 0;
         onChanged();
         return this;
       }
@@ -12580,17 +13032,18 @@ public final class User {
       "ed\030\t \001(\005\022\021\n\tintellect\030\n \001(\005\022\024\n\014contribut" +
       "ion\030\013 \001(\005\"P\n\014TCSSellGoods\022\020\n\010configId\030\001 " +
       "\001(\005\022\016\n\006number\030\002 \001(\005\022\r\n\005price\030\003 \001(\001\022\017\n\007ta" +
-      "xRate\030\004 \001(\001\".\n\014TSCSellGoods\022\020\n\010isChange\030" +
-      "\001 \001(\010\022\014\n\004gold\030\002 \001(\001\"O\n\013TCSBuyGoods\022\020\n\010co" +
-      "nfigId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\022\r\n\005price\030\003 " +
-      "\001(\001\022\017\n\007taxRate\030\004 \001(\001\"0\n\013TSCBuyGoods\022\020\n\010i" +
-      "sChange\030\001 \001(\010\022\017\n\007isLimit\030\002 \001(\010\"\016\n\014TCSGet",
-      "Prices\"a\n\014TSCGetPrices\022@\n\rresourceInfos\030" +
-      "\001 \003(\0132).com.game.framework.protocol.Reso" +
-      "urceInfo\022\017\n\007taxRate\030\002 \001(\001\"\020\n\016TCSGetPurch" +
-      "ase\"Q\n\016TSCGetPurchase\022?\n\014userResource\030\001 " +
-      "\001(\0132).com.game.framework.protocol.UserRe" +
-      "sourceB\002H\001"
+      "xRate\030\004 \001(\001\"P\n\014TSCSellGoods\022\020\n\010isChange\030" +
+      "\001 \001(\010\022\014\n\004gold\030\002 \001(\001\022\020\n\010configId\030\003 \001(\005\022\016\n" +
+      "\006number\030\004 \001(\005\"O\n\013TCSBuyGoods\022\020\n\010configId" +
+      "\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\022\r\n\005price\030\003 \001(\001\022\017\n" +
+      "\007taxRate\030\004 \001(\001\"R\n\013TSCBuyGoods\022\020\n\010isChang",
+      "e\030\001 \001(\010\022\017\n\007isLimit\030\002 \001(\010\022\020\n\010configId\030\003 \001" +
+      "(\005\022\016\n\006number\030\004 \001(\005\"\016\n\014TCSGetPrices\"a\n\014TS" +
+      "CGetPrices\022@\n\rresourceInfos\030\001 \003(\0132).com." +
+      "game.framework.protocol.ResourceInfo\022\017\n\007" +
+      "taxRate\030\002 \001(\001\"\020\n\016TCSGetPurchase\"Q\n\016TSCGe" +
+      "tPurchase\022?\n\014userResource\030\001 \001(\0132).com.ga" +
+      "me.framework.protocol.UserResourceB\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -12668,7 +13121,7 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCSellGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCSellGoods_descriptor,
-              new java.lang.String[] { "IsChange", "Gold", });
+              new java.lang.String[] { "IsChange", "Gold", "ConfigId", "Number", });
           internal_static_com_game_framework_protocol_TCSBuyGoods_descriptor =
             getDescriptor().getMessageTypes().get(12);
           internal_static_com_game_framework_protocol_TCSBuyGoods_fieldAccessorTable = new
@@ -12680,7 +13133,7 @@ public final class User {
           internal_static_com_game_framework_protocol_TSCBuyGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCBuyGoods_descriptor,
-              new java.lang.String[] { "IsChange", "IsLimit", });
+              new java.lang.String[] { "IsChange", "IsLimit", "ConfigId", "Number", });
           internal_static_com_game_framework_protocol_TCSGetPrices_descriptor =
             getDescriptor().getMessageTypes().get(14);
           internal_static_com_game_framework_protocol_TCSGetPrices_fieldAccessorTable = new

@@ -60,6 +60,7 @@ public class UIItemValuePanel : PanelBase{
 			ratio = 1000 / config.GoldConv;
 		slider.value = 0f;
 		slider.numberOfSteps = (int)Mathf.Ceil((float)itemCap / (float)ratio);
+		UpdateValueView();
 	}
 
 	void UpdateValueView()

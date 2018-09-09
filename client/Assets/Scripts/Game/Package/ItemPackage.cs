@@ -272,6 +272,7 @@ public class ItemPackage : ModelBase
                 mItemServerData[data.ConfigId] = new NItemServerData();
             mItemServerData[data.ConfigId].price = data.Price;
         }
+        taxRate = msg.TaxRate;
     }
 
     public void SetBuyLimit(TSCGetPurchase msg)

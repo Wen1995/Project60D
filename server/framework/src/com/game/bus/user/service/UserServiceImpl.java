@@ -311,6 +311,8 @@ public class UserServiceImpl implements UserService {
         TSCSellGoods p = TSCSellGoods.newBuilder()
                 .setIsChange(isChange)
                 .setGold(gold)
+                .setConfigId(configId)
+                .setNumber(number)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
@@ -420,6 +422,8 @@ public class UserServiceImpl implements UserService {
         TSCBuyGoods p = TSCBuyGoods.newBuilder()
                 .setIsChange(isChange)
                 .setIsLimit(isLimit)
+                .setConfigId(configId)
+                .setNumber(number)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
@@ -442,6 +446,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public TPacket getPurchase(Long uid) throws Exception {
         UserResource userResource = DynamicDataManager.GetInstance().uid2Purchase.get(uid);
+        if (userResource == null) {
+            userResource = UserResource.newBuilder().build();
+            DynamicDataManager.GetInstance().uid2Purchase.put(uid, userResource);
+        }
         TSCGetPurchase p = TSCGetPurchase.newBuilder()
                 .setUserResource(userResource)
                 .build();

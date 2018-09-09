@@ -7,6 +7,27 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour{
     private static T mInstance;
     private static bool isApplicatonQuited = false;
 
+
+    public static void CreateInstance()
+    {
+        if(mInstance == null)
+        {
+            if (FindObjectsOfType<T>().Length > 1)
+            {
+                print("There is more than one singleton object!!");
+                return;
+            }
+
+            mInstance = FindObjectOfType<T>();
+            if (mInstance == null)
+            {
+                GameObject go = new GameObject();
+                mInstance = go.AddComponent<T>();
+                go.name = "<Singleton>" + typeof(T).Name;
+                DontDestroyOnLoad(go);
+            }
+        }
+    }
     public static T Instance
     {
         get

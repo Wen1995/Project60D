@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using com.game.framework.protocol;
+using com.game.framework.resource.data;
 using UnityEngine;
 
 public class NWorldEventInfo
@@ -20,27 +21,54 @@ public class NWorldEventInfo
 public class EventPackage : ModelBase
 {
     List<NWorldEventInfo> eventList = new List<NWorldEventInfo>();
+
+    List<NWorldEventInfo> curEventList = new List<NWorldEventInfo>();
+    List<NWorldEventInfo> futureEventList = new List<NWorldEventInfo>();
 	#region Set Data
     public void SetWorldEvent(TSCHeart res)
     {
-        eventList.Clear();
-        Debug.Log("eventCount = " + res.WorldEventConfigId2HappenTimeCount);
+        curEventList.Clear();
+        futureEventList.Clear();
         for(int i=0;i<res.WorldEventConfigId2HappenTimeCount;i++)
         {
             NWorldEventInfo info = new NWorldEventInfo(res.GetWorldEventConfigId2HappenTime(i));
-            eventList.Add(info);
+            if(GlobalFunction.IsHappened(info.happenTime))
+                curEventList.Add(info);
+            else
+                futureEventList.Add(info);
         }
+        FacadeSingleton.Instance.SendEvent("RefreshEvent");
     }
 	
 	#endregion
 
 	#region  Acess Data
 
+
+    public List<NWorldEventInfo> GetCurEventList()
+    {
+        return curEventList;
+    }
+
+    public List<NWorldEventInfo> GetFutureEventList()
+    {
+        return futureEventList;
+    }
     public List<NWorldEventInfo> GetEventList()
     {
         return eventList;
     }
 
+    public WORLD_EVENTS GetEventConfigDataByConfigID(int configID)
+    {
+        var configList = ConfigDataStatic.GetConfigDataTable("WORLD_EVENTS");
+        if(!configList.ContainsKey(configID))
+        {
+            Debug.Log(string.Format("World Event configID={0} missing", configID));
+            return null;
+        }
+        return configList[configID] as WORLD_EVENTS;
+    }
 	#endregion
     public override void Release()
     {

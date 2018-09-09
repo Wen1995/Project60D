@@ -7,6 +7,7 @@ public class UIWorldEventPanel : PanelBase {
 
 	NTableView tableView = null;
 	EventPackage eventPackage = null;
+
 	protected override void Awake() 
 	{
 		base.Awake();

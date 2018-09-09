@@ -18,6 +18,7 @@ public class UITradePanel : PanelBase {
 	UILabel dateLabel = null;
 	UILabel itemNumLabel = null;
 	UILabel limitLabel = null;
+	UISprite iconSprite = null;
 
 	NTableView tableView = null;
 
@@ -34,6 +35,7 @@ public class UITradePanel : PanelBase {
 		elecNumLabel = transform.Find("resinfo/res/elec/label").GetComponent<UILabel>();
 		dateLabel = transform.Find("timelabel").GetComponent<UILabel>();
 		limitLabel = transform.Find("iteminfo/buylimit").GetComponent<UILabel>();
+		iconSprite = transform.Find("iteminfo/item/icon").GetComponent<UISprite>();
 		//bind event
 		UIButton button = transform.Find("iteminfo/sellbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnSellItem));
@@ -95,7 +97,6 @@ public class UITradePanel : PanelBase {
 	void InitView()
 	{
 		OnTabChange(0);
-		RefreshItemInfo();
 		RefreshResinfo();
 		StartCoroutine(RefreshDate());
 	}
@@ -129,6 +130,7 @@ public class UITradePanel : PanelBase {
 		avgPriceLabel.text = "0";
 		taxLabel.text = string.Format("{0}%", itemPackage.GetTaxRate() * 100);
 		nameLabel.text = itemConfig.MinName;
+		iconSprite.spriteName = itemConfig.IconName;
 		RefreshBuyLimit();
 	}
 
@@ -164,19 +166,7 @@ public class UITradePanel : PanelBase {
 		FacadeSingleton.Instance.SendEvent("OpenItemValue", args);
 	}
 
-	void SellItemResponce(NetMsgDef msg)
-	{
-		TSCSellGoods res = TSCSellGoods.ParseFrom(msg.mBtsData);
-		print(res.IsChange);
-		print(res.Gold);
-	}
 
-	void BuyItemResponce(NetMsgDef msg)
-	{
-		TSCBuyGoods res = TSCBuyGoods.ParseFrom(msg.mBtsData);
-		print(res.IsChange);
-		print(res.IsLimit);
-	}
 
 	void Close()
 	{
@@ -199,7 +189,7 @@ public class UITradePanel : PanelBase {
 
 	void OnTabChange(int index)
 	{
-				uint sortMask = 0;
+		uint sortMask = 0;
 		switch(index)
 		{
 			case(0):
@@ -229,5 +219,58 @@ public class UITradePanel : PanelBase {
 		itemPackage.SortItemFilterInfoList(sortMask);
 		tableView.DataCount = itemPackage.GetItemFilterInfoList().Count;
 		tableView.TableChange();
+		selectionItem = itemPackage.GetItemFilterInfoList()[0];
+		RefreshItemInfo();
+	}
+
+	void SellItemResponce(NetMsgDef msg)
+	{
+		TSCSellGoods res = TSCSellGoods.ParseFrom(msg.mBtsData);
+		string content;
+		if(res.IsChange == true)
+		{
+			content = "价格已改变, 请重新操作";
+			FacadeSingleton.Instance.InvokeService("RPCGetItemTradeInfo", ConstVal.Service_Sanctuary);	
+		}
+		else
+		{
+			ITEM_RES config = itemPackage.GetItemDataByConfigID(res.ConfigId);
+			double price = itemPackage.GetItemPrice(res.ConfigId);
+			content = string.Format("出售成功!\n购买{0} x {1}单位，获得金钱{2}", config.MinName, res.Number, price * res.Number);
+			FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
+		}
+		FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+		NDictionary args = new NDictionary();
+		args.Add("content", content);
+		SendEvent("OpenMsgBox", args);
+	}
+
+	void BuyItemResponce(NetMsgDef msg)
+	{
+		TSCBuyGoods res = TSCBuyGoods.ParseFrom(msg.mBtsData);
+		print(res.IsChange);
+		print(res.IsLimit);
+		string content;
+		if(res.IsChange)
+		{
+			content = "价格已改变, 请重新操作";
+			FacadeSingleton.Instance.InvokeService("RPCGetItemTradeInfo", ConstVal.Service_Sanctuary);	
+		}
+		else if(res.IsLimit)
+		{
+			content = "购买达到上限";
+			FacadeSingleton.Instance.InvokeService("RPCGetPurchase", ConstVal.Service_Sanctuary);
+		}
+		else
+		{
+			ITEM_RES config = itemPackage.GetItemDataByConfigID(res.ConfigId);
+			double price = itemPackage.GetItemPrice(res.ConfigId);
+			content = string.Format("购买成功!\n购买{0} x {1}单位，消耗金钱{2}", config.MinName, res.Number, price * res.Number);
+			FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
+		}
+		FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+		NDictionary args = new NDictionary();
+		args.Add("content", content);
+		SendEvent("OpenMsgBox", args);
 	}
 }

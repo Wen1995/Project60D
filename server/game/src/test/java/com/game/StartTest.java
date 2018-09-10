@@ -1,3 +1,4 @@
+package com.game;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -48,7 +49,6 @@ import com.game.framework.utils.DateTimeUtils;
 import com.game.framework.utils.ExternalStorageUtil;
 import com.game.framework.utils.MapUtil;
 import com.game.framework.utils.ReadOnlyMap;
-import com.jcraft.jsch.UserInfo;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 

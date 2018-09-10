@@ -28,8 +28,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TCSCreateGroup : pb::GeneratedMessageLite<TCSCreateGroup, TCSCreateGroup.Builder> {
     private TCSCreateGroup() { }
     private static readonly TCSCreateGroup defaultInstance = new TCSCreateGroup().MakeReadOnly();
-    private static readonly string[] _tCSCreateGroupFieldNames = new string[] {  };
-    private static readonly uint[] _tCSCreateGroupFieldTags = new uint[] {  };
+    private static readonly string[] _tCSCreateGroupFieldNames = new string[] { "name" };
+    private static readonly uint[] _tCSCreateGroupFieldTags = new uint[] { 10 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -49,6 +49,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int NameFieldNumber = 1;
+    private bool hasName;
+    private string name_ = "";
+    public bool HasName {
+      get { return hasName; }
+    }
+    public string Name {
+      get { return name_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -63,6 +76,9 @@ namespace com.game.framework.protocol {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _tCSCreateGroupFieldNames;
+      if (hasName) {
+        output.WriteString(1, field_names[0], Name);
+      }
     }
     
     private int memoizedSerializedSize = -1;
@@ -75,6 +91,9 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
+        if (hasName) {
+          size += pb::CodedOutputStream.ComputeStringSize(1, Name);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -83,12 +102,14 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
+      if (hasName) hash ^= name_.GetHashCode();
       return hash;
     }
     
     public override bool Equals(object obj) {
       TCSCreateGroup other = obj as TCSCreateGroup;
       if (other == null) return false;
+      if (hasName != other.hasName || (hasName && !name_.Equals(other.name_))) return false;
       return true;
     }
     
@@ -249,6 +270,9 @@ namespace com.game.framework.protocol {
       public override Builder MergeFrom(TCSCreateGroup other) {
         if (other == global::com.game.framework.protocol.TCSCreateGroup.DefaultInstance) return this;
         PrepareBuilder();
+        if (other.HasName) {
+          Name = other.Name;
+        }
         return this;
       }
       
@@ -281,12 +305,37 @@ namespace com.game.framework.protocol {
               ParseUnknownField(input, extensionRegistry, tag, field_name);
               break;
             }
+            case 10: {
+              result.hasName = input.ReadString(ref result.name_);
+              break;
+            }
           }
         }
         
         return this;
       }
       
+      
+      public bool HasName {
+        get { return result.hasName; }
+      }
+      public string Name {
+        get { return result.Name; }
+        set { SetName(value); }
+      }
+      public Builder SetName(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasName = true;
+        result.name_ = value;
+        return this;
+      }
+      public Builder ClearName() {
+        PrepareBuilder();
+        result.hasName = false;
+        result.name_ = "";
+        return this;
+      }
     }
     static TCSCreateGroup() {
       object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);

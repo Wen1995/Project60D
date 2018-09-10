@@ -13,6 +13,8 @@ message TSCGetSceneInfo {
 	optional int32 totalContribution = 2;
 	// 玩家信息
 	repeated UserInfo userInfos = 3;
+	// 庄园名字
+	optional string groupName = 4;
 }
 
 message TCSGetBuildingInfo {

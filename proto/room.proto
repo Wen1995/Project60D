@@ -3,7 +3,8 @@ package com.game.framework.protocol;
 option optimize_for = SPEED;
 
 message TCSCreateGroup {
-
+	// 庄园名字
+	optional string name = 1;
 }
 message TSCCreateGroup {
 	// 房间ID

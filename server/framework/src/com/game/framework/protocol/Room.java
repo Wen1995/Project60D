@@ -10,6 +10,33 @@ public final class Room {
   }
   public interface TCSCreateGroupOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
+
+    // optional string name = 1;
+    /**
+     * <code>optional string name = 1;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    boolean hasName();
+    /**
+     * <code>optional string name = 1;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    java.lang.String getName();
+    /**
+     * <code>optional string name = 1;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TCSCreateGroup}
@@ -44,6 +71,7 @@ public final class Room {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -59,6 +87,11 @@ public final class Room {
                                      extensionRegistry, tag)) {
                 done = true;
               }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              name_ = input.readBytes();
               break;
             }
           }
@@ -100,7 +133,64 @@ public final class Room {
       return PARSER;
     }
 
+    private int bitField0_;
+    // optional string name = 1;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.Object name_;
+    /**
+     * <code>optional string name = 1;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string name = 1;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string name = 1;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
+      name_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -114,6 +204,9 @@ public final class Room {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getNameBytes());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -123,6 +216,10 @@ public final class Room {
       if (size != -1) return size;
 
       size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getNameBytes());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -239,6 +336,8 @@ public final class Room {
 
       public Builder clear() {
         super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -265,6 +364,13 @@ public final class Room {
 
       public com.game.framework.protocol.Room.TCSCreateGroup buildPartial() {
         com.game.framework.protocol.Room.TCSCreateGroup result = new com.game.framework.protocol.Room.TCSCreateGroup(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -280,6 +386,11 @@ public final class Room {
 
       public Builder mergeFrom(com.game.framework.protocol.Room.TCSCreateGroup other) {
         if (other == com.game.framework.protocol.Room.TCSCreateGroup.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -303,6 +414,105 @@ public final class Room {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional string name = 1;
+      private java.lang.Object name_ = "";
+      /**
+       * <code>optional string name = 1;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string name = 1;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string name = 1;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string name = 1;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string name = 1;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string name = 1;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
         return this;
       }
 
@@ -4578,17 +4788,17 @@ public final class Room {
   static {
     java.lang.String[] descriptorData = {
       "\n\nroom.proto\022\033com.game.framework.protoco" +
-      "l\"\020\n\016TCSCreateGroup\"!\n\016TSCCreateGroup\022\017\n" +
-      "\007groupId\030\001 \001(\003\" \n\rTCSApplyGroup\022\017\n\007group" +
-      "Id\030\001 \001(\003\",\n\rTSCApplyGroup\022\r\n\005exist\030\001 \001(\010" +
-      "\022\014\n\004full\030\002 \001(\010\"\026\n\024TCSGetGroupPageCount\")" +
-      "\n\024TSCGetGroupPageCount\022\021\n\tpageCount\030\001 \001(" +
-      "\005\")\n\022TCSGetGroupRanking\022\023\n\013currentPage\030\001" +
-      " \001(\005\"P\n\022TSCGetGroupRanking\022:\n\ngroupInfos" +
-      "\030\001 \003(\0132&.com.game.framework.protocol.Gro" +
-      "upInfo\"V\n\tGroupInfo\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030",
-      "\002 \001(\t\022\024\n\014peopleNumber\030\003 \001(\005\022\031\n\021totalCont" +
-      "ribution\030\004 \001(\005B\002H\001"
+      "l\"\036\n\016TCSCreateGroup\022\014\n\004name\030\001 \001(\t\"!\n\016TSC" +
+      "CreateGroup\022\017\n\007groupId\030\001 \001(\003\" \n\rTCSApply" +
+      "Group\022\017\n\007groupId\030\001 \001(\003\",\n\rTSCApplyGroup\022" +
+      "\r\n\005exist\030\001 \001(\010\022\014\n\004full\030\002 \001(\010\"\026\n\024TCSGetGr" +
+      "oupPageCount\")\n\024TSCGetGroupPageCount\022\021\n\t" +
+      "pageCount\030\001 \001(\005\")\n\022TCSGetGroupRanking\022\023\n" +
+      "\013currentPage\030\001 \001(\005\"P\n\022TSCGetGroupRanking" +
+      "\022:\n\ngroupInfos\030\001 \003(\0132&.com.game.framewor" +
+      "k.protocol.GroupInfo\"V\n\tGroupInfo\022\n\n\002id\030",
+      "\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\024\n\014peopleNumber\030\003 \001(" +
+      "\005\022\031\n\021totalContribution\030\004 \001(\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -4600,7 +4810,7 @@ public final class Room {
           internal_static_com_game_framework_protocol_TCSCreateGroup_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TCSCreateGroup_descriptor,
-              new java.lang.String[] { });
+              new java.lang.String[] { "Name", });
           internal_static_com_game_framework_protocol_TSCCreateGroup_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_com_game_framework_protocol_TSCCreateGroup_fieldAccessorTable = new

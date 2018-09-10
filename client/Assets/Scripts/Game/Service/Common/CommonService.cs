@@ -6,7 +6,7 @@ using UnityEngine;
 public class CommonService : ServiceBase {
 
     const string HOST = "192.168.90.74";
-    const int PORT = 8000;
+    const int PORT = 8008;
 
     public void Login(NDictionary args)
     {
@@ -19,9 +19,10 @@ public class CommonService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.LOGIN, login.ToByteArray());
     }
 
-    public void RPCCreateGroup()
+    public void RPCCreateGroup(NDictionary args)
     {
         var builder = TCSCreateGroup.CreateBuilder();
+        builder.Name = args.Value<string>("name");
         TCSCreateGroup createGroup = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.CREATEGROUP, createGroup.ToByteArray());
     }

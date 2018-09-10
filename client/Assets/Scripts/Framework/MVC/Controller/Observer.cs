@@ -4,7 +4,7 @@ using System;
 
 public delegate void NEventHandler(NDictionary data = null);
 public delegate void NRPCResponce(NetMsgDef msg);
-
+public delegate void NCallback();
 /// <summary>
 /// This class aim to provide a event - callback system
 /// </summary>

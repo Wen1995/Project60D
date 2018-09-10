@@ -80,6 +80,7 @@ public class Building : Controller {
         }
         else
         {
+            BuildingFunc func = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
             info.building.gameObject.SetActive(true);
             if(info.upgradeFinishTime > 0 && GlobalFunction.GetRemainTime(info.upgradeFinishTime, out remainTime))
             {    
@@ -96,22 +97,13 @@ public class Building : Controller {
             else
             {
                 mState = BuildingState.Idle;
+                if(func == BuildingFunc.Collect)
+                    StartCoroutine(CollectTimer());
             }
+            var config = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
+            print(string.Format("buidling={0}, state={1}", config.BldgName, mState.ToString()));
         }
-        switch(mState)
-        {
-            case(BuildingState.Upgrade):
-            {
-                if(GlobalFunction.GetRemainTime(info.upgradeFinishTime, out remainTime))
-                    AddCountdownTimer(remainTime);
-                break;
-            }
-            case(BuildingState.Collect):
-            {
-                //AddRemindIcon();
-                break;
-            }
-        }
+        
     }
 
     //reload prefab of building
@@ -214,16 +206,6 @@ public class Building : Controller {
         GameObject go = icon.gameObject;
         go.transform.parent = floatingIconTrans.transform;
         go.transform.localPosition = Vector3.zero;
-    }
-
-    void AddCountdownTimer(long finishTime)
-    {
-        // ISubPool pool = ObjectPoolSingleton.Instance.GetPool<TimerIcon>();
-        // TimerIcon icon = pool.Take() as TimerIcon;
-        // GameObject go = icon.gameObject;
-        // go.transform.parent = floatingIconTrans.transform;
-        // go.transform.localPosition = Vector3.zero;
-        // icon.StartTimer(finishTime);
     }
 
     void ClearFloatingIcon()

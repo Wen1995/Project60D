@@ -62,6 +62,8 @@ public class UIGroupListPanel : PanelBase {
 			SendEvent("OpenMsgBox", args);
 			return;
 		}
+		UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+		userPackage.SetGroupID(res.GroupId);
 		SceneLoader.LoadScene("SLoading");
 	}
 

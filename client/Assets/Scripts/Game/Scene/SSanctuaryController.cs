@@ -18,6 +18,9 @@ public class SSanctuaryController : SceneController
     //register or bind something
     public void Awake()
     {
+        //create sound singleton
+        SoundSingleton.CreateInstance();
+
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_Event, typeof(EventPackage));
         //register object pool
         ObjectPoolSingleton.Instance.RegisterComPool<HudCollect>(Resources.Load<GameObject>("Prefabs/Hud/Collect"));

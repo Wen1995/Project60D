@@ -31,7 +31,20 @@ public class UISelectGroupPanel : PanelBase {
 
 	void OnCreateGroup()
 	{
-		FacadeSingleton.Instance.InvokeService("RPCCreateGroup", ConstVal.Service_Common);
+		FacadeSingleton.Instance.OpenUtilityPanel("UIInputWindowPanel");
+		NDictionary args = new NDictionary();
+		args.Add("title", "创建庄园");
+		args.Add("desc", "庄园名称");
+		args.Add("callback", new NInputCallback(CreateCallback));
+		SendEvent("OpenInputWindow", args);
+		//FacadeSingleton.Instance.InvokeService("RPCCreateGroup", ConstVal.Service_Common);
+	}
+
+	void CreateCallback(UIInput input)
+	{
+		NDictionary args = new NDictionary();
+		args.Add("name", input.value);
+		FacadeSingleton.Instance.InvokeService("RPCCreateGroup", ConstVal.Service_Common, args);
 	}
 
 }

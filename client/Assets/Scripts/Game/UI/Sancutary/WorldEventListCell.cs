@@ -15,7 +15,7 @@ public class WorldEventListCell : NListCell {
 	{
 		base.Awake();
 		titleLabel = transform.Find("content/title").GetComponent<UILabel>();
-		timeLabel = transform.Find("content/text").GetComponent<UILabel>();
+		timeLabel = transform.Find("content/timer").GetComponent<UILabel>();
 		contentLabel = transform.Find("content/text").GetComponent<UILabel>();
 		eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
 	}
@@ -30,6 +30,7 @@ public class WorldEventListCell : NListCell {
 		WORLD_EVENTS config = configMap[info.configID] as WORLD_EVENTS;
 		titleLabel.text = config.EventName;
 		contentLabel.text = config.EventDesc;
+		ShowTime(info.happenTime);
 	}
 
 	void ShowTime(long happenTime)
@@ -56,6 +57,7 @@ public class WorldEventListCell : NListCell {
 		{
 			yield return new WaitForSeconds(1.0f);
 			remainTime--;
+			timeLabel.text = string.Format("{0}后发生");
 			timeLabel.text = remainTime.ToString();
 		}
 	}

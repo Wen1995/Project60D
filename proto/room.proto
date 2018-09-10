@@ -3,7 +3,8 @@ package com.game.framework.protocol;
 option optimize_for = SPEED;
 
 message TCSCreateGroup {
-
+	// 庄园名字
+	optional string name = 1;
 }
 message TSCCreateGroup {
 	// 房间ID
@@ -19,6 +20,8 @@ message TSCApplyGroup {
 	optional bool exist = 1;
 	// 房间是否满
 	optional bool full = 2;
+	// 房间ID
+	optional int64 groupId = 3;
 }
 
 message TCSGetGroupPageCount {

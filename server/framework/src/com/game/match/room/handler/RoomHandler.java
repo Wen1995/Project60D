@@ -22,8 +22,8 @@ public class RoomHandler {
 	@HandlerMethodMapping(cmd = Cmd.CREATEGROUP_VALUE)
 	public void createGroup(TPacket p) throws Exception {
 		TCSCreateGroup msg = TCSCreateGroup.parseFrom(p.getBuffer());
-		
-		TPacket resp = service.createGroup(p.getUid());
+		String name = msg.getName();		
+		TPacket resp = service.createGroup(p.getUid(), name);
 		resp.setCmd(Cmd.CREATEGROUP_VALUE + 1000);
 		GateServer.GetInstance().send(resp);
 	}

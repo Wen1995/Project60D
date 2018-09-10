@@ -58,6 +58,6 @@ public class HudCountDown : MonoBehaviour, IPoolUnit , IHudObject{
 
     public void Initialize(NDictionary args)
     {
-        throw new System.NotImplementedException();
+		//TODO
     }
 }

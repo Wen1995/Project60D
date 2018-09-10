@@ -26,20 +26,27 @@ public class BuildingCostListCell : NListCell {
 		base.DrawCell(index, count);
 		var dataList = sanctuaryPackage.GetBuildingCostList();
 		NCostDef cost = dataList[index];
+		bool isEnough = true;
 		if(cost.configID == 1)
 		{
 			nameLabel.text = string.Format("等级限制:");
 			valueLabel.text = string.Format("{0}/{1}", cost.value, userPackage.GetManorLevel());
+			if(userPackage.GetManorLevel() < cost.value)
+				isEnough = false;
 		}
 		else if(cost.configID == 2)
 		{
 			nameLabel.text = string.Format("金钱:");
 			valueLabel.text = string.Format("{0}/{1}", cost.value, itemPackage.GetGoldNumber());
+			if(itemPackage.GetGoldNumber() < cost.value)
+				isEnough = false;
 		}
 		else if(cost.configID == 3)
 		{
 			nameLabel.text = string.Format("电力:");
 			valueLabel.text = string.Format("{0}/{1}", cost.value, itemPackage.GetElecNumber());
+			if(itemPackage.GetElecNumber() < cost.value)
+				isEnough = false;
 		}
 		else
 		{
@@ -48,6 +55,17 @@ public class BuildingCostListCell : NListCell {
 			nameLabel.text = string.Format("{0}:", itemData.MinName);	
 			NItemInfo itemInfo = itemPackage.GetItemInfo(cost.configID);
 			valueLabel.text = string.Format("{0}/{1}", cost.value, itemInfo.number);
+			if(itemInfo.number < cost.value)
+				isEnough = false;
 		}
-	}
+		if(isEnough)
+		{
+			nameLabel.color = Color.white;
+			valueLabel.color = Color.white;
+		}
+		else
+		{	
+			nameLabel.color = Color.red;
+			valueLabel.color = Color.red;}
+		}
 }

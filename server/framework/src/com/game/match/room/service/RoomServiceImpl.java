@@ -36,13 +36,14 @@ public class RoomServiceImpl implements RoomService {
     private IBuildingDao buildingDao;
     
     @Override
-    public TPacket createGroup(Long uid) throws Exception {
+    public TPacket createGroup(Long uid, String name) throws Exception {
         Long groupId = IdManager.GetInstance().genId(IdType.GROUP);
         Long storehouseId = IdManager.GetInstance().genId(IdType.BUILDING);
         Long batteryId = IdManager.GetInstance().genId(IdType.BUILDING);
         
         Group group = new Group();
         group.setId(groupId);
+        group.setName(name);
         group.setPeopleNumber(1);
         group.setTotalContribution(0);
         group.setStorehouseId(storehouseId);
@@ -149,6 +150,7 @@ public class RoomServiceImpl implements RoomService {
         TSCApplyGroup p = TSCApplyGroup.newBuilder()
                 .setExist(exist)
                 .setFull(full)
+                .setGroupId(groupId)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);

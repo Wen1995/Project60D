@@ -42,4 +42,12 @@ public static class GlobalFunction {
         long curTime = GetTimeStamp();
         DeltaTime =  curTime - serverTime;
     }
+
+    public static bool IsHappened(long happenTime)
+    {
+        long curTime = GetTimeStamp() - DeltaTime;
+        if(happenTime < 0 || happenTime <= curTime)
+            return true;
+        return false;
+    }
 }

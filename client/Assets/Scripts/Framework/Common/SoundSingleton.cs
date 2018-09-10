@@ -12,5 +12,12 @@ public class SoundSingleton : Singleton<SoundSingleton> {
 	private void Awake() 
 	{
 		bgmSource = gameObject.AddComponent<AudioSource>();
+		for(int i=0;i<ChannelNum;i++)
+		{
+			GameObject go = new GameObject("seSource" + i);
+			go.transform.parent = transform;
+			go.transform.localPosition = Vector3.zero;
+		}
 	}
+
 }

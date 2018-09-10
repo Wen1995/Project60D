@@ -296,8 +296,8 @@ namespace com.game.framework.protocol {
   public sealed partial class TSCGetSceneInfo : pb::GeneratedMessageLite<TSCGetSceneInfo, TSCGetSceneInfo.Builder> {
     private TSCGetSceneInfo() { }
     private static readonly TSCGetSceneInfo defaultInstance = new TSCGetSceneInfo().MakeReadOnly();
-    private static readonly string[] _tSCGetSceneInfoFieldNames = new string[] { "buildingInfos", "totalContribution", "userInfos" };
-    private static readonly uint[] _tSCGetSceneInfoFieldTags = new uint[] { 10, 16, 26 };
+    private static readonly string[] _tSCGetSceneInfoFieldNames = new string[] { "buildingInfos", "groupName", "totalContribution", "userInfos" };
+    private static readonly uint[] _tSCGetSceneInfoFieldTags = new uint[] { 10, 34, 16, 26 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -360,6 +360,19 @@ namespace com.game.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int GroupNameFieldNumber = 4;
+    private bool hasGroupName;
+    private string groupName_ = "";
+    public bool HasGroupName {
+      get { return hasGroupName; }
+    }
+    public string GroupName {
+      get { return groupName_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -378,10 +391,13 @@ namespace com.game.framework.protocol {
         output.WriteMessageArray(1, field_names[0], buildingInfos_);
       }
       if (hasTotalContribution) {
-        output.WriteInt32(2, field_names[1], TotalContribution);
+        output.WriteInt32(2, field_names[2], TotalContribution);
       }
       if (userInfos_.Count > 0) {
-        output.WriteMessageArray(3, field_names[2], userInfos_);
+        output.WriteMessageArray(3, field_names[3], userInfos_);
+      }
+      if (hasGroupName) {
+        output.WriteString(4, field_names[1], GroupName);
       }
     }
     
@@ -404,6 +420,9 @@ namespace com.game.framework.protocol {
         foreach (global::com.game.framework.protocol.UserInfo element in UserInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(3, element);
         }
+        if (hasGroupName) {
+          size += pb::CodedOutputStream.ComputeStringSize(4, GroupName);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -417,6 +436,7 @@ namespace com.game.framework.protocol {
       if (hasTotalContribution) hash ^= totalContribution_.GetHashCode();
       foreach(global::com.game.framework.protocol.UserInfo i in userInfos_)
         hash ^= i.GetHashCode();
+      if (hasGroupName) hash ^= groupName_.GetHashCode();
       return hash;
     }
     
@@ -430,6 +450,7 @@ namespace com.game.framework.protocol {
       if(userInfos_.Count != other.userInfos_.Count) return false;
       for(int ix=0; ix < userInfos_.Count; ix++)
         if(!userInfos_[ix].Equals(other.userInfos_[ix])) return false;
+      if (hasGroupName != other.hasGroupName || (hasGroupName && !groupName_.Equals(other.groupName_))) return false;
       return true;
     }
     
@@ -601,6 +622,9 @@ namespace com.game.framework.protocol {
         if (other.userInfos_.Count != 0) {
           result.userInfos_.Add(other.userInfos_);
         }
+        if (other.HasGroupName) {
+          GroupName = other.GroupName;
+        }
         return this;
       }
       
@@ -643,6 +667,10 @@ namespace com.game.framework.protocol {
             }
             case 26: {
               input.ReadMessageArray(tag, field_name, result.userInfos_, global::com.game.framework.protocol.UserInfo.DefaultInstance, extensionRegistry);
+              break;
+            }
+            case 34: {
+              result.hasGroupName = input.ReadString(ref result.groupName_);
               break;
             }
           }
@@ -757,6 +785,27 @@ namespace com.game.framework.protocol {
       public Builder ClearUserInfos() {
         PrepareBuilder();
         result.userInfos_.Clear();
+        return this;
+      }
+      
+      public bool HasGroupName {
+        get { return result.hasGroupName; }
+      }
+      public string GroupName {
+        get { return result.GroupName; }
+        set { SetGroupName(value); }
+      }
+      public Builder SetGroupName(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasGroupName = true;
+        result.groupName_ = value;
+        return this;
+      }
+      public Builder ClearGroupName() {
+        PrepareBuilder();
+        result.hasGroupName = false;
+        result.groupName_ = "";
         return this;
       }
     }

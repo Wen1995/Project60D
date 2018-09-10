@@ -8,12 +8,14 @@ public class UIManorMenuPanel : PanelBase {
 	SanctuaryPackage sanctuaryPackage = null;
 	UserPackage userPackage = null;
 	MailPackage mailPackage = null;
+	EventPackage eventPackage = null;
 	UIProgressBar invadeProgress = null;
 	UIProgressBar manorExpProgress = null;
 	UILabel levelLabel = null;
 	UILabel IDLabel = null;
 	UILabel mailTagLabel = null;
 	GameObject mailTagGo = null;
+	NTableView tableView = null;
 
 	protected override void Awake()
 	{
@@ -24,6 +26,7 @@ public class UIManorMenuPanel : PanelBase {
 		IDLabel = transform.Find("Manor/idlabel").GetComponent<UILabel>();
 		mailTagLabel = transform.Find("Mail/point/num").GetComponent<UILabel>();
 		mailTagGo = transform.Find("Mail/point").gameObject;
+		tableView = transform.Find("Eventinfo/panel/tableview").GetComponent<NTableView>();
 		//bind event
 		UIButton button = transform.Find("News").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnNews));
@@ -34,10 +37,12 @@ public class UIManorMenuPanel : PanelBase {
 
 		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 		mailPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Mail) as MailPackage;
+		eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
 
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETMESSAGETAG, OnGetMessgeTag);
 		FacadeSingleton.Instance.RegisterEvent("RefreshMailTag", RefreshMailTag);
 		FacadeSingleton.Instance.RegisterEvent("RefreshManorLevel", InitView);
+		FacadeSingleton.Instance.RegisterEvent("RefreshEvent", ShowEventIcon);
 	}
 
 	public override void OpenPanel()
@@ -60,6 +65,7 @@ public class UIManorMenuPanel : PanelBase {
 		levelLabel.text = string.Format("Lv.{0}", userPackage.GetManorLevel(out progress).ToString());
 		
 		manorExpProgress.value = progress;
+		ShowEventIcon();
 	}
 
 	void OnNews()
@@ -97,5 +103,11 @@ public class UIManorMenuPanel : PanelBase {
 			mailTagGo.SetActive(true);
 			mailTagLabel.text = count.ToString();
 		}
+	}
+
+	void ShowEventIcon(NDictionary data = null)
+	{
+		tableView.DataCount = eventPackage.GetCurEventList().Count;
+		tableView.TableChange();
 	}
 }

@@ -427,6 +427,33 @@ public final class Scene {
      */
     com.game.framework.protocol.Message.UserInfoOrBuilder getUserInfosOrBuilder(
         int index);
+
+    // optional string groupName = 4;
+    /**
+     * <code>optional string groupName = 4;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    boolean hasGroupName();
+    /**
+     * <code>optional string groupName = 4;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    java.lang.String getGroupName();
+    /**
+     * <code>optional string groupName = 4;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getGroupNameBytes();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCGetSceneInfo}
@@ -498,6 +525,11 @@ public final class Scene {
                 mutable_bitField0_ |= 0x00000004;
               }
               userInfos_.add(input.readMessage(com.game.framework.protocol.Message.UserInfo.PARSER, extensionRegistry));
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000002;
+              groupName_ = input.readBytes();
               break;
             }
           }
@@ -682,10 +714,66 @@ public final class Scene {
       return userInfos_.get(index);
     }
 
+    // optional string groupName = 4;
+    public static final int GROUPNAME_FIELD_NUMBER = 4;
+    private java.lang.Object groupName_;
+    /**
+     * <code>optional string groupName = 4;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    public boolean hasGroupName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string groupName = 4;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    public java.lang.String getGroupName() {
+      java.lang.Object ref = groupName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          groupName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string groupName = 4;</code>
+     *
+     * <pre>
+     * 庄园名字
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getGroupNameBytes() {
+      java.lang.Object ref = groupName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        groupName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       buildingInfos_ = java.util.Collections.emptyList();
       totalContribution_ = 0;
       userInfos_ = java.util.Collections.emptyList();
+      groupName_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -708,6 +796,9 @@ public final class Scene {
       for (int i = 0; i < userInfos_.size(); i++) {
         output.writeMessage(3, userInfos_.get(i));
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(4, getGroupNameBytes());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -728,6 +819,10 @@ public final class Scene {
       for (int i = 0; i < userInfos_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, userInfos_.get(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getGroupNameBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -861,6 +956,8 @@ public final class Scene {
         } else {
           userInfosBuilder_.clear();
         }
+        groupName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -911,6 +1008,10 @@ public final class Scene {
         } else {
           result.userInfos_ = userInfosBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.groupName_ = groupName_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -981,6 +1082,11 @@ public final class Scene {
               userInfosBuilder_.addAllMessages(other.userInfos_);
             }
           }
+        }
+        if (other.hasGroupName()) {
+          bitField0_ |= 0x00000008;
+          groupName_ = other.groupName_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1680,6 +1786,104 @@ public final class Scene {
           userInfos_ = null;
         }
         return userInfosBuilder_;
+      }
+
+      // optional string groupName = 4;
+      private java.lang.Object groupName_ = "";
+      /**
+       * <code>optional string groupName = 4;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public boolean hasGroupName() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string groupName = 4;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public java.lang.String getGroupName() {
+        java.lang.Object ref = groupName_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          groupName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string groupName = 4;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getGroupNameBytes() {
+        java.lang.Object ref = groupName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          groupName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string groupName = 4;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public Builder setGroupName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        groupName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string groupName = 4;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public Builder clearGroupName() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        groupName_ = getDefaultInstance().getGroupName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string groupName = 4;</code>
+       *
+       * <pre>
+       * 庄园名字
+       * </pre>
+       */
+      public Builder setGroupNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        groupName_ = value;
+        onChanged();
+        return this;
       }
 
       // @@protoc_insertion_point(builder_scope:com.game.framework.protocol.TSCGetSceneInfo)
@@ -11586,39 +11790,39 @@ public final class Scene {
   static {
     java.lang.String[] descriptorData = {
       "\n\013scene.proto\022\033com.game.framework.protoc" +
-      "ol\032\rmessage.proto\"\021\n\017TCSGetSceneInfo\"\250\001\n" +
+      "ol\032\rmessage.proto\"\021\n\017TCSGetSceneInfo\"\273\001\n" +
       "\017TSCGetSceneInfo\022@\n\rbuildingInfos\030\001 \003(\0132" +
       ").com.game.framework.protocol.BuildingIn" +
       "fo\022\031\n\021totalContribution\030\002 \001(\005\0228\n\tuserInf" +
       "os\030\003 \003(\0132%.com.game.framework.protocol.U" +
-      "serInfo\"(\n\022TCSGetBuildingInfo\022\022\n\nbuildin" +
-      "gId\030\001 \001(\003\"U\n\022TSCGetBuildingInfo\022?\n\014build" +
-      "ingInfo\030\001 \001(\0132).com.game.framework.proto" +
-      "col.BuildingInfo\"\242\001\n\014BuildingInfo\022\022\n\nbui",
-      "ldingId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022\031\n\021upgra" +
-      "deFinishTime\030\003 \001(\003\022\022\n\nupgradeUid\030\004 \001(\003\022\031" +
-      "\n\021processFinishTime\030\005 \001(\003\022\022\n\nprocessUid\030" +
-      "\006 \001(\003\022\016\n\006number\030\007 \001(\005\" \n\nTCSUpgrade\022\022\n\nb" +
-      "uildingId\030\001 \001(\003\"\200\001\n\nTSCUpgrade\022\017\n\007isStat" +
-      "e\030\001 \001(\010\022\017\n\007isGroup\030\002 \001(\010\022\022\n\nisResource\030\003" +
-      " \001(\010\022\024\n\014isProduction\030\004 \001(\010\022\022\n\nfinishTime" +
-      "\030\005 \001(\003\022\022\n\nbuildingId\030\006 \001(\003\"&\n\020TCSFinishU" +
-      "pgrade\022\022\n\nbuildingId\030\001 \001(\003\"&\n\020TSCFinishU" +
-      "pgrade\022\022\n\nbuildingId\030\001 \001(\003\"\035\n\tTCSUnlock\022",
-      "\020\n\010configId\030\001 \001(\005\"n\n\tTSCUnlock\022\022\n\nbuildi" +
-      "ngId\030\001 \001(\003\022\017\n\007isGroup\030\002 \001(\010\022\022\n\nisResourc" +
-      "e\030\003 \001(\010\022\024\n\014isProduction\030\004 \001(\010\022\022\n\nfinishT" +
-      "ime\030\005 \001(\003\"%\n\017TCSFinishUnlock\022\022\n\nbuilding" +
-      "Id\030\001 \001(\003\"%\n\017TSCFinishUnlock\022\022\n\nbuildingI" +
-      "d\030\001 \001(\003\" \n\nTCSReceive\022\022\n\nbuildingId\030\001 \001(" +
-      "\003\"B\n\nTSCReceive\022\022\n\nbuildingId\030\001 \001(\003\022\020\n\010c" +
-      "onfigId\030\002 \001(\005\022\016\n\006number\030\003 \001(\005\"0\n\nTCSProc" +
-      "ess\022\022\n\nbuildingId\030\001 \001(\003\022\016\n\006number\030\002 \001(\005\"" +
-      "Q\n\nTSCProcess\022\022\n\nbuildingId\030\001 \001(\003\022\022\n\nfin",
-      "ishTime\030\002 \001(\003\022\013\n\003uid\030\003 \001(\003\022\016\n\006number\030\004 \001" +
-      "(\005\")\n\023TCSInterruptProcess\022\022\n\nbuildingId\030" +
-      "\001 \001(\003\")\n\023TSCInterruptProcess\022\022\n\nbuilding" +
-      "Id\030\001 \001(\003B\002H\001"
+      "serInfo\022\021\n\tgroupName\030\004 \001(\t\"(\n\022TCSGetBuil" +
+      "dingInfo\022\022\n\nbuildingId\030\001 \001(\003\"U\n\022TSCGetBu" +
+      "ildingInfo\022?\n\014buildingInfo\030\001 \001(\0132).com.g" +
+      "ame.framework.protocol.BuildingInfo\"\242\001\n\014",
+      "BuildingInfo\022\022\n\nbuildingId\030\001 \001(\003\022\020\n\010conf" +
+      "igId\030\002 \001(\005\022\031\n\021upgradeFinishTime\030\003 \001(\003\022\022\n" +
+      "\nupgradeUid\030\004 \001(\003\022\031\n\021processFinishTime\030\005" +
+      " \001(\003\022\022\n\nprocessUid\030\006 \001(\003\022\016\n\006number\030\007 \001(\005" +
+      "\" \n\nTCSUpgrade\022\022\n\nbuildingId\030\001 \001(\003\"\200\001\n\nT" +
+      "SCUpgrade\022\017\n\007isState\030\001 \001(\010\022\017\n\007isGroup\030\002 " +
+      "\001(\010\022\022\n\nisResource\030\003 \001(\010\022\024\n\014isProduction\030" +
+      "\004 \001(\010\022\022\n\nfinishTime\030\005 \001(\003\022\022\n\nbuildingId\030" +
+      "\006 \001(\003\"&\n\020TCSFinishUpgrade\022\022\n\nbuildingId\030" +
+      "\001 \001(\003\"&\n\020TSCFinishUpgrade\022\022\n\nbuildingId\030",
+      "\001 \001(\003\"\035\n\tTCSUnlock\022\020\n\010configId\030\001 \001(\005\"n\n\t" +
+      "TSCUnlock\022\022\n\nbuildingId\030\001 \001(\003\022\017\n\007isGroup" +
+      "\030\002 \001(\010\022\022\n\nisResource\030\003 \001(\010\022\024\n\014isProducti" +
+      "on\030\004 \001(\010\022\022\n\nfinishTime\030\005 \001(\003\"%\n\017TCSFinis" +
+      "hUnlock\022\022\n\nbuildingId\030\001 \001(\003\"%\n\017TSCFinish" +
+      "Unlock\022\022\n\nbuildingId\030\001 \001(\003\" \n\nTCSReceive" +
+      "\022\022\n\nbuildingId\030\001 \001(\003\"B\n\nTSCReceive\022\022\n\nbu" +
+      "ildingId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022\016\n\006numb" +
+      "er\030\003 \001(\005\"0\n\nTCSProcess\022\022\n\nbuildingId\030\001 \001" +
+      "(\003\022\016\n\006number\030\002 \001(\005\"Q\n\nTSCProcess\022\022\n\nbuil",
+      "dingId\030\001 \001(\003\022\022\n\nfinishTime\030\002 \001(\003\022\013\n\003uid\030" +
+      "\003 \001(\003\022\016\n\006number\030\004 \001(\005\")\n\023TCSInterruptPro" +
+      "cess\022\022\n\nbuildingId\030\001 \001(\003\")\n\023TSCInterrupt" +
+      "Process\022\022\n\nbuildingId\030\001 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -11636,7 +11840,7 @@ public final class Scene {
           internal_static_com_game_framework_protocol_TSCGetSceneInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCGetSceneInfo_descriptor,
-              new java.lang.String[] { "BuildingInfos", "TotalContribution", "UserInfos", });
+              new java.lang.String[] { "BuildingInfos", "TotalContribution", "UserInfos", "GroupName", });
           internal_static_com_game_framework_protocol_TCSGetBuildingInfo_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_com_game_framework_protocol_TCSGetBuildingInfo_fieldAccessorTable = new

@@ -20,6 +20,8 @@ message TSCApplyGroup {
 	optional bool exist = 1;
 	// 房间是否满
 	optional bool full = 2;
+	// 房间ID
+	optional int64 groupId = 3;
 }
 
 message TCSGetGroupPageCount {

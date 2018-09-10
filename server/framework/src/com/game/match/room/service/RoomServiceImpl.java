@@ -150,6 +150,7 @@ public class RoomServiceImpl implements RoomService {
         TSCApplyGroup p = TSCApplyGroup.newBuilder()
                 .setExist(exist)
                 .setFull(full)
+                .setGroupId(groupId)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);

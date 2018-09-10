@@ -1421,6 +1421,24 @@ public final class Room {
      * </pre>
      */
     boolean getFull();
+
+    // optional int64 groupId = 3;
+    /**
+     * <code>optional int64 groupId = 3;</code>
+     *
+     * <pre>
+     * 房间ID
+     * </pre>
+     */
+    boolean hasGroupId();
+    /**
+     * <code>optional int64 groupId = 3;</code>
+     *
+     * <pre>
+     * 房间ID
+     * </pre>
+     */
+    long getGroupId();
   }
   /**
    * Protobuf type {@code com.game.framework.protocol.TSCApplyGroup}
@@ -1481,6 +1499,11 @@ public final class Room {
             case 16: {
               bitField0_ |= 0x00000002;
               full_ = input.readBool();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              groupId_ = input.readInt64();
               break;
             }
           }
@@ -1571,9 +1594,34 @@ public final class Room {
       return full_;
     }
 
+    // optional int64 groupId = 3;
+    public static final int GROUPID_FIELD_NUMBER = 3;
+    private long groupId_;
+    /**
+     * <code>optional int64 groupId = 3;</code>
+     *
+     * <pre>
+     * 房间ID
+     * </pre>
+     */
+    public boolean hasGroupId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int64 groupId = 3;</code>
+     *
+     * <pre>
+     * 房间ID
+     * </pre>
+     */
+    public long getGroupId() {
+      return groupId_;
+    }
+
     private void initFields() {
       exist_ = false;
       full_ = false;
+      groupId_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1593,6 +1641,9 @@ public final class Room {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBool(2, full_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, groupId_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1609,6 +1660,10 @@ public final class Room {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, full_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, groupId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1730,6 +1785,8 @@ public final class Room {
         bitField0_ = (bitField0_ & ~0x00000001);
         full_ = false;
         bitField0_ = (bitField0_ & ~0x00000002);
+        groupId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -1766,6 +1823,10 @@ public final class Room {
           to_bitField0_ |= 0x00000002;
         }
         result.full_ = full_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.groupId_ = groupId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1787,6 +1848,9 @@ public final class Room {
         }
         if (other.hasFull()) {
           setFull(other.getFull());
+        }
+        if (other.hasGroupId()) {
+          setGroupId(other.getGroupId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1909,6 +1973,55 @@ public final class Room {
       public Builder clearFull() {
         bitField0_ = (bitField0_ & ~0x00000002);
         full_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 groupId = 3;
+      private long groupId_ ;
+      /**
+       * <code>optional int64 groupId = 3;</code>
+       *
+       * <pre>
+       * 房间ID
+       * </pre>
+       */
+      public boolean hasGroupId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int64 groupId = 3;</code>
+       *
+       * <pre>
+       * 房间ID
+       * </pre>
+       */
+      public long getGroupId() {
+        return groupId_;
+      }
+      /**
+       * <code>optional int64 groupId = 3;</code>
+       *
+       * <pre>
+       * 房间ID
+       * </pre>
+       */
+      public Builder setGroupId(long value) {
+        bitField0_ |= 0x00000004;
+        groupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 groupId = 3;</code>
+       *
+       * <pre>
+       * 房间ID
+       * </pre>
+       */
+      public Builder clearGroupId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        groupId_ = 0L;
         onChanged();
         return this;
       }
@@ -4790,15 +4903,16 @@ public final class Room {
       "\n\nroom.proto\022\033com.game.framework.protoco" +
       "l\"\036\n\016TCSCreateGroup\022\014\n\004name\030\001 \001(\t\"!\n\016TSC" +
       "CreateGroup\022\017\n\007groupId\030\001 \001(\003\" \n\rTCSApply" +
-      "Group\022\017\n\007groupId\030\001 \001(\003\",\n\rTSCApplyGroup\022" +
-      "\r\n\005exist\030\001 \001(\010\022\014\n\004full\030\002 \001(\010\"\026\n\024TCSGetGr" +
-      "oupPageCount\")\n\024TSCGetGroupPageCount\022\021\n\t" +
-      "pageCount\030\001 \001(\005\")\n\022TCSGetGroupRanking\022\023\n" +
-      "\013currentPage\030\001 \001(\005\"P\n\022TSCGetGroupRanking" +
-      "\022:\n\ngroupInfos\030\001 \003(\0132&.com.game.framewor" +
-      "k.protocol.GroupInfo\"V\n\tGroupInfo\022\n\n\002id\030",
-      "\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\024\n\014peopleNumber\030\003 \001(" +
-      "\005\022\031\n\021totalContribution\030\004 \001(\005B\002H\001"
+      "Group\022\017\n\007groupId\030\001 \001(\003\"=\n\rTSCApplyGroup\022" +
+      "\r\n\005exist\030\001 \001(\010\022\014\n\004full\030\002 \001(\010\022\017\n\007groupId\030" +
+      "\003 \001(\003\"\026\n\024TCSGetGroupPageCount\")\n\024TSCGetG" +
+      "roupPageCount\022\021\n\tpageCount\030\001 \001(\005\")\n\022TCSG" +
+      "etGroupRanking\022\023\n\013currentPage\030\001 \001(\005\"P\n\022T" +
+      "SCGetGroupRanking\022:\n\ngroupInfos\030\001 \003(\0132&." +
+      "com.game.framework.protocol.GroupInfo\"V\n",
+      "\tGroupInfo\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\024\n\014" +
+      "peopleNumber\030\003 \001(\005\022\031\n\021totalContribution\030" +
+      "\004 \001(\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -4828,7 +4942,7 @@ public final class Room {
           internal_static_com_game_framework_protocol_TSCApplyGroup_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_game_framework_protocol_TSCApplyGroup_descriptor,
-              new java.lang.String[] { "Exist", "Full", });
+              new java.lang.String[] { "Exist", "Full", "GroupId", });
           internal_static_com_game_framework_protocol_TCSGetGroupPageCount_descriptor =
             getDescriptor().getMessageTypes().get(4);
           internal_static_com_game_framework_protocol_TCSGetGroupPageCount_fieldAccessorTable = new

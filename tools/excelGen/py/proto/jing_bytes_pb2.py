@@ -17,8 +17,8 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/jing_bytes.proto',
-  package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x16proto/jing_bytes.proto\x12 com.game.framework.resource.data\"?\n\x04JING\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x13\n\x08jing_spd\x18\x02 \x01(\x05:\x01\x30\x12\x13\n\x08jing_cap\x18\x03 \x01(\x05:\x01\x30\"C\n\nJING_ARRAY\x12\x35\n\x05items\x18\x01 \x03(\x0b\x32&.com.game.framework.resource.data.JING')
+  package='com.nkm.framework.resource.data',
+  serialized_pb=_b('\n\x16proto/jing_bytes.proto\x12\x1f\x63om.nkm.framework.resource.data\"?\n\x04JING\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x13\n\x08jing_spd\x18\x02 \x01(\x05:\x01\x30\x12\x13\n\x08jing_cap\x18\x03 \x01(\x05:\x01\x30\"B\n\nJING_ARRAY\x12\x34\n\x05items\x18\x01 \x03(\x0b\x32%.com.nkm.framework.resource.data.JING')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -27,27 +27,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _JING = _descriptor.Descriptor(
   name='JING',
-  full_name='com.game.framework.resource.data.JING',
+  full_name='com.nkm.framework.resource.data.JING',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='com.game.framework.resource.data.JING.id', index=0,
+      name='id', full_name='com.nkm.framework.resource.data.JING.id', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='jing_spd', full_name='com.game.framework.resource.data.JING.jing_spd', index=1,
+      name='jing_spd', full_name='com.nkm.framework.resource.data.JING.jing_spd', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='jing_cap', full_name='com.game.framework.resource.data.JING.jing_cap', index=2,
+      name='jing_cap', full_name='com.nkm.framework.resource.data.JING.jing_cap', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -64,20 +64,20 @@ _JING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=60,
-  serialized_end=123,
+  serialized_start=59,
+  serialized_end=122,
 )
 
 
 _JING_ARRAY = _descriptor.Descriptor(
   name='JING_ARRAY',
-  full_name='com.game.framework.resource.data.JING_ARRAY',
+  full_name='com.nkm.framework.resource.data.JING_ARRAY',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='items', full_name='com.game.framework.resource.data.JING_ARRAY.items', index=0,
+      name='items', full_name='com.nkm.framework.resource.data.JING_ARRAY.items', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -94,8 +94,8 @@ _JING_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=125,
-  serialized_end=192,
+  serialized_start=124,
+  serialized_end=190,
 )
 
 _JING_ARRAY.fields_by_name['items'].message_type = _JING
@@ -105,14 +105,14 @@ DESCRIPTOR.message_types_by_name['JING_ARRAY'] = _JING_ARRAY
 JING = _reflection.GeneratedProtocolMessageType('JING', (_message.Message,), dict(
   DESCRIPTOR = _JING,
   __module__ = 'proto.jing_bytes_pb2'
-  # @@protoc_insertion_point(class_scope:com.game.framework.resource.data.JING)
+  # @@protoc_insertion_point(class_scope:com.nkm.framework.resource.data.JING)
   ))
 _sym_db.RegisterMessage(JING)
 
 JING_ARRAY = _reflection.GeneratedProtocolMessageType('JING_ARRAY', (_message.Message,), dict(
   DESCRIPTOR = _JING_ARRAY,
   __module__ = 'proto.jing_bytes_pb2'
-  # @@protoc_insertion_point(class_scope:com.game.framework.resource.data.JING_ARRAY)
+  # @@protoc_insertion_point(class_scope:com.nkm.framework.resource.data.JING_ARRAY)
   ))
 _sym_db.RegisterMessage(JING_ARRAY)
 

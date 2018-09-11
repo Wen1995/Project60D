@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 2cf51f751fd00f948895e383112883fa
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: Windmill2_el1
@@ -16,7 +16,13 @@ ModelImporter:
     4300000: Windmill2_el1
     4300002: Windmill2_el2
     9500000: //RootNode
-  externalObjects: {}
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas1
+    second: {fileID: 2100000, guid: d3d89812d35745a48be74cc74aea4ef0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -67,6 +73,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

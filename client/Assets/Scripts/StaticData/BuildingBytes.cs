@@ -6,7 +6,7 @@ using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace com.game.framework.resource.data {
+namespace com.nkm.framework.resource.data {
   
   public static partial class BuildingBytes {
   
@@ -293,7 +293,7 @@ namespace com.game.framework.resource.data {
           }
           
           public override CostStruct DefaultInstanceForType {
-            get { return global::com.game.framework.resource.data.BUILDING.Types.CostStruct.DefaultInstance; }
+            get { return global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct.DefaultInstance; }
           }
           
           public override CostStruct BuildPartial() {
@@ -314,7 +314,7 @@ namespace com.game.framework.resource.data {
           }
           
           public override Builder MergeFrom(CostStruct other) {
-            if (other == global::com.game.framework.resource.data.BUILDING.Types.CostStruct.DefaultInstance) return this;
+            if (other == global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct.DefaultInstance) return this;
             PrepareBuilder();
             if (other.HasCostId) {
               CostId = other.CostId;
@@ -410,7 +410,7 @@ namespace com.game.framework.resource.data {
           }
         }
         static CostStruct() {
-          object.ReferenceEquals(global::com.game.framework.resource.data.BuildingBytes.Descriptor, null);
+          object.ReferenceEquals(global::com.nkm.framework.resource.data.BuildingBytes.Descriptor, null);
         }
       }
       
@@ -694,14 +694,14 @@ namespace com.game.framework.resource.data {
     [pb.FieldNumber]
     #endif//
     public const int CostTableFieldNumber = 22;
-    private pbc::PopsicleList<global::com.game.framework.resource.data.BUILDING.Types.CostStruct> costTable_ = new pbc::PopsicleList<global::com.game.framework.resource.data.BUILDING.Types.CostStruct>();
-    public scg::IList<global::com.game.framework.resource.data.BUILDING.Types.CostStruct> CostTableList {
+    private pbc::PopsicleList<global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct> costTable_ = new pbc::PopsicleList<global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct>();
+    public scg::IList<global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct> CostTableList {
       get { return costTable_; }
     }
     public int CostTableCount {
       get { return costTable_.Count; }
     }
-    public global::com.game.framework.resource.data.BUILDING.Types.CostStruct GetCostTable(int index) {
+    public global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct GetCostTable(int index) {
       return costTable_[index];
     }
     
@@ -862,7 +862,7 @@ namespace com.game.framework.resource.data {
         if (hasElecCost) {
           size += pb::CodedOutputStream.ComputeInt32Size(21, ElecCost);
         }
-        foreach (global::com.game.framework.resource.data.BUILDING.Types.CostStruct element in CostTableList) {
+        foreach (global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct element in CostTableList) {
           size += pb::CodedOutputStream.ComputeMessageSize(22, element);
         }
         memoizedSerializedSize = size;
@@ -894,7 +894,7 @@ namespace com.game.framework.resource.data {
       if (hasTimeCost) hash ^= timeCost_.GetHashCode();
       if (hasGoldCost) hash ^= goldCost_.GetHashCode();
       if (hasElecCost) hash ^= elecCost_.GetHashCode();
-      foreach(global::com.game.framework.resource.data.BUILDING.Types.CostStruct i in costTable_)
+      foreach(global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct i in costTable_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -1064,7 +1064,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override BUILDING DefaultInstanceForType {
-        get { return global::com.game.framework.resource.data.BUILDING.DefaultInstance; }
+        get { return global::com.nkm.framework.resource.data.BUILDING.DefaultInstance; }
       }
       
       public override BUILDING BuildPartial() {
@@ -1085,7 +1085,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override Builder MergeFrom(BUILDING other) {
-        if (other == global::com.game.framework.resource.data.BUILDING.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.resource.data.BUILDING.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasId) {
           Id = other.Id;
@@ -1270,7 +1270,7 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 178: {
-              input.ReadMessageArray(tag, field_name, result.costTable_, global::com.game.framework.resource.data.BUILDING.Types.CostStruct.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.costTable_, global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -1705,40 +1705,40 @@ namespace com.game.framework.resource.data {
         return this;
       }
       
-      public pbc::IPopsicleList<global::com.game.framework.resource.data.BUILDING.Types.CostStruct> CostTableList {
+      public pbc::IPopsicleList<global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct> CostTableList {
         get { return PrepareBuilder().costTable_; }
       }
       public int CostTableCount {
         get { return result.CostTableCount; }
       }
-      public global::com.game.framework.resource.data.BUILDING.Types.CostStruct GetCostTable(int index) {
+      public global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct GetCostTable(int index) {
         return result.GetCostTable(index);
       }
-      public Builder SetCostTable(int index, global::com.game.framework.resource.data.BUILDING.Types.CostStruct value) {
+      public Builder SetCostTable(int index, global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.costTable_[index] = value;
         return this;
       }
-      public Builder SetCostTable(int index, global::com.game.framework.resource.data.BUILDING.Types.CostStruct.Builder builderForValue) {
+      public Builder SetCostTable(int index, global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.costTable_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddCostTable(global::com.game.framework.resource.data.BUILDING.Types.CostStruct value) {
+      public Builder AddCostTable(global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.costTable_.Add(value);
         return this;
       }
-      public Builder AddCostTable(global::com.game.framework.resource.data.BUILDING.Types.CostStruct.Builder builderForValue) {
+      public Builder AddCostTable(global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.costTable_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeCostTable(scg::IEnumerable<global::com.game.framework.resource.data.BUILDING.Types.CostStruct> values) {
+      public Builder AddRangeCostTable(scg::IEnumerable<global::com.nkm.framework.resource.data.BUILDING.Types.CostStruct> values) {
         PrepareBuilder();
         result.costTable_.Add(values);
         return this;
@@ -1750,7 +1750,7 @@ namespace com.game.framework.resource.data {
       }
     }
     static BUILDING() {
-      object.ReferenceEquals(global::com.game.framework.resource.data.BuildingBytes.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.resource.data.BuildingBytes.Descriptor, null);
     }
   }
   
@@ -1781,14 +1781,14 @@ namespace com.game.framework.resource.data {
     [pb.FieldNumber]
     #endif//
     public const int ItemsFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.resource.data.BUILDING> items_ = new pbc::PopsicleList<global::com.game.framework.resource.data.BUILDING>();
-    public scg::IList<global::com.game.framework.resource.data.BUILDING> ItemsList {
+    private pbc::PopsicleList<global::com.nkm.framework.resource.data.BUILDING> items_ = new pbc::PopsicleList<global::com.nkm.framework.resource.data.BUILDING>();
+    public scg::IList<global::com.nkm.framework.resource.data.BUILDING> ItemsList {
       get { return items_; }
     }
     public int ItemsCount {
       get { return items_.Count; }
     }
-    public global::com.game.framework.resource.data.BUILDING GetItems(int index) {
+    public global::com.nkm.framework.resource.data.BUILDING GetItems(int index) {
       return items_[index];
     }
     
@@ -1797,7 +1797,7 @@ namespace com.game.framework.resource.data {
      #endif//
     public override bool IsInitialized {
       get {
-        foreach (global::com.game.framework.resource.data.BUILDING element in ItemsList) {
+        foreach (global::com.nkm.framework.resource.data.BUILDING element in ItemsList) {
           if (!element.IsInitialized) return false;
         }
         return true;
@@ -1825,7 +1825,7 @@ namespace com.game.framework.resource.data {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.resource.data.BUILDING element in ItemsList) {
+        foreach (global::com.nkm.framework.resource.data.BUILDING element in ItemsList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
@@ -1836,7 +1836,7 @@ namespace com.game.framework.resource.data {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.resource.data.BUILDING i in items_)
+      foreach(global::com.nkm.framework.resource.data.BUILDING i in items_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -1985,7 +1985,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override BUILDING_ARRAY DefaultInstanceForType {
-        get { return global::com.game.framework.resource.data.BUILDING_ARRAY.DefaultInstance; }
+        get { return global::com.nkm.framework.resource.data.BUILDING_ARRAY.DefaultInstance; }
       }
       
       public override BUILDING_ARRAY BuildPartial() {
@@ -2006,7 +2006,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override Builder MergeFrom(BUILDING_ARRAY other) {
-        if (other == global::com.game.framework.resource.data.BUILDING_ARRAY.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.resource.data.BUILDING_ARRAY.DefaultInstance) return this;
         PrepareBuilder();
         if (other.items_.Count != 0) {
           result.items_.Add(other.items_);
@@ -2044,7 +2044,7 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.items_, global::com.game.framework.resource.data.BUILDING.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.items_, global::com.nkm.framework.resource.data.BUILDING.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -2054,40 +2054,40 @@ namespace com.game.framework.resource.data {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.resource.data.BUILDING> ItemsList {
+      public pbc::IPopsicleList<global::com.nkm.framework.resource.data.BUILDING> ItemsList {
         get { return PrepareBuilder().items_; }
       }
       public int ItemsCount {
         get { return result.ItemsCount; }
       }
-      public global::com.game.framework.resource.data.BUILDING GetItems(int index) {
+      public global::com.nkm.framework.resource.data.BUILDING GetItems(int index) {
         return result.GetItems(index);
       }
-      public Builder SetItems(int index, global::com.game.framework.resource.data.BUILDING value) {
+      public Builder SetItems(int index, global::com.nkm.framework.resource.data.BUILDING value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.items_[index] = value;
         return this;
       }
-      public Builder SetItems(int index, global::com.game.framework.resource.data.BUILDING.Builder builderForValue) {
+      public Builder SetItems(int index, global::com.nkm.framework.resource.data.BUILDING.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.items_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddItems(global::com.game.framework.resource.data.BUILDING value) {
+      public Builder AddItems(global::com.nkm.framework.resource.data.BUILDING value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.items_.Add(value);
         return this;
       }
-      public Builder AddItems(global::com.game.framework.resource.data.BUILDING.Builder builderForValue) {
+      public Builder AddItems(global::com.nkm.framework.resource.data.BUILDING.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.items_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeItems(scg::IEnumerable<global::com.game.framework.resource.data.BUILDING> values) {
+      public Builder AddRangeItems(scg::IEnumerable<global::com.nkm.framework.resource.data.BUILDING> values) {
         PrepareBuilder();
         result.items_.Add(values);
         return this;
@@ -2099,7 +2099,7 @@ namespace com.game.framework.resource.data {
       }
     }
     static BUILDING_ARRAY() {
-      object.ReferenceEquals(global::com.game.framework.resource.data.BuildingBytes.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.resource.data.BuildingBytes.Descriptor, null);
     }
   }
   

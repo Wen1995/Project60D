@@ -4,7 +4,7 @@
 * @brief:  这个文件是通过工具自动生成的，建议不要手动修改
 */
 
-package com.game.framework.resource.data;
+package com.nkm.framework.resource.data;
 
 message LUSHUI{
     /** 索引 */

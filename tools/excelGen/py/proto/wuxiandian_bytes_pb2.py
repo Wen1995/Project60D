@@ -17,8 +17,8 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/wuxiandian_bytes.proto',
-  package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x1cproto/wuxiandian_bytes.proto\x12 com.game.framework.resource.data\"6\n\nWUXIANDIAN\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x19\n\x0ewuxiandian_dis\x18\x02 \x01(\x05:\x01\x30\"O\n\x10WUXIANDIAN_ARRAY\x12;\n\x05items\x18\x01 \x03(\x0b\x32,.com.game.framework.resource.data.WUXIANDIAN')
+  package='com.nkm.framework.resource.data',
+  serialized_pb=_b('\n\x1cproto/wuxiandian_bytes.proto\x12\x1f\x63om.nkm.framework.resource.data\"6\n\nWUXIANDIAN\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x19\n\x0ewuxiandian_dis\x18\x02 \x01(\x05:\x01\x30\"N\n\x10WUXIANDIAN_ARRAY\x12:\n\x05items\x18\x01 \x03(\x0b\x32+.com.nkm.framework.resource.data.WUXIANDIAN')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -27,20 +27,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _WUXIANDIAN = _descriptor.Descriptor(
   name='WUXIANDIAN',
-  full_name='com.game.framework.resource.data.WUXIANDIAN',
+  full_name='com.nkm.framework.resource.data.WUXIANDIAN',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='com.game.framework.resource.data.WUXIANDIAN.id', index=0,
+      name='id', full_name='com.nkm.framework.resource.data.WUXIANDIAN.id', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='wuxiandian_dis', full_name='com.game.framework.resource.data.WUXIANDIAN.wuxiandian_dis', index=1,
+      name='wuxiandian_dis', full_name='com.nkm.framework.resource.data.WUXIANDIAN.wuxiandian_dis', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -57,20 +57,20 @@ _WUXIANDIAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=66,
-  serialized_end=120,
+  serialized_start=65,
+  serialized_end=119,
 )
 
 
 _WUXIANDIAN_ARRAY = _descriptor.Descriptor(
   name='WUXIANDIAN_ARRAY',
-  full_name='com.game.framework.resource.data.WUXIANDIAN_ARRAY',
+  full_name='com.nkm.framework.resource.data.WUXIANDIAN_ARRAY',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='items', full_name='com.game.framework.resource.data.WUXIANDIAN_ARRAY.items', index=0,
+      name='items', full_name='com.nkm.framework.resource.data.WUXIANDIAN_ARRAY.items', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -87,8 +87,8 @@ _WUXIANDIAN_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=122,
-  serialized_end=201,
+  serialized_start=121,
+  serialized_end=199,
 )
 
 _WUXIANDIAN_ARRAY.fields_by_name['items'].message_type = _WUXIANDIAN
@@ -98,14 +98,14 @@ DESCRIPTOR.message_types_by_name['WUXIANDIAN_ARRAY'] = _WUXIANDIAN_ARRAY
 WUXIANDIAN = _reflection.GeneratedProtocolMessageType('WUXIANDIAN', (_message.Message,), dict(
   DESCRIPTOR = _WUXIANDIAN,
   __module__ = 'proto.wuxiandian_bytes_pb2'
-  # @@protoc_insertion_point(class_scope:com.game.framework.resource.data.WUXIANDIAN)
+  # @@protoc_insertion_point(class_scope:com.nkm.framework.resource.data.WUXIANDIAN)
   ))
 _sym_db.RegisterMessage(WUXIANDIAN)
 
 WUXIANDIAN_ARRAY = _reflection.GeneratedProtocolMessageType('WUXIANDIAN_ARRAY', (_message.Message,), dict(
   DESCRIPTOR = _WUXIANDIAN_ARRAY,
   __module__ = 'proto.wuxiandian_bytes_pb2'
-  # @@protoc_insertion_point(class_scope:com.game.framework.resource.data.WUXIANDIAN_ARRAY)
+  # @@protoc_insertion_point(class_scope:com.nkm.framework.resource.data.WUXIANDIAN_ARRAY)
   ))
 _sym_db.RegisterMessage(WUXIANDIAN_ARRAY)
 

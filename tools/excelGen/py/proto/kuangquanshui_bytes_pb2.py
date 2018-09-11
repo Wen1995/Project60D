@@ -17,8 +17,8 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/kuangquanshui_bytes.proto',
-  package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x1fproto/kuangquanshui_bytes.proto\x12 com.game.framework.resource.data\"Z\n\rKUANGQUANSHUI\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x1c\n\x11kuangquanshui_spd\x18\x02 \x01(\x05:\x01\x30\x12\x1c\n\x11kuangquanshui_cap\x18\x03 \x01(\x05:\x01\x30\"U\n\x13KUANGQUANSHUI_ARRAY\x12>\n\x05items\x18\x01 \x03(\x0b\x32/.com.game.framework.resource.data.KUANGQUANSHUI')
+  package='com.nkm.framework.resource.data',
+  serialized_pb=_b('\n\x1fproto/kuangquanshui_bytes.proto\x12\x1f\x63om.nkm.framework.resource.data\"Z\n\rKUANGQUANSHUI\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x1c\n\x11kuangquanshui_spd\x18\x02 \x01(\x05:\x01\x30\x12\x1c\n\x11kuangquanshui_cap\x18\x03 \x01(\x05:\x01\x30\"T\n\x13KUANGQUANSHUI_ARRAY\x12=\n\x05items\x18\x01 \x03(\x0b\x32..com.nkm.framework.resource.data.KUANGQUANSHUI')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -27,27 +27,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _KUANGQUANSHUI = _descriptor.Descriptor(
   name='KUANGQUANSHUI',
-  full_name='com.game.framework.resource.data.KUANGQUANSHUI',
+  full_name='com.nkm.framework.resource.data.KUANGQUANSHUI',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='com.game.framework.resource.data.KUANGQUANSHUI.id', index=0,
+      name='id', full_name='com.nkm.framework.resource.data.KUANGQUANSHUI.id', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='kuangquanshui_spd', full_name='com.game.framework.resource.data.KUANGQUANSHUI.kuangquanshui_spd', index=1,
+      name='kuangquanshui_spd', full_name='com.nkm.framework.resource.data.KUANGQUANSHUI.kuangquanshui_spd', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='kuangquanshui_cap', full_name='com.game.framework.resource.data.KUANGQUANSHUI.kuangquanshui_cap', index=2,
+      name='kuangquanshui_cap', full_name='com.nkm.framework.resource.data.KUANGQUANSHUI.kuangquanshui_cap', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -64,20 +64,20 @@ _KUANGQUANSHUI = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=69,
-  serialized_end=159,
+  serialized_start=68,
+  serialized_end=158,
 )
 
 
 _KUANGQUANSHUI_ARRAY = _descriptor.Descriptor(
   name='KUANGQUANSHUI_ARRAY',
-  full_name='com.game.framework.resource.data.KUANGQUANSHUI_ARRAY',
+  full_name='com.nkm.framework.resource.data.KUANGQUANSHUI_ARRAY',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='items', full_name='com.game.framework.resource.data.KUANGQUANSHUI_ARRAY.items', index=0,
+      name='items', full_name='com.nkm.framework.resource.data.KUANGQUANSHUI_ARRAY.items', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -94,8 +94,8 @@ _KUANGQUANSHUI_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=161,
-  serialized_end=246,
+  serialized_start=160,
+  serialized_end=244,
 )
 
 _KUANGQUANSHUI_ARRAY.fields_by_name['items'].message_type = _KUANGQUANSHUI
@@ -105,14 +105,14 @@ DESCRIPTOR.message_types_by_name['KUANGQUANSHUI_ARRAY'] = _KUANGQUANSHUI_ARRAY
 KUANGQUANSHUI = _reflection.GeneratedProtocolMessageType('KUANGQUANSHUI', (_message.Message,), dict(
   DESCRIPTOR = _KUANGQUANSHUI,
   __module__ = 'proto.kuangquanshui_bytes_pb2'
-  # @@protoc_insertion_point(class_scope:com.game.framework.resource.data.KUANGQUANSHUI)
+  # @@protoc_insertion_point(class_scope:com.nkm.framework.resource.data.KUANGQUANSHUI)
   ))
 _sym_db.RegisterMessage(KUANGQUANSHUI)
 
 KUANGQUANSHUI_ARRAY = _reflection.GeneratedProtocolMessageType('KUANGQUANSHUI_ARRAY', (_message.Message,), dict(
   DESCRIPTOR = _KUANGQUANSHUI_ARRAY,
   __module__ = 'proto.kuangquanshui_bytes_pb2'
-  # @@protoc_insertion_point(class_scope:com.game.framework.resource.data.KUANGQUANSHUI_ARRAY)
+  # @@protoc_insertion_point(class_scope:com.nkm.framework.resource.data.KUANGQUANSHUI_ARRAY)
   ))
 _sym_db.RegisterMessage(KUANGQUANSHUI_ARRAY)
 

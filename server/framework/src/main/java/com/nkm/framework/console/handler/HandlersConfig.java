@@ -1,5 +1,6 @@
 package com.nkm.framework.console.handler;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -38,14 +39,14 @@ public class HandlersConfig {
 
     @SuppressWarnings("unchecked")
     public void init() {
-        InputStream is =
-                ClassLoader.getSystemResourceAsStream(Constant.HANDLE_XML);
+        InputStream is = null;
         String handlerGroupName = null;
         String model = null;
         String method = null;
 
         SAXReader reader = new SAXReader();
         try {
+            is = new FileInputStream(Constant.HANDLE_XML);
             Document doc = reader.read(is);
             Element root = doc.getRootElement();
 

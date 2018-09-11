@@ -17,9 +17,9 @@ public class DB {
 
     public DB(String name, String configPath) {
         this.name = name;
-
         try {
             Reader reader = new FileReader(configPath);
+            //Reader reader = Resources.getResourceAsReader("mybatis.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         } catch (Exception e) {
             logger.error("", e);

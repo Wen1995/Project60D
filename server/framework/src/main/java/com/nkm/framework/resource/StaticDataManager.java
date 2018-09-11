@@ -148,7 +148,7 @@ public class StaticDataManager {
             Class<?> arr_class = Class.forName(sub_str + className + "_ARRAY");
             Method parseFromMethod = arr_class.getMethod("parseFrom", byte[].class);
 
-            Object arr = parseFromMethod.invoke(arr_class, ExternalStorageUtil.loadData(Constant.CONFIG_DIR + "data/" + lowClassName + ".bytes"));
+            Object arr = parseFromMethod.invoke(arr_class, ExternalStorageUtil.loadData(Constant.CONFIG_DIR + "/data/" + lowClassName + ".bytes"));
             Method arr_getItemsCountMethod = arr_class.getMethod("getItemsCount");
             Method arr_getItemsMethod = arr_class.getMethod("getItems", int.class);
 

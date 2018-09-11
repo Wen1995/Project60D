@@ -28,7 +28,7 @@ public class ServerConfig {
         InputStream in = null;
         try {
             in = new FileInputStream(Constant.CONFIG_DIR + "/server.properties");
-            // //src下读取
+            // src下读取
             // in = ServerConfig.class.getClassLoader().getResourceAsStream("server.properties");
             prop.load(in);
             // 直接输出prop对象

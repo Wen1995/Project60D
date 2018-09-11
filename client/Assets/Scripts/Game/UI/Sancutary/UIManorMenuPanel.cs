@@ -107,7 +107,9 @@ public class UIManorMenuPanel : PanelBase {
 
 	void ShowEventIcon(NDictionary data = null)
 	{
-		tableView.DataCount = eventPackage.GetCurEventList().Count;
+		DynamicPackage dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
+		dynamicPackage.CalculateBuff();
+		tableView.DataCount = dynamicPackage.GetBuffList().Count;
 		tableView.TableChange();
 	}
 }

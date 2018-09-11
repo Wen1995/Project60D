@@ -8,7 +8,10 @@ public class SubPoolCom<UnitType> : SubPoolBase<UnitType> where UnitType : Compo
     protected override UnitType CreateNewInst(Vector3 pos, Quaternion quat, Transform parent)
     {
         GameObject go = null;
-        go = GameObject.Instantiate((GameObject)mTemplate, pos, quat, parent);
+        if(null != parent)
+            go = GameObject.Instantiate((GameObject)mTemplate, pos, quat, parent);
+        else
+            go = GameObject.Instantiate((GameObject)mTemplate, pos, quat);
         var comp = go.AddComponent<UnitType>();
         return comp;
     }

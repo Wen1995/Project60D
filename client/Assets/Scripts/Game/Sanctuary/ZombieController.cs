@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public enum ZombieState
 {
-    Idle, 
+    Idle = 0, 
     Walking,
     Attack,
     Dead
@@ -14,23 +14,20 @@ public enum ZombieState
 public class ZombieController : Controller, IPoolUnit
 {
     Transform mTarget = null;
-    Animation mAnimation = null;
-    float mSpeed = 1f;
     ZombieState mState = ZombieState.Idle;
     NavMeshAgent nav = null;
+    Animator mAnimator = null;
 
     public Transform target;
 
     //zombie data
     int HP;
-    void Start()
+
+    private void Awake()
     {
-        // mTarget = GameObject.Find("mainscene/buildings/gate").transform;
-        mAnimation = GetComponent<Animation>();
         nav = GetComponent<NavMeshAgent>();
-        nav.SetDestination(target.position);
+        mAnimator = GetComponent<Animator>();
         HP = 3;
-        InitView();
     }
 
     void FixedUpdate()
@@ -46,19 +43,23 @@ public class ZombieController : Controller, IPoolUnit
         //     transform.Translate(dir * Time.deltaTime * mSpeed);
         //     //transform.Translate((transform.position - mTarget.position).normalized * Time.deltaTime * mSpeed);
         // }
+        if(mTarget == null) return;
 
-        if(Vector3.SqrMagnitude(transform.position - target.position) <= 30)
+        if(Vector3.SqrMagnitude(transform.position - mTarget.position) <= 30)
             ChangeState(ZombieState.Attack);
     }
 
     public void SetTarget(Transform target)
     {
         mTarget = target;
+        nav.SetDestination(mTarget.position);
+        ChangeState(ZombieState.Walking);
     }
 
-    void InitView()
+    public void SetZombieProperty(float speed, int hp)
     {
-        ChangeState(ZombieState.Walking);
+        nav.speed = speed;
+        HP = hp;
     }
 
     void ChangeState(ZombieState newState)
@@ -68,25 +69,22 @@ public class ZombieController : Controller, IPoolUnit
         {
             case (ZombieState.Walking):
                 {
-                    mAnimation.Play("Walk1");
                     break;
                 }
             case (ZombieState.Idle):
                 {
-                    mAnimation.Play("Idle1");
                     break;
                 }
             case (ZombieState.Dead):
                 {
-                    mAnimation.Play("Dead2");
                     break;
                 }
             case (ZombieState.Attack):
                 {
-                    mAnimation.Play("Attack1");
                     break;
                 }
         }
+        mAnimator.SetInteger("state", (int)newState);
     }
 
     void TakeDamage()
@@ -101,7 +99,7 @@ public class ZombieController : Controller, IPoolUnit
         gameObject.tag = "Untagged";
         ChangeState(ZombieState.Dead);
         nav.isStopped = true;
-        Invoke("DestroySelf", 2.0f);
+        FacadeSingleton.Instance.SendEvent("RefreshZombie");
     }
 
     void DestroySelf()
@@ -109,10 +107,15 @@ public class ZombieController : Controller, IPoolUnit
         Destroy(this);
     }
 
+    public ZombieState GetZombieState()
+    {
+        return mState;
+    }
+
 
 
     #region IPoolUnit member
-    protected UnitState mPoolState;
+    UnitState mUnitState = new UnitState();
     public void OnRestore()
     {
         
@@ -135,7 +138,7 @@ public class ZombieController : Controller, IPoolUnit
 
     public UnitState State()
     {
-        return mPoolState;
+        return mUnitState;
     }
     #endregion
 }

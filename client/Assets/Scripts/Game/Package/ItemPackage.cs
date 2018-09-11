@@ -72,7 +72,6 @@ public class ItemPackage : ModelBase
     Dictionary<int, NItemInfo> mItemInfoMap = new Dictionary<int, NItemInfo>();
     List<NItemInfo> mItemFilterInfoList = new List<NItemInfo>();
     List<ItemEffect> mItemEffectList = new List<ItemEffect>();
-    Dictionary<int, double> mItmePriceMap = new Dictionary<int, double>();
     Dictionary<int, NItemServerData> mItemServerData = new Dictionary<int, NItemServerData>();
     NItemInfo selectionItem = null;
     private int elecNum;

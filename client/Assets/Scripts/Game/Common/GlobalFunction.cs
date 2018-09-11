@@ -50,4 +50,12 @@ public static class GlobalFunction {
             return true;
         return false;
     }
+
+    public static bool IsDayTime()
+    {
+        int hour = System.DateTime.Now.Hour;
+		if(hour >=7 && hour < 18)
+			return true;
+		return false;
+    }
 }

@@ -12,6 +12,7 @@ public static class ConstVal{
     public static string Package_Item = "ItemPackage";
     public static string Package_Mail = "MailPackage";
     public static string Package_Event = "EventPackage";
+    public static string Package_Dynamic = "DynamicPackage";
     #endregion
 
     #region Panel

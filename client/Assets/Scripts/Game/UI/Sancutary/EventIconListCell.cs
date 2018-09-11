@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class EventIconListCell : NListCell {
 
+	DynamicPackage dynamicPackage = null;
 	EventPackage eventPackage = null;
 	UISprite iconSprite = null;
-
 	int configID;
 	protected override void Awake()
 	{
 		base.Awake();
 		iconSprite = transform.Find("icon").GetComponent<UISprite>();
+		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
 		eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
 		
 		UIEventListener listener = transform.Find("icon").GetComponent<UIEventListener>();
@@ -22,14 +23,32 @@ public class EventIconListCell : NListCell {
 	public override void DrawCell(int index, int count = 0)
 	{
 		base.DrawCell(index, count);
-		var dataList = eventPackage.GetCurEventList();
+		var dataList = dynamicPackage.GetBuffList();
 		if(index >= dataList.Count) return;
-		NWorldEventInfo info = dataList[index];
+		NBuffInfo info = dataList[index];
 		configID = info.configID;
-		WORLD_EVENTS config = eventPackage.GetEventConfigDataByConfigID(info.configID);
-		iconSprite.spriteName = config.EventIcon;
+		// set icon
+		if(info.type == NBuffType.WorldEvent)
+		{
+			WORLD_EVENTS config = eventPackage.GetEventConfigDataByConfigID(info.configID);
+			iconSprite.spriteName = config.EventIcon;
+		}
+		else if(info.type == NBuffType.Cooperation)
+		{}
+		OpenSmallWindow(info);
+		
+		
 	}
 
+	void OpenSmallWindow(NBuffInfo info)
+	{
+		if(info.type == NBuffType.WorldEvent)
+		{
+			int configID = info.configID;
+			WORLD_EVENTS config = eventPackage.GetEventConfigDataByConfigID(info.configID);
+			iconSprite.spriteName = config.EventIcon;
+		}
+	}
 	void OnPress(GameObject go, bool isPress)
 	{
 		if(isPress)

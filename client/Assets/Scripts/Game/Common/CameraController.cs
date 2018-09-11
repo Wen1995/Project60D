@@ -22,7 +22,6 @@ public class CameraController : MonoBehaviour {
 
     //Movement state flag
     private Vector3 mouseOrigin;
-    private Vector3 cameraOrigin;
     private float curZoomDistance = 0;
     
     //Mouse state flag
@@ -40,7 +39,6 @@ public class CameraController : MonoBehaviour {
 
     private void Awake()
     {
-        cameraOrigin = transform.position;
         layerMask = LayerMask.GetMask("Building");
     }
 

@@ -117,6 +117,7 @@ public class SceneServiceImpl implements SceneService {
                 .addAllBuildingInfos(buildingInfos)
                 .setTotalContribution(group.getTotalContribution())
                 .addAllUserInfos(userInfos)
+                .setGroupName(group.getName())
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);

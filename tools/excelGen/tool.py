@@ -192,7 +192,7 @@ class SheetInterpreter:
 
         self._LayoutFileHeader()
 		
-        self._output.append("package com.game.framework.resource.data;\n")
+        self._output.append("package com.nkm.framework.resource.data;\n")
 
         self._LayoutStructHead(self._sheet_name)
         self._IncreaseIndentation()

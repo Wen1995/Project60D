@@ -115,11 +115,11 @@ public class UIPlayerInfoPanel : PanelBase {
 	void InitPlayerInfo()
 	{
 		PlayerState state = userPackage.GetPlayerState();
-		bloodProgess.value = (float)(state.blood / (20 + 2 * state.health));
+		bloodProgess.value = (float)state.blood / (float)(20 + 2 * state.health);
 		bloodLabel.text = string.Format("{0}/{1}", state.blood, 20 + 2 * state.health);
-		hungerProgress.value = (float)(state.hunger / (20 + 2 * state.health));
+		hungerProgress.value = (float)state.hunger / (float)(20 + 2 * state.health);
 		hungerLabel.text = string.Format("{0}/{1}", state.hunger, 20 + 2 * state.health);
-		thirstProgress.value = (float)(state.thirst / (20 + 2 * state.health));
+		thirstProgress.value = (float)state.thirst / (float)(20 + 2 * state.health);
 		thirstLabel.text = string.Format("{0}/{1}", state.thirst, 20 + 2 * state.health);
 		interestLabel.text = string.Format("分配比例:{0:f}%", (float)userPackage.GetPlayerInterest() * 100);
 		resLabel.text = itemPackage.GetResourceTotolNumber().ToString();

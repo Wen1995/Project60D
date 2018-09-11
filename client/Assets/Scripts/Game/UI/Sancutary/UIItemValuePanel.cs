@@ -45,27 +45,28 @@ public class UIItemValuePanel : PanelBase{
 		if(isBuy)
 		{
 			titleLabel.text = string.Format("购买 {0}", config.MinName);
-			itemCap = 1000;
+			itemCap = itemPackage.GetBuyLimit(info.configID);
 		}
 		else
 		{
 			titleLabel.text = string.Format("出售 {0}", config.MinName);
 			itemCap = info.number;
 		}
-			
 		value = 0;
 		if(config.GoldConv >= 1000)
 			ratio = 1;
 		else
 			ratio = 1000 / config.GoldConv;
+		itemCap = AdjustCap(ratio, itemCap);
+
 		slider.value = 0f;
-		slider.numberOfSteps = (int)Mathf.Ceil((float)itemCap / (float)ratio);
+		slider.numberOfSteps = (int)Mathf.Ceil((float)itemCap / (float)ratio) + 1;
 		UpdateValueView();
 	}
 
 	void UpdateValueView()
 	{
-		slider.value = (float)((float)value / (float)itemCap);
+		slider.value = (float)value / (float)itemCap;
 		numLabel.text = value.ToString();
 	}
 
@@ -86,7 +87,8 @@ public class UIItemValuePanel : PanelBase{
 
 	public void OnSliderValueChange()
 	{
-		//TODO
+		value = (int)Mathf.Floor(slider.value * (float)itemCap);
+		numLabel.text = value.ToString();
 	}
 
 	void OnPlus()
@@ -116,5 +118,10 @@ public class UIItemValuePanel : PanelBase{
 		else
 			FacadeSingleton.Instance.InvokeService("RPCSellItem", ConstVal.Service_Sanctuary, args);
 		FacadeSingleton.Instance.BackPanel();
+	}
+
+	int AdjustCap(int ratio, int cap)
+	{
+		return cap - cap % ratio;
 	}
 }

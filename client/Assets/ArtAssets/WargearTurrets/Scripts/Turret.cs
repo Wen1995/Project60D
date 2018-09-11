@@ -110,7 +110,7 @@ public class Turret : MonoBehaviour
 			fireEffects[i].Play();
 	}
 
-	   private void OnCollisionEnter(Collision other) 
+	private void OnCollisionEnter(Collision other) 
    {
 	   if(other.gameObject.tag == "Zombie")
 	   {

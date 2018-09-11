@@ -6,7 +6,7 @@ using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace com.game.framework.resource.data {
+namespace com.nkm.framework.resource.data {
   
   public static partial class ItemResBytes {
   
@@ -710,7 +710,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override ITEM_RES DefaultInstanceForType {
-        get { return global::com.game.framework.resource.data.ITEM_RES.DefaultInstance; }
+        get { return global::com.nkm.framework.resource.data.ITEM_RES.DefaultInstance; }
       }
       
       public override ITEM_RES BuildPartial() {
@@ -731,7 +731,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override Builder MergeFrom(ITEM_RES other) {
-        if (other == global::com.game.framework.resource.data.ITEM_RES.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.resource.data.ITEM_RES.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasId) {
           Id = other.Id;
@@ -1399,7 +1399,7 @@ namespace com.game.framework.resource.data {
       }
     }
     static ITEM_RES() {
-      object.ReferenceEquals(global::com.game.framework.resource.data.ItemResBytes.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.resource.data.ItemResBytes.Descriptor, null);
     }
   }
   
@@ -1430,14 +1430,14 @@ namespace com.game.framework.resource.data {
     [pb.FieldNumber]
     #endif//
     public const int ItemsFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.resource.data.ITEM_RES> items_ = new pbc::PopsicleList<global::com.game.framework.resource.data.ITEM_RES>();
-    public scg::IList<global::com.game.framework.resource.data.ITEM_RES> ItemsList {
+    private pbc::PopsicleList<global::com.nkm.framework.resource.data.ITEM_RES> items_ = new pbc::PopsicleList<global::com.nkm.framework.resource.data.ITEM_RES>();
+    public scg::IList<global::com.nkm.framework.resource.data.ITEM_RES> ItemsList {
       get { return items_; }
     }
     public int ItemsCount {
       get { return items_.Count; }
     }
-    public global::com.game.framework.resource.data.ITEM_RES GetItems(int index) {
+    public global::com.nkm.framework.resource.data.ITEM_RES GetItems(int index) {
       return items_[index];
     }
     
@@ -1446,7 +1446,7 @@ namespace com.game.framework.resource.data {
      #endif//
     public override bool IsInitialized {
       get {
-        foreach (global::com.game.framework.resource.data.ITEM_RES element in ItemsList) {
+        foreach (global::com.nkm.framework.resource.data.ITEM_RES element in ItemsList) {
           if (!element.IsInitialized) return false;
         }
         return true;
@@ -1474,7 +1474,7 @@ namespace com.game.framework.resource.data {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.resource.data.ITEM_RES element in ItemsList) {
+        foreach (global::com.nkm.framework.resource.data.ITEM_RES element in ItemsList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
@@ -1485,7 +1485,7 @@ namespace com.game.framework.resource.data {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.resource.data.ITEM_RES i in items_)
+      foreach(global::com.nkm.framework.resource.data.ITEM_RES i in items_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -1634,7 +1634,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override ITEM_RES_ARRAY DefaultInstanceForType {
-        get { return global::com.game.framework.resource.data.ITEM_RES_ARRAY.DefaultInstance; }
+        get { return global::com.nkm.framework.resource.data.ITEM_RES_ARRAY.DefaultInstance; }
       }
       
       public override ITEM_RES_ARRAY BuildPartial() {
@@ -1655,7 +1655,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override Builder MergeFrom(ITEM_RES_ARRAY other) {
-        if (other == global::com.game.framework.resource.data.ITEM_RES_ARRAY.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.resource.data.ITEM_RES_ARRAY.DefaultInstance) return this;
         PrepareBuilder();
         if (other.items_.Count != 0) {
           result.items_.Add(other.items_);
@@ -1693,7 +1693,7 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.items_, global::com.game.framework.resource.data.ITEM_RES.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.items_, global::com.nkm.framework.resource.data.ITEM_RES.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -1703,40 +1703,40 @@ namespace com.game.framework.resource.data {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.resource.data.ITEM_RES> ItemsList {
+      public pbc::IPopsicleList<global::com.nkm.framework.resource.data.ITEM_RES> ItemsList {
         get { return PrepareBuilder().items_; }
       }
       public int ItemsCount {
         get { return result.ItemsCount; }
       }
-      public global::com.game.framework.resource.data.ITEM_RES GetItems(int index) {
+      public global::com.nkm.framework.resource.data.ITEM_RES GetItems(int index) {
         return result.GetItems(index);
       }
-      public Builder SetItems(int index, global::com.game.framework.resource.data.ITEM_RES value) {
+      public Builder SetItems(int index, global::com.nkm.framework.resource.data.ITEM_RES value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.items_[index] = value;
         return this;
       }
-      public Builder SetItems(int index, global::com.game.framework.resource.data.ITEM_RES.Builder builderForValue) {
+      public Builder SetItems(int index, global::com.nkm.framework.resource.data.ITEM_RES.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.items_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddItems(global::com.game.framework.resource.data.ITEM_RES value) {
+      public Builder AddItems(global::com.nkm.framework.resource.data.ITEM_RES value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.items_.Add(value);
         return this;
       }
-      public Builder AddItems(global::com.game.framework.resource.data.ITEM_RES.Builder builderForValue) {
+      public Builder AddItems(global::com.nkm.framework.resource.data.ITEM_RES.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.items_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeItems(scg::IEnumerable<global::com.game.framework.resource.data.ITEM_RES> values) {
+      public Builder AddRangeItems(scg::IEnumerable<global::com.nkm.framework.resource.data.ITEM_RES> values) {
         PrepareBuilder();
         result.items_.Add(values);
         return this;
@@ -1748,7 +1748,7 @@ namespace com.game.framework.resource.data {
       }
     }
     static ITEM_RES_ARRAY() {
-      object.ReferenceEquals(global::com.game.framework.resource.data.ItemResBytes.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.resource.data.ItemResBytes.Descriptor, null);
     }
   }
   

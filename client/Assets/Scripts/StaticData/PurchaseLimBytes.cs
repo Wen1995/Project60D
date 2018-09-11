@@ -6,7 +6,7 @@ using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace com.game.framework.resource.data {
+namespace com.nkm.framework.resource.data {
   
   public static partial class PurchaseLimBytes {
   
@@ -1402,7 +1402,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override PURCHASE_LIM DefaultInstanceForType {
-        get { return global::com.game.framework.resource.data.PURCHASE_LIM.DefaultInstance; }
+        get { return global::com.nkm.framework.resource.data.PURCHASE_LIM.DefaultInstance; }
       }
       
       public override PURCHASE_LIM BuildPartial() {
@@ -1423,7 +1423,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override Builder MergeFrom(PURCHASE_LIM other) {
-        if (other == global::com.game.framework.resource.data.PURCHASE_LIM.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.resource.data.PURCHASE_LIM.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasId) {
           Id = other.Id;
@@ -2977,7 +2977,7 @@ namespace com.game.framework.resource.data {
       }
     }
     static PURCHASE_LIM() {
-      object.ReferenceEquals(global::com.game.framework.resource.data.PurchaseLimBytes.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.resource.data.PurchaseLimBytes.Descriptor, null);
     }
   }
   
@@ -3008,14 +3008,14 @@ namespace com.game.framework.resource.data {
     [pb.FieldNumber]
     #endif//
     public const int ItemsFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.resource.data.PURCHASE_LIM> items_ = new pbc::PopsicleList<global::com.game.framework.resource.data.PURCHASE_LIM>();
-    public scg::IList<global::com.game.framework.resource.data.PURCHASE_LIM> ItemsList {
+    private pbc::PopsicleList<global::com.nkm.framework.resource.data.PURCHASE_LIM> items_ = new pbc::PopsicleList<global::com.nkm.framework.resource.data.PURCHASE_LIM>();
+    public scg::IList<global::com.nkm.framework.resource.data.PURCHASE_LIM> ItemsList {
       get { return items_; }
     }
     public int ItemsCount {
       get { return items_.Count; }
     }
-    public global::com.game.framework.resource.data.PURCHASE_LIM GetItems(int index) {
+    public global::com.nkm.framework.resource.data.PURCHASE_LIM GetItems(int index) {
       return items_[index];
     }
     
@@ -3049,7 +3049,7 @@ namespace com.game.framework.resource.data {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.resource.data.PURCHASE_LIM element in ItemsList) {
+        foreach (global::com.nkm.framework.resource.data.PURCHASE_LIM element in ItemsList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
@@ -3060,7 +3060,7 @@ namespace com.game.framework.resource.data {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.resource.data.PURCHASE_LIM i in items_)
+      foreach(global::com.nkm.framework.resource.data.PURCHASE_LIM i in items_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -3209,7 +3209,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override PURCHASE_LIM_ARRAY DefaultInstanceForType {
-        get { return global::com.game.framework.resource.data.PURCHASE_LIM_ARRAY.DefaultInstance; }
+        get { return global::com.nkm.framework.resource.data.PURCHASE_LIM_ARRAY.DefaultInstance; }
       }
       
       public override PURCHASE_LIM_ARRAY BuildPartial() {
@@ -3230,7 +3230,7 @@ namespace com.game.framework.resource.data {
       }
       
       public override Builder MergeFrom(PURCHASE_LIM_ARRAY other) {
-        if (other == global::com.game.framework.resource.data.PURCHASE_LIM_ARRAY.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.resource.data.PURCHASE_LIM_ARRAY.DefaultInstance) return this;
         PrepareBuilder();
         if (other.items_.Count != 0) {
           result.items_.Add(other.items_);
@@ -3268,7 +3268,7 @@ namespace com.game.framework.resource.data {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.items_, global::com.game.framework.resource.data.PURCHASE_LIM.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.items_, global::com.nkm.framework.resource.data.PURCHASE_LIM.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -3278,40 +3278,40 @@ namespace com.game.framework.resource.data {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.resource.data.PURCHASE_LIM> ItemsList {
+      public pbc::IPopsicleList<global::com.nkm.framework.resource.data.PURCHASE_LIM> ItemsList {
         get { return PrepareBuilder().items_; }
       }
       public int ItemsCount {
         get { return result.ItemsCount; }
       }
-      public global::com.game.framework.resource.data.PURCHASE_LIM GetItems(int index) {
+      public global::com.nkm.framework.resource.data.PURCHASE_LIM GetItems(int index) {
         return result.GetItems(index);
       }
-      public Builder SetItems(int index, global::com.game.framework.resource.data.PURCHASE_LIM value) {
+      public Builder SetItems(int index, global::com.nkm.framework.resource.data.PURCHASE_LIM value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.items_[index] = value;
         return this;
       }
-      public Builder SetItems(int index, global::com.game.framework.resource.data.PURCHASE_LIM.Builder builderForValue) {
+      public Builder SetItems(int index, global::com.nkm.framework.resource.data.PURCHASE_LIM.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.items_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddItems(global::com.game.framework.resource.data.PURCHASE_LIM value) {
+      public Builder AddItems(global::com.nkm.framework.resource.data.PURCHASE_LIM value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.items_.Add(value);
         return this;
       }
-      public Builder AddItems(global::com.game.framework.resource.data.PURCHASE_LIM.Builder builderForValue) {
+      public Builder AddItems(global::com.nkm.framework.resource.data.PURCHASE_LIM.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.items_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeItems(scg::IEnumerable<global::com.game.framework.resource.data.PURCHASE_LIM> values) {
+      public Builder AddRangeItems(scg::IEnumerable<global::com.nkm.framework.resource.data.PURCHASE_LIM> values) {
         PrepareBuilder();
         result.items_.Add(values);
         return this;
@@ -3323,7 +3323,7 @@ namespace com.game.framework.resource.data {
       }
     }
     static PURCHASE_LIM_ARRAY() {
-      object.ReferenceEquals(global::com.game.framework.resource.data.PurchaseLimBytes.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.resource.data.PurchaseLimBytes.Descriptor, null);
     }
   }
   

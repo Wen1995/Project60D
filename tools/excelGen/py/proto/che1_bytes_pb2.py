@@ -17,8 +17,8 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/che1_bytes.proto',
-  package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x16proto/che1_bytes.proto\x12 com.game.framework.resource.data\"W\n\x04\x43HE1\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x12\n\x07\x63he_spd\x18\x02 \x01(\x05:\x01\x30\x12\x18\n\rche_passenger\x18\x03 \x01(\x05:\x01\x30\x12\x12\n\x07\x63he_cap\x18\x04 \x01(\x05:\x01\x30\"C\n\nCHE1_ARRAY\x12\x35\n\x05items\x18\x01 \x03(\x0b\x32&.com.game.framework.resource.data.CHE1')
+  package='com.nkm.framework.resource.data',
+  serialized_pb=_b('\n\x16proto/che1_bytes.proto\x12\x1f\x63om.nkm.framework.resource.data\"W\n\x04\x43HE1\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x12\n\x07\x63he_spd\x18\x02 \x01(\x05:\x01\x30\x12\x18\n\rche_passenger\x18\x03 \x01(\x05:\x01\x30\x12\x12\n\x07\x63he_cap\x18\x04 \x01(\x05:\x01\x30\"B\n\nCHE1_ARRAY\x12\x34\n\x05items\x18\x01 \x03(\x0b\x32%.com.nkm.framework.resource.data.CHE1')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -27,34 +27,34 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _CHE1 = _descriptor.Descriptor(
   name='CHE1',
-  full_name='com.game.framework.resource.data.CHE1',
+  full_name='com.nkm.framework.resource.data.CHE1',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='com.game.framework.resource.data.CHE1.id', index=0,
+      name='id', full_name='com.nkm.framework.resource.data.CHE1.id', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='che_spd', full_name='com.game.framework.resource.data.CHE1.che_spd', index=1,
+      name='che_spd', full_name='com.nkm.framework.resource.data.CHE1.che_spd', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='che_passenger', full_name='com.game.framework.resource.data.CHE1.che_passenger', index=2,
+      name='che_passenger', full_name='com.nkm.framework.resource.data.CHE1.che_passenger', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='che_cap', full_name='com.game.framework.resource.data.CHE1.che_cap', index=3,
+      name='che_cap', full_name='com.nkm.framework.resource.data.CHE1.che_cap', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -71,20 +71,20 @@ _CHE1 = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=60,
-  serialized_end=147,
+  serialized_start=59,
+  serialized_end=146,
 )
 
 
 _CHE1_ARRAY = _descriptor.Descriptor(
   name='CHE1_ARRAY',
-  full_name='com.game.framework.resource.data.CHE1_ARRAY',
+  full_name='com.nkm.framework.resource.data.CHE1_ARRAY',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='items', full_name='com.game.framework.resource.data.CHE1_ARRAY.items', index=0,
+      name='items', full_name='com.nkm.framework.resource.data.CHE1_ARRAY.items', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -101,8 +101,8 @@ _CHE1_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=149,
-  serialized_end=216,
+  serialized_start=148,
+  serialized_end=214,
 )
 
 _CHE1_ARRAY.fields_by_name['items'].message_type = _CHE1
@@ -112,14 +112,14 @@ DESCRIPTOR.message_types_by_name['CHE1_ARRAY'] = _CHE1_ARRAY
 CHE1 = _reflection.GeneratedProtocolMessageType('CHE1', (_message.Message,), dict(
   DESCRIPTOR = _CHE1,
   __module__ = 'proto.che1_bytes_pb2'
-  # @@protoc_insertion_point(class_scope:com.game.framework.resource.data.CHE1)
+  # @@protoc_insertion_point(class_scope:com.nkm.framework.resource.data.CHE1)
   ))
 _sym_db.RegisterMessage(CHE1)
 
 CHE1_ARRAY = _reflection.GeneratedProtocolMessageType('CHE1_ARRAY', (_message.Message,), dict(
   DESCRIPTOR = _CHE1_ARRAY,
   __module__ = 'proto.che1_bytes_pb2'
-  # @@protoc_insertion_point(class_scope:com.game.framework.resource.data.CHE1_ARRAY)
+  # @@protoc_insertion_point(class_scope:com.nkm.framework.resource.data.CHE1_ARRAY)
   ))
 _sym_db.RegisterMessage(CHE1_ARRAY)
 

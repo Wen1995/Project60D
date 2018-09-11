@@ -17,8 +17,8 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/taiyangneng_bytes.proto',
-  package='com.game.framework.resource.data',
-  serialized_pb=_b('\n\x1dproto/taiyangneng_bytes.proto\x12 com.game.framework.resource.data\"T\n\x0bTAIYANGNENG\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x1a\n\x0ftaiyangneng_spd\x18\x02 \x01(\x05:\x01\x30\x12\x1a\n\x0ftaiyangneng_cap\x18\x03 \x01(\x05:\x01\x30\"Q\n\x11TAIYANGNENG_ARRAY\x12<\n\x05items\x18\x01 \x03(\x0b\x32-.com.game.framework.resource.data.TAIYANGNENG')
+  package='com.nkm.framework.resource.data',
+  serialized_pb=_b('\n\x1dproto/taiyangneng_bytes.proto\x12\x1f\x63om.nkm.framework.resource.data\"T\n\x0bTAIYANGNENG\x12\r\n\x02id\x18\x01 \x02(\x05:\x01\x30\x12\x1a\n\x0ftaiyangneng_spd\x18\x02 \x01(\x05:\x01\x30\x12\x1a\n\x0ftaiyangneng_cap\x18\x03 \x01(\x05:\x01\x30\"P\n\x11TAIYANGNENG_ARRAY\x12;\n\x05items\x18\x01 \x03(\x0b\x32,.com.nkm.framework.resource.data.TAIYANGNENG')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -27,27 +27,27 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _TAIYANGNENG = _descriptor.Descriptor(
   name='TAIYANGNENG',
-  full_name='com.game.framework.resource.data.TAIYANGNENG',
+  full_name='com.nkm.framework.resource.data.TAIYANGNENG',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='com.game.framework.resource.data.TAIYANGNENG.id', index=0,
+      name='id', full_name='com.nkm.framework.resource.data.TAIYANGNENG.id', index=0,
       number=1, type=5, cpp_type=1, label=2,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='taiyangneng_spd', full_name='com.game.framework.resource.data.TAIYANGNENG.taiyangneng_spd', index=1,
+      name='taiyangneng_spd', full_name='com.nkm.framework.resource.data.TAIYANGNENG.taiyangneng_spd', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='taiyangneng_cap', full_name='com.game.framework.resource.data.TAIYANGNENG.taiyangneng_cap', index=2,
+      name='taiyangneng_cap', full_name='com.nkm.framework.resource.data.TAIYANGNENG.taiyangneng_cap', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -64,20 +64,20 @@ _TAIYANGNENG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=67,
-  serialized_end=151,
+  serialized_start=66,
+  serialized_end=150,
 )
 
 
 _TAIYANGNENG_ARRAY = _descriptor.Descriptor(
   name='TAIYANGNENG_ARRAY',
-  full_name='com.game.framework.resource.data.TAIYANGNENG_ARRAY',
+  full_name='com.nkm.framework.resource.data.TAIYANGNENG_ARRAY',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='items', full_name='com.game.framework.resource.data.TAIYANGNENG_ARRAY.items', index=0,
+      name='items', full_name='com.nkm.framework.resource.data.TAIYANGNENG_ARRAY.items', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -94,8 +94,8 @@ _TAIYANGNENG_ARRAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=153,
-  serialized_end=234,
+  serialized_start=152,
+  serialized_end=232,
 )
 
 _TAIYANGNENG_ARRAY.fields_by_name['items'].message_type = _TAIYANGNENG
@@ -105,14 +105,14 @@ DESCRIPTOR.message_types_by_name['TAIYANGNENG_ARRAY'] = _TAIYANGNENG_ARRAY
 TAIYANGNENG = _reflection.GeneratedProtocolMessageType('TAIYANGNENG', (_message.Message,), dict(
   DESCRIPTOR = _TAIYANGNENG,
   __module__ = 'proto.taiyangneng_bytes_pb2'
-  # @@protoc_insertion_point(class_scope:com.game.framework.resource.data.TAIYANGNENG)
+  # @@protoc_insertion_point(class_scope:com.nkm.framework.resource.data.TAIYANGNENG)
   ))
 _sym_db.RegisterMessage(TAIYANGNENG)
 
 TAIYANGNENG_ARRAY = _reflection.GeneratedProtocolMessageType('TAIYANGNENG_ARRAY', (_message.Message,), dict(
   DESCRIPTOR = _TAIYANGNENG_ARRAY,
   __module__ = 'proto.taiyangneng_bytes_pb2'
-  # @@protoc_insertion_point(class_scope:com.game.framework.resource.data.TAIYANGNENG_ARRAY)
+  # @@protoc_insertion_point(class_scope:com.nkm.framework.resource.data.TAIYANGNENG_ARRAY)
   ))
 _sym_db.RegisterMessage(TAIYANGNENG_ARRAY)
 

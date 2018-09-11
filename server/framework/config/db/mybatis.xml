@@ -17,7 +17,7 @@
 	<environments default="db">
 		<environment id="db">
 			<transactionManager type="JDBC" />
-			<dataSource type="com.game.framework.console.factory.DBSourceFactory">
+			<dataSource type="com.nkm.framework.console.factory.DBSourceFactory">
 				<property name="driverClass" value="com.mysql.jdbc.Driver" />
 				<property name="url"
 					value="${db}?characterEncoding=utf8&amp;autoReconnect=true&amp;autoReconnectForPools=true&amp;noAccessToProcedureBodies=true" />
@@ -43,8 +43,8 @@
 		</environment>
 
 	</environments>
-
+	
 	<mappers>
-		<package name="com.game.framework.dbcache.model" />
+		<package name="com.nkm.framework.dbcache.model" />
 	</mappers>
 </configuration>

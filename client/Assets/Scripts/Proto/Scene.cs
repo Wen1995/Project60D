@@ -6,7 +6,7 @@ using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace com.game.framework.protocol {
+namespace com.nkm.framework.protocol {
   
   public static partial class Scene {
   
@@ -226,7 +226,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetSceneInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetSceneInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetSceneInfo.DefaultInstance; }
       }
       
       public override TCSGetSceneInfo BuildPartial() {
@@ -247,7 +247,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetSceneInfo other) {
-        if (other == global::com.game.framework.protocol.TCSGetSceneInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetSceneInfo.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -289,7 +289,7 @@ namespace com.game.framework.protocol {
       
     }
     static TCSGetSceneInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -320,14 +320,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int BuildingInfosFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.protocol.BuildingInfo> buildingInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.BuildingInfo>();
-    public scg::IList<global::com.game.framework.protocol.BuildingInfo> BuildingInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.BuildingInfo> buildingInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.BuildingInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.BuildingInfo> BuildingInfosList {
       get { return buildingInfos_; }
     }
     public int BuildingInfosCount {
       get { return buildingInfos_.Count; }
     }
-    public global::com.game.framework.protocol.BuildingInfo GetBuildingInfos(int index) {
+    public global::com.nkm.framework.protocol.BuildingInfo GetBuildingInfos(int index) {
       return buildingInfos_[index];
     }
     
@@ -348,14 +348,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int UserInfosFieldNumber = 3;
-    private pbc::PopsicleList<global::com.game.framework.protocol.UserInfo> userInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.UserInfo>();
-    public scg::IList<global::com.game.framework.protocol.UserInfo> UserInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.UserInfo> userInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.UserInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.UserInfo> UserInfosList {
       get { return userInfos_; }
     }
     public int UserInfosCount {
       get { return userInfos_.Count; }
     }
-    public global::com.game.framework.protocol.UserInfo GetUserInfos(int index) {
+    public global::com.nkm.framework.protocol.UserInfo GetUserInfos(int index) {
       return userInfos_[index];
     }
     
@@ -411,13 +411,13 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.protocol.BuildingInfo element in BuildingInfosList) {
+        foreach (global::com.nkm.framework.protocol.BuildingInfo element in BuildingInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         if (hasTotalContribution) {
           size += pb::CodedOutputStream.ComputeInt32Size(2, TotalContribution);
         }
-        foreach (global::com.game.framework.protocol.UserInfo element in UserInfosList) {
+        foreach (global::com.nkm.framework.protocol.UserInfo element in UserInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(3, element);
         }
         if (hasGroupName) {
@@ -431,10 +431,10 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.protocol.BuildingInfo i in buildingInfos_)
+      foreach(global::com.nkm.framework.protocol.BuildingInfo i in buildingInfos_)
         hash ^= i.GetHashCode();
       if (hasTotalContribution) hash ^= totalContribution_.GetHashCode();
-      foreach(global::com.game.framework.protocol.UserInfo i in userInfos_)
+      foreach(global::com.nkm.framework.protocol.UserInfo i in userInfos_)
         hash ^= i.GetHashCode();
       if (hasGroupName) hash ^= groupName_.GetHashCode();
       return hash;
@@ -590,7 +590,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetSceneInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetSceneInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetSceneInfo.DefaultInstance; }
       }
       
       public override TSCGetSceneInfo BuildPartial() {
@@ -611,7 +611,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetSceneInfo other) {
-        if (other == global::com.game.framework.protocol.TSCGetSceneInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetSceneInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.buildingInfos_.Count != 0) {
           result.buildingInfos_.Add(other.buildingInfos_);
@@ -658,7 +658,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.buildingInfos_, global::com.game.framework.protocol.BuildingInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.buildingInfos_, global::com.nkm.framework.protocol.BuildingInfo.DefaultInstance, extensionRegistry);
               break;
             }
             case 16: {
@@ -666,7 +666,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 26: {
-              input.ReadMessageArray(tag, field_name, result.userInfos_, global::com.game.framework.protocol.UserInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.userInfos_, global::com.nkm.framework.protocol.UserInfo.DefaultInstance, extensionRegistry);
               break;
             }
             case 34: {
@@ -680,40 +680,40 @@ namespace com.game.framework.protocol {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.BuildingInfo> BuildingInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.BuildingInfo> BuildingInfosList {
         get { return PrepareBuilder().buildingInfos_; }
       }
       public int BuildingInfosCount {
         get { return result.BuildingInfosCount; }
       }
-      public global::com.game.framework.protocol.BuildingInfo GetBuildingInfos(int index) {
+      public global::com.nkm.framework.protocol.BuildingInfo GetBuildingInfos(int index) {
         return result.GetBuildingInfos(index);
       }
-      public Builder SetBuildingInfos(int index, global::com.game.framework.protocol.BuildingInfo value) {
+      public Builder SetBuildingInfos(int index, global::com.nkm.framework.protocol.BuildingInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.buildingInfos_[index] = value;
         return this;
       }
-      public Builder SetBuildingInfos(int index, global::com.game.framework.protocol.BuildingInfo.Builder builderForValue) {
+      public Builder SetBuildingInfos(int index, global::com.nkm.framework.protocol.BuildingInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.buildingInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddBuildingInfos(global::com.game.framework.protocol.BuildingInfo value) {
+      public Builder AddBuildingInfos(global::com.nkm.framework.protocol.BuildingInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.buildingInfos_.Add(value);
         return this;
       }
-      public Builder AddBuildingInfos(global::com.game.framework.protocol.BuildingInfo.Builder builderForValue) {
+      public Builder AddBuildingInfos(global::com.nkm.framework.protocol.BuildingInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.buildingInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeBuildingInfos(scg::IEnumerable<global::com.game.framework.protocol.BuildingInfo> values) {
+      public Builder AddRangeBuildingInfos(scg::IEnumerable<global::com.nkm.framework.protocol.BuildingInfo> values) {
         PrepareBuilder();
         result.buildingInfos_.Add(values);
         return this;
@@ -744,40 +744,40 @@ namespace com.game.framework.protocol {
         return this;
       }
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.UserInfo> UserInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.UserInfo> UserInfosList {
         get { return PrepareBuilder().userInfos_; }
       }
       public int UserInfosCount {
         get { return result.UserInfosCount; }
       }
-      public global::com.game.framework.protocol.UserInfo GetUserInfos(int index) {
+      public global::com.nkm.framework.protocol.UserInfo GetUserInfos(int index) {
         return result.GetUserInfos(index);
       }
-      public Builder SetUserInfos(int index, global::com.game.framework.protocol.UserInfo value) {
+      public Builder SetUserInfos(int index, global::com.nkm.framework.protocol.UserInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.userInfos_[index] = value;
         return this;
       }
-      public Builder SetUserInfos(int index, global::com.game.framework.protocol.UserInfo.Builder builderForValue) {
+      public Builder SetUserInfos(int index, global::com.nkm.framework.protocol.UserInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.userInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddUserInfos(global::com.game.framework.protocol.UserInfo value) {
+      public Builder AddUserInfos(global::com.nkm.framework.protocol.UserInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.userInfos_.Add(value);
         return this;
       }
-      public Builder AddUserInfos(global::com.game.framework.protocol.UserInfo.Builder builderForValue) {
+      public Builder AddUserInfos(global::com.nkm.framework.protocol.UserInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.userInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeUserInfos(scg::IEnumerable<global::com.game.framework.protocol.UserInfo> values) {
+      public Builder AddRangeUserInfos(scg::IEnumerable<global::com.nkm.framework.protocol.UserInfo> values) {
         PrepareBuilder();
         result.userInfos_.Add(values);
         return this;
@@ -810,7 +810,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetSceneInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -1036,7 +1036,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetBuildingInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetBuildingInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetBuildingInfo.DefaultInstance; }
       }
       
       public override TCSGetBuildingInfo BuildPartial() {
@@ -1057,7 +1057,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetBuildingInfo other) {
-        if (other == global::com.game.framework.protocol.TCSGetBuildingInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetBuildingInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -1126,7 +1126,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSGetBuildingInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -1158,12 +1158,12 @@ namespace com.game.framework.protocol {
     #endif//
     public const int BuildingInfoFieldNumber = 1;
     private bool hasBuildingInfo;
-    private global::com.game.framework.protocol.BuildingInfo buildingInfo_;
+    private global::com.nkm.framework.protocol.BuildingInfo buildingInfo_;
     public bool HasBuildingInfo {
       get { return hasBuildingInfo; }
     }
-    public global::com.game.framework.protocol.BuildingInfo BuildingInfo {
-      get { return buildingInfo_ ?? global::com.game.framework.protocol.BuildingInfo.DefaultInstance; }
+    public global::com.nkm.framework.protocol.BuildingInfo BuildingInfo {
+      get { return buildingInfo_ ?? global::com.nkm.framework.protocol.BuildingInfo.DefaultInstance; }
     }
     
     #if UNITY_EDITOR
@@ -1352,7 +1352,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetBuildingInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetBuildingInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetBuildingInfo.DefaultInstance; }
       }
       
       public override TSCGetBuildingInfo BuildPartial() {
@@ -1373,7 +1373,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetBuildingInfo other) {
-        if (other == global::com.game.framework.protocol.TSCGetBuildingInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetBuildingInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingInfo) {
           MergeBuildingInfo(other.BuildingInfo);
@@ -1411,7 +1411,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              global::com.game.framework.protocol.BuildingInfo.Builder subBuilder = global::com.game.framework.protocol.BuildingInfo.CreateBuilder();
+              global::com.nkm.framework.protocol.BuildingInfo.Builder subBuilder = global::com.nkm.framework.protocol.BuildingInfo.CreateBuilder();
               if (result.hasBuildingInfo) {
                 subBuilder.MergeFrom(BuildingInfo);
               }
@@ -1429,30 +1429,30 @@ namespace com.game.framework.protocol {
       public bool HasBuildingInfo {
        get { return result.hasBuildingInfo; }
       }
-      public global::com.game.framework.protocol.BuildingInfo BuildingInfo {
+      public global::com.nkm.framework.protocol.BuildingInfo BuildingInfo {
         get { return result.BuildingInfo; }
         set { SetBuildingInfo(value); }
       }
-      public Builder SetBuildingInfo(global::com.game.framework.protocol.BuildingInfo value) {
+      public Builder SetBuildingInfo(global::com.nkm.framework.protocol.BuildingInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasBuildingInfo = true;
         result.buildingInfo_ = value;
         return this;
       }
-      public Builder SetBuildingInfo(global::com.game.framework.protocol.BuildingInfo.Builder builderForValue) {
+      public Builder SetBuildingInfo(global::com.nkm.framework.protocol.BuildingInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.hasBuildingInfo = true;
         result.buildingInfo_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeBuildingInfo(global::com.game.framework.protocol.BuildingInfo value) {
+      public Builder MergeBuildingInfo(global::com.nkm.framework.protocol.BuildingInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         if (result.hasBuildingInfo &&
-            result.buildingInfo_ != global::com.game.framework.protocol.BuildingInfo.DefaultInstance) {
-            result.buildingInfo_ = global::com.game.framework.protocol.BuildingInfo.CreateBuilder(result.buildingInfo_).MergeFrom(value).BuildPartial();
+            result.buildingInfo_ != global::com.nkm.framework.protocol.BuildingInfo.DefaultInstance) {
+            result.buildingInfo_ = global::com.nkm.framework.protocol.BuildingInfo.CreateBuilder(result.buildingInfo_).MergeFrom(value).BuildPartial();
         } else {
           result.buildingInfo_ = value;
         }
@@ -1467,7 +1467,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetBuildingInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -1819,7 +1819,7 @@ namespace com.game.framework.protocol {
       }
       
       public override BuildingInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.BuildingInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.BuildingInfo.DefaultInstance; }
       }
       
       public override BuildingInfo BuildPartial() {
@@ -1840,7 +1840,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(BuildingInfo other) {
-        if (other == global::com.game.framework.protocol.BuildingInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.BuildingInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -2071,7 +2071,7 @@ namespace com.game.framework.protocol {
       }
     }
     static BuildingInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -2297,7 +2297,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSUpgrade DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSUpgrade.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSUpgrade.DefaultInstance; }
       }
       
       public override TCSUpgrade BuildPartial() {
@@ -2318,7 +2318,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSUpgrade other) {
-        if (other == global::com.game.framework.protocol.TCSUpgrade.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSUpgrade.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -2387,7 +2387,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSUpgrade() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -2718,7 +2718,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCUpgrade DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCUpgrade.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCUpgrade.DefaultInstance; }
       }
       
       public override TSCUpgrade BuildPartial() {
@@ -2739,7 +2739,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCUpgrade other) {
-        if (other == global::com.game.framework.protocol.TSCUpgrade.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCUpgrade.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasIsState) {
           IsState = other.IsState;
@@ -2943,7 +2943,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCUpgrade() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -3169,7 +3169,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSFinishUpgrade DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSFinishUpgrade.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSFinishUpgrade.DefaultInstance; }
       }
       
       public override TCSFinishUpgrade BuildPartial() {
@@ -3190,7 +3190,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSFinishUpgrade other) {
-        if (other == global::com.game.framework.protocol.TCSFinishUpgrade.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSFinishUpgrade.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -3259,7 +3259,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSFinishUpgrade() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -3485,7 +3485,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCFinishUpgrade DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCFinishUpgrade.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCFinishUpgrade.DefaultInstance; }
       }
       
       public override TSCFinishUpgrade BuildPartial() {
@@ -3506,7 +3506,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCFinishUpgrade other) {
-        if (other == global::com.game.framework.protocol.TSCFinishUpgrade.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCFinishUpgrade.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -3575,7 +3575,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCFinishUpgrade() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -3801,7 +3801,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSUnlock DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSUnlock.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSUnlock.DefaultInstance; }
       }
       
       public override TCSUnlock BuildPartial() {
@@ -3822,7 +3822,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSUnlock other) {
-        if (other == global::com.game.framework.protocol.TCSUnlock.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSUnlock.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasConfigId) {
           ConfigId = other.ConfigId;
@@ -3891,7 +3891,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSUnlock() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -4201,7 +4201,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCUnlock DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCUnlock.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCUnlock.DefaultInstance; }
       }
       
       public override TSCUnlock BuildPartial() {
@@ -4222,7 +4222,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCUnlock other) {
-        if (other == global::com.game.framework.protocol.TSCUnlock.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCUnlock.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -4399,7 +4399,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCUnlock() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -4625,7 +4625,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSFinishUnlock DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSFinishUnlock.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSFinishUnlock.DefaultInstance; }
       }
       
       public override TCSFinishUnlock BuildPartial() {
@@ -4646,7 +4646,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSFinishUnlock other) {
-        if (other == global::com.game.framework.protocol.TCSFinishUnlock.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSFinishUnlock.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -4715,7 +4715,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSFinishUnlock() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -4941,7 +4941,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCFinishUnlock DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCFinishUnlock.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCFinishUnlock.DefaultInstance; }
       }
       
       public override TSCFinishUnlock BuildPartial() {
@@ -4962,7 +4962,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCFinishUnlock other) {
-        if (other == global::com.game.framework.protocol.TSCFinishUnlock.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCFinishUnlock.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -5031,7 +5031,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCFinishUnlock() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -5257,7 +5257,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSReceive DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSReceive.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSReceive.DefaultInstance; }
       }
       
       public override TCSReceive BuildPartial() {
@@ -5278,7 +5278,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSReceive other) {
-        if (other == global::com.game.framework.protocol.TCSReceive.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSReceive.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -5347,7 +5347,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSReceive() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -5615,7 +5615,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCReceive DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCReceive.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCReceive.DefaultInstance; }
       }
       
       public override TSCReceive BuildPartial() {
@@ -5636,7 +5636,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCReceive other) {
-        if (other == global::com.game.framework.protocol.TSCReceive.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCReceive.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -5759,7 +5759,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCReceive() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -6006,7 +6006,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSProcess DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSProcess.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSProcess.DefaultInstance; }
       }
       
       public override TCSProcess BuildPartial() {
@@ -6027,7 +6027,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSProcess other) {
-        if (other == global::com.game.framework.protocol.TCSProcess.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSProcess.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -6123,7 +6123,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSProcess() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -6412,7 +6412,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCProcess DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCProcess.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCProcess.DefaultInstance; }
       }
       
       public override TSCProcess BuildPartial() {
@@ -6433,7 +6433,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCProcess other) {
-        if (other == global::com.game.framework.protocol.TSCProcess.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCProcess.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -6583,7 +6583,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCProcess() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -6809,7 +6809,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSInterruptProcess DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSInterruptProcess.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSInterruptProcess.DefaultInstance; }
       }
       
       public override TCSInterruptProcess BuildPartial() {
@@ -6830,7 +6830,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSInterruptProcess other) {
-        if (other == global::com.game.framework.protocol.TCSInterruptProcess.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSInterruptProcess.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -6899,7 +6899,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSInterruptProcess() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   
@@ -7125,7 +7125,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCInterruptProcess DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCInterruptProcess.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCInterruptProcess.DefaultInstance; }
       }
       
       public override TSCInterruptProcess BuildPartial() {
@@ -7146,7 +7146,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCInterruptProcess other) {
-        if (other == global::com.game.framework.protocol.TSCInterruptProcess.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCInterruptProcess.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBuildingId) {
           BuildingId = other.BuildingId;
@@ -7215,7 +7215,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCInterruptProcess() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Scene.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Scene.Descriptor, null);
     }
   }
   

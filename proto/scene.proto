@@ -1,5 +1,5 @@
 import "message.proto";
-package com.game.framework.protocol;
+package com.nkm.framework.protocol;
 
 option optimize_for = SPEED;
 

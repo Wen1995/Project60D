@@ -6,7 +6,7 @@ using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace com.game.framework.protocol {
+namespace com.nkm.framework.protocol {
   
   public static partial class Fighting {
   
@@ -247,7 +247,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSZombieInvade DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSZombieInvade.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSZombieInvade.DefaultInstance; }
       }
       
       public override TCSZombieInvade BuildPartial() {
@@ -268,7 +268,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSZombieInvade other) {
-        if (other == global::com.game.framework.protocol.TCSZombieInvade.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSZombieInvade.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasGroupId) {
           GroupId = other.GroupId;
@@ -337,7 +337,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSZombieInvade() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Fighting.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Fighting.Descriptor, null);
     }
   }
   
@@ -605,7 +605,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSReceiveZombieMessage DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSReceiveZombieMessage.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSReceiveZombieMessage.DefaultInstance; }
       }
       
       public override TCSReceiveZombieMessage BuildPartial() {
@@ -626,7 +626,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSReceiveZombieMessage other) {
-        if (other == global::com.game.framework.protocol.TCSReceiveZombieMessage.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSReceiveZombieMessage.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasGroupId) {
           GroupId = other.GroupId;
@@ -749,7 +749,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSReceiveZombieMessage() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Fighting.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Fighting.Descriptor, null);
     }
   }
   
@@ -1017,7 +1017,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSZombieInvadeResult DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSZombieInvadeResult.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSZombieInvadeResult.DefaultInstance; }
       }
       
       public override TCSZombieInvadeResult BuildPartial() {
@@ -1038,7 +1038,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSZombieInvadeResult other) {
-        if (other == global::com.game.framework.protocol.TCSZombieInvadeResult.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSZombieInvadeResult.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasGroupId) {
           GroupId = other.GroupId;
@@ -1161,7 +1161,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSZombieInvadeResult() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Fighting.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Fighting.Descriptor, null);
     }
   }
   

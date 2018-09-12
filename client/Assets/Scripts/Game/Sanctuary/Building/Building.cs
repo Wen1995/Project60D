@@ -104,7 +104,6 @@ public class Building : Controller {
                     StartCoroutine(CollectTimer());
             }
             var config = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
-            print(string.Format("buidling={0}, state={1}", config.BldgName, mState.ToString()));
         }
         
     }
@@ -226,13 +225,15 @@ public class Building : Controller {
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         NDictionary data = new NDictionary();
         data.Add("id", info.configID);
-        hudBinder.AddHud(HudType.NameBoard, data);
+        if(hudBinder != null)
+            hudBinder.AddHud(HudType.NameBoard, data);
     }
 
     void HideNameBoard(NDictionary args = null)
     {
         if(buildingID == 0) return;
-        hudBinder.RemoveHud(HudType.NameBoard);
+        if(hudBinder != null)
+            hudBinder.RemoveHud(HudType.NameBoard);
     }
 
     #endregion

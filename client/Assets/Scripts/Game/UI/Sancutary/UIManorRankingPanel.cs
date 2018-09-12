@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIManorRankingPanel : PanelBase {
 
-
+	DynamicPackage dynamicPackage = null;
 	UserPackage userPackage = null;
 	NTableView tableView = null;
 
@@ -17,6 +17,14 @@ public class UIManorRankingPanel : PanelBase {
 		tableView = transform.Find("macroview/panel/tableview").GetComponent<NTableView>();
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETGROUPPAGECOUNT, OnGetGroupCount);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETGROUPRANKING, OnGetGroupRanking);
+		UIButton button = transform.Find("closebtn").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(Close));
+		button = transform.Find("tabgroup/manor").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnShowGroupRanking));
+		button = transform.Find("tabgroup/person").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnShowPlayerRanking));
+
+		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
 	}
 
 	public override void OpenPanel()
@@ -30,9 +38,24 @@ public class UIManorRankingPanel : PanelBase {
 		base.ClosePanel();
 	}
 
+	void Close()
+	{
+		FacadeSingleton.Instance.BackPanel();
+	}
+
 	void InitView()
 	{
 		GetGroupCount();
+	}
+
+	void OnShowGroupRanking()
+	{
+		//TODO
+	}
+
+	void OnShowPlayerRanking()
+	{
+		GlobalFunction.WeHavntDone();
 	}
 
 	void GetGroupCount()
@@ -57,13 +80,13 @@ public class UIManorRankingPanel : PanelBase {
 	void OnGetGroupRanking(NetMsgDef msg)
 	{
 		TSCGetGroupRanking res = TSCGetGroupRanking.ParseFrom(msg.mBtsData);
-		userPackage.SetGroupInfo(res);
+		dynamicPackage.SetGroupInfoList(res);
 		ShowGroup();
 	}
 
 	void ShowGroup()
 	{
-		tableView.DataCount = userPackage.GetGroupInfoList().Count;
+		tableView.DataCount = dynamicPackage.GetGroupInfoList().Count;
 		tableView.TableChange();
 	}
 }

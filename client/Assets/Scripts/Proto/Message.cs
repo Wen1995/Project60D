@@ -6,7 +6,7 @@ using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace com.game.framework.protocol {
+namespace com.nkm.framework.protocol {
   
   public static partial class Message {
   
@@ -79,12 +79,12 @@ namespace com.game.framework.protocol {
     #endif//
     public const int ZombieInfoFieldNumber = 3;
     private bool hasZombieInfo;
-    private global::com.game.framework.protocol.ZombieInfo zombieInfo_;
+    private global::com.nkm.framework.protocol.ZombieInfo zombieInfo_;
     public bool HasZombieInfo {
       get { return hasZombieInfo; }
     }
-    public global::com.game.framework.protocol.ZombieInfo ZombieInfo {
-      get { return zombieInfo_ ?? global::com.game.framework.protocol.ZombieInfo.DefaultInstance; }
+    public global::com.nkm.framework.protocol.ZombieInfo ZombieInfo {
+      get { return zombieInfo_ ?? global::com.nkm.framework.protocol.ZombieInfo.DefaultInstance; }
     }
     
     #if UNITY_EDITOR
@@ -92,12 +92,12 @@ namespace com.game.framework.protocol {
     #endif//
     public const int FightingInfoFieldNumber = 4;
     private bool hasFightingInfo;
-    private global::com.game.framework.protocol.FightingInfo fightingInfo_;
+    private global::com.nkm.framework.protocol.FightingInfo fightingInfo_;
     public bool HasFightingInfo {
       get { return hasFightingInfo; }
     }
-    public global::com.game.framework.protocol.FightingInfo FightingInfo {
-      get { return fightingInfo_ ?? global::com.game.framework.protocol.FightingInfo.DefaultInstance; }
+    public global::com.nkm.framework.protocol.FightingInfo FightingInfo {
+      get { return fightingInfo_ ?? global::com.nkm.framework.protocol.FightingInfo.DefaultInstance; }
     }
     
     #if UNITY_EDITOR
@@ -310,7 +310,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSSaveMessage DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSSaveMessage.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSSaveMessage.DefaultInstance; }
       }
       
       public override TCSSaveMessage BuildPartial() {
@@ -331,7 +331,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSSaveMessage other) {
-        if (other == global::com.game.framework.protocol.TCSSaveMessage.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSSaveMessage.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasGroupId) {
           GroupId = other.GroupId;
@@ -386,7 +386,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 26: {
-              global::com.game.framework.protocol.ZombieInfo.Builder subBuilder = global::com.game.framework.protocol.ZombieInfo.CreateBuilder();
+              global::com.nkm.framework.protocol.ZombieInfo.Builder subBuilder = global::com.nkm.framework.protocol.ZombieInfo.CreateBuilder();
               if (result.hasZombieInfo) {
                 subBuilder.MergeFrom(ZombieInfo);
               }
@@ -395,7 +395,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 34: {
-              global::com.game.framework.protocol.FightingInfo.Builder subBuilder = global::com.game.framework.protocol.FightingInfo.CreateBuilder();
+              global::com.nkm.framework.protocol.FightingInfo.Builder subBuilder = global::com.nkm.framework.protocol.FightingInfo.CreateBuilder();
               if (result.hasFightingInfo) {
                 subBuilder.MergeFrom(FightingInfo);
               }
@@ -453,30 +453,30 @@ namespace com.game.framework.protocol {
       public bool HasZombieInfo {
        get { return result.hasZombieInfo; }
       }
-      public global::com.game.framework.protocol.ZombieInfo ZombieInfo {
+      public global::com.nkm.framework.protocol.ZombieInfo ZombieInfo {
         get { return result.ZombieInfo; }
         set { SetZombieInfo(value); }
       }
-      public Builder SetZombieInfo(global::com.game.framework.protocol.ZombieInfo value) {
+      public Builder SetZombieInfo(global::com.nkm.framework.protocol.ZombieInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasZombieInfo = true;
         result.zombieInfo_ = value;
         return this;
       }
-      public Builder SetZombieInfo(global::com.game.framework.protocol.ZombieInfo.Builder builderForValue) {
+      public Builder SetZombieInfo(global::com.nkm.framework.protocol.ZombieInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.hasZombieInfo = true;
         result.zombieInfo_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeZombieInfo(global::com.game.framework.protocol.ZombieInfo value) {
+      public Builder MergeZombieInfo(global::com.nkm.framework.protocol.ZombieInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         if (result.hasZombieInfo &&
-            result.zombieInfo_ != global::com.game.framework.protocol.ZombieInfo.DefaultInstance) {
-            result.zombieInfo_ = global::com.game.framework.protocol.ZombieInfo.CreateBuilder(result.zombieInfo_).MergeFrom(value).BuildPartial();
+            result.zombieInfo_ != global::com.nkm.framework.protocol.ZombieInfo.DefaultInstance) {
+            result.zombieInfo_ = global::com.nkm.framework.protocol.ZombieInfo.CreateBuilder(result.zombieInfo_).MergeFrom(value).BuildPartial();
         } else {
           result.zombieInfo_ = value;
         }
@@ -493,30 +493,30 @@ namespace com.game.framework.protocol {
       public bool HasFightingInfo {
        get { return result.hasFightingInfo; }
       }
-      public global::com.game.framework.protocol.FightingInfo FightingInfo {
+      public global::com.nkm.framework.protocol.FightingInfo FightingInfo {
         get { return result.FightingInfo; }
         set { SetFightingInfo(value); }
       }
-      public Builder SetFightingInfo(global::com.game.framework.protocol.FightingInfo value) {
+      public Builder SetFightingInfo(global::com.nkm.framework.protocol.FightingInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasFightingInfo = true;
         result.fightingInfo_ = value;
         return this;
       }
-      public Builder SetFightingInfo(global::com.game.framework.protocol.FightingInfo.Builder builderForValue) {
+      public Builder SetFightingInfo(global::com.nkm.framework.protocol.FightingInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.hasFightingInfo = true;
         result.fightingInfo_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeFightingInfo(global::com.game.framework.protocol.FightingInfo value) {
+      public Builder MergeFightingInfo(global::com.nkm.framework.protocol.FightingInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         if (result.hasFightingInfo &&
-            result.fightingInfo_ != global::com.game.framework.protocol.FightingInfo.DefaultInstance) {
-            result.fightingInfo_ = global::com.game.framework.protocol.FightingInfo.CreateBuilder(result.fightingInfo_).MergeFrom(value).BuildPartial();
+            result.fightingInfo_ != global::com.nkm.framework.protocol.FightingInfo.DefaultInstance) {
+            result.fightingInfo_ = global::com.nkm.framework.protocol.FightingInfo.CreateBuilder(result.fightingInfo_).MergeFrom(value).BuildPartial();
         } else {
           result.fightingInfo_ = value;
         }
@@ -531,7 +531,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSSaveMessage() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -778,7 +778,7 @@ namespace com.game.framework.protocol {
       }
       
       public override ZombieInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.ZombieInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.ZombieInfo.DefaultInstance; }
       }
       
       public override ZombieInfo BuildPartial() {
@@ -799,7 +799,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(ZombieInfo other) {
-        if (other == global::com.game.framework.protocol.ZombieInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.ZombieInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasConfigId) {
           ConfigId = other.ConfigId;
@@ -895,7 +895,7 @@ namespace com.game.framework.protocol {
       }
     }
     static ZombieInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -926,14 +926,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int InvadeResultInfosFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.protocol.InvadeResultInfo> invadeResultInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.InvadeResultInfo>();
-    public scg::IList<global::com.game.framework.protocol.InvadeResultInfo> InvadeResultInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.InvadeResultInfo> invadeResultInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.InvadeResultInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.InvadeResultInfo> InvadeResultInfosList {
       get { return invadeResultInfos_; }
     }
     public int InvadeResultInfosCount {
       get { return invadeResultInfos_.Count; }
     }
-    public global::com.game.framework.protocol.InvadeResultInfo GetInvadeResultInfos(int index) {
+    public global::com.nkm.framework.protocol.InvadeResultInfo GetInvadeResultInfos(int index) {
       return invadeResultInfos_[index];
     }
     
@@ -941,14 +941,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int LossInfosFieldNumber = 2;
-    private pbc::PopsicleList<global::com.game.framework.protocol.LossInfo> lossInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.LossInfo>();
-    public scg::IList<global::com.game.framework.protocol.LossInfo> LossInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.LossInfo> lossInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.LossInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.LossInfo> LossInfosList {
       get { return lossInfos_; }
     }
     public int LossInfosCount {
       get { return lossInfos_.Count; }
     }
-    public global::com.game.framework.protocol.LossInfo GetLossInfos(int index) {
+    public global::com.nkm.framework.protocol.LossInfo GetLossInfos(int index) {
       return lossInfos_[index];
     }
     
@@ -956,14 +956,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int UserInfosFieldNumber = 3;
-    private pbc::PopsicleList<global::com.game.framework.protocol.UserInfo> userInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.UserInfo>();
-    public scg::IList<global::com.game.framework.protocol.UserInfo> UserInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.UserInfo> userInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.UserInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.UserInfo> UserInfosList {
       get { return userInfos_; }
     }
     public int UserInfosCount {
       get { return userInfos_.Count; }
     }
-    public global::com.game.framework.protocol.UserInfo GetUserInfos(int index) {
+    public global::com.nkm.framework.protocol.UserInfo GetUserInfos(int index) {
       return userInfos_[index];
     }
     
@@ -972,12 +972,12 @@ namespace com.game.framework.protocol {
     #endif//
     public const int LossInfoFieldNumber = 4;
     private bool hasLossInfo;
-    private global::com.game.framework.protocol.LossInfo lossInfo_;
+    private global::com.nkm.framework.protocol.LossInfo lossInfo_;
     public bool HasLossInfo {
       get { return hasLossInfo; }
     }
-    public global::com.game.framework.protocol.LossInfo LossInfo {
-      get { return lossInfo_ ?? global::com.game.framework.protocol.LossInfo.DefaultInstance; }
+    public global::com.nkm.framework.protocol.LossInfo LossInfo {
+      get { return lossInfo_ ?? global::com.nkm.framework.protocol.LossInfo.DefaultInstance; }
     }
     
     #if UNITY_EDITOR
@@ -1019,13 +1019,13 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.protocol.InvadeResultInfo element in InvadeResultInfosList) {
+        foreach (global::com.nkm.framework.protocol.InvadeResultInfo element in InvadeResultInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
-        foreach (global::com.game.framework.protocol.LossInfo element in LossInfosList) {
+        foreach (global::com.nkm.framework.protocol.LossInfo element in LossInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(2, element);
         }
-        foreach (global::com.game.framework.protocol.UserInfo element in UserInfosList) {
+        foreach (global::com.nkm.framework.protocol.UserInfo element in UserInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(3, element);
         }
         if (hasLossInfo) {
@@ -1039,11 +1039,11 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.protocol.InvadeResultInfo i in invadeResultInfos_)
+      foreach(global::com.nkm.framework.protocol.InvadeResultInfo i in invadeResultInfos_)
         hash ^= i.GetHashCode();
-      foreach(global::com.game.framework.protocol.LossInfo i in lossInfos_)
+      foreach(global::com.nkm.framework.protocol.LossInfo i in lossInfos_)
         hash ^= i.GetHashCode();
-      foreach(global::com.game.framework.protocol.UserInfo i in userInfos_)
+      foreach(global::com.nkm.framework.protocol.UserInfo i in userInfos_)
         hash ^= i.GetHashCode();
       if (hasLossInfo) hash ^= lossInfo_.GetHashCode();
       return hash;
@@ -1202,7 +1202,7 @@ namespace com.game.framework.protocol {
       }
       
       public override FightingInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.FightingInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.FightingInfo.DefaultInstance; }
       }
       
       public override FightingInfo BuildPartial() {
@@ -1223,7 +1223,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(FightingInfo other) {
-        if (other == global::com.game.framework.protocol.FightingInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.FightingInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.invadeResultInfos_.Count != 0) {
           result.invadeResultInfos_.Add(other.invadeResultInfos_);
@@ -1270,19 +1270,19 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.invadeResultInfos_, global::com.game.framework.protocol.InvadeResultInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.invadeResultInfos_, global::com.nkm.framework.protocol.InvadeResultInfo.DefaultInstance, extensionRegistry);
               break;
             }
             case 18: {
-              input.ReadMessageArray(tag, field_name, result.lossInfos_, global::com.game.framework.protocol.LossInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.lossInfos_, global::com.nkm.framework.protocol.LossInfo.DefaultInstance, extensionRegistry);
               break;
             }
             case 26: {
-              input.ReadMessageArray(tag, field_name, result.userInfos_, global::com.game.framework.protocol.UserInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.userInfos_, global::com.nkm.framework.protocol.UserInfo.DefaultInstance, extensionRegistry);
               break;
             }
             case 34: {
-              global::com.game.framework.protocol.LossInfo.Builder subBuilder = global::com.game.framework.protocol.LossInfo.CreateBuilder();
+              global::com.nkm.framework.protocol.LossInfo.Builder subBuilder = global::com.nkm.framework.protocol.LossInfo.CreateBuilder();
               if (result.hasLossInfo) {
                 subBuilder.MergeFrom(LossInfo);
               }
@@ -1297,40 +1297,40 @@ namespace com.game.framework.protocol {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.InvadeResultInfo> InvadeResultInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.InvadeResultInfo> InvadeResultInfosList {
         get { return PrepareBuilder().invadeResultInfos_; }
       }
       public int InvadeResultInfosCount {
         get { return result.InvadeResultInfosCount; }
       }
-      public global::com.game.framework.protocol.InvadeResultInfo GetInvadeResultInfos(int index) {
+      public global::com.nkm.framework.protocol.InvadeResultInfo GetInvadeResultInfos(int index) {
         return result.GetInvadeResultInfos(index);
       }
-      public Builder SetInvadeResultInfos(int index, global::com.game.framework.protocol.InvadeResultInfo value) {
+      public Builder SetInvadeResultInfos(int index, global::com.nkm.framework.protocol.InvadeResultInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.invadeResultInfos_[index] = value;
         return this;
       }
-      public Builder SetInvadeResultInfos(int index, global::com.game.framework.protocol.InvadeResultInfo.Builder builderForValue) {
+      public Builder SetInvadeResultInfos(int index, global::com.nkm.framework.protocol.InvadeResultInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.invadeResultInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddInvadeResultInfos(global::com.game.framework.protocol.InvadeResultInfo value) {
+      public Builder AddInvadeResultInfos(global::com.nkm.framework.protocol.InvadeResultInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.invadeResultInfos_.Add(value);
         return this;
       }
-      public Builder AddInvadeResultInfos(global::com.game.framework.protocol.InvadeResultInfo.Builder builderForValue) {
+      public Builder AddInvadeResultInfos(global::com.nkm.framework.protocol.InvadeResultInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.invadeResultInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeInvadeResultInfos(scg::IEnumerable<global::com.game.framework.protocol.InvadeResultInfo> values) {
+      public Builder AddRangeInvadeResultInfos(scg::IEnumerable<global::com.nkm.framework.protocol.InvadeResultInfo> values) {
         PrepareBuilder();
         result.invadeResultInfos_.Add(values);
         return this;
@@ -1341,40 +1341,40 @@ namespace com.game.framework.protocol {
         return this;
       }
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.LossInfo> LossInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.LossInfo> LossInfosList {
         get { return PrepareBuilder().lossInfos_; }
       }
       public int LossInfosCount {
         get { return result.LossInfosCount; }
       }
-      public global::com.game.framework.protocol.LossInfo GetLossInfos(int index) {
+      public global::com.nkm.framework.protocol.LossInfo GetLossInfos(int index) {
         return result.GetLossInfos(index);
       }
-      public Builder SetLossInfos(int index, global::com.game.framework.protocol.LossInfo value) {
+      public Builder SetLossInfos(int index, global::com.nkm.framework.protocol.LossInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.lossInfos_[index] = value;
         return this;
       }
-      public Builder SetLossInfos(int index, global::com.game.framework.protocol.LossInfo.Builder builderForValue) {
+      public Builder SetLossInfos(int index, global::com.nkm.framework.protocol.LossInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.lossInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddLossInfos(global::com.game.framework.protocol.LossInfo value) {
+      public Builder AddLossInfos(global::com.nkm.framework.protocol.LossInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.lossInfos_.Add(value);
         return this;
       }
-      public Builder AddLossInfos(global::com.game.framework.protocol.LossInfo.Builder builderForValue) {
+      public Builder AddLossInfos(global::com.nkm.framework.protocol.LossInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.lossInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeLossInfos(scg::IEnumerable<global::com.game.framework.protocol.LossInfo> values) {
+      public Builder AddRangeLossInfos(scg::IEnumerable<global::com.nkm.framework.protocol.LossInfo> values) {
         PrepareBuilder();
         result.lossInfos_.Add(values);
         return this;
@@ -1385,40 +1385,40 @@ namespace com.game.framework.protocol {
         return this;
       }
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.UserInfo> UserInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.UserInfo> UserInfosList {
         get { return PrepareBuilder().userInfos_; }
       }
       public int UserInfosCount {
         get { return result.UserInfosCount; }
       }
-      public global::com.game.framework.protocol.UserInfo GetUserInfos(int index) {
+      public global::com.nkm.framework.protocol.UserInfo GetUserInfos(int index) {
         return result.GetUserInfos(index);
       }
-      public Builder SetUserInfos(int index, global::com.game.framework.protocol.UserInfo value) {
+      public Builder SetUserInfos(int index, global::com.nkm.framework.protocol.UserInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.userInfos_[index] = value;
         return this;
       }
-      public Builder SetUserInfos(int index, global::com.game.framework.protocol.UserInfo.Builder builderForValue) {
+      public Builder SetUserInfos(int index, global::com.nkm.framework.protocol.UserInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.userInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddUserInfos(global::com.game.framework.protocol.UserInfo value) {
+      public Builder AddUserInfos(global::com.nkm.framework.protocol.UserInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.userInfos_.Add(value);
         return this;
       }
-      public Builder AddUserInfos(global::com.game.framework.protocol.UserInfo.Builder builderForValue) {
+      public Builder AddUserInfos(global::com.nkm.framework.protocol.UserInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.userInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeUserInfos(scg::IEnumerable<global::com.game.framework.protocol.UserInfo> values) {
+      public Builder AddRangeUserInfos(scg::IEnumerable<global::com.nkm.framework.protocol.UserInfo> values) {
         PrepareBuilder();
         result.userInfos_.Add(values);
         return this;
@@ -1432,30 +1432,30 @@ namespace com.game.framework.protocol {
       public bool HasLossInfo {
        get { return result.hasLossInfo; }
       }
-      public global::com.game.framework.protocol.LossInfo LossInfo {
+      public global::com.nkm.framework.protocol.LossInfo LossInfo {
         get { return result.LossInfo; }
         set { SetLossInfo(value); }
       }
-      public Builder SetLossInfo(global::com.game.framework.protocol.LossInfo value) {
+      public Builder SetLossInfo(global::com.nkm.framework.protocol.LossInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasLossInfo = true;
         result.lossInfo_ = value;
         return this;
       }
-      public Builder SetLossInfo(global::com.game.framework.protocol.LossInfo.Builder builderForValue) {
+      public Builder SetLossInfo(global::com.nkm.framework.protocol.LossInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.hasLossInfo = true;
         result.lossInfo_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeLossInfo(global::com.game.framework.protocol.LossInfo value) {
+      public Builder MergeLossInfo(global::com.nkm.framework.protocol.LossInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         if (result.hasLossInfo &&
-            result.lossInfo_ != global::com.game.framework.protocol.LossInfo.DefaultInstance) {
-            result.lossInfo_ = global::com.game.framework.protocol.LossInfo.CreateBuilder(result.lossInfo_).MergeFrom(value).BuildPartial();
+            result.lossInfo_ != global::com.nkm.framework.protocol.LossInfo.DefaultInstance) {
+            result.lossInfo_ = global::com.nkm.framework.protocol.LossInfo.CreateBuilder(result.lossInfo_).MergeFrom(value).BuildPartial();
         } else {
           result.lossInfo_ = value;
         }
@@ -1470,7 +1470,7 @@ namespace com.game.framework.protocol {
       }
     }
     static FightingInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -1759,7 +1759,7 @@ namespace com.game.framework.protocol {
       }
       
       public override InvadeResultInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.InvadeResultInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.InvadeResultInfo.DefaultInstance; }
       }
       
       public override InvadeResultInfo BuildPartial() {
@@ -1780,7 +1780,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(InvadeResultInfo other) {
-        if (other == global::com.game.framework.protocol.InvadeResultInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.InvadeResultInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasType) {
           Type = other.Type;
@@ -1930,7 +1930,7 @@ namespace com.game.framework.protocol {
       }
     }
     static InvadeResultInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -2198,7 +2198,7 @@ namespace com.game.framework.protocol {
       }
       
       public override LossInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.LossInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.LossInfo.DefaultInstance; }
       }
       
       public override LossInfo BuildPartial() {
@@ -2219,7 +2219,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(LossInfo other) {
-        if (other == global::com.game.framework.protocol.LossInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.LossInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasUid) {
           Uid = other.Uid;
@@ -2342,7 +2342,7 @@ namespace com.game.framework.protocol {
       }
     }
     static LossInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -2652,7 +2652,7 @@ namespace com.game.framework.protocol {
       }
       
       public override UserInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.UserInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.UserInfo.DefaultInstance; }
       }
       
       public override UserInfo BuildPartial() {
@@ -2673,7 +2673,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(UserInfo other) {
-        if (other == global::com.game.framework.protocol.UserInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.UserInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasUid) {
           Uid = other.Uid;
@@ -2851,7 +2851,7 @@ namespace com.game.framework.protocol {
       }
     }
     static UserInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -3077,7 +3077,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetPageCount DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetPageCount.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetPageCount.DefaultInstance; }
       }
       
       public override TCSGetPageCount BuildPartial() {
@@ -3098,7 +3098,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetPageCount other) {
-        if (other == global::com.game.framework.protocol.TCSGetPageCount.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetPageCount.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasGroupId) {
           GroupId = other.GroupId;
@@ -3167,7 +3167,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSGetPageCount() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -3393,7 +3393,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetPageCount DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetPageCount.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetPageCount.DefaultInstance; }
       }
       
       public override TSCGetPageCount BuildPartial() {
@@ -3414,7 +3414,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetPageCount other) {
-        if (other == global::com.game.framework.protocol.TSCGetPageCount.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetPageCount.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasPageCount) {
           PageCount = other.PageCount;
@@ -3483,7 +3483,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetPageCount() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -3730,7 +3730,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetPageList DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetPageList.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetPageList.DefaultInstance; }
       }
       
       public override TCSGetPageList BuildPartial() {
@@ -3751,7 +3751,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetPageList other) {
-        if (other == global::com.game.framework.protocol.TCSGetPageList.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetPageList.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasCurrentPage) {
           CurrentPage = other.CurrentPage;
@@ -3847,7 +3847,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSGetPageList() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -3878,14 +3878,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int MessageInfoFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.protocol.MessageInfo> messageInfo_ = new pbc::PopsicleList<global::com.game.framework.protocol.MessageInfo>();
-    public scg::IList<global::com.game.framework.protocol.MessageInfo> MessageInfoList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.MessageInfo> messageInfo_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.MessageInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.MessageInfo> MessageInfoList {
       get { return messageInfo_; }
     }
     public int MessageInfoCount {
       get { return messageInfo_.Count; }
     }
-    public global::com.game.framework.protocol.MessageInfo GetMessageInfo(int index) {
+    public global::com.nkm.framework.protocol.MessageInfo GetMessageInfo(int index) {
       return messageInfo_[index];
     }
     
@@ -3919,7 +3919,7 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.protocol.MessageInfo element in MessageInfoList) {
+        foreach (global::com.nkm.framework.protocol.MessageInfo element in MessageInfoList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
@@ -3930,7 +3930,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.protocol.MessageInfo i in messageInfo_)
+      foreach(global::com.nkm.framework.protocol.MessageInfo i in messageInfo_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -4079,7 +4079,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetPageList DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetPageList.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetPageList.DefaultInstance; }
       }
       
       public override TSCGetPageList BuildPartial() {
@@ -4100,7 +4100,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetPageList other) {
-        if (other == global::com.game.framework.protocol.TSCGetPageList.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetPageList.DefaultInstance) return this;
         PrepareBuilder();
         if (other.messageInfo_.Count != 0) {
           result.messageInfo_.Add(other.messageInfo_);
@@ -4138,7 +4138,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.messageInfo_, global::com.game.framework.protocol.MessageInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.messageInfo_, global::com.nkm.framework.protocol.MessageInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -4148,40 +4148,40 @@ namespace com.game.framework.protocol {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.MessageInfo> MessageInfoList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.MessageInfo> MessageInfoList {
         get { return PrepareBuilder().messageInfo_; }
       }
       public int MessageInfoCount {
         get { return result.MessageInfoCount; }
       }
-      public global::com.game.framework.protocol.MessageInfo GetMessageInfo(int index) {
+      public global::com.nkm.framework.protocol.MessageInfo GetMessageInfo(int index) {
         return result.GetMessageInfo(index);
       }
-      public Builder SetMessageInfo(int index, global::com.game.framework.protocol.MessageInfo value) {
+      public Builder SetMessageInfo(int index, global::com.nkm.framework.protocol.MessageInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.messageInfo_[index] = value;
         return this;
       }
-      public Builder SetMessageInfo(int index, global::com.game.framework.protocol.MessageInfo.Builder builderForValue) {
+      public Builder SetMessageInfo(int index, global::com.nkm.framework.protocol.MessageInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.messageInfo_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddMessageInfo(global::com.game.framework.protocol.MessageInfo value) {
+      public Builder AddMessageInfo(global::com.nkm.framework.protocol.MessageInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.messageInfo_.Add(value);
         return this;
       }
-      public Builder AddMessageInfo(global::com.game.framework.protocol.MessageInfo.Builder builderForValue) {
+      public Builder AddMessageInfo(global::com.nkm.framework.protocol.MessageInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.messageInfo_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeMessageInfo(scg::IEnumerable<global::com.game.framework.protocol.MessageInfo> values) {
+      public Builder AddRangeMessageInfo(scg::IEnumerable<global::com.nkm.framework.protocol.MessageInfo> values) {
         PrepareBuilder();
         result.messageInfo_.Add(values);
         return this;
@@ -4193,7 +4193,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetPageList() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -4251,12 +4251,12 @@ namespace com.game.framework.protocol {
     #endif//
     public const int ZombieInfoFieldNumber = 3;
     private bool hasZombieInfo;
-    private global::com.game.framework.protocol.ZombieInfo zombieInfo_;
+    private global::com.nkm.framework.protocol.ZombieInfo zombieInfo_;
     public bool HasZombieInfo {
       get { return hasZombieInfo; }
     }
-    public global::com.game.framework.protocol.ZombieInfo ZombieInfo {
-      get { return zombieInfo_ ?? global::com.game.framework.protocol.ZombieInfo.DefaultInstance; }
+    public global::com.nkm.framework.protocol.ZombieInfo ZombieInfo {
+      get { return zombieInfo_ ?? global::com.nkm.framework.protocol.ZombieInfo.DefaultInstance; }
     }
     
     #if UNITY_EDITOR
@@ -4264,12 +4264,12 @@ namespace com.game.framework.protocol {
     #endif//
     public const int FightingInfoFieldNumber = 4;
     private bool hasFightingInfo;
-    private global::com.game.framework.protocol.FightingInfo fightingInfo_;
+    private global::com.nkm.framework.protocol.FightingInfo fightingInfo_;
     public bool HasFightingInfo {
       get { return hasFightingInfo; }
     }
-    public global::com.game.framework.protocol.FightingInfo FightingInfo {
-      get { return fightingInfo_ ?? global::com.game.framework.protocol.FightingInfo.DefaultInstance; }
+    public global::com.nkm.framework.protocol.FightingInfo FightingInfo {
+      get { return fightingInfo_ ?? global::com.nkm.framework.protocol.FightingInfo.DefaultInstance; }
     }
     
     #if UNITY_EDITOR
@@ -4524,7 +4524,7 @@ namespace com.game.framework.protocol {
       }
       
       public override MessageInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.MessageInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.MessageInfo.DefaultInstance; }
       }
       
       public override MessageInfo BuildPartial() {
@@ -4545,7 +4545,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(MessageInfo other) {
-        if (other == global::com.game.framework.protocol.MessageInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.MessageInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasId) {
           Id = other.Id;
@@ -4606,7 +4606,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 26: {
-              global::com.game.framework.protocol.ZombieInfo.Builder subBuilder = global::com.game.framework.protocol.ZombieInfo.CreateBuilder();
+              global::com.nkm.framework.protocol.ZombieInfo.Builder subBuilder = global::com.nkm.framework.protocol.ZombieInfo.CreateBuilder();
               if (result.hasZombieInfo) {
                 subBuilder.MergeFrom(ZombieInfo);
               }
@@ -4615,7 +4615,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 34: {
-              global::com.game.framework.protocol.FightingInfo.Builder subBuilder = global::com.game.framework.protocol.FightingInfo.CreateBuilder();
+              global::com.nkm.framework.protocol.FightingInfo.Builder subBuilder = global::com.nkm.framework.protocol.FightingInfo.CreateBuilder();
               if (result.hasFightingInfo) {
                 subBuilder.MergeFrom(FightingInfo);
               }
@@ -4681,30 +4681,30 @@ namespace com.game.framework.protocol {
       public bool HasZombieInfo {
        get { return result.hasZombieInfo; }
       }
-      public global::com.game.framework.protocol.ZombieInfo ZombieInfo {
+      public global::com.nkm.framework.protocol.ZombieInfo ZombieInfo {
         get { return result.ZombieInfo; }
         set { SetZombieInfo(value); }
       }
-      public Builder SetZombieInfo(global::com.game.framework.protocol.ZombieInfo value) {
+      public Builder SetZombieInfo(global::com.nkm.framework.protocol.ZombieInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasZombieInfo = true;
         result.zombieInfo_ = value;
         return this;
       }
-      public Builder SetZombieInfo(global::com.game.framework.protocol.ZombieInfo.Builder builderForValue) {
+      public Builder SetZombieInfo(global::com.nkm.framework.protocol.ZombieInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.hasZombieInfo = true;
         result.zombieInfo_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeZombieInfo(global::com.game.framework.protocol.ZombieInfo value) {
+      public Builder MergeZombieInfo(global::com.nkm.framework.protocol.ZombieInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         if (result.hasZombieInfo &&
-            result.zombieInfo_ != global::com.game.framework.protocol.ZombieInfo.DefaultInstance) {
-            result.zombieInfo_ = global::com.game.framework.protocol.ZombieInfo.CreateBuilder(result.zombieInfo_).MergeFrom(value).BuildPartial();
+            result.zombieInfo_ != global::com.nkm.framework.protocol.ZombieInfo.DefaultInstance) {
+            result.zombieInfo_ = global::com.nkm.framework.protocol.ZombieInfo.CreateBuilder(result.zombieInfo_).MergeFrom(value).BuildPartial();
         } else {
           result.zombieInfo_ = value;
         }
@@ -4721,30 +4721,30 @@ namespace com.game.framework.protocol {
       public bool HasFightingInfo {
        get { return result.hasFightingInfo; }
       }
-      public global::com.game.framework.protocol.FightingInfo FightingInfo {
+      public global::com.nkm.framework.protocol.FightingInfo FightingInfo {
         get { return result.FightingInfo; }
         set { SetFightingInfo(value); }
       }
-      public Builder SetFightingInfo(global::com.game.framework.protocol.FightingInfo value) {
+      public Builder SetFightingInfo(global::com.nkm.framework.protocol.FightingInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasFightingInfo = true;
         result.fightingInfo_ = value;
         return this;
       }
-      public Builder SetFightingInfo(global::com.game.framework.protocol.FightingInfo.Builder builderForValue) {
+      public Builder SetFightingInfo(global::com.nkm.framework.protocol.FightingInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.hasFightingInfo = true;
         result.fightingInfo_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeFightingInfo(global::com.game.framework.protocol.FightingInfo value) {
+      public Builder MergeFightingInfo(global::com.nkm.framework.protocol.FightingInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         if (result.hasFightingInfo &&
-            result.fightingInfo_ != global::com.game.framework.protocol.FightingInfo.DefaultInstance) {
-            result.fightingInfo_ = global::com.game.framework.protocol.FightingInfo.CreateBuilder(result.fightingInfo_).MergeFrom(value).BuildPartial();
+            result.fightingInfo_ != global::com.nkm.framework.protocol.FightingInfo.DefaultInstance) {
+            result.fightingInfo_ = global::com.nkm.framework.protocol.FightingInfo.CreateBuilder(result.fightingInfo_).MergeFrom(value).BuildPartial();
         } else {
           result.fightingInfo_ = value;
         }
@@ -4799,7 +4799,7 @@ namespace com.game.framework.protocol {
       }
     }
     static MessageInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -5004,7 +5004,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetMessageTag DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetMessageTag.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetMessageTag.DefaultInstance; }
       }
       
       public override TCSGetMessageTag BuildPartial() {
@@ -5025,7 +5025,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetMessageTag other) {
-        if (other == global::com.game.framework.protocol.TCSGetMessageTag.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetMessageTag.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -5067,7 +5067,7 @@ namespace com.game.framework.protocol {
       
     }
     static TCSGetMessageTag() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -5293,7 +5293,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetMessageTag DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetMessageTag.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetMessageTag.DefaultInstance; }
       }
       
       public override TSCGetMessageTag BuildPartial() {
@@ -5314,7 +5314,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetMessageTag other) {
-        if (other == global::com.game.framework.protocol.TSCGetMessageTag.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetMessageTag.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasMessageNum) {
           MessageNum = other.MessageNum;
@@ -5383,7 +5383,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetMessageTag() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   
@@ -5609,7 +5609,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSSendMessageTag DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSSendMessageTag.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSSendMessageTag.DefaultInstance; }
       }
       
       public override TCSSendMessageTag BuildPartial() {
@@ -5630,7 +5630,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSSendMessageTag other) {
-        if (other == global::com.game.framework.protocol.TCSSendMessageTag.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSSendMessageTag.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasMessageId) {
           MessageId = other.MessageId;
@@ -5699,7 +5699,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSSendMessageTag() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Message.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Message.Descriptor, null);
     }
   }
   

@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkm.framework.dbcache.model.UserMapper">
+  <resultMap id="BaseResultMap" type="com.nkm.framework.dbcache.model.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="group_id" jdbcType="BIGINT" property="groupId" />
+    <result column="contribution" jdbcType="INTEGER" property="contribution" />
+    <result column="gold" jdbcType="DOUBLE" property="gold" />
+    <result column="blood" jdbcType="INTEGER" property="blood" />
+    <result column="food" jdbcType="INTEGER" property="food" />
+    <result column="water" jdbcType="INTEGER" property="water" />
+    <result column="health" jdbcType="INTEGER" property="health" />
+    <result column="mood" jdbcType="INTEGER" property="mood" />
+    <result column="attack" jdbcType="INTEGER" property="attack" />
+    <result column="defense" jdbcType="INTEGER" property="defense" />
+    <result column="agile" jdbcType="INTEGER" property="agile" />
+    <result column="speed" jdbcType="INTEGER" property="speed" />
+    <result column="intellect" jdbcType="INTEGER" property="intellect" />
+    <result column="electricity" jdbcType="INTEGER" property="electricity" />
+    <result column="production" jdbcType="INTEGER" property="production" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="logout_time" jdbcType="TIMESTAMP" property="logoutTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.nkm.framework.dbcache.model.User">
+    <result column="resource" jdbcType="LONGVARBINARY" property="resource" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, account, password, group_id, contribution, gold, blood, food, water, health, 
+    mood, attack, defense, agile, speed, intellect, electricity, production, create_time, 
+    logout_time
+  </sql>
+  <sql id="Blob_Column_List">
+    resource
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.nkm.framework.dbcache.model.UserExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.nkm.framework.dbcache.model.UserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nkm.framework.dbcache.model.UserExample">
+    delete from t_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nkm.framework.dbcache.model.User">
+    insert into t_user (id, account, password, 
+      group_id, contribution, gold, 
+      blood, food, water, 
+      health, mood, attack, 
+      defense, agile, speed, 
+      intellect, electricity, production, 
+      create_time, logout_time, resource
+      )
+    values (#{id,jdbcType=BIGINT}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{groupId,jdbcType=BIGINT}, #{contribution,jdbcType=INTEGER}, #{gold,jdbcType=DOUBLE}, 
+      #{blood,jdbcType=INTEGER}, #{food,jdbcType=INTEGER}, #{water,jdbcType=INTEGER}, 
+      #{health,jdbcType=INTEGER}, #{mood,jdbcType=INTEGER}, #{attack,jdbcType=INTEGER}, 
+      #{defense,jdbcType=INTEGER}, #{agile,jdbcType=INTEGER}, #{speed,jdbcType=INTEGER}, 
+      #{intellect,jdbcType=INTEGER}, #{electricity,jdbcType=INTEGER}, #{production,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{logoutTime,jdbcType=TIMESTAMP}, #{resource,jdbcType=LONGVARBINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nkm.framework.dbcache.model.User">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+      <if test="contribution != null">
+        contribution,
+      </if>
+      <if test="gold != null">
+        gold,
+      </if>
+      <if test="blood != null">
+        blood,
+      </if>
+      <if test="food != null">
+        food,
+      </if>
+      <if test="water != null">
+        water,
+      </if>
+      <if test="health != null">
+        health,
+      </if>
+      <if test="mood != null">
+        mood,
+      </if>
+      <if test="attack != null">
+        attack,
+      </if>
+      <if test="defense != null">
+        defense,
+      </if>
+      <if test="agile != null">
+        agile,
+      </if>
+      <if test="speed != null">
+        speed,
+      </if>
+      <if test="intellect != null">
+        intellect,
+      </if>
+      <if test="electricity != null">
+        electricity,
+      </if>
+      <if test="production != null">
+        production,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="logoutTime != null">
+        logout_time,
+      </if>
+      <if test="resource != null">
+        resource,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="contribution != null">
+        #{contribution,jdbcType=INTEGER},
+      </if>
+      <if test="gold != null">
+        #{gold,jdbcType=DOUBLE},
+      </if>
+      <if test="blood != null">
+        #{blood,jdbcType=INTEGER},
+      </if>
+      <if test="food != null">
+        #{food,jdbcType=INTEGER},
+      </if>
+      <if test="water != null">
+        #{water,jdbcType=INTEGER},
+      </if>
+      <if test="health != null">
+        #{health,jdbcType=INTEGER},
+      </if>
+      <if test="mood != null">
+        #{mood,jdbcType=INTEGER},
+      </if>
+      <if test="attack != null">
+        #{attack,jdbcType=INTEGER},
+      </if>
+      <if test="defense != null">
+        #{defense,jdbcType=INTEGER},
+      </if>
+      <if test="agile != null">
+        #{agile,jdbcType=INTEGER},
+      </if>
+      <if test="speed != null">
+        #{speed,jdbcType=INTEGER},
+      </if>
+      <if test="intellect != null">
+        #{intellect,jdbcType=INTEGER},
+      </if>
+      <if test="electricity != null">
+        #{electricity,jdbcType=INTEGER},
+      </if>
+      <if test="production != null">
+        #{production,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoutTime != null">
+        #{logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resource != null">
+        #{resource,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nkm.framework.dbcache.model.UserExample" resultType="java.lang.Long">
+    select count(*) from t_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_user
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.account != null">
+        account = #{record.account,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupId != null">
+        group_id = #{record.groupId,jdbcType=BIGINT},
+      </if>
+      <if test="record.contribution != null">
+        contribution = #{record.contribution,jdbcType=INTEGER},
+      </if>
+      <if test="record.gold != null">
+        gold = #{record.gold,jdbcType=DOUBLE},
+      </if>
+      <if test="record.blood != null">
+        blood = #{record.blood,jdbcType=INTEGER},
+      </if>
+      <if test="record.food != null">
+        food = #{record.food,jdbcType=INTEGER},
+      </if>
+      <if test="record.water != null">
+        water = #{record.water,jdbcType=INTEGER},
+      </if>
+      <if test="record.health != null">
+        health = #{record.health,jdbcType=INTEGER},
+      </if>
+      <if test="record.mood != null">
+        mood = #{record.mood,jdbcType=INTEGER},
+      </if>
+      <if test="record.attack != null">
+        attack = #{record.attack,jdbcType=INTEGER},
+      </if>
+      <if test="record.defense != null">
+        defense = #{record.defense,jdbcType=INTEGER},
+      </if>
+      <if test="record.agile != null">
+        agile = #{record.agile,jdbcType=INTEGER},
+      </if>
+      <if test="record.speed != null">
+        speed = #{record.speed,jdbcType=INTEGER},
+      </if>
+      <if test="record.intellect != null">
+        intellect = #{record.intellect,jdbcType=INTEGER},
+      </if>
+      <if test="record.electricity != null">
+        electricity = #{record.electricity,jdbcType=INTEGER},
+      </if>
+      <if test="record.production != null">
+        production = #{record.production,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.logoutTime != null">
+        logout_time = #{record.logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.resource != null">
+        resource = #{record.resource,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_user
+    set id = #{record.id,jdbcType=BIGINT},
+      account = #{record.account,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      group_id = #{record.groupId,jdbcType=BIGINT},
+      contribution = #{record.contribution,jdbcType=INTEGER},
+      gold = #{record.gold,jdbcType=DOUBLE},
+      blood = #{record.blood,jdbcType=INTEGER},
+      food = #{record.food,jdbcType=INTEGER},
+      water = #{record.water,jdbcType=INTEGER},
+      health = #{record.health,jdbcType=INTEGER},
+      mood = #{record.mood,jdbcType=INTEGER},
+      attack = #{record.attack,jdbcType=INTEGER},
+      defense = #{record.defense,jdbcType=INTEGER},
+      agile = #{record.agile,jdbcType=INTEGER},
+      speed = #{record.speed,jdbcType=INTEGER},
+      intellect = #{record.intellect,jdbcType=INTEGER},
+      electricity = #{record.electricity,jdbcType=INTEGER},
+      production = #{record.production,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      logout_time = #{record.logoutTime,jdbcType=TIMESTAMP},
+      resource = #{record.resource,jdbcType=LONGVARBINARY}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_user
+    set id = #{record.id,jdbcType=BIGINT},
+      account = #{record.account,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      group_id = #{record.groupId,jdbcType=BIGINT},
+      contribution = #{record.contribution,jdbcType=INTEGER},
+      gold = #{record.gold,jdbcType=DOUBLE},
+      blood = #{record.blood,jdbcType=INTEGER},
+      food = #{record.food,jdbcType=INTEGER},
+      water = #{record.water,jdbcType=INTEGER},
+      health = #{record.health,jdbcType=INTEGER},
+      mood = #{record.mood,jdbcType=INTEGER},
+      attack = #{record.attack,jdbcType=INTEGER},
+      defense = #{record.defense,jdbcType=INTEGER},
+      agile = #{record.agile,jdbcType=INTEGER},
+      speed = #{record.speed,jdbcType=INTEGER},
+      intellect = #{record.intellect,jdbcType=INTEGER},
+      electricity = #{record.electricity,jdbcType=INTEGER},
+      production = #{record.production,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      logout_time = #{record.logoutTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nkm.framework.dbcache.model.User">
+    update t_user
+    <set>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="contribution != null">
+        contribution = #{contribution,jdbcType=INTEGER},
+      </if>
+      <if test="gold != null">
+        gold = #{gold,jdbcType=DOUBLE},
+      </if>
+      <if test="blood != null">
+        blood = #{blood,jdbcType=INTEGER},
+      </if>
+      <if test="food != null">
+        food = #{food,jdbcType=INTEGER},
+      </if>
+      <if test="water != null">
+        water = #{water,jdbcType=INTEGER},
+      </if>
+      <if test="health != null">
+        health = #{health,jdbcType=INTEGER},
+      </if>
+      <if test="mood != null">
+        mood = #{mood,jdbcType=INTEGER},
+      </if>
+      <if test="attack != null">
+        attack = #{attack,jdbcType=INTEGER},
+      </if>
+      <if test="defense != null">
+        defense = #{defense,jdbcType=INTEGER},
+      </if>
+      <if test="agile != null">
+        agile = #{agile,jdbcType=INTEGER},
+      </if>
+      <if test="speed != null">
+        speed = #{speed,jdbcType=INTEGER},
+      </if>
+      <if test="intellect != null">
+        intellect = #{intellect,jdbcType=INTEGER},
+      </if>
+      <if test="electricity != null">
+        electricity = #{electricity,jdbcType=INTEGER},
+      </if>
+      <if test="production != null">
+        production = #{production,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoutTime != null">
+        logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resource != null">
+        resource = #{resource,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.nkm.framework.dbcache.model.User">
+    update t_user
+    set account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=BIGINT},
+      contribution = #{contribution,jdbcType=INTEGER},
+      gold = #{gold,jdbcType=DOUBLE},
+      blood = #{blood,jdbcType=INTEGER},
+      food = #{food,jdbcType=INTEGER},
+      water = #{water,jdbcType=INTEGER},
+      health = #{health,jdbcType=INTEGER},
+      mood = #{mood,jdbcType=INTEGER},
+      attack = #{attack,jdbcType=INTEGER},
+      defense = #{defense,jdbcType=INTEGER},
+      agile = #{agile,jdbcType=INTEGER},
+      speed = #{speed,jdbcType=INTEGER},
+      intellect = #{intellect,jdbcType=INTEGER},
+      electricity = #{electricity,jdbcType=INTEGER},
+      production = #{production,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+      resource = #{resource,jdbcType=LONGVARBINARY}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nkm.framework.dbcache.model.User">
+    update t_user
+    set account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=BIGINT},
+      contribution = #{contribution,jdbcType=INTEGER},
+      gold = #{gold,jdbcType=DOUBLE},
+      blood = #{blood,jdbcType=INTEGER},
+      food = #{food,jdbcType=INTEGER},
+      water = #{water,jdbcType=INTEGER},
+      health = #{health,jdbcType=INTEGER},
+      mood = #{mood,jdbcType=INTEGER},
+      attack = #{attack,jdbcType=INTEGER},
+      defense = #{defense,jdbcType=INTEGER},
+      agile = #{agile,jdbcType=INTEGER},
+      speed = #{speed,jdbcType=INTEGER},
+      intellect = #{intellect,jdbcType=INTEGER},
+      electricity = #{electricity,jdbcType=INTEGER},
+      production = #{production,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      logout_time = #{logoutTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

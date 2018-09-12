@@ -6,7 +6,7 @@ using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace com.game.framework.protocol {
+namespace com.nkm.framework.protocol {
   
   public static partial class User {
   
@@ -226,7 +226,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetResourceInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetResourceInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetResourceInfo.DefaultInstance; }
       }
       
       public override TCSGetResourceInfo BuildPartial() {
@@ -247,7 +247,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetResourceInfo other) {
-        if (other == global::com.game.framework.protocol.TCSGetResourceInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetResourceInfo.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -289,7 +289,7 @@ namespace com.game.framework.protocol {
       
     }
     static TCSGetResourceInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -320,14 +320,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int ResourceInfosFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo> resourceInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo>();
-    public scg::IList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.ResourceInfo> resourceInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.ResourceInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.ResourceInfo> ResourceInfosList {
       get { return resourceInfos_; }
     }
     public int ResourceInfosCount {
       get { return resourceInfos_.Count; }
     }
-    public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
+    public global::com.nkm.framework.protocol.ResourceInfo GetResourceInfos(int index) {
       return resourceInfos_[index];
     }
     
@@ -393,7 +393,7 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.protocol.ResourceInfo element in ResourceInfosList) {
+        foreach (global::com.nkm.framework.protocol.ResourceInfo element in ResourceInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         if (hasElectricity) {
@@ -410,7 +410,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.protocol.ResourceInfo i in resourceInfos_)
+      foreach(global::com.nkm.framework.protocol.ResourceInfo i in resourceInfos_)
         hash ^= i.GetHashCode();
       if (hasElectricity) hash ^= electricity_.GetHashCode();
       if (hasGold) hash ^= gold_.GetHashCode();
@@ -563,7 +563,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetResourceInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetResourceInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetResourceInfo.DefaultInstance; }
       }
       
       public override TSCGetResourceInfo BuildPartial() {
@@ -584,7 +584,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetResourceInfo other) {
-        if (other == global::com.game.framework.protocol.TSCGetResourceInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetResourceInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.resourceInfos_.Count != 0) {
           result.resourceInfos_.Add(other.resourceInfos_);
@@ -628,7 +628,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.resourceInfos_, global::com.game.framework.protocol.ResourceInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.resourceInfos_, global::com.nkm.framework.protocol.ResourceInfo.DefaultInstance, extensionRegistry);
               break;
             }
             case 16: {
@@ -646,40 +646,40 @@ namespace com.game.framework.protocol {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.ResourceInfo> ResourceInfosList {
         get { return PrepareBuilder().resourceInfos_; }
       }
       public int ResourceInfosCount {
         get { return result.ResourceInfosCount; }
       }
-      public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
+      public global::com.nkm.framework.protocol.ResourceInfo GetResourceInfos(int index) {
         return result.GetResourceInfos(index);
       }
-      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo value) {
+      public Builder SetResourceInfos(int index, global::com.nkm.framework.protocol.ResourceInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.resourceInfos_[index] = value;
         return this;
       }
-      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+      public Builder SetResourceInfos(int index, global::com.nkm.framework.protocol.ResourceInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.resourceInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo value) {
+      public Builder AddResourceInfos(global::com.nkm.framework.protocol.ResourceInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.resourceInfos_.Add(value);
         return this;
       }
-      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+      public Builder AddResourceInfos(global::com.nkm.framework.protocol.ResourceInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.resourceInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeResourceInfos(scg::IEnumerable<global::com.game.framework.protocol.ResourceInfo> values) {
+      public Builder AddRangeResourceInfos(scg::IEnumerable<global::com.nkm.framework.protocol.ResourceInfo> values) {
         PrepareBuilder();
         result.resourceInfos_.Add(values);
         return this;
@@ -731,7 +731,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetResourceInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -968,7 +968,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetResourceInfoByConfigId DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetResourceInfoByConfigId.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetResourceInfoByConfigId.DefaultInstance; }
       }
       
       public override TCSGetResourceInfoByConfigId BuildPartial() {
@@ -989,7 +989,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetResourceInfoByConfigId other) {
-        if (other == global::com.game.framework.protocol.TCSGetResourceInfoByConfigId.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetResourceInfoByConfigId.DefaultInstance) return this;
         PrepareBuilder();
         if (other.configId_.Count != 0) {
           result.configId_.Add(other.configId_);
@@ -1069,7 +1069,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSGetResourceInfoByConfigId() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -1100,14 +1100,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int ResourceInfosFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo> resourceInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo>();
-    public scg::IList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.ResourceInfo> resourceInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.ResourceInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.ResourceInfo> ResourceInfosList {
       get { return resourceInfos_; }
     }
     public int ResourceInfosCount {
       get { return resourceInfos_.Count; }
     }
-    public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
+    public global::com.nkm.framework.protocol.ResourceInfo GetResourceInfos(int index) {
       return resourceInfos_[index];
     }
     
@@ -1141,7 +1141,7 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.protocol.ResourceInfo element in ResourceInfosList) {
+        foreach (global::com.nkm.framework.protocol.ResourceInfo element in ResourceInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
@@ -1152,7 +1152,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.protocol.ResourceInfo i in resourceInfos_)
+      foreach(global::com.nkm.framework.protocol.ResourceInfo i in resourceInfos_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -1301,7 +1301,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetResourceInfoByConfigId DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetResourceInfoByConfigId.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetResourceInfoByConfigId.DefaultInstance; }
       }
       
       public override TSCGetResourceInfoByConfigId BuildPartial() {
@@ -1322,7 +1322,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetResourceInfoByConfigId other) {
-        if (other == global::com.game.framework.protocol.TSCGetResourceInfoByConfigId.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetResourceInfoByConfigId.DefaultInstance) return this;
         PrepareBuilder();
         if (other.resourceInfos_.Count != 0) {
           result.resourceInfos_.Add(other.resourceInfos_);
@@ -1360,7 +1360,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.resourceInfos_, global::com.game.framework.protocol.ResourceInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.resourceInfos_, global::com.nkm.framework.protocol.ResourceInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -1370,40 +1370,40 @@ namespace com.game.framework.protocol {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.ResourceInfo> ResourceInfosList {
         get { return PrepareBuilder().resourceInfos_; }
       }
       public int ResourceInfosCount {
         get { return result.ResourceInfosCount; }
       }
-      public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
+      public global::com.nkm.framework.protocol.ResourceInfo GetResourceInfos(int index) {
         return result.GetResourceInfos(index);
       }
-      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo value) {
+      public Builder SetResourceInfos(int index, global::com.nkm.framework.protocol.ResourceInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.resourceInfos_[index] = value;
         return this;
       }
-      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+      public Builder SetResourceInfos(int index, global::com.nkm.framework.protocol.ResourceInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.resourceInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo value) {
+      public Builder AddResourceInfos(global::com.nkm.framework.protocol.ResourceInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.resourceInfos_.Add(value);
         return this;
       }
-      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+      public Builder AddResourceInfos(global::com.nkm.framework.protocol.ResourceInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.resourceInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeResourceInfos(scg::IEnumerable<global::com.game.framework.protocol.ResourceInfo> values) {
+      public Builder AddRangeResourceInfos(scg::IEnumerable<global::com.nkm.framework.protocol.ResourceInfo> values) {
         PrepareBuilder();
         result.resourceInfos_.Add(values);
         return this;
@@ -1415,7 +1415,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetResourceInfoByConfigId() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -1446,14 +1446,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int ResourceInfosFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo> resourceInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo>();
-    public scg::IList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.ResourceInfo> resourceInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.ResourceInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.ResourceInfo> ResourceInfosList {
       get { return resourceInfos_; }
     }
     public int ResourceInfosCount {
       get { return resourceInfos_.Count; }
     }
-    public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
+    public global::com.nkm.framework.protocol.ResourceInfo GetResourceInfos(int index) {
       return resourceInfos_[index];
     }
     
@@ -1487,7 +1487,7 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.protocol.ResourceInfo element in ResourceInfosList) {
+        foreach (global::com.nkm.framework.protocol.ResourceInfo element in ResourceInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
@@ -1498,7 +1498,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.protocol.ResourceInfo i in resourceInfos_)
+      foreach(global::com.nkm.framework.protocol.ResourceInfo i in resourceInfos_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -1647,7 +1647,7 @@ namespace com.game.framework.protocol {
       }
       
       public override UserResource DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.UserResource.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.UserResource.DefaultInstance; }
       }
       
       public override UserResource BuildPartial() {
@@ -1668,7 +1668,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(UserResource other) {
-        if (other == global::com.game.framework.protocol.UserResource.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.UserResource.DefaultInstance) return this;
         PrepareBuilder();
         if (other.resourceInfos_.Count != 0) {
           result.resourceInfos_.Add(other.resourceInfos_);
@@ -1706,7 +1706,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.resourceInfos_, global::com.game.framework.protocol.ResourceInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.resourceInfos_, global::com.nkm.framework.protocol.ResourceInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -1716,40 +1716,40 @@ namespace com.game.framework.protocol {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.ResourceInfo> ResourceInfosList {
         get { return PrepareBuilder().resourceInfos_; }
       }
       public int ResourceInfosCount {
         get { return result.ResourceInfosCount; }
       }
-      public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
+      public global::com.nkm.framework.protocol.ResourceInfo GetResourceInfos(int index) {
         return result.GetResourceInfos(index);
       }
-      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo value) {
+      public Builder SetResourceInfos(int index, global::com.nkm.framework.protocol.ResourceInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.resourceInfos_[index] = value;
         return this;
       }
-      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+      public Builder SetResourceInfos(int index, global::com.nkm.framework.protocol.ResourceInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.resourceInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo value) {
+      public Builder AddResourceInfos(global::com.nkm.framework.protocol.ResourceInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.resourceInfos_.Add(value);
         return this;
       }
-      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+      public Builder AddResourceInfos(global::com.nkm.framework.protocol.ResourceInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.resourceInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeResourceInfos(scg::IEnumerable<global::com.game.framework.protocol.ResourceInfo> values) {
+      public Builder AddRangeResourceInfos(scg::IEnumerable<global::com.nkm.framework.protocol.ResourceInfo> values) {
         PrepareBuilder();
         result.resourceInfos_.Add(values);
         return this;
@@ -1761,7 +1761,7 @@ namespace com.game.framework.protocol {
       }
     }
     static UserResource() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -2029,7 +2029,7 @@ namespace com.game.framework.protocol {
       }
       
       public override ResourceInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.ResourceInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.ResourceInfo.DefaultInstance; }
       }
       
       public override ResourceInfo BuildPartial() {
@@ -2050,7 +2050,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(ResourceInfo other) {
-        if (other == global::com.game.framework.protocol.ResourceInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.ResourceInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasConfigId) {
           ConfigId = other.ConfigId;
@@ -2173,7 +2173,7 @@ namespace com.game.framework.protocol {
       }
     }
     static ResourceInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -2378,7 +2378,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetUserState DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetUserState.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetUserState.DefaultInstance; }
       }
       
       public override TCSGetUserState BuildPartial() {
@@ -2399,7 +2399,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetUserState other) {
-        if (other == global::com.game.framework.protocol.TCSGetUserState.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetUserState.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -2441,7 +2441,7 @@ namespace com.game.framework.protocol {
       
     }
     static TCSGetUserState() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -2877,7 +2877,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetUserState DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetUserState.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetUserState.DefaultInstance; }
       }
       
       public override TSCGetUserState BuildPartial() {
@@ -2898,7 +2898,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetUserState other) {
-        if (other == global::com.game.framework.protocol.TSCGetUserState.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetUserState.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBlood) {
           Blood = other.Blood;
@@ -3237,7 +3237,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetUserState() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -3442,7 +3442,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetUserStateRegular DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetUserStateRegular.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetUserStateRegular.DefaultInstance; }
       }
       
       public override TCSGetUserStateRegular BuildPartial() {
@@ -3463,7 +3463,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetUserStateRegular other) {
-        if (other == global::com.game.framework.protocol.TCSGetUserStateRegular.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetUserStateRegular.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -3505,7 +3505,7 @@ namespace com.game.framework.protocol {
       
     }
     static TCSGetUserStateRegular() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -3941,7 +3941,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetUserStateRegular DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetUserStateRegular.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetUserStateRegular.DefaultInstance; }
       }
       
       public override TSCGetUserStateRegular BuildPartial() {
@@ -3962,7 +3962,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetUserStateRegular other) {
-        if (other == global::com.game.framework.protocol.TSCGetUserStateRegular.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetUserStateRegular.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBlood) {
           Blood = other.Blood;
@@ -4301,7 +4301,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetUserStateRegular() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -4590,7 +4590,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSSellGoods DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSSellGoods.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSSellGoods.DefaultInstance; }
       }
       
       public override TCSSellGoods BuildPartial() {
@@ -4611,7 +4611,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSSellGoods other) {
-        if (other == global::com.game.framework.protocol.TCSSellGoods.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSSellGoods.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasConfigId) {
           ConfigId = other.ConfigId;
@@ -4761,7 +4761,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSSellGoods() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -5050,7 +5050,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCSellGoods DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCSellGoods.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCSellGoods.DefaultInstance; }
       }
       
       public override TSCSellGoods BuildPartial() {
@@ -5071,7 +5071,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCSellGoods other) {
-        if (other == global::com.game.framework.protocol.TSCSellGoods.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCSellGoods.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasIsChange) {
           IsChange = other.IsChange;
@@ -5221,7 +5221,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCSellGoods() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -5510,7 +5510,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSBuyGoods DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSBuyGoods.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSBuyGoods.DefaultInstance; }
       }
       
       public override TCSBuyGoods BuildPartial() {
@@ -5531,7 +5531,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSBuyGoods other) {
-        if (other == global::com.game.framework.protocol.TCSBuyGoods.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSBuyGoods.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasConfigId) {
           ConfigId = other.ConfigId;
@@ -5681,7 +5681,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSBuyGoods() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -5970,7 +5970,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCBuyGoods DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCBuyGoods.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCBuyGoods.DefaultInstance; }
       }
       
       public override TSCBuyGoods BuildPartial() {
@@ -5991,7 +5991,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCBuyGoods other) {
-        if (other == global::com.game.framework.protocol.TSCBuyGoods.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCBuyGoods.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasIsChange) {
           IsChange = other.IsChange;
@@ -6141,7 +6141,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCBuyGoods() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -6346,7 +6346,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetPrices DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetPrices.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetPrices.DefaultInstance; }
       }
       
       public override TCSGetPrices BuildPartial() {
@@ -6367,7 +6367,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetPrices other) {
-        if (other == global::com.game.framework.protocol.TCSGetPrices.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetPrices.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -6409,7 +6409,7 @@ namespace com.game.framework.protocol {
       
     }
     static TCSGetPrices() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -6440,14 +6440,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int ResourceInfosFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo> resourceInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.ResourceInfo>();
-    public scg::IList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.ResourceInfo> resourceInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.ResourceInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.ResourceInfo> ResourceInfosList {
       get { return resourceInfos_; }
     }
     public int ResourceInfosCount {
       get { return resourceInfos_.Count; }
     }
-    public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
+    public global::com.nkm.framework.protocol.ResourceInfo GetResourceInfos(int index) {
       return resourceInfos_[index];
     }
     
@@ -6497,7 +6497,7 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.protocol.ResourceInfo element in ResourceInfosList) {
+        foreach (global::com.nkm.framework.protocol.ResourceInfo element in ResourceInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         if (hasTaxRate) {
@@ -6511,7 +6511,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.protocol.ResourceInfo i in resourceInfos_)
+      foreach(global::com.nkm.framework.protocol.ResourceInfo i in resourceInfos_)
         hash ^= i.GetHashCode();
       if (hasTaxRate) hash ^= taxRate_.GetHashCode();
       return hash;
@@ -6662,7 +6662,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetPrices DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetPrices.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetPrices.DefaultInstance; }
       }
       
       public override TSCGetPrices BuildPartial() {
@@ -6683,7 +6683,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetPrices other) {
-        if (other == global::com.game.framework.protocol.TSCGetPrices.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetPrices.DefaultInstance) return this;
         PrepareBuilder();
         if (other.resourceInfos_.Count != 0) {
           result.resourceInfos_.Add(other.resourceInfos_);
@@ -6724,7 +6724,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.resourceInfos_, global::com.game.framework.protocol.ResourceInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.resourceInfos_, global::com.nkm.framework.protocol.ResourceInfo.DefaultInstance, extensionRegistry);
               break;
             }
             case 17: {
@@ -6738,40 +6738,40 @@ namespace com.game.framework.protocol {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.ResourceInfo> ResourceInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.ResourceInfo> ResourceInfosList {
         get { return PrepareBuilder().resourceInfos_; }
       }
       public int ResourceInfosCount {
         get { return result.ResourceInfosCount; }
       }
-      public global::com.game.framework.protocol.ResourceInfo GetResourceInfos(int index) {
+      public global::com.nkm.framework.protocol.ResourceInfo GetResourceInfos(int index) {
         return result.GetResourceInfos(index);
       }
-      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo value) {
+      public Builder SetResourceInfos(int index, global::com.nkm.framework.protocol.ResourceInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.resourceInfos_[index] = value;
         return this;
       }
-      public Builder SetResourceInfos(int index, global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+      public Builder SetResourceInfos(int index, global::com.nkm.framework.protocol.ResourceInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.resourceInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo value) {
+      public Builder AddResourceInfos(global::com.nkm.framework.protocol.ResourceInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.resourceInfos_.Add(value);
         return this;
       }
-      public Builder AddResourceInfos(global::com.game.framework.protocol.ResourceInfo.Builder builderForValue) {
+      public Builder AddResourceInfos(global::com.nkm.framework.protocol.ResourceInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.resourceInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeResourceInfos(scg::IEnumerable<global::com.game.framework.protocol.ResourceInfo> values) {
+      public Builder AddRangeResourceInfos(scg::IEnumerable<global::com.nkm.framework.protocol.ResourceInfo> values) {
         PrepareBuilder();
         result.resourceInfos_.Add(values);
         return this;
@@ -6803,7 +6803,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetPrices() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -7008,7 +7008,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetPurchase DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetPurchase.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetPurchase.DefaultInstance; }
       }
       
       public override TCSGetPurchase BuildPartial() {
@@ -7029,7 +7029,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetPurchase other) {
-        if (other == global::com.game.framework.protocol.TCSGetPurchase.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetPurchase.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -7071,7 +7071,7 @@ namespace com.game.framework.protocol {
       
     }
     static TCSGetPurchase() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   
@@ -7103,12 +7103,12 @@ namespace com.game.framework.protocol {
     #endif//
     public const int UserResourceFieldNumber = 1;
     private bool hasUserResource;
-    private global::com.game.framework.protocol.UserResource userResource_;
+    private global::com.nkm.framework.protocol.UserResource userResource_;
     public bool HasUserResource {
       get { return hasUserResource; }
     }
-    public global::com.game.framework.protocol.UserResource UserResource {
-      get { return userResource_ ?? global::com.game.framework.protocol.UserResource.DefaultInstance; }
+    public global::com.nkm.framework.protocol.UserResource UserResource {
+      get { return userResource_ ?? global::com.nkm.framework.protocol.UserResource.DefaultInstance; }
     }
     
     #if UNITY_EDITOR
@@ -7297,7 +7297,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetPurchase DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetPurchase.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetPurchase.DefaultInstance; }
       }
       
       public override TSCGetPurchase BuildPartial() {
@@ -7318,7 +7318,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetPurchase other) {
-        if (other == global::com.game.framework.protocol.TSCGetPurchase.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetPurchase.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasUserResource) {
           MergeUserResource(other.UserResource);
@@ -7356,7 +7356,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              global::com.game.framework.protocol.UserResource.Builder subBuilder = global::com.game.framework.protocol.UserResource.CreateBuilder();
+              global::com.nkm.framework.protocol.UserResource.Builder subBuilder = global::com.nkm.framework.protocol.UserResource.CreateBuilder();
               if (result.hasUserResource) {
                 subBuilder.MergeFrom(UserResource);
               }
@@ -7374,30 +7374,30 @@ namespace com.game.framework.protocol {
       public bool HasUserResource {
        get { return result.hasUserResource; }
       }
-      public global::com.game.framework.protocol.UserResource UserResource {
+      public global::com.nkm.framework.protocol.UserResource UserResource {
         get { return result.UserResource; }
         set { SetUserResource(value); }
       }
-      public Builder SetUserResource(global::com.game.framework.protocol.UserResource value) {
+      public Builder SetUserResource(global::com.nkm.framework.protocol.UserResource value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasUserResource = true;
         result.userResource_ = value;
         return this;
       }
-      public Builder SetUserResource(global::com.game.framework.protocol.UserResource.Builder builderForValue) {
+      public Builder SetUserResource(global::com.nkm.framework.protocol.UserResource.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.hasUserResource = true;
         result.userResource_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeUserResource(global::com.game.framework.protocol.UserResource value) {
+      public Builder MergeUserResource(global::com.nkm.framework.protocol.UserResource value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         if (result.hasUserResource &&
-            result.userResource_ != global::com.game.framework.protocol.UserResource.DefaultInstance) {
-            result.userResource_ = global::com.game.framework.protocol.UserResource.CreateBuilder(result.userResource_).MergeFrom(value).BuildPartial();
+            result.userResource_ != global::com.nkm.framework.protocol.UserResource.DefaultInstance) {
+            result.userResource_ = global::com.nkm.framework.protocol.UserResource.CreateBuilder(result.userResource_).MergeFrom(value).BuildPartial();
         } else {
           result.userResource_ = value;
         }
@@ -7412,7 +7412,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetPurchase() {
-      object.ReferenceEquals(global::com.game.framework.protocol.User.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
     }
   }
   

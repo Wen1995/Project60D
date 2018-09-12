@@ -14,6 +14,7 @@ public enum HudType
 {
 	Collect,
 	CountDown,
+	NameBoard,
 }
 
 public interface IHudObject
@@ -98,6 +99,24 @@ public class HudBinder : MonoBehaviour {
 		}
 	}
 
+	public void RemoveHud(HudType type)
+	{
+		for(int i=hudInfoList.Count - 1;i>=0;i--)
+		{
+			HudInfo info = hudInfoList[i];
+			if(info.type == type)
+			{
+				if(info.hudGo != null)
+				{
+					IPoolUnit unit = info.hudGo.GetComponent<IPoolUnit>();
+					unit.Restore();
+					info.hudGo = null;
+				}
+				hudInfoList.RemoveAt(i);
+			}
+		}
+	}
+
 	GameObject GetHudPrefab(HudType type)
 	{
 		return Resources.Load<GameObject>("Prefabs/Hud/" + type.ToString());
@@ -125,6 +144,12 @@ public class HudBinder : MonoBehaviour {
 			HudCountDown hud = pool.Take(pos, quat, uirootTrans) as HudCountDown;
 			if(info.args != null)
 				hud.SetTimer(info.args.Value<long>("finishtime"));
+			return hud.gameObject;
+		}
+		else if(info.type == HudType.NameBoard)
+		{
+			pool = ObjectPoolSingleton.Instance.GetPool<HudNameBoard>();
+			HudNameBoard hud = pool.Take(pos, quat, uirootTrans) as HudNameBoard;
 			return hud.gameObject;
 		}
 		return null;

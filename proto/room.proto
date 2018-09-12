@@ -1,3 +1,4 @@
+import "message.proto";
 package com.nkm.framework.protocol;
 
 option optimize_for = SPEED;
@@ -50,5 +51,7 @@ message GroupInfo {
 	optional int32 peopleNumber = 3;
 	// 贡献
 	optional int32 totalContribution = 4;
+	// 玩家信息
+	repeated UserInfo userInfos = 5;
 }
 

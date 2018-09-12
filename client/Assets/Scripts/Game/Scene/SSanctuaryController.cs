@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using com.game.framework.protocol;
+using com.nkm.framework.protocol;
 using com.nkm.framework.resource.data;
 using UnityEngine;
 
@@ -24,6 +24,7 @@ public class SSanctuaryController : SceneController
         //register object pool
         ObjectPoolSingleton.Instance.RegisterComPool<HudCollect>(Resources.Load<GameObject>("Prefabs/Hud/Collect"));
         ObjectPoolSingleton.Instance.RegisterComPool<HudCountDown>(Resources.Load<GameObject>("Prefabs/Hud/CountDown"));
+        ObjectPoolSingleton.Instance.RegisterComPool<HudNameBoard>(Resources.Load<GameObject>("Prefabs/Hud/NameBoard"));
         //register panel
         SetUIContainer();
         FacadeSingleton.Instance.RegisterUIPanel("UIMsgBoxPanel", "Prefabs/UI/Common", 10000, PanelAnchor.Center);
@@ -116,6 +117,9 @@ public class SSanctuaryController : SceneController
         if(isZombie)
         {
             SoundSingleton.Instance.PlayBGM("mainbgm1");
+            if(soundCo != null)
+                StopCoroutine(soundCo);
+             soundCo = StartCoroutine(SoundTimer());
         }
         else
         {
@@ -125,9 +129,7 @@ public class SSanctuaryController : SceneController
             else
                 SoundSingleton.Instance.PlayBGM("mainbgm1");
         }
-        if(soundCo != null)
-            StopCoroutine(soundCo);
-        soundCo = StartCoroutine(SoundTimer());
+
     }
 
     void OnSelectBuilding(NDictionary data = null)
@@ -255,13 +257,14 @@ public class SSanctuaryController : SceneController
 
     void OnBuildingUnlockFinish(NetMsgDef msg)
     {
-        //TSCUnlock unlock = TSCUnlock.ParseFrom(msg.mBtsData);
         FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
+        FacadeSingleton.Instance.InvokeService("RPCGetUserState", ConstVal.Service_Sanctuary);
     }
 
     void OnBuildingUpgradeFinish(NetMsgDef msg)
     {
         FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
+        FacadeSingleton.Instance.InvokeService("RPCGetUserState", ConstVal.Service_Sanctuary);
     }
 
     void OnReceive(NetMsgDef msg)

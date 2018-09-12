@@ -4071,6 +4071,51 @@ public final class Room {
      * </pre>
      */
     int getTotalContribution();
+
+    // repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;
+    /**
+     * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    java.util.List<com.nkm.framework.protocol.Message.UserInfo> 
+        getUserInfosList();
+    /**
+     * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    com.nkm.framework.protocol.Message.UserInfo getUserInfos(int index);
+    /**
+     * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    int getUserInfosCount();
+    /**
+     * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    java.util.List<? extends com.nkm.framework.protocol.Message.UserInfoOrBuilder> 
+        getUserInfosOrBuilderList();
+    /**
+     * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    com.nkm.framework.protocol.Message.UserInfoOrBuilder getUserInfosOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code com.nkm.framework.protocol.GroupInfo}
@@ -4143,6 +4188,14 @@ public final class Room {
               totalContribution_ = input.readInt32();
               break;
             }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                userInfos_ = new java.util.ArrayList<com.nkm.framework.protocol.Message.UserInfo>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              userInfos_.add(input.readMessage(com.nkm.framework.protocol.Message.UserInfo.PARSER, extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4151,6 +4204,9 @@ public final class Room {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          userInfos_ = java.util.Collections.unmodifiableList(userInfos_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -4310,11 +4366,68 @@ public final class Room {
       return totalContribution_;
     }
 
+    // repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;
+    public static final int USERINFOS_FIELD_NUMBER = 5;
+    private java.util.List<com.nkm.framework.protocol.Message.UserInfo> userInfos_;
+    /**
+     * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    public java.util.List<com.nkm.framework.protocol.Message.UserInfo> getUserInfosList() {
+      return userInfos_;
+    }
+    /**
+     * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    public java.util.List<? extends com.nkm.framework.protocol.Message.UserInfoOrBuilder> 
+        getUserInfosOrBuilderList() {
+      return userInfos_;
+    }
+    /**
+     * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    public int getUserInfosCount() {
+      return userInfos_.size();
+    }
+    /**
+     * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    public com.nkm.framework.protocol.Message.UserInfo getUserInfos(int index) {
+      return userInfos_.get(index);
+    }
+    /**
+     * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+     *
+     * <pre>
+     * 玩家信息
+     * </pre>
+     */
+    public com.nkm.framework.protocol.Message.UserInfoOrBuilder getUserInfosOrBuilder(
+        int index) {
+      return userInfos_.get(index);
+    }
+
     private void initFields() {
       id_ = 0L;
       name_ = "";
       peopleNumber_ = 0;
       totalContribution_ = 0;
+      userInfos_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4340,6 +4453,9 @@ public final class Room {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(4, totalContribution_);
       }
+      for (int i = 0; i < userInfos_.size(); i++) {
+        output.writeMessage(5, userInfos_.get(i));
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -4364,6 +4480,10 @@ public final class Room {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, totalContribution_);
+      }
+      for (int i = 0; i < userInfos_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, userInfos_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -4473,6 +4593,7 @@ public final class Room {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getUserInfosFieldBuilder();
         }
       }
       private static Builder create() {
@@ -4489,6 +4610,12 @@ public final class Room {
         bitField0_ = (bitField0_ & ~0x00000004);
         totalContribution_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (userInfosBuilder_ == null) {
+          userInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          userInfosBuilder_.clear();
+        }
         return this;
       }
 
@@ -4533,6 +4660,15 @@ public final class Room {
           to_bitField0_ |= 0x00000008;
         }
         result.totalContribution_ = totalContribution_;
+        if (userInfosBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            userInfos_ = java.util.Collections.unmodifiableList(userInfos_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.userInfos_ = userInfos_;
+        } else {
+          result.userInfos_ = userInfosBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -4562,6 +4698,32 @@ public final class Room {
         }
         if (other.hasTotalContribution()) {
           setTotalContribution(other.getTotalContribution());
+        }
+        if (userInfosBuilder_ == null) {
+          if (!other.userInfos_.isEmpty()) {
+            if (userInfos_.isEmpty()) {
+              userInfos_ = other.userInfos_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensureUserInfosIsMutable();
+              userInfos_.addAll(other.userInfos_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.userInfos_.isEmpty()) {
+            if (userInfosBuilder_.isEmpty()) {
+              userInfosBuilder_.dispose();
+              userInfosBuilder_ = null;
+              userInfos_ = other.userInfos_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              userInfosBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getUserInfosFieldBuilder() : null;
+            } else {
+              userInfosBuilder_.addAllMessages(other.userInfos_);
+            }
+          }
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -4835,6 +4997,318 @@ public final class Room {
         return this;
       }
 
+      // repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;
+      private java.util.List<com.nkm.framework.protocol.Message.UserInfo> userInfos_ =
+        java.util.Collections.emptyList();
+      private void ensureUserInfosIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          userInfos_ = new java.util.ArrayList<com.nkm.framework.protocol.Message.UserInfo>(userInfos_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.nkm.framework.protocol.Message.UserInfo, com.nkm.framework.protocol.Message.UserInfo.Builder, com.nkm.framework.protocol.Message.UserInfoOrBuilder> userInfosBuilder_;
+
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public java.util.List<com.nkm.framework.protocol.Message.UserInfo> getUserInfosList() {
+        if (userInfosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(userInfos_);
+        } else {
+          return userInfosBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public int getUserInfosCount() {
+        if (userInfosBuilder_ == null) {
+          return userInfos_.size();
+        } else {
+          return userInfosBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public com.nkm.framework.protocol.Message.UserInfo getUserInfos(int index) {
+        if (userInfosBuilder_ == null) {
+          return userInfos_.get(index);
+        } else {
+          return userInfosBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder setUserInfos(
+          int index, com.nkm.framework.protocol.Message.UserInfo value) {
+        if (userInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserInfosIsMutable();
+          userInfos_.set(index, value);
+          onChanged();
+        } else {
+          userInfosBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder setUserInfos(
+          int index, com.nkm.framework.protocol.Message.UserInfo.Builder builderForValue) {
+        if (userInfosBuilder_ == null) {
+          ensureUserInfosIsMutable();
+          userInfos_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          userInfosBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder addUserInfos(com.nkm.framework.protocol.Message.UserInfo value) {
+        if (userInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserInfosIsMutable();
+          userInfos_.add(value);
+          onChanged();
+        } else {
+          userInfosBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder addUserInfos(
+          int index, com.nkm.framework.protocol.Message.UserInfo value) {
+        if (userInfosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserInfosIsMutable();
+          userInfos_.add(index, value);
+          onChanged();
+        } else {
+          userInfosBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder addUserInfos(
+          com.nkm.framework.protocol.Message.UserInfo.Builder builderForValue) {
+        if (userInfosBuilder_ == null) {
+          ensureUserInfosIsMutable();
+          userInfos_.add(builderForValue.build());
+          onChanged();
+        } else {
+          userInfosBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder addUserInfos(
+          int index, com.nkm.framework.protocol.Message.UserInfo.Builder builderForValue) {
+        if (userInfosBuilder_ == null) {
+          ensureUserInfosIsMutable();
+          userInfos_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          userInfosBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder addAllUserInfos(
+          java.lang.Iterable<? extends com.nkm.framework.protocol.Message.UserInfo> values) {
+        if (userInfosBuilder_ == null) {
+          ensureUserInfosIsMutable();
+          super.addAll(values, userInfos_);
+          onChanged();
+        } else {
+          userInfosBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder clearUserInfos() {
+        if (userInfosBuilder_ == null) {
+          userInfos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          userInfosBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public Builder removeUserInfos(int index) {
+        if (userInfosBuilder_ == null) {
+          ensureUserInfosIsMutable();
+          userInfos_.remove(index);
+          onChanged();
+        } else {
+          userInfosBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public com.nkm.framework.protocol.Message.UserInfo.Builder getUserInfosBuilder(
+          int index) {
+        return getUserInfosFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public com.nkm.framework.protocol.Message.UserInfoOrBuilder getUserInfosOrBuilder(
+          int index) {
+        if (userInfosBuilder_ == null) {
+          return userInfos_.get(index);  } else {
+          return userInfosBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public java.util.List<? extends com.nkm.framework.protocol.Message.UserInfoOrBuilder> 
+           getUserInfosOrBuilderList() {
+        if (userInfosBuilder_ != null) {
+          return userInfosBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(userInfos_);
+        }
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public com.nkm.framework.protocol.Message.UserInfo.Builder addUserInfosBuilder() {
+        return getUserInfosFieldBuilder().addBuilder(
+            com.nkm.framework.protocol.Message.UserInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public com.nkm.framework.protocol.Message.UserInfo.Builder addUserInfosBuilder(
+          int index) {
+        return getUserInfosFieldBuilder().addBuilder(
+            index, com.nkm.framework.protocol.Message.UserInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.UserInfo userInfos = 5;</code>
+       *
+       * <pre>
+       * 玩家信息
+       * </pre>
+       */
+      public java.util.List<com.nkm.framework.protocol.Message.UserInfo.Builder> 
+           getUserInfosBuilderList() {
+        return getUserInfosFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.nkm.framework.protocol.Message.UserInfo, com.nkm.framework.protocol.Message.UserInfo.Builder, com.nkm.framework.protocol.Message.UserInfoOrBuilder> 
+          getUserInfosFieldBuilder() {
+        if (userInfosBuilder_ == null) {
+          userInfosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.nkm.framework.protocol.Message.UserInfo, com.nkm.framework.protocol.Message.UserInfo.Builder, com.nkm.framework.protocol.Message.UserInfoOrBuilder>(
+                  userInfos_,
+                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  getParentForChildren(),
+                  isClean());
+          userInfos_ = null;
+        }
+        return userInfosBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:com.nkm.framework.protocol.GroupInfo)
     }
 
@@ -4901,18 +5375,19 @@ public final class Room {
   static {
     java.lang.String[] descriptorData = {
       "\n\nroom.proto\022\032com.nkm.framework.protocol" +
-      "\"\036\n\016TCSCreateGroup\022\014\n\004name\030\001 \001(\t\"!\n\016TSCC" +
-      "reateGroup\022\017\n\007groupId\030\001 \001(\003\" \n\rTCSApplyG" +
-      "roup\022\017\n\007groupId\030\001 \001(\003\"=\n\rTSCApplyGroup\022\r" +
-      "\n\005exist\030\001 \001(\010\022\014\n\004full\030\002 \001(\010\022\017\n\007groupId\030\003" +
-      " \001(\003\"\026\n\024TCSGetGroupPageCount\")\n\024TSCGetGr" +
-      "oupPageCount\022\021\n\tpageCount\030\001 \001(\005\")\n\022TCSGe" +
-      "tGroupRanking\022\023\n\013currentPage\030\001 \001(\005\"O\n\022TS" +
-      "CGetGroupRanking\0229\n\ngroupInfos\030\001 \003(\0132%.c" +
-      "om.nkm.framework.protocol.GroupInfo\"V\n\tG",
-      "roupInfo\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\024\n\014pe" +
-      "opleNumber\030\003 \001(\005\022\031\n\021totalContribution\030\004 " +
-      "\001(\005B\002H\001"
+      "\032\rmessage.proto\"\036\n\016TCSCreateGroup\022\014\n\004nam" +
+      "e\030\001 \001(\t\"!\n\016TSCCreateGroup\022\017\n\007groupId\030\001 \001" +
+      "(\003\" \n\rTCSApplyGroup\022\017\n\007groupId\030\001 \001(\003\"=\n\r" +
+      "TSCApplyGroup\022\r\n\005exist\030\001 \001(\010\022\014\n\004full\030\002 \001" +
+      "(\010\022\017\n\007groupId\030\003 \001(\003\"\026\n\024TCSGetGroupPageCo" +
+      "unt\")\n\024TSCGetGroupPageCount\022\021\n\tpageCount" +
+      "\030\001 \001(\005\")\n\022TCSGetGroupRanking\022\023\n\013currentP" +
+      "age\030\001 \001(\005\"O\n\022TSCGetGroupRanking\0229\n\ngroup" +
+      "Infos\030\001 \003(\0132%.com.nkm.framework.protocol",
+      ".GroupInfo\"\217\001\n\tGroupInfo\022\n\n\002id\030\001 \001(\003\022\014\n\004" +
+      "name\030\002 \001(\t\022\024\n\014peopleNumber\030\003 \001(\005\022\031\n\021tota" +
+      "lContribution\030\004 \001(\005\0227\n\tuserInfos\030\005 \003(\0132$" +
+      ".com.nkm.framework.protocol.UserInfoB\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -4972,13 +5447,14 @@ public final class Room {
           internal_static_com_nkm_framework_protocol_GroupInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_GroupInfo_descriptor,
-              new java.lang.String[] { "Id", "Name", "PeopleNumber", "TotalContribution", });
+              new java.lang.String[] { "Id", "Name", "PeopleNumber", "TotalContribution", "UserInfos", });
           return null;
         }
       };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.nkm.framework.protocol.Message.getDescriptor(),
         }, assigner);
   }
 

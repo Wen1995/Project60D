@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using com.game.framework.protocol;
+using com.nkm.framework.protocol;
 using UnityEngine;
 
 public class UIManorMenuPanel : PanelBase {
@@ -79,7 +79,6 @@ public class UIManorMenuPanel : PanelBase {
 	void OnMail()
 	{
 		FacadeSingleton.Instance.OverlayerPanel("UIMailBoxPanel");
-		//FacadeSingleton.Instance.OverlayerPanel("UIInvadeResultPanel");
 	}
 
 	void OnRanking()

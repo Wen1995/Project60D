@@ -72,7 +72,7 @@ public class UIPlayerMenuPanel : PanelBase {
 	{
 		float progres = 0f;
 		levelLabel.text = string.Format("Lv.{0}", userPackage.GetPlayerLevel(out progres).ToString());
-		expProgressBar.value = progres;
+		expProgressBar.value = 1 - progres;
 	}
 
 	void OnPlayerInfo()

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-using com.game.framework.protocol;
+using com.nkm.framework.protocol;
 using com.nkm.framework.resource.data;
 using UnityEngine;
 

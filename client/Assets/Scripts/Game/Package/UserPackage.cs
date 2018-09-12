@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using com.game.framework.protocol;
+using com.nkm.framework.protocol;
 using com.nkm.framework.resource.data;
 using UnityEngine;
 
@@ -55,6 +55,7 @@ public class NUserInfo
     public string name;
     public int blood;
     public int health;
+    public int contribution;
 
 
     public NUserInfo()
@@ -65,25 +66,10 @@ public class NUserInfo
         name = info.Account;
         blood = info.Blood;
         health = info.Health;
+        contribution = info.Contribution;
     }
 }
 
-public class NGroupInfo
-{
-    public long ID;
-    public string name;
-    public int peopleNumber;
-    public int contribution;
-
-    public NGroupInfo(){}
-    public NGroupInfo(GroupInfo info)
-    {
-        ID = info.Id;
-        name = info.Name;
-        peopleNumber = info.PeopleNumber;
-        contribution = info.TotalContribution;
-    }
-}
 
 public class UserPackage : ModelBase {
 
@@ -228,11 +214,7 @@ public class UserPackage : ModelBase {
 
     public double GetPlayerInterest()
     {
-        float n = GetManorPersonNumber();
-        float k1 = 100000f;
-        float k2 = 0.6f;
-        float k3 = 0.5f;
-        return (1 + (n - 1) * k3) * (1 / n + ((personContribution + k1) / (totalContribution + n * k1) - 1 / n ) * k2);
+        return GlobalFunction.CalculateInterest(personContribution, totalContribution, GetManorPersonNumber());
     }
 
     public NUserInfo GetUserInfo(long uid)

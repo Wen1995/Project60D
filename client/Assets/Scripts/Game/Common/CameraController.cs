@@ -57,45 +57,12 @@ public class CameraController : MonoBehaviour {
 
     void ProcessMouse()
     {
-        if (!isOverUI)
+        if(isOverUI)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                mouseOrigin = Input.mousePosition;
-                isPress = true;
-                FacadeSingleton.Instance.SendEvent("CloseInteraction");
-                OnClickDown();
-            }
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                OnClickUp();
-                ClearState();
-            }
-
-
-            if (isPress)
-            {
-                Vector3 diff = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
-                if (diff.x != 0 || diff.y != 0)
-                {
-                    if(!isDragging) isDragging = true;
-                    CameraDragging(diff);
-                }
-            }
-
-            if (Input.GetAxis("Mouse ScrollWheel") != 0)
-            {
-                CameraZomming(Input.GetAxis("Mouse ScrollWheel"));
-            }
+            if(Input.GetMouseButtonUp(0))
+                FacadeSingleton.Instance.SendEvent("HideNameBoard");
+            return;
         }
-
-        CameraRestriant();
-    }
-
-    void ProcessTouch()
-    {
-        if(isOverUI) return;
         if (Input.GetMouseButtonDown(0))
         {
             mouseOrigin = Input.mousePosition;
@@ -108,6 +75,49 @@ public class CameraController : MonoBehaviour {
         {
             OnClickUp();
             ClearState();
+            FacadeSingleton.Instance.SendEvent("HideNameBoard");
+        }
+
+
+        if (isPress)
+        {
+            Vector3 diff = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
+            if (diff.x != 0 || diff.y != 0)
+            {
+                if(!isDragging) isDragging = true;
+                CameraDragging(diff);
+            }
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            CameraZomming(Input.GetAxis("Mouse ScrollWheel"));
+        }
+
+        CameraRestriant();
+    }
+
+    void ProcessTouch()
+    {
+        if(isOverUI) 
+        {
+            if(Input.GetMouseButtonUp(0))
+                FacadeSingleton.Instance.SendEvent("HideNameBoard");
+            return;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            mouseOrigin = Input.mousePosition;
+            isPress = true;
+            FacadeSingleton.Instance.SendEvent("CloseInteraction");
+            OnClickDown();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            OnClickUp();
+            ClearState();
+            FacadeSingleton.Instance.SendEvent("HideNameBoard");
         }
 
         if (isPress)
@@ -184,6 +194,10 @@ public class CameraController : MonoBehaviour {
         {
             hitGo = hit.collider.gameObject;
             hitGo.SendMessage("OnClickDown", SendMessageOptions.DontRequireReceiver);
+        }
+        else
+        {
+            FacadeSingleton.Instance.SendEvent("ShowNameBoard");
         }
     }
 

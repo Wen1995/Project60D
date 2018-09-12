@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using com.nkm.framework.protocol;
 using UnityEngine;
 
 public class NBuffInfo
@@ -14,10 +15,33 @@ public enum NBuffType
     Cooperation
 }
 
+public class NGroupInfo
+{
+    public long id;
+    public string name;
+    public List<NUserInfo> userList;
+    public int totalContribution;
+
+    public NGroupInfo()
+    {}
+
+    public NGroupInfo(GroupInfo info)
+    {
+        id = info.Id;
+        name = info.Name;
+        totalContribution = info.TotalContribution;
+        userList = new List<NUserInfo>();
+        for(int i=0;i<info.UserInfosCount;i++)
+            userList.Add(new NUserInfo(info.GetUserInfos(i)));
+    }
+}
 
 public class DynamicPackage : ModelBase
 {
     List<NBuffInfo> mBuffInfoList = new List<NBuffInfo>();
+
+    List<NGroupInfo> mGroupInfoList = new List<NGroupInfo>();
+
 
     public void CalculateBuff()
     {
@@ -47,6 +71,22 @@ public class DynamicPackage : ModelBase
     public List<NBuffInfo> GetBuffList()
     {
         return mBuffInfoList;
+    }
+
+    public void SetGroupInfoList(TSCGetGroupRanking res)
+    {
+        mGroupInfoList.Clear();
+        for(int i=0;i<res.GroupInfosCount;i++)
+        {
+            Debug.Log("player number=" + res.GetGroupInfos(i).UserInfosCount);
+            NGroupInfo info = new NGroupInfo(res.GetGroupInfos(i));
+            mGroupInfoList.Add(info);
+        }
+    }
+
+    public List<NGroupInfo> GetGroupInfoList()
+    {
+        return mGroupInfoList;
     }
 
     public override void Release()

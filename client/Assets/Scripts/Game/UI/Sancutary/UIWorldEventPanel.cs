@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIWorldEventPanel : PanelBase {
 
-
+	DynamicPackage dynamicpackage = null;
 	NTableView tableView = null;
 	EventPackage eventPackage = null;
 
@@ -37,7 +37,7 @@ public class UIWorldEventPanel : PanelBase {
 
 	void InitView()
 	{
-		tableView.DataCount = eventPackage.GetEventList().Count;
+		tableView.DataCount = eventPackage.GetCurEventList().Count + eventPackage.GetFutureEventList().Count;
 		tableView.TableChange();
 	}
 }

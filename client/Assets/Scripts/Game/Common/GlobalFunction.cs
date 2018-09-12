@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using com.nkm.framework.resource.data;
 using UnityEngine;
 
 public static class GlobalFunction {
@@ -84,5 +85,54 @@ public static class GlobalFunction {
         else
             return string.Format("{0}:{1}", (time/86400).ToString().PadLeft(2, '0'),
                                             (time%86400).ToString().PadLeft(2, '0'));
+    }
+
+    //time stamp should be milisec
+    public static string DateFormat(long timestamp)
+    {
+        System.DateTime dtDateTime = new DateTime(1970,1,1,0,0,0,0,System.DateTimeKind.Utc);
+        dtDateTime = dtDateTime.AddSeconds( timestamp ).ToLocalTime();
+         return dtDateTime.ToString();;
+    }
+
+    public static int CalculateManorLevel(int contribution)
+    {
+        var levelMap = ConfigDataStatic.GetConfigDataTable("MANOR_LEVEL");
+        for(int i=1;i<=20;i++)
+        {
+            MANOR_LEVEL data = levelMap[i] as MANOR_LEVEL;
+            if(contribution < data.ManorCap)
+                return i;
+        }
+        return 20;
+    }
+
+    public static int CalculatePlayerLevel(int contribution)
+    {
+        var levelMap = ConfigDataStatic.GetConfigDataTable("PLAYER_LEVEL");
+        for(int i=1;i<=20;i++)
+        {
+            PLAYER_LEVEL data = levelMap[i] as PLAYER_LEVEL;
+            if(contribution < data.PlayerCap)
+                return i;
+        }
+        return 20;
+    }
+
+    public static float CalculateInterest(int personContribution, int totalContribution, int personNumber)
+    {
+        float n = (float)personNumber;
+        float k1 = 100000f;
+        float k2 = 0.6f;
+        float k3 = 0.5f;
+        return (1 + (n - 1) * k3) * (1 / n + ((personContribution + k1) / (totalContribution + n * k1) - 1 / n ) * k2);
+    }
+
+    public static void WeHavntDone()
+    {
+        NDictionary data = new NDictionary();
+        string content = string.Format("此功能尚未完成，请期待后续版本");
+        data.Add("content", content);
+        FacadeSingleton.Instance.SendEvent("OpenTips", data);
     }
 }

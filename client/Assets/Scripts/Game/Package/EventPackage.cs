@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using com.game.framework.protocol;
+using com.nkm.framework.protocol;
 using com.nkm.framework.resource.data;
 using UnityEngine;
 
@@ -41,8 +41,11 @@ public class EventPackage : ModelBase
         for(int i=0;i<res.WorldEventConfigId2HappenTimeCount;i++)
         {
             NWorldEventInfo info = new NWorldEventInfo(res.GetWorldEventConfigId2HappenTime(i));
+            
             if(GlobalFunction.IsHappened(info.happenTime))
+            {
                 curEventList.Add(info);
+            }
             else
                 futureEventList.Add(info);
         }

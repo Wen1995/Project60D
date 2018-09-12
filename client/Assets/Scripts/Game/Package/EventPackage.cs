@@ -4,6 +4,15 @@ using com.game.framework.protocol;
 using com.game.framework.resource.data;
 using UnityEngine;
 
+
+public enum WorldEventType
+{
+    Zombie = 1,
+    War, 
+    Disaster,
+    Human,
+}
+
 public class NWorldEventInfo
 {
     public int configID;
@@ -38,6 +47,11 @@ public class EventPackage : ModelBase
                 futureEventList.Add(info);
         }
         FacadeSingleton.Instance.SendEvent("RefreshEvent");
+    }
+
+    public WorldEventType GetEventType(int configID)
+    {
+        return (WorldEventType)(configID / 10000 % 10);
     }
 	
 	#endregion

@@ -6,7 +6,7 @@ using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace com.game.framework.protocol {
+namespace com.nkm.framework.protocol {
   
   public static partial class Room {
   
@@ -247,7 +247,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSCreateGroup DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSCreateGroup.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSCreateGroup.DefaultInstance; }
       }
       
       public override TCSCreateGroup BuildPartial() {
@@ -268,7 +268,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSCreateGroup other) {
-        if (other == global::com.game.framework.protocol.TCSCreateGroup.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSCreateGroup.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasName) {
           Name = other.Name;
@@ -338,7 +338,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSCreateGroup() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Room.Descriptor, null);
     }
   }
   
@@ -564,7 +564,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCCreateGroup DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCCreateGroup.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCCreateGroup.DefaultInstance; }
       }
       
       public override TSCCreateGroup BuildPartial() {
@@ -585,7 +585,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCCreateGroup other) {
-        if (other == global::com.game.framework.protocol.TSCCreateGroup.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCCreateGroup.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasGroupId) {
           GroupId = other.GroupId;
@@ -654,7 +654,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCCreateGroup() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Room.Descriptor, null);
     }
   }
   
@@ -880,7 +880,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSApplyGroup DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSApplyGroup.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSApplyGroup.DefaultInstance; }
       }
       
       public override TCSApplyGroup BuildPartial() {
@@ -901,7 +901,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSApplyGroup other) {
-        if (other == global::com.game.framework.protocol.TCSApplyGroup.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSApplyGroup.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasGroupId) {
           GroupId = other.GroupId;
@@ -970,7 +970,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSApplyGroup() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Room.Descriptor, null);
     }
   }
   
@@ -1238,7 +1238,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCApplyGroup DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCApplyGroup.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCApplyGroup.DefaultInstance; }
       }
       
       public override TSCApplyGroup BuildPartial() {
@@ -1259,7 +1259,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCApplyGroup other) {
-        if (other == global::com.game.framework.protocol.TSCApplyGroup.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCApplyGroup.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasExist) {
           Exist = other.Exist;
@@ -1382,7 +1382,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCApplyGroup() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Room.Descriptor, null);
     }
   }
   
@@ -1587,7 +1587,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetGroupPageCount DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetGroupPageCount.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetGroupPageCount.DefaultInstance; }
       }
       
       public override TCSGetGroupPageCount BuildPartial() {
@@ -1608,7 +1608,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetGroupPageCount other) {
-        if (other == global::com.game.framework.protocol.TCSGetGroupPageCount.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetGroupPageCount.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -1650,7 +1650,7 @@ namespace com.game.framework.protocol {
       
     }
     static TCSGetGroupPageCount() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Room.Descriptor, null);
     }
   }
   
@@ -1876,7 +1876,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetGroupPageCount DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetGroupPageCount.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetGroupPageCount.DefaultInstance; }
       }
       
       public override TSCGetGroupPageCount BuildPartial() {
@@ -1897,7 +1897,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetGroupPageCount other) {
-        if (other == global::com.game.framework.protocol.TSCGetGroupPageCount.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetGroupPageCount.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasPageCount) {
           PageCount = other.PageCount;
@@ -1966,7 +1966,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetGroupPageCount() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Room.Descriptor, null);
     }
   }
   
@@ -2192,7 +2192,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSGetGroupRanking DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSGetGroupRanking.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSGetGroupRanking.DefaultInstance; }
       }
       
       public override TCSGetGroupRanking BuildPartial() {
@@ -2213,7 +2213,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSGetGroupRanking other) {
-        if (other == global::com.game.framework.protocol.TCSGetGroupRanking.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSGetGroupRanking.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasCurrentPage) {
           CurrentPage = other.CurrentPage;
@@ -2282,7 +2282,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSGetGroupRanking() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Room.Descriptor, null);
     }
   }
   
@@ -2313,14 +2313,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int GroupInfosFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.protocol.GroupInfo> groupInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.GroupInfo>();
-    public scg::IList<global::com.game.framework.protocol.GroupInfo> GroupInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.GroupInfo> groupInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.GroupInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.GroupInfo> GroupInfosList {
       get { return groupInfos_; }
     }
     public int GroupInfosCount {
       get { return groupInfos_.Count; }
     }
-    public global::com.game.framework.protocol.GroupInfo GetGroupInfos(int index) {
+    public global::com.nkm.framework.protocol.GroupInfo GetGroupInfos(int index) {
       return groupInfos_[index];
     }
     
@@ -2354,7 +2354,7 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.protocol.GroupInfo element in GroupInfosList) {
+        foreach (global::com.nkm.framework.protocol.GroupInfo element in GroupInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         memoizedSerializedSize = size;
@@ -2365,7 +2365,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.protocol.GroupInfo i in groupInfos_)
+      foreach(global::com.nkm.framework.protocol.GroupInfo i in groupInfos_)
         hash ^= i.GetHashCode();
       return hash;
     }
@@ -2514,7 +2514,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCGetGroupRanking DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCGetGroupRanking.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCGetGroupRanking.DefaultInstance; }
       }
       
       public override TSCGetGroupRanking BuildPartial() {
@@ -2535,7 +2535,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCGetGroupRanking other) {
-        if (other == global::com.game.framework.protocol.TSCGetGroupRanking.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCGetGroupRanking.DefaultInstance) return this;
         PrepareBuilder();
         if (other.groupInfos_.Count != 0) {
           result.groupInfos_.Add(other.groupInfos_);
@@ -2573,7 +2573,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.groupInfos_, global::com.game.framework.protocol.GroupInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.groupInfos_, global::com.nkm.framework.protocol.GroupInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -2583,40 +2583,40 @@ namespace com.game.framework.protocol {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.GroupInfo> GroupInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.GroupInfo> GroupInfosList {
         get { return PrepareBuilder().groupInfos_; }
       }
       public int GroupInfosCount {
         get { return result.GroupInfosCount; }
       }
-      public global::com.game.framework.protocol.GroupInfo GetGroupInfos(int index) {
+      public global::com.nkm.framework.protocol.GroupInfo GetGroupInfos(int index) {
         return result.GetGroupInfos(index);
       }
-      public Builder SetGroupInfos(int index, global::com.game.framework.protocol.GroupInfo value) {
+      public Builder SetGroupInfos(int index, global::com.nkm.framework.protocol.GroupInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.groupInfos_[index] = value;
         return this;
       }
-      public Builder SetGroupInfos(int index, global::com.game.framework.protocol.GroupInfo.Builder builderForValue) {
+      public Builder SetGroupInfos(int index, global::com.nkm.framework.protocol.GroupInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.groupInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddGroupInfos(global::com.game.framework.protocol.GroupInfo value) {
+      public Builder AddGroupInfos(global::com.nkm.framework.protocol.GroupInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.groupInfos_.Add(value);
         return this;
       }
-      public Builder AddGroupInfos(global::com.game.framework.protocol.GroupInfo.Builder builderForValue) {
+      public Builder AddGroupInfos(global::com.nkm.framework.protocol.GroupInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.groupInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeGroupInfos(scg::IEnumerable<global::com.game.framework.protocol.GroupInfo> values) {
+      public Builder AddRangeGroupInfos(scg::IEnumerable<global::com.nkm.framework.protocol.GroupInfo> values) {
         PrepareBuilder();
         result.groupInfos_.Add(values);
         return this;
@@ -2628,7 +2628,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCGetGroupRanking() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Room.Descriptor, null);
     }
   }
   
@@ -2917,7 +2917,7 @@ namespace com.game.framework.protocol {
       }
       
       public override GroupInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.GroupInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.GroupInfo.DefaultInstance; }
       }
       
       public override GroupInfo BuildPartial() {
@@ -2938,7 +2938,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(GroupInfo other) {
-        if (other == global::com.game.framework.protocol.GroupInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.GroupInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasId) {
           Id = other.Id;
@@ -3089,7 +3089,7 @@ namespace com.game.framework.protocol {
       }
     }
     static GroupInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Room.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Room.Descriptor, null);
     }
   }
   

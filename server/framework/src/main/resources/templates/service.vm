@@ -1,0 +1,17 @@
+package com.nkm.game.${litHandlerGroup}.${litModel}.service;
+
+#if(${haveList} == "true")
+import java.util.List;
+#end
+import com.nkm.framework.console.disruptor.TPacket;
+#foreach ($attr in ${infos})
+import com.nkm.framework.protocol.${model}.${attr};
+#end
+
+public interface ${model}Service {
+#foreach ($attr in ${methods})
+
+	/** ${attr[0]} */
+	TPacket ${attr[2]}(Long uid${attr[3]}) throws Exception;
+#end
+}

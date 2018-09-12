@@ -237,6 +237,11 @@ public class SanctuaryPackage : ModelBase {
         return mBuildingInfoMap[buildingID];
     }
 
+    public Dictionary<long, NBuildingInfo> GetAllBuildingInfoMap()
+    {
+        return mBuildingInfoMap;
+    }
+
     public List<BuildingAttributeData> GetBuildingAttributeDataList()
     {
         return attributeDataList;

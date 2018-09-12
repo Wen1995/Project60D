@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4730413905324466}
   - component: {fileID: 33899441902312302}
   - component: {fileID: 23166328937383208}
+  - component: {fileID: 114769367308706160}
   m_Layer: 0
   m_Name: horriblehouse
   m_TagString: Untagged
@@ -1324,3 +1325,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1185725699359614}
   m_Mesh: {fileID: 4300000, guid: 9dfc9dc703022eb45a68a94dbba0496d, type: 3}
+--- !u!114 &114769367308706160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086769189502266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4c87d9680644648a33e3f3181322bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: womancry1
+  InvokeInterval: 300

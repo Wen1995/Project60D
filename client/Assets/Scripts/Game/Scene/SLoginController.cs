@@ -14,6 +14,8 @@ public class SLoginController : SceneController {
 
     private void Start()
     {
+        //create sound singleton
+        SoundSingleton.CreateInstance();
         //set resolution
         Screen.SetResolution(640, 1136, true);
         SetUIContainer();

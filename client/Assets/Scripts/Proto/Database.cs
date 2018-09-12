@@ -6,7 +6,7 @@ using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace com.game.framework.protocol {
+namespace com.nkm.framework.protocol {
   
   public static partial class Database {
   
@@ -53,26 +53,26 @@ namespace com.game.framework.protocol {
     #endif//
     public const int UpgradeInfoFieldNumber = 1;
     private bool hasUpgradeInfo;
-    private global::com.game.framework.protocol.UpgradeInfo upgradeInfo_;
+    private global::com.nkm.framework.protocol.UpgradeInfo upgradeInfo_;
     public bool HasUpgradeInfo {
       get { return hasUpgradeInfo; }
     }
-    public global::com.game.framework.protocol.UpgradeInfo UpgradeInfo {
-      get { return upgradeInfo_ ?? global::com.game.framework.protocol.UpgradeInfo.DefaultInstance; }
+    public global::com.nkm.framework.protocol.UpgradeInfo UpgradeInfo {
+      get { return upgradeInfo_ ?? global::com.nkm.framework.protocol.UpgradeInfo.DefaultInstance; }
     }
     
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
     public const int ReceiveInfosFieldNumber = 2;
-    private pbc::PopsicleList<global::com.game.framework.protocol.ReceiveInfo> receiveInfos_ = new pbc::PopsicleList<global::com.game.framework.protocol.ReceiveInfo>();
-    public scg::IList<global::com.game.framework.protocol.ReceiveInfo> ReceiveInfosList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.ReceiveInfo> receiveInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.ReceiveInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.ReceiveInfo> ReceiveInfosList {
       get { return receiveInfos_; }
     }
     public int ReceiveInfosCount {
       get { return receiveInfos_.Count; }
     }
-    public global::com.game.framework.protocol.ReceiveInfo GetReceiveInfos(int index) {
+    public global::com.nkm.framework.protocol.ReceiveInfo GetReceiveInfos(int index) {
       return receiveInfos_[index];
     }
     
@@ -81,12 +81,12 @@ namespace com.game.framework.protocol {
     #endif//
     public const int ProcessInfoFieldNumber = 3;
     private bool hasProcessInfo;
-    private global::com.game.framework.protocol.ProcessInfo processInfo_;
+    private global::com.nkm.framework.protocol.ProcessInfo processInfo_;
     public bool HasProcessInfo {
       get { return hasProcessInfo; }
     }
-    public global::com.game.framework.protocol.ProcessInfo ProcessInfo {
-      get { return processInfo_ ?? global::com.game.framework.protocol.ProcessInfo.DefaultInstance; }
+    public global::com.nkm.framework.protocol.ProcessInfo ProcessInfo {
+      get { return processInfo_ ?? global::com.nkm.framework.protocol.ProcessInfo.DefaultInstance; }
     }
     
     #if UNITY_EDITOR
@@ -128,7 +128,7 @@ namespace com.game.framework.protocol {
         if (hasUpgradeInfo) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, UpgradeInfo);
         }
-        foreach (global::com.game.framework.protocol.ReceiveInfo element in ReceiveInfosList) {
+        foreach (global::com.nkm.framework.protocol.ReceiveInfo element in ReceiveInfosList) {
           size += pb::CodedOutputStream.ComputeMessageSize(2, element);
         }
         if (hasProcessInfo) {
@@ -143,7 +143,7 @@ namespace com.game.framework.protocol {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasUpgradeInfo) hash ^= upgradeInfo_.GetHashCode();
-      foreach(global::com.game.framework.protocol.ReceiveInfo i in receiveInfos_)
+      foreach(global::com.nkm.framework.protocol.ReceiveInfo i in receiveInfos_)
         hash ^= i.GetHashCode();
       if (hasProcessInfo) hash ^= processInfo_.GetHashCode();
       return hash;
@@ -295,7 +295,7 @@ namespace com.game.framework.protocol {
       }
       
       public override BuildingState DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.BuildingState.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.BuildingState.DefaultInstance; }
       }
       
       public override BuildingState BuildPartial() {
@@ -316,7 +316,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(BuildingState other) {
-        if (other == global::com.game.framework.protocol.BuildingState.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.BuildingState.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasUpgradeInfo) {
           MergeUpgradeInfo(other.UpgradeInfo);
@@ -360,7 +360,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              global::com.game.framework.protocol.UpgradeInfo.Builder subBuilder = global::com.game.framework.protocol.UpgradeInfo.CreateBuilder();
+              global::com.nkm.framework.protocol.UpgradeInfo.Builder subBuilder = global::com.nkm.framework.protocol.UpgradeInfo.CreateBuilder();
               if (result.hasUpgradeInfo) {
                 subBuilder.MergeFrom(UpgradeInfo);
               }
@@ -369,11 +369,11 @@ namespace com.game.framework.protocol {
               break;
             }
             case 18: {
-              input.ReadMessageArray(tag, field_name, result.receiveInfos_, global::com.game.framework.protocol.ReceiveInfo.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.receiveInfos_, global::com.nkm.framework.protocol.ReceiveInfo.DefaultInstance, extensionRegistry);
               break;
             }
             case 26: {
-              global::com.game.framework.protocol.ProcessInfo.Builder subBuilder = global::com.game.framework.protocol.ProcessInfo.CreateBuilder();
+              global::com.nkm.framework.protocol.ProcessInfo.Builder subBuilder = global::com.nkm.framework.protocol.ProcessInfo.CreateBuilder();
               if (result.hasProcessInfo) {
                 subBuilder.MergeFrom(ProcessInfo);
               }
@@ -391,30 +391,30 @@ namespace com.game.framework.protocol {
       public bool HasUpgradeInfo {
        get { return result.hasUpgradeInfo; }
       }
-      public global::com.game.framework.protocol.UpgradeInfo UpgradeInfo {
+      public global::com.nkm.framework.protocol.UpgradeInfo UpgradeInfo {
         get { return result.UpgradeInfo; }
         set { SetUpgradeInfo(value); }
       }
-      public Builder SetUpgradeInfo(global::com.game.framework.protocol.UpgradeInfo value) {
+      public Builder SetUpgradeInfo(global::com.nkm.framework.protocol.UpgradeInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasUpgradeInfo = true;
         result.upgradeInfo_ = value;
         return this;
       }
-      public Builder SetUpgradeInfo(global::com.game.framework.protocol.UpgradeInfo.Builder builderForValue) {
+      public Builder SetUpgradeInfo(global::com.nkm.framework.protocol.UpgradeInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.hasUpgradeInfo = true;
         result.upgradeInfo_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeUpgradeInfo(global::com.game.framework.protocol.UpgradeInfo value) {
+      public Builder MergeUpgradeInfo(global::com.nkm.framework.protocol.UpgradeInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         if (result.hasUpgradeInfo &&
-            result.upgradeInfo_ != global::com.game.framework.protocol.UpgradeInfo.DefaultInstance) {
-            result.upgradeInfo_ = global::com.game.framework.protocol.UpgradeInfo.CreateBuilder(result.upgradeInfo_).MergeFrom(value).BuildPartial();
+            result.upgradeInfo_ != global::com.nkm.framework.protocol.UpgradeInfo.DefaultInstance) {
+            result.upgradeInfo_ = global::com.nkm.framework.protocol.UpgradeInfo.CreateBuilder(result.upgradeInfo_).MergeFrom(value).BuildPartial();
         } else {
           result.upgradeInfo_ = value;
         }
@@ -428,40 +428,40 @@ namespace com.game.framework.protocol {
         return this;
       }
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.ReceiveInfo> ReceiveInfosList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.ReceiveInfo> ReceiveInfosList {
         get { return PrepareBuilder().receiveInfos_; }
       }
       public int ReceiveInfosCount {
         get { return result.ReceiveInfosCount; }
       }
-      public global::com.game.framework.protocol.ReceiveInfo GetReceiveInfos(int index) {
+      public global::com.nkm.framework.protocol.ReceiveInfo GetReceiveInfos(int index) {
         return result.GetReceiveInfos(index);
       }
-      public Builder SetReceiveInfos(int index, global::com.game.framework.protocol.ReceiveInfo value) {
+      public Builder SetReceiveInfos(int index, global::com.nkm.framework.protocol.ReceiveInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.receiveInfos_[index] = value;
         return this;
       }
-      public Builder SetReceiveInfos(int index, global::com.game.framework.protocol.ReceiveInfo.Builder builderForValue) {
+      public Builder SetReceiveInfos(int index, global::com.nkm.framework.protocol.ReceiveInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.receiveInfos_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddReceiveInfos(global::com.game.framework.protocol.ReceiveInfo value) {
+      public Builder AddReceiveInfos(global::com.nkm.framework.protocol.ReceiveInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.receiveInfos_.Add(value);
         return this;
       }
-      public Builder AddReceiveInfos(global::com.game.framework.protocol.ReceiveInfo.Builder builderForValue) {
+      public Builder AddReceiveInfos(global::com.nkm.framework.protocol.ReceiveInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.receiveInfos_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeReceiveInfos(scg::IEnumerable<global::com.game.framework.protocol.ReceiveInfo> values) {
+      public Builder AddRangeReceiveInfos(scg::IEnumerable<global::com.nkm.framework.protocol.ReceiveInfo> values) {
         PrepareBuilder();
         result.receiveInfos_.Add(values);
         return this;
@@ -475,30 +475,30 @@ namespace com.game.framework.protocol {
       public bool HasProcessInfo {
        get { return result.hasProcessInfo; }
       }
-      public global::com.game.framework.protocol.ProcessInfo ProcessInfo {
+      public global::com.nkm.framework.protocol.ProcessInfo ProcessInfo {
         get { return result.ProcessInfo; }
         set { SetProcessInfo(value); }
       }
-      public Builder SetProcessInfo(global::com.game.framework.protocol.ProcessInfo value) {
+      public Builder SetProcessInfo(global::com.nkm.framework.protocol.ProcessInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.hasProcessInfo = true;
         result.processInfo_ = value;
         return this;
       }
-      public Builder SetProcessInfo(global::com.game.framework.protocol.ProcessInfo.Builder builderForValue) {
+      public Builder SetProcessInfo(global::com.nkm.framework.protocol.ProcessInfo.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.hasProcessInfo = true;
         result.processInfo_ = builderForValue.Build();
         return this;
       }
-      public Builder MergeProcessInfo(global::com.game.framework.protocol.ProcessInfo value) {
+      public Builder MergeProcessInfo(global::com.nkm.framework.protocol.ProcessInfo value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         if (result.hasProcessInfo &&
-            result.processInfo_ != global::com.game.framework.protocol.ProcessInfo.DefaultInstance) {
-            result.processInfo_ = global::com.game.framework.protocol.ProcessInfo.CreateBuilder(result.processInfo_).MergeFrom(value).BuildPartial();
+            result.processInfo_ != global::com.nkm.framework.protocol.ProcessInfo.DefaultInstance) {
+            result.processInfo_ = global::com.nkm.framework.protocol.ProcessInfo.CreateBuilder(result.processInfo_).MergeFrom(value).BuildPartial();
         } else {
           result.processInfo_ = value;
         }
@@ -513,7 +513,7 @@ namespace com.game.framework.protocol {
       }
     }
     static BuildingState() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Database.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Database.Descriptor, null);
     }
   }
   
@@ -760,7 +760,7 @@ namespace com.game.framework.protocol {
       }
       
       public override UpgradeInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.UpgradeInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.UpgradeInfo.DefaultInstance; }
       }
       
       public override UpgradeInfo BuildPartial() {
@@ -781,7 +781,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(UpgradeInfo other) {
-        if (other == global::com.game.framework.protocol.UpgradeInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.UpgradeInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasFinishTime) {
           FinishTime = other.FinishTime;
@@ -877,7 +877,7 @@ namespace com.game.framework.protocol {
       }
     }
     static UpgradeInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Database.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Database.Descriptor, null);
     }
   }
   
@@ -1145,7 +1145,7 @@ namespace com.game.framework.protocol {
       }
       
       public override ReceiveInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.ReceiveInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.ReceiveInfo.DefaultInstance; }
       }
       
       public override ReceiveInfo BuildPartial() {
@@ -1166,7 +1166,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(ReceiveInfo other) {
-        if (other == global::com.game.framework.protocol.ReceiveInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.ReceiveInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasLastReceiveTime) {
           LastReceiveTime = other.LastReceiveTime;
@@ -1289,7 +1289,7 @@ namespace com.game.framework.protocol {
       }
     }
     static ReceiveInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Database.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Database.Descriptor, null);
     }
   }
   
@@ -1557,7 +1557,7 @@ namespace com.game.framework.protocol {
       }
       
       public override ProcessInfo DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.ProcessInfo.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.ProcessInfo.DefaultInstance; }
       }
       
       public override ProcessInfo BuildPartial() {
@@ -1578,7 +1578,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(ProcessInfo other) {
-        if (other == global::com.game.framework.protocol.ProcessInfo.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.ProcessInfo.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasStartTime) {
           StartTime = other.StartTime;
@@ -1701,7 +1701,7 @@ namespace com.game.framework.protocol {
       }
     }
     static ProcessInfo() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Database.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Database.Descriptor, null);
     }
   }
   

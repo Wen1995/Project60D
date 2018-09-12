@@ -6,7 +6,7 @@ using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace com.game.framework.protocol {
+namespace com.nkm.framework.protocol {
   
   public static partial class Login {
   
@@ -247,7 +247,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSLogin DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSLogin.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSLogin.DefaultInstance; }
       }
       
       public override TCSLogin BuildPartial() {
@@ -268,7 +268,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSLogin other) {
-        if (other == global::com.game.framework.protocol.TCSLogin.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSLogin.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasAccount) {
           Account = other.Account;
@@ -338,7 +338,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TCSLogin() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Login.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Login.Descriptor, null);
     }
   }
   
@@ -606,7 +606,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCLogin DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCLogin.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCLogin.DefaultInstance; }
       }
       
       public override TSCLogin BuildPartial() {
@@ -627,7 +627,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCLogin other) {
-        if (other == global::com.game.framework.protocol.TSCLogin.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCLogin.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasUid) {
           Uid = other.Uid;
@@ -750,7 +750,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCLogin() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Login.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Login.Descriptor, null);
     }
   }
   
@@ -955,7 +955,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSLogout DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSLogout.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSLogout.DefaultInstance; }
       }
       
       public override TCSLogout BuildPartial() {
@@ -976,7 +976,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSLogout other) {
-        if (other == global::com.game.framework.protocol.TCSLogout.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSLogout.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -1018,7 +1018,7 @@ namespace com.game.framework.protocol {
       
     }
     static TCSLogout() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Login.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Login.Descriptor, null);
     }
   }
   
@@ -1223,7 +1223,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TCSHeart DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TCSHeart.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TCSHeart.DefaultInstance; }
       }
       
       public override TCSHeart BuildPartial() {
@@ -1244,7 +1244,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TCSHeart other) {
-        if (other == global::com.game.framework.protocol.TCSHeart.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TCSHeart.DefaultInstance) return this;
         PrepareBuilder();
         return this;
       }
@@ -1286,7 +1286,7 @@ namespace com.game.framework.protocol {
       
     }
     static TCSHeart() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Login.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Login.Descriptor, null);
     }
   }
   
@@ -1317,14 +1317,14 @@ namespace com.game.framework.protocol {
     [pb.FieldNumber]
     #endif//
     public const int WorldEventConfigId2HappenTimeFieldNumber = 1;
-    private pbc::PopsicleList<global::com.game.framework.protocol.WorldEventConfigId2HappenTime> worldEventConfigId2HappenTime_ = new pbc::PopsicleList<global::com.game.framework.protocol.WorldEventConfigId2HappenTime>();
-    public scg::IList<global::com.game.framework.protocol.WorldEventConfigId2HappenTime> WorldEventConfigId2HappenTimeList {
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime> worldEventConfigId2HappenTime_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime>();
+    public scg::IList<global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime> WorldEventConfigId2HappenTimeList {
       get { return worldEventConfigId2HappenTime_; }
     }
     public int WorldEventConfigId2HappenTimeCount {
       get { return worldEventConfigId2HappenTime_.Count; }
     }
-    public global::com.game.framework.protocol.WorldEventConfigId2HappenTime GetWorldEventConfigId2HappenTime(int index) {
+    public global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime GetWorldEventConfigId2HappenTime(int index) {
       return worldEventConfigId2HappenTime_[index];
     }
     
@@ -1374,7 +1374,7 @@ namespace com.game.framework.protocol {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::com.game.framework.protocol.WorldEventConfigId2HappenTime element in WorldEventConfigId2HappenTimeList) {
+        foreach (global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime element in WorldEventConfigId2HappenTimeList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
         }
         if (hasSystemCurrentTime) {
@@ -1388,7 +1388,7 @@ namespace com.game.framework.protocol {
     #region Lite runtime methods
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
-      foreach(global::com.game.framework.protocol.WorldEventConfigId2HappenTime i in worldEventConfigId2HappenTime_)
+      foreach(global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime i in worldEventConfigId2HappenTime_)
         hash ^= i.GetHashCode();
       if (hasSystemCurrentTime) hash ^= systemCurrentTime_.GetHashCode();
       return hash;
@@ -1539,7 +1539,7 @@ namespace com.game.framework.protocol {
       }
       
       public override TSCHeart DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.TSCHeart.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.TSCHeart.DefaultInstance; }
       }
       
       public override TSCHeart BuildPartial() {
@@ -1560,7 +1560,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(TSCHeart other) {
-        if (other == global::com.game.framework.protocol.TSCHeart.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.TSCHeart.DefaultInstance) return this;
         PrepareBuilder();
         if (other.worldEventConfigId2HappenTime_.Count != 0) {
           result.worldEventConfigId2HappenTime_.Add(other.worldEventConfigId2HappenTime_);
@@ -1601,7 +1601,7 @@ namespace com.game.framework.protocol {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.worldEventConfigId2HappenTime_, global::com.game.framework.protocol.WorldEventConfigId2HappenTime.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.worldEventConfigId2HappenTime_, global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime.DefaultInstance, extensionRegistry);
               break;
             }
             case 16: {
@@ -1615,40 +1615,40 @@ namespace com.game.framework.protocol {
       }
       
       
-      public pbc::IPopsicleList<global::com.game.framework.protocol.WorldEventConfigId2HappenTime> WorldEventConfigId2HappenTimeList {
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime> WorldEventConfigId2HappenTimeList {
         get { return PrepareBuilder().worldEventConfigId2HappenTime_; }
       }
       public int WorldEventConfigId2HappenTimeCount {
         get { return result.WorldEventConfigId2HappenTimeCount; }
       }
-      public global::com.game.framework.protocol.WorldEventConfigId2HappenTime GetWorldEventConfigId2HappenTime(int index) {
+      public global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime GetWorldEventConfigId2HappenTime(int index) {
         return result.GetWorldEventConfigId2HappenTime(index);
       }
-      public Builder SetWorldEventConfigId2HappenTime(int index, global::com.game.framework.protocol.WorldEventConfigId2HappenTime value) {
+      public Builder SetWorldEventConfigId2HappenTime(int index, global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.worldEventConfigId2HappenTime_[index] = value;
         return this;
       }
-      public Builder SetWorldEventConfigId2HappenTime(int index, global::com.game.framework.protocol.WorldEventConfigId2HappenTime.Builder builderForValue) {
+      public Builder SetWorldEventConfigId2HappenTime(int index, global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.worldEventConfigId2HappenTime_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddWorldEventConfigId2HappenTime(global::com.game.framework.protocol.WorldEventConfigId2HappenTime value) {
+      public Builder AddWorldEventConfigId2HappenTime(global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
         result.worldEventConfigId2HappenTime_.Add(value);
         return this;
       }
-      public Builder AddWorldEventConfigId2HappenTime(global::com.game.framework.protocol.WorldEventConfigId2HappenTime.Builder builderForValue) {
+      public Builder AddWorldEventConfigId2HappenTime(global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
         result.worldEventConfigId2HappenTime_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeWorldEventConfigId2HappenTime(scg::IEnumerable<global::com.game.framework.protocol.WorldEventConfigId2HappenTime> values) {
+      public Builder AddRangeWorldEventConfigId2HappenTime(scg::IEnumerable<global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime> values) {
         PrepareBuilder();
         result.worldEventConfigId2HappenTime_.Add(values);
         return this;
@@ -1680,7 +1680,7 @@ namespace com.game.framework.protocol {
       }
     }
     static TSCHeart() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Login.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Login.Descriptor, null);
     }
   }
   
@@ -1927,7 +1927,7 @@ namespace com.game.framework.protocol {
       }
       
       public override WorldEventConfigId2HappenTime DefaultInstanceForType {
-        get { return global::com.game.framework.protocol.WorldEventConfigId2HappenTime.DefaultInstance; }
+        get { return global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime.DefaultInstance; }
       }
       
       public override WorldEventConfigId2HappenTime BuildPartial() {
@@ -1948,7 +1948,7 @@ namespace com.game.framework.protocol {
       }
       
       public override Builder MergeFrom(WorldEventConfigId2HappenTime other) {
-        if (other == global::com.game.framework.protocol.WorldEventConfigId2HappenTime.DefaultInstance) return this;
+        if (other == global::com.nkm.framework.protocol.WorldEventConfigId2HappenTime.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasWorldEventConfigId) {
           WorldEventConfigId = other.WorldEventConfigId;
@@ -2044,7 +2044,7 @@ namespace com.game.framework.protocol {
       }
     }
     static WorldEventConfigId2HappenTime() {
-      object.ReferenceEquals(global::com.game.framework.protocol.Login.Descriptor, null);
+      object.ReferenceEquals(global::com.nkm.framework.protocol.Login.Descriptor, null);
     }
   }
   

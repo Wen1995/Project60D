@@ -1,0 +1,60 @@
+package com.nkm.game.${litHandlerGroup}.${litModel}.handler;
+
+import com.nkm.framework.console.handler.HandlerMapping;
+import com.nkm.framework.console.handler.HandlerMethodMapping;
+import com.nkm.framework.protocol.Common.Cmd;
+import com.nkm.framework.console.constant.HandlerConstant;
+import com.nkm.framework.console.disruptor.TPacket;
+#if(${haveList} == "true")
+import java.util.List;
+#end
+import javax.annotation.Resource;
+#if(${haveServer} == "true")
+import com.nkm.framework.console.GameServer;
+#end
+import com.nkm.game.${litHandlerGroup}.${litModel}.service.${model}Service;
+#foreach ($attr in ${methods})
+#if(${attr[2]} == "login")
+import io.netty.channel.Channel;
+#end
+import com.nkm.framework.protocol.${model}.TCS${attr[1]};
+#end
+#foreach ($attr in ${infos})
+import com.nkm.framework.protocol.${model}.${attr};
+#end
+
+@HandlerMapping(group = HandlerConstant.HandlerGroup_${bigHandlerGroup}, module = HandlerConstant.Model_${model})
+public class ${model}Handler {
+	@Resource
+	private ${model}Service service;
+
+#foreach ($attr in ${methods})
+	/** ${attr[0]} */
+	@HandlerMethodMapping(cmd = Cmd.${attr[5]}_VALUE)
+	public void ${attr[2]}(TPacket p) throws Exception {
+		TCS${attr[1]} msg = TCS${attr[1]}.parseFrom(p.getBuffer());
+		${attr[3]}
+#if(${attr[6]} == "true")
+		TPacket resp = service.${attr[2]}(p.getUid()${attr[4]});
+		resp.setCmd(Cmd.${attr[5]}_VALUE + 1000);
+#else
+		service.${attr[2]}(p.getUid()${attr[4]});
+#end
+	#if(${attr[2]} == "login")
+
+		final Channel channel = GameServer.GetInstance().getChannel(resp.getUid());
+		if(channel != null && channel.isOpen()) {
+			channel.close();
+			GameServer.GetInstance().removeChannelData(channel);
+		}
+		GameServer.GetInstance().setChannelData(p.getChannel(), resp.getUid());
+	#end
+#if(${attr[6]} == "true")
+	GameServer.GetInstance().send(resp);
+	}
+#else
+}
+#end
+
+#end
+}

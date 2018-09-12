@@ -602,7 +602,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 0.3137255}
+  mColor: {r: 1, g: 1, b: 1, a: 0.7058824}
   mPivot: 4
   mWidth: 640
   mHeight: 1136
@@ -1153,8 +1153,8 @@ MonoBehaviour:
   mFill: 0
   numberOfSteps: 0
   onChange:
-  - mTarget: {fileID: 0}
-    mMethodName: 
+  - mTarget: {fileID: 114686968232352918}
+    mMethodName: OnSliderValueChange
     mParameters: []
     oneShot: 0
   foreground: {fileID: 0}

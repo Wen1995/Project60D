@@ -13,13 +13,13 @@ public class SSanctuaryController : SceneController
     UserPackage userPackage = null;
     EventPackage eventPackage = null;
 
+    Coroutine soundCo = null;
+
     public ManorController[] manors;
 
     //register or bind something
     public void Awake()
     {
-        //create sound singleton
-        SoundSingleton.CreateInstance();
 
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_Event, typeof(EventPackage));
         //register object pool
@@ -99,6 +99,37 @@ public class SSanctuaryController : SceneController
         FacadeSingleton.Instance.OverlayerPanel("UIManorMenuPanel");
         FacadeSingleton.Instance.OverlayerPanel("UIPlayerMenuPanel");
         FacadeSingleton.Instance.InvokeService("RPCGetMailTag", ConstVal.Service_Sanctuary);
+        RefreshBGM();
+    }
+
+    //Play BGM
+    void RefreshBGM(NDictionary args = null)
+    {
+        bool isZombie = false;
+        var eventList = eventPackage.GetCurEventList();
+        foreach(NWorldEventInfo info in eventList)
+            if(eventPackage.GetEventType(info.configID) == WorldEventType.Zombie)
+            {
+                isZombie = true;
+                break;
+            }
+
+        SoundSingleton.Instance.StopAllBgm();
+        if(isZombie)
+        {
+            SoundSingleton.Instance.PlayBGM("mainbgm1");
+        }
+        else
+        {
+            SoundSingleton.Instance.PlayBGM("mainbgm1");
+            if(GlobalFunction.IsDayTime())
+                SoundSingleton.Instance.PlayBGM("bird");
+            else
+                SoundSingleton.Instance.PlayBGM("mainbgm1");
+        }
+        if(soundCo != null)
+            StopCoroutine(soundCo);
+        soundCo = StartCoroutine(SoundTimer());
     }
 
     void OnSelectBuilding(NDictionary data = null)
@@ -107,6 +138,7 @@ public class SSanctuaryController : SceneController
         Debug.Log(string.Format("BuildingID={0}, type{1} selected", building.BuildingID, building.buildingType));
         if(building.State == BuildingState.Collect)
         {
+            SoundSingleton.Instance.PlaySE("receive1");
             NDictionary args = new NDictionary();
             args.Add("buildingID", building.BuildingID);
             FacadeSingleton.Instance.InvokeService("RPCReceive", ConstVal.Service_Sanctuary, args);
@@ -279,6 +311,29 @@ public class SSanctuaryController : SceneController
         TSCInterruptProcess process = TSCInterruptProcess.ParseFrom(msg.mBtsData);
         sanctuaryPackage.CancelCraft(process.BuildingId);
         SendEvent("RefreshCraftPanel");
+    }
+
+    IEnumerator SoundTimer()
+    {
+        while(true)
+        {
+            int idx = Random.Range(0, 2);
+            if(GlobalFunction.IsDayTime())
+            {
+                if(idx == 0)
+                    SoundSingleton.Instance.PlaySE("whine1");
+                else
+                    SoundSingleton.Instance.PlaySE("crowdscream1");
+            }
+            else
+            {
+                if(idx == 0)
+                    SoundSingleton.Instance.PlaySE("whine1");
+                else
+                    SoundSingleton.Instance.PlaySE("wolf1");
+            }
+            yield return new WaitForSeconds(300.0f);
+        }
     }
     #endregion
 

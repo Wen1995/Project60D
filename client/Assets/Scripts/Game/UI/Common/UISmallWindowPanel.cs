@@ -29,7 +29,6 @@ public class UISmallWindowPanel : PanelBase {
 	{
 		Vector3 pos = data.Value<Vector3>("pos");
 		Vector3 newPos = UICamera.mainCamera.ScreenToWorldPoint(pos);
-		int configID = data.Value<int>("id");
 		anchor.position = newPos;
 		contentLabel.text = data.Value<string>("content");
 		titleLabel.text = data.Value<string>("title");

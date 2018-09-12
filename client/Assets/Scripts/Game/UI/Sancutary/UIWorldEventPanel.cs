@@ -37,7 +37,7 @@ public class UIWorldEventPanel : PanelBase {
 
 	void InitView()
 	{
-		tableView.DataCount = eventPackage.GetEventList().Count;
+		tableView.DataCount = eventPackage.GetCurEventList().Count + eventPackage.GetFutureEventList().Count;
 		tableView.TableChange();
 	}
 }

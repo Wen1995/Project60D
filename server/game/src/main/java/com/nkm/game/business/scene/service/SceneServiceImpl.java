@@ -870,7 +870,7 @@ public class SceneServiceImpl implements SceneService {
                 double speedCoefficient = 1.0;
                 if (worldEvents != null && worldEvents.size() > 0) {
                     if (worldEvents.get(0).getType().equals(TimeType.END_TIME_VALUE)) {
-                        speedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, worldEvents.get(0).getConfigId());
+                        speedCoefficient = BuildingUtil.getReceiverSpeedCoefficient(tableName, worldEvents.get(0).getConfigId());
                     }
                 
                     for (WorldEvent w : worldEvents) {
@@ -881,7 +881,7 @@ public class SceneServiceImpl implements SceneService {
                             number += (int) (time*speed*stake/1000/3600);
                             
                             Integer eventConfigId = w.getConfigId();
-                            double tempSpeedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, eventConfigId);
+                            double tempSpeedCoefficient = BuildingUtil.getReceiverSpeedCoefficient(tableName, eventConfigId);
                             if (w.getType().equals(TimeType.START_TIME_VALUE)) {
                                 speedCoefficient *= tempSpeedCoefficient;
                                 number *= BuildingUtil.getReceiHverCapacityCoefficient(tableName, eventConfigId);   // 影响临时仓库
@@ -942,7 +942,7 @@ public class SceneServiceImpl implements SceneService {
                 double speedCoefficient = 1.0;
                 if (worldEvents != null && worldEvents.size() > 0) {
                     if (worldEvents.get(0).getType().equals(TimeType.END_TIME_VALUE)) {
-                        speedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, worldEvents.get(0).getConfigId());
+                        speedCoefficient = BuildingUtil.getReceiverSpeedCoefficient(tableName, worldEvents.get(0).getConfigId());
                     }
                 
                     for (WorldEvent w : worldEvents) {
@@ -953,7 +953,7 @@ public class SceneServiceImpl implements SceneService {
                             number += (int) (time*speed*stake/1000/3600);
                             
                             Integer eventConfigId = w.getConfigId();
-                            double tempSpeedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, eventConfigId);
+                            double tempSpeedCoefficient = BuildingUtil.getReceiverSpeedCoefficient(tableName, eventConfigId);
                             if (w.getType().equals(TimeType.START_TIME_VALUE)) {
                                 speedCoefficient *= tempSpeedCoefficient;
                                 if (configId/10000 != 11108) {      // 不是风力发电机
@@ -1026,7 +1026,7 @@ public class SceneServiceImpl implements SceneService {
             if (worldEvents != null && worldEvents.size() > 0) {
                 int j = 0;
                 if (worldEvents.get(0).getType().equals(TimeType.END_TIME_VALUE)) {
-                    speedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, worldEvents.get(0).getConfigId());
+                    speedCoefficient = BuildingUtil.getReceiverSpeedCoefficient(tableName, worldEvents.get(0).getConfigId());
                     j = 1;
                 }
             
@@ -1039,7 +1039,7 @@ public class SceneServiceImpl implements SceneService {
                         number += (int) (time*speed*stake/1000/3600);
                         
                         Integer eventConfigId = w.getConfigId();
-                        double tempSpeedCoefficient = BuildingUtil.getReceiHverSpeedCoefficient(tableName, eventConfigId);
+                        double tempSpeedCoefficient = BuildingUtil.getReceiverSpeedCoefficient(tableName, eventConfigId);
                         if (w.getType().equals(TimeType.START_TIME_VALUE)) {
                             speedCoefficient *= tempSpeedCoefficient;
                             number *= BuildingUtil.getReceiHverCapacityCoefficient(tableName, eventConfigId);   // 影响临时仓库

@@ -202,7 +202,7 @@ public class BuildingUtil {
      * 获得领取类建筑生产效率影响系数
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
-    public static double getReceiHverSpeedCoefficient(String tableName, Integer tableId) {
+    public static double getReceiverSpeedCoefficient(String tableName, Integer tableId) {
         String lowerCamelName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
         String name = StringUtil.FirstLetterToUpper(lowerCamelName);
         String classPath = "com.nkm.framework.resource.data.WorldEventsBytes$WORLD_EVENTS";

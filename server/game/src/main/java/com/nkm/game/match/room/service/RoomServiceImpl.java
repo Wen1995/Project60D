@@ -2,7 +2,10 @@ package com.nkm.game.match.room.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import javax.annotation.Resource;
 import com.nkm.framework.console.disruptor.TPacket;
 import com.nkm.framework.dbcache.dao.IBuildingDao;
@@ -24,6 +27,7 @@ import com.nkm.framework.protocol.Room.TSCCreateGroup;
 import com.nkm.framework.protocol.Room.TSCGetGroupPageCount;
 import com.nkm.framework.protocol.Room.TSCGetGroupRanking;
 import com.nkm.framework.resource.StaticDataManager;
+import com.nkm.framework.resource.data.BuildingBytes.BUILDING;
 import com.nkm.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.nkm.framework.utils.BuildingUtil;
 import com.nkm.framework.utils.ReadOnlyMap;
@@ -81,7 +85,7 @@ public class RoomServiceImpl implements RoomService {
         building.setGroupId(groupId);
         building.setPositionX(0);
         building.setPositionY(0);
-        building.setConfigId(113040001);    // 电池ID
+        building.setConfigId(113040020);    // 电池ID
         upgradeInfo = UpgradeInfo.newBuilder()
                 .setUid(uid)
                 .setFinishTime(0)
@@ -91,6 +95,59 @@ public class RoomServiceImpl implements RoomService {
                 .build();
         building.setState(buildingState.toByteArray());
         buildingDao.insertByGroupId(building);
+        
+        // TODO 所有建筑满级
+        Set<Integer> set = new HashSet<>();
+        set.add(11303);
+        set.add(11304);
+        ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+        for (Map.Entry<Integer, BUILDING> entry : buildingMap.entrySet()) {
+            Integer config = entry.getKey();
+            Integer type = config/10000;
+            if (set.contains(type)) {
+                continue;
+            }
+            set.add(type);
+            Long id = IdManager.GetInstance().genId(IdType.BUILDING);
+            building = new Building();
+            building.setId(id);
+            building.setGroupId(groupId);
+            building.setPositionX(0);
+            building.setPositionY(0);
+            building.setConfigId(config);
+            upgradeInfo = UpgradeInfo.newBuilder()
+                    .setUid(uid)
+                    .setFinishTime(0)
+                    .build();
+            BuildingState.Builder buildingStatebuilder = BuildingState.newBuilder()
+                    .setUpgradeInfo(upgradeInfo);
+            
+            List<ReceiveInfo> receiveInfos = new ArrayList<>();
+            if (BuildingUtil.isReceiveBuilding(building)) {             // 领取类建筑领取状态初始化
+                List<User> users = userDao.getAllByGroupId(building.getGroupId());
+                long thisReceiveTime = System.currentTimeMillis();
+                ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder();
+                for (User u : users) {
+                    receiveInfoBuilder.setUid(u.getId()).setLastReceiveTime(thisReceiveTime).setNumber(0);
+                    receiveInfos.add(receiveInfoBuilder.build());
+                }
+                buildingStatebuilder.addAllReceiveInfos(receiveInfos);
+            } else if (BuildingUtil.isProcessBuilding(building)) {      // 加工类建筑领取状态初始化
+                List<User> users = userDao.getAllByGroupId(building.getGroupId());
+                ReceiveInfo.Builder receiveInfoBuilder = ReceiveInfo.newBuilder();
+                for (User u : users) {
+                    receiveInfoBuilder.setUid(u.getId()).setNumber(0);
+                    receiveInfos.add(receiveInfoBuilder.build());
+                }
+                ProcessInfo.Builder processInfoBuilder = ProcessInfo.newBuilder()
+                        .setStartTime(0).setEndTime(0);
+                buildingStatebuilder.setProcessInfo(processInfoBuilder);
+                buildingStatebuilder.addAllReceiveInfos(receiveInfos);
+            }
+            
+            building.setState(buildingStatebuilder.build().toByteArray());
+            buildingDao.insertByGroupId(building);
+        }
         
         TSCCreateGroup p = TSCCreateGroup.newBuilder()
                 .setGroupId(groupId)

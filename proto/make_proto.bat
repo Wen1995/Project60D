@@ -13,7 +13,11 @@ for /f "delims=" %%i in ('dir /b ".\*.proto"') do (
 	if "%%i" == "scene.proto" (
     	%PROTOCS% %%i --include_imports message.proto
 	) else (
-		%PROTOCS% %%i
+		if "%%i" == "room.proto" (
+	    	%PROTOCS% %%i --include_imports message.proto
+		) else (
+			%PROTOCS% %%i
+		)
 	)
 )
 pause

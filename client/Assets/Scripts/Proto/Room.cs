@@ -2635,8 +2635,8 @@ namespace com.nkm.framework.protocol {
   public sealed partial class GroupInfo : pb::GeneratedMessageLite<GroupInfo, GroupInfo.Builder> {
     private GroupInfo() { }
     private static readonly GroupInfo defaultInstance = new GroupInfo().MakeReadOnly();
-    private static readonly string[] _groupInfoFieldNames = new string[] { "id", "name", "peopleNumber", "totalContribution" };
-    private static readonly uint[] _groupInfoFieldTags = new uint[] { 8, 18, 24, 32 };
+    private static readonly string[] _groupInfoFieldNames = new string[] { "id", "name", "peopleNumber", "totalContribution", "userInfos" };
+    private static readonly uint[] _groupInfoFieldTags = new uint[] { 8, 18, 24, 32, 42 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -2708,6 +2708,21 @@ namespace com.nkm.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int UserInfosFieldNumber = 5;
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.UserInfo> userInfos_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.UserInfo>();
+    public scg::IList<global::com.nkm.framework.protocol.UserInfo> UserInfosList {
+      get { return userInfos_; }
+    }
+    public int UserInfosCount {
+      get { return userInfos_.Count; }
+    }
+    public global::com.nkm.framework.protocol.UserInfo GetUserInfos(int index) {
+      return userInfos_[index];
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -2734,6 +2749,9 @@ namespace com.nkm.framework.protocol {
       if (hasTotalContribution) {
         output.WriteInt32(4, field_names[3], TotalContribution);
       }
+      if (userInfos_.Count > 0) {
+        output.WriteMessageArray(5, field_names[4], userInfos_);
+      }
     }
     
     private int memoizedSerializedSize = -1;
@@ -2758,6 +2776,9 @@ namespace com.nkm.framework.protocol {
         if (hasTotalContribution) {
           size += pb::CodedOutputStream.ComputeInt32Size(4, TotalContribution);
         }
+        foreach (global::com.nkm.framework.protocol.UserInfo element in UserInfosList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(5, element);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -2770,6 +2791,8 @@ namespace com.nkm.framework.protocol {
       if (hasName) hash ^= name_.GetHashCode();
       if (hasPeopleNumber) hash ^= peopleNumber_.GetHashCode();
       if (hasTotalContribution) hash ^= totalContribution_.GetHashCode();
+      foreach(global::com.nkm.framework.protocol.UserInfo i in userInfos_)
+        hash ^= i.GetHashCode();
       return hash;
     }
     
@@ -2780,6 +2803,9 @@ namespace com.nkm.framework.protocol {
       if (hasName != other.hasName || (hasName && !name_.Equals(other.name_))) return false;
       if (hasPeopleNumber != other.hasPeopleNumber || (hasPeopleNumber && !peopleNumber_.Equals(other.peopleNumber_))) return false;
       if (hasTotalContribution != other.hasTotalContribution || (hasTotalContribution && !totalContribution_.Equals(other.totalContribution_))) return false;
+      if(userInfos_.Count != other.userInfos_.Count) return false;
+      for(int ix=0; ix < userInfos_.Count; ix++)
+        if(!userInfos_[ix].Equals(other.userInfos_[ix])) return false;
       return true;
     }
     
@@ -2846,6 +2872,7 @@ namespace com.nkm.framework.protocol {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private GroupInfo MakeReadOnly() {
+      userInfos_.MakeReadOnly();
       return this;
     }
     
@@ -2952,6 +2979,9 @@ namespace com.nkm.framework.protocol {
         if (other.HasTotalContribution) {
           TotalContribution = other.TotalContribution;
         }
+        if (other.userInfos_.Count != 0) {
+          result.userInfos_.Add(other.userInfos_);
+        }
         return this;
       }
       
@@ -2998,6 +3028,10 @@ namespace com.nkm.framework.protocol {
             }
             case 32: {
               result.hasTotalContribution = input.ReadInt32(ref result.totalContribution_);
+              break;
+            }
+            case 42: {
+              input.ReadMessageArray(tag, field_name, result.userInfos_, global::com.nkm.framework.protocol.UserInfo.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -3085,6 +3119,50 @@ namespace com.nkm.framework.protocol {
         PrepareBuilder();
         result.hasTotalContribution = false;
         result.totalContribution_ = 0;
+        return this;
+      }
+      
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.UserInfo> UserInfosList {
+        get { return PrepareBuilder().userInfos_; }
+      }
+      public int UserInfosCount {
+        get { return result.UserInfosCount; }
+      }
+      public global::com.nkm.framework.protocol.UserInfo GetUserInfos(int index) {
+        return result.GetUserInfos(index);
+      }
+      public Builder SetUserInfos(int index, global::com.nkm.framework.protocol.UserInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.userInfos_[index] = value;
+        return this;
+      }
+      public Builder SetUserInfos(int index, global::com.nkm.framework.protocol.UserInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.userInfos_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddUserInfos(global::com.nkm.framework.protocol.UserInfo value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.userInfos_.Add(value);
+        return this;
+      }
+      public Builder AddUserInfos(global::com.nkm.framework.protocol.UserInfo.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.userInfos_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeUserInfos(scg::IEnumerable<global::com.nkm.framework.protocol.UserInfo> values) {
+        PrepareBuilder();
+        result.userInfos_.Add(values);
+        return this;
+      }
+      public Builder ClearUserInfos() {
+        PrepareBuilder();
+        result.userInfos_.Clear();
         return this;
       }
     }

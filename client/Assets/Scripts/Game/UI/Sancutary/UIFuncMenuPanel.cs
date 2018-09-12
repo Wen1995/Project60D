@@ -37,7 +37,11 @@ public class UIFuncMenuPanel : PanelBase {
 
     void OnExplore()
     {
-        FacadeSingleton.Instance.OverlayerPanel("UIExploreMapPanel");
+        FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
+        NDictionary data = new NDictionary();
+        string content = string.Format("此功能尚未完成，请期待后续版本");
+        data.Add("content", content);
+        FacadeSingleton.Instance.SendEvent("OpenTips", data);
     }
 
     void OnTrade()
@@ -47,6 +51,10 @@ public class UIFuncMenuPanel : PanelBase {
 
     void OnChat()
     {
-        //TODO
+        FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
+        NDictionary data = new NDictionary();
+        string content = string.Format("此功能尚未完成，请期待后续版本");
+        data.Add("content", content);
+        FacadeSingleton.Instance.SendEvent("OpenTips", data);
     }
 }

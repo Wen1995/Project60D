@@ -14,6 +14,7 @@ public class UIManorMenuPanel : PanelBase {
 	UILabel levelLabel = null;
 	UILabel IDLabel = null;
 	UILabel mailTagLabel = null;
+	UILabel nameLabel = null;
 	GameObject mailTagGo = null;
 	NTableView tableView = null;
 
@@ -25,6 +26,7 @@ public class UIManorMenuPanel : PanelBase {
 		levelLabel = transform.Find("Manor/level").GetComponent<UILabel>();
 		IDLabel = transform.Find("Manor/idlabel").GetComponent<UILabel>();
 		mailTagLabel = transform.Find("Mail/point/num").GetComponent<UILabel>();
+	 	nameLabel = transform.Find("Manor/name").GetComponent<UILabel>();
 		mailTagGo = transform.Find("Mail/point").gameObject;
 		tableView = transform.Find("Eventinfo/panel/tableview").GetComponent<NTableView>();
 		//bind event
@@ -63,8 +65,9 @@ public class UIManorMenuPanel : PanelBase {
 		IDLabel.text = userPackage.GroupID.ToString();
 		float progress = 0f;
 		levelLabel.text = string.Format("Lv.{0}", userPackage.GetManorLevel(out progress).ToString());
+		nameLabel.text = userPackage.GetGroupName();
 		
-		manorExpProgress.value = progress;
+		manorExpProgress.value = 1 - progress;
 		ShowEventIcon();
 	}
 

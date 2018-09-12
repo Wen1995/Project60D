@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using com.game.framework.protocol;
-using com.game.framework.resource.data;
+using com.nkm.framework.resource.data;
 using UnityEngine;
 
 public class NItemInfo
@@ -302,7 +302,7 @@ public class ItemPackage : ModelBase
             boughtNum = 0;
         else
             boughtNum = mItemServerData[configID].boughtNum;
-        Type type = Type.GetType("com.game.framework.resource.data.PURCHASE_LIM");
+        Type type = Type.GetType("com.nkm.framework.resource.data.PURCHASE_LIM");
         string key = configData.KeyName;
         if(key.Length <= 1)
             key = key.ToUpper();

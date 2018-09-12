@@ -7,18 +7,13 @@ using UnityEngine;
 /// </summary>
 public class SLoadingController : Controller {
 
-	void Start () {
-        //xls
-        LoadStaticData();
+    private void Awake() 
+    {
         //register package
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_Sanctuary, typeof(SanctuaryPackage));
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_Item, typeof(ItemPackage));
         //
-        FacadeSingleton.Instance.LoadScene("SSanctuary");
-    }
-
-    void LoadStaticData()
-    {
-        ConfigDataStatic.LoadAllConfigData();
+        FacadeSingleton.Instance.RegisterUIPanel("UILoadingPanel", "Prefabs/UI/Common", 0, PanelAnchor.Center);
+        FacadeSingleton.Instance.OverlayerPanel("UILoadingPanel");
     }
 }

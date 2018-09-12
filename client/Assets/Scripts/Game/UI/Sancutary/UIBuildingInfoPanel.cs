@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using com.game.framework.resource.data;
+using com.nkm.framework.resource.data;
 using UnityEngine;
 
 public class BuildingAttributeData
 {
     public string name;
-    public string value;
-    public BuildingAttributeData(string name, string value)
+    public int value;
+    public int plus;
+    public BuildingAttributeData(string name, int value)
     {
         this.name = name;
-        this.value = value;        
+        this.value = value; 
+        plus = 0;      
     }
 }
 

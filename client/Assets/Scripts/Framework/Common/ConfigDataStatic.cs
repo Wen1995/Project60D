@@ -2,7 +2,7 @@
 using UnityEngine;
 using System;
 using System.Reflection;
-using com.game.framework.resource.data;
+using com.nkm.framework.resource.data;
 
 public class ConfigDataStatic{
 
@@ -18,7 +18,7 @@ public class ConfigDataStatic{
         {
             //get proto class by reflection
             string name = asset.name.ToUpper();
-            Type type = Type.GetType("com.game.framework.resource.data." + name + "_ARRAY");
+            Type type = Type.GetType("com.nkm.framework.resource.data." + name + "_ARRAY");
             if (type == null) continue;
             //decompress binary data
             byte[] zlibData = new byte[asset.bytes.Length - 8];
@@ -33,8 +33,8 @@ public class ConfigDataStatic{
     public static void ParseData(string name, object array)
     {
         mConfigDataMap.Add(name, new Dictionary<object, object>());
-        Type sheetType = Type.GetType("com.game.framework.resource.data." + name);
-        Type arrayType = Type.GetType("com.game.framework.resource.data." + name + "_ARRAY");
+        Type sheetType = Type.GetType("com.nkm.framework.resource.data." + name);
+        Type arrayType = Type.GetType("com.nkm.framework.resource.data." + name + "_ARRAY");
         System.Reflection.PropertyInfo sheetIDInfo = sheetType.GetProperty("Id");
         MethodInfo getItemMethod = arrayType.GetMethod("GetItems");
         System.Reflection.PropertyInfo itemCountInfo = arrayType.GetProperty("ItemsCount");

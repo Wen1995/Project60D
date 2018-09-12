@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using com.game.framework.protocol;
-using com.game.framework.resource.data;
+using com.nkm.framework.resource.data;
 using UnityEngine;
 
 public class PlayerState
@@ -56,6 +56,7 @@ public class NUserInfo
     public int blood;
     public int health;
 
+
     public NUserInfo()
     {}
     public NUserInfo(UserInfo info)
@@ -86,6 +87,7 @@ public class NGroupInfo
 
 public class UserPackage : ModelBase {
 
+    private string mGroupName;
     private long mGroupID;
     private long mUserID;
     private long mTimeDelta;
@@ -135,6 +137,11 @@ public class UserPackage : ModelBase {
     public int GetPersonContribution()
     {
         return personContribution;
+    }
+
+    public string GetGroupName()
+    {
+        return mGroupName;
     }
 
     public int GetPlayerLevel(out float progress)
@@ -246,6 +253,11 @@ public class UserPackage : ModelBase {
     #endregion
 
     #region Set Data
+
+    public void SetGroupName(string name)
+    {
+        mGroupName = name;
+    }
 
     public void SetGroupID(long groupID)
     {

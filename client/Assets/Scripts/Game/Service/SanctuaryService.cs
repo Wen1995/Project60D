@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using com.game.framework.protocol;
-using com.game.framework.resource.data;
+using com.nkm.framework.resource.data;
 
 public class SanctuaryService : ServiceBase {
 

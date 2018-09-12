@@ -136,7 +136,7 @@ public class TimerManager {
                         p.setReceiveTime(currentTime);
                         p.setBuffer(pInvade.toByteArray());
                         GameServer.GetInstance().sendInner(p);
-                    } else if (new Random().nextInt(10000) < ZombieUtil.getZombieInvadeRate()) {
+                    } else if (/*new Random().nextInt(10000)*/new Random().nextInt(300) < ZombieUtil.getZombieInvadeRate()) {
                         // 是否可以进攻
                         if (entry.getValue() + Constant.TIME_HOUR * hour < currentTime) {
                             TCSZombieInvade pInvade =
@@ -148,14 +148,6 @@ public class TimerManager {
                             GameServer.GetInstance().sendInner(p);
                         }
                     }
-                    // TODO
-                    /*TCSZombieInvade pInvade =
-                            TCSZombieInvade.newBuilder().setGroupId(groupId).build();
-                    TPacket p = new TPacket();
-                    p.setCmd(Cmd.ZOMBIEINVADE_VALUE);
-                    p.setReceiveTime(currentTime);
-                    p.setBuffer(pInvade.toByteArray());
-                    GameServer.GetInstance().sendInner(p);*/
                 }
             }
         }, 60, 60, TimeUnit.SECONDS);
@@ -201,7 +193,7 @@ public class TimerManager {
                         continue;
                     }
                     int rate = entry.getValue().getEventProb();
-                    if (/*new Random().nextInt(100000)*/new Random().nextInt(30) < rate) {
+                    if (/*new Random().nextInt(100000)*/new Random().nextInt(1000) < rate) {
                         changeFlag = true;
                         Long id = IdManager.GetInstance().genId(IdType.WORLDEVENT);
                         WorldEvent worldEvent = new WorldEvent();

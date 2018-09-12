@@ -28,15 +28,17 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
 public class GameServer {
-    private static Logger logger = LoggerFactory.getLogger(GameServer.class);
+    private static final Logger logger = LoggerFactory.getLogger(GameServer.class);
 
     private static Object obj = new Object();
     private static GameServer instance = null;
 
     public static GameServer GetInstance() {
-        synchronized (obj) {
-            if (instance == null) {
-                instance = new GameServer();
+        if (instance == null) {
+            synchronized (obj) {
+                if (instance == null) {
+                    instance = new GameServer();
+                }
             }
         }
         return instance;

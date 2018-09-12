@@ -3,8 +3,8 @@ package com.nkm.framework.console;
 import com.nkm.framework.console.generator.GeneratorHandlerTemplater;
 
 /**
- * 向com/nkm/framework/resource/data 添加java文件
- * 向config/data 添加对应的data文件
+ * 向 com/nkm/framework/resource/data 添加java文件
+ * 向 data 添加对应的data文件
  */
 
 public class AutoData {

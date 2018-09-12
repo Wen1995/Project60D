@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import com.nkm.framework.utils.ExternalStorageUtil;
 import com.nkm.framework.utils.ReadOnlyMap;
 import com.nkm.framework.utils.StringUtil;
-import com.nkm.framework.console.constant.Constant;
 import com.nkm.framework.resource.data.ArithmeticCoefficientBytes.ARITHMETIC_COEFFICIENT;
 import com.nkm.framework.resource.data.BuildingBytes.BUILDING;
 import com.nkm.framework.resource.data.CangkuBytes.CANGKU;
@@ -148,7 +147,7 @@ public class StaticDataManager {
             Class<?> arr_class = Class.forName(sub_str + className + "_ARRAY");
             Method parseFromMethod = arr_class.getMethod("parseFrom", byte[].class);
 
-            Object arr = parseFromMethod.invoke(arr_class, ExternalStorageUtil.loadData(Constant.CONFIG_DIR + "/data/" + lowClassName + ".bytes"));
+            Object arr = parseFromMethod.invoke(arr_class, ExternalStorageUtil.loadData("data/" + lowClassName + ".bytes"));
             Method arr_getItemsCountMethod = arr_class.getMethod("getItemsCount");
             Method arr_getItemsMethod = arr_class.getMethod("getItems", int.class);
 

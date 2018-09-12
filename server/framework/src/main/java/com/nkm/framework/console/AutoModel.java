@@ -17,7 +17,7 @@ import com.nkm.framework.utils.XMLUtil;
 import com.nkm.framework.utils.pojo2proto.java2Proto.JavaToProto;
 
 /**
- * generator.xml table 填写要生成的表 
+ * db/generator.xml table 填写要生成的表 
  * 报错请把protoc.exe添加到环境变量
  */
 
@@ -27,6 +27,7 @@ public class AutoModel {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         List<String> tableNameList = new ArrayList<>();
+        
         InputStream is = ClassLoader.getSystemResourceAsStream(Constant.GENERATOR_PATH);
         SAXReader reader = new SAXReader();
         try {

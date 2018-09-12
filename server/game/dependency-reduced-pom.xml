@@ -38,7 +38,7 @@
               </filters>
               <transformers>
                 <transformer>
-                  <mainClass>com.defonds.RsaEncryptor</mainClass>
+                  <mainClass>com.nkm.game.StartApp</mainClass>
                 </transformer>
                 <transformer>
                   <resource>META-INF/spring.handlers</resource>

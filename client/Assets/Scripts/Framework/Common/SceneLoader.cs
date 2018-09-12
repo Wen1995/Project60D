@@ -15,12 +15,12 @@ public class SceneLoader{
     public static void LoadScene(string name)
     {
         UnityEngine.Debug.Log(string.Format("Leaving scene{0}", CurrentScene));
-        FacadeSingleton.Instance.ClearBeforeLoadingScene();
         SceneManager.LoadScene(name);
     }
 
-    public static void LoadSceneAsync(string name)
+    public static AsyncOperation LoadSceneAsync(string name)
     {
-        //TODO
+        UnityEngine.Debug.Log(string.Format("Leaving scene{0}", CurrentScene));
+        return SceneManager.LoadSceneAsync(name);
     }
 }

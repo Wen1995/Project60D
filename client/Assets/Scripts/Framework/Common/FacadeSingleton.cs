@@ -141,9 +141,10 @@ public class FacadeSingleton : Singleton<FacadeSingleton> {
         SceneLoader.LoadScene(name);
     }
 
-    public void LoadSceneAsync(string name)
+    public AsyncOperation LoadSceneAsync(string name)
     {
-        //TODO
+        //ClearBeforeLoadingScene();
+        return SceneLoader.LoadSceneAsync(name);
     }
     #endregion
 }

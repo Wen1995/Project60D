@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using com.game.framework.protocol;
-using com.game.framework.resource.data;
+using com.nkm.framework.resource.data;
 using UnityEngine;
-
-
 
 public class SSanctuaryController : SceneController
 {
@@ -22,6 +20,7 @@ public class SSanctuaryController : SceneController
     {
 
         FacadeSingleton.Instance.RegisterData(ConstVal.Package_Event, typeof(EventPackage));
+        FacadeSingleton.Instance.RegisterData(ConstVal.Package_Dynamic, typeof(DynamicPackage));
         //register object pool
         ObjectPoolSingleton.Instance.RegisterComPool<HudCollect>(Resources.Load<GameObject>("Prefabs/Hud/Collect"));
         ObjectPoolSingleton.Instance.RegisterComPool<HudCountDown>(Resources.Load<GameObject>("Prefabs/Hud/CountDown"));
@@ -113,7 +112,6 @@ public class SSanctuaryController : SceneController
                 isZombie = true;
                 break;
             }
-
         SoundSingleton.Instance.StopAllBgm();
         if(isZombie)
         {
@@ -178,6 +176,7 @@ public class SSanctuaryController : SceneController
             userPackage.AddUserInfo(sceneInfo.GetUserInfos(i));
             manors[i].SetUserID(sceneInfo.GetUserInfos(i).Uid);
         }
+        userPackage.SetGroupName(sceneInfo.GroupName);
         SendEvent("RefreshManorLevel");
         SendEvent("RefreshBuildingView");
     }

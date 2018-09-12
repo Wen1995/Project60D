@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using com.game.framework.resource.data;
+using com.nkm.framework.resource.data;
 using UnityEngine;
 
 public class HudCollect : MonoBehaviour , IPoolUnit, IHudObject{

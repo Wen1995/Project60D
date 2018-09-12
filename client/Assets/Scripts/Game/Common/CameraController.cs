@@ -100,6 +100,7 @@ public class CameraController : MonoBehaviour {
         {
             mouseOrigin = Input.mousePosition;
             isPress = true;
+            FacadeSingleton.Instance.SendEvent("CloseInteraction");
             OnClickDown();
         }
 

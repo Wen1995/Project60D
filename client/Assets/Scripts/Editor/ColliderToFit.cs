@@ -167,7 +167,8 @@ public class ColliderToFit : MonoBehaviour
         //Apply    
         private static void ApplyToSelectedPrefabs(GameObject go)
         {
-            var prefabAsset = PrefabUtility.GetCorrespondingObjectFromSource(go);
+            
+            var prefabAsset = PrefabUtility.GetPrefabParent(go);
             if (prefabAsset == null)
             {
                 return;

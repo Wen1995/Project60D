@@ -21,12 +21,13 @@ public class HudCountDown : MonoBehaviour, IPoolUnit , IHudObject{
 
 	IEnumerator CoTimer()
 	{
-		label.text = remainTime.ToString();
+		label.text = GlobalFunction.TimeFormat(remainTime);
 		while(remainTime > 0)
 		{
 			yield return new WaitForSeconds(1.0f);
 			remainTime--;
-			label.text = remainTime.ToString();
+			//label.text = remainTime.ToString();
+			label.text = GlobalFunction.TimeFormat(remainTime);
 		}
 	}
 

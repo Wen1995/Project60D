@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using com.game.framework.resource.data;
+using com.nkm.framework.resource.data;
 using UnityEngine;
 
 public class StoreListCellItem : NListCellItem {
@@ -32,7 +32,8 @@ public class StoreListCellItem : NListCellItem {
 		}
 		ITEM_RES itemConfigData = itemDataMap[info.configID] as ITEM_RES;
 		nameLabel.text = itemConfigData.MinName;
-		numLabel.text = info.number.ToString();
+
+		numLabel.text = GlobalFunction.NumberFormat(info.number);
 		iconSprite.spriteName = itemConfigData.IconName;
 	}
 
@@ -44,6 +45,6 @@ public class StoreListCellItem : NListCellItem {
 
 	void Refresh(NDictionary data = null)
 	{
-		numLabel.text = info.number.ToString();
+		numLabel.text = GlobalFunction.NumberFormat(info.number);
 	}
 }

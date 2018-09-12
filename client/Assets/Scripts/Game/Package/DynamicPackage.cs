@@ -31,6 +31,7 @@ public class DynamicPackage : ModelBase
             NBuffInfo buff = new NBuffInfo();
             buff.type = NBuffType.Cooperation;
             buff.configID = num;
+            mBuffInfoList.Add(buff);
         }
         //world event
         var infoList = eventPackage.GetCurEventList();

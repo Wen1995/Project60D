@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIWorldEventPanel : PanelBase {
 
-
+	DynamicPackage dynamicpackage = null;
 	NTableView tableView = null;
 	EventPackage eventPackage = null;
 

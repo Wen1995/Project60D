@@ -1,18 +1,16 @@
 package com.nkm.framework.console.config;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.nkm.framework.console.constant.Constant;
 
 public class DBConfig {
-    private static Logger logger = LoggerFactory.getLogger(DBConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(DBConfig.class);
 
-    public static final String CONF = Constant.CONFIG_DIR + "/db/db.properties";
-    public static final String MYBATIS_CONF = Constant.CONFIG_DIR + "/db/mybatis.xml";
+    public static final String CONF = "db/db.properties";
+    public static final String MYBATIS_CONF = "db/mybatis.xml";
     public static final String DB_URL = "db.url";
     public static final String CACHE_URL = "cache.url";
     public static final String CACHE_PORT = "cache.port";
@@ -31,7 +29,7 @@ public class DBConfig {
     public static void init() {
         InputStream in = null;
         try {
-            in = new FileInputStream(CONF);
+            in = ClassLoader.getSystemResourceAsStream(CONF);
             prop.load(in);
             System.out.println("DB Config :" + prop);
         } catch (IOException e) {

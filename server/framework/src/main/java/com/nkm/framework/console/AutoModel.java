@@ -17,16 +17,15 @@ import com.nkm.framework.utils.XMLUtil;
 import com.nkm.framework.utils.pojo2proto.java2Proto.JavaToProto;
 
 /**
- * generator.xml table 填写要生成的表 
+ * db/generator.xml table 填写要生成的表 
  * 报错请把protoc.exe添加到环境变量
  */
-
 public class AutoModel {
-    private static Logger logger = LoggerFactory.getLogger(AutoModel.class);
+    private static final Logger logger = LoggerFactory.getLogger(AutoModel.class);
 
-    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         List<String> tableNameList = new ArrayList<>();
+        
         InputStream is = ClassLoader.getSystemResourceAsStream(Constant.GENERATOR_PATH);
         SAXReader reader = new SAXReader();
         try {
@@ -60,17 +59,15 @@ public class AutoModel {
 
         ExternalStorageUtil.mkdir(new File("./proto/"));
         for (String s : tableNameList) {
-            
             JavaToProto.getProto(new String[] {Constant.MODEL_PATH, s});
             logger.info("load {} success", s);
-            String strCmd =
-                    "protoc.exe -I=./proto --java_out=./src/main/java ./proto/" + s + "Cache" + ".proto";
+            String strCmd = "protoc.exe -I=./proto --java_out=./src/main/java ./proto/" + s + "Cache" + ".proto";
             try {
                 Thread.sleep(500);
                 Runtime.getRuntime().exec(strCmd);
                 Thread.sleep(500);
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error("", e);
             }
         }
         ExternalStorageUtil.delFile(new File("./proto/"));

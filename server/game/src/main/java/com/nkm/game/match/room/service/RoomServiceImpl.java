@@ -17,6 +17,7 @@ import com.nkm.framework.protocol.Database.BuildingState;
 import com.nkm.framework.protocol.Database.ProcessInfo;
 import com.nkm.framework.protocol.Database.ReceiveInfo;
 import com.nkm.framework.protocol.Database.UpgradeInfo;
+import com.nkm.framework.protocol.Message.UserInfo;
 import com.nkm.framework.protocol.Room.GroupInfo;
 import com.nkm.framework.protocol.Room.TSCApplyGroup;
 import com.nkm.framework.protocol.Room.TSCCreateGroup;
@@ -63,7 +64,7 @@ public class RoomServiceImpl implements RoomService {
         building.setGroupId(groupId);
         building.setPositionX(0);
         building.setPositionY(0);
-        building.setConfigId(113030001);    // 仓库ID
+        building.setConfigId(113030020);    // 仓库ID
         UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
                 .setUid(uid)
                 .setFinishTime(0)
@@ -198,11 +199,23 @@ public class RoomServiceImpl implements RoomService {
         List<GroupInfo> groupInfos = new ArrayList<>();
         List<Group> groups = groupDao.getRanking(currentPage);
         for (Group g : groups) {
+            Long groupId = g.getId();
+            List<User> users = userDao.getAllByGroupId(groupId);
+            List<UserInfo> userInfos = new ArrayList<>();
+            for (User u : users) {
+                UserInfo userInfo = UserInfo.newBuilder()
+                        .setUid(u.getId())
+                        .setAccount(u.getAccount())
+                        .setContribution(u.getContribution())
+                        .build();
+                userInfos.add(userInfo);
+            }
             GroupInfo.Builder gBuilder = GroupInfo.newBuilder()
-                    .setId(g.getId())
+                    .setId(groupId)
                     .setName(g.getName())
                     .setPeopleNumber(g.getPeopleNumber())
-                    .setTotalContribution(g.getTotalContribution());
+                    .setTotalContribution(g.getTotalContribution())
+                    .addAllUserInfos(userInfos);
             groupInfos.add(gBuilder.build());
         }
         TSCGetGroupRanking p = TSCGetGroupRanking.newBuilder()

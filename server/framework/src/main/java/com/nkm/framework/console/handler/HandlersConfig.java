@@ -1,6 +1,5 @@
 package com.nkm.framework.console.handler;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -18,15 +17,17 @@ import com.nkm.framework.utils.StringUtil;
 import com.nkm.framework.utils.XMLUtil;
 
 public class HandlersConfig {
-    private static Logger logger = LoggerFactory.getLogger(HandlersConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(HandlersConfig.class);
 
     private static Object obj = new Object();
     private static HandlersConfig instance;
 
     public static HandlersConfig GetInstance() {
-        synchronized (obj) {
-            if (instance == null) {
-                instance = new HandlersConfig();
+        if (instance == null) {
+            synchronized (obj) {
+                if (instance == null) {
+                    instance = new HandlersConfig();
+                }
             }
         }
         return instance;
@@ -46,7 +47,7 @@ public class HandlersConfig {
 
         SAXReader reader = new SAXReader();
         try {
-            is = new FileInputStream(Constant.HANDLE_XML);
+            is = ClassLoader.getSystemResourceAsStream(Constant.HANDLE_XML);
             Document doc = reader.read(is);
             Element root = doc.getRootElement();
 

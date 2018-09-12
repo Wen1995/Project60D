@@ -15,6 +15,11 @@ public class UILoadingPanel : PanelBase {
 		progress = transform.Find("progress").GetComponent<UIProgressBar>();
 	}
 
+	private void Update() 
+	{
+		
+	}
+
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
@@ -50,10 +55,18 @@ public class UILoadingPanel : PanelBase {
 		ConfigDataStatic.LoadAllConfigData();
         asyncOp = FacadeSingleton.Instance.LoadSceneAsync("SSanctuary");
 		asyncOp.allowSceneActivation = false;
-        while(asyncOp.isDone == false)
-        {
-			progress.value = asyncOp.progress;
-            yield return null;
-        }
+		yield return asyncOp;
+		int timer = -1;
+		while(timer < 3)
+		{
+			timer++;
+			progress.value = (float)timer / 3f;
+			yield return new WaitForSeconds(1.0f);
+		}
+        // while(asyncOp.isDone == false)
+        // {
+        //     yield return null;
+        // }
+		ShowEnterBtn();
     }
 }

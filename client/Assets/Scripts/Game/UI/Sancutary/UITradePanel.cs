@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using com.game.framework.protocol;
+using com.nkm.framework.protocol;
 using com.nkm.framework.resource.data;
 using UnityEngine;
 
@@ -16,7 +16,6 @@ public class UITradePanel : PanelBase {
 	UILabel goldNumLabel = null;
 	UILabel elecNumLabel = null;
 	UILabel dateLabel = null;
-	UILabel itemNumLabel = null;
 	UILabel limitLabel = null;
 	UISprite iconSprite = null;
 

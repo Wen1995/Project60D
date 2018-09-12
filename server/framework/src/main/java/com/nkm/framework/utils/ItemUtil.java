@@ -3,7 +3,6 @@ package com.nkm.framework.utils;
 import com.nkm.framework.protocol.Common.ItemType;
 
 public class ItemUtil {
-    
     /** 
      * 是否是资源
      */

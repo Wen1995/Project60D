@@ -26,9 +26,9 @@ public class StartApp {
             handlerGroup.setHandlerRoute(handlerRoute);
             handlerGroup.init();
         }
-        GameServer.GetInstance().start();
         StaticDataManager.GetInstance().init();
         DynamicDataManager.GetInstance().init();
+        GameServer.GetInstance().start();
         TimerManager.GetInstance().init();
         
         logger.info("\r\n"+ 

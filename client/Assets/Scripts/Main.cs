@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using com.game.framework.protocol;
+using com.nkm.framework.protocol;
 
 public class Main : MonoBehaviour {
 

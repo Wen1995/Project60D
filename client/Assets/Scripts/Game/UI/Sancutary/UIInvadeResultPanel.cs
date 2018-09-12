@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using com.game.framework.protocol;
+using com.nkm.framework.protocol;
 using UnityEngine;
 
 public class UIInvadeResultPanel : PanelBase {

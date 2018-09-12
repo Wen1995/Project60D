@@ -15,10 +15,7 @@ import com.nkm.framework.resource.data.WorldEventsBytes.WORLD_EVENTS;
 import com.google.common.base.CaseFormat;
 
 public class BuildingUtil {
-    private static Logger logger = LoggerFactory.getLogger(BuildingUtil.class);
-    
-    private static final ReadOnlyMap<Integer, WORLD_EVENTS> worldEventsMap =
-            StaticDataManager.GetInstance().worldEventsMap;
+    private static final Logger logger = LoggerFactory.getLogger(BuildingUtil.class);
 
     /**
      * 是否领取类建筑
@@ -246,7 +243,7 @@ public class BuildingUtil {
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
             int congigId = entry.getKey();
-            WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
+            WORLD_EVENTS worldEvent = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
             long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {

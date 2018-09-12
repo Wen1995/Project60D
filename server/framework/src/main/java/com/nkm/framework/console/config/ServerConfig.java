@@ -1,6 +1,5 @@
 package com.nkm.framework.console.config;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
@@ -9,12 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.nkm.framework.console.constant.Constant;
 import com.nkm.framework.dbcache.dao.IServerDao;
 import com.nkm.framework.dbcache.model.Server;
 
 public class ServerConfig {
-    private static Logger logger = LoggerFactory.getLogger(ServerConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(ServerConfig.class);
     
     private static ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     private static Properties prop = new Properties();
@@ -27,13 +25,9 @@ public class ServerConfig {
     public static void init() {
         InputStream in = null;
         try {
-            in = new FileInputStream(Constant.CONFIG_DIR + "/server.properties");
-            // src下读取
-            // in = ServerConfig.class.getClassLoader().getResourceAsStream("server.properties");
+            in = ClassLoader.getSystemResourceAsStream("server.properties");
             prop.load(in);
-            // 直接输出prop对象
             System.out.println("Server Config : " + prop);
-
             initServerSql();
         } catch (IOException e) {
             logger.error("", e);

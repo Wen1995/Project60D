@@ -1,4 +1,4 @@
-﻿using com.game.framework.protocol;
+﻿using com.nkm.framework.protocol;
 using com.nkm.framework.resource.data;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +21,7 @@ public class Building : Controller {
     private BuildingState mState = BuildingState.Idle;
     private Transform floatingIconTrans = null;
     private SanctuaryPackage mSanctuaryPackage = null;
+    private HudBinder hudBinder = null;
 
     GameObject buildingGo = null;
 
@@ -40,6 +41,8 @@ public class Building : Controller {
     private void Awake()
     {
         RegisterEvent("RefreshBuildingView", InitView);
+        RegisterEvent("ShowNameBoard", ShowNameBoard);
+        RegisterEvent("HideNameBoard", HideNameBoard);
     }
 
     public virtual void OnClick()
@@ -135,10 +138,10 @@ public class Building : Controller {
         buildingGo.transform.parent = transform;
         buildingGo.transform.localPosition = Vector3.zero;
         buildingGo.transform.localRotation = Quaternion.identity;
-        HudBinder binder = buildingGo.AddComponent<HudBinder>();
+        hudBinder = buildingGo.AddComponent<HudBinder>();
         Transform pos = buildingGo.transform.Find("pos");
         if(pos != null)
-            binder.SetTarget(pos.gameObject);
+            hudBinder.SetTarget(pos.gameObject);
         
         NEventListener listener = buildingGo.AddComponent<NEventListener>();
         listener.AddClick(OnClick);
@@ -146,10 +149,9 @@ public class Building : Controller {
 
     void RefreshHud()
     {
-        if(buildingGo == null) return;
-        HudBinder binder = buildingGo.GetComponent<HudBinder>();
-        if(binder == null) return;
-        binder.ClearHud();
+        if(buildingGo == null || hudBinder == null) return;
+        if(hudBinder == null) return;
+        hudBinder.ClearHud();
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         if(info == null) return;
         BUILDING config = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
@@ -158,14 +160,14 @@ public class Building : Controller {
         {
             NDictionary args = new NDictionary();
             args.Add("id", config.ProId);
-            binder.AddHud(HudType.Collect, args);
+            hudBinder.AddHud(HudType.Collect, args);
         }
         else if(mState == BuildingState.Upgrade)
         {
             NDictionary args = new NDictionary();
             //NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
             args.Add("finishtime", info.upgradeFinishTime);
-            binder.AddHud(HudType.CountDown, args);
+            hudBinder.AddHud(HudType.CountDown, args);
         }
     }
 
@@ -217,5 +219,21 @@ public class Building : Controller {
             iPoolUnit.Restore();
         }
     }
+
+    void ShowNameBoard(NDictionary args = null)
+    {
+        if(buildingID == 0) return;
+        NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+        NDictionary data = new NDictionary();
+        data.Add("id", info.configID);
+        hudBinder.AddHud(HudType.NameBoard, data);
+    }
+
+    void HideNameBoard(NDictionary args = null)
+    {
+        if(buildingID == 0) return;
+        hudBinder.RemoveHud(HudType.NameBoard);
+    }
+
     #endregion
 }

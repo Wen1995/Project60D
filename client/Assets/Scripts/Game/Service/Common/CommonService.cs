@@ -1,11 +1,11 @@
-﻿using com.game.framework.protocol;
+﻿using com.nkm.framework.protocol;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CommonService : ServiceBase {
 
-    const string HOST = "192.168.90.74";
+    const string HOST = "192.168.80.17";
     const int PORT = 8008;
 
     public void Login(NDictionary args)

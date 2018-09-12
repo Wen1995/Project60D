@@ -9,15 +9,13 @@ public class Constant {
     
     public static final String GENERATE_DIR = "../game/src/main/java/com/nkm/game/";
     
-    public static final String CONFIG_DIR = "../framework/config";
-    
-    public static final String HANDLE_XML = "../framework/src/main/java/com/nkm/framework/console/handler.xml";
+    public static final String HANDLE_XML = "handler.xml";
 
     public static final String MODEL_PATH = "src/main/java/com/nkm/framework/dbcache/model/";
     
-    public static final String GENERATOR_FULL_PATH = "src/main/java/com/nkm/framework/console/generator.xml";
+    public static final String GENERATOR_FULL_PATH = "src/main/resources/db/generator.xml";
     
-    public static final String GENERATOR_PATH = "com/nkm/framework/console/generator.xml";
+    public static final String GENERATOR_PATH = "db/generator.xml";
 
     public static final String DIR_ROOT = System.getProperty("user.dir");
 

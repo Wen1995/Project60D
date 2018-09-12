@@ -196,8 +196,7 @@ public class ExternalStorageUtil {
         DataOutputStream dos = new DataOutputStream(baos);
         byte[] buffer = new byte[1024];
         try {
-            File file = new File(path);
-            in = new FileInputStream(file);
+            in = ClassLoader.getSystemResourceAsStream(path);
             if (in != null) {
                 while ((ic = in.read(buffer)) > 0) {
                     dos.write(buffer, 0, ic);

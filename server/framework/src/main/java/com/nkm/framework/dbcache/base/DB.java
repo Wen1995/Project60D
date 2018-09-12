@@ -1,7 +1,7 @@
 package com.nkm.framework.dbcache.base;
 
-import java.io.FileReader;
 import java.io.Reader;
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -18,8 +18,7 @@ public class DB {
     public DB(String name, String configPath) {
         this.name = name;
         try {
-            Reader reader = new FileReader(configPath);
-            //Reader reader = Resources.getResourceAsReader("mybatis.xml");
+            Reader reader = Resources.getResourceAsReader(configPath);
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         } catch (Exception e) {
             logger.error("", e);

@@ -29,10 +29,32 @@ public class NWorldEventInfo
 
 public class EventPackage : ModelBase
 {
+    
     List<NWorldEventInfo> eventList = new List<NWorldEventInfo>();
 
     List<NWorldEventInfo> curEventList = new List<NWorldEventInfo>();
     List<NWorldEventInfo> futureEventList = new List<NWorldEventInfo>();
+
+    public bool IsVisible(NWorldEventInfo info)
+    {
+        SanctuaryPackage sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage; 
+        int level = sanctuaryPackage.GetBuildingLevelByType(BuildingType.RadioStation);
+        int diff = 0;
+        if(level > 0)
+        {
+            WUXIANDIAN config = ConfigDataStatic.GetConfigDataTable("WUXIANDIAN")[level] as WUXIANDIAN;
+            diff = config.WuxiandianDis;
+        }
+        long remainTime;
+        if(GlobalFunction.GetRemainTime(info.happenTime, out remainTime))
+        {
+            if(diff * 1000 >= remainTime)
+                return true;
+            return false;
+        }
+        return false;
+    }
+
 	#region Set Data
     public void SetWorldEvent(TSCHeart res)
     {
@@ -41,11 +63,8 @@ public class EventPackage : ModelBase
         for(int i=0;i<res.WorldEventConfigId2HappenTimeCount;i++)
         {
             NWorldEventInfo info = new NWorldEventInfo(res.GetWorldEventConfigId2HappenTime(i));
-            
             if(GlobalFunction.IsHappened(info.happenTime))
-            {
                 curEventList.Add(info);
-            }
             else
                 futureEventList.Add(info);
         }

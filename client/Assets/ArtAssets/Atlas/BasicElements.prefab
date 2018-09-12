@@ -123,7 +123,7 @@ MonoBehaviour:
     y: 3996
     width: 348
     height: 100
-    borderLeft: 0
+    borderLeft: 17
     borderRight: 0
     borderTop: 0
     borderBottom: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Green-Outline
     x: 901
-    y: 1371
+    y: 1233
     width: 900
     height: 137
     borderLeft: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: LightSkinTextfield
-    x: 901
-    y: 1233
+    x: 0
+    y: 1371
     width: 900
     height: 137
     borderLeft: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: LightSkinTextfield-Border
     x: 0
-    y: 1371
+    y: 819
     width: 900
     height: 137
     borderLeft: 0
@@ -316,6 +316,19 @@ MonoBehaviour:
   - name: Progress-Bar-Blue
     x: 3319
     y: 3660
+    width: 600
+    height: 12
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 4
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Progress-Bar-Blue_2
+    x: 3319
+    y: 3647
     width: 600
     height: 12
     borderLeft: 0
@@ -366,8 +379,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Rectangle-Basic
-    x: 2049
-    y: 2835
+    x: 2718
+    y: 3496
     width: 600
     height: 600
     borderLeft: 0
@@ -379,8 +392,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Rectangle-Rounded
-    x: 2718
-    y: 3496
+    x: 2049
+    y: 2835
     width: 600
     height: 600
     borderLeft: 60
@@ -445,7 +458,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Red-Outline
     x: 0
-    y: 819
+    y: 681
     width: 900
     height: 137
     borderLeft: 0
@@ -470,8 +483,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: White-Basic-List-Background
-    x: 0
-    y: 681
+    x: 901
+    y: 1371
     width: 900
     height: 137
     borderLeft: 0

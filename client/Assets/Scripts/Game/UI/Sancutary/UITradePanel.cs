@@ -235,7 +235,7 @@ public class UITradePanel : PanelBase {
 		{
 			ITEM_RES config = itemPackage.GetItemDataByConfigID(res.ConfigId);
 			double price = itemPackage.GetItemPrice(res.ConfigId);
-			content = string.Format("出售成功!\n购买{0} x {1}单位，获得金钱{2}", config.MinName, res.Number, price * res.Number);
+			content = string.Format("出售成功!\n{0} x {1}单位，获得金钱{2}", config.MinName, res.Number, price * res.Number);
 			FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
 		}
 		FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");

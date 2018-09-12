@@ -1010,7 +1010,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114941413815276036, guid: 07bf9f15629c9404c851b6516671288d, type: 2}
-  mSpriteName: Blue-Button
+  mSpriteName: Progress-Bar-Blue_2
   mFillCenter: 1
 --- !u!114 &114017637953420304
 MonoBehaviour:
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   thumb: {fileID: 0}
   mBG: {fileID: 114315999252333462}
   mFG: {fileID: 114000158557826814}
-  mValue: 1
+  mValue: 0.387
   mFill: 0
   numberOfSteps: 0
   onChange: []

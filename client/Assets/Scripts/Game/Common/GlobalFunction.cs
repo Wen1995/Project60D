@@ -64,11 +64,30 @@ public static class GlobalFunction {
         if(num < 1000)
             return num.ToString();
         else if(num < 1000000)
-            return string.Format("{0:.2}k", (float)num / 1000f);
+        {
+            if(num % 1000 == 0)   
+                return string.Format("{0}k", num / 1000);
+            else
+                return string.Format("{0}k", ((float)num / 1000f).ToString("0.00"));
+        }
+            
         else if(num < 1000000000)
-            return string.Format("{0:.2}m", (float)num / 1000000f);
+        {
+            if(num % 1000000 == 0)
+                return string.Format("{0}m", num / 1000000); 
+            else
+                return string.Format("{0}m", ((float)num / 1000000f).ToString("0.00")); 
+
+        }
+            
         else
-            return string.Format("{0:.2}b", (float)num / 1000000000f);
+        {
+            return "";
+            // if(num % 1000000000 == 0)
+            //     return string.Format("{0}b", num / 1000000000); 
+            // else
+            //     return string.Format("{0}b", ((float)num / 1000000000f).ToString("0.00")); 
+        }
     }
 
     //time should be in seconds
@@ -88,11 +107,11 @@ public static class GlobalFunction {
     }
 
     //time stamp should be milisec
-    public static string DateFormat(long timestamp)
+    public static System.DateTime DateFormat(long timestamp)
     {
         System.DateTime dtDateTime = new DateTime(1970,1,1,0,0,0,0,System.DateTimeKind.Utc);
-        dtDateTime = dtDateTime.AddSeconds( timestamp ).ToLocalTime();
-         return dtDateTime.ToString();;
+        dtDateTime = dtDateTime.AddSeconds(timestamp / 1000).ToLocalTime();
+        return dtDateTime;
     }
 
     public static int CalculateManorLevel(int contribution)

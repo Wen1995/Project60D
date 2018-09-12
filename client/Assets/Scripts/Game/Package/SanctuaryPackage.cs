@@ -137,6 +137,15 @@ public class SanctuaryPackage : ModelBase {
         return data.BldgName;
     }
 
+    public int GetBuildingLevelByType(BuildingType type)
+    {
+        int configID = GetConfigIDByBuildingType(type);
+        foreach(var pair in mBuildingInfoMap)
+            if(GetBuildingTypeByConfigID(pair.Value.configID) == type)
+                return GetBulidingLevelByConfigID(pair.Value.configID);
+        return 0;
+    }
+
     public bool IsBuildingVisible(BuildingType type)
     {
         UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;

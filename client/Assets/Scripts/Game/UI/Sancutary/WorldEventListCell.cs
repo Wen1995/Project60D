@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WorldEventListCell : NListCell {
 
+	DynamicPackage dynamicPackage = null;
 	EventPackage eventPackage = null;
 	UILabel titleLabel = null;
 	UILabel receiveLabel = null;
@@ -22,45 +23,37 @@ public class WorldEventListCell : NListCell {
 		happenLabel = transform.Find("content/happentime").GetComponent<UILabel>();
 		contentLabel = transform.Find("content/text").GetComponent<UILabel>();
 		eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
+		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
 	}
 
 	public override void DrawCell(int index, int count = 0)
 	{
 		base.DrawCell(index, count);
-		var curEventList = eventPackage.GetCurEventList();
-		var futureEventList = eventPackage.GetFutureEventList();
-		NWorldEventInfo info;
-		if(index < curEventList.Count)
-		{
-			info = curEventList[index];
-			isHappened = true;
-		}
-		else
-		{
-			info = futureEventList[index - curEventList.Count];
-			isHappened = false;
-		}
+		var dataList = dynamicPackage.GetVisibleEventList();
+		if(index >= dataList.Count) return;
+		NWorldEventInfo info = dataList[index];
+
 		var configMap = ConfigDataStatic.GetConfigDataTable("WORLD_EVENTS");
 		WORLD_EVENTS config = configMap[info.configID] as WORLD_EVENTS;
 		titleLabel.text = config.EventName;
 		contentLabel.text = config.EventNews;
 		endTime = info.happenTime + config.EventDuration * 60 * 1000;
-		if(isHappened)
-			ShowTime(endTime);
+		if(GlobalFunction.IsHappened(info.happenTime))
+			ShowTime(endTime, true);
 		else
-			ShowTime(info.happenTime);
+			ShowTime(info.happenTime, false);	
 	}
 
-	void ShowTime(long timeStamp)
+	void ShowTime(long timeStamp, bool isHappened)
 	{
+		System.DateTime dateTime = GlobalFunction.DateFormat(timeStamp);
 		if(isHappened == true)
 		{
-
-			happenLabel.text = string.Format("预计事件结束时间 {0}", GlobalFunction.DateFormat(timeStamp));
+			happenLabel.text = string.Format("预计事件结束时间 {0:D2}月{1:D2}日 {2:D2}:{3:D2}", dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute);
 		}
 		else
 		{
-			happenLabel.text = string.Format("预计事件发生时间 {0}", GlobalFunction.DateFormat(timeStamp));
+			happenLabel.text = string.Format("预计事件发生时间 {0:D2}月{1:D2}日 {2:D2}:{3:D2}", dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute);
 		}
 	}
 }

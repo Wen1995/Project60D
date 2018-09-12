@@ -38,10 +38,12 @@ public class NGroupInfo
 
 public class DynamicPackage : ModelBase
 {
+
     List<NBuffInfo> mBuffInfoList = new List<NBuffInfo>();
 
     List<NGroupInfo> mGroupInfoList = new List<NGroupInfo>();
 
+    List<NWorldEventInfo> mVisibleEventList = new List<NWorldEventInfo>();
 
     public void CalculateBuff()
     {
@@ -66,6 +68,24 @@ public class DynamicPackage : ModelBase
             buff.configID = info.configID;
             mBuffInfoList.Add(buff);
         }
+    }
+    
+    public void CalculateVisibleEvent()
+    {
+        EventPackage eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
+        var curEventList = eventPackage.GetCurEventList();
+        foreach(NWorldEventInfo info in curEventList)
+            mVisibleEventList.Add(info);
+        
+        var futureList = eventPackage.GetFutureEventList();
+        foreach(NWorldEventInfo info in futureList)
+            if(eventPackage.IsVisible(info))
+                mVisibleEventList.Add(info);
+    }
+
+    public List<NWorldEventInfo> GetVisibleEventList()
+    {
+        return mVisibleEventList;
     }
 
     public List<NBuffInfo> GetBuffList()

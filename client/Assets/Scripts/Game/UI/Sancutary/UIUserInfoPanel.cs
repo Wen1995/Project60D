@@ -36,7 +36,7 @@ public class UIUserInfoPanel : PanelBase {
         NUserInfo info = userPackage.GetUserInfo(userID);
         if(info == null) return;
         nameLabel.text = info.name;
-        contributionLabel.text = "6324";
+        contributionLabel.text = info.contribution.ToString();
         idLabel.text = info.uID.ToString();
     }
 

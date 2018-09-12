@@ -17,21 +17,13 @@ import com.nkm.framework.resource.data.WorldEventsBytes.WORLD_EVENTS;
 import com.google.common.base.CaseFormat;
 
 public class UserUtil {
-    private static Logger logger = LoggerFactory.getLogger(UserUtil.class);
-    private static final ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap =
-            StaticDataManager.GetInstance().playerAttrMap;
-    private static final ReadOnlyMap<Integer, WORLD_EVENTS> worldEventsMap =
-            StaticDataManager.GetInstance().worldEventsMap;
-    private static final int AGILE_RATELIMIT = playerAttrMap.get(13010001).getLimReal();
-    private static final int AGILE_BEGINNUM = playerAttrMap.get(13010001).getBeginNum();
-    private static final double AGILEK1 = playerAttrMap.get(13010001).getAttrK1() / 100;
-    private static final double AGILEK2 = playerAttrMap.get(13010001).getAttrK2() / 100;
-    public static final ReadOnlyMap<Integer, PLAYER_LEVEL> playerLevelMap = StaticDataManager.GetInstance().playerLevelMap;
+    private static final Logger logger = LoggerFactory.getLogger(UserUtil.class);
     
     /**
      * 玩家实力转等级
      */
     public static int getUserLevel(int contribution) {
+        ReadOnlyMap<Integer, PLAYER_LEVEL> playerLevelMap = StaticDataManager.GetInstance().playerLevelMap;
         for (Map.Entry<Integer, PLAYER_LEVEL> entry : playerLevelMap.entrySet()) {
             if (entry.getValue().getPlayerCap() >= contribution) {
                 return entry.getKey();
@@ -44,6 +36,12 @@ public class UserUtil {
      * 闪避率
      */
     public static double agileRate(User user) {
+        ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap = StaticDataManager.GetInstance().playerAttrMap;
+        int AGILE_RATELIMIT = playerAttrMap.get(13010001).getLimReal();
+        int AGILE_BEGINNUM = playerAttrMap.get(13010001).getBeginNum();
+        double AGILEK1 = playerAttrMap.get(13010001).getAttrK1() / 100;
+        double AGILEK2 = playerAttrMap.get(13010001).getAttrK2() / 100;
+        
         int agile = user.getAgile();
         double agileRate = (AGILE_BEGINNUM + AGILEK1 * agile) / (AGILEK2 + agile);
         agileRate = agileRate > AGILE_RATELIMIT ? AGILE_RATELIMIT : agileRate;
@@ -59,7 +57,7 @@ public class UserUtil {
         long currentTime = System.currentTimeMillis();
         for (Map.Entry<Integer, Long> entry : DynamicDataManager.GetInstance().worldEventConfigId2HappenTime.entrySet()) {
             int congigId = entry.getKey();
-            WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
+            WORLD_EVENTS worldEvent = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
             long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
@@ -77,7 +75,7 @@ public class UserUtil {
         long currentTime = System.currentTimeMillis();
         for (Map.Entry<Integer, Long> entry : DynamicDataManager.GetInstance().worldEventConfigId2HappenTime.entrySet()) {
             int congigId = entry.getKey();
-            WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
+            WORLD_EVENTS worldEvent = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
             long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {

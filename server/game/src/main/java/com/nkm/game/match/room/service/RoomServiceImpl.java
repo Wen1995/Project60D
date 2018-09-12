@@ -63,7 +63,7 @@ public class RoomServiceImpl implements RoomService {
         building.setGroupId(groupId);
         building.setPositionX(0);
         building.setPositionY(0);
-        building.setConfigId(113030001);    // 仓库ID
+        building.setConfigId(113030020);    // 仓库ID
         UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
                 .setUid(uid)
                 .setFinishTime(0)

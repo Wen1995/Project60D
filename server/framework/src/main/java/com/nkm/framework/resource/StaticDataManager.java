@@ -46,15 +46,17 @@ import com.nkm.framework.resource.data.ZhujuanBytes.ZHUJUAN;
 import com.nkm.framework.resource.data.ZombieAttrBytes.ZOMBIE_ATTR;
 
 public class StaticDataManager {
-	private static Logger logger = LoggerFactory.getLogger(StaticDataManager.class);
+	private static final Logger logger = LoggerFactory.getLogger(StaticDataManager.class);
 
     static Object obj = new Object();
     private static StaticDataManager instance;
 
     public static StaticDataManager GetInstance() {
-        synchronized (obj) {
-            if (instance == null) {
-                instance = new StaticDataManager();
+        if (instance == null) {
+            synchronized (obj) {
+                if (instance == null) {
+                    instance = new StaticDataManager();
+                }
             }
         }
         return instance;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using com.nkm.framework.protocol;
+using com.nkm.framework.resource.data;
 using UnityEngine;
 
 public class NBuffInfo
@@ -36,6 +37,16 @@ public class NGroupInfo
     }
 }
 
+public class NTradeInfo
+{
+    public int configID;
+
+    public NTradeInfo()
+    {configID = 0;}
+    public NTradeInfo(int configID)
+    {this.configID = configID;}
+}
+
 public class DynamicPackage : ModelBase
 {
 
@@ -44,6 +55,8 @@ public class DynamicPackage : ModelBase
     List<NGroupInfo> mGroupInfoList = new List<NGroupInfo>();
 
     List<NWorldEventInfo> mVisibleEventList = new List<NWorldEventInfo>();
+    List<NTradeInfo> mTradeInfoList = new List<NTradeInfo>();
+    List<NTradeInfo> mFilteredTradeInfoList = new List<NTradeInfo>();
 
     public void CalculateBuff()
     {
@@ -107,6 +120,40 @@ public class DynamicPackage : ModelBase
     public List<NGroupInfo> GetGroupInfoList()
     {
         return mGroupInfoList;
+    }
+
+    public void CalculateTradeInfo()
+    {
+        mTradeInfoList.Clear();
+        var dataList = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
+        foreach(var pair in dataList)
+        {
+            ITEM_RES config = pair.Value as ITEM_RES;
+            mTradeInfoList.Add(new NTradeInfo(config.Id));
+        }
+    }
+
+    public List<NTradeInfo> GetTradeInfoList()
+    {
+        return mTradeInfoList;
+    }
+
+    public void CalculateFilteredTradeInfo(uint mask)
+    {
+        mFilteredTradeInfoList.Clear();
+        ItemPackage itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
+        foreach(var info in mTradeInfoList)
+        {
+            if(itemPackage.FilterItemType(mask, info.configID))
+                mFilteredTradeInfoList.Add(info);
+            // if(info.configID)
+        }
+        mFilteredTradeInfoList.Sort((x, y) => x.configID.CompareTo(y.configID));
+    }
+
+    public List<NTradeInfo> GetFilteredTradeInfoList()
+    {
+        return mFilteredTradeInfoList;
     }
 
     public override void Release()

@@ -6,10 +6,9 @@ using UnityEngine;
 
 public class UITradePanel : PanelBase {
 
+	DynamicPackage dynamicPackage = null;
+	UserPackage userPackage = null;
 	ItemPackage itemPackage = null;
-	NItemInfo selectionItem = null;
-	UILabel curPriceLabel = null;
-	UILabel avgPriceLabel = null;
 	UILabel taxLabel = null;
 	UILabel nameLabel = null;
 	UILabel resNumLabel = null;
@@ -17,30 +16,33 @@ public class UITradePanel : PanelBase {
 	UILabel elecNumLabel = null;
 	UILabel dateLabel = null;
 	UILabel limitLabel = null;
+	UILabel cdTimeLabel = null;
+	UILabel priceLabel = null;
 	UISprite iconSprite = null;
 
 	NTableView tableView = null;
+	UIButton buyBtn = null;
+	UIButton sellBtn = null;
 
 	protected override void Awake()
 	{
 		//get component
-		curPriceLabel = transform.Find("iteminfo/price/curprice/value").GetComponent<UILabel>();
-		avgPriceLabel = transform.Find("iteminfo/price/avgprice/value").GetComponent<UILabel>();
-		taxLabel = transform.Find("iteminfo/price/tax/value").GetComponent<UILabel>();
-		nameLabel = transform.Find("iteminfo/item/name").GetComponent<UILabel>();
+		nameLabel = transform.Find("iteminfo/namelabel").GetComponent<UILabel>(); 
+		taxLabel = transform.Find("taxlabel").GetComponent<UILabel>();
 		tableView = transform.Find("store/itemview/panel/tableview").GetComponent<NTableView>();
 		resNumLabel = transform.Find("resinfo/res/resouce/label").GetComponent<UILabel>();
 		goldNumLabel = transform.Find("resinfo/res/money/label").GetComponent<UILabel>();
 		elecNumLabel = transform.Find("resinfo/res/elec/label").GetComponent<UILabel>();
 		dateLabel = transform.Find("timelabel").GetComponent<UILabel>();
 		limitLabel = transform.Find("iteminfo/buylimit").GetComponent<UILabel>();
-		iconSprite = transform.Find("iteminfo/item/icon").GetComponent<UISprite>();
+		cdTimeLabel = transform.Find("iteminfo/cdtime").GetComponent<UILabel>();
+		priceLabel = transform.Find("iteminfo/pricelabel").GetComponent<UILabel>();
 		//bind event
-		UIButton button = transform.Find("iteminfo/sellbtn").GetComponent<UIButton>();
-		button.onClick.Add(new EventDelegate(OnSellItem));
-		button = transform.Find("iteminfo/buybtn").GetComponent<UIButton>();
-		button.onClick.Add(new EventDelegate(OnBuyItem));
-		button = transform.Find("closebtn").GetComponent<UIButton>();
+		sellBtn = transform.Find("sellbtn").GetComponent<UIButton>();
+		sellBtn.onClick.Add(new EventDelegate(OnSellItem));
+		buyBtn = transform.Find("buybtn").GetComponent<UIButton>();
+		buyBtn.onClick.Add(new EventDelegate(OnBuyItem));
+		UIButton button = transform.Find("closebtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
 		
 		button = transform.Find("store/tabgroup/grid/tab0").GetComponent<UIButton>();
@@ -54,6 +56,8 @@ public class UITradePanel : PanelBase {
 		FacadeSingleton.Instance.RegisterEvent("RefreshItem", RefreshView);
 
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
+		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
+		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPRICES, OnGetPrice);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPURCHASE, OnGetLimit);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.SELLGOODS, SellItemResponce);
@@ -95,6 +99,7 @@ public class UITradePanel : PanelBase {
 
 	void InitView()
 	{
+		dynamicPackage.CalculateTradeInfo();
 		OnTabChange(0);
 		RefreshResinfo();
 		StartCoroutine(RefreshDate());
@@ -115,21 +120,41 @@ public class UITradePanel : PanelBase {
 	}
 	void OnSelectItem(NDictionary data = null)
 	{
-		NItemInfo info = data.Value<NItemInfo>("info");
-		if(info == null)  return;
-		selectionItem = info;
+		itemPackage.SetSelectionItemConfigID(data.Value<int>("id"));
 		RefreshItemInfo();
 	}
 
 	void RefreshItemInfo()
 	{
-		if(selectionItem == null) return;
-		ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(selectionItem.configID);
-		curPriceLabel.text = itemPackage.GetItemPrice(selectionItem.configID).ToString();
-		avgPriceLabel.text = "0";
-		taxLabel.text = string.Format("{0}%", itemPackage.GetTaxRate() * 100);
-		nameLabel.text = itemConfig.MinName;
-		iconSprite.spriteName = itemConfig.IconName;
+		int selectionConfigID = itemPackage.GetSelectionItemConfigID();
+		if(selectionConfigID == 0)
+		{
+			taxLabel.text = "";
+			nameLabel.text = "";
+			cdTimeLabel.text = "";
+			return;
+		} 
+		var dataList = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
+		if(!dataList.ContainsKey(selectionConfigID))
+		{
+			Debug.Log(string.Format("ITEM_RES config={0} missing", selectionConfigID));
+			return;
+		}
+			
+		ITEM_RES itemConfig = dataList[selectionConfigID] as ITEM_RES;
+		taxLabel.text = string.Format("当前中间人费用{0}%", itemPackage.GetTaxRate() * 100);
+		nameLabel.text = string.Format("{0}近3日价格", itemConfig.MinName);
+		priceLabel.text = string.Format("当前价格: {0}", itemPackage.GetItemPrice(selectionConfigID));
+		//set buy & sell button
+		NItemInfo info = itemPackage.GetItemInfo(itemPackage.GetSelectionItemConfigID());
+		if(info == null || info.number <= 0)
+			sellBtn.isEnabled = false;
+		else
+			sellBtn.isEnabled = true;
+		if(itemConfig.ServiceableRate > userPackage.GetPlayerLevel())
+			buyBtn.isEnabled = false;
+		else
+			buyBtn.isEnabled = true;
 		RefreshBuyLimit();
 	}
 
@@ -145,23 +170,24 @@ public class UITradePanel : PanelBase {
 
 	void RefreshBuyLimit()
 	{
-		int val = itemPackage.GetBuyLimit(selectionItem.configID);
-		limitLabel.text = string.Format("商店存量: {0}", val);
+		int val = itemPackage.GetBuyLimit(itemPackage.GetSelectionItemConfigID());
+		limitLabel.text = string.Format("交易所存量: {0}", val);
 	}
 
 	void OnSellItem()
 	{
+		//NItemInfo info = itemPackage.GetItemInfo(itemPackage.GetSelectionItemConfigID());
+		FacadeSingleton.Instance.OverlayerPanel("UIItemValuePanel");
 		NDictionary args = new NDictionary();
 		args.Add("isbuy", false);
-		FacadeSingleton.Instance.OverlayerPanel("UIItemValuePanel");
 		FacadeSingleton.Instance.SendEvent("OpenItemValue", args);
 	}
 
 	void OnBuyItem()
 	{
+		FacadeSingleton.Instance.OverlayerPanel("UIItemValuePanel");
 		NDictionary args = new NDictionary();
 		args.Add("isbuy", true);
-		FacadeSingleton.Instance.OverlayerPanel("UIItemValuePanel");
 		FacadeSingleton.Instance.SendEvent("OpenItemValue", args);
 	}
 
@@ -215,10 +241,10 @@ public class UITradePanel : PanelBase {
 				sortMask = (uint)ItemSortType.Food | (uint)ItemSortType.Product;
 				break;
 		}
-		itemPackage.SortItemFilterInfoList(sortMask);
-		tableView.DataCount = itemPackage.GetItemFilterInfoList().Count;
+		dynamicPackage.CalculateFilteredTradeInfo(sortMask);
+		tableView.DataCount = dynamicPackage.GetFilteredTradeInfoList().Count;
 		tableView.TableChange();
-		selectionItem = itemPackage.GetItemFilterInfoList()[0];
+		itemPackage.SetSelectionItemConfigID(0);
 		RefreshItemInfo();
 	}
 

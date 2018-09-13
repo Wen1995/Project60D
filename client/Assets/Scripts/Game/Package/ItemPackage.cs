@@ -74,6 +74,7 @@ public class ItemPackage : ModelBase
     List<ItemEffect> mItemEffectList = new List<ItemEffect>();
     Dictionary<int, NItemServerData> mItemServerData = new Dictionary<int, NItemServerData>();
     NItemInfo selectionItem = null;
+    int selectItemConfigID;
     private int elecNum;
     private double goldNum;
     private double taxRate;
@@ -111,9 +112,8 @@ public class ItemPackage : ModelBase
         foreach(var pair in mItemInfoMap)
         {
             NItemInfo info = pair.Value;
-            ItemType type = GetItemTypeByConfigID(info.configID);
-            if(type == ItemType.Food || type == ItemType.Product)
-                sum += info.number;
+            ITEM_RES config = GetItemDataByConfigID(info.configID);
+            sum += config.StorUnit;
         }
         return sum;
     }
@@ -257,7 +257,13 @@ public class ItemPackage : ModelBase
     {
         
         for(int i=0;i<msg.ResourceInfosCount;i++)
-            AddItem(msg.GetResourceInfos(i));
+        {
+            // var info = msg.GetResourceInfos(i);
+            // ITEM_RES config = ConfigDataStatic.GetConfigDataTable("ITEM_RES")[info.ConfigId] as ITEM_RES;
+            // Debug.Log(string.Format("item= {0}, count= {1}", config.MinName, info.Number));
+            AddItem(msg.GetResourceInfos(i)); 
+        }
+            
         elecNum = msg.Electricity;
         goldNum = msg.Gold;
     }
@@ -318,6 +324,16 @@ public class ItemPackage : ModelBase
     {
         goldNum = number;
     }
+
+    public void SetSelectionItemConfigID(int configID)
+    {
+        selectItemConfigID = configID;
+    }
+    
+    public int GetSelectionItemConfigID()
+    {
+        return selectItemConfigID;
+    }
     #endregion
 
     public override void Release()
@@ -325,6 +341,10 @@ public class ItemPackage : ModelBase
         throw new System.NotImplementedException();
     }
 
+    public bool FilterItemType(uint mask, int configID)
+    {
+        return FilterItemType(mask, GetItemTypeByConfigID(configID));
+    }
     
     bool FilterItemType(uint mask, ItemType type)
     {

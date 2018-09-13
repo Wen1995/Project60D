@@ -165,7 +165,6 @@ public class SSanctuaryController : SceneController
 
     void OnGetSceneInfo(NetMsgDef msg)
     {
-        //print("Get Scene Info");
         TSCGetSceneInfo sceneInfo = TSCGetSceneInfo.ParseFrom(msg.mBtsData);
         for (int i = 0; i < sceneInfo.BuildingInfosCount; i++)
         {
@@ -234,7 +233,6 @@ public class SSanctuaryController : SceneController
 
     void OnBuildingUpgrade(NetMsgDef msg)
     {
-        Debug.Log("building upgrade get responce");
         TSCUpgrade upgrade = TSCUpgrade.ParseFrom(msg.mBtsData);
         if(!upgrade.IsState && upgrade.IsGroup && upgrade.IsResource && upgrade.IsProduction)
         {
@@ -277,7 +275,6 @@ public class SSanctuaryController : SceneController
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         if(sanctuaryPackage.GetBuildingFuncByConfigID(info.configID) == BuildingFunc.Craft)
             SendEvent("RefreshCraftPanel");
-        Debug.Log(string.Format("buildingID{0} collect res type={1}, num={2}", buildingID, itemPackage.GetItemTypeByConfigID(configID), num));
         ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(configID);
         FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
         NDictionary data = new NDictionary();
@@ -294,7 +291,6 @@ public class SSanctuaryController : SceneController
         long remainTime = 0;
         if(GlobalFunction.GetRemainTime(process.FinishTime, out remainTime))
         {
-            print("crafting start, remainTime=" + remainTime.ToString());
             StartCoroutine(CraftTimer(process.BuildingId, remainTime));
             SendEvent("RefreshCraftPanel");
         }
@@ -338,6 +334,5 @@ public class SSanctuaryController : SceneController
         }
     }
     #endregion
-
 
 }

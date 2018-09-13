@@ -12,6 +12,7 @@ public class UIItemValuePanel : PanelBase{
 	private int ratio;			//minum plus/minus value
 	private int value;			//cur value
 	private int itemCap;		//player's item cap
+	private int configID;
 
 	bool isBuy = true;			//is buy or sell
 
@@ -39,16 +40,17 @@ public class UIItemValuePanel : PanelBase{
 
 	void InitView(NDictionary data = null)
 	{
-		NItemInfo info = itemPackage.GetSelectionItem();
+		configID = itemPackage.GetSelectionItemConfigID();
 		isBuy = data.Value<bool>("isbuy");
-		ITEM_RES config = itemPackage.GetItemDataByConfigID(info.configID);
+		ITEM_RES config = itemPackage.GetItemDataByConfigID(configID);
 		if(isBuy)
 		{
 			titleLabel.text = string.Format("购买 {0}", config.MinName);
-			itemCap = itemPackage.GetBuyLimit(info.configID);
+			itemCap = itemPackage.GetBuyLimit(configID);
 		}
 		else
 		{
+			NItemInfo info = itemPackage.GetItemInfo(configID);
 			titleLabel.text = string.Format("出售 {0}", config.MinName);
 			itemCap = info.number;
 		}
@@ -67,6 +69,7 @@ public class UIItemValuePanel : PanelBase{
 	void UpdateValueView()
 	{
 		slider.value = (float)value / (float)itemCap;
+		print(value);
 		numLabel.text = value.ToString();
 	}
 
@@ -109,7 +112,7 @@ public class UIItemValuePanel : PanelBase{
 	{
 		NDictionary args = new NDictionary();
 		NItemInfo info = itemPackage.GetSelectionItem();
-		args.Add("id", info.configID);
+		args.Add("id", configID);
 		args.Add("num", value);
 		args.Add("price", itemPackage.GetItemPrice(info.configID));
 		args.Add("tax", itemPackage.GetTaxRate());

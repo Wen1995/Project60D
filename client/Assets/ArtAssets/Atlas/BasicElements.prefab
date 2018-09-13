@@ -198,7 +198,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Colors
     x: 3319
-    y: 3673
+    y: 3657
     width: 578
     height: 35
     borderLeft: 0
@@ -248,6 +248,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Green-Button
+    x: 3319
+    y: 3693
+    width: 348
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Green-Outline
     x: 901
     y: 1233
@@ -276,7 +289,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: LightSkinTextfield
     x: 0
-    y: 1371
+    y: 1095
     width: 900
     height: 137
     borderLeft: 0
@@ -289,7 +302,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: LightSkinTextfield-Border
     x: 0
-    y: 819
+    y: 1371
     width: 900
     height: 137
     borderLeft: 0
@@ -315,7 +328,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Progress-Bar-Blue
     x: 3319
-    y: 3660
+    y: 3631
     width: 600
     height: 12
     borderLeft: 0
@@ -327,19 +340,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Progress-Bar-Blue_2
-    x: 3319
-    y: 3647
-    width: 600
-    height: 12
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Progress-Bar-Green
     x: 2049
     y: 2822
     width: 600
@@ -352,9 +352,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Progress-Bar-Red
+  - name: Progress-Bar-Green
     x: 2049
     y: 2809
+    width: 600
+    height: 12
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Progress-Bar-Red
+    x: 3319
+    y: 3644
     width: 600
     height: 12
     borderLeft: 0
@@ -444,7 +457,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Red-Button-Rounded-Outline
-    x: 3319
+    x: 3668
     y: 3709
     width: 293
     height: 84
@@ -523,7 +536,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Yellow-Outline
     x: 0
-    y: 1095
+    y: 819
     width: 900
     height: 137
     borderLeft: 0

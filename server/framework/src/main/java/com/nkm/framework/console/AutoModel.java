@@ -23,7 +23,7 @@ import com.nkm.framework.utils.pojo2proto.java2Proto.JavaToProto;
 public class AutoModel {
     private static final Logger logger = LoggerFactory.getLogger(AutoModel.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         List<String> tableNameList = new ArrayList<>();
         
         InputStream is = ClassLoader.getSystemResourceAsStream(Constant.GENERATOR_PATH);
@@ -62,14 +62,9 @@ public class AutoModel {
             JavaToProto.getProto(new String[] {Constant.MODEL_PATH, s});
             logger.info("load {} success", s);
             String strCmd = "protoc.exe -I=./proto --java_out=./src/main/java ./proto/" + s + "Cache" + ".proto";
-            try {
-                Thread.sleep(500);
-                Runtime.getRuntime().exec(strCmd);
-                Thread.sleep(500);
-            } catch (Exception e) {
-                logger.error("", e);
-            }
+            Runtime.getRuntime().exec(strCmd);
         }
+        Thread.sleep(500);          // 不加，cache可能没有修改
         ExternalStorageUtil.delFile(new File("./proto/"));
     }
 }

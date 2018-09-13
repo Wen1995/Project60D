@@ -13,15 +13,17 @@ import com.nkm.framework.utils.ClassUtil;
 import com.nkm.framework.utils.StringUtil;
 
 public class HandlerMappingManager {
-    private static Logger logger = LoggerFactory.getLogger(HandlerMappingManager.class);
+    private static final Logger logger = LoggerFactory.getLogger(HandlerMappingManager.class);
 
     private static Object obj = new Object();
     private static HandlerMappingManager instance;
 
     public static HandlerMappingManager GetInstance() {
-        synchronized (obj) {
-            if (instance == null) {
-                instance = new HandlerMappingManager();
+        if (instance == null) {
+            synchronized (obj) {
+                if (instance == null) {
+                    instance = new HandlerMappingManager();
+                }
             }
         }
         return instance;

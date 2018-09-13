@@ -41,7 +41,11 @@ public class User {
 
     private Date createTime;
 
+    private Date loginTime;
+
     private Date logoutTime;
+
+    private String loginIp;
 
     private byte[] resource;
 
@@ -197,12 +201,28 @@ public class User {
         this.createTime = createTime;
     }
 
+    public Date getLoginTime() {
+        return loginTime;
+    }
+
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
+    }
+
     public Date getLogoutTime() {
         return logoutTime;
     }
 
     public void setLogoutTime(Date logoutTime) {
         this.logoutTime = logoutTime;
+    }
+
+    public String getLoginIp() {
+        return loginIp;
+    }
+
+    public void setLoginIp(String loginIp) {
+        this.loginIp = loginIp == null ? null : loginIp.trim();
     }
 
     public byte[] getResource() {

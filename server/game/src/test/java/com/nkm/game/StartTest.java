@@ -18,20 +18,29 @@ public class StartTest  {
     static IUserDao userDao = ServiceFactory.getProxy(UserDao.class);
     static IGroupDao groupDao = ServiceFactory.getProxy(GroupDao.class);
     
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
+    }
+    
+    static void getGroupInfo() {
         Group group = groupDao.get(6605659701250L);
         System.out.println(group.getPeopleNumber());
     }
     
-    void getStaticDataManage() {
+    static void getStaticDataManage() {
         StaticDataManager.GetInstance().init();
         ReadOnlyMap<Integer, PLAYER_ATTR> playerAttrMap = StaticDataManager.GetInstance().playerAttrMap;
         System.out.println(playerAttrMap.get(13010001).getLimReal());
     }
     
-    void getResource() throws InvalidProtocolBufferException {
-        User user = userDao.get(4294967297L);
-        UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
+    static void getResource() {
+        User user = userDao.get(2203318222851L);
+        UserResource.Builder userResourceBuilder = null;
+        try {
+            userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
+        } catch (InvalidProtocolBufferException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
             ResourceInfo r = userResourceBuilder.getResourceInfos(i);
             System.out.println(r.getConfigId() + " , " + r.getNumber());

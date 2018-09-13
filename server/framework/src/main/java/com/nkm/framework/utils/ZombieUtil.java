@@ -4,26 +4,20 @@ import java.util.Map;
 import com.nkm.framework.console.constant.Constant;
 import com.nkm.framework.resource.DynamicDataManager;
 import com.nkm.framework.resource.StaticDataManager;
-import com.nkm.framework.resource.data.ArithmeticCoefficientBytes.ARITHMETIC_COEFFICIENT;
 import com.nkm.framework.resource.data.WorldEventsBytes.WORLD_EVENTS;
 
 public class ZombieUtil {
-    private static final ReadOnlyMap<Integer, ARITHMETIC_COEFFICIENT> arithmeticCoefficientMap =
-            StaticDataManager.GetInstance().arithmeticCoefficientMap;
-    private static final ReadOnlyMap<Integer, WORLD_EVENTS> worldEventsMap =
-            StaticDataManager.GetInstance().worldEventsMap;
-
     /**
      * 僵尸入侵概率
      */
     public static int getZombieInvadeRate() {
         long currentTime = System.currentTimeMillis();
-        int rate = arithmeticCoefficientMap.get(30110000).getAcK5();
+        int rate = StaticDataManager.GetInstance().arithmeticCoefficientMap.get(30110000).getAcK5();
         double probability = 1.0;
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
             int congigId = entry.getKey();
-            WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
+            WORLD_EVENTS worldEvent = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
             long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
@@ -43,7 +37,7 @@ public class ZombieUtil {
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
             int congigId = entry.getKey();
-            WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
+            WORLD_EVENTS worldEvent = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
             long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
@@ -62,7 +56,7 @@ public class ZombieUtil {
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
             int congigId = entry.getKey();
-            WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
+            WORLD_EVENTS worldEvent = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
             long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
@@ -81,7 +75,7 @@ public class ZombieUtil {
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
             int congigId = entry.getKey();
-            WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
+            WORLD_EVENTS worldEvent = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
             long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
@@ -100,7 +94,7 @@ public class ZombieUtil {
         for (Map.Entry<Integer, Long> entry : DynamicDataManager
                 .GetInstance().worldEventConfigId2HappenTime.entrySet()) {
             int congigId = entry.getKey();
-            WORLD_EVENTS worldEvent = worldEventsMap.get(congigId);
+            WORLD_EVENTS worldEvent = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
             long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {

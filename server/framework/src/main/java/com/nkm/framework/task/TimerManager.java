@@ -40,22 +40,23 @@ import com.nkm.framework.utils.ZombieUtil;
 import io.netty.channel.Channel;
 
 public class TimerManager {
-    private static Logger logger = LoggerFactory.getLogger(TimerManager.class);
+    private static final Logger logger = LoggerFactory.getLogger(TimerManager.class);
 
     private static Object obj = new Object();
     private static TimerManager instance = null;
 
     public static TimerManager GetInstance() {
-        synchronized (obj) {
-            if (instance == null) {
-                instance = new TimerManager();
+        if (instance == null) {
+            synchronized (obj) {
+                if (instance == null) {
+                    instance = new TimerManager();
+                }
             }
         }
         return instance;
     }
 
-    private static ApplicationContext context =
-            new ClassPathXmlApplicationContext("applicationContext.xml");
+    private static ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     private ITimerDao timerDao = (ITimerDao) context.getBean("timerDao");
     private IUserDao userDao = (IUserDao) context.getBean("userDao");
     private IWorldEventDao worldEventDao = (IWorldEventDao) context.getBean("worldEventDao");
@@ -127,7 +128,7 @@ public class TimerManager {
                 for (Map.Entry<Long, Long> entry : groupId2InvadeTime.entrySet()) {
                     long groupId = entry.getKey();
                     long currentTime = System.currentTimeMillis();
-                    // 是否多天未被进攻
+                    /*// 是否多天未被进攻
                     if (currentTime - entry.getValue() > Constant.TIME_DAY * day) {
                         TCSZombieInvade pInvade =
                                 TCSZombieInvade.newBuilder().setGroupId(groupId).build();
@@ -136,7 +137,7 @@ public class TimerManager {
                         p.setReceiveTime(currentTime);
                         p.setBuffer(pInvade.toByteArray());
                         GameServer.GetInstance().sendInner(p);
-                    } else if (/*new Random().nextInt(10000)*/new Random().nextInt(300) < ZombieUtil.getZombieInvadeRate()) {
+                    } else if (new Random().nextInt(10000) < ZombieUtil.getZombieInvadeRate()) {
                         // 是否可以进攻
                         if (entry.getValue() + Constant.TIME_HOUR * hour < currentTime) {
                             TCSZombieInvade pInvade =
@@ -147,10 +148,28 @@ public class TimerManager {
                             p.setBuffer(pInvade.toByteArray());
                             GameServer.GetInstance().sendInner(p);
                         }
-                    }
+                    }*/
+                    /*if (new Random().nextInt(300) < ZombieUtil.getZombieInvadeRate()) {
+                        if (entry.getValue() < currentTime) {
+                            TCSZombieInvade pInvade = TCSZombieInvade.newBuilder().setGroupId(groupId).build();
+                            TPacket p = new TPacket();
+                            p.setCmd(Cmd.ZOMBIEINVADE_VALUE);
+                            p.setReceiveTime(currentTime);
+                            p.setBuffer(pInvade.toByteArray());
+                            GameServer.GetInstance().sendInner(p);
+                        }
+                    }*/
                 }
+                
+                System.out.println("hello");
+                TCSZombieInvade pInvade = TCSZombieInvade.newBuilder().setGroupId(1108101562369L).build();
+                TPacket p = new TPacket();
+                p.setCmd(Cmd.ZOMBIEINVADE_VALUE);
+                p.setReceiveTime(System.currentTimeMillis());
+                p.setBuffer(pInvade.toByteArray());
+                GameServer.GetInstance().sendInner(p);
             }
-        }, 60, 60, TimeUnit.SECONDS);
+        }, 0, 1200, TimeUnit.SECONDS);
 
         // 随机发生世界事件
         scheduleTask.scheduleWithFixedDelay(new Runnable() {

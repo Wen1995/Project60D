@@ -149,7 +149,7 @@ public class TimerManager {
                             GameServer.GetInstance().sendInner(p);
                         }
                     }*/
-                    /*if (new Random().nextInt(300) < ZombieUtil.getZombieInvadeRate()) {
+                    if (new Random().nextInt(300) < ZombieUtil.getZombieInvadeRate()) {
                         if (entry.getValue() < currentTime) {
                             TCSZombieInvade pInvade = TCSZombieInvade.newBuilder().setGroupId(groupId).build();
                             TPacket p = new TPacket();
@@ -158,18 +158,10 @@ public class TimerManager {
                             p.setBuffer(pInvade.toByteArray());
                             GameServer.GetInstance().sendInner(p);
                         }
-                    }*/
+                    }
                 }
-                
-                System.out.println("hello");
-                TCSZombieInvade pInvade = TCSZombieInvade.newBuilder().setGroupId(1108101562369L).build();
-                TPacket p = new TPacket();
-                p.setCmd(Cmd.ZOMBIEINVADE_VALUE);
-                p.setReceiveTime(System.currentTimeMillis());
-                p.setBuffer(pInvade.toByteArray());
-                GameServer.GetInstance().sendInner(p);
             }
-        }, 0, 1200, TimeUnit.SECONDS);
+        }, 60, 60, TimeUnit.SECONDS);
 
         // 随机发生世界事件
         scheduleTask.scheduleWithFixedDelay(new Runnable() {

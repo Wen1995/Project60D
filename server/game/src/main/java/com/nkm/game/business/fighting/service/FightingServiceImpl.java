@@ -135,7 +135,7 @@ public class FightingServiceImpl implements FightingService {
         }
         Random rand = new Random();
         configId += rand.nextInt(10);
-        //configId = 20010003;// TODO
+        //configId = 20020010;// TODO
 
         // 更新僵尸入侵时间
         int zombieInvadeTime = arithmeticCoefficientMap.get(30100000).getAcK4() * 60;
@@ -527,7 +527,7 @@ public class FightingServiceImpl implements FightingService {
             double zombieTime = blood4AllZombie / allDps;
             double humanTime = maxTime - intoDoorTime;
             for (User u : users) {
-                if (u.getBlood() >= judgeBlood) {
+                if (u.getBlood() > judgeBlood) {
                     double zombieDps =
                             (zombieAttack - K1 * u.getDefense()) * (1 - UserUtil.agileRate(u));
                     if (zombieDps <= 0) {
@@ -576,14 +576,14 @@ public class FightingServiceImpl implements FightingService {
                                         .newBuilder().setType(InvadeResultType.PLAYER_VALUE)
                                         .setId(u.getId()).setBlood(blood);
                                 invadeResultInfos.add(invadeResultInfoBuilder.build());
+                            } else {
+                                double dps = u.getAttack() - K1 * zombieDefence;
+                                if (dps > 0) {
+                                    allDps += dps;
+                                }
                             }
                             u.setBlood(blood);
                             userDao.update(u);
-
-                            double dps = u.getAttack() - K1 * zombieDefence;
-                            if (dps > 0) {
-                                allDps += dps;
-                            }
                         }
                     }
                     intoDoorTime += intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime,

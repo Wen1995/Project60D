@@ -54,9 +54,18 @@ public class BuildingCostListCell : NListCell {
 			if(itemData == null) return;
 			nameLabel.text = string.Format("{0}:", itemData.MinName);	
 			NItemInfo itemInfo = itemPackage.GetItemInfo(cost.configID);
-			valueLabel.text = string.Format("{0}/{1}", cost.value, itemInfo.number);
-			if(itemInfo.number < cost.value)
+			if(itemInfo == null)
+			{
+				valueLabel.text = string.Format("{0}/{1}", cost.value, 0);
 				isEnough = false;
+			}
+			else
+			{
+				valueLabel.text = string.Format("{0}/{1}", cost.value, itemInfo.number);
+				if(itemInfo.number < cost.value)
+					isEnough = false;
+			}
+			
 		}
 		if(isEnough)
 		{

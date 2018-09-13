@@ -135,10 +135,11 @@ public class FightingServiceImpl implements FightingService {
         }
         Random rand = new Random();
         configId += rand.nextInt(10);
-        configId = 20010003;// TODO
+        //configId = 20020010;// TODO
 
         // 更新僵尸入侵时间
         int zombieInvadeTime = arithmeticCoefficientMap.get(30100000).getAcK4() * 60;
+        zombieInvadeTime = 10;// TODO
         long time = System.currentTimeMillis() + zombieInvadeTime * 1000;
         Group group = groupDao.get(groupId);
         group.setInvadeTime(new Date(time));
@@ -153,20 +154,22 @@ public class FightingServiceImpl implements FightingService {
             leftTime *= BuildingUtil.getRadarCoefficient();
             int receiveTime = zombieInvadeTime - leftTime;
             String timerKey = TimerConstant.RECEIVEZOMBIEMESSAGE + groupId;
-            receiveTime = 5;// TODO
-            TCSReceiveZombieMessage p = TCSReceiveZombieMessage.newBuilder().setGroupId(groupId)
-                    .setConfigId(configId).setZombieInvadeTime(time).build();
-            TimerManager.GetInstance().sumbit(timerKey, uid, Cmd.RECEIVEZOMBIEMESSAGE_VALUE,
-                    p.toByteArray(), receiveTime);
+            TCSReceiveZombieMessage p = TCSReceiveZombieMessage.newBuilder()
+                    .setGroupId(groupId)
+                    .setConfigId(configId)
+                    .setZombieInvadeTime(time)
+                    .build();
+            TimerManager.GetInstance().sumbit(timerKey, uid, Cmd.RECEIVEZOMBIEMESSAGE_VALUE, p.toByteArray(), receiveTime);
         }
 
         // 开启僵尸入侵结果的定时器
-        TCSZombieInvadeResult p = TCSZombieInvadeResult.newBuilder().setGroupId(groupId)
-                .setConfigId(configId).setDoorId(doorId).build();
+        TCSZombieInvadeResult p = TCSZombieInvadeResult.newBuilder()
+                .setGroupId(groupId)
+                .setConfigId(configId)
+                .setDoorId(doorId)
+                .build();
         String timerKey = TimerConstant.ZOMBIEINVADERESULT + groupId;
-        zombieInvadeTime = 10;// TODO
-        TimerManager.GetInstance().sumbit(timerKey, uid, Cmd.ZOMBIEINVADERESULT_VALUE,
-                p.toByteArray(), zombieInvadeTime);
+        TimerManager.GetInstance().sumbit(timerKey, uid, Cmd.ZOMBIEINVADERESULT_VALUE, p.toByteArray(), zombieInvadeTime);
         return null;
     }
 
@@ -428,11 +431,15 @@ public class FightingServiceImpl implements FightingService {
         }
 
         // 保存消息
-        FightingInfo.Builder fBuilder =
-                FightingInfo.newBuilder().addAllInvadeResultInfos(invadeResultInfos)
-                        .addAllUserInfos(userInfos).addAllLossInfos(lossInfos);
-        TCSSaveMessage p = TCSSaveMessage.newBuilder().setGroupId(groupId)
-                .setType(MessageType.FIGHTING_INFO_VALUE).setFightingInfo(fBuilder).build();
+        FightingInfo.Builder fBuilder = FightingInfo.newBuilder()
+                .addAllInvadeResultInfos(invadeResultInfos)
+                .addAllUserInfos(userInfos)
+                .addAllLossInfos(lossInfos);
+        TCSSaveMessage p = TCSSaveMessage.newBuilder()
+                .setGroupId(groupId)
+                .setType(MessageType.FIGHTING_INFO_VALUE)
+                .setFightingInfo(fBuilder)
+                .build();
         TPacket resp = new TPacket();
         resp.setCmd(Cmd.SAVEMESSAGE_VALUE);
         resp.setReceiveTime(System.currentTimeMillis());
@@ -520,7 +527,7 @@ public class FightingServiceImpl implements FightingService {
             double zombieTime = blood4AllZombie / allDps;
             double humanTime = maxTime - intoDoorTime;
             for (User u : users) {
-                if (u.getBlood() >= judgeBlood) {
+                if (u.getBlood() > judgeBlood) {
                     double zombieDps =
                             (zombieAttack - K1 * u.getDefense()) * (1 - UserUtil.agileRate(u));
                     if (zombieDps <= 0) {
@@ -556,11 +563,11 @@ public class FightingServiceImpl implements FightingService {
                     blood4AllZombie -= blood4ZombieDecrease;
 
                     // 玩家扣血、重新计算dps
+                    allDps = 0;
                     for (User u : users) {
                         int blood = u.getBlood();
                         if (blood > judgeBlood) {
-                            double zombieDps = (zombieAttack - K1 * u.getDefense())
-                                    * (1 - UserUtil.agileRate(u));
+                            double zombieDps = (zombieAttack - K1 * u.getDefense()) * (1 - UserUtil.agileRate(u));
                             blood -= zombieDps * humanTime;
                             if (blood <= judgeBlood) {
                                 blood = judgeBlood;
@@ -569,14 +576,14 @@ public class FightingServiceImpl implements FightingService {
                                         .newBuilder().setType(InvadeResultType.PLAYER_VALUE)
                                         .setId(u.getId()).setBlood(blood);
                                 invadeResultInfos.add(invadeResultInfoBuilder.build());
+                            } else {
+                                double dps = u.getAttack() - K1 * zombieDefence;
+                                if (dps > 0) {
+                                    allDps += dps;
+                                }
                             }
                             u.setBlood(blood);
                             userDao.update(u);
-
-                            double dps = u.getAttack() - K1 * zombieDefence;
-                            if (dps > 0) {
-                                allDps += dps;
-                            }
                         }
                     }
                     intoDoorTime += intoDoor(allDps, blood4AllZombie, blood4PerZombie, intoDoorTime,

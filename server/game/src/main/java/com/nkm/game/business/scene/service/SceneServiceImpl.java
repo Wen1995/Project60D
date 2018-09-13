@@ -204,32 +204,46 @@ public class SceneServiceImpl implements SceneService {
             isState = false;
             // 公司实力是否满足
             Group group = groupDao.get(groupId);
-            ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+            BUILDING buildingAttr = StaticDataManager.GetInstance().buildingMap.get(configId);
             Integer totalContribution = group.getTotalContribution();
-            if (totalContribution >= buildingMap.get(configId).getBldgStrengthLim()) {
+            if (totalContribution >= buildingAttr.getBldgStrengthLim()) {
                 isGroup = true;
                 // 资源是否满足 
-                boolean isExist = true;
-                List<CostStruct> costStructs = buildingMap.get(configId).getCostTableList();
+                
+                List<CostStruct> costStructs = buildingAttr.getCostTableList();
+                double leftGold = user.getGold() - buildingAttr.getGoldCost();
+                int leftElectricity = user.getElectricity() - buildingAttr.getElecCost();
+                
                 UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
                 List<ResourceInfo> resourceInfos = userResourceBuilder.getResourceInfosList();
-                for (CostStruct c : costStructs) {
-                    int costId = c.getCostId();
-                    if (costId != 0) {
+                
+                boolean isExist = true;
+                if (leftGold < 0) {
+                    isExist = false;
+                } else {
+                    if (leftElectricity < 0) {
                         isExist = false;
-                        for (ResourceInfo r : resourceInfos) {
-                            if (r.getConfigId() == costId) {
-                                if (r.getNumber() >= c.getCostQty()) {
-                                    isExist = true;
+                    } else {
+                        for (CostStruct c : costStructs) {
+                            int costId = c.getCostId();
+                            if (costId != 0) {
+                                isExist = false;
+                                for (ResourceInfo r : resourceInfos) {
+                                    if (r.getConfigId() == costId) {
+                                        if (r.getNumber() >= c.getCostQty()) {
+                                            isExist = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (!isExist) {
                                     break;
                                 }
                             }
                         }
-                        if (!isExist) {
-                            break;
-                        }
                     }
                 }
+                
                 if (isExist) {
                     isResource = true;
                     // 是否有空闲的建筑队列
@@ -238,9 +252,12 @@ public class SceneServiceImpl implements SceneService {
                         isProduction = true;
                         // 更新玩家状态
                         user.setProduction(--production);
-                        Integer addContribution = buildingMap.get(configId).getBldgStrengthAdd();
+                        Integer addContribution = buildingAttr.getBldgStrengthAdd();
                         Integer contribution = user.getContribution() + addContribution;
                         user.setContribution(contribution);
+                        user.setGold(leftGold);
+                        user.setElectricity(leftElectricity);
+                        
                         for (CostStruct c : costStructs) {
                             for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
                                 ResourceInfo.Builder rbBuilder = userResourceBuilder.getResourceInfosBuilder(i);
@@ -266,7 +283,7 @@ public class SceneServiceImpl implements SceneService {
                         
                         // 更新建筑升级状态
                         String timerKey = TimerConstant.UPGRADE + buildingId;
-                        int sec = buildingMap.get(configId).getTimeCost();
+                        int sec = buildingAttr.getTimeCost();
                         finishTime = System.currentTimeMillis() + sec * 1000;
                         
                         upgradeInfoBuilder.setUid(uid).setFinishTime(finishTime);
@@ -346,33 +363,45 @@ public class SceneServiceImpl implements SceneService {
         Long groupId = user.getGroupId();
         Group group = groupDao.get(groupId);
         // 公司实力是否满足
-        ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+        BUILDING buildingAttr = StaticDataManager.GetInstance().buildingMap.get(configId);
         Integer totalContribution = group.getTotalContribution();
-        if (totalContribution >= buildingMap.get(configId).getBldgStrengthLim()) {
+        if (totalContribution >= buildingAttr.getBldgStrengthLim()) {
             isGroup = true;
             // 资源是否满足 
-            List<CostStruct> costStructs = buildingMap.get(configId).getCostTableList();
+            List<CostStruct> costStructs = buildingAttr.getCostTableList();
+            double leftGold = user.getGold() - buildingAttr.getGoldCost();
+            int leftElectricity = user.getElectricity() - buildingAttr.getElecCost();
+            
             UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
             List<ResourceInfo> resourceInfos = userResourceBuilder.build().getResourceInfosList();
             
             boolean isExist = true;
-            for (CostStruct c : costStructs) {
-                int costId = c.getCostId();
-                if (costId != 0) {
+            if (leftGold < 0) {
+                isExist = false;
+            } else {
+                if (leftElectricity < 0) {
                     isExist = false;
-                    for (ResourceInfo r : resourceInfos) {
-                        if (r.getConfigId() == costId) {
-                            if (r.getNumber() >= c.getCostQty()) {
-                                isExist = true;
+                } else {
+                    for (CostStruct c : costStructs) {
+                        int costId = c.getCostId();
+                        if (costId != 0) {
+                            isExist = false;
+                            for (ResourceInfo r : resourceInfos) {
+                                if (r.getConfigId() == costId) {
+                                    if (r.getNumber() >= c.getCostQty()) {
+                                        isExist = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!isExist) {
                                 break;
                             }
                         }
                     }
-                    if (!isExist) {
-                        break;
-                    }
                 }
             }
+            
             if (isExist) {
                 isResource = true;
                 // 是否有空闲的建筑队列
@@ -381,9 +410,12 @@ public class SceneServiceImpl implements SceneService {
                     isProduction = true;
                     // 更新玩家状态
                     user.setProduction(--production);
-                    Integer addContribution = buildingMap.get(configId).getBldgStrengthAdd();
+                    Integer addContribution = buildingAttr.getBldgStrengthAdd();
                     Integer contribution = user.getContribution() + addContribution;
                     user.setContribution(contribution);
+                    user.setGold(leftGold);
+                    user.setElectricity(leftElectricity);
+                    
                     for (CostStruct c : costStructs) {
                         for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
                             ResourceInfo.Builder rBuilder = userResourceBuilder.getResourceInfosBuilder(i);
@@ -409,7 +441,7 @@ public class SceneServiceImpl implements SceneService {
                     
                     // 更新建筑升级状态
                     String timerKey = TimerConstant.UNLOCK + buildingId;
-                    int sec = buildingMap.get(configId).getTimeCost();
+                    int sec = buildingAttr.getTimeCost();
                     finishTime = System.currentTimeMillis() + sec * 1000;
                     
                     buildingId = IdManager.GetInstance().genId(IdType.BUILDING);

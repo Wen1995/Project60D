@@ -25,9 +25,11 @@ public class DynamicDataManager {
     private static DynamicDataManager instance;
 
     public static DynamicDataManager GetInstance() {
-        synchronized (obj) {
-            if (instance == null) {
-                instance = new DynamicDataManager();
+        if (instance == null) {
+            synchronized (obj) {
+                if (instance == null) {
+                    instance = new DynamicDataManager();
+                }
             }
         }
         return instance;

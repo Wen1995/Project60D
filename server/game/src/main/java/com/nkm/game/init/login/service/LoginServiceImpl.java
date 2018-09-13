@@ -71,18 +71,18 @@ public class LoginServiceImpl implements LoginService {
             user.setProduction(1);
             
             // 初始资源
-            List<ResourceInfo> resourceInfos = new ArrayList<>();
+            /*List<ResourceInfo> resourceInfos = new ArrayList<>();
             ReadOnlyMap<Integer, ITEM_RES> itemResMap = StaticDataManager.GetInstance().itemResMap;
             for (Integer key : itemResMap.keySet()) {
                 ResourceInfo resourceInfo = ResourceInfo.newBuilder()
                         .setConfigId(key)
-                        .setNumber(5000)
+                        .setNumber(0)
                         .build();
                 resourceInfos.add(resourceInfo);
             }
             UserResource userResource = UserResource.newBuilder()
                     .addAllResourceInfos(resourceInfos).build();
-            user.setResource(userResource.toByteArray());
+            user.setResource(userResource.toByteArray());*/
             
             userDao.insert(user);
             account2Id.put(account, uid);

@@ -50,8 +50,9 @@ public class RoomServiceImpl implements RoomService {
         group.setId(groupId);
         group.setName(name);
         group.setPeopleNumber(1);
-        group.setTotalContribution(0);
+        group.setTotalContribution(1091216500);
         group.setStorehouseId(storehouseId);
+        group.setBatteryId(batteryId);
         group.setInvadeTime(new Date(System.currentTimeMillis()));
         groupDao.insert(group);
         
@@ -68,7 +69,7 @@ public class RoomServiceImpl implements RoomService {
         building.setGroupId(groupId);
         building.setPositionX(0);
         building.setPositionY(0);
-        building.setConfigId(113030020);    // 仓库ID
+        building.setConfigId(113030001);    // 仓库ID
         UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
                 .setUid(uid)
                 .setFinishTime(0)
@@ -85,7 +86,7 @@ public class RoomServiceImpl implements RoomService {
         building.setGroupId(groupId);
         building.setPositionX(0);
         building.setPositionY(0);
-        building.setConfigId(113040020);    // 电池ID
+        building.setConfigId(113040001);    // 电池ID
         upgradeInfo = UpgradeInfo.newBuilder()
                 .setUid(uid)
                 .setFinishTime(0)
@@ -96,7 +97,7 @@ public class RoomServiceImpl implements RoomService {
         building.setState(buildingState.toByteArray());
         buildingDao.insertByGroupId(building);
         
-        // TODO 所有建筑满级
+        /*// TODO 所有建筑满级
         Set<Integer> set = new HashSet<>();
         set.add(11303);
         set.add(11304);
@@ -114,7 +115,7 @@ public class RoomServiceImpl implements RoomService {
             building.setGroupId(groupId);
             building.setPositionX(0);
             building.setPositionY(0);
-            building.setConfigId(config);
+            building.setConfigId(type * 10000 + 20);
             upgradeInfo = UpgradeInfo.newBuilder()
                     .setUid(uid)
                     .setFinishTime(0)
@@ -147,7 +148,7 @@ public class RoomServiceImpl implements RoomService {
             
             building.setState(buildingStatebuilder.build().toByteArray());
             buildingDao.insertByGroupId(building);
-        }
+        }*/
         
         TSCCreateGroup p = TSCCreateGroup.newBuilder()
                 .setGroupId(groupId)
@@ -225,7 +226,7 @@ public class RoomServiceImpl implements RoomService {
         user.setMood(playerAttrMap.get(10020001).getBeginNum());
         // TODO
         user.setElectricity(1000);
-        user.setGold(100.0);
+        user.setGold(100000000.0);
         
         PLAYER_ATTR attackAttr = playerAttrMap.get(12010001);
         user.setAttack(attackAttr.getBeginNum() + user.getHealth()*100/attackAttr.getAttrK1());

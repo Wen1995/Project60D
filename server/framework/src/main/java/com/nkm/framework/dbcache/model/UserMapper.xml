@@ -21,7 +21,9 @@
     <result column="electricity" jdbcType="INTEGER" property="electricity" />
     <result column="production" jdbcType="INTEGER" property="production" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
     <result column="logout_time" jdbcType="TIMESTAMP" property="logoutTime" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.nkm.framework.dbcache.model.User">
     <result column="resource" jdbcType="LONGVARBINARY" property="resource" />
@@ -87,7 +89,7 @@
   <sql id="Base_Column_List">
     id, account, password, group_id, contribution, gold, blood, food, water, health, 
     mood, attack, defense, agile, speed, intellect, electricity, production, create_time, 
-    logout_time
+    login_time, logout_time, login_ip
   </sql>
   <sql id="Blob_Column_List">
     resource
@@ -147,16 +149,16 @@
       health, mood, attack, 
       defense, agile, speed, 
       intellect, electricity, production, 
-      create_time, logout_time, resource
-      )
+      create_time, login_time, logout_time, 
+      login_ip, resource)
     values (#{id,jdbcType=BIGINT}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{groupId,jdbcType=BIGINT}, #{contribution,jdbcType=INTEGER}, #{gold,jdbcType=DOUBLE}, 
       #{blood,jdbcType=INTEGER}, #{food,jdbcType=INTEGER}, #{water,jdbcType=INTEGER}, 
       #{health,jdbcType=INTEGER}, #{mood,jdbcType=INTEGER}, #{attack,jdbcType=INTEGER}, 
       #{defense,jdbcType=INTEGER}, #{agile,jdbcType=INTEGER}, #{speed,jdbcType=INTEGER}, 
       #{intellect,jdbcType=INTEGER}, #{electricity,jdbcType=INTEGER}, #{production,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{logoutTime,jdbcType=TIMESTAMP}, #{resource,jdbcType=LONGVARBINARY}
-      )
+      #{createTime,jdbcType=TIMESTAMP}, #{loginTime,jdbcType=TIMESTAMP}, #{logoutTime,jdbcType=TIMESTAMP}, 
+      #{loginIp,jdbcType=VARCHAR}, #{resource,jdbcType=LONGVARBINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.nkm.framework.dbcache.model.User">
     insert into t_user
@@ -218,8 +220,14 @@
       <if test="createTime != null">
         create_time,
       </if>
+      <if test="loginTime != null">
+        login_time,
+      </if>
       <if test="logoutTime != null">
         logout_time,
+      </if>
+      <if test="loginIp != null">
+        login_ip,
       </if>
       <if test="resource != null">
         resource,
@@ -283,8 +291,14 @@
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="loginTime != null">
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="logoutTime != null">
         #{logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        #{loginIp,jdbcType=VARCHAR},
       </if>
       <if test="resource != null">
         #{resource,jdbcType=LONGVARBINARY},
@@ -357,8 +371,14 @@
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.loginTime != null">
+        login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="record.logoutTime != null">
         logout_time = #{record.logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.loginIp != null">
+        login_ip = #{record.loginIp,jdbcType=VARCHAR},
       </if>
       <if test="record.resource != null">
         resource = #{record.resource,jdbcType=LONGVARBINARY},
@@ -389,7 +409,9 @@
       electricity = #{record.electricity,jdbcType=INTEGER},
       production = #{record.production,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      login_time = #{record.loginTime,jdbcType=TIMESTAMP},
       logout_time = #{record.logoutTime,jdbcType=TIMESTAMP},
+      login_ip = #{record.loginIp,jdbcType=VARCHAR},
       resource = #{record.resource,jdbcType=LONGVARBINARY}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -416,7 +438,9 @@
       electricity = #{record.electricity,jdbcType=INTEGER},
       production = #{record.production,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      logout_time = #{record.logoutTime,jdbcType=TIMESTAMP}
+      login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      logout_time = #{record.logoutTime,jdbcType=TIMESTAMP},
+      login_ip = #{record.loginIp,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -478,8 +502,14 @@
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="loginTime != null">
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
       <if test="logoutTime != null">
         logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        login_ip = #{loginIp,jdbcType=VARCHAR},
       </if>
       <if test="resource != null">
         resource = #{resource,jdbcType=LONGVARBINARY},
@@ -507,7 +537,9 @@
       electricity = #{electricity,jdbcType=INTEGER},
       production = #{production,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
       logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
       resource = #{resource,jdbcType=LONGVARBINARY}
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -531,7 +563,9 @@
       electricity = #{electricity,jdbcType=INTEGER},
       production = #{production,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      logout_time = #{logoutTime,jdbcType=TIMESTAMP}
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+      login_ip = #{loginIp,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

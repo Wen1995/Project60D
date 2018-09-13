@@ -19,17 +19,18 @@ import com.nkm.framework.console.config.ServerConfig;
  * @author zB
  */
 public class IdManager {
-    private static Logger logger = LoggerFactory.getLogger(IdManager.class);
+    private static final Logger logger = LoggerFactory.getLogger(IdManager.class);
 	
-	//单例
 	private static Object obj = new Object();
 	private static IdManager instance;
-	public static IdManager GetInstance(){
-		synchronized (obj) {
-			if(instance == null){
-				instance = new IdManager();
-			}
-		}
+	public static IdManager GetInstance() {
+	    if (instance == null) {
+	        synchronized (obj) {
+	            if(instance == null){
+	                instance = new IdManager();
+	            }
+	        } 
+	    }
 		return instance;
 	}
 	

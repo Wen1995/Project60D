@@ -72,7 +72,6 @@ public class UIBuildingInfoPanel : PanelBase {
         {
             NDictionary data = new NDictionary();
             prefabName = prefabName.Substring(0, prefabName.IndexOf("."));
-            print(prefabName);
             GameObject prefab = Resources.Load<GameObject>("Prefabs/Building/" + prefabName);
             if(prefab != null)
             {

@@ -58,9 +58,9 @@ public class UIPlayerMenuPanel : PanelBase {
 	{
 		PlayerState playerState = userPackage.GetPlayerState();
 		if(playerState == null) return;
-		coinLabel.text = itemPackage.GetGoldNumber().ToString();
-		resLabel.text = itemPackage.GetResourceTotolNumber().ToString();
-		elecLabel.text = itemPackage.GetElecNumber().ToString();
+		coinLabel.text = GlobalFunction.NumberFormat(itemPackage.GetGoldNumber());
+		resLabel.text = GlobalFunction.NumberFormat(itemPackage.GetResourceTotolNumber());
+		elecLabel.text = GlobalFunction.NumberFormat(itemPackage.GetElecNumber());
 		taskLabel.text = "空闲";
 		healthProgressBar.value = (float)playerState.blood / (float)(20 + 2 * playerState.health);
 		hungerProgressBar.value = (float)playerState.hunger / (float)(20 + 2 * playerState.health);
@@ -72,7 +72,7 @@ public class UIPlayerMenuPanel : PanelBase {
 	{
 		float progres = 0f;
 		levelLabel.text = string.Format("Lv.{0}", userPackage.GetPlayerLevel(out progres).ToString());
-		expProgressBar.value = 1 - progres;
+		expProgressBar.value = progres;
 	}
 
 	void OnPlayerInfo()

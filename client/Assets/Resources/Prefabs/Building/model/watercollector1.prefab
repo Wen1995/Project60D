@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4741197603827274}
   - component: {fileID: 65896585948301232}
   m_Layer: 9
-  m_Name: watercollecor1
+  m_Name: watercollector1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

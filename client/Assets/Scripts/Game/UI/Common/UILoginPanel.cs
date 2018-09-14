@@ -1,6 +1,7 @@
 ﻿using com.nkm.framework.protocol;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class UILoginPanel : PanelBase {
@@ -29,9 +30,12 @@ public class UILoginPanel : PanelBase {
 
     void OnLogin()
     {
-        NDictionary data = new NDictionary();
-        data.Add("username", userName.value);
-        FacadeSingleton.Instance.InvokeService("Login", ConstVal.Service_Common, data);
+        if(CheckString(userName.value))
+        {
+            NDictionary data = new NDictionary();
+            data.Add("username", userName.value);
+            FacadeSingleton.Instance.InvokeService("Login", ConstVal.Service_Common, data);
+        }
     }
 
     void OnLoginSuccussed(NetMsgDef msg)
@@ -78,5 +82,22 @@ public class UILoginPanel : PanelBase {
     void LoadNextScene()
     {
         SceneLoader.LoadScene("SLoading");
+    }
+
+    bool CheckString(string str)
+    {
+        Regex regex = new Regex("[\u4e00-\u9fa5_a-zA-Z0-9_]{4,10}");
+        if(regex.IsMatch(str))
+            return true;
+        else
+        {
+            NDictionary data = new NDictionary();
+            data.Add("title", "创建用户失败");
+            data.Add("method", 1);
+            data.Add("content", "用户名不合法\n用户名只允许中文，英文，数字与下划线，长度在2到10个字符之间");
+            FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+            SendEvent("OpenMsgBox", data);
+            return false;
+        }
     }
 }

@@ -4655,7 +4655,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114941413815276036, guid: 07bf9f15629c9404c851b6516671288d, type: 2}
-  mSpriteName: Progress-Bar-Green
+  mSpriteName: Green-Button
   mFillCenter: 1
 --- !u!114 &114075023288863948
 MonoBehaviour:
@@ -4709,7 +4709,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114941413815276036, guid: 07bf9f15629c9404c851b6516671288d, type: 2}
-  mSpriteName: Progress-Bar-Red
+  mSpriteName: Red-Button
   mFillCenter: 1
 --- !u!114 &114079902429560228
 MonoBehaviour:
@@ -9171,7 +9171,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114941413815276036, guid: 07bf9f15629c9404c851b6516671288d, type: 2}
-  mSpriteName: Progress-Bar-Blue_2
+  mSpriteName: Blue-Button
   mFillCenter: 1
 --- !u!114 &114723577694604444
 MonoBehaviour:

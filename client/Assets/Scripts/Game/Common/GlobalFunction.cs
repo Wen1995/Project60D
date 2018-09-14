@@ -20,6 +20,12 @@ public static class GlobalFunction {
         return System.Convert.ToInt64(curTime);
     }
 
+    public static long GetGraphStartTimeStamp()
+    {
+        long curTime = GetTimeStamp();
+        return curTime - 86400000;
+    }
+
     public static int MilliToSec(long time)
     {
         return (int)Mathf.Floor((float)(time / 1000));
@@ -68,15 +74,22 @@ public static class GlobalFunction {
             if(num % 1000 == 0)   
                 return string.Format("{0}k", num / 1000);
             else
-                return string.Format("{0}k", ((float)num / 1000f).ToString("0.00"));
+                return string.Format("{0}k", ((double)num / 1000f).ToString("0.00"));
         }
             
         else if(num < 1000000000)
         {
             if(num % 1000000 == 0)
+            {
+                Debug.Log(num);
                 return string.Format("{0}m", num / 1000000); 
+            }
+                
             else
-                return string.Format("{0}m", ((float)num / 1000000f).ToString("0.00")); 
+            {
+                return string.Format("{0}m", ((double)num / 1000000).ToString("0.00")); 
+            }
+                
 
         }
             
@@ -88,6 +101,14 @@ public static class GlobalFunction {
             // else
             //     return string.Format("{0}b", ((float)num / 1000000000f).ToString("0.00")); 
         }
+    }
+
+    public static string NumberFormat(double num)
+    {
+        if(num >= 1000f)
+            return NumberFormat((int)num);
+        else
+            return num.ToString("0.00");
     }
 
     //time should be in seconds
@@ -110,7 +131,7 @@ public static class GlobalFunction {
     public static System.DateTime DateFormat(long timestamp)
     {
         System.DateTime dtDateTime = new DateTime(1970,1,1,0,0,0,0,System.DateTimeKind.Utc);
-        dtDateTime = dtDateTime.AddSeconds(timestamp / 1000).ToLocalTime();
+        dtDateTime = dtDateTime.AddMilliseconds(timestamp).ToLocalTime();
         return dtDateTime;
     }
 

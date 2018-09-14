@@ -17,6 +17,7 @@ public class NWorldEventInfo
 {
     public int configID;
     public long happenTime;
+    public bool isHappen = true;
     public NWorldEventInfo()
     {}
 
@@ -34,6 +35,8 @@ public class EventPackage : ModelBase
 
     List<NWorldEventInfo> curEventList = new List<NWorldEventInfo>();
     List<NWorldEventInfo> futureEventList = new List<NWorldEventInfo>();
+
+    List<NWorldEventInfo> historyEventList = new List<NWorldEventInfo>();
 
     public bool IsVisible(NWorldEventInfo info)
     {
@@ -105,7 +108,20 @@ public class EventPackage : ModelBase
         }
         return configList[configID] as WORLD_EVENTS;
     }
+
+
+    public void SetHistoryEvent()
+    {
+        //TODO;
+    }
+
+    public List<NWorldEventInfo> GetHistoryEventList()
+    {
+        return historyEventList;
+    }
+
 	#endregion
+
     public override void Release()
     {
         throw new System.NotImplementedException();

@@ -122,9 +122,9 @@ public class UIPlayerInfoPanel : PanelBase {
 		thirstProgress.value = (float)state.thirst / (float)(20 + 2 * state.health);
 		thirstLabel.text = string.Format("{0}/{1}", state.thirst, 20 + 2 * state.health);
 		interestLabel.text = string.Format("分配比例:{0:f}%", (float)userPackage.GetPlayerInterest() * 100);
-		resLabel.text = itemPackage.GetResourceTotolNumber().ToString();
-		moneyLabel.text = itemPackage.GetGoldNumber().ToString();
-		elecLabel.text = itemPackage.GetElecNumber().ToString();
+		resLabel.text = GlobalFunction.NumberFormat(itemPackage.GetResourceTotolNumber());
+		moneyLabel.text = GlobalFunction.NumberFormat(itemPackage.GetGoldNumber());
+		elecLabel.text = GlobalFunction.NumberFormat(itemPackage.GetElecNumber());;
 		attackLabel.text = state.attack.ToString();
 		defenseLable.text = state.defense.ToString();
 		agileLabel.text = state.agile.ToString();
@@ -142,7 +142,7 @@ public class UIPlayerInfoPanel : PanelBase {
 	void InitStoreHouse()
 	{
 		//set cap label
-		capLabel.text = string.Format("仓库容量:{0}/{1}", itemPackage.GetResourceTotolNumber(), sanctuaryPackage.GetStoreHouseCap());
+		capLabel.text = string.Format("仓库容量:{0}/{1}", itemPackage.GetRousourceTotalCap(), sanctuaryPackage.GetStoreHouseCap());
 		//set table view
 		OnTab0();
 	}
@@ -150,7 +150,7 @@ public class UIPlayerInfoPanel : PanelBase {
 	void RefreshStoreHouse(NDictionary data = null)
 	{
 		//update cap label
-		capLabel.text = string.Format("仓库容量:{0}/{1}", itemPackage.GetResourceTotolNumber(), sanctuaryPackage.GetStoreHouseCap());
+		capLabel.text = string.Format("仓库容量:{0}/{1}", itemPackage.GetRousourceTotalCap(), sanctuaryPackage.GetStoreHouseCap());
 		//refresh tableview
 		tableView.TableChange();
 	}

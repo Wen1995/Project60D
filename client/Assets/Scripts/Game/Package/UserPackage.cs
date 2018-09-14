@@ -144,7 +144,7 @@ public class UserPackage : ModelBase {
                 else
                 {
                     PLAYER_LEVEL preData = levelMap[i - 1] as PLAYER_LEVEL;
-                    progress = (float)(data.PlayerCap - personContribution) / (float)(data.PlayerCap - preData.PlayerCap);
+                    progress = (float)(personContribution - preData.PlayerCap) / (float)(data.PlayerCap - preData.PlayerCap);
                 }
                 return i;
             }
@@ -183,7 +183,7 @@ public class UserPackage : ModelBase {
                 else
                 {
                     MANOR_LEVEL preData = levelMap[i - 1] as MANOR_LEVEL;
-                    progress = (float)(data.ManorCap - totalContribution)/(float)(data.ManorCap - preData.ManorCap);
+                    progress = (float)(totalContribution - preData.ManorCap)/(float)(data.ManorCap - preData.ManorCap);
                 }
                 return i;
             }

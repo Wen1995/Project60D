@@ -4,6 +4,18 @@ using com.nkm.framework.protocol;
 using com.nkm.framework.resource.data;
 using UnityEngine;
 
+public struct NGraphAxisNodeX
+{
+	public UILabel label;
+	public Transform trans;
+}
+
+public struct NGraphAxisNodeY
+{
+	public UILabel label;
+	public Transform trans;
+}
+
 public class UITradePanel : PanelBase {
 
 	DynamicPackage dynamicPackage = null;
@@ -24,6 +36,9 @@ public class UITradePanel : PanelBase {
 	UIButton buyBtn = null;
 	UIButton sellBtn = null;
 
+	NGraphAxisNodeX[] graphXNodes = new NGraphAxisNodeX[3];
+	NGraphAxisNodeY[] graphYNodes = new NGraphAxisNodeY[3];
+
 	protected override void Awake()
 	{
 		//get component
@@ -37,6 +52,20 @@ public class UITradePanel : PanelBase {
 		limitLabel = transform.Find("iteminfo/buylimit").GetComponent<UILabel>();
 		cdTimeLabel = transform.Find("iteminfo/cdtime").GetComponent<UILabel>();
 		priceLabel = transform.Find("iteminfo/pricelabel").GetComponent<UILabel>();
+
+		//graph
+		//x axis
+		for(int i=0;i<3;i++)
+		{
+			graphXNodes[i].trans = transform.Find("iteminfo/graph/bg/xAxis/valuegroup").GetChild(i);
+			graphXNodes[i].label = graphXNodes[i].trans.GetComponent<UILabel>();
+		}
+		for(int i=0;i<3;i++)
+		{
+			graphYNodes[i].trans = transform.Find("iteminfo/graph/bg/yAxis/valuegroup").GetChild(i);
+			graphYNodes[i].label = graphYNodes[i].trans.GetComponent<UILabel>();
+		}
+
 		//bind event
 		sellBtn = transform.Find("sellbtn").GetComponent<UIButton>();
 		sellBtn.onClick.Add(new EventDelegate(OnSellItem));
@@ -95,6 +124,7 @@ public class UITradePanel : PanelBase {
 	{
 		TSCGetPurchase res = TSCGetPurchase.ParseFrom(msg.mBtsData);
 		itemPackage.SetBuyLimit(res);
+		RefreshItemInfo();
 	}
 
 	void InitView()
@@ -113,10 +143,10 @@ public class UITradePanel : PanelBase {
 	}
 
 	void RefreshResinfo()
-	{
-		resNumLabel.text = itemPackage.GetResourceTotolNumber().ToString();
-		goldNumLabel.text = itemPackage.GetGoldNumber().ToString();
-		elecNumLabel.text = itemPackage.GetElecNumber().ToString();
+	{	
+		resNumLabel.text = GlobalFunction.NumberFormat(itemPackage.GetResourceTotolNumber());
+		goldNumLabel.text = GlobalFunction.NumberFormat(itemPackage.GetGoldNumber());
+		elecNumLabel.text = GlobalFunction.NumberFormat(itemPackage.GetElecNumber());
 	}
 	void OnSelectItem(NDictionary data = null)
 	{
@@ -144,7 +174,7 @@ public class UITradePanel : PanelBase {
 		ITEM_RES itemConfig = dataList[selectionConfigID] as ITEM_RES;
 		taxLabel.text = string.Format("当前中间人费用{0}%", itemPackage.GetTaxRate() * 100);
 		nameLabel.text = string.Format("{0}近3日价格", itemConfig.MinName);
-		priceLabel.text = string.Format("当前价格: {0}", itemPackage.GetItemPrice(selectionConfigID));
+		priceLabel.text = string.Format("当前价格: {0}", itemPackage.GetItemPrice(selectionConfigID).ToString("0.00"));
 		//set buy & sell button
 		NItemInfo info = itemPackage.GetItemInfo(itemPackage.GetSelectionItemConfigID());
 		if(info == null || info.number <= 0)
@@ -156,6 +186,7 @@ public class UITradePanel : PanelBase {
 		else
 			buyBtn.isEnabled = true;
 		RefreshBuyLimit();
+		RefreshGraph();
 	}
 
 	IEnumerator RefreshDate()
@@ -171,6 +202,9 @@ public class UITradePanel : PanelBase {
 	void RefreshBuyLimit()
 	{
 		int val = itemPackage.GetBuyLimit(itemPackage.GetSelectionItemConfigID());
+		ITEM_RES config = itemPackage.GetItemDataByConfigID(itemPackage.GetSelectionItemConfigID());
+		if(userPackage.GetPlayerLevel() < config.ServiceableRate)
+			val = 0;
 		limitLabel.text = string.Format("交易所存量: {0}", val);
 	}
 
@@ -261,12 +295,13 @@ public class UITradePanel : PanelBase {
 		{
 			ITEM_RES config = itemPackage.GetItemDataByConfigID(res.ConfigId);
 			double price = itemPackage.GetItemPrice(res.ConfigId);
-			content = string.Format("出售成功!\n{0} x {1}单位，获得金钱{2}", config.MinName, res.Number, price * res.Number);
+			content = string.Format("出售{0} x {1}单位\n获得金钱{2}", config.MinName, res.Number, price * res.Number);
 			FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
 		}
 		FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
 		NDictionary args = new NDictionary();
 		args.Add("content", content);
+		args.Add("method", 1);
 		SendEvent("OpenMsgBox", args);
 	}
 
@@ -290,12 +325,48 @@ public class UITradePanel : PanelBase {
 		{
 			ITEM_RES config = itemPackage.GetItemDataByConfigID(res.ConfigId);
 			double price = itemPackage.GetItemPrice(res.ConfigId);
-			content = string.Format("购买成功!\n购买{0} x {1}单位，消耗金钱{2}", config.MinName, res.Number, price * res.Number);
+			content = string.Format("购买{0} x {1}单位\n消耗金钱{2}", config.MinName, res.Number, price * res.Number);
+			FacadeSingleton.Instance.InvokeService("RPCGetPurchase", ConstVal.Service_Sanctuary);
 			FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
 		}
 		FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
 		NDictionary args = new NDictionary();
 		args.Add("content", content);
+		args.Add("method", 1);
 		SendEvent("OpenMsgBox", args);
+	}
+
+	void RefreshGraph()
+	{
+		long curTime = GlobalFunction.GetTimeStamp();
+		long startTime = GlobalFunction.GetGraphStartTimeStamp();
+		//calculate node
+		dynamicPackage.CalculateGraphInfo(itemPackage.GetSelectionItemConfigID(), curTime, startTime);
+		List<NGraphNode> graphInfoList = dynamicPackage.GetGraphInfoList();
+		dynamicPackage.CalculateGraphOverview();
+		NGraphOverview overview = dynamicPackage.GetGraphOverview();
+		//set axis
+		RefreshAxis(curTime, startTime, overview.highPrice, overview.lowPrice);
+
+		//craete node
+
+		//draw line
+	}
+
+	void RefreshAxis(long curTime, long startTime, double highPrice, double lowPrice)
+	{
+        System.DateTime curDate = GlobalFunction.DateFormat(curTime);
+		System.DateTime preDate = GlobalFunction.DateFormat(startTime);
+        // set y
+        ITEM_RES config = itemPackage.GetItemDataByConfigID(itemPackage.GetSelectionItemConfigID());
+		double middlePrice = config.GoldConv / 1000;
+		double upperPrice = middlePrice + 100;
+		double lowerPrice = middlePrice - 100;
+		graphYNodes[0].label.text = GlobalFunction.NumberFormat(upperPrice);
+		graphYNodes[1].label.text = GlobalFunction.NumberFormat(middlePrice);
+		graphYNodes[2].label.text = GlobalFunction.NumberFormat(lowerPrice);
+		// set x
+		graphXNodes[0].label.text = string.Format("{0}.{1}", preDate.Month, preDate.Day);
+		graphXNodes[1].label.text = string.Format("{0}.{1}", curDate.Month, curDate.Day);
 	}
 }

@@ -8,6 +8,8 @@ public class UIItemValuePanel : PanelBase{
 	ItemPackage itemPackage = null;
 	UILabel titleLabel = null;
 	UILabel numLabel = null;
+	UILabel resultLabel = null;
+	UILabel taxLabel = null;
 	UISlider slider = null;
 	private int ratio;			//minum plus/minus value
 	private int value;			//cur value
@@ -22,15 +24,15 @@ public class UIItemValuePanel : PanelBase{
 		UIButton button = transform.Find("closebtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
 		button = transform.Find("mask").GetComponent<UIButton>();
-		button.onClick.Add(new EventDelegate(OnPlus));
-		button = transform.Find("value/plus").GetComponent<UIButton>();
-		button.onClick.Add(new EventDelegate(OnPlus));
-		button = transform.Find("value/minus").GetComponent<UIButton>();
-		button.onClick.Add(new EventDelegate(OnMinus));
+		button.onClick.Add(new EventDelegate(Close));
+		button = transform.Find("value/maxbtn").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnValueMax));
 		button = transform.Find("confirmbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnConfirm));
 		titleLabel = transform.Find("title").GetComponent<UILabel>();
 		numLabel = transform.Find("value/num").GetComponent<UILabel>();
+		resultLabel = transform.Find("value/result/value").GetComponent<UILabel>();
+		taxLabel = transform.Find("value/result/tax").GetComponent<UILabel>();
 		slider = transform.Find("value/progress").GetComponent<UISlider>();
 		
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
@@ -54,13 +56,14 @@ public class UIItemValuePanel : PanelBase{
 			titleLabel.text = string.Format("出售 {0}", config.MinName);
 			itemCap = info.number;
 		}
-		value = 0;
+		
 		if(config.GoldConv >= 1000)
 			ratio = 1;
 		else
 			ratio = 1000 / config.GoldConv;
 		itemCap = AdjustCap(ratio, itemCap);
 
+		value = 0;
 		slider.value = 0f;
 		slider.numberOfSteps = (int)Mathf.Ceil((float)itemCap / (float)ratio) + 1;
 		UpdateValueView();
@@ -68,9 +71,18 @@ public class UIItemValuePanel : PanelBase{
 
 	void UpdateValueView()
 	{
-		slider.value = (float)value / (float)itemCap;
-		print(value);
-		numLabel.text = value.ToString();
+		double price = itemPackage.GetItemPrice(configID);
+		numLabel.text = GlobalFunction.NumberFormat(value);
+		if(isBuy)
+		{
+			resultLabel.text = string.Format("总花费:{0}", GlobalFunction.NumberFormat(price * value * 1.05));
+			taxLabel.text = string.Format("已包含中间人费用:{0}", GlobalFunction.NumberFormat(price * value * 0.05));
+		}
+		else
+		{
+			resultLabel.text = string.Format("总获得:{0}", GlobalFunction.NumberFormat(price * value * 0.95));
+			taxLabel.text = string.Format("已扣除中间人费用:{0}", GlobalFunction.NumberFormat(price * value * 0.05));
+		}
 	}
 
 	public override void OpenPanel()
@@ -92,19 +104,12 @@ public class UIItemValuePanel : PanelBase{
 	{
 		value = (int)Mathf.Floor(slider.value * (float)itemCap);
 		numLabel.text = value.ToString();
-	}
-
-	void OnPlus()
-	{
-		if(value + ratio > itemCap) return;
-		value += ratio;
 		UpdateValueView();
 	}
 
-	void OnMinus()
+	void OnValueMax()
 	{
-		if(value - ratio < 0) return;
-		value -= ratio;
+		value = itemCap;
 		UpdateValueView();
 	}
 
@@ -114,7 +119,7 @@ public class UIItemValuePanel : PanelBase{
 		NItemInfo info = itemPackage.GetSelectionItem();
 		args.Add("id", configID);
 		args.Add("num", value);
-		args.Add("price", itemPackage.GetItemPrice(info.configID));
+		args.Add("price", itemPackage.GetItemPrice(configID));
 		args.Add("tax", itemPackage.GetTaxRate());
 		if(isBuy)
 			FacadeSingleton.Instance.InvokeService("RPCBuyItem", ConstVal.Service_Sanctuary, args);

@@ -112,6 +112,22 @@ public class ItemPackage : ModelBase
         foreach(var pair in mItemInfoMap)
         {
             NItemInfo info = pair.Value;
+            ItemType type = GetItemTypeByConfigID(info.configID);
+            if(type == ItemType.Food || type == ItemType.Product)
+            {
+                ITEM_RES config = GetItemDataByConfigID(info.configID);
+                sum += info.number;
+            }
+        }
+        return sum;
+    }
+
+    public int GetRousourceTotalCap()
+    {
+        int sum = 0;
+        foreach(var pair in mItemInfoMap)
+        {
+            NItemInfo info = pair.Value;
             ITEM_RES config = GetItemDataByConfigID(info.configID);
             sum += config.StorUnit;
         }
@@ -197,7 +213,7 @@ public class ItemPackage : ModelBase
     {
         if(!mItemInfoMap.ContainsKey(configID))
         {
-            Debug.Log(string.Format("item{0} not exist", GetItemDataByConfigID(configID)));
+            //Debug.Log(string.Format("item{0} not exist", GetItemDataByConfigID(configID)));
             return null;
         }
         NItemInfo info = mItemInfoMap[configID];

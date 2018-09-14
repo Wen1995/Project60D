@@ -108,8 +108,45 @@ public class UIBuildingUpgradePanel : PanelBase {
 	void ShowCost(BUILDING configData)
 	{
 		int count = 0;
+		//show gold & elec
+		if(configData.GoldCost > 0)
+		{
+			int costNum = configData.GoldCost;
+			double curNum = itemPackage.GetGoldNumber();
+			costCellList[count].title.text = "金钱消耗: ";
+			costCellList[count].value.text = string.Format("{0} / {1}", GlobalFunction.NumberFormat(costNum), GlobalFunction.NumberFormat(curNum));
+			if((double)costNum > curNum)
+			{
+				costCellList[count].title.color = Color.red;
+				costCellList[count].value.color = Color.red;
+			}
+			else
+			{
+				costCellList[count].title.color = Color.white;
+				costCellList[count].value.color = Color.white;
+			}
+			count++;
+		}
+		if(configData.ElecCost > 0)
+		{
+			int costNum = configData.ElecCost;
+			double curNum = itemPackage.GetElecNumber();
+			costCellList[count].title.text = "电力消耗: ";
+			costCellList[count].value.text = string.Format("{0} / {1}", GlobalFunction.NumberFormat(costNum), GlobalFunction.NumberFormat(curNum));
+			if((double)costNum > curNum)
+			{
+				costCellList[count].title.color = Color.red;
+				costCellList[count].value.color = Color.red;
+			}
+			else
+			{
+				costCellList[count].title.color = Color.white;
+				costCellList[count].value.color = Color.white;
+			}
+			count++;
+		}
 		
-		for(int i = 0;i<configData.CostTableCount;i++)
+		for(int i = count;i<configData.CostTableCount;i++)
 		{
 			int itemConfigId = configData.GetCostTable(i).CostId;
 			if(itemConfigId == 0) continue;

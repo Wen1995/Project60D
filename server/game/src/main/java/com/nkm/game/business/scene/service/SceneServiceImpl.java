@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Resource;
+import org.json.JSONObject;
 import com.nkm.framework.console.constant.Constant;
 import com.nkm.framework.console.constant.TimerConstant;
 import com.nkm.framework.console.disruptor.TPacket;
@@ -18,6 +19,7 @@ import com.nkm.framework.dbcache.model.Building;
 import com.nkm.framework.dbcache.model.Group;
 import com.nkm.framework.dbcache.model.User;
 import com.nkm.framework.dbcache.model.WorldEvent;
+import com.nkm.framework.log.LogService;
 import com.nkm.framework.protocol.Common.Cmd;
 import com.nkm.framework.protocol.Common.Error;
 import com.nkm.framework.protocol.Common.EventType;
@@ -58,6 +60,8 @@ public class SceneServiceImpl implements SceneService {
     private IGroupDao groupDao;
     @Resource
     private IWorldEventDao worldEventDao;
+    @Resource
+    private LogService logService;
     
     @Override
     public TPacket getSceneInfo(Long uid) throws Exception {
@@ -353,6 +357,7 @@ public class SceneServiceImpl implements SceneService {
 
     @Override
     public TPacket unlock(Long uid, Integer configId) throws Exception {
+        boolean isState = false;
         boolean isGroup = false;
         boolean isResource = false;
         boolean isProduction = false;
@@ -361,108 +366,122 @@ public class SceneServiceImpl implements SceneService {
         
         User user = userDao.get(uid);
         Long groupId = user.getGroupId();
-        Group group = groupDao.get(groupId);
-        // 公司实力是否满足
-        BUILDING buildingAttr = StaticDataManager.GetInstance().buildingMap.get(configId);
-        Integer totalContribution = group.getTotalContribution();
-        if (totalContribution >= buildingAttr.getBldgStrengthLim()) {
-            isGroup = true;
-            // 资源是否满足 
-            List<CostStruct> costStructs = buildingAttr.getCostTableList();
-            double leftGold = user.getGold() - buildingAttr.getGoldCost();
-            int leftElectricity = user.getElectricity() - buildingAttr.getElecCost();
-            
-            UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
-            List<ResourceInfo> resourceInfos = userResourceBuilder.build().getResourceInfosList();
-            
-            boolean isExist = true;
-            if (leftGold < 0) {
-                isExist = false;
-            } else {
-                if (leftElectricity < 0) {
+        
+        // 是否正在解锁
+        int buildingType = configId/10000;
+        List<Building> buildings = buildingDao.getAllByGroupId(groupId);
+        for (Building b : buildings) {
+            int type = b.getConfigId()/10000;
+            if (type == buildingType) {
+                isState = true;
+                break;
+            }
+        }
+        
+        if (!isState) {
+            Group group = groupDao.get(groupId);
+            // 公司实力是否满足
+            BUILDING buildingAttr = StaticDataManager.GetInstance().buildingMap.get(configId);
+            Integer totalContribution = group.getTotalContribution();
+            if (totalContribution >= buildingAttr.getBldgStrengthLim()) {
+                isGroup = true;
+                // 资源是否满足 
+                List<CostStruct> costStructs = buildingAttr.getCostTableList();
+                double leftGold = user.getGold() - buildingAttr.getGoldCost();
+                int leftElectricity = user.getElectricity() - buildingAttr.getElecCost();
+                
+                UserResource.Builder userResourceBuilder = UserResource.parseFrom(user.getResource()).toBuilder();
+                List<ResourceInfo> resourceInfos = userResourceBuilder.build().getResourceInfosList();
+                
+                boolean isExist = true;
+                if (leftGold < 0) {
                     isExist = false;
                 } else {
-                    for (CostStruct c : costStructs) {
-                        int costId = c.getCostId();
-                        if (costId != 0) {
-                            isExist = false;
-                            for (ResourceInfo r : resourceInfos) {
-                                if (r.getConfigId() == costId) {
-                                    if (r.getNumber() >= c.getCostQty()) {
-                                        isExist = true;
-                                        break;
+                    if (leftElectricity < 0) {
+                        isExist = false;
+                    } else {
+                        for (CostStruct c : costStructs) {
+                            int costId = c.getCostId();
+                            if (costId != 0) {
+                                isExist = false;
+                                for (ResourceInfo r : resourceInfos) {
+                                    if (r.getConfigId() == costId) {
+                                        if (r.getNumber() >= c.getCostQty()) {
+                                            isExist = true;
+                                            break;
+                                        }
                                     }
                                 }
-                            }
-                            if (!isExist) {
-                                break;
+                                if (!isExist) {
+                                    break;
+                                }
                             }
                         }
                     }
                 }
-            }
-            
-            if (isExist) {
-                isResource = true;
-                // 是否有空闲的建筑队列
-                int production = user.getProduction();
-                if (production > 0) {
-                    isProduction = true;
-                    // 更新玩家状态
-                    user.setProduction(--production);
-                    Integer addContribution = buildingAttr.getBldgStrengthAdd();
-                    Integer contribution = user.getContribution() + addContribution;
-                    user.setContribution(contribution);
-                    user.setGold(leftGold);
-                    user.setElectricity(leftElectricity);
-                    
-                    for (CostStruct c : costStructs) {
-                        for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
-                            ResourceInfo.Builder rBuilder = userResourceBuilder.getResourceInfosBuilder(i);
-                            if (rBuilder.getConfigId() == c.getCostId()) {
-                                int result = rBuilder.getNumber() - c.getCostQty();
-                                if (result == 0) {
-                                    userResourceBuilder.removeResourceInfos(i);
-                                } else {
-                                    rBuilder.setNumber(result);
-                                    userResourceBuilder.setResourceInfos(i, rBuilder);
+                
+                if (isExist) {
+                    isResource = true;
+                    // 是否有空闲的建筑队列
+                    int production = user.getProduction();
+                    if (production > 0) {
+                        isProduction = true;
+                        // 更新玩家状态
+                        user.setProduction(--production);
+                        Integer addContribution = buildingAttr.getBldgStrengthAdd();
+                        Integer contribution = user.getContribution() + addContribution;
+                        user.setContribution(contribution);
+                        user.setGold(leftGold);
+                        user.setElectricity(leftElectricity);
+                        
+                        for (CostStruct c : costStructs) {
+                            for (int i = 0; i < userResourceBuilder.getResourceInfosCount(); i++) {
+                                ResourceInfo.Builder rBuilder = userResourceBuilder.getResourceInfosBuilder(i);
+                                if (rBuilder.getConfigId() == c.getCostId()) {
+                                    int result = rBuilder.getNumber() - c.getCostQty();
+                                    if (result == 0) {
+                                        userResourceBuilder.removeResourceInfos(i);
+                                    } else {
+                                        rBuilder.setNumber(result);
+                                        userResourceBuilder.setResourceInfos(i, rBuilder);
+                                    }
+                                    break;
                                 }
-                                break;
                             }
                         }
+                        user.setResource(userResourceBuilder.build().toByteArray());
+                        userDao.update(user);
+                        
+                        // 增加公司的总贡献
+                        totalContribution += addContribution;
+                        group.setTotalContribution(totalContribution);
+                        groupDao.update(group);
+                        
+                        // 更新建筑升级状态
+                        String timerKey = TimerConstant.UNLOCK + buildingId;
+                        int sec = buildingAttr.getTimeCost();
+                        finishTime = System.currentTimeMillis() + sec * 1000;
+                        
+                        buildingId = IdManager.GetInstance().genId(IdType.BUILDING);
+                        Building building = new Building();
+                        building.setId(buildingId);
+                        building.setGroupId(user.getGroupId());
+                        building.setConfigId(configId);
+                        UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
+                                .setUid(uid)
+                                .setFinishTime(finishTime)
+                                .build();
+                        BuildingState buildingState = BuildingState.newBuilder()
+                                .setUpgradeInfo(upgradeInfo)
+                                .build();
+                        building.setState(buildingState.toByteArray());
+                        buildingDao.insertByGroupId(building);
+                        
+                        TCSFinishUnlock p = TCSFinishUnlock.newBuilder()
+                                .setBuildingId(buildingId)
+                                .build();
+                        TimerManager.GetInstance().sumbit(timerKey, uid, Cmd.FINISHUNLOCK_VALUE, p.toByteArray(), sec);
                     }
-                    user.setResource(userResourceBuilder.build().toByteArray());
-                    userDao.update(user);
-                    
-                    // 增加公司的总贡献
-                    totalContribution += addContribution;
-                    group.setTotalContribution(totalContribution);
-                    groupDao.update(group);
-                    
-                    // 更新建筑升级状态
-                    String timerKey = TimerConstant.UNLOCK + buildingId;
-                    int sec = buildingAttr.getTimeCost();
-                    finishTime = System.currentTimeMillis() + sec * 1000;
-                    
-                    buildingId = IdManager.GetInstance().genId(IdType.BUILDING);
-                    Building building = new Building();
-                    building.setId(buildingId);
-                    building.setGroupId(user.getGroupId());
-                    building.setConfigId(configId);
-                    UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
-                            .setUid(uid)
-                            .setFinishTime(finishTime)
-                            .build();
-                    BuildingState buildingState = BuildingState.newBuilder()
-                            .setUpgradeInfo(upgradeInfo)
-                            .build();
-                    building.setState(buildingState.toByteArray());
-                    buildingDao.insertByGroupId(building);
-                    
-                    TCSFinishUnlock p = TCSFinishUnlock.newBuilder()
-                            .setBuildingId(buildingId)
-                            .build();
-                    TimerManager.GetInstance().sumbit(timerKey, uid, Cmd.FINISHUNLOCK_VALUE, p.toByteArray(), sec);
                 }
             }
         }
@@ -473,6 +492,7 @@ public class SceneServiceImpl implements SceneService {
                 .setIsResource(isResource)
                 .setIsProduction(isProduction)
                 .setFinishTime(finishTime)
+                .setIsState(isState)
                 .build();
         TPacket resp = new TPacket();
         resp.setUid(uid);
@@ -633,6 +653,12 @@ public class SceneServiceImpl implements SceneService {
                 }
                 user.setResource(userResourceBuilder.build().toByteArray());
                 userDao.update(user);
+                
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("configId", productionConfigId);
+                jsonObject.put("number", productionConfigId);
+                System.out.println(jsonObject.toString());
+                logService.createLog(uid, Thread.currentThread().getStackTrace()[1].getMethodName(), jsonObject.toString());
             } else {
                 throw new BaseException(Error.NO_MORE_CAPACITY_VALUE);
             }

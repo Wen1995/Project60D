@@ -6795,6 +6795,24 @@ public final class Scene {
      * </pre>
      */
     long getFinishTime();
+
+    // optional bool isState = 6;
+    /**
+     * <code>optional bool isState = 6;</code>
+     *
+     * <pre>
+     * 建筑是否在解锁
+     * </pre>
+     */
+    boolean hasIsState();
+    /**
+     * <code>optional bool isState = 6;</code>
+     *
+     * <pre>
+     * 建筑是否在解锁
+     * </pre>
+     */
+    boolean getIsState();
   }
   /**
    * Protobuf type {@code com.nkm.framework.protocol.TSCUnlock}
@@ -6870,6 +6888,11 @@ public final class Scene {
             case 40: {
               bitField0_ |= 0x00000010;
               finishTime_ = input.readInt64();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              isState_ = input.readBool();
               break;
             }
           }
@@ -7032,12 +7055,37 @@ public final class Scene {
       return finishTime_;
     }
 
+    // optional bool isState = 6;
+    public static final int ISSTATE_FIELD_NUMBER = 6;
+    private boolean isState_;
+    /**
+     * <code>optional bool isState = 6;</code>
+     *
+     * <pre>
+     * 建筑是否在解锁
+     * </pre>
+     */
+    public boolean hasIsState() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional bool isState = 6;</code>
+     *
+     * <pre>
+     * 建筑是否在解锁
+     * </pre>
+     */
+    public boolean getIsState() {
+      return isState_;
+    }
+
     private void initFields() {
       buildingId_ = 0L;
       isGroup_ = false;
       isResource_ = false;
       isProduction_ = false;
       finishTime_ = 0L;
+      isState_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -7065,6 +7113,9 @@ public final class Scene {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt64(5, finishTime_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBool(6, isState_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -7094,6 +7145,10 @@ public final class Scene {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(5, finishTime_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, isState_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -7221,6 +7276,8 @@ public final class Scene {
         bitField0_ = (bitField0_ & ~0x00000008);
         finishTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000010);
+        isState_ = false;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -7269,6 +7326,10 @@ public final class Scene {
           to_bitField0_ |= 0x00000010;
         }
         result.finishTime_ = finishTime_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.isState_ = isState_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7299,6 +7360,9 @@ public final class Scene {
         }
         if (other.hasFinishTime()) {
           setFinishTime(other.getFinishTime());
+        }
+        if (other.hasIsState()) {
+          setIsState(other.getIsState());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -7568,6 +7632,55 @@ public final class Scene {
       public Builder clearFinishTime() {
         bitField0_ = (bitField0_ & ~0x00000010);
         finishTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional bool isState = 6;
+      private boolean isState_ ;
+      /**
+       * <code>optional bool isState = 6;</code>
+       *
+       * <pre>
+       * 建筑是否在解锁
+       * </pre>
+       */
+      public boolean hasIsState() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional bool isState = 6;</code>
+       *
+       * <pre>
+       * 建筑是否在解锁
+       * </pre>
+       */
+      public boolean getIsState() {
+        return isState_;
+      }
+      /**
+       * <code>optional bool isState = 6;</code>
+       *
+       * <pre>
+       * 建筑是否在解锁
+       * </pre>
+       */
+      public Builder setIsState(boolean value) {
+        bitField0_ |= 0x00000020;
+        isState_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool isState = 6;</code>
+       *
+       * <pre>
+       * 建筑是否在解锁
+       * </pre>
+       */
+      public Builder clearIsState() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        isState_ = false;
         onChanged();
         return this;
       }
@@ -11809,20 +11922,21 @@ public final class Scene {
       "\010\022\022\n\nfinishTime\030\005 \001(\003\022\022\n\nbuildingId\030\006 \001(" +
       "\003\"&\n\020TCSFinishUpgrade\022\022\n\nbuildingId\030\001 \001(" +
       "\003\"&\n\020TSCFinishUpgrade\022\022\n\nbuildingId\030\001 \001(",
-      "\003\"\035\n\tTCSUnlock\022\020\n\010configId\030\001 \001(\005\"n\n\tTSCU" +
+      "\003\"\035\n\tTCSUnlock\022\020\n\010configId\030\001 \001(\005\"\177\n\tTSCU" +
       "nlock\022\022\n\nbuildingId\030\001 \001(\003\022\017\n\007isGroup\030\002 \001" +
       "(\010\022\022\n\nisResource\030\003 \001(\010\022\024\n\014isProduction\030\004" +
-      " \001(\010\022\022\n\nfinishTime\030\005 \001(\003\"%\n\017TCSFinishUnl" +
-      "ock\022\022\n\nbuildingId\030\001 \001(\003\"%\n\017TSCFinishUnlo" +
-      "ck\022\022\n\nbuildingId\030\001 \001(\003\" \n\nTCSReceive\022\022\n\n" +
-      "buildingId\030\001 \001(\003\"B\n\nTSCReceive\022\022\n\nbuildi" +
-      "ngId\030\001 \001(\003\022\020\n\010configId\030\002 \001(\005\022\016\n\006number\030\003" +
-      " \001(\005\"0\n\nTCSProcess\022\022\n\nbuildingId\030\001 \001(\003\022\016" +
-      "\n\006number\030\002 \001(\005\"Q\n\nTSCProcess\022\022\n\nbuilding",
-      "Id\030\001 \001(\003\022\022\n\nfinishTime\030\002 \001(\003\022\013\n\003uid\030\003 \001(" +
-      "\003\022\016\n\006number\030\004 \001(\005\")\n\023TCSInterruptProcess" +
-      "\022\022\n\nbuildingId\030\001 \001(\003\")\n\023TSCInterruptProc" +
-      "ess\022\022\n\nbuildingId\030\001 \001(\003B\002H\001"
+      " \001(\010\022\022\n\nfinishTime\030\005 \001(\003\022\017\n\007isState\030\006 \001(" +
+      "\010\"%\n\017TCSFinishUnlock\022\022\n\nbuildingId\030\001 \001(\003" +
+      "\"%\n\017TSCFinishUnlock\022\022\n\nbuildingId\030\001 \001(\003\"" +
+      " \n\nTCSReceive\022\022\n\nbuildingId\030\001 \001(\003\"B\n\nTSC" +
+      "Receive\022\022\n\nbuildingId\030\001 \001(\003\022\020\n\010configId\030" +
+      "\002 \001(\005\022\016\n\006number\030\003 \001(\005\"0\n\nTCSProcess\022\022\n\nb" +
+      "uildingId\030\001 \001(\003\022\016\n\006number\030\002 \001(\005\"Q\n\nTSCPr",
+      "ocess\022\022\n\nbuildingId\030\001 \001(\003\022\022\n\nfinishTime\030" +
+      "\002 \001(\003\022\013\n\003uid\030\003 \001(\003\022\016\n\006number\030\004 \001(\005\")\n\023TC" +
+      "SInterruptProcess\022\022\n\nbuildingId\030\001 \001(\003\")\n" +
+      "\023TSCInterruptProcess\022\022\n\nbuildingId\030\001 \001(\003" +
+      "B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -11894,7 +12008,7 @@ public final class Scene {
           internal_static_com_nkm_framework_protocol_TSCUnlock_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TSCUnlock_descriptor,
-              new java.lang.String[] { "BuildingId", "IsGroup", "IsResource", "IsProduction", "FinishTime", });
+              new java.lang.String[] { "BuildingId", "IsGroup", "IsResource", "IsProduction", "FinishTime", "IsState", });
           internal_static_com_nkm_framework_protocol_TCSFinishUnlock_descriptor =
             getDescriptor().getMessageTypes().get(11);
           internal_static_com_nkm_framework_protocol_TCSFinishUnlock_fieldAccessorTable = new

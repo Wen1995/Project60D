@@ -93,6 +93,24 @@ message TSCGetUserStateRegular {
 	optional int32 contribution = 11;
 }
 
+message TCSGetWorldEvent {
+	// 开始时间
+	optional int64 startTime = 1;
+}
+message TSCGetWorldEvent {
+	// 世界事件
+	repeated WorldEvent worldEvents = 1;
+}
+
+message WorldEvent {
+	// configId
+	optional int32 configId = 1;
+	// enum TimeType
+	optional int32 type = 2;
+	// 开始/结束时间
+	optional int64 time = 3;
+}
+
 message TCSSellGoods {
 	// 商品Id
 	optional int32 configId = 1;
@@ -151,3 +169,4 @@ message TCSGetPurchase {
 message TSCGetPurchase {
 	optional UserResource userResource = 1;
 }
+

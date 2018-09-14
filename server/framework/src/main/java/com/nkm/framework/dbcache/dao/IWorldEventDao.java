@@ -12,4 +12,9 @@ public interface IWorldEventDao extends IBaseDao<WorldEvent, WorldEventMapper, W
      * 一段时间内的所有世界事件（至多七天）
      */
     List<WorldEvent> getWorldEvent(Long thisTime, Long lastTime);
+    
+    /**
+     * 一段时间内的所有世界事件
+     */
+    List<WorldEvent> getAllWorldEvent(Long startTime);
 }

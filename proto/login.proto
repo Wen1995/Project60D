@@ -5,6 +5,8 @@ option optimize_for = SPEED;
 message TCSLogin {
 	// 帐号
 	optional string account = 1;
+	// IP(不要填)
+	optional string ip = 2;
 }
 message TSCLogin {
 	optional int64 uid = 1;

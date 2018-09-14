@@ -8,7 +8,7 @@ public interface LoginService {
 	TPacket heart(Long uid) throws Exception;
 
 	/** 登录 */
-	TPacket login(Long uid, String account) throws Exception;
+	TPacket login(Long uid, String account, String ip) throws Exception;
 
 	/** 登出 */
 	TPacket logout(Long uid) throws Exception;

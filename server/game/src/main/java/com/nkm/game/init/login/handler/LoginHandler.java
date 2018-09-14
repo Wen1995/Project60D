@@ -32,8 +32,8 @@ public class LoginHandler {
 	@HandlerMethodMapping(cmd = Cmd.LOGIN_VALUE)
 	public void login(TPacket p) throws Exception {
 		TCSLogin msg = TCSLogin.parseFrom(p.getBuffer());
-		String account = msg.getAccount();		
-		TPacket resp = service.login(p.getUid(), account);
+		String account = msg.getAccount();		String ip = msg.getIp();		
+		TPacket resp = service.login(p.getUid(), account, ip);
 		resp.setCmd(Cmd.LOGIN_VALUE + 1000);
 	
 		final Channel channel = GameServer.GetInstance().getChannel(resp.getUid());

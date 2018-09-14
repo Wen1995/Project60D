@@ -4305,6 +4305,1080 @@ namespace com.nkm.framework.protocol {
     }
   }
   
+  public sealed partial class TCSGetWorldEvent : pb::GeneratedMessageLite<TCSGetWorldEvent, TCSGetWorldEvent.Builder> {
+    private TCSGetWorldEvent() { }
+    private static readonly TCSGetWorldEvent defaultInstance = new TCSGetWorldEvent().MakeReadOnly();
+    private static readonly string[] _tCSGetWorldEventFieldNames = new string[] { "startTime" };
+    private static readonly uint[] _tCSGetWorldEventFieldTags = new uint[] { 8 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TCSGetWorldEvent DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TCSGetWorldEvent ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int StartTimeFieldNumber = 1;
+    private bool hasStartTime;
+    private long startTime_;
+    public bool HasStartTime {
+      get { return hasStartTime; }
+    }
+    public long StartTime {
+      get { return startTime_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tCSGetWorldEventFieldNames;
+      if (hasStartTime) {
+        output.WriteInt64(1, field_names[0], StartTime);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasStartTime) {
+          size += pb::CodedOutputStream.ComputeInt64Size(1, StartTime);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasStartTime) hash ^= startTime_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TCSGetWorldEvent other = obj as TCSGetWorldEvent;
+      if (other == null) return false;
+      if (hasStartTime != other.hasStartTime || (hasStartTime && !startTime_.Equals(other.startTime_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TCSGetWorldEvent ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TCSGetWorldEvent MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TCSGetWorldEvent prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TCSGetWorldEvent, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TCSGetWorldEvent cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TCSGetWorldEvent result;
+      
+      private TCSGetWorldEvent PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TCSGetWorldEvent original = result;
+          result = new TCSGetWorldEvent();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TCSGetWorldEvent MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TCSGetWorldEvent DefaultInstanceForType {
+        get { return global::com.nkm.framework.protocol.TCSGetWorldEvent.DefaultInstance; }
+      }
+      
+      public override TCSGetWorldEvent BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TCSGetWorldEvent) {
+          return MergeFrom((TCSGetWorldEvent) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TCSGetWorldEvent other) {
+        if (other == global::com.nkm.framework.protocol.TCSGetWorldEvent.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasStartTime) {
+          StartTime = other.StartTime;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tCSGetWorldEventFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tCSGetWorldEventFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasStartTime = input.ReadInt64(ref result.startTime_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasStartTime {
+        get { return result.hasStartTime; }
+      }
+      public long StartTime {
+        get { return result.StartTime; }
+        set { SetStartTime(value); }
+      }
+      public Builder SetStartTime(long value) {
+        PrepareBuilder();
+        result.hasStartTime = true;
+        result.startTime_ = value;
+        return this;
+      }
+      public Builder ClearStartTime() {
+        PrepareBuilder();
+        result.hasStartTime = false;
+        result.startTime_ = 0L;
+        return this;
+      }
+    }
+    static TCSGetWorldEvent() {
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class TSCGetWorldEvent : pb::GeneratedMessageLite<TSCGetWorldEvent, TSCGetWorldEvent.Builder> {
+    private TSCGetWorldEvent() { }
+    private static readonly TSCGetWorldEvent defaultInstance = new TSCGetWorldEvent().MakeReadOnly();
+    private static readonly string[] _tSCGetWorldEventFieldNames = new string[] { "worldEvents" };
+    private static readonly uint[] _tSCGetWorldEventFieldTags = new uint[] { 10 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override TSCGetWorldEvent DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override TSCGetWorldEvent ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int WorldEventsFieldNumber = 1;
+    private pbc::PopsicleList<global::com.nkm.framework.protocol.WorldEvent> worldEvents_ = new pbc::PopsicleList<global::com.nkm.framework.protocol.WorldEvent>();
+    public scg::IList<global::com.nkm.framework.protocol.WorldEvent> WorldEventsList {
+      get { return worldEvents_; }
+    }
+    public int WorldEventsCount {
+      get { return worldEvents_.Count; }
+    }
+    public global::com.nkm.framework.protocol.WorldEvent GetWorldEvents(int index) {
+      return worldEvents_[index];
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _tSCGetWorldEventFieldNames;
+      if (worldEvents_.Count > 0) {
+        output.WriteMessageArray(1, field_names[0], worldEvents_);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        foreach (global::com.nkm.framework.protocol.WorldEvent element in WorldEventsList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(1, element);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      foreach(global::com.nkm.framework.protocol.WorldEvent i in worldEvents_)
+        hash ^= i.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      TSCGetWorldEvent other = obj as TSCGetWorldEvent;
+      if (other == null) return false;
+      if(worldEvents_.Count != other.worldEvents_.Count) return false;
+      for(int ix=0; ix < worldEvents_.Count; ix++)
+        if(!worldEvents_[ix].Equals(other.worldEvents_[ix])) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static TSCGetWorldEvent ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private TSCGetWorldEvent MakeReadOnly() {
+      worldEvents_.MakeReadOnly();
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(TSCGetWorldEvent prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<TSCGetWorldEvent, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(TSCGetWorldEvent cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private TSCGetWorldEvent result;
+      
+      private TSCGetWorldEvent PrepareBuilder() {
+        if (resultIsReadOnly) {
+          TSCGetWorldEvent original = result;
+          result = new TSCGetWorldEvent();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override TSCGetWorldEvent MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override TSCGetWorldEvent DefaultInstanceForType {
+        get { return global::com.nkm.framework.protocol.TSCGetWorldEvent.DefaultInstance; }
+      }
+      
+      public override TSCGetWorldEvent BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is TSCGetWorldEvent) {
+          return MergeFrom((TSCGetWorldEvent) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(TSCGetWorldEvent other) {
+        if (other == global::com.nkm.framework.protocol.TSCGetWorldEvent.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.worldEvents_.Count != 0) {
+          result.worldEvents_.Add(other.worldEvents_);
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_tSCGetWorldEventFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _tSCGetWorldEventFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 10: {
+              input.ReadMessageArray(tag, field_name, result.worldEvents_, global::com.nkm.framework.protocol.WorldEvent.DefaultInstance, extensionRegistry);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public pbc::IPopsicleList<global::com.nkm.framework.protocol.WorldEvent> WorldEventsList {
+        get { return PrepareBuilder().worldEvents_; }
+      }
+      public int WorldEventsCount {
+        get { return result.WorldEventsCount; }
+      }
+      public global::com.nkm.framework.protocol.WorldEvent GetWorldEvents(int index) {
+        return result.GetWorldEvents(index);
+      }
+      public Builder SetWorldEvents(int index, global::com.nkm.framework.protocol.WorldEvent value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.worldEvents_[index] = value;
+        return this;
+      }
+      public Builder SetWorldEvents(int index, global::com.nkm.framework.protocol.WorldEvent.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.worldEvents_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddWorldEvents(global::com.nkm.framework.protocol.WorldEvent value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.worldEvents_.Add(value);
+        return this;
+      }
+      public Builder AddWorldEvents(global::com.nkm.framework.protocol.WorldEvent.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.worldEvents_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeWorldEvents(scg::IEnumerable<global::com.nkm.framework.protocol.WorldEvent> values) {
+        PrepareBuilder();
+        result.worldEvents_.Add(values);
+        return this;
+      }
+      public Builder ClearWorldEvents() {
+        PrepareBuilder();
+        result.worldEvents_.Clear();
+        return this;
+      }
+    }
+    static TSCGetWorldEvent() {
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
+    }
+  }
+  
+  public sealed partial class WorldEvent : pb::GeneratedMessageLite<WorldEvent, WorldEvent.Builder> {
+    private WorldEvent() { }
+    private static readonly WorldEvent defaultInstance = new WorldEvent().MakeReadOnly();
+    private static readonly string[] _worldEventFieldNames = new string[] { "configId", "time", "type" };
+    private static readonly uint[] _worldEventFieldTags = new uint[] { 8, 24, 16 };
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override WorldEvent DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override WorldEvent ThisMessage {
+      get { return this; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int ConfigIdFieldNumber = 1;
+    private bool hasConfigId;
+    private int configId_;
+    public bool HasConfigId {
+      get { return hasConfigId; }
+    }
+    public int ConfigId {
+      get { return configId_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int TypeFieldNumber = 2;
+    private bool hasType;
+    private int type_;
+    public bool HasType {
+      get { return hasType; }
+    }
+    public int Type {
+      get { return type_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int TimeFieldNumber = 3;
+    private bool hasTime;
+    private long time_;
+    public bool HasTime {
+      get { return hasTime; }
+    }
+    public long Time {
+      get { return time_; }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _worldEventFieldNames;
+      if (hasConfigId) {
+        output.WriteInt32(1, field_names[0], ConfigId);
+      }
+      if (hasType) {
+        output.WriteInt32(2, field_names[2], Type);
+      }
+      if (hasTime) {
+        output.WriteInt64(3, field_names[1], Time);
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasConfigId) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, ConfigId);
+        }
+        if (hasType) {
+          size += pb::CodedOutputStream.ComputeInt32Size(2, Type);
+        }
+        if (hasTime) {
+          size += pb::CodedOutputStream.ComputeInt64Size(3, Time);
+        }
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasConfigId) hash ^= configId_.GetHashCode();
+      if (hasType) hash ^= type_.GetHashCode();
+      if (hasTime) hash ^= time_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      WorldEvent other = obj as WorldEvent;
+      if (other == null) return false;
+      if (hasConfigId != other.hasConfigId || (hasConfigId && !configId_.Equals(other.configId_))) return false;
+      if (hasType != other.hasType || (hasType && !type_.Equals(other.type_))) return false;
+      if (hasTime != other.hasTime || (hasTime && !time_.Equals(other.time_))) return false;
+      return true;
+    }
+    
+    #endregion
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static WorldEvent ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private WorldEvent MakeReadOnly() {
+      return this;
+    }
+    
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    #if UNITY_EDITOR
+     [pb.FieldNumber] 
+     #endif//
+    public static Builder CreateBuilder(WorldEvent prototype) {
+      return new Builder(prototype);
+    }
+    
+    public sealed partial class Builder : pb::GeneratedBuilderLite<WorldEvent, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(WorldEvent cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private WorldEvent result;
+      
+      private WorldEvent PrepareBuilder() {
+        if (resultIsReadOnly) {
+          WorldEvent original = result;
+          result = new WorldEvent();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override WorldEvent MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override WorldEvent DefaultInstanceForType {
+        get { return global::com.nkm.framework.protocol.WorldEvent.DefaultInstance; }
+      }
+      
+      public override WorldEvent BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessageLite other) {
+        if (other is WorldEvent) {
+          return MergeFrom((WorldEvent) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(WorldEvent other) {
+        if (other == global::com.nkm.framework.protocol.WorldEvent.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasConfigId) {
+          ConfigId = other.ConfigId;
+        }
+        if (other.HasType) {
+          Type = other.Type;
+        }
+        if (other.HasTime) {
+          Time = other.Time;
+        }
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_worldEventFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _worldEventFieldTags[field_ordinal];
+            else {
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                return this;
+              }
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasConfigId = input.ReadInt32(ref result.configId_);
+              break;
+            }
+            case 16: {
+              result.hasType = input.ReadInt32(ref result.type_);
+              break;
+            }
+            case 24: {
+              result.hasTime = input.ReadInt64(ref result.time_);
+              break;
+            }
+          }
+        }
+        
+        return this;
+      }
+      
+      
+      public bool HasConfigId {
+        get { return result.hasConfigId; }
+      }
+      public int ConfigId {
+        get { return result.ConfigId; }
+        set { SetConfigId(value); }
+      }
+      public Builder SetConfigId(int value) {
+        PrepareBuilder();
+        result.hasConfigId = true;
+        result.configId_ = value;
+        return this;
+      }
+      public Builder ClearConfigId() {
+        PrepareBuilder();
+        result.hasConfigId = false;
+        result.configId_ = 0;
+        return this;
+      }
+      
+      public bool HasType {
+        get { return result.hasType; }
+      }
+      public int Type {
+        get { return result.Type; }
+        set { SetType(value); }
+      }
+      public Builder SetType(int value) {
+        PrepareBuilder();
+        result.hasType = true;
+        result.type_ = value;
+        return this;
+      }
+      public Builder ClearType() {
+        PrepareBuilder();
+        result.hasType = false;
+        result.type_ = 0;
+        return this;
+      }
+      
+      public bool HasTime {
+        get { return result.hasTime; }
+      }
+      public long Time {
+        get { return result.Time; }
+        set { SetTime(value); }
+      }
+      public Builder SetTime(long value) {
+        PrepareBuilder();
+        result.hasTime = true;
+        result.time_ = value;
+        return this;
+      }
+      public Builder ClearTime() {
+        PrepareBuilder();
+        result.hasTime = false;
+        result.time_ = 0L;
+        return this;
+      }
+    }
+    static WorldEvent() {
+      object.ReferenceEquals(global::com.nkm.framework.protocol.User.Descriptor, null);
+    }
+  }
+  
   public sealed partial class TCSSellGoods : pb::GeneratedMessageLite<TCSSellGoods, TCSSellGoods.Builder> {
     private TCSSellGoods() { }
     private static readonly TCSSellGoods defaultInstance = new TCSSellGoods().MakeReadOnly();

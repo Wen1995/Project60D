@@ -22,4 +22,12 @@ public class WorldEventDao extends BaseDao<WorldEvent, WorldEventMapper, WorldEv
         return sqlSelectByExample(example);
     }
     
+    @Override
+    public List<WorldEvent> getAllWorldEvent(Long startTime) {
+        WorldEventExample example = new WorldEventExample();
+        example.createCriteria().andTimeBetween(new Date(startTime), new Date());
+        example.setOrderByClause("time");
+        return sqlSelectByExample(example);
+    }
+    
 }

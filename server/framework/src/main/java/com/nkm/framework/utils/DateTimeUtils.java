@@ -9,7 +9,8 @@ import java.util.Date;
 
 public class DateTimeUtils {
     public static final String datePattern = "yyyy-MM-dd HH:mm:ss";
-
+    public static final String monthPattern = "yyyy_MM";
+    
     public static String getDateFormateStr(Date date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(datePattern);
         Instant instant = date.toInstant();
@@ -22,6 +23,13 @@ public class DateTimeUtils {
         LocalDateTime localDateTime = LocalDateTime.parse(dateStr, formatter);
         Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
         return Date.from(instant);
+    }
+    
+    public static String getMonthDataFormateStr(Date date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(monthPattern);
+        Instant instant = date.toInstant();
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+        return formatter.format(localDateTime);
     }
 
     public static Date getNextMonth(Date date) {

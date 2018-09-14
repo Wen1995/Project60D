@@ -98,7 +98,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.nkm.framework.dbcache.model.WorldEvent">
+  <insert id="insert" parameterType="com.nkm.framework.dbcache.model.WorldEvent" useGeneratedKeys="true" keyProperty="id">
     insert into t_world_event (id, config_id, type, 
       time)
     values (#{id,jdbcType=BIGINT}, #{configId,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 

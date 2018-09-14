@@ -28,8 +28,8 @@ namespace com.nkm.framework.protocol {
   public sealed partial class TCSLogin : pb::GeneratedMessageLite<TCSLogin, TCSLogin.Builder> {
     private TCSLogin() { }
     private static readonly TCSLogin defaultInstance = new TCSLogin().MakeReadOnly();
-    private static readonly string[] _tCSLoginFieldNames = new string[] { "account" };
-    private static readonly uint[] _tCSLoginFieldTags = new uint[] { 10 };
+    private static readonly string[] _tCSLoginFieldNames = new string[] { "account", "ip" };
+    private static readonly uint[] _tCSLoginFieldTags = new uint[] { 10, 18 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -62,6 +62,19 @@ namespace com.nkm.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int IpFieldNumber = 2;
+    private bool hasIp;
+    private string ip_ = "";
+    public bool HasIp {
+      get { return hasIp; }
+    }
+    public string Ip {
+      get { return ip_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -79,6 +92,9 @@ namespace com.nkm.framework.protocol {
       if (hasAccount) {
         output.WriteString(1, field_names[0], Account);
       }
+      if (hasIp) {
+        output.WriteString(2, field_names[1], Ip);
+      }
     }
     
     private int memoizedSerializedSize = -1;
@@ -94,6 +110,9 @@ namespace com.nkm.framework.protocol {
         if (hasAccount) {
           size += pb::CodedOutputStream.ComputeStringSize(1, Account);
         }
+        if (hasIp) {
+          size += pb::CodedOutputStream.ComputeStringSize(2, Ip);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -103,6 +122,7 @@ namespace com.nkm.framework.protocol {
     public override int GetHashCode() {
       int hash = GetType().GetHashCode();
       if (hasAccount) hash ^= account_.GetHashCode();
+      if (hasIp) hash ^= ip_.GetHashCode();
       return hash;
     }
     
@@ -110,6 +130,7 @@ namespace com.nkm.framework.protocol {
       TCSLogin other = obj as TCSLogin;
       if (other == null) return false;
       if (hasAccount != other.hasAccount || (hasAccount && !account_.Equals(other.account_))) return false;
+      if (hasIp != other.hasIp || (hasIp && !ip_.Equals(other.ip_))) return false;
       return true;
     }
     
@@ -273,6 +294,9 @@ namespace com.nkm.framework.protocol {
         if (other.HasAccount) {
           Account = other.Account;
         }
+        if (other.HasIp) {
+          Ip = other.Ip;
+        }
         return this;
       }
       
@@ -309,6 +333,10 @@ namespace com.nkm.framework.protocol {
               result.hasAccount = input.ReadString(ref result.account_);
               break;
             }
+            case 18: {
+              result.hasIp = input.ReadString(ref result.ip_);
+              break;
+            }
           }
         }
         
@@ -334,6 +362,27 @@ namespace com.nkm.framework.protocol {
         PrepareBuilder();
         result.hasAccount = false;
         result.account_ = "";
+        return this;
+      }
+      
+      public bool HasIp {
+        get { return result.hasIp; }
+      }
+      public string Ip {
+        get { return result.Ip; }
+        set { SetIp(value); }
+      }
+      public Builder SetIp(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasIp = true;
+        result.ip_ = value;
+        return this;
+      }
+      public Builder ClearIp() {
+        PrepareBuilder();
+        result.hasIp = false;
+        result.ip_ = "";
         return this;
       }
     }

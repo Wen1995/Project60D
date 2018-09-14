@@ -87,7 +87,7 @@ public class LockManager {
             remianCount += componentLocks.size();
 
         }
-        logger.error("LockManager-Cleaner:cleaned " + cleanCount + ",remain " + remianCount);
+        logger.info("LockManager-Cleaner:cleaned " + cleanCount + ",remain " + remianCount);
     }
 
 }

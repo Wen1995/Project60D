@@ -13,6 +13,7 @@ import com.nkm.framework.protocol.User.TCSGetResourceInfo;
 import com.nkm.framework.protocol.User.TCSGetResourceInfoByConfigId;
 import com.nkm.framework.protocol.User.TCSGetUserState;
 import com.nkm.framework.protocol.User.TCSGetUserStateRegular;
+import com.nkm.framework.protocol.User.TCSGetWorldEvent;
 import com.nkm.framework.protocol.User.TCSSellGoods;
 import com.nkm.framework.protocol.User.TCSBuyGoods;
 import com.nkm.framework.protocol.User.TCSGetPrices;
@@ -60,6 +61,16 @@ public class UserHandler {
 		
 		TPacket resp = service.getUserStateRegular(p.getUid());
 		resp.setCmd(Cmd.GETUSERSTATEREGULAR_VALUE + 1000);
+		GameServer.GetInstance().send(resp);
+	}
+
+	/** 世界事件 */
+	@HandlerMethodMapping(cmd = Cmd.GETWORLDEVENT_VALUE)
+	public void getWorldEvent(TPacket p) throws Exception {
+		TCSGetWorldEvent msg = TCSGetWorldEvent.parseFrom(p.getBuffer());
+		Long startTime = msg.getStartTime();		
+		TPacket resp = service.getWorldEvent(p.getUid(), startTime);
+		resp.setCmd(Cmd.GETWORLDEVENT_VALUE + 1000);
 		GameServer.GetInstance().send(resp);
 	}
 

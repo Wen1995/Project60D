@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
+import org.springframework.ui.Model;
 import com.nkm.framework.console.constant.Constant;
 import com.nkm.framework.console.disruptor.TPacket;
 import com.nkm.framework.console.exception.BaseException;
 import com.nkm.framework.dbcache.dao.IBuildingDao;
 import com.nkm.framework.dbcache.dao.IGroupDao;
 import com.nkm.framework.dbcache.dao.IUserDao;
+import com.nkm.framework.dbcache.dao.IWorldEventDao;
 import com.nkm.framework.dbcache.model.Building;
 import com.nkm.framework.dbcache.model.Group;
 import com.nkm.framework.dbcache.model.User;
@@ -24,8 +26,10 @@ import com.nkm.framework.protocol.User.TSCGetResourceInfo;
 import com.nkm.framework.protocol.User.TSCGetResourceInfoByConfigId;
 import com.nkm.framework.protocol.User.TSCGetUserState;
 import com.nkm.framework.protocol.User.TSCGetUserStateRegular;
+import com.nkm.framework.protocol.User.TSCGetWorldEvent;
 import com.nkm.framework.protocol.User.TSCSellGoods;
 import com.nkm.framework.protocol.User.UserResource;
+import com.nkm.framework.protocol.User.WorldEvent;
 import com.nkm.framework.resource.DynamicDataManager;
 import com.nkm.framework.resource.StaticDataManager;
 import com.nkm.framework.resource.data.BuildingBytes.BUILDING;
@@ -42,6 +46,8 @@ public class UserServiceImpl implements UserService {
     private IGroupDao groupDao;
     @Resource
     private IBuildingDao buildingDao;
+    @Resource
+    private IWorldEventDao worldEventDao;
     
     @Override
     public TPacket getResourceInfo(Long uid) throws Exception {
@@ -255,6 +261,28 @@ public class UserServiceImpl implements UserService {
         resp.setBuffer(p.toByteArray());
         return resp;
     }
+    
+
+    @Override
+    public TPacket getWorldEvent(Long uid, Long startTime) throws Exception {
+        List<WorldEvent> worldEvents = new ArrayList<>();
+        List<com.nkm.framework.dbcache.model.WorldEvent> worldEventss = worldEventDao.getAllWorldEvent(startTime);
+        for (com.nkm.framework.dbcache.model.WorldEvent w : worldEventss) {
+            WorldEvent worldEvent = WorldEvent.newBuilder()
+                    .setConfigId(w.getConfigId())
+                    .setType(w.getType())
+                    .setTime(w.getTime().getTime())
+                    .build();
+            worldEvents.add(worldEvent);
+        }
+        TSCGetWorldEvent p = TSCGetWorldEvent.newBuilder()
+                .addAllWorldEvents(worldEvents)
+                .build();
+        TPacket resp = new TPacket();
+        resp.setUid(uid);
+        resp.setBuffer(p.toByteArray());
+        return resp;
+    }
 
     @Override
     public TPacket sellGoods(Long uid, Integer configId, Integer number, Double price, Double taxRate) throws Exception {
@@ -384,6 +412,7 @@ public class UserServiceImpl implements UserService {
                         break;
                     }
                 }
+                storehouseCapacity -= number;
                 if (storehouseCapacity > 0) {                   // 是否有足够的仓库资源
                     double leftGold = user.getGold() - priceNow * number * (1 + taxCoff);
                     if (leftGold > 0) {                         // 是否有足够的钱

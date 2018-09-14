@@ -11,10 +11,7 @@
         <context:include-filter type="regex" expression="com.nkm.game.*Handler" />
         <context:include-filter type="regex" expression="com.nkm.game.*ServiceImpl" />
         <context:include-filter type="regex" expression="com.nkm.framework.*Dao" />
-    </context:component-scan>
-    
-    <context:component-scan base-package="com.nkm.framework" >
-        
+        <context:include-filter type="regex" expression="com.nkm.framework.*ServiceImpl" />
     </context:component-scan>
     
     <bean id="serviceAroundMethod" class="com.nkm.framework.console.factory.ServiceAroundMethod" />

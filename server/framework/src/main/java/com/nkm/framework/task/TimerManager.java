@@ -18,8 +18,6 @@ import com.nkm.framework.console.disruptor.TPacket;
 import com.nkm.framework.dbcache.dao.ITimerDao;
 import com.nkm.framework.dbcache.dao.IUserDao;
 import com.nkm.framework.dbcache.dao.IWorldEventDao;
-import com.nkm.framework.dbcache.id.IdManager;
-import com.nkm.framework.dbcache.id.IdType;
 import com.nkm.framework.dbcache.model.Timer;
 import com.nkm.framework.dbcache.model.User;
 import com.nkm.framework.dbcache.model.WorldEvent;
@@ -44,7 +42,6 @@ public class TimerManager {
 
     private static Object obj = new Object();
     private static TimerManager instance = null;
-
     public static TimerManager GetInstance() {
         if (instance == null) {
             synchronized (obj) {
@@ -206,9 +203,7 @@ public class TimerManager {
                     int rate = entry.getValue().getEventProb();
                     if (/*new Random().nextInt(100000)*/new Random().nextInt(1000) < rate) {
                         changeFlag = true;
-                        Long id = IdManager.GetInstance().genId(IdType.WORLDEVENT);
                         WorldEvent worldEvent = new WorldEvent();
-                        worldEvent.setId(id);
                         worldEvent.setConfigId(congigId);
                         worldEvent.setType(TimeType.START_TIME_VALUE);
                         worldEvent.setTime(new Date(happenTime));
@@ -216,9 +211,7 @@ public class TimerManager {
 
                         long endTime = happenTime + worldEventsMap.get(congigId).getEventDuration()
                                 * Constant.TIME_MINUTE;
-                        id = IdManager.GetInstance().genId(IdType.WORLDEVENT);
                         worldEvent = new WorldEvent();
-                        worldEvent.setId(id);
                         worldEvent.setConfigId(congigId);
                         worldEvent.setType(TimeType.END_TIME_VALUE);
                         worldEvent.setTime(new Date(endTime));

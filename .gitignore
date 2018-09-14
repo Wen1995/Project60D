@@ -68,6 +68,7 @@ logs/
 bin/
 .settings/
 target/
+proto/
 
  # STS (Spring Tool Suite)
 .springBeans

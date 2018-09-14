@@ -657,7 +657,6 @@ public class SceneServiceImpl implements SceneService {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("configId", productionConfigId);
                 jsonObject.put("number", productionConfigId);
-                System.out.println(jsonObject.toString());
                 logService.createLog(uid, Thread.currentThread().getStackTrace()[1].getMethodName(), jsonObject.toString());
             } else {
                 throw new BaseException(Error.NO_MORE_CAPACITY_VALUE);

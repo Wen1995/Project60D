@@ -26,7 +26,7 @@
 		</RollingFile>
 		
 		<RollingFile name="AnalyseLogRollingFile" fileName="logs/analyse.log"
-			filePattern="logs/analyse-%d{yyyy-MM-dd-HH:mm:ss}.log">
+			filePattern="logs/analyse-%d{yyyy-MM-dd-HH}.log">
 			<ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
 			<PatternLayout pattern="%msg%xEx%n" />
 			<Policies>

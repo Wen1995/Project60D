@@ -23,7 +23,6 @@ public class DynamicDataManager {
     
     private static Object obj = new Object();
     private static DynamicDataManager instance;
-
     public static DynamicDataManager GetInstance() {
         if (instance == null) {
             synchronized (obj) {

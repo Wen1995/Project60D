@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkm.framework.dbcache.model.LogMapper">
+  <resultMap id="BaseResultMap" type="com.nkm.framework.dbcache.model.Log">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="group_id" jdbcType="BIGINT" property="groupId" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="contribution" jdbcType="INTEGER" property="contribution" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="operation_time" jdbcType="TIMESTAMP" property="operationTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.nkm.framework.dbcache.model.Log">
+    <result column="operation" jdbcType="LONGVARCHAR" property="operation" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, uid, group_id, method, account, create_time, contribution, login_ip, login_time, 
+    operation_time
+  </sql>
+  <sql id="Blob_Column_List">
+    operation
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.nkm.framework.dbcache.model.LogExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.nkm.framework.dbcache.model.LogExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nkm.framework.dbcache.model.LogExample">
+    delete from t_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nkm.framework.dbcache.model.Log" useGeneratedKeys="true" keyProperty="id">
+    insert into t_log (id, uid, group_id, 
+      method, account, create_time, 
+      contribution, login_ip, login_time, 
+      operation_time, operation)
+    values (#{id,jdbcType=BIGINT}, #{uid,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, 
+      #{method,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{contribution,jdbcType=INTEGER}, #{loginIp,jdbcType=VARCHAR}, #{loginTime,jdbcType=TIMESTAMP}, 
+      #{operationTime,jdbcType=TIMESTAMP}, #{operation,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nkm.framework.dbcache.model.Log">
+    insert into t_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+      <if test="method != null">
+        method,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="contribution != null">
+        contribution,
+      </if>
+      <if test="loginIp != null">
+        login_ip,
+      </if>
+      <if test="loginTime != null">
+        login_time,
+      </if>
+      <if test="operationTime != null">
+        operation_time,
+      </if>
+      <if test="operation != null">
+        operation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contribution != null">
+        #{contribution,jdbcType=INTEGER},
+      </if>
+      <if test="loginIp != null">
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null">
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operationTime != null">
+        #{operationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operation != null">
+        #{operation,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nkm.framework.dbcache.model.LogExample" resultType="java.lang.Long">
+    select count(*) from t_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_log
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=BIGINT},
+      </if>
+      <if test="record.groupId != null">
+        group_id = #{record.groupId,jdbcType=BIGINT},
+      </if>
+      <if test="record.method != null">
+        method = #{record.method,jdbcType=VARCHAR},
+      </if>
+      <if test="record.account != null">
+        account = #{record.account,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.contribution != null">
+        contribution = #{record.contribution,jdbcType=INTEGER},
+      </if>
+      <if test="record.loginIp != null">
+        login_ip = #{record.loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginTime != null">
+        login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.operationTime != null">
+        operation_time = #{record.operationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.operation != null">
+        operation = #{record.operation,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_log
+    set id = #{record.id,jdbcType=BIGINT},
+      uid = #{record.uid,jdbcType=BIGINT},
+      group_id = #{record.groupId,jdbcType=BIGINT},
+      method = #{record.method,jdbcType=VARCHAR},
+      account = #{record.account,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      contribution = #{record.contribution,jdbcType=INTEGER},
+      login_ip = #{record.loginIp,jdbcType=VARCHAR},
+      login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      operation_time = #{record.operationTime,jdbcType=TIMESTAMP},
+      operation = #{record.operation,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_log
+    set id = #{record.id,jdbcType=BIGINT},
+      uid = #{record.uid,jdbcType=BIGINT},
+      group_id = #{record.groupId,jdbcType=BIGINT},
+      method = #{record.method,jdbcType=VARCHAR},
+      account = #{record.account,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      contribution = #{record.contribution,jdbcType=INTEGER},
+      login_ip = #{record.loginIp,jdbcType=VARCHAR},
+      login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      operation_time = #{record.operationTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nkm.framework.dbcache.model.Log">
+    update t_log
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="method != null">
+        method = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contribution != null">
+        contribution = #{contribution,jdbcType=INTEGER},
+      </if>
+      <if test="loginIp != null">
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null">
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operationTime != null">
+        operation_time = #{operationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operation != null">
+        operation = #{operation,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.nkm.framework.dbcache.model.Log">
+    update t_log
+    set uid = #{uid,jdbcType=BIGINT},
+      group_id = #{groupId,jdbcType=BIGINT},
+      method = #{method,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      contribution = #{contribution,jdbcType=INTEGER},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      operation_time = #{operationTime,jdbcType=TIMESTAMP},
+      operation = #{operation,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nkm.framework.dbcache.model.Log">
+    update t_log
+    set uid = #{uid,jdbcType=BIGINT},
+      group_id = #{groupId,jdbcType=BIGINT},
+      method = #{method,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      contribution = #{contribution,jdbcType=INTEGER},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      operation_time = #{operationTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

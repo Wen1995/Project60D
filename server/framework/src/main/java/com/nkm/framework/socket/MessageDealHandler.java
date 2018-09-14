@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import com.nkm.framework.console.GameServer;
 import com.nkm.framework.console.disruptor.TPacket;
 import com.nkm.framework.protocol.Common.Cmd;
+import com.nkm.framework.protocol.Login.TCSLogin;
 import com.nkm.framework.protocol.Login.TCSLogout;
 import com.nkm.framework.resource.DynamicDataManager;
 import io.netty.channel.Channel;
@@ -15,13 +16,20 @@ import io.netty.channel.ChannelHandler.Sharable;
 
 @Sharable
 public class MessageDealHandler extends ChannelInboundHandlerAdapter {
-    private static Logger logger = LoggerFactory.getLogger(MessageDealHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(MessageDealHandler.class);
     
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         TPacket p = (TPacket) msg;
         if (p.getCmd() == Cmd.LOGIN_VALUE) {
-            p.setChannel(ctx.channel());
+            Channel channel = ctx.channel();
+            p.setChannel(channel);
+            
+            TCSLogin tLogin = TCSLogin.parseFrom(p.getBuffer())
+                    .toBuilder()
+                    .setIp(MessageDealHandler.getIP(channel))
+                    .build();
+            p.setBuffer(tLogin.toByteArray());
         } else {
             Long uid = GameServer.GetInstance().getChannelData(ctx.channel());
             if (uid == null) {

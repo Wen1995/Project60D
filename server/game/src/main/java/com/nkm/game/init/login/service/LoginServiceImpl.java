@@ -52,46 +52,54 @@ public class LoginServiceImpl implements LoginService {
     }
     
     @Override
-    public TPacket login(Long uid, String account) throws Exception {
+    public TPacket login(Long uid, String account, String ip) throws Exception {
         if (StringUtil.isNullOrEmpty(account)) {
             throw new BaseException(Error.SERVER_ERR_VALUE);
         }
         Long groupId = 0L;
+        long thisTime = System.currentTimeMillis();
+        Date date = new Date(thisTime);
         Map<String, Long> account2Id = DynamicDataManager.GetInstance().account2Uid;
         if (account2Id.containsKey(account)) {
             uid = account2Id.get(account);
             User user = userDao.get(uid);
             groupId = user.getGroupId();
+            
+            user.setLoginIp(ip);
+            user.setLoginTime(date);
+            userDao.update(user);
         } else {
             User user = new User();
             uid = IdManager.GetInstance().genId(IdType.USER);
             user.setId(uid);
             user.setAccount(account);
-            user.setCreateTime(new Date());
+            user.setCreateTime(date);
             user.setProduction(1);
+            user.setLoginIp(ip);
+            user.setLoginTime(date);
             
             // 初始资源
-            /*List<ResourceInfo> resourceInfos = new ArrayList<>();
+            List<ResourceInfo> resourceInfos = new ArrayList<>();
             ReadOnlyMap<Integer, ITEM_RES> itemResMap = StaticDataManager.GetInstance().itemResMap;
             for (Integer key : itemResMap.keySet()) {
                 ResourceInfo resourceInfo = ResourceInfo.newBuilder()
                         .setConfigId(key)
-                        .setNumber(0)
+                        .setNumber(700)
                         .build();
                 resourceInfos.add(resourceInfo);
             }
             UserResource userResource = UserResource.newBuilder()
                     .addAllResourceInfos(resourceInfos).build();
-            user.setResource(userResource.toByteArray());*/
+            user.setResource(userResource.toByteArray());
             
             userDao.insert(user);
             account2Id.put(account, uid);
         }
-        
         DynamicDataManager.GetInstance().uid2GroupId.put(uid, groupId);
+        
         TSCLogin p = TSCLogin.newBuilder()
                 .setUid(uid)
-                .setSystemCurrentTime(System.currentTimeMillis())
+                .setSystemCurrentTime(thisTime)
                 .setGroupId(groupId)
                 .build();
         TPacket resp = new TPacket();

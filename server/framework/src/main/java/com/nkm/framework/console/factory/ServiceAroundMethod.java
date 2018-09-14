@@ -15,7 +15,6 @@ public class ServiceAroundMethod implements MethodInterceptor {
         Object result = null;
         if (sync != null) {
             String key = getLockKey(sync, invocation.getArguments());
-            System.out.println(key);
             Lock lock = lockManager.getLock(sync.component(), key);
             synchronized (lock) {
                 result = invocation.proceed();

@@ -37,6 +37,33 @@ public final class Login {
      */
     com.google.protobuf.ByteString
         getAccountBytes();
+
+    // optional string ip = 2;
+    /**
+     * <code>optional string ip = 2;</code>
+     *
+     * <pre>
+     * IP(不要填)
+     * </pre>
+     */
+    boolean hasIp();
+    /**
+     * <code>optional string ip = 2;</code>
+     *
+     * <pre>
+     * IP(不要填)
+     * </pre>
+     */
+    java.lang.String getIp();
+    /**
+     * <code>optional string ip = 2;</code>
+     *
+     * <pre>
+     * IP(不要填)
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getIpBytes();
   }
   /**
    * Protobuf type {@code com.nkm.framework.protocol.TCSLogin}
@@ -92,6 +119,11 @@ public final class Login {
             case 10: {
               bitField0_ |= 0x00000001;
               account_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              ip_ = input.readBytes();
               break;
             }
           }
@@ -189,8 +221,64 @@ public final class Login {
       }
     }
 
+    // optional string ip = 2;
+    public static final int IP_FIELD_NUMBER = 2;
+    private java.lang.Object ip_;
+    /**
+     * <code>optional string ip = 2;</code>
+     *
+     * <pre>
+     * IP(不要填)
+     * </pre>
+     */
+    public boolean hasIp() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string ip = 2;</code>
+     *
+     * <pre>
+     * IP(不要填)
+     * </pre>
+     */
+    public java.lang.String getIp() {
+      java.lang.Object ref = ip_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          ip_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string ip = 2;</code>
+     *
+     * <pre>
+     * IP(不要填)
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getIpBytes() {
+      java.lang.Object ref = ip_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        ip_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       account_ = "";
+      ip_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -207,6 +295,9 @@ public final class Login {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getAccountBytes());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getIpBytes());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -219,6 +310,10 @@ public final class Login {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getAccountBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getIpBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -338,6 +433,8 @@ public final class Login {
         super.clear();
         account_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        ip_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -370,6 +467,10 @@ public final class Login {
           to_bitField0_ |= 0x00000001;
         }
         result.account_ = account_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.ip_ = ip_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -389,6 +490,11 @@ public final class Login {
         if (other.hasAccount()) {
           bitField0_ |= 0x00000001;
           account_ = other.account_;
+          onChanged();
+        }
+        if (other.hasIp()) {
+          bitField0_ |= 0x00000002;
+          ip_ = other.ip_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -512,6 +618,104 @@ public final class Login {
   }
   bitField0_ |= 0x00000001;
         account_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string ip = 2;
+      private java.lang.Object ip_ = "";
+      /**
+       * <code>optional string ip = 2;</code>
+       *
+       * <pre>
+       * IP(不要填)
+       * </pre>
+       */
+      public boolean hasIp() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string ip = 2;</code>
+       *
+       * <pre>
+       * IP(不要填)
+       * </pre>
+       */
+      public java.lang.String getIp() {
+        java.lang.Object ref = ip_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          ip_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string ip = 2;</code>
+       *
+       * <pre>
+       * IP(不要填)
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getIpBytes() {
+        java.lang.Object ref = ip_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          ip_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string ip = 2;</code>
+       *
+       * <pre>
+       * IP(不要填)
+       * </pre>
+       */
+      public Builder setIp(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        ip_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string ip = 2;</code>
+       *
+       * <pre>
+       * IP(不要填)
+       * </pre>
+       */
+      public Builder clearIp() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        ip_ = getDefaultInstance().getIp();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string ip = 2;</code>
+       *
+       * <pre>
+       * IP(不要填)
+       * </pre>
+       */
+      public Builder setIpBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        ip_ = value;
         onChanged();
         return this;
       }
@@ -3250,15 +3454,15 @@ public final class Login {
   static {
     java.lang.String[] descriptorData = {
       "\n\013login.proto\022\032com.nkm.framework.protoco" +
-      "l\"\033\n\010TCSLogin\022\017\n\007account\030\001 \001(\t\"C\n\010TSCLog" +
-      "in\022\013\n\003uid\030\001 \001(\003\022\017\n\007groupId\030\002 \001(\003\022\031\n\021syst" +
-      "emCurrentTime\030\003 \001(\003\"\013\n\tTCSLogout\"\n\n\010TCSH" +
-      "eart\"\207\001\n\010TSCHeart\022`\n\035worldEventConfigId2" +
-      "HappenTime\030\001 \003(\01329.com.nkm.framework.pro" +
-      "tocol.WorldEventConfigId2HappenTime\022\031\n\021s" +
-      "ystemCurrentTime\030\002 \001(\003\"O\n\035WorldEventConf" +
-      "igId2HappenTime\022\032\n\022worldEventConfigId\030\001 " +
-      "\001(\005\022\022\n\nhappenTime\030\002 \001(\003B\002H\001"
+      "l\"\'\n\010TCSLogin\022\017\n\007account\030\001 \001(\t\022\n\n\002ip\030\002 \001" +
+      "(\t\"C\n\010TSCLogin\022\013\n\003uid\030\001 \001(\003\022\017\n\007groupId\030\002" +
+      " \001(\003\022\031\n\021systemCurrentTime\030\003 \001(\003\"\013\n\tTCSLo" +
+      "gout\"\n\n\010TCSHeart\"\207\001\n\010TSCHeart\022`\n\035worldEv" +
+      "entConfigId2HappenTime\030\001 \003(\01329.com.nkm.f" +
+      "ramework.protocol.WorldEventConfigId2Hap" +
+      "penTime\022\031\n\021systemCurrentTime\030\002 \001(\003\"O\n\035Wo" +
+      "rldEventConfigId2HappenTime\022\032\n\022worldEven" +
+      "tConfigId\030\001 \001(\005\022\022\n\nhappenTime\030\002 \001(\003B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3270,7 +3474,7 @@ public final class Login {
           internal_static_com_nkm_framework_protocol_TCSLogin_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TCSLogin_descriptor,
-              new java.lang.String[] { "Account", });
+              new java.lang.String[] { "Account", "Ip", });
           internal_static_com_nkm_framework_protocol_TSCLogin_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_com_nkm_framework_protocol_TSCLogin_fieldAccessorTable = new

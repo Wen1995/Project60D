@@ -7813,6 +7813,1874 @@ public final class User {
     // @@protoc_insertion_point(class_scope:com.nkm.framework.protocol.TSCGetUserStateRegular)
   }
 
+  public interface TCSGetWorldEventOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int64 startTime = 1;
+    /**
+     * <code>optional int64 startTime = 1;</code>
+     *
+     * <pre>
+     * 开始时间
+     * </pre>
+     */
+    boolean hasStartTime();
+    /**
+     * <code>optional int64 startTime = 1;</code>
+     *
+     * <pre>
+     * 开始时间
+     * </pre>
+     */
+    long getStartTime();
+  }
+  /**
+   * Protobuf type {@code com.nkm.framework.protocol.TCSGetWorldEvent}
+   */
+  public static final class TCSGetWorldEvent extends
+      com.google.protobuf.GeneratedMessage
+      implements TCSGetWorldEventOrBuilder {
+    // Use TCSGetWorldEvent.newBuilder() to construct.
+    private TCSGetWorldEvent(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TCSGetWorldEvent(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TCSGetWorldEvent defaultInstance;
+    public static TCSGetWorldEvent getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TCSGetWorldEvent getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TCSGetWorldEvent(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              startTime_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_TCSGetWorldEvent_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_TCSGetWorldEvent_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.nkm.framework.protocol.User.TCSGetWorldEvent.class, com.nkm.framework.protocol.User.TCSGetWorldEvent.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TCSGetWorldEvent> PARSER =
+        new com.google.protobuf.AbstractParser<TCSGetWorldEvent>() {
+      public TCSGetWorldEvent parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TCSGetWorldEvent(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TCSGetWorldEvent> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int64 startTime = 1;
+    public static final int STARTTIME_FIELD_NUMBER = 1;
+    private long startTime_;
+    /**
+     * <code>optional int64 startTime = 1;</code>
+     *
+     * <pre>
+     * 开始时间
+     * </pre>
+     */
+    public boolean hasStartTime() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int64 startTime = 1;</code>
+     *
+     * <pre>
+     * 开始时间
+     * </pre>
+     */
+    public long getStartTime() {
+      return startTime_;
+    }
+
+    private void initFields() {
+      startTime_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, startTime_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, startTime_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.nkm.framework.protocol.User.TCSGetWorldEvent parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.nkm.framework.protocol.User.TCSGetWorldEvent parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.TCSGetWorldEvent parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.nkm.framework.protocol.User.TCSGetWorldEvent parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.TCSGetWorldEvent parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.nkm.framework.protocol.User.TCSGetWorldEvent parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.TCSGetWorldEvent parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.nkm.framework.protocol.User.TCSGetWorldEvent parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.TCSGetWorldEvent parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.nkm.framework.protocol.User.TCSGetWorldEvent parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.nkm.framework.protocol.User.TCSGetWorldEvent prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.nkm.framework.protocol.TCSGetWorldEvent}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.nkm.framework.protocol.User.TCSGetWorldEventOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_TCSGetWorldEvent_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_TCSGetWorldEvent_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.nkm.framework.protocol.User.TCSGetWorldEvent.class, com.nkm.framework.protocol.User.TCSGetWorldEvent.Builder.class);
+      }
+
+      // Construct using com.nkm.framework.protocol.User.TCSGetWorldEvent.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        startTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_TCSGetWorldEvent_descriptor;
+      }
+
+      public com.nkm.framework.protocol.User.TCSGetWorldEvent getDefaultInstanceForType() {
+        return com.nkm.framework.protocol.User.TCSGetWorldEvent.getDefaultInstance();
+      }
+
+      public com.nkm.framework.protocol.User.TCSGetWorldEvent build() {
+        com.nkm.framework.protocol.User.TCSGetWorldEvent result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.nkm.framework.protocol.User.TCSGetWorldEvent buildPartial() {
+        com.nkm.framework.protocol.User.TCSGetWorldEvent result = new com.nkm.framework.protocol.User.TCSGetWorldEvent(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.startTime_ = startTime_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.nkm.framework.protocol.User.TCSGetWorldEvent) {
+          return mergeFrom((com.nkm.framework.protocol.User.TCSGetWorldEvent)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.nkm.framework.protocol.User.TCSGetWorldEvent other) {
+        if (other == com.nkm.framework.protocol.User.TCSGetWorldEvent.getDefaultInstance()) return this;
+        if (other.hasStartTime()) {
+          setStartTime(other.getStartTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.nkm.framework.protocol.User.TCSGetWorldEvent parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.nkm.framework.protocol.User.TCSGetWorldEvent) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int64 startTime = 1;
+      private long startTime_ ;
+      /**
+       * <code>optional int64 startTime = 1;</code>
+       *
+       * <pre>
+       * 开始时间
+       * </pre>
+       */
+      public boolean hasStartTime() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int64 startTime = 1;</code>
+       *
+       * <pre>
+       * 开始时间
+       * </pre>
+       */
+      public long getStartTime() {
+        return startTime_;
+      }
+      /**
+       * <code>optional int64 startTime = 1;</code>
+       *
+       * <pre>
+       * 开始时间
+       * </pre>
+       */
+      public Builder setStartTime(long value) {
+        bitField0_ |= 0x00000001;
+        startTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 startTime = 1;</code>
+       *
+       * <pre>
+       * 开始时间
+       * </pre>
+       */
+      public Builder clearStartTime() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        startTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.nkm.framework.protocol.TCSGetWorldEvent)
+    }
+
+    static {
+      defaultInstance = new TCSGetWorldEvent(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.nkm.framework.protocol.TCSGetWorldEvent)
+  }
+
+  public interface TSCGetWorldEventOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;
+    /**
+     * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    java.util.List<com.nkm.framework.protocol.User.WorldEvent> 
+        getWorldEventsList();
+    /**
+     * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    com.nkm.framework.protocol.User.WorldEvent getWorldEvents(int index);
+    /**
+     * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    int getWorldEventsCount();
+    /**
+     * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    java.util.List<? extends com.nkm.framework.protocol.User.WorldEventOrBuilder> 
+        getWorldEventsOrBuilderList();
+    /**
+     * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    com.nkm.framework.protocol.User.WorldEventOrBuilder getWorldEventsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.nkm.framework.protocol.TSCGetWorldEvent}
+   */
+  public static final class TSCGetWorldEvent extends
+      com.google.protobuf.GeneratedMessage
+      implements TSCGetWorldEventOrBuilder {
+    // Use TSCGetWorldEvent.newBuilder() to construct.
+    private TSCGetWorldEvent(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TSCGetWorldEvent(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TSCGetWorldEvent defaultInstance;
+    public static TSCGetWorldEvent getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TSCGetWorldEvent getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSCGetWorldEvent(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                worldEvents_ = new java.util.ArrayList<com.nkm.framework.protocol.User.WorldEvent>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              worldEvents_.add(input.readMessage(com.nkm.framework.protocol.User.WorldEvent.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          worldEvents_ = java.util.Collections.unmodifiableList(worldEvents_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_TSCGetWorldEvent_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_TSCGetWorldEvent_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.nkm.framework.protocol.User.TSCGetWorldEvent.class, com.nkm.framework.protocol.User.TSCGetWorldEvent.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TSCGetWorldEvent> PARSER =
+        new com.google.protobuf.AbstractParser<TSCGetWorldEvent>() {
+      public TSCGetWorldEvent parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSCGetWorldEvent(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TSCGetWorldEvent> getParserForType() {
+      return PARSER;
+    }
+
+    // repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;
+    public static final int WORLDEVENTS_FIELD_NUMBER = 1;
+    private java.util.List<com.nkm.framework.protocol.User.WorldEvent> worldEvents_;
+    /**
+     * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public java.util.List<com.nkm.framework.protocol.User.WorldEvent> getWorldEventsList() {
+      return worldEvents_;
+    }
+    /**
+     * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public java.util.List<? extends com.nkm.framework.protocol.User.WorldEventOrBuilder> 
+        getWorldEventsOrBuilderList() {
+      return worldEvents_;
+    }
+    /**
+     * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public int getWorldEventsCount() {
+      return worldEvents_.size();
+    }
+    /**
+     * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public com.nkm.framework.protocol.User.WorldEvent getWorldEvents(int index) {
+      return worldEvents_.get(index);
+    }
+    /**
+     * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+     *
+     * <pre>
+     * 世界事件
+     * </pre>
+     */
+    public com.nkm.framework.protocol.User.WorldEventOrBuilder getWorldEventsOrBuilder(
+        int index) {
+      return worldEvents_.get(index);
+    }
+
+    private void initFields() {
+      worldEvents_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < worldEvents_.size(); i++) {
+        output.writeMessage(1, worldEvents_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < worldEvents_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, worldEvents_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.nkm.framework.protocol.User.TSCGetWorldEvent parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.nkm.framework.protocol.User.TSCGetWorldEvent parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.TSCGetWorldEvent parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.nkm.framework.protocol.User.TSCGetWorldEvent parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.TSCGetWorldEvent parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.nkm.framework.protocol.User.TSCGetWorldEvent parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.TSCGetWorldEvent parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.nkm.framework.protocol.User.TSCGetWorldEvent parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.TSCGetWorldEvent parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.nkm.framework.protocol.User.TSCGetWorldEvent parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.nkm.framework.protocol.User.TSCGetWorldEvent prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.nkm.framework.protocol.TSCGetWorldEvent}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.nkm.framework.protocol.User.TSCGetWorldEventOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_TSCGetWorldEvent_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_TSCGetWorldEvent_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.nkm.framework.protocol.User.TSCGetWorldEvent.class, com.nkm.framework.protocol.User.TSCGetWorldEvent.Builder.class);
+      }
+
+      // Construct using com.nkm.framework.protocol.User.TSCGetWorldEvent.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getWorldEventsFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (worldEventsBuilder_ == null) {
+          worldEvents_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          worldEventsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_TSCGetWorldEvent_descriptor;
+      }
+
+      public com.nkm.framework.protocol.User.TSCGetWorldEvent getDefaultInstanceForType() {
+        return com.nkm.framework.protocol.User.TSCGetWorldEvent.getDefaultInstance();
+      }
+
+      public com.nkm.framework.protocol.User.TSCGetWorldEvent build() {
+        com.nkm.framework.protocol.User.TSCGetWorldEvent result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.nkm.framework.protocol.User.TSCGetWorldEvent buildPartial() {
+        com.nkm.framework.protocol.User.TSCGetWorldEvent result = new com.nkm.framework.protocol.User.TSCGetWorldEvent(this);
+        int from_bitField0_ = bitField0_;
+        if (worldEventsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            worldEvents_ = java.util.Collections.unmodifiableList(worldEvents_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.worldEvents_ = worldEvents_;
+        } else {
+          result.worldEvents_ = worldEventsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.nkm.framework.protocol.User.TSCGetWorldEvent) {
+          return mergeFrom((com.nkm.framework.protocol.User.TSCGetWorldEvent)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.nkm.framework.protocol.User.TSCGetWorldEvent other) {
+        if (other == com.nkm.framework.protocol.User.TSCGetWorldEvent.getDefaultInstance()) return this;
+        if (worldEventsBuilder_ == null) {
+          if (!other.worldEvents_.isEmpty()) {
+            if (worldEvents_.isEmpty()) {
+              worldEvents_ = other.worldEvents_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureWorldEventsIsMutable();
+              worldEvents_.addAll(other.worldEvents_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.worldEvents_.isEmpty()) {
+            if (worldEventsBuilder_.isEmpty()) {
+              worldEventsBuilder_.dispose();
+              worldEventsBuilder_ = null;
+              worldEvents_ = other.worldEvents_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              worldEventsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getWorldEventsFieldBuilder() : null;
+            } else {
+              worldEventsBuilder_.addAllMessages(other.worldEvents_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.nkm.framework.protocol.User.TSCGetWorldEvent parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.nkm.framework.protocol.User.TSCGetWorldEvent) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;
+      private java.util.List<com.nkm.framework.protocol.User.WorldEvent> worldEvents_ =
+        java.util.Collections.emptyList();
+      private void ensureWorldEventsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          worldEvents_ = new java.util.ArrayList<com.nkm.framework.protocol.User.WorldEvent>(worldEvents_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.nkm.framework.protocol.User.WorldEvent, com.nkm.framework.protocol.User.WorldEvent.Builder, com.nkm.framework.protocol.User.WorldEventOrBuilder> worldEventsBuilder_;
+
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public java.util.List<com.nkm.framework.protocol.User.WorldEvent> getWorldEventsList() {
+        if (worldEventsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(worldEvents_);
+        } else {
+          return worldEventsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public int getWorldEventsCount() {
+        if (worldEventsBuilder_ == null) {
+          return worldEvents_.size();
+        } else {
+          return worldEventsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public com.nkm.framework.protocol.User.WorldEvent getWorldEvents(int index) {
+        if (worldEventsBuilder_ == null) {
+          return worldEvents_.get(index);
+        } else {
+          return worldEventsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder setWorldEvents(
+          int index, com.nkm.framework.protocol.User.WorldEvent value) {
+        if (worldEventsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureWorldEventsIsMutable();
+          worldEvents_.set(index, value);
+          onChanged();
+        } else {
+          worldEventsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder setWorldEvents(
+          int index, com.nkm.framework.protocol.User.WorldEvent.Builder builderForValue) {
+        if (worldEventsBuilder_ == null) {
+          ensureWorldEventsIsMutable();
+          worldEvents_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          worldEventsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder addWorldEvents(com.nkm.framework.protocol.User.WorldEvent value) {
+        if (worldEventsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureWorldEventsIsMutable();
+          worldEvents_.add(value);
+          onChanged();
+        } else {
+          worldEventsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder addWorldEvents(
+          int index, com.nkm.framework.protocol.User.WorldEvent value) {
+        if (worldEventsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureWorldEventsIsMutable();
+          worldEvents_.add(index, value);
+          onChanged();
+        } else {
+          worldEventsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder addWorldEvents(
+          com.nkm.framework.protocol.User.WorldEvent.Builder builderForValue) {
+        if (worldEventsBuilder_ == null) {
+          ensureWorldEventsIsMutable();
+          worldEvents_.add(builderForValue.build());
+          onChanged();
+        } else {
+          worldEventsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder addWorldEvents(
+          int index, com.nkm.framework.protocol.User.WorldEvent.Builder builderForValue) {
+        if (worldEventsBuilder_ == null) {
+          ensureWorldEventsIsMutable();
+          worldEvents_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          worldEventsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder addAllWorldEvents(
+          java.lang.Iterable<? extends com.nkm.framework.protocol.User.WorldEvent> values) {
+        if (worldEventsBuilder_ == null) {
+          ensureWorldEventsIsMutable();
+          super.addAll(values, worldEvents_);
+          onChanged();
+        } else {
+          worldEventsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder clearWorldEvents() {
+        if (worldEventsBuilder_ == null) {
+          worldEvents_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          worldEventsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public Builder removeWorldEvents(int index) {
+        if (worldEventsBuilder_ == null) {
+          ensureWorldEventsIsMutable();
+          worldEvents_.remove(index);
+          onChanged();
+        } else {
+          worldEventsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public com.nkm.framework.protocol.User.WorldEvent.Builder getWorldEventsBuilder(
+          int index) {
+        return getWorldEventsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public com.nkm.framework.protocol.User.WorldEventOrBuilder getWorldEventsOrBuilder(
+          int index) {
+        if (worldEventsBuilder_ == null) {
+          return worldEvents_.get(index);  } else {
+          return worldEventsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public java.util.List<? extends com.nkm.framework.protocol.User.WorldEventOrBuilder> 
+           getWorldEventsOrBuilderList() {
+        if (worldEventsBuilder_ != null) {
+          return worldEventsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(worldEvents_);
+        }
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public com.nkm.framework.protocol.User.WorldEvent.Builder addWorldEventsBuilder() {
+        return getWorldEventsFieldBuilder().addBuilder(
+            com.nkm.framework.protocol.User.WorldEvent.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public com.nkm.framework.protocol.User.WorldEvent.Builder addWorldEventsBuilder(
+          int index) {
+        return getWorldEventsFieldBuilder().addBuilder(
+            index, com.nkm.framework.protocol.User.WorldEvent.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.nkm.framework.protocol.WorldEvent worldEvents = 1;</code>
+       *
+       * <pre>
+       * 世界事件
+       * </pre>
+       */
+      public java.util.List<com.nkm.framework.protocol.User.WorldEvent.Builder> 
+           getWorldEventsBuilderList() {
+        return getWorldEventsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.nkm.framework.protocol.User.WorldEvent, com.nkm.framework.protocol.User.WorldEvent.Builder, com.nkm.framework.protocol.User.WorldEventOrBuilder> 
+          getWorldEventsFieldBuilder() {
+        if (worldEventsBuilder_ == null) {
+          worldEventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.nkm.framework.protocol.User.WorldEvent, com.nkm.framework.protocol.User.WorldEvent.Builder, com.nkm.framework.protocol.User.WorldEventOrBuilder>(
+                  worldEvents_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          worldEvents_ = null;
+        }
+        return worldEventsBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.nkm.framework.protocol.TSCGetWorldEvent)
+    }
+
+    static {
+      defaultInstance = new TSCGetWorldEvent(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.nkm.framework.protocol.TSCGetWorldEvent)
+  }
+
+  public interface WorldEventOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int32 configId = 1;
+    /**
+     * <code>optional int32 configId = 1;</code>
+     *
+     * <pre>
+     * configId
+     * </pre>
+     */
+    boolean hasConfigId();
+    /**
+     * <code>optional int32 configId = 1;</code>
+     *
+     * <pre>
+     * configId
+     * </pre>
+     */
+    int getConfigId();
+
+    // optional int32 type = 2;
+    /**
+     * <code>optional int32 type = 2;</code>
+     *
+     * <pre>
+     * enum TimeType
+     * </pre>
+     */
+    boolean hasType();
+    /**
+     * <code>optional int32 type = 2;</code>
+     *
+     * <pre>
+     * enum TimeType
+     * </pre>
+     */
+    int getType();
+
+    // optional int64 time = 3;
+    /**
+     * <code>optional int64 time = 3;</code>
+     *
+     * <pre>
+     * 开始/结束时间
+     * </pre>
+     */
+    boolean hasTime();
+    /**
+     * <code>optional int64 time = 3;</code>
+     *
+     * <pre>
+     * 开始/结束时间
+     * </pre>
+     */
+    long getTime();
+  }
+  /**
+   * Protobuf type {@code com.nkm.framework.protocol.WorldEvent}
+   */
+  public static final class WorldEvent extends
+      com.google.protobuf.GeneratedMessage
+      implements WorldEventOrBuilder {
+    // Use WorldEvent.newBuilder() to construct.
+    private WorldEvent(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private WorldEvent(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final WorldEvent defaultInstance;
+    public static WorldEvent getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public WorldEvent getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WorldEvent(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              configId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              type_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              time_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_WorldEvent_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_WorldEvent_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.nkm.framework.protocol.User.WorldEvent.class, com.nkm.framework.protocol.User.WorldEvent.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<WorldEvent> PARSER =
+        new com.google.protobuf.AbstractParser<WorldEvent>() {
+      public WorldEvent parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WorldEvent(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WorldEvent> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int32 configId = 1;
+    public static final int CONFIGID_FIELD_NUMBER = 1;
+    private int configId_;
+    /**
+     * <code>optional int32 configId = 1;</code>
+     *
+     * <pre>
+     * configId
+     * </pre>
+     */
+    public boolean hasConfigId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 configId = 1;</code>
+     *
+     * <pre>
+     * configId
+     * </pre>
+     */
+    public int getConfigId() {
+      return configId_;
+    }
+
+    // optional int32 type = 2;
+    public static final int TYPE_FIELD_NUMBER = 2;
+    private int type_;
+    /**
+     * <code>optional int32 type = 2;</code>
+     *
+     * <pre>
+     * enum TimeType
+     * </pre>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 type = 2;</code>
+     *
+     * <pre>
+     * enum TimeType
+     * </pre>
+     */
+    public int getType() {
+      return type_;
+    }
+
+    // optional int64 time = 3;
+    public static final int TIME_FIELD_NUMBER = 3;
+    private long time_;
+    /**
+     * <code>optional int64 time = 3;</code>
+     *
+     * <pre>
+     * 开始/结束时间
+     * </pre>
+     */
+    public boolean hasTime() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int64 time = 3;</code>
+     *
+     * <pre>
+     * 开始/结束时间
+     * </pre>
+     */
+    public long getTime() {
+      return time_;
+    }
+
+    private void initFields() {
+      configId_ = 0;
+      type_ = 0;
+      time_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, configId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, type_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, time_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, configId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, type_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, time_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.nkm.framework.protocol.User.WorldEvent parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.nkm.framework.protocol.User.WorldEvent parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.WorldEvent parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.nkm.framework.protocol.User.WorldEvent parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.WorldEvent parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.nkm.framework.protocol.User.WorldEvent parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.WorldEvent parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.nkm.framework.protocol.User.WorldEvent parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.nkm.framework.protocol.User.WorldEvent parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.nkm.framework.protocol.User.WorldEvent parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.nkm.framework.protocol.User.WorldEvent prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.nkm.framework.protocol.WorldEvent}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.nkm.framework.protocol.User.WorldEventOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_WorldEvent_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_WorldEvent_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.nkm.framework.protocol.User.WorldEvent.class, com.nkm.framework.protocol.User.WorldEvent.Builder.class);
+      }
+
+      // Construct using com.nkm.framework.protocol.User.WorldEvent.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        configId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        time_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.nkm.framework.protocol.User.internal_static_com_nkm_framework_protocol_WorldEvent_descriptor;
+      }
+
+      public com.nkm.framework.protocol.User.WorldEvent getDefaultInstanceForType() {
+        return com.nkm.framework.protocol.User.WorldEvent.getDefaultInstance();
+      }
+
+      public com.nkm.framework.protocol.User.WorldEvent build() {
+        com.nkm.framework.protocol.User.WorldEvent result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.nkm.framework.protocol.User.WorldEvent buildPartial() {
+        com.nkm.framework.protocol.User.WorldEvent result = new com.nkm.framework.protocol.User.WorldEvent(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.configId_ = configId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.time_ = time_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.nkm.framework.protocol.User.WorldEvent) {
+          return mergeFrom((com.nkm.framework.protocol.User.WorldEvent)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.nkm.framework.protocol.User.WorldEvent other) {
+        if (other == com.nkm.framework.protocol.User.WorldEvent.getDefaultInstance()) return this;
+        if (other.hasConfigId()) {
+          setConfigId(other.getConfigId());
+        }
+        if (other.hasType()) {
+          setType(other.getType());
+        }
+        if (other.hasTime()) {
+          setTime(other.getTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.nkm.framework.protocol.User.WorldEvent parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.nkm.framework.protocol.User.WorldEvent) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int32 configId = 1;
+      private int configId_ ;
+      /**
+       * <code>optional int32 configId = 1;</code>
+       *
+       * <pre>
+       * configId
+       * </pre>
+       */
+      public boolean hasConfigId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 configId = 1;</code>
+       *
+       * <pre>
+       * configId
+       * </pre>
+       */
+      public int getConfigId() {
+        return configId_;
+      }
+      /**
+       * <code>optional int32 configId = 1;</code>
+       *
+       * <pre>
+       * configId
+       * </pre>
+       */
+      public Builder setConfigId(int value) {
+        bitField0_ |= 0x00000001;
+        configId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 configId = 1;</code>
+       *
+       * <pre>
+       * configId
+       * </pre>
+       */
+      public Builder clearConfigId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        configId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 type = 2;
+      private int type_ ;
+      /**
+       * <code>optional int32 type = 2;</code>
+       *
+       * <pre>
+       * enum TimeType
+       * </pre>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 type = 2;</code>
+       *
+       * <pre>
+       * enum TimeType
+       * </pre>
+       */
+      public int getType() {
+        return type_;
+      }
+      /**
+       * <code>optional int32 type = 2;</code>
+       *
+       * <pre>
+       * enum TimeType
+       * </pre>
+       */
+      public Builder setType(int value) {
+        bitField0_ |= 0x00000002;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 type = 2;</code>
+       *
+       * <pre>
+       * enum TimeType
+       * </pre>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int64 time = 3;
+      private long time_ ;
+      /**
+       * <code>optional int64 time = 3;</code>
+       *
+       * <pre>
+       * 开始/结束时间
+       * </pre>
+       */
+      public boolean hasTime() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int64 time = 3;</code>
+       *
+       * <pre>
+       * 开始/结束时间
+       * </pre>
+       */
+      public long getTime() {
+        return time_;
+      }
+      /**
+       * <code>optional int64 time = 3;</code>
+       *
+       * <pre>
+       * 开始/结束时间
+       * </pre>
+       */
+      public Builder setTime(long value) {
+        bitField0_ |= 0x00000004;
+        time_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 time = 3;</code>
+       *
+       * <pre>
+       * 开始/结束时间
+       * </pre>
+       */
+      public Builder clearTime() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        time_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.nkm.framework.protocol.WorldEvent)
+    }
+
+    static {
+      defaultInstance = new WorldEvent(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.nkm.framework.protocol.WorldEvent)
+  }
+
   public interface TCSSellGoodsOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -12959,6 +14827,21 @@ public final class User {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_nkm_framework_protocol_TSCGetUserStateRegular_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkm_framework_protocol_TCSGetWorldEvent_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_nkm_framework_protocol_TCSGetWorldEvent_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkm_framework_protocol_TSCGetWorldEvent_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_nkm_framework_protocol_TSCGetWorldEvent_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_nkm_framework_protocol_WorldEvent_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_nkm_framework_protocol_WorldEvent_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_nkm_framework_protocol_TCSSellGoods_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -13030,20 +14913,25 @@ public final class User {
       "h\030\004 \001(\005\022\014\n\004mood\030\005 \001(\005\022\016\n\006attack\030\006 \001(\005\022\017\n" +
       "\007defense\030\007 \001(\005\022\r\n\005agile\030\010 \001(\005\022\r\n\005speed\030\t" +
       " \001(\005\022\021\n\tintellect\030\n \001(\005\022\024\n\014contribution\030" +
-      "\013 \001(\005\"P\n\014TCSSellGoods\022\020\n\010configId\030\001 \001(\005\022" +
-      "\016\n\006number\030\002 \001(\005\022\r\n\005price\030\003 \001(\001\022\017\n\007taxRat" +
-      "e\030\004 \001(\001\"P\n\014TSCSellGoods\022\020\n\010isChange\030\001 \001(" +
-      "\010\022\014\n\004gold\030\002 \001(\001\022\020\n\010configId\030\003 \001(\005\022\016\n\006num" +
-      "ber\030\004 \001(\005\"O\n\013TCSBuyGoods\022\020\n\010configId\030\001 \001" +
-      "(\005\022\016\n\006number\030\002 \001(\005\022\r\n\005price\030\003 \001(\001\022\017\n\007tax" +
-      "Rate\030\004 \001(\001\"R\n\013TSCBuyGoods\022\020\n\010isChange\030\001 ",
-      "\001(\010\022\017\n\007isLimit\030\002 \001(\010\022\020\n\010configId\030\003 \001(\005\022\016" +
-      "\n\006number\030\004 \001(\005\"\016\n\014TCSGetPrices\"`\n\014TSCGet" +
-      "Prices\022?\n\rresourceInfos\030\001 \003(\0132(.com.nkm." +
-      "framework.protocol.ResourceInfo\022\017\n\007taxRa" +
-      "te\030\002 \001(\001\"\020\n\016TCSGetPurchase\"P\n\016TSCGetPurc" +
-      "hase\022>\n\014userResource\030\001 \001(\0132(.com.nkm.fra" +
-      "mework.protocol.UserResourceB\002H\001"
+      "\013 \001(\005\"%\n\020TCSGetWorldEvent\022\021\n\tstartTime\030\001" +
+      " \001(\003\"O\n\020TSCGetWorldEvent\022;\n\013worldEvents\030" +
+      "\001 \003(\0132&.com.nkm.framework.protocol.World" +
+      "Event\":\n\nWorldEvent\022\020\n\010configId\030\001 \001(\005\022\014\n" +
+      "\004type\030\002 \001(\005\022\014\n\004time\030\003 \001(\003\"P\n\014TCSSellGood" +
+      "s\022\020\n\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\022\r\n\005p" +
+      "rice\030\003 \001(\001\022\017\n\007taxRate\030\004 \001(\001\"P\n\014TSCSellGo",
+      "ods\022\020\n\010isChange\030\001 \001(\010\022\014\n\004gold\030\002 \001(\001\022\020\n\010c" +
+      "onfigId\030\003 \001(\005\022\016\n\006number\030\004 \001(\005\"O\n\013TCSBuyG" +
+      "oods\022\020\n\010configId\030\001 \001(\005\022\016\n\006number\030\002 \001(\005\022\r" +
+      "\n\005price\030\003 \001(\001\022\017\n\007taxRate\030\004 \001(\001\"R\n\013TSCBuy" +
+      "Goods\022\020\n\010isChange\030\001 \001(\010\022\017\n\007isLimit\030\002 \001(\010" +
+      "\022\020\n\010configId\030\003 \001(\005\022\016\n\006number\030\004 \001(\005\"\016\n\014TC" +
+      "SGetPrices\"`\n\014TSCGetPrices\022?\n\rresourceIn" +
+      "fos\030\001 \003(\0132(.com.nkm.framework.protocol.R" +
+      "esourceInfo\022\017\n\007taxRate\030\002 \001(\001\"\020\n\016TCSGetPu" +
+      "rchase\"P\n\016TSCGetPurchase\022>\n\014userResource",
+      "\030\001 \001(\0132(.com.nkm.framework.protocol.User" +
+      "ResourceB\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -13110,50 +14998,68 @@ public final class User {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TSCGetUserStateRegular_descriptor,
               new java.lang.String[] { "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Contribution", });
-          internal_static_com_nkm_framework_protocol_TCSSellGoods_descriptor =
+          internal_static_com_nkm_framework_protocol_TCSGetWorldEvent_descriptor =
             getDescriptor().getMessageTypes().get(10);
+          internal_static_com_nkm_framework_protocol_TCSGetWorldEvent_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_nkm_framework_protocol_TCSGetWorldEvent_descriptor,
+              new java.lang.String[] { "StartTime", });
+          internal_static_com_nkm_framework_protocol_TSCGetWorldEvent_descriptor =
+            getDescriptor().getMessageTypes().get(11);
+          internal_static_com_nkm_framework_protocol_TSCGetWorldEvent_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_nkm_framework_protocol_TSCGetWorldEvent_descriptor,
+              new java.lang.String[] { "WorldEvents", });
+          internal_static_com_nkm_framework_protocol_WorldEvent_descriptor =
+            getDescriptor().getMessageTypes().get(12);
+          internal_static_com_nkm_framework_protocol_WorldEvent_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_nkm_framework_protocol_WorldEvent_descriptor,
+              new java.lang.String[] { "ConfigId", "Type", "Time", });
+          internal_static_com_nkm_framework_protocol_TCSSellGoods_descriptor =
+            getDescriptor().getMessageTypes().get(13);
           internal_static_com_nkm_framework_protocol_TCSSellGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TCSSellGoods_descriptor,
               new java.lang.String[] { "ConfigId", "Number", "Price", "TaxRate", });
           internal_static_com_nkm_framework_protocol_TSCSellGoods_descriptor =
-            getDescriptor().getMessageTypes().get(11);
+            getDescriptor().getMessageTypes().get(14);
           internal_static_com_nkm_framework_protocol_TSCSellGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TSCSellGoods_descriptor,
               new java.lang.String[] { "IsChange", "Gold", "ConfigId", "Number", });
           internal_static_com_nkm_framework_protocol_TCSBuyGoods_descriptor =
-            getDescriptor().getMessageTypes().get(12);
+            getDescriptor().getMessageTypes().get(15);
           internal_static_com_nkm_framework_protocol_TCSBuyGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TCSBuyGoods_descriptor,
               new java.lang.String[] { "ConfigId", "Number", "Price", "TaxRate", });
           internal_static_com_nkm_framework_protocol_TSCBuyGoods_descriptor =
-            getDescriptor().getMessageTypes().get(13);
+            getDescriptor().getMessageTypes().get(16);
           internal_static_com_nkm_framework_protocol_TSCBuyGoods_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TSCBuyGoods_descriptor,
               new java.lang.String[] { "IsChange", "IsLimit", "ConfigId", "Number", });
           internal_static_com_nkm_framework_protocol_TCSGetPrices_descriptor =
-            getDescriptor().getMessageTypes().get(14);
+            getDescriptor().getMessageTypes().get(17);
           internal_static_com_nkm_framework_protocol_TCSGetPrices_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TCSGetPrices_descriptor,
               new java.lang.String[] { });
           internal_static_com_nkm_framework_protocol_TSCGetPrices_descriptor =
-            getDescriptor().getMessageTypes().get(15);
+            getDescriptor().getMessageTypes().get(18);
           internal_static_com_nkm_framework_protocol_TSCGetPrices_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TSCGetPrices_descriptor,
               new java.lang.String[] { "ResourceInfos", "TaxRate", });
           internal_static_com_nkm_framework_protocol_TCSGetPurchase_descriptor =
-            getDescriptor().getMessageTypes().get(16);
+            getDescriptor().getMessageTypes().get(19);
           internal_static_com_nkm_framework_protocol_TCSGetPurchase_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TCSGetPurchase_descriptor,
               new java.lang.String[] { });
           internal_static_com_nkm_framework_protocol_TSCGetPurchase_descriptor =
-            getDescriptor().getMessageTypes().get(17);
+            getDescriptor().getMessageTypes().get(20);
           internal_static_com_nkm_framework_protocol_TSCGetPurchase_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_protocol_TSCGetPurchase_descriptor,

@@ -38,6 +38,11 @@ public class UITradePanel : PanelBase {
 
 	NGraphAxisNodeX[] graphXNodes = new NGraphAxisNodeX[3];
 	NGraphAxisNodeY[] graphYNodes = new NGraphAxisNodeY[3];
+	Transform pointGroup = null;
+
+	List<GameObject> graphPointList = new List<GameObject>();
+	LineRenderer lineRenderer = null;
+	GameObject go = null;
 
 	protected override void Awake()
 	{
@@ -52,6 +57,12 @@ public class UITradePanel : PanelBase {
 		limitLabel = transform.Find("iteminfo/buylimit").GetComponent<UILabel>();
 		cdTimeLabel = transform.Find("iteminfo/cdtime").GetComponent<UILabel>();
 		priceLabel = transform.Find("iteminfo/pricelabel").GetComponent<UILabel>();
+		pointGroup = transform.Find("iteminfo/graph/pointgroup");
+		lineRenderer = GameObject.Find("UI Root/Camera/Linerenderer/point").GetComponent<LineRenderer>();
+		lineRenderer.startWidth = 0.005f;
+		lineRenderer.endWidth = 0.005f;
+		graphPointList.Add(pointGroup.GetChild(0).gameObject);
+		graphPointList[0].SetActive(false);
 
 		//graph
 		//x axis
@@ -91,6 +102,7 @@ public class UITradePanel : PanelBase {
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPURCHASE, OnGetLimit);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.SELLGOODS, SellItemResponce);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.BUYGOODS, BuyItemResponce);
+		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETWORLDEVENT, OnGetWorldEvent);
 		base.Awake();
 	}
 
@@ -111,19 +123,32 @@ public class UITradePanel : PanelBase {
 		FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
 		FacadeSingleton.Instance.InvokeService("RPCGetItemTradeInfo", ConstVal.Service_Sanctuary);
 		FacadeSingleton.Instance.InvokeService("RPCGetPurchase", ConstVal.Service_Sanctuary);
+		long startTime = GlobalFunction.GetGraphStartTimeStamp();
+		NDictionary data = new NDictionary();
+		data.Add("time", startTime);
+		FacadeSingleton.Instance.InvokeService("RPCGetWorldEvent", ConstVal.Service_Sanctuary, data);
 	}
 
 	void OnGetPrice(NetMsgDef msg)
 	{
 		TSCGetPrices res = TSCGetPrices.ParseFrom(msg.mBtsData);
 		itemPackage.SetPrice(res);
-		InitView();
+		
 	}
 
 	void OnGetLimit(NetMsgDef msg)
 	{
 		TSCGetPurchase res = TSCGetPurchase.ParseFrom(msg.mBtsData);
 		itemPackage.SetBuyLimit(res);
+		
+	}
+
+	void OnGetWorldEvent(NetMsgDef msg)
+	{
+		TSCGetWorldEvent res = TSCGetWorldEvent.ParseFrom(msg.mBtsData);
+		EventPackage eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
+		eventPackage.SetHistoryEvent(res);
+		InitView();
 		RefreshItemInfo();
 	}
 
@@ -131,7 +156,6 @@ public class UITradePanel : PanelBase {
 	{
 		dynamicPackage.CalculateTradeInfo();
 		OnTabChange(0);
-		RefreshResinfo();
 		StartCoroutine(RefreshDate());
 	}
 
@@ -341,32 +365,83 @@ public class UITradePanel : PanelBase {
 		long curTime = GlobalFunction.GetTimeStamp();
 		long startTime = GlobalFunction.GetGraphStartTimeStamp();
 		//calculate node
-		dynamicPackage.CalculateGraphInfo(itemPackage.GetSelectionItemConfigID(), curTime, startTime);
+		dynamicPackage.CalculateGraphInfo(itemPackage.GetSelectionItemConfigID(), startTime, curTime);
 		List<NGraphNode> graphInfoList = dynamicPackage.GetGraphInfoList();
 		dynamicPackage.CalculateGraphOverview();
 		NGraphOverview overview = dynamicPackage.GetGraphOverview();
 		//set axis
-		RefreshAxis(curTime, startTime, overview.highPrice, overview.lowPrice);
-
+		RefreshAxis(curTime, startTime, overview);
 		//craete node
-
+		CreateGraphNode(graphInfoList, overview, startTime, curTime);
 		//draw line
+		DrawLine();
 	}
 
-	void RefreshAxis(long curTime, long startTime, double highPrice, double lowPrice)
+	void RefreshAxis(long curTime, long startTime, NGraphOverview overview)
 	{
         System.DateTime curDate = GlobalFunction.DateFormat(curTime);
 		System.DateTime preDate = GlobalFunction.DateFormat(startTime);
         // set y
         ITEM_RES config = itemPackage.GetItemDataByConfigID(itemPackage.GetSelectionItemConfigID());
-		double middlePrice = config.GoldConv / 1000;
-		double upperPrice = middlePrice + 100;
-		double lowerPrice = middlePrice - 100;
-		graphYNodes[0].label.text = GlobalFunction.NumberFormat(upperPrice);
-		graphYNodes[1].label.text = GlobalFunction.NumberFormat(middlePrice);
-		graphYNodes[2].label.text = GlobalFunction.NumberFormat(lowerPrice);
+		graphYNodes[0].label.text = GlobalFunction.NumberFormat(overview.highPrice);
+		graphYNodes[1].label.text = GlobalFunction.NumberFormat(overview.avgPrice);
+		graphYNodes[2].label.text = GlobalFunction.NumberFormat(overview.lowPrice);
 		// set x
 		graphXNodes[0].label.text = string.Format("{0}.{1}", preDate.Month, preDate.Day);
 		graphXNodes[1].label.text = string.Format("{0}.{1}", curDate.Month, curDate.Day);
+	}
+
+	void CreateGraphNode(List<NGraphNode> infoList, NGraphOverview overView, long startTime, long curTime)
+	{
+		AddPointCount(infoList.Count - graphPointList.Count);
+		int count = 0;
+		
+		foreach(var info in infoList)
+		{
+			float yScale = System.Convert.ToSingle((info.price - overView.lowPrice) / (overView.highPrice - overView.lowPrice));
+			float xScale = (info.time - startTime) / (curTime - startTime);
+			float posY = Mathf.Lerp(graphYNodes[2].trans.position.y, graphYNodes[0].trans.position.y, yScale);
+			float posX = Mathf.Lerp(graphXNodes[0].trans.position.x, graphYNodes[2].trans.position.x, xScale);
+			GameObject point = graphPointList[count++];
+			point.transform.position = new Vector3(posX, posY, 0);
+			point.gameObject.SetActive(true);
+		}
+		for(;count<graphPointList.Count;count++)
+			graphPointList[count].gameObject.SetActive(false);
+	}
+
+	void DrawLine()
+	{
+		int count = 0;
+		for(;count<graphPointList.Count;count++)
+		{
+			if(!graphPointList[count].activeSelf)
+				break;
+		}
+
+		lineRenderer.positionCount = count;
+		for(int i=0;i<graphPointList.Count;i++)
+		{
+			GameObject go = graphPointList[i];
+			if(!go.activeSelf) break;
+			Vector3 linePos = new Vector3(go.transform.position.x, go.transform.position.y, 1);
+			lineRenderer.SetPosition(i, linePos);
+		}
+	}
+
+	void AddPointCount(int needCount)
+	{
+		if(needCount <= 0) return;
+		int count = needCount - graphPointList.Count;
+		while(count-- >= 0)
+		{
+			GameObject go = graphPointList[0];
+			GameObject newGo = Instantiate(go);
+			newGo.transform.parent = pointGroup;
+			newGo.transform.localScale = new Vector3(1,1,1);
+			newGo.transform.localPosition = new Vector3(0,0,0);
+			newGo.AddComponent<LineRenderer>();
+			graphPointList.Add(newGo);
+		}
 	}
 }

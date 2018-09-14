@@ -110,9 +110,18 @@ public class EventPackage : ModelBase
     }
 
 
-    public void SetHistoryEvent()
+    public void SetHistoryEvent(TSCGetWorldEvent res)
     {
-        //TODO;
+        historyEventList.Clear();
+        for(int i=0;i<res.WorldEventsCount;i++)
+        {
+            WorldEvent info = res.GetWorldEvents(i);
+            NWorldEventInfo newInfo = new NWorldEventInfo();
+            newInfo.configID = info.ConfigId;
+            newInfo.happenTime = info.Time;
+            newInfo.isHappen = info.Type == 1 ? true : false;
+            historyEventList.Add(newInfo);
+        }
     }
 
     public List<NWorldEventInfo> GetHistoryEventList()

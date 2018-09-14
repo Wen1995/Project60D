@@ -176,6 +176,7 @@ public class DynamicPackage : ModelBase
     //get item history price
     public void CalculateGraphInfo(int configID, long startTime, long curTime)
     {
+        mGraphInfoList.Clear();
         EventPackage eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
         ItemPackage itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
         ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(configID);
@@ -184,7 +185,7 @@ public class DynamicPackage : ModelBase
         itemKeyName = char.ToUpper(itemKeyName[0]) + itemKeyName.Substring(1).ToLower();
 
         //reflection
-        System.Type type = System.Type.GetType("WORLD_EVENT");
+        System.Type type = System.Type.GetType("com.nkm.framework.resource.data." + "WORLD_EVENTS");
         PropertyInfo itemPriceProperty = type.GetProperty(itemKeyName);
         PropertyInfo itemHasProperty = type.GetProperty("Has" + itemKeyName);
 
@@ -202,9 +203,11 @@ public class DynamicPackage : ModelBase
             WORLD_EVENTS eventConfig = eventPackage.GetEventConfigDataByConfigID(info.configID);
             bool isHas = (bool)itemHasProperty.GetValue(eventConfig, null);
             if(!isHas) continue;
-            double priceArgs = (double)itemPriceProperty.GetValue(eventConfig, null) / 100;
+            double priceArgs = System.Convert.ToDouble(itemPriceProperty.GetValue(eventConfig, null)) / 100;
+
             if(info.happenTime <= startTime)
             {
+                Debug.Log("priceArgs =" + priceArgs);
                 node = mGraphInfoList[0];
                 node.price *= priceArgs;
             }
@@ -233,6 +236,7 @@ public class DynamicPackage : ModelBase
         double sum = 0;
         foreach(var info in mGraphInfoList)
         {
+            //Debug.Log(info.price);
             sum += info.price;
             highPrice = info.price > highPrice ? info.price : highPrice;
             lowPrice = info.price < lowPrice ? info.price : lowPrice;

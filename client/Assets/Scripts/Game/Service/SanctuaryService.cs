@@ -182,6 +182,15 @@ public class SanctuaryService : ServiceBase {
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.BUYGOODS, msg.ToByteArray());        
     }
 
+    public void RPCGetWorldEvent(NDictionary args)
+    {
+        if(args == null) return;
+        var builder = TCSGetWorldEvent.CreateBuilder();
+        builder.StartTime = args.Value<long>("time");
+        TCSGetWorldEvent msg = builder.Build();
+        NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.GETWORLDEVENT, msg.ToByteArray());        
+    }
+
     /// <summary>
     /// Use a extra camera to render the object you give
     /// Normally used to render a 3d model in UI

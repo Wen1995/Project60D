@@ -129,7 +129,7 @@ public class ItemPackage : ModelBase
         {
             NItemInfo info = pair.Value;
             ITEM_RES config = GetItemDataByConfigID(info.configID);
-            sum += config.StorUnit;
+            sum += config.StorUnit * info.number;
         }
         return sum;
     }

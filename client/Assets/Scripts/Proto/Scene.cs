@@ -3898,8 +3898,8 @@ namespace com.nkm.framework.protocol {
   public sealed partial class TSCUnlock : pb::GeneratedMessageLite<TSCUnlock, TSCUnlock.Builder> {
     private TSCUnlock() { }
     private static readonly TSCUnlock defaultInstance = new TSCUnlock().MakeReadOnly();
-    private static readonly string[] _tSCUnlockFieldNames = new string[] { "buildingId", "finishTime", "isGroup", "isProduction", "isResource" };
-    private static readonly uint[] _tSCUnlockFieldTags = new uint[] { 8, 40, 16, 32, 24 };
+    private static readonly string[] _tSCUnlockFieldNames = new string[] { "buildingId", "finishTime", "isGroup", "isProduction", "isResource", "isState" };
+    private static readonly uint[] _tSCUnlockFieldTags = new uint[] { 8, 40, 16, 32, 24, 48 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -3984,6 +3984,19 @@ namespace com.nkm.framework.protocol {
     }
     
     #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int IsStateFieldNumber = 6;
+    private bool hasIsState;
+    private bool isState_;
+    public bool HasIsState {
+      get { return hasIsState; }
+    }
+    public bool IsState {
+      get { return isState_; }
+    }
+    
+    #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
     public override bool IsInitialized {
@@ -4013,6 +4026,9 @@ namespace com.nkm.framework.protocol {
       if (hasFinishTime) {
         output.WriteInt64(5, field_names[1], FinishTime);
       }
+      if (hasIsState) {
+        output.WriteBool(6, field_names[5], IsState);
+      }
     }
     
     private int memoizedSerializedSize = -1;
@@ -4040,6 +4056,9 @@ namespace com.nkm.framework.protocol {
         if (hasFinishTime) {
           size += pb::CodedOutputStream.ComputeInt64Size(5, FinishTime);
         }
+        if (hasIsState) {
+          size += pb::CodedOutputStream.ComputeBoolSize(6, IsState);
+        }
         memoizedSerializedSize = size;
         return size;
       }
@@ -4053,6 +4072,7 @@ namespace com.nkm.framework.protocol {
       if (hasIsResource) hash ^= isResource_.GetHashCode();
       if (hasIsProduction) hash ^= isProduction_.GetHashCode();
       if (hasFinishTime) hash ^= finishTime_.GetHashCode();
+      if (hasIsState) hash ^= isState_.GetHashCode();
       return hash;
     }
     
@@ -4064,6 +4084,7 @@ namespace com.nkm.framework.protocol {
       if (hasIsResource != other.hasIsResource || (hasIsResource && !isResource_.Equals(other.isResource_))) return false;
       if (hasIsProduction != other.hasIsProduction || (hasIsProduction && !isProduction_.Equals(other.isProduction_))) return false;
       if (hasFinishTime != other.hasFinishTime || (hasFinishTime && !finishTime_.Equals(other.finishTime_))) return false;
+      if (hasIsState != other.hasIsState || (hasIsState && !isState_.Equals(other.isState_))) return false;
       return true;
     }
     
@@ -4239,6 +4260,9 @@ namespace com.nkm.framework.protocol {
         if (other.HasFinishTime) {
           FinishTime = other.FinishTime;
         }
+        if (other.HasIsState) {
+          IsState = other.IsState;
+        }
         return this;
       }
       
@@ -4289,6 +4313,10 @@ namespace com.nkm.framework.protocol {
             }
             case 40: {
               result.hasFinishTime = input.ReadInt64(ref result.finishTime_);
+              break;
+            }
+            case 48: {
+              result.hasIsState = input.ReadBool(ref result.isState_);
               break;
             }
           }
@@ -4395,6 +4423,26 @@ namespace com.nkm.framework.protocol {
         PrepareBuilder();
         result.hasFinishTime = false;
         result.finishTime_ = 0L;
+        return this;
+      }
+      
+      public bool HasIsState {
+        get { return result.hasIsState; }
+      }
+      public bool IsState {
+        get { return result.IsState; }
+        set { SetIsState(value); }
+      }
+      public Builder SetIsState(bool value) {
+        PrepareBuilder();
+        result.hasIsState = true;
+        result.isState_ = value;
+        return this;
+      }
+      public Builder ClearIsState() {
+        PrepareBuilder();
+        result.hasIsState = false;
+        result.isState_ = false;
         return this;
       }
     }

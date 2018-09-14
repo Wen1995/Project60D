@@ -211,23 +211,48 @@ public final class UserCache {
      */
     long getCreateTime();
 
-    // optional sint64 logoutTime = 20;
+    // optional sint64 loginTime = 20;
     /**
-     * <code>optional sint64 logoutTime = 20;</code>
+     * <code>optional sint64 loginTime = 20;</code>
+     */
+    boolean hasLoginTime();
+    /**
+     * <code>optional sint64 loginTime = 20;</code>
+     */
+    long getLoginTime();
+
+    // optional sint64 logoutTime = 21;
+    /**
+     * <code>optional sint64 logoutTime = 21;</code>
      */
     boolean hasLogoutTime();
     /**
-     * <code>optional sint64 logoutTime = 20;</code>
+     * <code>optional sint64 logoutTime = 21;</code>
      */
     long getLogoutTime();
 
-    // optional bytes resource = 21;
+    // optional string loginIp = 22;
     /**
-     * <code>optional bytes resource = 21;</code>
+     * <code>optional string loginIp = 22;</code>
+     */
+    boolean hasLoginIp();
+    /**
+     * <code>optional string loginIp = 22;</code>
+     */
+    java.lang.String getLoginIp();
+    /**
+     * <code>optional string loginIp = 22;</code>
+     */
+    com.google.protobuf.ByteString
+        getLoginIpBytes();
+
+    // optional bytes resource = 23;
+    /**
+     * <code>optional bytes resource = 23;</code>
      */
     boolean hasResource();
     /**
-     * <code>optional bytes resource = 21;</code>
+     * <code>optional bytes resource = 23;</code>
      */
     com.google.protobuf.ByteString getResource();
   }
@@ -379,11 +404,21 @@ public final class UserCache {
             }
             case 160: {
               bitField0_ |= 0x00080000;
+              loginTime_ = input.readSInt64();
+              break;
+            }
+            case 168: {
+              bitField0_ |= 0x00100000;
               logoutTime_ = input.readSInt64();
               break;
             }
-            case 170: {
-              bitField0_ |= 0x00100000;
+            case 178: {
+              bitField0_ |= 0x00200000;
+              loginIp_ = input.readBytes();
+              break;
+            }
+            case 186: {
+              bitField0_ |= 0x00400000;
               resource_ = input.readBytes();
               break;
             }
@@ -785,33 +820,92 @@ public final class UserCache {
       return createTime_;
     }
 
-    // optional sint64 logoutTime = 20;
-    public static final int LOGOUTTIME_FIELD_NUMBER = 20;
-    private long logoutTime_;
+    // optional sint64 loginTime = 20;
+    public static final int LOGINTIME_FIELD_NUMBER = 20;
+    private long loginTime_;
     /**
-     * <code>optional sint64 logoutTime = 20;</code>
+     * <code>optional sint64 loginTime = 20;</code>
      */
-    public boolean hasLogoutTime() {
+    public boolean hasLoginTime() {
       return ((bitField0_ & 0x00080000) == 0x00080000);
     }
     /**
-     * <code>optional sint64 logoutTime = 20;</code>
+     * <code>optional sint64 loginTime = 20;</code>
+     */
+    public long getLoginTime() {
+      return loginTime_;
+    }
+
+    // optional sint64 logoutTime = 21;
+    public static final int LOGOUTTIME_FIELD_NUMBER = 21;
+    private long logoutTime_;
+    /**
+     * <code>optional sint64 logoutTime = 21;</code>
+     */
+    public boolean hasLogoutTime() {
+      return ((bitField0_ & 0x00100000) == 0x00100000);
+    }
+    /**
+     * <code>optional sint64 logoutTime = 21;</code>
      */
     public long getLogoutTime() {
       return logoutTime_;
     }
 
-    // optional bytes resource = 21;
-    public static final int RESOURCE_FIELD_NUMBER = 21;
-    private com.google.protobuf.ByteString resource_;
+    // optional string loginIp = 22;
+    public static final int LOGINIP_FIELD_NUMBER = 22;
+    private java.lang.Object loginIp_;
     /**
-     * <code>optional bytes resource = 21;</code>
+     * <code>optional string loginIp = 22;</code>
      */
-    public boolean hasResource() {
-      return ((bitField0_ & 0x00100000) == 0x00100000);
+    public boolean hasLoginIp() {
+      return ((bitField0_ & 0x00200000) == 0x00200000);
     }
     /**
-     * <code>optional bytes resource = 21;</code>
+     * <code>optional string loginIp = 22;</code>
+     */
+    public java.lang.String getLoginIp() {
+      java.lang.Object ref = loginIp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          loginIp_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string loginIp = 22;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLoginIpBytes() {
+      java.lang.Object ref = loginIp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        loginIp_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional bytes resource = 23;
+    public static final int RESOURCE_FIELD_NUMBER = 23;
+    private com.google.protobuf.ByteString resource_;
+    /**
+     * <code>optional bytes resource = 23;</code>
+     */
+    public boolean hasResource() {
+      return ((bitField0_ & 0x00400000) == 0x00400000);
+    }
+    /**
+     * <code>optional bytes resource = 23;</code>
      */
     public com.google.protobuf.ByteString getResource() {
       return resource_;
@@ -837,7 +931,9 @@ public final class UserCache {
       electricity_ = 0;
       production_ = 0;
       createTime_ = 0L;
+      loginTime_ = 0L;
       logoutTime_ = 0L;
+      loginIp_ = "";
       resource_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
@@ -910,10 +1006,16 @@ public final class UserCache {
         output.writeSInt64(19, createTime_);
       }
       if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        output.writeSInt64(20, logoutTime_);
+        output.writeSInt64(20, loginTime_);
       }
       if (((bitField0_ & 0x00100000) == 0x00100000)) {
-        output.writeBytes(21, resource_);
+        output.writeSInt64(21, logoutTime_);
+      }
+      if (((bitField0_ & 0x00200000) == 0x00200000)) {
+        output.writeBytes(22, getLoginIpBytes());
+      }
+      if (((bitField0_ & 0x00400000) == 0x00400000)) {
+        output.writeBytes(23, resource_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1002,11 +1104,19 @@ public final class UserCache {
       }
       if (((bitField0_ & 0x00080000) == 0x00080000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt64Size(20, logoutTime_);
+          .computeSInt64Size(20, loginTime_);
       }
       if (((bitField0_ & 0x00100000) == 0x00100000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(21, resource_);
+          .computeSInt64Size(21, logoutTime_);
+      }
+      if (((bitField0_ & 0x00200000) == 0x00200000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(22, getLoginIpBytes());
+      }
+      if (((bitField0_ & 0x00400000) == 0x00400000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(23, resource_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1162,10 +1272,14 @@ public final class UserCache {
         bitField0_ = (bitField0_ & ~0x00020000);
         createTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00040000);
-        logoutTime_ = 0L;
+        loginTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00080000);
-        resource_ = com.google.protobuf.ByteString.EMPTY;
+        logoutTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00100000);
+        loginIp_ = "";
+        bitField0_ = (bitField0_ & ~0x00200000);
+        resource_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00400000);
         return this;
       }
 
@@ -1273,9 +1387,17 @@ public final class UserCache {
         if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
           to_bitField0_ |= 0x00080000;
         }
-        result.logoutTime_ = logoutTime_;
+        result.loginTime_ = loginTime_;
         if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
           to_bitField0_ |= 0x00100000;
+        }
+        result.logoutTime_ = logoutTime_;
+        if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
+          to_bitField0_ |= 0x00200000;
+        }
+        result.loginIp_ = loginIp_;
+        if (((from_bitField0_ & 0x00400000) == 0x00400000)) {
+          to_bitField0_ |= 0x00400000;
         }
         result.resource_ = resource_;
         result.bitField0_ = to_bitField0_;
@@ -1355,8 +1477,16 @@ public final class UserCache {
         if (other.hasCreateTime()) {
           setCreateTime(other.getCreateTime());
         }
+        if (other.hasLoginTime()) {
+          setLoginTime(other.getLoginTime());
+        }
         if (other.hasLogoutTime()) {
           setLogoutTime(other.getLogoutTime());
+        }
+        if (other.hasLoginIp()) {
+          bitField0_ |= 0x00200000;
+          loginIp_ = other.loginIp_;
+          onChanged();
         }
         if (other.hasResource()) {
           setResource(other.getResource());
@@ -2097,70 +2227,177 @@ public final class UserCache {
         return this;
       }
 
-      // optional sint64 logoutTime = 20;
-      private long logoutTime_ ;
+      // optional sint64 loginTime = 20;
+      private long loginTime_ ;
       /**
-       * <code>optional sint64 logoutTime = 20;</code>
+       * <code>optional sint64 loginTime = 20;</code>
        */
-      public boolean hasLogoutTime() {
+      public boolean hasLoginTime() {
         return ((bitField0_ & 0x00080000) == 0x00080000);
       }
       /**
-       * <code>optional sint64 logoutTime = 20;</code>
+       * <code>optional sint64 loginTime = 20;</code>
+       */
+      public long getLoginTime() {
+        return loginTime_;
+      }
+      /**
+       * <code>optional sint64 loginTime = 20;</code>
+       */
+      public Builder setLoginTime(long value) {
+        bitField0_ |= 0x00080000;
+        loginTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional sint64 loginTime = 20;</code>
+       */
+      public Builder clearLoginTime() {
+        bitField0_ = (bitField0_ & ~0x00080000);
+        loginTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional sint64 logoutTime = 21;
+      private long logoutTime_ ;
+      /**
+       * <code>optional sint64 logoutTime = 21;</code>
+       */
+      public boolean hasLogoutTime() {
+        return ((bitField0_ & 0x00100000) == 0x00100000);
+      }
+      /**
+       * <code>optional sint64 logoutTime = 21;</code>
        */
       public long getLogoutTime() {
         return logoutTime_;
       }
       /**
-       * <code>optional sint64 logoutTime = 20;</code>
+       * <code>optional sint64 logoutTime = 21;</code>
        */
       public Builder setLogoutTime(long value) {
-        bitField0_ |= 0x00080000;
+        bitField0_ |= 0x00100000;
         logoutTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional sint64 logoutTime = 20;</code>
+       * <code>optional sint64 logoutTime = 21;</code>
        */
       public Builder clearLogoutTime() {
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00100000);
         logoutTime_ = 0L;
         onChanged();
         return this;
       }
 
-      // optional bytes resource = 21;
-      private com.google.protobuf.ByteString resource_ = com.google.protobuf.ByteString.EMPTY;
+      // optional string loginIp = 22;
+      private java.lang.Object loginIp_ = "";
       /**
-       * <code>optional bytes resource = 21;</code>
+       * <code>optional string loginIp = 22;</code>
        */
-      public boolean hasResource() {
-        return ((bitField0_ & 0x00100000) == 0x00100000);
+      public boolean hasLoginIp() {
+        return ((bitField0_ & 0x00200000) == 0x00200000);
       }
       /**
-       * <code>optional bytes resource = 21;</code>
+       * <code>optional string loginIp = 22;</code>
+       */
+      public java.lang.String getLoginIp() {
+        java.lang.Object ref = loginIp_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          loginIp_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string loginIp = 22;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLoginIpBytes() {
+        java.lang.Object ref = loginIp_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          loginIp_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string loginIp = 22;</code>
+       */
+      public Builder setLoginIp(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00200000;
+        loginIp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string loginIp = 22;</code>
+       */
+      public Builder clearLoginIp() {
+        bitField0_ = (bitField0_ & ~0x00200000);
+        loginIp_ = getDefaultInstance().getLoginIp();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string loginIp = 22;</code>
+       */
+      public Builder setLoginIpBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00200000;
+        loginIp_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional bytes resource = 23;
+      private com.google.protobuf.ByteString resource_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes resource = 23;</code>
+       */
+      public boolean hasResource() {
+        return ((bitField0_ & 0x00400000) == 0x00400000);
+      }
+      /**
+       * <code>optional bytes resource = 23;</code>
        */
       public com.google.protobuf.ByteString getResource() {
         return resource_;
       }
       /**
-       * <code>optional bytes resource = 21;</code>
+       * <code>optional bytes resource = 23;</code>
        */
       public Builder setResource(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00100000;
+  bitField0_ |= 0x00400000;
         resource_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes resource = 21;</code>
+       * <code>optional bytes resource = 23;</code>
        */
       public Builder clearResource() {
-        bitField0_ = (bitField0_ & ~0x00100000);
+        bitField0_ = (bitField0_ & ~0x00400000);
         resource_ = getDefaultInstance().getResource();
         onChanged();
         return this;
@@ -2192,7 +2429,7 @@ public final class UserCache {
   static {
     java.lang.String[] descriptorData = {
       "\n\017UserCache.proto\022\037com.nkm.framework.dbc" +
-      "ache.model\"\356\002\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n\007" +
+      "ache.model\"\222\003\n\tProtoUser\022\n\n\002id\030\001 \001(\003\022\017\n\007" +
       "account\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\017\n\007group" +
       "Id\030\004 \001(\003\022\024\n\014contribution\030\005 \001(\005\022\014\n\004gold\030\006" +
       " \001(\001\022\r\n\005blood\030\007 \001(\005\022\014\n\004food\030\010 \001(\005\022\r\n\005wat" +
@@ -2200,8 +2437,9 @@ public final class UserCache {
       "\n\006attack\030\014 \001(\005\022\017\n\007defense\030\r \001(\005\022\r\n\005agile" +
       "\030\016 \001(\005\022\r\n\005speed\030\017 \001(\005\022\021\n\tintellect\030\020 \001(\005" +
       "\022\023\n\013electricity\030\021 \001(\005\022\022\n\nproduction\030\022 \001(" +
-      "\005\022\022\n\ncreateTime\030\023 \001(\022\022\022\n\nlogoutTime\030\024 \001(",
-      "\022\022\020\n\010resource\030\025 \001(\014B\002H\001"
+      "\005\022\022\n\ncreateTime\030\023 \001(\022\022\021\n\tloginTime\030\024 \001(\022",
+      "\022\022\n\nlogoutTime\030\025 \001(\022\022\017\n\007loginIp\030\026 \001(\t\022\020\n" +
+      "\010resource\030\027 \001(\014B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2213,7 +2451,7 @@ public final class UserCache {
           internal_static_com_nkm_framework_dbcache_model_ProtoUser_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_nkm_framework_dbcache_model_ProtoUser_descriptor,
-              new java.lang.String[] { "Id", "Account", "Password", "GroupId", "Contribution", "Gold", "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Electricity", "Production", "CreateTime", "LogoutTime", "Resource", });
+              new java.lang.String[] { "Id", "Account", "Password", "GroupId", "Contribution", "Gold", "Blood", "Food", "Water", "Health", "Mood", "Attack", "Defense", "Agile", "Speed", "Intellect", "Electricity", "Production", "CreateTime", "LoginTime", "LogoutTime", "LoginIp", "Resource", });
           return null;
         }
       };

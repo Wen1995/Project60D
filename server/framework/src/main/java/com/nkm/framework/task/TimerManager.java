@@ -237,6 +237,7 @@ public class TimerManager {
                     }
                     
                     DynamicDataManager.GetInstance().taxRate = UserUtil.getTaxCoefficient();
+                    logger.info("taxRate {}", DynamicDataManager.GetInstance().taxRate);
                 }
             }
         }, 60, 60, TimeUnit.SECONDS);

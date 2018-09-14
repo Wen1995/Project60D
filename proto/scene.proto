@@ -86,6 +86,8 @@ message TSCUnlock {
 	optional bool isProduction = 4;
 	// 升级完成时间
 	optional int64 finishTime = 5;
+	// 建筑是否在解锁
+	optional bool isState = 6;
 }
 
 message TCSFinishUnlock {

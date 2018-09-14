@@ -15,7 +15,7 @@
 
 		<!-- 数据库连接 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://127.0.0.1:3306/db_demo?characterEncoding=utf8"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/db_demo_log?characterEncoding=utf8"
 			userId="root" password="12345678">
 		</jdbcConnection>
 
@@ -43,6 +43,6 @@
 		</javaClientGenerator>
 
 		<!-- 要对那些数据表进行生成操作，必须要有一个 -->
-		<table schema="db_demo" tableName="t_world_event" domainObjectName="WorldEvent"/>
+		<table schema="db_log" tableName="t_receive" domainObjectName="Receive"/>
 	</context>
 </generatorConfiguration>

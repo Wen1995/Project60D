@@ -69,7 +69,7 @@ public class RoomServiceImpl implements RoomService {
         building.setGroupId(groupId);
         building.setPositionX(0);
         building.setPositionY(0);
-        building.setConfigId(113030001);    // 仓库ID
+        building.setConfigId(113030020);    // 仓库ID
         UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
                 .setUid(uid)
                 .setFinishTime(0)
@@ -86,7 +86,7 @@ public class RoomServiceImpl implements RoomService {
         building.setGroupId(groupId);
         building.setPositionX(0);
         building.setPositionY(0);
-        building.setConfigId(113040001);    // 电池ID
+        building.setConfigId(113040020);    // 电池ID
         upgradeInfo = UpgradeInfo.newBuilder()
                 .setUid(uid)
                 .setFinishTime(0)
@@ -97,7 +97,7 @@ public class RoomServiceImpl implements RoomService {
         building.setState(buildingState.toByteArray());
         buildingDao.insertByGroupId(building);
         
-        /*// TODO 所有建筑满级
+        // TODO 所有建筑满级
         Set<Integer> set = new HashSet<>();
         set.add(11303);
         set.add(11304);
@@ -148,7 +148,7 @@ public class RoomServiceImpl implements RoomService {
             
             building.setState(buildingStatebuilder.build().toByteArray());
             buildingDao.insertByGroupId(building);
-        }*/
+        }
         
         TSCCreateGroup p = TSCCreateGroup.newBuilder()
                 .setGroupId(groupId)

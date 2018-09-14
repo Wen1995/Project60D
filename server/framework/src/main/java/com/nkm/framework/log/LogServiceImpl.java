@@ -22,17 +22,25 @@ public class LogServiceImpl implements LogService {
         Date date = new Date();
         User user = userDao.get(uid);
 
+        switch (method) {
+            case "receive":
+                
+                break;
+
+            default:
+                break;
+        }
+        
+        
         Log log = new Log();
         log.setUid(uid);
         log.setGroupId(user.getGroupId());
-        log.setMethod(method);
         log.setAccount(user.getAccount());
         log.setCreateTime(user.getCreateTime());
         log.setContribution(user.getContribution());
         log.setLoginIp(user.getLoginIp());
         log.setLoginTime(user.getLoginTime());
         log.setOperationTime(date);
-        log.setOperation(operation);
 
         Field[] fields = Log.class.getDeclaredFields();
         String sql = "";

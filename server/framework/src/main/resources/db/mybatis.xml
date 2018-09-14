@@ -6,6 +6,7 @@
 
 	<properties>
 		<property name="db" value="jdbc:mysql://127.0.0.1:3306/db_demo" />
+		<!-- <property name="db" value="jdbc:mysql://192.168.80.17:3306/db_demo" /> -->
 		<property name="username" value="root" />
 		<property name="password" value="12345678" />
 	</properties>

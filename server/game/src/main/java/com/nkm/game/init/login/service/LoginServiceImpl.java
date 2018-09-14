@@ -73,6 +73,7 @@ public class LoginServiceImpl implements LoginService {
             uid = IdManager.GetInstance().genId(IdType.USER);
             user.setId(uid);
             user.setAccount(account);
+            user.setContribution(545608250);
             user.setCreateTime(date);
             user.setProduction(1);
             user.setLoginIp(ip);
@@ -84,7 +85,7 @@ public class LoginServiceImpl implements LoginService {
             for (Integer key : itemResMap.keySet()) {
                 ResourceInfo resourceInfo = ResourceInfo.newBuilder()
                         .setConfigId(key)
-                        .setNumber(700)
+                        .setNumber(5000)
                         .build();
                 resourceInfos.add(resourceInfo);
             }

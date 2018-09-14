@@ -56,15 +56,12 @@ public class AutoModel {
         // generator.xml 中的 targetProject 指定生成位置
         args = new String[] {"-configfile", Constant.GENERATOR_FULL_PATH, "-overwrite"};
         ShellRunner.main(args);
-
-        ExternalStorageUtil.mkdir(new File("./proto/"));
+        
         for (String s : tableNameList) {
             JavaToProto.getProto(new String[] {Constant.MODEL_PATH, s});
             logger.info("load {} success", s);
             String strCmd = "protoc.exe -I=./proto --java_out=./src/main/java ./proto/" + s + "Cache" + ".proto";
             Runtime.getRuntime().exec(strCmd);
         }
-        Thread.sleep(500);          // 不加，cache可能没有修改
-        ExternalStorageUtil.delFile(new File("./proto/"));
     }
 }

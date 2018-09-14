@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ServerMonitor {
-    public static Logger analyseStatusLogger = LoggerFactory.getLogger("Analyse-Status");
+    public static final Logger analyseStatusLogger = LoggerFactory.getLogger("Analyse-Status");
 
     private static Object obj = new Object();
     private static ServerMonitor instance;

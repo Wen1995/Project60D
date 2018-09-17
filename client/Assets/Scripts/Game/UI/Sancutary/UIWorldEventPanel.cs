@@ -17,6 +17,8 @@ public class UIWorldEventPanel : PanelBase {
 
 		UIButton button = transform.Find("closebtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
+		button = transform.Find("jumpbtn").GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnJump));
 
 		eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
 		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
@@ -54,5 +56,10 @@ public class UIWorldEventPanel : PanelBase {
 			dateLabel.text = string.Format("{0:D4}年{1:D2}月{2:D2}日 {3:D2}:{4:D2}:{5:D2}", now.Year + 20, now.Month, now.Day, now.Hour, now.Minute, now.Second);
 			yield return new WaitForSeconds(1.0f);
 		}
+	}
+
+	void OnJump()
+	{
+		GlobalFunction.WeHavntDone();
 	}
 }

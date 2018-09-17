@@ -6,14 +6,11 @@ using UnityEngine;
 public class UIManorRankingPanel : PanelBase {
 
 	DynamicPackage dynamicPackage = null;
-	UserPackage userPackage = null;
 	NTableView tableView = null;
 
-	int pageCountMax = 0;
 	protected override void Awake()
 	{
 		base.Awake();
-		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 		tableView = transform.Find("macroview/panel/tableview").GetComponent<NTableView>();
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETGROUPPAGECOUNT, OnGetGroupCount);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETGROUPRANKING, OnGetGroupRanking);
@@ -65,8 +62,7 @@ public class UIManorRankingPanel : PanelBase {
 
 	void OnGetGroupCount(NetMsgDef msg)
 	{
-		TSCGetGroupPageCount res = TSCGetGroupPageCount.ParseFrom(msg.mBtsData);
-		pageCountMax = res.PageCount;
+		//TSCGetGroupPageCount res = TSCGetGroupPageCount.ParseFrom(msg.mBtsData);
 		GetGroupRanking(1);
 	}
 

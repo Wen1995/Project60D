@@ -32,7 +32,7 @@ public class NListCell : MonoBehaviour {
 				if(i < count)
 				{
 					mItemList[i].gameObject.SetActive(true);
-					mItemList[i].DrawCell(i, index, count);
+					mItemList[i].DrawCell(i, index, mItemList.Count);
 				}
 				else
 				{

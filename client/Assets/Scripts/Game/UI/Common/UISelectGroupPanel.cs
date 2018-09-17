@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class UISelectGroupPanel : PanelBase {
@@ -46,5 +47,6 @@ public class UISelectGroupPanel : PanelBase {
 		args.Add("name", input.value);
 		FacadeSingleton.Instance.InvokeService("RPCCreateGroup", ConstVal.Service_Common, args);
 	}
+
 
 }

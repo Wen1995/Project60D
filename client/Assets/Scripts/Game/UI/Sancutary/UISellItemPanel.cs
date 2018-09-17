@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UISellItemPanel : PanelBase {
-
-	NItemInfo info = null;
 	UILabel numLabel = null;
 	int curNum = 0;
 	int ratio = 1;

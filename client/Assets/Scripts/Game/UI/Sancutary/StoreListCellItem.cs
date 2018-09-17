@@ -27,7 +27,7 @@ public class StoreListCellItem : NListCellItem {
 		var itemDataMap = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
 		if(!itemDataMap.ContainsKey(info.configID))
 		{
-			Debug.Log(string.Format("itme configID={0} cant find config", info.configID));
+			Debug.Log(string.Format("item configID={0} cant find config", info.configID));
 			return;
 		}
 		ITEM_RES itemConfigData = itemDataMap[info.configID] as ITEM_RES;

@@ -159,6 +159,7 @@ public class UIPlayerInfoPanel : PanelBase {
 	{
 		itemPackage.SortItemFilterInfoList(sortMask);
 		tableView.DataCount = itemPackage.GetItemFilterInfoList().Count;
+		tableView.ItemCount = 4;
 		tableView.TableChange();
 		tableView.gameObject.GetComponent<UIScrollView>().ResetPosition();
 		//change label

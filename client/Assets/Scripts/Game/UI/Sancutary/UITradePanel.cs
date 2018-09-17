@@ -30,7 +30,6 @@ public class UITradePanel : PanelBase {
 	UILabel limitLabel = null;
 	UILabel cdTimeLabel = null;
 	UILabel priceLabel = null;
-	UISprite iconSprite = null;
 
 	NTableView tableView = null;
 	UIButton buyBtn = null;
@@ -42,8 +41,6 @@ public class UITradePanel : PanelBase {
 
 	List<GameObject> graphPointList = new List<GameObject>();
 	LineRenderer lineRenderer = null;
-	GameObject go = null;
-
 	protected override void Awake()
 	{
 		//get component
@@ -115,6 +112,7 @@ public class UITradePanel : PanelBase {
 	public override void ClosePanel()
 	{
 		StopCoroutine(RefreshDate());
+		lineRenderer.positionCount = 0;
 		base.ClosePanel();
 	}
 
@@ -201,14 +199,11 @@ public class UITradePanel : PanelBase {
 		priceLabel.text = string.Format("当前价格: {0}", itemPackage.GetItemPrice(selectionConfigID).ToString("0.00"));
 		//set buy & sell button
 		NItemInfo info = itemPackage.GetItemInfo(itemPackage.GetSelectionItemConfigID());
+		PURCHASE_LIM limConfig = ConfigDataStatic.GetConfigDataTable("PURCHASE_LIM")[userPackage.GetPlayerLevel()] as PURCHASE_LIM;
 		if(info == null || info.number <= 0)
 			sellBtn.isEnabled = false;
 		else
 			sellBtn.isEnabled = true;
-		if(itemConfig.ServiceableRate > userPackage.GetPlayerLevel())
-			buyBtn.isEnabled = false;
-		else
-			buyBtn.isEnabled = true;
 		RefreshBuyLimit();
 		RefreshGraph();
 	}
@@ -226,15 +221,15 @@ public class UITradePanel : PanelBase {
 	void RefreshBuyLimit()
 	{
 		int val = itemPackage.GetBuyLimit(itemPackage.GetSelectionItemConfigID());
-		ITEM_RES config = itemPackage.GetItemDataByConfigID(itemPackage.GetSelectionItemConfigID());
-		if(userPackage.GetPlayerLevel() < config.ServiceableRate)
-			val = 0;
 		limitLabel.text = string.Format("交易所存量: {0}", val);
+		if(val <= 0)
+			buyBtn.isEnabled = false;
+		else
+			buyBtn.isEnabled = true;
 	}
 
 	void OnSellItem()
 	{
-		//NItemInfo info = itemPackage.GetItemInfo(itemPackage.GetSelectionItemConfigID());
 		FacadeSingleton.Instance.OverlayerPanel("UIItemValuePanel");
 		NDictionary args = new NDictionary();
 		args.Add("isbuy", false);
@@ -382,7 +377,6 @@ public class UITradePanel : PanelBase {
         System.DateTime curDate = GlobalFunction.DateFormat(curTime);
 		System.DateTime preDate = GlobalFunction.DateFormat(startTime);
         // set y
-        ITEM_RES config = itemPackage.GetItemDataByConfigID(itemPackage.GetSelectionItemConfigID());
 		graphYNodes[0].label.text = GlobalFunction.NumberFormat(overview.highPrice);
 		graphYNodes[1].label.text = GlobalFunction.NumberFormat(overview.avgPrice);
 		graphYNodes[2].label.text = GlobalFunction.NumberFormat(overview.lowPrice);
@@ -398,7 +392,11 @@ public class UITradePanel : PanelBase {
 		
 		foreach(var info in infoList)
 		{
-			float yScale = System.Convert.ToSingle((info.price - overView.lowPrice) / (overView.highPrice - overView.lowPrice));
+			float yScale;
+			if(overView.highPrice <= overView.lowPrice)
+				yScale = 0;
+			else
+				yScale = System.Convert.ToSingle((info.price - overView.lowPrice) / (overView.highPrice - overView.lowPrice));
 			float xScale = (info.time - startTime) / (curTime - startTime);
 			float posY = Mathf.Lerp(graphYNodes[2].trans.position.y, graphYNodes[0].trans.position.y, yScale);
 			float posX = Mathf.Lerp(graphXNodes[0].trans.position.x, graphYNodes[2].trans.position.x, xScale);

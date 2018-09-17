@@ -81,7 +81,6 @@ public static class GlobalFunction {
         {
             if(num % 1000000 == 0)
             {
-                Debug.Log(num);
                 return string.Format("{0}m", num / 1000000); 
             }
                 
@@ -164,8 +163,9 @@ public static class GlobalFunction {
         float n = (float)personNumber;
         float k1 = 100000f;
         float k2 = 0.6f;
-        float k3 = 0.5f;
-        return (1 + (n - 1) * k3) * (1 / n + ((personContribution + k1) / (totalContribution + n * k1) - 1 / n ) * k2);
+        //float k3 = 0.6f;
+        //return (1 + (n - 1) * k3) * (1 / n + ((personContribution + k1) / (totalContribution + n * k1) - 1 / n ) * k2);
+        return (1 / n + ((personContribution + k1) / (totalContribution + n * k1) - 1 / n ) * k2);
     }
 
     public static void WeHavntDone()

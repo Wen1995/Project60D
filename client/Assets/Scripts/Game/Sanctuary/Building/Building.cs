@@ -103,7 +103,6 @@ public class Building : Controller {
                 if(func == BuildingFunc.Collect)
                     StartCoroutine(CollectTimer());
             }
-            var config = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
         }
         
     }

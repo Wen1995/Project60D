@@ -15,6 +15,8 @@ public class SSanctuaryController : SceneController
 
     public ManorController[] manors;
 
+    private bool initFlag = false;
+
     //register or bind something
     public void Awake()
     {
@@ -94,6 +96,7 @@ public class SSanctuaryController : SceneController
     /// </summary>
     void BuildSanctuary()
     {
+        initFlag = true;
         //open menu panel
         FacadeSingleton.Instance.OverlayerPanel("UIFuncMenuPanel");
         FacadeSingleton.Instance.OverlayerPanel("UIManorMenuPanel");
@@ -193,8 +196,9 @@ public class SSanctuaryController : SceneController
     void OnGetUserState(NetMsgDef msg)
     {
         TSCGetUserState userState = TSCGetUserState.ParseFrom(msg.mBtsData);
-        userPackage.SetPlayerState(userState);  
-        BuildSanctuary();
+        userPackage.SetPlayerState(userState);
+        if(initFlag == false)
+            BuildSanctuary();
         InitManor();
     }
 
@@ -226,6 +230,7 @@ public class SSanctuaryController : SceneController
             else if(!unlock.IsResource) content += content == "" ? "资源数量不足" : "\n资源数量不足";
             else if(!unlock.IsProduction) content += content == "" ? "其他建筑正在升级或解锁中" : "\n其他建筑正在升级或解锁中";
             data.Add("content", content);
+            data.Add("method", 1);
             FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
             SendEvent("OpenMsgBox", data);
         }
@@ -248,6 +253,7 @@ public class SSanctuaryController : SceneController
             else if(!upgrade.IsResource) content += content == "" ? "资源数量不足" : "\n资源数量不足";
             else if(!upgrade.IsProduction) content += content == "" ? "其他建筑正在升级或解锁中" : "\n其他建筑正在升级或解锁中";
             data.Add("content", content);
+            data.Add("method", 1);
             FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
             SendEvent("OpenMsgBox", data);
         }

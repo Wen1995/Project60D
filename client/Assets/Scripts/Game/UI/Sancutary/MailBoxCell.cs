@@ -25,6 +25,9 @@ public class MailBoxCell : NListCell {
 		replayBtn.onClick.Add(new EventDelegate(OnReplay));
 		pointGo = transform.Find("point").gameObject;
 		mailPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Mail) as MailPackage;
+
+		UIButton button = GetComponent<UIButton>();
+		button.onClick.Add(new EventDelegate(OnClick));
 		
 	}
 
@@ -91,16 +94,7 @@ public class MailBoxCell : NListCell {
 		NMessageInfo info = list[mIndex];
 		NDictionary args = new NDictionary();
 		//send read msg
-		if(info.isRead == false)
-		{
-			args.Clear();
-			args.Add("id", info.id);
-			FacadeSingleton.Instance.InvokeService("RPCReadMail", ConstVal.Service_Sanctuary, args);
-			pointGo.SetActive(false);
-			info.isRead = true;
-			mailPackage.SetUnreadMailCount(mailPackage.GetUnreadMailCount() - 1);
-			FacadeSingleton.Instance.SendEvent("RefreshMailTag");
-		}
+		OnClick();
 		
 		if(info.type == 3)
 		{
@@ -120,6 +114,9 @@ public class MailBoxCell : NListCell {
 			NDictionary args = new NDictionary();
 			args.Add("id", info.id);
 			FacadeSingleton.Instance.InvokeService("RPCReadMail", ConstVal.Service_Sanctuary, args);
+			info.isRead = true;
+			mailPackage.SetUnreadMailCount(mailPackage.GetUnreadMailCount() - 1);
+			FacadeSingleton.Instance.SendEvent("RefreshMailTag");
 		}
 	}
 

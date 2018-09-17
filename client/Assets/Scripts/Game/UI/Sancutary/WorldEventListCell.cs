@@ -6,9 +6,7 @@ using UnityEngine;
 public class WorldEventListCell : NListCell {
 
 	DynamicPackage dynamicPackage = null;
-	EventPackage eventPackage = null;
 	UILabel titleLabel = null;
-	UILabel receiveLabel = null;
 	UILabel happenLabel = null;
 	UILabel contentLabel = null;
 	long remainTime = 0;
@@ -19,10 +17,8 @@ public class WorldEventListCell : NListCell {
 	{
 		base.Awake();
 		titleLabel = transform.Find("content/title").GetComponent<UILabel>();
-		receiveLabel = transform.Find("content/receivetime").GetComponent<UILabel>();
 		happenLabel = transform.Find("content/happentime").GetComponent<UILabel>();
 		contentLabel = transform.Find("content/text").GetComponent<UILabel>();
-		eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
 		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
 	}
 

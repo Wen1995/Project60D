@@ -161,9 +161,8 @@ public class DynamicPackage : ModelBase
         ItemPackage itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
         foreach(var info in mTradeInfoList)
         {
-            if(itemPackage.FilterItemType(mask, info.configID))
+            if(itemPackage.FilterItemType(mask, info.configID) && itemPackage.GetBuyLimit(info.configID) > 0)
                 mFilteredTradeInfoList.Add(info);
-            // if(info.configID)
         }
         mFilteredTradeInfoList.Sort((x, y) => x.configID.CompareTo(y.configID));
     }

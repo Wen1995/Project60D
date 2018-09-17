@@ -115,7 +115,7 @@ public class ItemPackage : ModelBase
             ItemType type = GetItemTypeByConfigID(info.configID);
             if(type == ItemType.Food || type == ItemType.Product)
             {
-                ITEM_RES config = GetItemDataByConfigID(info.configID);
+                //ITEM_RES config = GetItemDataByConfigID(info.configID);
                 sum += info.number;
             }
         }

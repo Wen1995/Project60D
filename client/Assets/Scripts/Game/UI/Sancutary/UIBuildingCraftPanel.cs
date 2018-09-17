@@ -1,5 +1,6 @@
 ﻿ using System.Collections;
 using System.Collections.Generic;
+using com.nkm.framework.protocol;
 using com.nkm.framework.resource.data;
 using UnityEngine;
 
@@ -8,9 +9,11 @@ public class UIBuildingCraftPanel : PanelBase {
 
 	SanctuaryPackage sanctuaryPackage = null;
 	UserPackage userPackage = null;
+	ItemPackage itemPackage = null;
 	Building selectionBuilding = null;
 	int fromConfigID = 0;
 	int toConfigID = 0;
+	UISlider slider;
 
 	//components
 	UILabel title = null;
@@ -21,7 +24,6 @@ public class UIBuildingCraftPanel : PanelBase {
 	UILabel fromItemNum = null;
 	UILabel toItemName = null;
 	UILabel toItemNum = null;
-	UILabel craftNumLabel = null;
 	UILabel describeLabel = null;
 
 	UIButton cancelButton = null;
@@ -32,6 +34,8 @@ public class UIBuildingCraftPanel : PanelBase {
 	//values
 	int craftNum = 0;
 	int ratio = 0;		//minum cost
+
+	int craftMax = 0;	//Num max
 	bool isCrafting = false;		//is this building occupied
 	bool isSelf = false;			//is you are using the building
 	bool isCollect = false;
@@ -45,6 +49,7 @@ public class UIBuildingCraftPanel : PanelBase {
 		stateLabel = transform.Find("inbox/production/text").GetComponent<UILabel>();
 		timeLabel = transform.Find("inbox/production/timelabel").GetComponent<UILabel>();
 		describeLabel = transform.Find("inbox/ingredient/describe").GetComponent<UILabel>();
+		slider = transform.Find("inbox/ingredient/valuebar/slider").GetComponent<UISlider>();
 
 		UIButton button = transform.Find("inbox/ingredient/valuebar/plusbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnPlus));
@@ -63,6 +68,7 @@ public class UIBuildingCraftPanel : PanelBase {
 
 		sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
 		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
 		base.Awake();
 	}
 
@@ -111,7 +117,18 @@ public class UIBuildingCraftPanel : PanelBase {
 		itemData = itemDataMap[toConfigID] as ITEM_RES;
 		toItemName.text = itemData.MinName;
 		describeLabel.text = itemData.Desc;
-
+		// set number
+		NItemInfo itemInfo = itemPackage.GetItemInfo(fromConfigID);
+		craftNum = 0;
+		slider.value = 0f;
+		if(itemInfo == null)	
+			craftMax = 0;
+		else
+		{
+			craftMax = (int)Mathf.Floor((float)itemInfo.number / (float)ratio);
+			slider.numberOfSteps = (int)Mathf.Floor((float)craftMax / (float)ratio);
+		}	
+		
 		//text
 		title.text = string.Format("{0} Lv.{1}", buildingData.BldgName, level);
 		collectButton.gameObject.SetActive(false);
@@ -156,15 +173,19 @@ public class UIBuildingCraftPanel : PanelBase {
 			collectButton.gameObject.SetActive(false);
 			cancelButton.gameObject.SetActive(false);
 		}
-			
-
-		UpdateView();
+		UpdateNumView();
 	}
 
-	void UpdateView()
+	void UpdateNumView()
 	{
 		fromItemNum.text = craftNum.ToString();
 		toItemNum.text = ((int)(craftNum / ratio)).ToString();
+	}
+
+	void UpdateSliderView()
+	{
+		float progress = (float)craftNum / (float)craftMax;
+		slider.value = progress;
 	}
 
 	void OnRefresh(NDictionary data = null)
@@ -179,26 +200,27 @@ public class UIBuildingCraftPanel : PanelBase {
 
 	void OnPlus()
 	{
-		craftNum += ratio;
-		craftNum = CheckNum(craftNum);
-		UpdateView();
+		if(CheckNum(craftNum + ratio))
+			craftNum += ratio;
+		UpdateNumView();
+		UpdateSliderView();
 	}
 
 	void OnMinus()
 	{
-		craftNum -= ratio;
-		craftNum = CheckNum(craftNum);
-		UpdateView();
+		if(CheckNum(craftNum - ratio))
+			craftNum -= ratio;
+		UpdateNumView();
+		UpdateSliderView();
 	}
 
-
-
-	int CheckNum(int num)
+	bool CheckNum(int num)
 	{
-		if(num <= 0)
-			return 0;
-		return num;
+		if(num < 0 || num > craftMax)
+			return false;
+		return true;
 	}
+	
 	void OnStartCraft()
 	{
 		NDictionary args = new NDictionary();
@@ -232,4 +254,10 @@ public class UIBuildingCraftPanel : PanelBase {
             timeLabel.text = time.ToString();
         }
     }
+
+	public void OnValueChange()
+	{
+		craftNum = (int)Mathf.Floor(slider.value * (float)craftMax);
+		UpdateNumView();
+	}
 }

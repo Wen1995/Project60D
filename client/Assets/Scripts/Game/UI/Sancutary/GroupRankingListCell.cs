@@ -50,7 +50,7 @@ public class GroupRankingListCell : NListCell {
 		nameLabel.text = info.name;
 		levelLabel.text = string.Format("Lv.{0}", GlobalFunction.CalculateManorLevel(info.totalContribution));
 		contributeLabel.text = string.Format("实力:{0}", info.totalContribution);
-		pointLabel.text = index.ToString();
+		pointLabel.text = (index + 1).ToString();
 		// show player info
 		int i;
 		for(i=0;i<info.userList.Count;i++)

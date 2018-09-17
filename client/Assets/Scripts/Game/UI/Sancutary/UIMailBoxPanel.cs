@@ -7,7 +7,6 @@ public class UIMailBoxPanel : PanelBase {
 
 	MailPackage mailPackage = null;
 	UserPackage userPackage;
-	UILabel countLabel = null;
 	UILabel indexLabel = null;
 	NTableView tableView = null;
 	int curIndex = 1;			//current index of mail, 20 mails for 1 page
@@ -21,7 +20,6 @@ public class UIMailBoxPanel : PanelBase {
 		button.onClick.Add(new EventDelegate(OnNextPage));
 		button = transform.Find("index/pre").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnPrePage));
-		countLabel = transform.Find("number/label").GetComponent<UILabel>();
 		indexLabel = transform.Find("index/label").GetComponent<UILabel>();
 		tableView = transform.Find("mailview/panel/tableview").GetComponent<NTableView>();
 
@@ -75,7 +73,6 @@ public class UIMailBoxPanel : PanelBase {
 	void OnGetPageList(NetMsgDef msg)
 	{
 		TSCGetPageList res = TSCGetPageList.ParseFrom(msg.mBtsData);
-		print("msgListCount=" + res.MessageInfoCount);
 		mailPackage.SetMail(res);
 		RefreshView();
 	}

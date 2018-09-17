@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using com.nkm.framework.protocol;
+using com.nkm.framework.resource.data;
 using UnityEngine;
 
 public class UIInvadeResultPanel : PanelBase {
 
 	MailPackage mailPackage = null;
 	SanctuaryPackage sanctuaryPackage = null;
-	Animator anim = null;
+	UserPackage userPackage = null;
 	UILabel contentLabel = null;
 	UIScrollView scrollView = null;
 	struct PlayerView
@@ -24,11 +25,11 @@ public class UIInvadeResultPanel : PanelBase {
 	protected override void Awake()
 	{
 		base.Awake();
-		anim = GetComponent<Animator>();
 		contentLabel = transform.Find("board/panel/label").GetComponent<UILabel>();
 		scrollView = transform.Find("board/panel").GetComponent<UIScrollView>();
 		sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
 		mailPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Mail) as MailPackage;
+		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 		playerViewList[0].name = transform.Find("grid/player0/name").GetComponent<UILabel>();
 		playerViewList[1].name = transform.Find("grid/player1/name").GetComponent<UILabel>();
 		playerViewList[2].name = transform.Find("grid/player2/name").GetComponent<UILabel>();
@@ -104,7 +105,8 @@ public class UIInvadeResultPanel : PanelBase {
 
 	void SetPlayerView(ref PlayerView view, UserInfo info)
 	{
-		view.name.text = info.Uid.ToString();
+		NUserInfo userInfo = userPackage.GetUserInfo(info.Uid);
+		view.name.text = userInfo.name;
 		view.bloodMax = 20 + 2 * info.Health;
 		view.blood.value = (float)info.Blood / (float)view.bloodMax;
 	}
@@ -130,13 +132,14 @@ public class UIInvadeResultPanel : PanelBase {
 
 	void ProcessPlayerInfo(InvadeResultInfo info, out string resStr)
 	{
+		NUserInfo userInfo = userPackage.GetUserInfo(info.Id);
 		if(info.Blood <= 20)
 		{
-			resStr = string.Format("[960000]玩家uID={0}被僵尸重创，无法继续战斗![-]", info.Id);
+			resStr = string.Format("[960000]玩家uID={0}被僵尸重创，无法继续战斗![-]", userInfo.name);
 		}
 		else
 		{
-			resStr = string.Format("玩家uID={0}击杀了{1}只僵尸", info.Id, info.Num);
+			resStr = string.Format("玩家uID={0}击杀了{1}只僵尸", userInfo.name, info.Num);
 		}
 		UpdatePlayerView(info.Id, info.Blood);
 	}
@@ -165,7 +168,8 @@ public class UIInvadeResultPanel : PanelBase {
 		}
 		else	//Turret
 		{
-			resStr = string.Format("{0}击杀了{1}只僵尸", info.Id, info.Num);
+			BUILDING config = sanctuaryPackage.GetBuildingConfigDataByConfigID(buildingInfo.configID);
+			resStr = string.Format("{0}击杀了{1}只僵尸", config.BldgName, info.Num);
 		}
 	}
 

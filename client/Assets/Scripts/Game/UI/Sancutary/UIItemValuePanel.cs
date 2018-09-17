@@ -110,13 +110,13 @@ public class UIItemValuePanel : PanelBase{
 	void OnValueMax()
 	{
 		value = itemCap;
+		slider.value = 1.0f;
 		UpdateValueView();
 	}
 
 	void OnConfirm()
 	{
 		NDictionary args = new NDictionary();
-		NItemInfo info = itemPackage.GetSelectionItem();
 		args.Add("id", configID);
 		args.Add("num", value);
 		args.Add("price", itemPackage.GetItemPrice(configID));

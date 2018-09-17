@@ -48,7 +48,6 @@ public class EventIconListCell : NListCell {
 	{
 		if(info.type == NBuffType.WorldEvent)
 		{
-			int configID = info.configID;
 			WORLD_EVENTS config = eventPackage.GetEventConfigDataByConfigID(info.configID);
 			iconSprite.spriteName = config.EventIcon;
 		}

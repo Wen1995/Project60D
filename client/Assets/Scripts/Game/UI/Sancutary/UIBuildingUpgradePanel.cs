@@ -115,6 +115,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 			double curNum = itemPackage.GetGoldNumber();
 			costCellList[count].title.text = "金钱消耗: ";
 			costCellList[count].value.text = string.Format("{0} / {1}", GlobalFunction.NumberFormat(costNum), GlobalFunction.NumberFormat(curNum));
+			costCellList[count].go.SetActive(true);
 			if((double)costNum > curNum)
 			{
 				costCellList[count].title.color = Color.red;
@@ -133,6 +134,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 			double curNum = itemPackage.GetElecNumber();
 			costCellList[count].title.text = "电力消耗: ";
 			costCellList[count].value.text = string.Format("{0} / {1}", GlobalFunction.NumberFormat(costNum), GlobalFunction.NumberFormat(curNum));
+			costCellList[count].go.SetActive(true);
 			if((double)costNum > curNum)
 			{
 				costCellList[count].title.color = Color.red;
@@ -145,8 +147,8 @@ public class UIBuildingUpgradePanel : PanelBase {
 			}
 			count++;
 		}
-		
-		for(int i = count;i<configData.CostTableCount;i++)
+		print("cost talbe count = " + configData.CostTableCount);
+		for(int i = 0;i<configData.CostTableCount;i++)
 		{
 			int itemConfigId = configData.GetCostTable(i).CostId;
 			if(itemConfigId == 0) continue;
@@ -156,6 +158,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 			int curNum = itemInfo == null ? 0 : itemInfo.number;
 			costCellList[count].title.text = itemData.MinName + ": ";
 			costCellList[count].value.text = string.Format("{0} / {1}", num.ToString(), curNum);
+			costCellList[count].go.SetActive(true);
 			if(itemInfo == null || itemInfo.number < num)
 			{
 				costCellList[count].title.color = Color.red;

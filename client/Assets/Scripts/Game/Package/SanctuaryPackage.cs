@@ -139,7 +139,6 @@ public class SanctuaryPackage : ModelBase {
 
     public int GetBuildingLevelByType(BuildingType type)
     {
-        int configID = GetConfigIDByBuildingType(type);
         foreach(var pair in mBuildingInfoMap)
             if(GetBuildingTypeByConfigID(pair.Value.configID) == type)
                 return GetBulidingLevelByConfigID(pair.Value.configID);
@@ -520,7 +519,6 @@ public class SanctuaryPackage : ModelBase {
         NBuildingInfo info = GetBuildingInfo(building.BuildingID);
         BuildingFunc func = GetBuildingFuncByConfigID(info.configID);
         List<BuildingAttributeData> dataList = new List<BuildingAttributeData>();
-        UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
         switch(type)
         {
             case(BuildingType.Rice):

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public delegate void NInputCallback(UIInput input);
@@ -51,7 +52,20 @@ public class UIInputWindowPanel : PanelBase {
 
 	void OnConfirm()
 	{
-		callback(input);
+		
+		if(CheckInput(input.value) == true)
+			callback(input);
+		else
+			FacadeSingleton.Instance.InvokeService("NameFormatError", ConstVal.Service_Common);
+	}
+
+	bool CheckInput(string str)
+	{
+		Regex regex = new Regex("[\u4e00-\u9fa5_a-zA-Z0-9_]{4,10}");
+		if(regex.IsMatch(str))
+			return true;
+		else
+			return false;
 	}
 
 	void Close()

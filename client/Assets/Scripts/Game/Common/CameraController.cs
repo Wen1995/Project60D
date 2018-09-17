@@ -143,6 +143,8 @@ public class CameraController : MonoBehaviour {
             else if(curTouchDeltaMag < preTouchDeltaMag)
                 CameraZomming(-0.1f);
         }
+
+        CameraRestriant();
     }
 
 

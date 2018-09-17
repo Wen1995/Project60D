@@ -8,7 +8,7 @@ public class NEventListener : MonoBehaviour {
 
 	N3DEventHandler clickDelegate = null;
 
-	bool isPressed = false;
+	//bool isPressed = false;
 	public void AddClick(N3DEventHandler callback)
 	{
 		if(clickDelegate == null)
@@ -19,14 +19,14 @@ public class NEventListener : MonoBehaviour {
 
 	void OnClickDown()
 	{
-		isPressed = true;
+		//isPressed = true;
 	}
 
 	void OnClickUp()
 	{
 		clickDelegate();
 
-		isPressed = false;
+		//isPressed = false;
 	}
 	
 }

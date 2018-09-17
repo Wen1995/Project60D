@@ -91,12 +91,7 @@ public class UILoginPanel : PanelBase {
             return true;
         else
         {
-            NDictionary data = new NDictionary();
-            data.Add("title", "创建用户失败");
-            data.Add("method", 1);
-            data.Add("content", "用户名不合法\n用户名只允许中文，英文，数字与下划线，长度在2到10个字符之间");
-            FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
-            SendEvent("OpenMsgBox", data);
+            FacadeSingleton.Instance.InvokeService("NameFormatError", ConstVal.Service_Common);
             return false;
         }
     }

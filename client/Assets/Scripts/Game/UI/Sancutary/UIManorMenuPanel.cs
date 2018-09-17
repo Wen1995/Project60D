@@ -4,12 +4,8 @@ using com.nkm.framework.protocol;
 using UnityEngine;
 
 public class UIManorMenuPanel : PanelBase {
-
-	SanctuaryPackage sanctuaryPackage = null;
 	UserPackage userPackage = null;
 	MailPackage mailPackage = null;
-	EventPackage eventPackage = null;
-	UIProgressBar invadeProgress = null;
 	UIProgressBar manorExpProgress = null;
 	UILabel levelLabel = null;
 	UILabel IDLabel = null;
@@ -39,7 +35,6 @@ public class UIManorMenuPanel : PanelBase {
 
 		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 		mailPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Mail) as MailPackage;
-		eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
 
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETMESSAGETAG, OnGetMessgeTag);
 		FacadeSingleton.Instance.RegisterEvent("RefreshMailTag", RefreshMailTag);
@@ -50,7 +45,6 @@ public class UIManorMenuPanel : PanelBase {
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
-		sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
 		InitView();
 	}
 

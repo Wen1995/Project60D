@@ -31,7 +31,9 @@ public class HandlerMappingManager {
 
     private static ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     private Map<Short, HandlerInvoker> invokerMap = new HashMap<>();
+    private Map<String, Class<?>> modelMap = new HashMap<>();
     private Map<String, HandlerRoute> routeMap = new HashMap<>();
+    
     public void init() {
         Set<Class<?>> clazzs = ClassUtil.getClasses(Constant.PACKAGE);
         logger.info("All Class Size:{}", clazzs.size());
@@ -44,14 +46,25 @@ public class HandlerMappingManager {
     private void analyzeHandlerClass(Class<?> cls) {
         HandlerMapping handlerMapping = cls.getAnnotation(HandlerMapping.class);
         if (null != handlerMapping) {
-            String className = StringUtil.FirstLetterToLower(cls.getSimpleName());
             try {
                 Method[] methods = cls.getDeclaredMethods();
                 for (Method m : methods) {
                     HandlerMethodMapping handlerMethodMapping = m.getAnnotation(HandlerMethodMapping.class);
                     if (null != handlerMethodMapping) {
-                        logger.info("[Handler Mapping] cmd:{}, m.name:{}", handlerMethodMapping.cmd(), m.getName());
+                        String methodName = m.getName();
+                        String className = StringUtil.FirstLetterToLower(cls.getSimpleName());
+                        logger.info("[Handler Mapping] cmd:{}, m.name:{}", handlerMethodMapping.cmd(), methodName);
                         invokerMap.put(handlerMethodMapping.cmd(), new HandlerInvoker(m, context.getBean(className)));
+                        
+                        Class<?> modelCls = null;
+                        try {
+                            modelCls = Thread.currentThread().getContextClassLoader().loadClass(
+                                    Constant.MODEL_PACKAGE + '.' + StringUtil.FirstLetterToUpper(methodName));
+                        } catch (Exception e) {
+                        }
+                        if (modelCls != null) {
+                            modelMap.put(methodName, modelCls);
+                        }
                     }
                 }
             } catch (Exception e) {
@@ -78,5 +91,9 @@ public class HandlerMappingManager {
     
     public HandlerRoute getHandlerRoute(String group) {
         return routeMap.get(group);
+    }
+    
+    public Class<?> getModelClass(String methodName) {
+        return modelMap.get(methodName);
     }
 }

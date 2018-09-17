@@ -26,6 +26,7 @@ import com.nkm.framework.protocol.Room.TSCApplyGroup;
 import com.nkm.framework.protocol.Room.TSCCreateGroup;
 import com.nkm.framework.protocol.Room.TSCGetGroupPageCount;
 import com.nkm.framework.protocol.Room.TSCGetGroupRanking;
+import com.nkm.framework.resource.DynamicDataManager;
 import com.nkm.framework.resource.StaticDataManager;
 import com.nkm.framework.resource.data.BuildingBytes.BUILDING;
 import com.nkm.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
@@ -45,16 +46,19 @@ public class RoomServiceImpl implements RoomService {
         Long groupId = IdManager.GetInstance().genId(IdType.GROUP);
         Long storehouseId = IdManager.GetInstance().genId(IdType.BUILDING);
         Long batteryId = IdManager.GetInstance().genId(IdType.BUILDING);
+        long time = System.currentTimeMillis();
         
         Group group = new Group();
         group.setId(groupId);
         group.setName(name);
         group.setPeopleNumber(1);
         group.setTotalContribution(1091216500);
+        group.setGroupGold(0);
         group.setStorehouseId(storehouseId);
         group.setBatteryId(batteryId);
-        group.setInvadeTime(new Date(System.currentTimeMillis()));
+        group.setInvadeTime(new Date());
         groupDao.insert(group);
+        DynamicDataManager.GetInstance().groupId2InvadeTime.put(groupId, time);
         
         User user = userDao.get(uid);
         user.setGroupId(groupId);

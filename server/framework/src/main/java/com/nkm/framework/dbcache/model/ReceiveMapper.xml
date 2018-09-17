@@ -106,7 +106,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.nkm.framework.dbcache.model.Receive">
+  <insert id="insert" parameterType="com.nkm.framework.dbcache.model.Receive" useGeneratedKeys="true" keyProperty="id">
     insert into t_receive (id, uid, group_id, 
       account, create_time, contribution, 
       login_ip, login_time, operation_time, 

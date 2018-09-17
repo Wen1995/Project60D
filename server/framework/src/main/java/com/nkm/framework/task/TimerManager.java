@@ -120,9 +120,7 @@ public class TimerManager {
                         StaticDataManager.GetInstance().arithmeticCoefficientMap;
                 int day = arithmeticCoefficientMap.get(30130000).getAcK4();
                 int hour = 24 / arithmeticCoefficientMap.get(30120000).getAcK4();
-                Map<Long, Long> groupId2InvadeTime =
-                        DynamicDataManager.GetInstance().groupId2InvadeTime;
-                for (Map.Entry<Long, Long> entry : groupId2InvadeTime.entrySet()) {
+                for (Map.Entry<Long, Long> entry : DynamicDataManager.GetInstance().groupId2InvadeTime.entrySet()) {
                     long groupId = entry.getKey();
                     long currentTime = System.currentTimeMillis();
                     /*// 是否多天未被进攻

@@ -1,6 +1,8 @@
 package com.nkm.game;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,6 +15,7 @@ import com.nkm.framework.dbcache.dao.impl.GroupDao;
 import com.nkm.framework.dbcache.dao.impl.UserDao;
 import com.nkm.framework.dbcache.model.Building;
 import com.nkm.framework.dbcache.model.Group;
+import com.nkm.framework.dbcache.model.Receive;
 import com.nkm.framework.dbcache.model.User;
 import com.nkm.framework.protocol.User.ResourceInfo;
 import com.nkm.framework.protocol.User.UserResource;
@@ -68,5 +71,12 @@ public class StartTest {
         jsonObject.put("house", nullObj);
         System.out.println(jsonObject.toString());// 输出JSON格式的jsonObject数据
         System.out.println(jsonObject.get("age"));
+        System.out.println(jsonObject.keySet());
+        
+        Iterator<String> iter = jsonObject.keys();
+        while (iter.hasNext()) {
+            String item = iter.next();
+            System.out.println(item);
+        }
     }
 }

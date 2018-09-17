@@ -135,11 +135,11 @@ public class UIInvadeResultPanel : PanelBase {
 		NUserInfo userInfo = userPackage.GetUserInfo(info.Id);
 		if(info.Blood <= 20)
 		{
-			resStr = string.Format("[960000]玩家uID={0}被僵尸重创，无法继续战斗![-]", userInfo.name);
+			resStr = string.Format("[960000]玩家{0}被僵尸重创，无法继续战斗![-]", userInfo.name);
 		}
 		else
 		{
-			resStr = string.Format("玩家uID={0}击杀了{1}只僵尸", userInfo.name, info.Num);
+			resStr = string.Format("玩家{0}击杀了{1}只僵尸", userInfo.name, info.Num);
 		}
 		UpdatePlayerView(info.Id, info.Blood);
 	}

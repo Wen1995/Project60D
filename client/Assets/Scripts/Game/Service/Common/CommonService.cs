@@ -1,6 +1,7 @@
 ﻿using com.nkm.framework.protocol;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class CommonService : ServiceBase {
@@ -68,7 +69,7 @@ public class CommonService : ServiceBase {
         NDictionary data = new NDictionary();
         data.Add("title", "创建用户失败");
         data.Add("method", 1);
-        data.Add("content", "用户名不合法\n用户名只允许中文，英文，数字与下划线，长度在2到10个字符之间");
+        data.Add("content", "用户名不合法\n用户名只允许中文，英文，数字与下划线，长度在4到10个字符之间");
         FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
         FacadeSingleton.Instance.SendEvent("OpenMsgBox", data);
     }

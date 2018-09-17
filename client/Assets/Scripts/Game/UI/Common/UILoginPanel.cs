@@ -86,7 +86,7 @@ public class UILoginPanel : PanelBase {
 
     bool CheckString(string str)
     {
-        Regex regex = new Regex("[\u4e00-\u9fa5_a-zA-Z0-9_]{4,10}");
+        Regex regex = new Regex("^[\u4e00-\u9fa5_a-zA-Z0-9_]{4,10}$");
         if(regex.IsMatch(str))
             return true;
         else

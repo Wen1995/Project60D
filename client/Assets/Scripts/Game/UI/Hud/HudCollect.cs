@@ -22,8 +22,15 @@ public class HudCollect : MonoBehaviour , IPoolUnit, IHudObject{
     void SetIcon(int configID)
     {
         ItemPackage itemPackge = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
-        ITEM_RES config = itemPackge.GetItemDataByConfigID(configID);
-        iconSprite.spriteName = config.IconName;
+        if(configID == 0)       //elec
+        {
+            iconSprite.spriteName = "gold";
+        }
+        else
+        {
+            ITEM_RES config = itemPackge.GetItemDataByConfigID(configID);
+            iconSprite.spriteName = config.IconName;
+        }
     }
 
     public void OnRestore()

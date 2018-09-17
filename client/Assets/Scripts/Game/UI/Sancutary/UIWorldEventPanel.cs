@@ -17,8 +17,8 @@ public class UIWorldEventPanel : PanelBase {
 
 		UIButton button = transform.Find("closebtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
-		button = transform.Find("jumpbtn").GetComponent<UIButton>();
-		button.onClick.Add(new EventDelegate(OnJump));
+		// button = transform.Find("jumpbtn").GetComponent<UIButton>();
+		// button.onClick.Add(new EventDelegate(OnJump));
 
 		eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
 		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;

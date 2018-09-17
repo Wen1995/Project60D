@@ -281,13 +281,22 @@ public class SSanctuaryController : SceneController
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         if(sanctuaryPackage.GetBuildingFuncByConfigID(info.configID) == BuildingFunc.Craft)
             SendEvent("RefreshCraftPanel");
-        ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(configID);
-        FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
         NDictionary data = new NDictionary();
-        string content = string.Format("获得{0} x {1}", itemConfig.MinName, num);
-        data.Add("content", content);
+        if(configID == 0)   //elec
+        {
+            string content = string.Format("获得电力 x {0}", num);
+            data.Add("content", content);
+        }
+        else
+        {
+            ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(configID);
+            string content = string.Format("获得{0} x {1}", itemConfig.MinName, num);
+            data.Add("content", content);
+        }
+        FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
         FacadeSingleton.Instance.SendEvent("OpenTips", data);
-        FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
+        FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);    
+        
     }
 
     void OnCraft(NetMsgDef msg)

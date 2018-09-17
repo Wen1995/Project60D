@@ -204,7 +204,7 @@ public class JavaToProto {
 		Class<?> currentClass = currentClass();
 		String messageName = "Proto"+currentClass.getSimpleName();
 		
-		builder.append(Constant.MODEL_PACKAGE).append(NEWLINE);
+		builder.append(Constant.PACKAGE_MODEL).append(NEWLINE);
 		builder.append("option optimize_for = SPEED;").append(NEWLINE).append(NEWLINE);
 		
 		typeMap.put(currentClass(), getPath());

@@ -1,13 +1,17 @@
 package com.nkm.framework.log;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Date;
+import java.util.Iterator;
 import javax.annotation.Resource;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.google.common.base.CaseFormat;
+import com.nkm.framework.console.handler.HandlerMappingManager;
 import com.nkm.framework.dbcache.dao.IUserDao;
-import com.nkm.framework.dbcache.model.Log;
 import com.nkm.framework.dbcache.model.User;
 import com.nkm.framework.utils.DateTimeUtils;
 
@@ -18,44 +22,66 @@ public class LogServiceImpl implements LogService {
     private IUserDao userDao;
 
     @Override
-    public void createLog(Long uid, String method, String operation) {
-        Date date = new Date();
+    public void createLog(Long uid, String methodName, JSONObject jsonObject) {
         User user = userDao.get(uid);
-
-        switch (method) {
-            case "receive":
-                
-                break;
-
-            default:
-                break;
+        Object log = null;
+        String sql1 = "";
+        String sql2 = "";
+        Class<?> clazz = HandlerMappingManager.GetInstance().getModelClass(methodName);
+        try {
+            log = clazz.getDeclaredConstructor().newInstance();
+            Method method = clazz.getDeclaredMethod("setUid", Long.class);
+            method.invoke(log, user.getId());
+            method = clazz.getDeclaredMethod("setGroupId", Long.class);
+            method.invoke(log, user.getGroupId());
+            method = clazz.getDeclaredMethod("setAccount", String.class);
+            method.invoke(log, user.getAccount());
+            method = clazz.getDeclaredMethod("setCreateTime", Date.class);
+            method.invoke(log, user.getCreateTime());
+            method = clazz.getDeclaredMethod("setContribution", Integer.class);
+            method.invoke(log, user.getContribution());
+            method = clazz.getDeclaredMethod("setLoginIp", String.class);
+            method.invoke(log, user.getLoginIp());
+            method = clazz.getDeclaredMethod("setLoginTime", Date.class);
+            method.invoke(log, user.getLoginTime());
+            method = clazz.getDeclaredMethod("setOperationTime", Date.class);
+            method.invoke(log, new Date());
+            
+            Iterator<String> iter = jsonObject.keys();
+            while (iter.hasNext()) {
+                String s = iter.next();
+                Field f = clazz.getDeclaredField(s);
+                f.setAccessible(true);
+                f.set(log, jsonObject.get(s));
+            }
+        } catch (NoSuchMethodException e) {
+            logger.error("", e);
+        } catch (SecurityException e) {
+            logger.error("", e);
+        } catch (IllegalAccessException e) {
+            logger.error("", e);
+        } catch (IllegalArgumentException e) {
+            logger.error("", e);
+        } catch (InvocationTargetException e) {
+            logger.error("", e);
+        } catch (InstantiationException e) {
+            logger.error("", e);
+        } catch (NoSuchFieldException e) {
+            logger.error("", e);
         }
         
-        
-        Log log = new Log();
-        log.setUid(uid);
-        log.setGroupId(user.getGroupId());
-        log.setAccount(user.getAccount());
-        log.setCreateTime(user.getCreateTime());
-        log.setContribution(user.getContribution());
-        log.setLoginIp(user.getLoginIp());
-        log.setLoginTime(user.getLoginTime());
-        log.setOperationTime(date);
-
-        Field[] fields = Log.class.getDeclaredFields();
-        String sql = "";
-        String sql2 = "";
+        Field[] fields = clazz.getDeclaredFields();
         if (fields.length > 1) {
-            sql = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, fields[1].getName());
+            sql1 = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, fields[1].getName());
             sql2 = "{}";
             for (int i = 2; i < fields.length; i++) {
-                sql += ", " + CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, fields[i].getName());
+                sql1 += ", " + CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, fields[i].getName());
                 sql2 += ", {}";
             }
         }
 
         Object[] result = new Object[fields.length];
-        result[0] = "t_log_" + DateTimeUtils.getMonthDataFormateStr(date);
+        result[0] = "t_" + methodName;
         try {
             for (int i = 1; i < fields.length; i++) {
                 fields[i].setAccessible(true);  
@@ -76,6 +102,6 @@ public class LogServiceImpl implements LogService {
             logger.error("", e);
         }
 
-        ServerMonitor.analyseStatusLogger.info("insert into {} (" + sql + ") value(" + sql2 + ")", result);
+        ServerMonitor.analyseStatusLogger.info("insert into {} (" + sql1 + ") value(" + sql2 + ")", result);
     }
 }

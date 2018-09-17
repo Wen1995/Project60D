@@ -5,7 +5,9 @@ import java.io.File;
 public class Constant {
     public static final String PACKAGE = "com.nkm";
     
-    public static final String MODEL_PACKAGE = "package com.nkm.framework.dbcache.model;";
+    public static final String MODEL_PACKAGE = "com.nkm.framework.dbcache.model";
+    
+    public static final String PACKAGE_MODEL = "package com.nkm.framework.dbcache.model;";
     
     public static final String GENERATE_DIR = "../game/src/main/java/com/nkm/game/";
     

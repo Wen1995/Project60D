@@ -34,6 +34,7 @@ public class WorldEventListCell : NListCell {
 		titleLabel.text = config.EventName;
 		contentLabel.text = config.EventNews;
 		endTime = info.happenTime + config.EventDuration * 60 * 1000;
+		print(string.Format("{0}, {1}, {2}", config.EventName, GlobalFunction.DateFormat(info.happenTime), GlobalFunction.DateFormat(endTime)));
 		if(GlobalFunction.IsHappened(info.happenTime))
 			ShowTime(endTime, true);
 		else
@@ -49,7 +50,7 @@ public class WorldEventListCell : NListCell {
 		}
 		else
 		{
-			happenLabel.text = string.Format("预计事件发生时间 {0:D2}月{1:D2}日 {2:D2}:{3:D2}", dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute);
+			happenLabel.text = string.Format("预计事件开始时间 {0:D2}月{1:D2}日 {2:D2}:{3:D2}", dateTime.Month, dateTime.Day, dateTime.Hour, dateTime.Minute);
 		}
 	}
 }

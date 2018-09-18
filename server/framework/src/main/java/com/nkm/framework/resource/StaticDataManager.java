@@ -20,7 +20,6 @@ import com.nkm.framework.resource.data.HunningtuBytes.HUNNINGTU;
 import com.nkm.framework.resource.data.ItemResBytes.ITEM_RES;
 import com.nkm.framework.resource.data.JianshenfangBytes.JIANSHENFANG;
 import com.nkm.framework.resource.data.JingBytes.JING;
-import com.nkm.framework.resource.data.JsfadianjiBytes.JSFADIANJI;
 import com.nkm.framework.resource.data.KuangquanshuiBytes.KUANGQUANSHUI;
 import com.nkm.framework.resource.data.LeidaBytes.LEIDA;
 import com.nkm.framework.resource.data.LiangangBytes.LIANGANG;
@@ -74,7 +73,6 @@ public class StaticDataManager {
 	public ReadOnlyMap<Integer, ITEM_RES> itemResMap;
 	public ReadOnlyMap<Integer, JIANSHENFANG> jianshenfangMap;
 	public ReadOnlyMap<Integer, JING> jingMap;
-	public ReadOnlyMap<Integer, JSFADIANJI> jsfadianjiMap;
 	public ReadOnlyMap<Integer, KUANGQUANSHUI> kuangquanshuiMap;
 	public ReadOnlyMap<Integer, LEIDA> leidaMap;
 	public ReadOnlyMap<Integer, LIANGANG> liangangMap;
@@ -112,7 +110,6 @@ public class StaticDataManager {
         itemResMap = load(ITEM_RES.class);
         jianshenfangMap = load(JIANSHENFANG.class);
         jingMap = load(JING.class);
-        jsfadianjiMap = load(JSFADIANJI.class);
         kuangquanshuiMap = load(KUANGQUANSHUI.class);
         leidaMap = load(LEIDA.class);
         liangangMap = load(LIANGANG.class);

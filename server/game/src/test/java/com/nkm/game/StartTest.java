@@ -20,7 +20,9 @@ import com.nkm.framework.dbcache.model.User;
 import com.nkm.framework.protocol.User.ResourceInfo;
 import com.nkm.framework.protocol.User.UserResource;
 import com.nkm.framework.resource.StaticDataManager;
+import com.nkm.framework.resource.data.ItemResBytes.ITEM_RES;
 import com.nkm.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
+import com.nkm.framework.utils.DateTimeUtils;
 import com.nkm.framework.utils.ReadOnlyMap;
 
 public class StartTest {
@@ -28,7 +30,7 @@ public class StartTest {
     static IGroupDao groupDao = ServiceFactory.getProxy(GroupDao.class);
 
     public static void main(String[] args) {
-        jSONObject();
+        //jSONObject();
     }
 
     private static void getGroupInfo() {

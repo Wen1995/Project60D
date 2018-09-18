@@ -99,24 +99,7 @@ public final class ItemResBytes {
         getKeyNameBytes();
 
     /**
-     * <code>optional int32 serviceable_rate = 5 [default = 0];</code>
-     *
-     * <pre>
-     ** 玩家可购买等级（玩家等级）（0代表不可用） 
-     * </pre>
-     */
-    boolean hasServiceableRate();
-    /**
-     * <code>optional int32 serviceable_rate = 5 [default = 0];</code>
-     *
-     * <pre>
-     ** 玩家可购买等级（玩家等级）（0代表不可用） 
-     * </pre>
-     */
-    int getServiceableRate();
-
-    /**
-     * <code>optional string icon_name = 6 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -124,7 +107,7 @@ public final class ItemResBytes {
      */
     boolean hasIconName();
     /**
-     * <code>optional string icon_name = 6 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -132,7 +115,7 @@ public final class ItemResBytes {
      */
     java.lang.String getIconName();
     /**
-     * <code>optional string icon_name = 6 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -142,7 +125,7 @@ public final class ItemResBytes {
         getIconNameBytes();
 
     /**
-     * <code>optional string small_icon_name = 7 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
@@ -150,7 +133,7 @@ public final class ItemResBytes {
      */
     boolean hasSmallIconName();
     /**
-     * <code>optional string small_icon_name = 7 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
@@ -158,7 +141,7 @@ public final class ItemResBytes {
      */
     java.lang.String getSmallIconName();
     /**
-     * <code>optional string small_icon_name = 7 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
@@ -168,7 +151,7 @@ public final class ItemResBytes {
         getSmallIconNameBytes();
 
     /**
-     * <code>optional string desc = 8 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
@@ -176,7 +159,7 @@ public final class ItemResBytes {
      */
     boolean hasDesc();
     /**
-     * <code>optional string desc = 8 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
@@ -184,7 +167,7 @@ public final class ItemResBytes {
      */
     java.lang.String getDesc();
     /**
-     * <code>optional string desc = 8 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
@@ -194,7 +177,7 @@ public final class ItemResBytes {
         getDescBytes();
 
     /**
-     * <code>optional int32 gold_conv = 9 [default = 0];</code>
+     * <code>optional int32 gold_conv = 8 [default = 0];</code>
      *
      * <pre>
      ** 价格*1000 
@@ -202,7 +185,7 @@ public final class ItemResBytes {
      */
     boolean hasGoldConv();
     /**
-     * <code>optional int32 gold_conv = 9 [default = 0];</code>
+     * <code>optional int32 gold_conv = 8 [default = 0];</code>
      *
      * <pre>
      ** 价格*1000 
@@ -211,7 +194,7 @@ public final class ItemResBytes {
     int getGoldConv();
 
     /**
-     * <code>optional int32 stor_unit = 10 [default = 0];</code>
+     * <code>optional int32 stor_unit = 9 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -220,7 +203,7 @@ public final class ItemResBytes {
      */
     boolean hasStorUnit();
     /**
-     * <code>optional int32 stor_unit = 10 [default = 0];</code>
+     * <code>optional int32 stor_unit = 9 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -230,7 +213,7 @@ public final class ItemResBytes {
     int getStorUnit();
 
     /**
-     * <code>optional int32 if_available = 11 [default = 0];</code>
+     * <code>optional int32 if_available = 10 [default = 0];</code>
      *
      * <pre>
      ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
@@ -238,7 +221,7 @@ public final class ItemResBytes {
      */
     boolean hasIfAvailable();
     /**
-     * <code>optional int32 if_available = 11 [default = 0];</code>
+     * <code>optional int32 if_available = 10 [default = 0];</code>
      *
      * <pre>
      ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
@@ -247,7 +230,7 @@ public final class ItemResBytes {
     int getIfAvailable();
 
     /**
-     * <code>optional int32 hp_rec = 12 [default = 0];</code>
+     * <code>optional int32 hp_rec = 11 [default = 0];</code>
      *
      * <pre>
      ** 回复血量 
@@ -255,7 +238,7 @@ public final class ItemResBytes {
      */
     boolean hasHpRec();
     /**
-     * <code>optional int32 hp_rec = 12 [default = 0];</code>
+     * <code>optional int32 hp_rec = 11 [default = 0];</code>
      *
      * <pre>
      ** 回复血量 
@@ -264,7 +247,7 @@ public final class ItemResBytes {
     int getHpRec();
 
     /**
-     * <code>optional int32 starv_rec = 13 [default = 0];</code>
+     * <code>optional int32 starv_rec = 12 [default = 0];</code>
      *
      * <pre>
      ** 回复饥饿*1000 
@@ -272,7 +255,7 @@ public final class ItemResBytes {
      */
     boolean hasStarvRec();
     /**
-     * <code>optional int32 starv_rec = 13 [default = 0];</code>
+     * <code>optional int32 starv_rec = 12 [default = 0];</code>
      *
      * <pre>
      ** 回复饥饿*1000 
@@ -281,7 +264,7 @@ public final class ItemResBytes {
     int getStarvRec();
 
     /**
-     * <code>optional int32 water_rec = 14 [default = 0];</code>
+     * <code>optional int32 water_rec = 13 [default = 0];</code>
      *
      * <pre>
      ** 回复口渴*1000 
@@ -289,7 +272,7 @@ public final class ItemResBytes {
      */
     boolean hasWaterRec();
     /**
-     * <code>optional int32 water_rec = 14 [default = 0];</code>
+     * <code>optional int32 water_rec = 13 [default = 0];</code>
      *
      * <pre>
      ** 回复口渴*1000 
@@ -298,7 +281,7 @@ public final class ItemResBytes {
     int getWaterRec();
 
     /**
-     * <code>optional int32 health_rec = 15 [default = 0];</code>
+     * <code>optional int32 health_rec = 14 [default = 0];</code>
      *
      * <pre>
      ** 回复健康*1000 
@@ -306,7 +289,7 @@ public final class ItemResBytes {
      */
     boolean hasHealthRec();
     /**
-     * <code>optional int32 health_rec = 15 [default = 0];</code>
+     * <code>optional int32 health_rec = 14 [default = 0];</code>
      *
      * <pre>
      ** 回复健康*1000 
@@ -315,7 +298,7 @@ public final class ItemResBytes {
     int getHealthRec();
 
     /**
-     * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+     * <code>optional int32 healthrec_lim = 15 [default = 0];</code>
      *
      * <pre>
      ** 可回复健康上限（比例）*100 
@@ -323,7 +306,7 @@ public final class ItemResBytes {
      */
     boolean hasHealthrecLim();
     /**
-     * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+     * <code>optional int32 healthrec_lim = 15 [default = 0];</code>
      *
      * <pre>
      ** 可回复健康上限（比例）*100 
@@ -332,7 +315,7 @@ public final class ItemResBytes {
     int getHealthrecLim();
 
     /**
-     * <code>optional int32 mood_rec = 17 [default = 0];</code>
+     * <code>optional int32 mood_rec = 16 [default = 0];</code>
      *
      * <pre>
      ** 回复心情*1000 
@@ -340,7 +323,7 @@ public final class ItemResBytes {
      */
     boolean hasMoodRec();
     /**
-     * <code>optional int32 mood_rec = 17 [default = 0];</code>
+     * <code>optional int32 mood_rec = 16 [default = 0];</code>
      *
      * <pre>
      ** 回复心情*1000 
@@ -349,7 +332,7 @@ public final class ItemResBytes {
     int getMoodRec();
 
     /**
-     * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+     * <code>optional int32 moodrec_lim = 17 [default = 0];</code>
      *
      * <pre>
      ** 可回复心情上限*100 
@@ -357,7 +340,7 @@ public final class ItemResBytes {
      */
     boolean hasMoodrecLim();
     /**
-     * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+     * <code>optional int32 moodrec_lim = 17 [default = 0];</code>
      *
      * <pre>
      ** 可回复心情上限*100 
@@ -366,7 +349,7 @@ public final class ItemResBytes {
     int getMoodrecLim();
 
     /**
-     * <code>optional int32 atk_add = 19 [default = 0];</code>
+     * <code>optional int32 atk_add = 18 [default = 0];</code>
      *
      * <pre>
      ** 攻击 
@@ -374,7 +357,7 @@ public final class ItemResBytes {
      */
     boolean hasAtkAdd();
     /**
-     * <code>optional int32 atk_add = 19 [default = 0];</code>
+     * <code>optional int32 atk_add = 18 [default = 0];</code>
      *
      * <pre>
      ** 攻击 
@@ -383,7 +366,7 @@ public final class ItemResBytes {
     int getAtkAdd();
 
     /**
-     * <code>optional int32 def_add = 20 [default = 0];</code>
+     * <code>optional int32 def_add = 19 [default = 0];</code>
      *
      * <pre>
      ** 防御 
@@ -391,7 +374,7 @@ public final class ItemResBytes {
      */
     boolean hasDefAdd();
     /**
-     * <code>optional int32 def_add = 20 [default = 0];</code>
+     * <code>optional int32 def_add = 19 [default = 0];</code>
      *
      * <pre>
      ** 防御 
@@ -400,7 +383,7 @@ public final class ItemResBytes {
     int getDefAdd();
 
     /**
-     * <code>optional int32 spd_add = 21 [default = 0];</code>
+     * <code>optional int32 spd_add = 20 [default = 0];</code>
      *
      * <pre>
      ** 移速 
@@ -408,7 +391,7 @@ public final class ItemResBytes {
      */
     boolean hasSpdAdd();
     /**
-     * <code>optional int32 spd_add = 21 [default = 0];</code>
+     * <code>optional int32 spd_add = 20 [default = 0];</code>
      *
      * <pre>
      ** 移速 
@@ -417,7 +400,7 @@ public final class ItemResBytes {
     int getSpdAdd();
 
     /**
-     * <code>optional int32 load_add = 22 [default = 0];</code>
+     * <code>optional int32 load_add = 21 [default = 0];</code>
      *
      * <pre>
      ** 负载 
@@ -425,7 +408,7 @@ public final class ItemResBytes {
      */
     boolean hasLoadAdd();
     /**
-     * <code>optional int32 load_add = 22 [default = 0];</code>
+     * <code>optional int32 load_add = 21 [default = 0];</code>
      *
      * <pre>
      ** 负载 
@@ -434,7 +417,7 @@ public final class ItemResBytes {
     int getLoadAdd();
 
     /**
-     * <code>optional int32 agi_add = 23 [default = 0];</code>
+     * <code>optional int32 agi_add = 22 [default = 0];</code>
      *
      * <pre>
      ** 敏捷 
@@ -442,7 +425,7 @@ public final class ItemResBytes {
      */
     boolean hasAgiAdd();
     /**
-     * <code>optional int32 agi_add = 23 [default = 0];</code>
+     * <code>optional int32 agi_add = 22 [default = 0];</code>
      *
      * <pre>
      ** 敏捷 
@@ -524,101 +507,96 @@ public final class ItemResBytes {
               keyName_ = bs;
               break;
             }
-            case 40: {
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              serviceableRate_ = input.readInt32();
+              iconName_ = bs;
               break;
             }
             case 50: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
-              iconName_ = bs;
+              smallIconName_ = bs;
               break;
             }
             case 58: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000040;
-              smallIconName_ = bs;
+              desc_ = bs;
               break;
             }
-            case 66: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 64: {
               bitField0_ |= 0x00000080;
-              desc_ = bs;
+              goldConv_ = input.readInt32();
               break;
             }
             case 72: {
               bitField0_ |= 0x00000100;
-              goldConv_ = input.readInt32();
+              storUnit_ = input.readInt32();
               break;
             }
             case 80: {
               bitField0_ |= 0x00000200;
-              storUnit_ = input.readInt32();
+              ifAvailable_ = input.readInt32();
               break;
             }
             case 88: {
               bitField0_ |= 0x00000400;
-              ifAvailable_ = input.readInt32();
+              hpRec_ = input.readInt32();
               break;
             }
             case 96: {
               bitField0_ |= 0x00000800;
-              hpRec_ = input.readInt32();
+              starvRec_ = input.readInt32();
               break;
             }
             case 104: {
               bitField0_ |= 0x00001000;
-              starvRec_ = input.readInt32();
+              waterRec_ = input.readInt32();
               break;
             }
             case 112: {
               bitField0_ |= 0x00002000;
-              waterRec_ = input.readInt32();
+              healthRec_ = input.readInt32();
               break;
             }
             case 120: {
               bitField0_ |= 0x00004000;
-              healthRec_ = input.readInt32();
+              healthrecLim_ = input.readInt32();
               break;
             }
             case 128: {
               bitField0_ |= 0x00008000;
-              healthrecLim_ = input.readInt32();
+              moodRec_ = input.readInt32();
               break;
             }
             case 136: {
               bitField0_ |= 0x00010000;
-              moodRec_ = input.readInt32();
+              moodrecLim_ = input.readInt32();
               break;
             }
             case 144: {
               bitField0_ |= 0x00020000;
-              moodrecLim_ = input.readInt32();
+              atkAdd_ = input.readInt32();
               break;
             }
             case 152: {
               bitField0_ |= 0x00040000;
-              atkAdd_ = input.readInt32();
+              defAdd_ = input.readInt32();
               break;
             }
             case 160: {
               bitField0_ |= 0x00080000;
-              defAdd_ = input.readInt32();
+              spdAdd_ = input.readInt32();
               break;
             }
             case 168: {
               bitField0_ |= 0x00100000;
-              spdAdd_ = input.readInt32();
+              loadAdd_ = input.readInt32();
               break;
             }
             case 176: {
               bitField0_ |= 0x00200000;
-              loadAdd_ = input.readInt32();
-              break;
-            }
-            case 184: {
-              bitField0_ |= 0x00400000;
               agiAdd_ = input.readInt32();
               break;
             }
@@ -816,43 +794,20 @@ public final class ItemResBytes {
       }
     }
 
-    public static final int SERVICEABLE_RATE_FIELD_NUMBER = 5;
-    private int serviceableRate_;
-    /**
-     * <code>optional int32 serviceable_rate = 5 [default = 0];</code>
-     *
-     * <pre>
-     ** 玩家可购买等级（玩家等级）（0代表不可用） 
-     * </pre>
-     */
-    public boolean hasServiceableRate() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>optional int32 serviceable_rate = 5 [default = 0];</code>
-     *
-     * <pre>
-     ** 玩家可购买等级（玩家等级）（0代表不可用） 
-     * </pre>
-     */
-    public int getServiceableRate() {
-      return serviceableRate_;
-    }
-
-    public static final int ICON_NAME_FIELD_NUMBER = 6;
+    public static final int ICON_NAME_FIELD_NUMBER = 5;
     private java.lang.Object iconName_;
     /**
-     * <code>optional string icon_name = 6 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
      * </pre>
      */
     public boolean hasIconName() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional string icon_name = 6 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -873,7 +828,7 @@ public final class ItemResBytes {
       }
     }
     /**
-     * <code>optional string icon_name = 6 [default = ""];</code>
+     * <code>optional string icon_name = 5 [default = ""];</code>
      *
      * <pre>
      ** 图标名称 
@@ -893,20 +848,20 @@ public final class ItemResBytes {
       }
     }
 
-    public static final int SMALL_ICON_NAME_FIELD_NUMBER = 7;
+    public static final int SMALL_ICON_NAME_FIELD_NUMBER = 6;
     private java.lang.Object smallIconName_;
     /**
-     * <code>optional string small_icon_name = 7 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
      * </pre>
      */
     public boolean hasSmallIconName() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional string small_icon_name = 7 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
@@ -927,7 +882,7 @@ public final class ItemResBytes {
       }
     }
     /**
-     * <code>optional string small_icon_name = 7 [default = ""];</code>
+     * <code>optional string small_icon_name = 6 [default = ""];</code>
      *
      * <pre>
      ** 小图标名称 
@@ -947,20 +902,20 @@ public final class ItemResBytes {
       }
     }
 
-    public static final int DESC_FIELD_NUMBER = 8;
+    public static final int DESC_FIELD_NUMBER = 7;
     private java.lang.Object desc_;
     /**
-     * <code>optional string desc = 8 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
      * </pre>
      */
     public boolean hasDesc() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional string desc = 8 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
@@ -981,7 +936,7 @@ public final class ItemResBytes {
       }
     }
     /**
-     * <code>optional string desc = 8 [default = ""];</code>
+     * <code>optional string desc = 7 [default = ""];</code>
      *
      * <pre>
      ** 描述 
@@ -1001,20 +956,20 @@ public final class ItemResBytes {
       }
     }
 
-    public static final int GOLD_CONV_FIELD_NUMBER = 9;
+    public static final int GOLD_CONV_FIELD_NUMBER = 8;
     private int goldConv_;
     /**
-     * <code>optional int32 gold_conv = 9 [default = 0];</code>
+     * <code>optional int32 gold_conv = 8 [default = 0];</code>
      *
      * <pre>
      ** 价格*1000 
      * </pre>
      */
     public boolean hasGoldConv() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional int32 gold_conv = 9 [default = 0];</code>
+     * <code>optional int32 gold_conv = 8 [default = 0];</code>
      *
      * <pre>
      ** 价格*1000 
@@ -1024,10 +979,10 @@ public final class ItemResBytes {
       return goldConv_;
     }
 
-    public static final int STOR_UNIT_FIELD_NUMBER = 10;
+    public static final int STOR_UNIT_FIELD_NUMBER = 9;
     private int storUnit_;
     /**
-     * <code>optional int32 stor_unit = 10 [default = 0];</code>
+     * <code>optional int32 stor_unit = 9 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -1035,10 +990,10 @@ public final class ItemResBytes {
      * </pre>
      */
     public boolean hasStorUnit() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional int32 stor_unit = 10 [default = 0];</code>
+     * <code>optional int32 stor_unit = 9 [default = 0];</code>
      *
      * <pre>
      ** 储存体积
@@ -1049,20 +1004,20 @@ public final class ItemResBytes {
       return storUnit_;
     }
 
-    public static final int IF_AVAILABLE_FIELD_NUMBER = 11;
+    public static final int IF_AVAILABLE_FIELD_NUMBER = 10;
     private int ifAvailable_;
     /**
-     * <code>optional int32 if_available = 11 [default = 0];</code>
+     * <code>optional int32 if_available = 10 [default = 0];</code>
      *
      * <pre>
      ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
      * </pre>
      */
     public boolean hasIfAvailable() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional int32 if_available = 11 [default = 0];</code>
+     * <code>optional int32 if_available = 10 [default = 0];</code>
      *
      * <pre>
      ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
@@ -1072,20 +1027,20 @@ public final class ItemResBytes {
       return ifAvailable_;
     }
 
-    public static final int HP_REC_FIELD_NUMBER = 12;
+    public static final int HP_REC_FIELD_NUMBER = 11;
     private int hpRec_;
     /**
-     * <code>optional int32 hp_rec = 12 [default = 0];</code>
+     * <code>optional int32 hp_rec = 11 [default = 0];</code>
      *
      * <pre>
      ** 回复血量 
      * </pre>
      */
     public boolean hasHpRec() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional int32 hp_rec = 12 [default = 0];</code>
+     * <code>optional int32 hp_rec = 11 [default = 0];</code>
      *
      * <pre>
      ** 回复血量 
@@ -1095,20 +1050,20 @@ public final class ItemResBytes {
       return hpRec_;
     }
 
-    public static final int STARV_REC_FIELD_NUMBER = 13;
+    public static final int STARV_REC_FIELD_NUMBER = 12;
     private int starvRec_;
     /**
-     * <code>optional int32 starv_rec = 13 [default = 0];</code>
+     * <code>optional int32 starv_rec = 12 [default = 0];</code>
      *
      * <pre>
      ** 回复饥饿*1000 
      * </pre>
      */
     public boolean hasStarvRec() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional int32 starv_rec = 13 [default = 0];</code>
+     * <code>optional int32 starv_rec = 12 [default = 0];</code>
      *
      * <pre>
      ** 回复饥饿*1000 
@@ -1118,20 +1073,20 @@ public final class ItemResBytes {
       return starvRec_;
     }
 
-    public static final int WATER_REC_FIELD_NUMBER = 14;
+    public static final int WATER_REC_FIELD_NUMBER = 13;
     private int waterRec_;
     /**
-     * <code>optional int32 water_rec = 14 [default = 0];</code>
+     * <code>optional int32 water_rec = 13 [default = 0];</code>
      *
      * <pre>
      ** 回复口渴*1000 
      * </pre>
      */
     public boolean hasWaterRec() {
-      return ((bitField0_ & 0x00002000) == 0x00002000);
+      return ((bitField0_ & 0x00001000) == 0x00001000);
     }
     /**
-     * <code>optional int32 water_rec = 14 [default = 0];</code>
+     * <code>optional int32 water_rec = 13 [default = 0];</code>
      *
      * <pre>
      ** 回复口渴*1000 
@@ -1141,20 +1096,20 @@ public final class ItemResBytes {
       return waterRec_;
     }
 
-    public static final int HEALTH_REC_FIELD_NUMBER = 15;
+    public static final int HEALTH_REC_FIELD_NUMBER = 14;
     private int healthRec_;
     /**
-     * <code>optional int32 health_rec = 15 [default = 0];</code>
+     * <code>optional int32 health_rec = 14 [default = 0];</code>
      *
      * <pre>
      ** 回复健康*1000 
      * </pre>
      */
     public boolean hasHealthRec() {
-      return ((bitField0_ & 0x00004000) == 0x00004000);
+      return ((bitField0_ & 0x00002000) == 0x00002000);
     }
     /**
-     * <code>optional int32 health_rec = 15 [default = 0];</code>
+     * <code>optional int32 health_rec = 14 [default = 0];</code>
      *
      * <pre>
      ** 回复健康*1000 
@@ -1164,20 +1119,20 @@ public final class ItemResBytes {
       return healthRec_;
     }
 
-    public static final int HEALTHREC_LIM_FIELD_NUMBER = 16;
+    public static final int HEALTHREC_LIM_FIELD_NUMBER = 15;
     private int healthrecLim_;
     /**
-     * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+     * <code>optional int32 healthrec_lim = 15 [default = 0];</code>
      *
      * <pre>
      ** 可回复健康上限（比例）*100 
      * </pre>
      */
     public boolean hasHealthrecLim() {
-      return ((bitField0_ & 0x00008000) == 0x00008000);
+      return ((bitField0_ & 0x00004000) == 0x00004000);
     }
     /**
-     * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+     * <code>optional int32 healthrec_lim = 15 [default = 0];</code>
      *
      * <pre>
      ** 可回复健康上限（比例）*100 
@@ -1187,20 +1142,20 @@ public final class ItemResBytes {
       return healthrecLim_;
     }
 
-    public static final int MOOD_REC_FIELD_NUMBER = 17;
+    public static final int MOOD_REC_FIELD_NUMBER = 16;
     private int moodRec_;
     /**
-     * <code>optional int32 mood_rec = 17 [default = 0];</code>
+     * <code>optional int32 mood_rec = 16 [default = 0];</code>
      *
      * <pre>
      ** 回复心情*1000 
      * </pre>
      */
     public boolean hasMoodRec() {
-      return ((bitField0_ & 0x00010000) == 0x00010000);
+      return ((bitField0_ & 0x00008000) == 0x00008000);
     }
     /**
-     * <code>optional int32 mood_rec = 17 [default = 0];</code>
+     * <code>optional int32 mood_rec = 16 [default = 0];</code>
      *
      * <pre>
      ** 回复心情*1000 
@@ -1210,20 +1165,20 @@ public final class ItemResBytes {
       return moodRec_;
     }
 
-    public static final int MOODREC_LIM_FIELD_NUMBER = 18;
+    public static final int MOODREC_LIM_FIELD_NUMBER = 17;
     private int moodrecLim_;
     /**
-     * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+     * <code>optional int32 moodrec_lim = 17 [default = 0];</code>
      *
      * <pre>
      ** 可回复心情上限*100 
      * </pre>
      */
     public boolean hasMoodrecLim() {
-      return ((bitField0_ & 0x00020000) == 0x00020000);
+      return ((bitField0_ & 0x00010000) == 0x00010000);
     }
     /**
-     * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+     * <code>optional int32 moodrec_lim = 17 [default = 0];</code>
      *
      * <pre>
      ** 可回复心情上限*100 
@@ -1233,20 +1188,20 @@ public final class ItemResBytes {
       return moodrecLim_;
     }
 
-    public static final int ATK_ADD_FIELD_NUMBER = 19;
+    public static final int ATK_ADD_FIELD_NUMBER = 18;
     private int atkAdd_;
     /**
-     * <code>optional int32 atk_add = 19 [default = 0];</code>
+     * <code>optional int32 atk_add = 18 [default = 0];</code>
      *
      * <pre>
      ** 攻击 
      * </pre>
      */
     public boolean hasAtkAdd() {
-      return ((bitField0_ & 0x00040000) == 0x00040000);
+      return ((bitField0_ & 0x00020000) == 0x00020000);
     }
     /**
-     * <code>optional int32 atk_add = 19 [default = 0];</code>
+     * <code>optional int32 atk_add = 18 [default = 0];</code>
      *
      * <pre>
      ** 攻击 
@@ -1256,20 +1211,20 @@ public final class ItemResBytes {
       return atkAdd_;
     }
 
-    public static final int DEF_ADD_FIELD_NUMBER = 20;
+    public static final int DEF_ADD_FIELD_NUMBER = 19;
     private int defAdd_;
     /**
-     * <code>optional int32 def_add = 20 [default = 0];</code>
+     * <code>optional int32 def_add = 19 [default = 0];</code>
      *
      * <pre>
      ** 防御 
      * </pre>
      */
     public boolean hasDefAdd() {
-      return ((bitField0_ & 0x00080000) == 0x00080000);
+      return ((bitField0_ & 0x00040000) == 0x00040000);
     }
     /**
-     * <code>optional int32 def_add = 20 [default = 0];</code>
+     * <code>optional int32 def_add = 19 [default = 0];</code>
      *
      * <pre>
      ** 防御 
@@ -1279,20 +1234,20 @@ public final class ItemResBytes {
       return defAdd_;
     }
 
-    public static final int SPD_ADD_FIELD_NUMBER = 21;
+    public static final int SPD_ADD_FIELD_NUMBER = 20;
     private int spdAdd_;
     /**
-     * <code>optional int32 spd_add = 21 [default = 0];</code>
+     * <code>optional int32 spd_add = 20 [default = 0];</code>
      *
      * <pre>
      ** 移速 
      * </pre>
      */
     public boolean hasSpdAdd() {
-      return ((bitField0_ & 0x00100000) == 0x00100000);
+      return ((bitField0_ & 0x00080000) == 0x00080000);
     }
     /**
-     * <code>optional int32 spd_add = 21 [default = 0];</code>
+     * <code>optional int32 spd_add = 20 [default = 0];</code>
      *
      * <pre>
      ** 移速 
@@ -1302,20 +1257,20 @@ public final class ItemResBytes {
       return spdAdd_;
     }
 
-    public static final int LOAD_ADD_FIELD_NUMBER = 22;
+    public static final int LOAD_ADD_FIELD_NUMBER = 21;
     private int loadAdd_;
     /**
-     * <code>optional int32 load_add = 22 [default = 0];</code>
+     * <code>optional int32 load_add = 21 [default = 0];</code>
      *
      * <pre>
      ** 负载 
      * </pre>
      */
     public boolean hasLoadAdd() {
-      return ((bitField0_ & 0x00200000) == 0x00200000);
+      return ((bitField0_ & 0x00100000) == 0x00100000);
     }
     /**
-     * <code>optional int32 load_add = 22 [default = 0];</code>
+     * <code>optional int32 load_add = 21 [default = 0];</code>
      *
      * <pre>
      ** 负载 
@@ -1325,20 +1280,20 @@ public final class ItemResBytes {
       return loadAdd_;
     }
 
-    public static final int AGI_ADD_FIELD_NUMBER = 23;
+    public static final int AGI_ADD_FIELD_NUMBER = 22;
     private int agiAdd_;
     /**
-     * <code>optional int32 agi_add = 23 [default = 0];</code>
+     * <code>optional int32 agi_add = 22 [default = 0];</code>
      *
      * <pre>
      ** 敏捷 
      * </pre>
      */
     public boolean hasAgiAdd() {
-      return ((bitField0_ & 0x00400000) == 0x00400000);
+      return ((bitField0_ & 0x00200000) == 0x00200000);
     }
     /**
-     * <code>optional int32 agi_add = 23 [default = 0];</code>
+     * <code>optional int32 agi_add = 22 [default = 0];</code>
      *
      * <pre>
      ** 敏捷 
@@ -1353,7 +1308,6 @@ public final class ItemResBytes {
       itemLvl_ = 0;
       minName_ = "";
       keyName_ = "";
-      serviceableRate_ = 0;
       iconName_ = "";
       smallIconName_ = "";
       desc_ = "";
@@ -1403,61 +1357,58 @@ public final class ItemResBytes {
         output.writeBytes(4, getKeyNameBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, serviceableRate_);
+        output.writeBytes(5, getIconNameBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(6, getIconNameBytes());
+        output.writeBytes(6, getSmallIconNameBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, getSmallIconNameBytes());
+        output.writeBytes(7, getDescBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBytes(8, getDescBytes());
+        output.writeInt32(8, goldConv_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeInt32(9, goldConv_);
+        output.writeInt32(9, storUnit_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeInt32(10, storUnit_);
+        output.writeInt32(10, ifAvailable_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeInt32(11, ifAvailable_);
+        output.writeInt32(11, hpRec_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(12, hpRec_);
+        output.writeInt32(12, starvRec_);
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeInt32(13, starvRec_);
+        output.writeInt32(13, waterRec_);
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        output.writeInt32(14, waterRec_);
+        output.writeInt32(14, healthRec_);
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        output.writeInt32(15, healthRec_);
+        output.writeInt32(15, healthrecLim_);
       }
       if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        output.writeInt32(16, healthrecLim_);
+        output.writeInt32(16, moodRec_);
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        output.writeInt32(17, moodRec_);
+        output.writeInt32(17, moodrecLim_);
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
-        output.writeInt32(18, moodrecLim_);
+        output.writeInt32(18, atkAdd_);
       }
       if (((bitField0_ & 0x00040000) == 0x00040000)) {
-        output.writeInt32(19, atkAdd_);
+        output.writeInt32(19, defAdd_);
       }
       if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        output.writeInt32(20, defAdd_);
+        output.writeInt32(20, spdAdd_);
       }
       if (((bitField0_ & 0x00100000) == 0x00100000)) {
-        output.writeInt32(21, spdAdd_);
+        output.writeInt32(21, loadAdd_);
       }
       if (((bitField0_ & 0x00200000) == 0x00200000)) {
-        output.writeInt32(22, loadAdd_);
-      }
-      if (((bitField0_ & 0x00400000) == 0x00400000)) {
-        output.writeInt32(23, agiAdd_);
+        output.writeInt32(22, agiAdd_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1486,79 +1437,75 @@ public final class ItemResBytes {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, serviceableRate_);
+          .computeBytesSize(5, getIconNameBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getIconNameBytes());
+          .computeBytesSize(6, getSmallIconNameBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getSmallIconNameBytes());
+          .computeBytesSize(7, getDescBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(8, getDescBytes());
+          .computeInt32Size(8, goldConv_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, goldConv_);
+          .computeInt32Size(9, storUnit_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, storUnit_);
+          .computeInt32Size(10, ifAvailable_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(11, ifAvailable_);
+          .computeInt32Size(11, hpRec_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, hpRec_);
+          .computeInt32Size(12, starvRec_);
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(13, starvRec_);
+          .computeInt32Size(13, waterRec_);
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(14, waterRec_);
+          .computeInt32Size(14, healthRec_);
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(15, healthRec_);
+          .computeInt32Size(15, healthrecLim_);
       }
       if (((bitField0_ & 0x00008000) == 0x00008000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(16, healthrecLim_);
+          .computeInt32Size(16, moodRec_);
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(17, moodRec_);
+          .computeInt32Size(17, moodrecLim_);
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(18, moodrecLim_);
+          .computeInt32Size(18, atkAdd_);
       }
       if (((bitField0_ & 0x00040000) == 0x00040000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(19, atkAdd_);
+          .computeInt32Size(19, defAdd_);
       }
       if (((bitField0_ & 0x00080000) == 0x00080000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(20, defAdd_);
+          .computeInt32Size(20, spdAdd_);
       }
       if (((bitField0_ & 0x00100000) == 0x00100000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(21, spdAdd_);
+          .computeInt32Size(21, loadAdd_);
       }
       if (((bitField0_ & 0x00200000) == 0x00200000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(22, loadAdd_);
-      }
-      if (((bitField0_ & 0x00400000) == 0x00400000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(23, agiAdd_);
+          .computeInt32Size(22, agiAdd_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1685,44 +1632,42 @@ public final class ItemResBytes {
         bitField0_ = (bitField0_ & ~0x00000004);
         keyName_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        serviceableRate_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
         iconName_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         smallIconName_ = "";
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000020);
         desc_ = "";
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000040);
         goldConv_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000080);
         storUnit_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000100);
         ifAvailable_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000200);
         hpRec_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00000400);
         starvRec_ = 0;
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00000800);
         waterRec_ = 0;
-        bitField0_ = (bitField0_ & ~0x00002000);
+        bitField0_ = (bitField0_ & ~0x00001000);
         healthRec_ = 0;
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00002000);
         healthrecLim_ = 0;
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00004000);
         moodRec_ = 0;
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00008000);
         moodrecLim_ = 0;
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         atkAdd_ = 0;
-        bitField0_ = (bitField0_ & ~0x00040000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         defAdd_ = 0;
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00040000);
         spdAdd_ = 0;
-        bitField0_ = (bitField0_ & ~0x00100000);
+        bitField0_ = (bitField0_ & ~0x00080000);
         loadAdd_ = 0;
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00100000);
         agiAdd_ = 0;
-        bitField0_ = (bitField0_ & ~0x00400000);
+        bitField0_ = (bitField0_ & ~0x00200000);
         return this;
       }
 
@@ -1770,77 +1715,73 @@ public final class ItemResBytes {
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.serviceableRate_ = serviceableRate_;
+        result.iconName_ = iconName_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.iconName_ = iconName_;
+        result.smallIconName_ = smallIconName_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.smallIconName_ = smallIconName_;
+        result.desc_ = desc_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.desc_ = desc_;
+        result.goldConv_ = goldConv_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.goldConv_ = goldConv_;
+        result.storUnit_ = storUnit_;
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.storUnit_ = storUnit_;
+        result.ifAvailable_ = ifAvailable_;
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000400;
         }
-        result.ifAvailable_ = ifAvailable_;
+        result.hpRec_ = hpRec_;
         if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
           to_bitField0_ |= 0x00000800;
         }
-        result.hpRec_ = hpRec_;
+        result.starvRec_ = starvRec_;
         if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
           to_bitField0_ |= 0x00001000;
         }
-        result.starvRec_ = starvRec_;
+        result.waterRec_ = waterRec_;
         if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
           to_bitField0_ |= 0x00002000;
         }
-        result.waterRec_ = waterRec_;
+        result.healthRec_ = healthRec_;
         if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
           to_bitField0_ |= 0x00004000;
         }
-        result.healthRec_ = healthRec_;
+        result.healthrecLim_ = healthrecLim_;
         if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
           to_bitField0_ |= 0x00008000;
         }
-        result.healthrecLim_ = healthrecLim_;
+        result.moodRec_ = moodRec_;
         if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
           to_bitField0_ |= 0x00010000;
         }
-        result.moodRec_ = moodRec_;
+        result.moodrecLim_ = moodrecLim_;
         if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
           to_bitField0_ |= 0x00020000;
         }
-        result.moodrecLim_ = moodrecLim_;
+        result.atkAdd_ = atkAdd_;
         if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
           to_bitField0_ |= 0x00040000;
         }
-        result.atkAdd_ = atkAdd_;
+        result.defAdd_ = defAdd_;
         if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
           to_bitField0_ |= 0x00080000;
         }
-        result.defAdd_ = defAdd_;
+        result.spdAdd_ = spdAdd_;
         if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
           to_bitField0_ |= 0x00100000;
         }
-        result.spdAdd_ = spdAdd_;
+        result.loadAdd_ = loadAdd_;
         if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
           to_bitField0_ |= 0x00200000;
-        }
-        result.loadAdd_ = loadAdd_;
-        if (((from_bitField0_ & 0x00400000) == 0x00400000)) {
-          to_bitField0_ |= 0x00400000;
         }
         result.agiAdd_ = agiAdd_;
         result.bitField0_ = to_bitField0_;
@@ -1875,21 +1816,18 @@ public final class ItemResBytes {
           keyName_ = other.keyName_;
           onChanged();
         }
-        if (other.hasServiceableRate()) {
-          setServiceableRate(other.getServiceableRate());
-        }
         if (other.hasIconName()) {
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000010;
           iconName_ = other.iconName_;
           onChanged();
         }
         if (other.hasSmallIconName()) {
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000020;
           smallIconName_ = other.smallIconName_;
           onChanged();
         }
         if (other.hasDesc()) {
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000040;
           desc_ = other.desc_;
           onChanged();
         }
@@ -2265,67 +2203,19 @@ public final class ItemResBytes {
         return this;
       }
 
-      private int serviceableRate_ ;
-      /**
-       * <code>optional int32 serviceable_rate = 5 [default = 0];</code>
-       *
-       * <pre>
-       ** 玩家可购买等级（玩家等级）（0代表不可用） 
-       * </pre>
-       */
-      public boolean hasServiceableRate() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>optional int32 serviceable_rate = 5 [default = 0];</code>
-       *
-       * <pre>
-       ** 玩家可购买等级（玩家等级）（0代表不可用） 
-       * </pre>
-       */
-      public int getServiceableRate() {
-        return serviceableRate_;
-      }
-      /**
-       * <code>optional int32 serviceable_rate = 5 [default = 0];</code>
-       *
-       * <pre>
-       ** 玩家可购买等级（玩家等级）（0代表不可用） 
-       * </pre>
-       */
-      public Builder setServiceableRate(int value) {
-        bitField0_ |= 0x00000010;
-        serviceableRate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 serviceable_rate = 5 [default = 0];</code>
-       *
-       * <pre>
-       ** 玩家可购买等级（玩家等级）（0代表不可用） 
-       * </pre>
-       */
-      public Builder clearServiceableRate() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        serviceableRate_ = 0;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object iconName_ = "";
       /**
-       * <code>optional string icon_name = 6 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
        * </pre>
        */
       public boolean hasIconName() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional string icon_name = 6 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -2346,7 +2236,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string icon_name = 6 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -2366,7 +2256,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string icon_name = 6 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -2377,26 +2267,26 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000010;
         iconName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string icon_name = 6 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
        * </pre>
        */
       public Builder clearIconName() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         iconName_ = getDefaultInstance().getIconName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string icon_name = 6 [default = ""];</code>
+       * <code>optional string icon_name = 5 [default = ""];</code>
        *
        * <pre>
        ** 图标名称 
@@ -2407,7 +2297,7 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000010;
         iconName_ = value;
         onChanged();
         return this;
@@ -2415,17 +2305,17 @@ public final class ItemResBytes {
 
       private java.lang.Object smallIconName_ = "";
       /**
-       * <code>optional string small_icon_name = 7 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
        * </pre>
        */
       public boolean hasSmallIconName() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional string small_icon_name = 7 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
@@ -2446,7 +2336,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string small_icon_name = 7 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
@@ -2466,7 +2356,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string small_icon_name = 7 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
@@ -2477,26 +2367,26 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000020;
         smallIconName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string small_icon_name = 7 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
        * </pre>
        */
       public Builder clearSmallIconName() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000020);
         smallIconName_ = getDefaultInstance().getSmallIconName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string small_icon_name = 7 [default = ""];</code>
+       * <code>optional string small_icon_name = 6 [default = ""];</code>
        *
        * <pre>
        ** 小图标名称 
@@ -2507,7 +2397,7 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000020;
         smallIconName_ = value;
         onChanged();
         return this;
@@ -2515,17 +2405,17 @@ public final class ItemResBytes {
 
       private java.lang.Object desc_ = "";
       /**
-       * <code>optional string desc = 8 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
        * </pre>
        */
       public boolean hasDesc() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional string desc = 8 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
@@ -2546,7 +2436,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string desc = 8 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
@@ -2566,7 +2456,7 @@ public final class ItemResBytes {
         }
       }
       /**
-       * <code>optional string desc = 8 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
@@ -2577,26 +2467,26 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000040;
         desc_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string desc = 8 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
        * </pre>
        */
       public Builder clearDesc() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000040);
         desc_ = getDefaultInstance().getDesc();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string desc = 8 [default = ""];</code>
+       * <code>optional string desc = 7 [default = ""];</code>
        *
        * <pre>
        ** 描述 
@@ -2607,7 +2497,7 @@ public final class ItemResBytes {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000040;
         desc_ = value;
         onChanged();
         return this;
@@ -2615,17 +2505,17 @@ public final class ItemResBytes {
 
       private int goldConv_ ;
       /**
-       * <code>optional int32 gold_conv = 9 [default = 0];</code>
+       * <code>optional int32 gold_conv = 8 [default = 0];</code>
        *
        * <pre>
        ** 价格*1000 
        * </pre>
        */
       public boolean hasGoldConv() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional int32 gold_conv = 9 [default = 0];</code>
+       * <code>optional int32 gold_conv = 8 [default = 0];</code>
        *
        * <pre>
        ** 价格*1000 
@@ -2635,27 +2525,27 @@ public final class ItemResBytes {
         return goldConv_;
       }
       /**
-       * <code>optional int32 gold_conv = 9 [default = 0];</code>
+       * <code>optional int32 gold_conv = 8 [default = 0];</code>
        *
        * <pre>
        ** 价格*1000 
        * </pre>
        */
       public Builder setGoldConv(int value) {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000080;
         goldConv_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 gold_conv = 9 [default = 0];</code>
+       * <code>optional int32 gold_conv = 8 [default = 0];</code>
        *
        * <pre>
        ** 价格*1000 
        * </pre>
        */
       public Builder clearGoldConv() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000080);
         goldConv_ = 0;
         onChanged();
         return this;
@@ -2663,7 +2553,7 @@ public final class ItemResBytes {
 
       private int storUnit_ ;
       /**
-       * <code>optional int32 stor_unit = 10 [default = 0];</code>
+       * <code>optional int32 stor_unit = 9 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -2671,10 +2561,10 @@ public final class ItemResBytes {
        * </pre>
        */
       public boolean hasStorUnit() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional int32 stor_unit = 10 [default = 0];</code>
+       * <code>optional int32 stor_unit = 9 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -2685,7 +2575,7 @@ public final class ItemResBytes {
         return storUnit_;
       }
       /**
-       * <code>optional int32 stor_unit = 10 [default = 0];</code>
+       * <code>optional int32 stor_unit = 9 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -2693,13 +2583,13 @@ public final class ItemResBytes {
        * </pre>
        */
       public Builder setStorUnit(int value) {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000100;
         storUnit_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 stor_unit = 10 [default = 0];</code>
+       * <code>optional int32 stor_unit = 9 [default = 0];</code>
        *
        * <pre>
        ** 储存体积
@@ -2707,7 +2597,7 @@ public final class ItemResBytes {
        * </pre>
        */
       public Builder clearStorUnit() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000100);
         storUnit_ = 0;
         onChanged();
         return this;
@@ -2715,17 +2605,17 @@ public final class ItemResBytes {
 
       private int ifAvailable_ ;
       /**
-       * <code>optional int32 if_available = 11 [default = 0];</code>
+       * <code>optional int32 if_available = 10 [default = 0];</code>
        *
        * <pre>
        ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
        * </pre>
        */
       public boolean hasIfAvailable() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional int32 if_available = 11 [default = 0];</code>
+       * <code>optional int32 if_available = 10 [default = 0];</code>
        *
        * <pre>
        ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
@@ -2735,27 +2625,27 @@ public final class ItemResBytes {
         return ifAvailable_;
       }
       /**
-       * <code>optional int32 if_available = 11 [default = 0];</code>
+       * <code>optional int32 if_available = 10 [default = 0];</code>
        *
        * <pre>
        ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
        * </pre>
        */
       public Builder setIfAvailable(int value) {
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000200;
         ifAvailable_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 if_available = 11 [default = 0];</code>
+       * <code>optional int32 if_available = 10 [default = 0];</code>
        *
        * <pre>
        ** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 
        * </pre>
        */
       public Builder clearIfAvailable() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000200);
         ifAvailable_ = 0;
         onChanged();
         return this;
@@ -2763,17 +2653,17 @@ public final class ItemResBytes {
 
       private int hpRec_ ;
       /**
-       * <code>optional int32 hp_rec = 12 [default = 0];</code>
+       * <code>optional int32 hp_rec = 11 [default = 0];</code>
        *
        * <pre>
        ** 回复血量 
        * </pre>
        */
       public boolean hasHpRec() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional int32 hp_rec = 12 [default = 0];</code>
+       * <code>optional int32 hp_rec = 11 [default = 0];</code>
        *
        * <pre>
        ** 回复血量 
@@ -2783,27 +2673,27 @@ public final class ItemResBytes {
         return hpRec_;
       }
       /**
-       * <code>optional int32 hp_rec = 12 [default = 0];</code>
+       * <code>optional int32 hp_rec = 11 [default = 0];</code>
        *
        * <pre>
        ** 回复血量 
        * </pre>
        */
       public Builder setHpRec(int value) {
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00000400;
         hpRec_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 hp_rec = 12 [default = 0];</code>
+       * <code>optional int32 hp_rec = 11 [default = 0];</code>
        *
        * <pre>
        ** 回复血量 
        * </pre>
        */
       public Builder clearHpRec() {
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00000400);
         hpRec_ = 0;
         onChanged();
         return this;
@@ -2811,17 +2701,17 @@ public final class ItemResBytes {
 
       private int starvRec_ ;
       /**
-       * <code>optional int32 starv_rec = 13 [default = 0];</code>
+       * <code>optional int32 starv_rec = 12 [default = 0];</code>
        *
        * <pre>
        ** 回复饥饿*1000 
        * </pre>
        */
       public boolean hasStarvRec() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
+        return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional int32 starv_rec = 13 [default = 0];</code>
+       * <code>optional int32 starv_rec = 12 [default = 0];</code>
        *
        * <pre>
        ** 回复饥饿*1000 
@@ -2831,27 +2721,27 @@ public final class ItemResBytes {
         return starvRec_;
       }
       /**
-       * <code>optional int32 starv_rec = 13 [default = 0];</code>
+       * <code>optional int32 starv_rec = 12 [default = 0];</code>
        *
        * <pre>
        ** 回复饥饿*1000 
        * </pre>
        */
       public Builder setStarvRec(int value) {
-        bitField0_ |= 0x00001000;
+        bitField0_ |= 0x00000800;
         starvRec_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 starv_rec = 13 [default = 0];</code>
+       * <code>optional int32 starv_rec = 12 [default = 0];</code>
        *
        * <pre>
        ** 回复饥饿*1000 
        * </pre>
        */
       public Builder clearStarvRec() {
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00000800);
         starvRec_ = 0;
         onChanged();
         return this;
@@ -2859,17 +2749,17 @@ public final class ItemResBytes {
 
       private int waterRec_ ;
       /**
-       * <code>optional int32 water_rec = 14 [default = 0];</code>
+       * <code>optional int32 water_rec = 13 [default = 0];</code>
        *
        * <pre>
        ** 回复口渴*1000 
        * </pre>
        */
       public boolean hasWaterRec() {
-        return ((bitField0_ & 0x00002000) == 0x00002000);
+        return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
-       * <code>optional int32 water_rec = 14 [default = 0];</code>
+       * <code>optional int32 water_rec = 13 [default = 0];</code>
        *
        * <pre>
        ** 回复口渴*1000 
@@ -2879,27 +2769,27 @@ public final class ItemResBytes {
         return waterRec_;
       }
       /**
-       * <code>optional int32 water_rec = 14 [default = 0];</code>
+       * <code>optional int32 water_rec = 13 [default = 0];</code>
        *
        * <pre>
        ** 回复口渴*1000 
        * </pre>
        */
       public Builder setWaterRec(int value) {
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00001000;
         waterRec_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 water_rec = 14 [default = 0];</code>
+       * <code>optional int32 water_rec = 13 [default = 0];</code>
        *
        * <pre>
        ** 回复口渴*1000 
        * </pre>
        */
       public Builder clearWaterRec() {
-        bitField0_ = (bitField0_ & ~0x00002000);
+        bitField0_ = (bitField0_ & ~0x00001000);
         waterRec_ = 0;
         onChanged();
         return this;
@@ -2907,17 +2797,17 @@ public final class ItemResBytes {
 
       private int healthRec_ ;
       /**
-       * <code>optional int32 health_rec = 15 [default = 0];</code>
+       * <code>optional int32 health_rec = 14 [default = 0];</code>
        *
        * <pre>
        ** 回复健康*1000 
        * </pre>
        */
       public boolean hasHealthRec() {
-        return ((bitField0_ & 0x00004000) == 0x00004000);
+        return ((bitField0_ & 0x00002000) == 0x00002000);
       }
       /**
-       * <code>optional int32 health_rec = 15 [default = 0];</code>
+       * <code>optional int32 health_rec = 14 [default = 0];</code>
        *
        * <pre>
        ** 回复健康*1000 
@@ -2927,27 +2817,27 @@ public final class ItemResBytes {
         return healthRec_;
       }
       /**
-       * <code>optional int32 health_rec = 15 [default = 0];</code>
+       * <code>optional int32 health_rec = 14 [default = 0];</code>
        *
        * <pre>
        ** 回复健康*1000 
        * </pre>
        */
       public Builder setHealthRec(int value) {
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00002000;
         healthRec_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 health_rec = 15 [default = 0];</code>
+       * <code>optional int32 health_rec = 14 [default = 0];</code>
        *
        * <pre>
        ** 回复健康*1000 
        * </pre>
        */
       public Builder clearHealthRec() {
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00002000);
         healthRec_ = 0;
         onChanged();
         return this;
@@ -2955,17 +2845,17 @@ public final class ItemResBytes {
 
       private int healthrecLim_ ;
       /**
-       * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+       * <code>optional int32 healthrec_lim = 15 [default = 0];</code>
        *
        * <pre>
        ** 可回复健康上限（比例）*100 
        * </pre>
        */
       public boolean hasHealthrecLim() {
-        return ((bitField0_ & 0x00008000) == 0x00008000);
+        return ((bitField0_ & 0x00004000) == 0x00004000);
       }
       /**
-       * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+       * <code>optional int32 healthrec_lim = 15 [default = 0];</code>
        *
        * <pre>
        ** 可回复健康上限（比例）*100 
@@ -2975,27 +2865,27 @@ public final class ItemResBytes {
         return healthrecLim_;
       }
       /**
-       * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+       * <code>optional int32 healthrec_lim = 15 [default = 0];</code>
        *
        * <pre>
        ** 可回复健康上限（比例）*100 
        * </pre>
        */
       public Builder setHealthrecLim(int value) {
-        bitField0_ |= 0x00008000;
+        bitField0_ |= 0x00004000;
         healthrecLim_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 healthrec_lim = 16 [default = 0];</code>
+       * <code>optional int32 healthrec_lim = 15 [default = 0];</code>
        *
        * <pre>
        ** 可回复健康上限（比例）*100 
        * </pre>
        */
       public Builder clearHealthrecLim() {
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00004000);
         healthrecLim_ = 0;
         onChanged();
         return this;
@@ -3003,17 +2893,17 @@ public final class ItemResBytes {
 
       private int moodRec_ ;
       /**
-       * <code>optional int32 mood_rec = 17 [default = 0];</code>
+       * <code>optional int32 mood_rec = 16 [default = 0];</code>
        *
        * <pre>
        ** 回复心情*1000 
        * </pre>
        */
       public boolean hasMoodRec() {
-        return ((bitField0_ & 0x00010000) == 0x00010000);
+        return ((bitField0_ & 0x00008000) == 0x00008000);
       }
       /**
-       * <code>optional int32 mood_rec = 17 [default = 0];</code>
+       * <code>optional int32 mood_rec = 16 [default = 0];</code>
        *
        * <pre>
        ** 回复心情*1000 
@@ -3023,27 +2913,27 @@ public final class ItemResBytes {
         return moodRec_;
       }
       /**
-       * <code>optional int32 mood_rec = 17 [default = 0];</code>
+       * <code>optional int32 mood_rec = 16 [default = 0];</code>
        *
        * <pre>
        ** 回复心情*1000 
        * </pre>
        */
       public Builder setMoodRec(int value) {
-        bitField0_ |= 0x00010000;
+        bitField0_ |= 0x00008000;
         moodRec_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 mood_rec = 17 [default = 0];</code>
+       * <code>optional int32 mood_rec = 16 [default = 0];</code>
        *
        * <pre>
        ** 回复心情*1000 
        * </pre>
        */
       public Builder clearMoodRec() {
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00008000);
         moodRec_ = 0;
         onChanged();
         return this;
@@ -3051,17 +2941,17 @@ public final class ItemResBytes {
 
       private int moodrecLim_ ;
       /**
-       * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+       * <code>optional int32 moodrec_lim = 17 [default = 0];</code>
        *
        * <pre>
        ** 可回复心情上限*100 
        * </pre>
        */
       public boolean hasMoodrecLim() {
-        return ((bitField0_ & 0x00020000) == 0x00020000);
+        return ((bitField0_ & 0x00010000) == 0x00010000);
       }
       /**
-       * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+       * <code>optional int32 moodrec_lim = 17 [default = 0];</code>
        *
        * <pre>
        ** 可回复心情上限*100 
@@ -3071,27 +2961,27 @@ public final class ItemResBytes {
         return moodrecLim_;
       }
       /**
-       * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+       * <code>optional int32 moodrec_lim = 17 [default = 0];</code>
        *
        * <pre>
        ** 可回复心情上限*100 
        * </pre>
        */
       public Builder setMoodrecLim(int value) {
-        bitField0_ |= 0x00020000;
+        bitField0_ |= 0x00010000;
         moodrecLim_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 moodrec_lim = 18 [default = 0];</code>
+       * <code>optional int32 moodrec_lim = 17 [default = 0];</code>
        *
        * <pre>
        ** 可回复心情上限*100 
        * </pre>
        */
       public Builder clearMoodrecLim() {
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         moodrecLim_ = 0;
         onChanged();
         return this;
@@ -3099,17 +2989,17 @@ public final class ItemResBytes {
 
       private int atkAdd_ ;
       /**
-       * <code>optional int32 atk_add = 19 [default = 0];</code>
+       * <code>optional int32 atk_add = 18 [default = 0];</code>
        *
        * <pre>
        ** 攻击 
        * </pre>
        */
       public boolean hasAtkAdd() {
-        return ((bitField0_ & 0x00040000) == 0x00040000);
+        return ((bitField0_ & 0x00020000) == 0x00020000);
       }
       /**
-       * <code>optional int32 atk_add = 19 [default = 0];</code>
+       * <code>optional int32 atk_add = 18 [default = 0];</code>
        *
        * <pre>
        ** 攻击 
@@ -3119,27 +3009,27 @@ public final class ItemResBytes {
         return atkAdd_;
       }
       /**
-       * <code>optional int32 atk_add = 19 [default = 0];</code>
+       * <code>optional int32 atk_add = 18 [default = 0];</code>
        *
        * <pre>
        ** 攻击 
        * </pre>
        */
       public Builder setAtkAdd(int value) {
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00020000;
         atkAdd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 atk_add = 19 [default = 0];</code>
+       * <code>optional int32 atk_add = 18 [default = 0];</code>
        *
        * <pre>
        ** 攻击 
        * </pre>
        */
       public Builder clearAtkAdd() {
-        bitField0_ = (bitField0_ & ~0x00040000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         atkAdd_ = 0;
         onChanged();
         return this;
@@ -3147,17 +3037,17 @@ public final class ItemResBytes {
 
       private int defAdd_ ;
       /**
-       * <code>optional int32 def_add = 20 [default = 0];</code>
+       * <code>optional int32 def_add = 19 [default = 0];</code>
        *
        * <pre>
        ** 防御 
        * </pre>
        */
       public boolean hasDefAdd() {
-        return ((bitField0_ & 0x00080000) == 0x00080000);
+        return ((bitField0_ & 0x00040000) == 0x00040000);
       }
       /**
-       * <code>optional int32 def_add = 20 [default = 0];</code>
+       * <code>optional int32 def_add = 19 [default = 0];</code>
        *
        * <pre>
        ** 防御 
@@ -3167,27 +3057,27 @@ public final class ItemResBytes {
         return defAdd_;
       }
       /**
-       * <code>optional int32 def_add = 20 [default = 0];</code>
+       * <code>optional int32 def_add = 19 [default = 0];</code>
        *
        * <pre>
        ** 防御 
        * </pre>
        */
       public Builder setDefAdd(int value) {
-        bitField0_ |= 0x00080000;
+        bitField0_ |= 0x00040000;
         defAdd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 def_add = 20 [default = 0];</code>
+       * <code>optional int32 def_add = 19 [default = 0];</code>
        *
        * <pre>
        ** 防御 
        * </pre>
        */
       public Builder clearDefAdd() {
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00040000);
         defAdd_ = 0;
         onChanged();
         return this;
@@ -3195,17 +3085,17 @@ public final class ItemResBytes {
 
       private int spdAdd_ ;
       /**
-       * <code>optional int32 spd_add = 21 [default = 0];</code>
+       * <code>optional int32 spd_add = 20 [default = 0];</code>
        *
        * <pre>
        ** 移速 
        * </pre>
        */
       public boolean hasSpdAdd() {
-        return ((bitField0_ & 0x00100000) == 0x00100000);
+        return ((bitField0_ & 0x00080000) == 0x00080000);
       }
       /**
-       * <code>optional int32 spd_add = 21 [default = 0];</code>
+       * <code>optional int32 spd_add = 20 [default = 0];</code>
        *
        * <pre>
        ** 移速 
@@ -3215,27 +3105,27 @@ public final class ItemResBytes {
         return spdAdd_;
       }
       /**
-       * <code>optional int32 spd_add = 21 [default = 0];</code>
+       * <code>optional int32 spd_add = 20 [default = 0];</code>
        *
        * <pre>
        ** 移速 
        * </pre>
        */
       public Builder setSpdAdd(int value) {
-        bitField0_ |= 0x00100000;
+        bitField0_ |= 0x00080000;
         spdAdd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 spd_add = 21 [default = 0];</code>
+       * <code>optional int32 spd_add = 20 [default = 0];</code>
        *
        * <pre>
        ** 移速 
        * </pre>
        */
       public Builder clearSpdAdd() {
-        bitField0_ = (bitField0_ & ~0x00100000);
+        bitField0_ = (bitField0_ & ~0x00080000);
         spdAdd_ = 0;
         onChanged();
         return this;
@@ -3243,17 +3133,17 @@ public final class ItemResBytes {
 
       private int loadAdd_ ;
       /**
-       * <code>optional int32 load_add = 22 [default = 0];</code>
+       * <code>optional int32 load_add = 21 [default = 0];</code>
        *
        * <pre>
        ** 负载 
        * </pre>
        */
       public boolean hasLoadAdd() {
-        return ((bitField0_ & 0x00200000) == 0x00200000);
+        return ((bitField0_ & 0x00100000) == 0x00100000);
       }
       /**
-       * <code>optional int32 load_add = 22 [default = 0];</code>
+       * <code>optional int32 load_add = 21 [default = 0];</code>
        *
        * <pre>
        ** 负载 
@@ -3263,27 +3153,27 @@ public final class ItemResBytes {
         return loadAdd_;
       }
       /**
-       * <code>optional int32 load_add = 22 [default = 0];</code>
+       * <code>optional int32 load_add = 21 [default = 0];</code>
        *
        * <pre>
        ** 负载 
        * </pre>
        */
       public Builder setLoadAdd(int value) {
-        bitField0_ |= 0x00200000;
+        bitField0_ |= 0x00100000;
         loadAdd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 load_add = 22 [default = 0];</code>
+       * <code>optional int32 load_add = 21 [default = 0];</code>
        *
        * <pre>
        ** 负载 
        * </pre>
        */
       public Builder clearLoadAdd() {
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00100000);
         loadAdd_ = 0;
         onChanged();
         return this;
@@ -3291,17 +3181,17 @@ public final class ItemResBytes {
 
       private int agiAdd_ ;
       /**
-       * <code>optional int32 agi_add = 23 [default = 0];</code>
+       * <code>optional int32 agi_add = 22 [default = 0];</code>
        *
        * <pre>
        ** 敏捷 
        * </pre>
        */
       public boolean hasAgiAdd() {
-        return ((bitField0_ & 0x00400000) == 0x00400000);
+        return ((bitField0_ & 0x00200000) == 0x00200000);
       }
       /**
-       * <code>optional int32 agi_add = 23 [default = 0];</code>
+       * <code>optional int32 agi_add = 22 [default = 0];</code>
        *
        * <pre>
        ** 敏捷 
@@ -3311,27 +3201,27 @@ public final class ItemResBytes {
         return agiAdd_;
       }
       /**
-       * <code>optional int32 agi_add = 23 [default = 0];</code>
+       * <code>optional int32 agi_add = 22 [default = 0];</code>
        *
        * <pre>
        ** 敏捷 
        * </pre>
        */
       public Builder setAgiAdd(int value) {
-        bitField0_ |= 0x00400000;
+        bitField0_ |= 0x00200000;
         agiAdd_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 agi_add = 23 [default = 0];</code>
+       * <code>optional int32 agi_add = 22 [default = 0];</code>
        *
        * <pre>
        ** 敏捷 
        * </pre>
        */
       public Builder clearAgiAdd() {
-        bitField0_ = (bitField0_ & ~0x00400000);
+        bitField0_ = (bitField0_ & ~0x00200000);
         agiAdd_ = 0;
         onChanged();
         return this;
@@ -4056,22 +3946,21 @@ public final class ItemResBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\032proto/item_res_bytes.proto\022\037com.nkm.fr" +
-      "amework.resource.data\"\372\003\n\010ITEM_RES\022\r\n\002id" +
+      "amework.resource.data\"\335\003\n\010ITEM_RES\022\r\n\002id" +
       "\030\001 \002(\005:\0010\022\023\n\010item_lvl\030\002 \001(\005:\0010\022\022\n\010min_na" +
-      "me\030\003 \001(\t:\000\022\022\n\010key_name\030\004 \001(\t:\000\022\033\n\020servic" +
-      "eable_rate\030\005 \001(\005:\0010\022\023\n\ticon_name\030\006 \001(\t:\000" +
-      "\022\031\n\017small_icon_name\030\007 \001(\t:\000\022\016\n\004desc\030\010 \001(" +
-      "\t:\000\022\024\n\tgold_conv\030\t \001(\005:\0010\022\024\n\tstor_unit\030\n" +
-      " \001(\005:\0010\022\027\n\014if_available\030\013 \001(\005:\0010\022\021\n\006hp_r" +
-      "ec\030\014 \001(\005:\0010\022\024\n\tstarv_rec\030\r \001(\005:\0010\022\024\n\twat" +
-      "er_rec\030\016 \001(\005:\0010\022\025\n\nhealth_rec\030\017 \001(\005:\0010\022\030",
-      "\n\rhealthrec_lim\030\020 \001(\005:\0010\022\023\n\010mood_rec\030\021 \001" +
-      "(\005:\0010\022\026\n\013moodrec_lim\030\022 \001(\005:\0010\022\022\n\007atk_add" +
-      "\030\023 \001(\005:\0010\022\022\n\007def_add\030\024 \001(\005:\0010\022\022\n\007spd_add" +
-      "\030\025 \001(\005:\0010\022\023\n\010load_add\030\026 \001(\005:\0010\022\022\n\007agi_ad" +
-      "d\030\027 \001(\005:\0010\"J\n\016ITEM_RES_ARRAY\0228\n\005items\030\001 " +
-      "\003(\0132).com.nkm.framework.resource.data.IT" +
-      "EM_RES"
+      "me\030\003 \001(\t:\000\022\022\n\010key_name\030\004 \001(\t:\000\022\023\n\ticon_n" +
+      "ame\030\005 \001(\t:\000\022\031\n\017small_icon_name\030\006 \001(\t:\000\022\016" +
+      "\n\004desc\030\007 \001(\t:\000\022\024\n\tgold_conv\030\010 \001(\005:\0010\022\024\n\t" +
+      "stor_unit\030\t \001(\005:\0010\022\027\n\014if_available\030\n \001(\005" +
+      ":\0010\022\021\n\006hp_rec\030\013 \001(\005:\0010\022\024\n\tstarv_rec\030\014 \001(" +
+      "\005:\0010\022\024\n\twater_rec\030\r \001(\005:\0010\022\025\n\nhealth_rec" +
+      "\030\016 \001(\005:\0010\022\030\n\rhealthrec_lim\030\017 \001(\005:\0010\022\023\n\010m",
+      "ood_rec\030\020 \001(\005:\0010\022\026\n\013moodrec_lim\030\021 \001(\005:\0010" +
+      "\022\022\n\007atk_add\030\022 \001(\005:\0010\022\022\n\007def_add\030\023 \001(\005:\0010" +
+      "\022\022\n\007spd_add\030\024 \001(\005:\0010\022\023\n\010load_add\030\025 \001(\005:\001" +
+      "0\022\022\n\007agi_add\030\026 \001(\005:\0010\"J\n\016ITEM_RES_ARRAY\022" +
+      "8\n\005items\030\001 \003(\0132).com.nkm.framework.resou" +
+      "rce.data.ITEM_RES"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4090,7 +3979,7 @@ public final class ItemResBytes {
     internal_static_com_nkm_framework_resource_data_ITEM_RES_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_nkm_framework_resource_data_ITEM_RES_descriptor,
-        new java.lang.String[] { "Id", "ItemLvl", "MinName", "KeyName", "ServiceableRate", "IconName", "SmallIconName", "Desc", "GoldConv", "StorUnit", "IfAvailable", "HpRec", "StarvRec", "WaterRec", "HealthRec", "HealthrecLim", "MoodRec", "MoodrecLim", "AtkAdd", "DefAdd", "SpdAdd", "LoadAdd", "AgiAdd", });
+        new java.lang.String[] { "Id", "ItemLvl", "MinName", "KeyName", "IconName", "SmallIconName", "Desc", "GoldConv", "StorUnit", "IfAvailable", "HpRec", "StarvRec", "WaterRec", "HealthRec", "HealthrecLim", "MoodRec", "MoodrecLim", "AtkAdd", "DefAdd", "SpdAdd", "LoadAdd", "AgiAdd", });
     internal_static_com_nkm_framework_resource_data_ITEM_RES_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_nkm_framework_resource_data_ITEM_RES_ARRAY_fieldAccessorTable = new

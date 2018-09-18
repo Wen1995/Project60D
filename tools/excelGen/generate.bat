@@ -36,7 +36,6 @@ python tool.py CANGKU xls\Bldg_Func.xlsm
 python tool.py DIANCHIZU xls\Bldg_Func.xlsm
 python tool.py JIANSHENFANG xls\Bldg_Func.xlsm
 python tool.py CHE1 xls\Bldg_Func.xlsm
-python tool.py JSFADIANJI xls\Bldg_Func.xlsm
 python tool.py TAIYANGNENG xls\Bldg_Func.xlsm
 python tool.py LIANYOU xls\Bldg_Func.xlsm
 python tool.py LIANGANG xls\Bldg_Func.xlsm

@@ -28,8 +28,8 @@ namespace com.nkm.framework.resource.data {
   public sealed partial class ITEM_RES : pb::GeneratedMessageLite<ITEM_RES, ITEM_RES.Builder> {
     private ITEM_RES() { }
     private static readonly ITEM_RES defaultInstance = new ITEM_RES().MakeReadOnly();
-    private static readonly string[] _iTEMRESFieldNames = new string[] { "agi_add", "atk_add", "def_add", "desc", "gold_conv", "health_rec", "healthrec_lim", "hp_rec", "icon_name", "id", "if_available", "item_lvl", "key_name", "load_add", "min_name", "mood_rec", "moodrec_lim", "serviceable_rate", "small_icon_name", "spd_add", "starv_rec", "stor_unit", "water_rec" };
-    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 184, 152, 160, 66, 72, 120, 128, 96, 50, 8, 88, 16, 34, 176, 26, 136, 144, 40, 58, 168, 104, 80, 112 };
+    private static readonly string[] _iTEMRESFieldNames = new string[] { "agi_add", "atk_add", "def_add", "desc", "gold_conv", "health_rec", "healthrec_lim", "hp_rec", "icon_name", "id", "if_available", "item_lvl", "key_name", "load_add", "min_name", "mood_rec", "moodrec_lim", "small_icon_name", "spd_add", "starv_rec", "stor_unit", "water_rec" };
+    private static readonly uint[] _iTEMRESFieldTags = new uint[] { 176, 144, 152, 58, 64, 112, 120, 88, 42, 8, 80, 16, 34, 168, 26, 128, 136, 50, 160, 96, 72, 104 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -103,20 +103,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int ServiceableRateFieldNumber = 5;
-    private bool hasServiceableRate;
-    private int serviceableRate_;
-    public bool HasServiceableRate {
-      get { return hasServiceableRate; }
-    }
-    public int ServiceableRate {
-      get { return serviceableRate_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int IconNameFieldNumber = 6;
+    public const int IconNameFieldNumber = 5;
     private bool hasIconName;
     private string iconName_ = "";
     public bool HasIconName {
@@ -129,7 +116,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SmallIconNameFieldNumber = 7;
+    public const int SmallIconNameFieldNumber = 6;
     private bool hasSmallIconName;
     private string smallIconName_ = "";
     public bool HasSmallIconName {
@@ -142,7 +129,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int DescFieldNumber = 8;
+    public const int DescFieldNumber = 7;
     private bool hasDesc;
     private string desc_ = "";
     public bool HasDesc {
@@ -155,7 +142,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int GoldConvFieldNumber = 9;
+    public const int GoldConvFieldNumber = 8;
     private bool hasGoldConv;
     private int goldConv_;
     public bool HasGoldConv {
@@ -168,7 +155,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int StorUnitFieldNumber = 10;
+    public const int StorUnitFieldNumber = 9;
     private bool hasStorUnit;
     private int storUnit_;
     public bool HasStorUnit {
@@ -181,7 +168,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int IfAvailableFieldNumber = 11;
+    public const int IfAvailableFieldNumber = 10;
     private bool hasIfAvailable;
     private int ifAvailable_;
     public bool HasIfAvailable {
@@ -194,7 +181,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HpRecFieldNumber = 12;
+    public const int HpRecFieldNumber = 11;
     private bool hasHpRec;
     private int hpRec_;
     public bool HasHpRec {
@@ -207,7 +194,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int StarvRecFieldNumber = 13;
+    public const int StarvRecFieldNumber = 12;
     private bool hasStarvRec;
     private int starvRec_;
     public bool HasStarvRec {
@@ -220,7 +207,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int WaterRecFieldNumber = 14;
+    public const int WaterRecFieldNumber = 13;
     private bool hasWaterRec;
     private int waterRec_;
     public bool HasWaterRec {
@@ -233,7 +220,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HealthRecFieldNumber = 15;
+    public const int HealthRecFieldNumber = 14;
     private bool hasHealthRec;
     private int healthRec_;
     public bool HasHealthRec {
@@ -246,7 +233,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int HealthrecLimFieldNumber = 16;
+    public const int HealthrecLimFieldNumber = 15;
     private bool hasHealthrecLim;
     private int healthrecLim_;
     public bool HasHealthrecLim {
@@ -259,7 +246,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int MoodRecFieldNumber = 17;
+    public const int MoodRecFieldNumber = 16;
     private bool hasMoodRec;
     private int moodRec_;
     public bool HasMoodRec {
@@ -272,7 +259,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int MoodrecLimFieldNumber = 18;
+    public const int MoodrecLimFieldNumber = 17;
     private bool hasMoodrecLim;
     private int moodrecLim_;
     public bool HasMoodrecLim {
@@ -285,7 +272,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int AtkAddFieldNumber = 19;
+    public const int AtkAddFieldNumber = 18;
     private bool hasAtkAdd;
     private int atkAdd_;
     public bool HasAtkAdd {
@@ -298,7 +285,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int DefAddFieldNumber = 20;
+    public const int DefAddFieldNumber = 19;
     private bool hasDefAdd;
     private int defAdd_;
     public bool HasDefAdd {
@@ -311,7 +298,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int SpdAddFieldNumber = 21;
+    public const int SpdAddFieldNumber = 20;
     private bool hasSpdAdd;
     private int spdAdd_;
     public bool HasSpdAdd {
@@ -324,7 +311,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int LoadAddFieldNumber = 22;
+    public const int LoadAddFieldNumber = 21;
     private bool hasLoadAdd;
     private int loadAdd_;
     public bool HasLoadAdd {
@@ -337,7 +324,7 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int AgiAddFieldNumber = 23;
+    public const int AgiAddFieldNumber = 22;
     private bool hasAgiAdd;
     private int agiAdd_;
     public bool HasAgiAdd {
@@ -375,62 +362,59 @@ namespace com.nkm.framework.resource.data {
       if (hasKeyName) {
         output.WriteString(4, field_names[12], KeyName);
       }
-      if (hasServiceableRate) {
-        output.WriteInt32(5, field_names[17], ServiceableRate);
-      }
       if (hasIconName) {
-        output.WriteString(6, field_names[8], IconName);
+        output.WriteString(5, field_names[8], IconName);
       }
       if (hasSmallIconName) {
-        output.WriteString(7, field_names[18], SmallIconName);
+        output.WriteString(6, field_names[17], SmallIconName);
       }
       if (hasDesc) {
-        output.WriteString(8, field_names[3], Desc);
+        output.WriteString(7, field_names[3], Desc);
       }
       if (hasGoldConv) {
-        output.WriteInt32(9, field_names[4], GoldConv);
+        output.WriteInt32(8, field_names[4], GoldConv);
       }
       if (hasStorUnit) {
-        output.WriteInt32(10, field_names[21], StorUnit);
+        output.WriteInt32(9, field_names[20], StorUnit);
       }
       if (hasIfAvailable) {
-        output.WriteInt32(11, field_names[10], IfAvailable);
+        output.WriteInt32(10, field_names[10], IfAvailable);
       }
       if (hasHpRec) {
-        output.WriteInt32(12, field_names[7], HpRec);
+        output.WriteInt32(11, field_names[7], HpRec);
       }
       if (hasStarvRec) {
-        output.WriteInt32(13, field_names[20], StarvRec);
+        output.WriteInt32(12, field_names[19], StarvRec);
       }
       if (hasWaterRec) {
-        output.WriteInt32(14, field_names[22], WaterRec);
+        output.WriteInt32(13, field_names[21], WaterRec);
       }
       if (hasHealthRec) {
-        output.WriteInt32(15, field_names[5], HealthRec);
+        output.WriteInt32(14, field_names[5], HealthRec);
       }
       if (hasHealthrecLim) {
-        output.WriteInt32(16, field_names[6], HealthrecLim);
+        output.WriteInt32(15, field_names[6], HealthrecLim);
       }
       if (hasMoodRec) {
-        output.WriteInt32(17, field_names[15], MoodRec);
+        output.WriteInt32(16, field_names[15], MoodRec);
       }
       if (hasMoodrecLim) {
-        output.WriteInt32(18, field_names[16], MoodrecLim);
+        output.WriteInt32(17, field_names[16], MoodrecLim);
       }
       if (hasAtkAdd) {
-        output.WriteInt32(19, field_names[1], AtkAdd);
+        output.WriteInt32(18, field_names[1], AtkAdd);
       }
       if (hasDefAdd) {
-        output.WriteInt32(20, field_names[2], DefAdd);
+        output.WriteInt32(19, field_names[2], DefAdd);
       }
       if (hasSpdAdd) {
-        output.WriteInt32(21, field_names[19], SpdAdd);
+        output.WriteInt32(20, field_names[18], SpdAdd);
       }
       if (hasLoadAdd) {
-        output.WriteInt32(22, field_names[13], LoadAdd);
+        output.WriteInt32(21, field_names[13], LoadAdd);
       }
       if (hasAgiAdd) {
-        output.WriteInt32(23, field_names[0], AgiAdd);
+        output.WriteInt32(22, field_names[0], AgiAdd);
       }
     }
     
@@ -456,62 +440,59 @@ namespace com.nkm.framework.resource.data {
         if (hasKeyName) {
           size += pb::CodedOutputStream.ComputeStringSize(4, KeyName);
         }
-        if (hasServiceableRate) {
-          size += pb::CodedOutputStream.ComputeInt32Size(5, ServiceableRate);
-        }
         if (hasIconName) {
-          size += pb::CodedOutputStream.ComputeStringSize(6, IconName);
+          size += pb::CodedOutputStream.ComputeStringSize(5, IconName);
         }
         if (hasSmallIconName) {
-          size += pb::CodedOutputStream.ComputeStringSize(7, SmallIconName);
+          size += pb::CodedOutputStream.ComputeStringSize(6, SmallIconName);
         }
         if (hasDesc) {
-          size += pb::CodedOutputStream.ComputeStringSize(8, Desc);
+          size += pb::CodedOutputStream.ComputeStringSize(7, Desc);
         }
         if (hasGoldConv) {
-          size += pb::CodedOutputStream.ComputeInt32Size(9, GoldConv);
+          size += pb::CodedOutputStream.ComputeInt32Size(8, GoldConv);
         }
         if (hasStorUnit) {
-          size += pb::CodedOutputStream.ComputeInt32Size(10, StorUnit);
+          size += pb::CodedOutputStream.ComputeInt32Size(9, StorUnit);
         }
         if (hasIfAvailable) {
-          size += pb::CodedOutputStream.ComputeInt32Size(11, IfAvailable);
+          size += pb::CodedOutputStream.ComputeInt32Size(10, IfAvailable);
         }
         if (hasHpRec) {
-          size += pb::CodedOutputStream.ComputeInt32Size(12, HpRec);
+          size += pb::CodedOutputStream.ComputeInt32Size(11, HpRec);
         }
         if (hasStarvRec) {
-          size += pb::CodedOutputStream.ComputeInt32Size(13, StarvRec);
+          size += pb::CodedOutputStream.ComputeInt32Size(12, StarvRec);
         }
         if (hasWaterRec) {
-          size += pb::CodedOutputStream.ComputeInt32Size(14, WaterRec);
+          size += pb::CodedOutputStream.ComputeInt32Size(13, WaterRec);
         }
         if (hasHealthRec) {
-          size += pb::CodedOutputStream.ComputeInt32Size(15, HealthRec);
+          size += pb::CodedOutputStream.ComputeInt32Size(14, HealthRec);
         }
         if (hasHealthrecLim) {
-          size += pb::CodedOutputStream.ComputeInt32Size(16, HealthrecLim);
+          size += pb::CodedOutputStream.ComputeInt32Size(15, HealthrecLim);
         }
         if (hasMoodRec) {
-          size += pb::CodedOutputStream.ComputeInt32Size(17, MoodRec);
+          size += pb::CodedOutputStream.ComputeInt32Size(16, MoodRec);
         }
         if (hasMoodrecLim) {
-          size += pb::CodedOutputStream.ComputeInt32Size(18, MoodrecLim);
+          size += pb::CodedOutputStream.ComputeInt32Size(17, MoodrecLim);
         }
         if (hasAtkAdd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(19, AtkAdd);
+          size += pb::CodedOutputStream.ComputeInt32Size(18, AtkAdd);
         }
         if (hasDefAdd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(20, DefAdd);
+          size += pb::CodedOutputStream.ComputeInt32Size(19, DefAdd);
         }
         if (hasSpdAdd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(21, SpdAdd);
+          size += pb::CodedOutputStream.ComputeInt32Size(20, SpdAdd);
         }
         if (hasLoadAdd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(22, LoadAdd);
+          size += pb::CodedOutputStream.ComputeInt32Size(21, LoadAdd);
         }
         if (hasAgiAdd) {
-          size += pb::CodedOutputStream.ComputeInt32Size(23, AgiAdd);
+          size += pb::CodedOutputStream.ComputeInt32Size(22, AgiAdd);
         }
         memoizedSerializedSize = size;
         return size;
@@ -525,7 +506,6 @@ namespace com.nkm.framework.resource.data {
       if (hasItemLvl) hash ^= itemLvl_.GetHashCode();
       if (hasMinName) hash ^= minName_.GetHashCode();
       if (hasKeyName) hash ^= keyName_.GetHashCode();
-      if (hasServiceableRate) hash ^= serviceableRate_.GetHashCode();
       if (hasIconName) hash ^= iconName_.GetHashCode();
       if (hasSmallIconName) hash ^= smallIconName_.GetHashCode();
       if (hasDesc) hash ^= desc_.GetHashCode();
@@ -554,7 +534,6 @@ namespace com.nkm.framework.resource.data {
       if (hasItemLvl != other.hasItemLvl || (hasItemLvl && !itemLvl_.Equals(other.itemLvl_))) return false;
       if (hasMinName != other.hasMinName || (hasMinName && !minName_.Equals(other.minName_))) return false;
       if (hasKeyName != other.hasKeyName || (hasKeyName && !keyName_.Equals(other.keyName_))) return false;
-      if (hasServiceableRate != other.hasServiceableRate || (hasServiceableRate && !serviceableRate_.Equals(other.serviceableRate_))) return false;
       if (hasIconName != other.hasIconName || (hasIconName && !iconName_.Equals(other.iconName_))) return false;
       if (hasSmallIconName != other.hasSmallIconName || (hasSmallIconName && !smallIconName_.Equals(other.smallIconName_))) return false;
       if (hasDesc != other.hasDesc || (hasDesc && !desc_.Equals(other.desc_))) return false;
@@ -745,9 +724,6 @@ namespace com.nkm.framework.resource.data {
         if (other.HasKeyName) {
           KeyName = other.KeyName;
         }
-        if (other.HasServiceableRate) {
-          ServiceableRate = other.ServiceableRate;
-        }
         if (other.HasIconName) {
           IconName = other.IconName;
         }
@@ -850,79 +826,75 @@ namespace com.nkm.framework.resource.data {
               result.hasKeyName = input.ReadString(ref result.keyName_);
               break;
             }
-            case 40: {
-              result.hasServiceableRate = input.ReadInt32(ref result.serviceableRate_);
-              break;
-            }
-            case 50: {
+            case 42: {
               result.hasIconName = input.ReadString(ref result.iconName_);
               break;
             }
-            case 58: {
+            case 50: {
               result.hasSmallIconName = input.ReadString(ref result.smallIconName_);
               break;
             }
-            case 66: {
+            case 58: {
               result.hasDesc = input.ReadString(ref result.desc_);
               break;
             }
-            case 72: {
+            case 64: {
               result.hasGoldConv = input.ReadInt32(ref result.goldConv_);
               break;
             }
-            case 80: {
+            case 72: {
               result.hasStorUnit = input.ReadInt32(ref result.storUnit_);
               break;
             }
-            case 88: {
+            case 80: {
               result.hasIfAvailable = input.ReadInt32(ref result.ifAvailable_);
               break;
             }
-            case 96: {
+            case 88: {
               result.hasHpRec = input.ReadInt32(ref result.hpRec_);
               break;
             }
-            case 104: {
+            case 96: {
               result.hasStarvRec = input.ReadInt32(ref result.starvRec_);
               break;
             }
-            case 112: {
+            case 104: {
               result.hasWaterRec = input.ReadInt32(ref result.waterRec_);
               break;
             }
-            case 120: {
+            case 112: {
               result.hasHealthRec = input.ReadInt32(ref result.healthRec_);
               break;
             }
-            case 128: {
+            case 120: {
               result.hasHealthrecLim = input.ReadInt32(ref result.healthrecLim_);
               break;
             }
-            case 136: {
+            case 128: {
               result.hasMoodRec = input.ReadInt32(ref result.moodRec_);
               break;
             }
-            case 144: {
+            case 136: {
               result.hasMoodrecLim = input.ReadInt32(ref result.moodrecLim_);
               break;
             }
-            case 152: {
+            case 144: {
               result.hasAtkAdd = input.ReadInt32(ref result.atkAdd_);
               break;
             }
-            case 160: {
+            case 152: {
               result.hasDefAdd = input.ReadInt32(ref result.defAdd_);
               break;
             }
-            case 168: {
+            case 160: {
               result.hasSpdAdd = input.ReadInt32(ref result.spdAdd_);
               break;
             }
-            case 176: {
+            case 168: {
               result.hasLoadAdd = input.ReadInt32(ref result.loadAdd_);
               break;
             }
-            case 184: {
+            case 176: {
               result.hasAgiAdd = input.ReadInt32(ref result.agiAdd_);
               break;
             }
@@ -1012,26 +984,6 @@ namespace com.nkm.framework.resource.data {
         PrepareBuilder();
         result.hasKeyName = false;
         result.keyName_ = "";
-        return this;
-      }
-      
-      public bool HasServiceableRate {
-        get { return result.hasServiceableRate; }
-      }
-      public int ServiceableRate {
-        get { return result.ServiceableRate; }
-        set { SetServiceableRate(value); }
-      }
-      public Builder SetServiceableRate(int value) {
-        PrepareBuilder();
-        result.hasServiceableRate = true;
-        result.serviceableRate_ = value;
-        return this;
-      }
-      public Builder ClearServiceableRate() {
-        PrepareBuilder();
-        result.hasServiceableRate = false;
-        result.serviceableRate_ = 0;
         return this;
       }
       

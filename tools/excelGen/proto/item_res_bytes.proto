@@ -15,45 +15,43 @@ message ITEM_RES{
     optional string min_name = 3 [default = ""];
     /** 对应key */
     optional string key_name = 4 [default = ""];
-    /** 玩家可购买等级（玩家等级）（0代表不可用） */
-    optional int32 serviceable_rate = 5 [default = 0];
     /** 图标名称 */
-    optional string icon_name = 6 [default = ""];
+    optional string icon_name = 5 [default = ""];
     /** 小图标名称 */
-    optional string small_icon_name = 7 [default = ""];
+    optional string small_icon_name = 6 [default = ""];
     /** 描述 */
-    optional string desc = 8 [default = ""];
+    optional string desc = 7 [default = ""];
     /** 价格*1000 */
-    optional int32 gold_conv = 9 [default = 0];
+    optional int32 gold_conv = 8 [default = 0];
     /** 储存体积
 占用 */
-    optional int32 stor_unit = 10 [default = 0];
+    optional int32 stor_unit = 9 [default = 0];
     /** 是否可直接使用（1可用，0不可用）注意是否刚好抵消了 */
-    optional int32 if_available = 11 [default = 0];
+    optional int32 if_available = 10 [default = 0];
     /** 回复血量 */
-    optional int32 hp_rec = 12 [default = 0];
+    optional int32 hp_rec = 11 [default = 0];
     /** 回复饥饿*1000 */
-    optional int32 starv_rec = 13 [default = 0];
+    optional int32 starv_rec = 12 [default = 0];
     /** 回复口渴*1000 */
-    optional int32 water_rec = 14 [default = 0];
+    optional int32 water_rec = 13 [default = 0];
     /** 回复健康*1000 */
-    optional int32 health_rec = 15 [default = 0];
+    optional int32 health_rec = 14 [default = 0];
     /** 可回复健康上限（比例）*100 */
-    optional int32 healthrec_lim = 16 [default = 0];
+    optional int32 healthrec_lim = 15 [default = 0];
     /** 回复心情*1000 */
-    optional int32 mood_rec = 17 [default = 0];
+    optional int32 mood_rec = 16 [default = 0];
     /** 可回复心情上限*100 */
-    optional int32 moodrec_lim = 18 [default = 0];
+    optional int32 moodrec_lim = 17 [default = 0];
     /** 攻击 */
-    optional int32 atk_add = 19 [default = 0];
+    optional int32 atk_add = 18 [default = 0];
     /** 防御 */
-    optional int32 def_add = 20 [default = 0];
+    optional int32 def_add = 19 [default = 0];
     /** 移速 */
-    optional int32 spd_add = 21 [default = 0];
+    optional int32 spd_add = 20 [default = 0];
     /** 负载 */
-    optional int32 load_add = 22 [default = 0];
+    optional int32 load_add = 21 [default = 0];
     /** 敏捷 */
-    optional int32 agi_add = 23 [default = 0];
+    optional int32 agi_add = 22 [default = 0];
 }
 
 message ITEM_RES_ARRAY {

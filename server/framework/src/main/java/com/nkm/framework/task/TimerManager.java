@@ -194,29 +194,32 @@ public class TimerManager {
                 boolean changeFlag = false;
                 for (Map.Entry<Integer, WORLD_EVENTS> entry : worldEventsMap.entrySet()) {
                     int congigId = entry.getKey();
-                    int type = congigId / 100 % 10000;
-                    if (eventTypes.contains(type)) {
-                        continue;
-                    }
-                    int rate = entry.getValue().getEventProb();
-                    if (/*new Random().nextInt(100000)*/new Random().nextInt(1000) < rate) {
-                        changeFlag = true;
-                        WorldEvent worldEvent = new WorldEvent();
-                        worldEvent.setConfigId(congigId);
-                        worldEvent.setType(TimeType.START_TIME_VALUE);
-                        worldEvent.setTime(new Date(happenTime));
-                        worldEventDao.insert(worldEvent);
+                    WORLD_EVENTS worldEventConf = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
+                    if (worldEventConf.getEventDuration() != 0) {
+                        int type = congigId / 100 % 10000;
+                        if (eventTypes.contains(type)) {
+                            continue;
+                        }
+                        int rate = entry.getValue().getEventProb();
+                        if (/*new Random().nextInt(100000)*/new Random().nextInt(1000) < rate) {
+                            changeFlag = true;
+                            WorldEvent worldEvent = new WorldEvent();
+                            worldEvent.setConfigId(congigId);
+                            worldEvent.setType(TimeType.START_TIME_VALUE);
+                            worldEvent.setTime(new Date(happenTime));
+                            worldEventDao.insert(worldEvent);
 
-                        long endTime = happenTime + worldEventsMap.get(congigId).getEventDuration()
-                                * Constant.TIME_MINUTE;
-                        worldEvent = new WorldEvent();
-                        worldEvent.setConfigId(congigId);
-                        worldEvent.setType(TimeType.END_TIME_VALUE);
-                        worldEvent.setTime(new Date(endTime));
-                        worldEventDao.insert(worldEvent);
-                        
-                        worldEventConfigId2HappenTime.put(congigId, happenTime);
-                        eventTypes.add(type);
+                            long endTime = happenTime + worldEventsMap.get(congigId).getEventDuration()
+                                    * Constant.TIME_MINUTE;
+                            worldEvent = new WorldEvent();
+                            worldEvent.setConfigId(congigId);
+                            worldEvent.setType(TimeType.END_TIME_VALUE);
+                            worldEvent.setTime(new Date(endTime));
+                            worldEventDao.insert(worldEvent);
+                            
+                            worldEventConfigId2HappenTime.put(congigId, happenTime);
+                            eventTypes.add(type);
+                        }
                     }
                 }
                 if (changeFlag) {       // 更新价格

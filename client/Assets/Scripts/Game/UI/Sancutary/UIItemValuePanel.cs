@@ -11,6 +11,7 @@ public class UIItemValuePanel : PanelBase{
 	UILabel resultLabel = null;
 	UILabel taxLabel = null;
 	UISlider slider = null;
+	UILabel btnLabel = null;
 	private int ratio;			//minum plus/minus value
 	private int value;			//cur value
 	private int itemCap;		//player's item cap
@@ -34,6 +35,7 @@ public class UIItemValuePanel : PanelBase{
 		resultLabel = transform.Find("value/result/value").GetComponent<UILabel>();
 		taxLabel = transform.Find("value/result/tax").GetComponent<UILabel>();
 		slider = transform.Find("value/progress").GetComponent<UISlider>();
+		btnLabel = transform.Find("confirmbtn/label").GetComponent<UILabel>();
 		
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
 
@@ -49,12 +51,14 @@ public class UIItemValuePanel : PanelBase{
 		{
 			titleLabel.text = string.Format("购买 {0}", config.MinName);
 			itemCap = itemPackage.GetBuyLimit(configID);
+			btnLabel.text = "购买";
 		}
 		else
 		{
 			NItemInfo info = itemPackage.GetItemInfo(configID);
 			titleLabel.text = string.Format("出售 {0}", config.MinName);
 			itemCap = info.number;
+			btnLabel.text = "出售";
 		}
 		
 		if(config.GoldConv >= 1000)

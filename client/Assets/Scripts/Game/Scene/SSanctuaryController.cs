@@ -183,6 +183,7 @@ public class SSanctuaryController : SceneController
         userPackage.SetGroupName(sceneInfo.GroupName);
         SendEvent("RefreshManorLevel");
         SendEvent("RefreshBuildingView");
+        SendEvent("RefreshZombieSpawner");
     }
 
     void OnGetResourceInfo(NetMsgDef msg)

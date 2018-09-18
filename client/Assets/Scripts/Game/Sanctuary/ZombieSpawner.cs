@@ -25,6 +25,7 @@ public class ZombieSpawner : MonoBehaviour {
         ObjectPoolSingleton.Instance.RegisterComPool<ZombieController>(Resources.Load<GameObject>("Prefabs/Zombie/One"));
         zombiePool = ObjectPoolSingleton.Instance.GetPool<ZombieController>();
 
+        FacadeSingleton.Instance.RegisterEvent("RefreshZombieSpawner", CheckIfCanSpwan);
         FacadeSingleton.Instance.RegisterEvent("RefreshZombie", ClearDeadZombie);
     }
 	
@@ -32,6 +33,7 @@ public class ZombieSpawner : MonoBehaviour {
         if (zombiePool == null) return;
         if(zombieList.Count >= zombieMaxNum) return;
         if(startFlag == false) return;
+        if(target == null) return;
 
         timer += Time.deltaTime;
         if (timer >= spwanInterval)
@@ -43,8 +45,24 @@ public class ZombieSpawner : MonoBehaviour {
             zombie.SetZombieProperty(zombieSpeed, zombieHP);
             zombie.SetTarget(target);
             zombieList.Add(zombie);
+            //StopSpwaning();
         }
 	}
+
+    void CheckIfCanSpwan(NDictionary data = null)
+    {
+        NBuildingInfo info = null;
+        SanctuaryPackage sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
+        if( sanctuaryPackage.GetBuidlingInfoByType(BuildingType.Gate, out info) &&
+            (sanctuaryPackage.GetBuidlingInfoByType(BuildingType.Turret0) ||
+            sanctuaryPackage.GetBuidlingInfoByType(BuildingType.Turret1) ))
+        {
+            StartSpwaning();
+            target = info.building.transform;
+        }
+        else
+            StopSpwaning();
+    }
 
     public void StartSpwaning()
     {
@@ -64,5 +82,4 @@ public class ZombieSpawner : MonoBehaviour {
         for(int i=record.Count-1;i>=0;i--)
             zombieList.RemoveAt(i);
     }
-
 }

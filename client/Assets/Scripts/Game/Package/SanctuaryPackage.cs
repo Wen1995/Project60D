@@ -231,6 +231,30 @@ public class SanctuaryPackage : ModelBase {
         return buildingCostList;
     }
 
+    public bool GetBuidlingInfoByType(BuildingType type)
+    {
+        foreach(var pair in mBuildingInfoMap)
+        {
+            if(GetBuildingTypeByConfigID(pair.Value.configID) == type)
+                return true;
+        }
+        return false;
+    }
+    public bool GetBuidlingInfoByType(BuildingType type, out NBuildingInfo info)
+    {
+        info = null;
+        foreach(var pair in mBuildingInfoMap)
+        {
+            if(GetBuildingTypeByConfigID(pair.Value.configID) == type)
+            {
+                info = pair.Value;
+                return true;
+            }
+                
+        }
+        return false;
+    }
+
     #region Acess Data
     public Building GetSelectionBuilding()
     {

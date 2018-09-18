@@ -27,6 +27,7 @@ public class ZombieController : Controller, IPoolUnit
     {
         nav = GetComponent<NavMeshAgent>();
         mAnimator = GetComponent<Animator>();
+        nav.stoppingDistance = 7.0f;
         HP = 3;
     }
 
@@ -45,8 +46,9 @@ public class ZombieController : Controller, IPoolUnit
         // }
         if(mTarget == null) return;
 
-        if(Vector3.SqrMagnitude(transform.position - mTarget.position) <= 30)
-            ChangeState(ZombieState.Attack);
+        if(Vector3.SqrMagnitude(transform.position - mTarget.position) <= 50)
+            ChangeState(ZombieState.Attack);    
+            
     }
 
     public void SetTarget(Transform target)
@@ -90,6 +92,7 @@ public class ZombieController : Controller, IPoolUnit
     void TakeDamage()
     {
         HP--;
+        mAnimator.SetTrigger("getshot");
         if(HP <= 0)
             Dead();
     }
@@ -100,11 +103,12 @@ public class ZombieController : Controller, IPoolUnit
         ChangeState(ZombieState.Dead);
         nav.isStopped = true;
         FacadeSingleton.Instance.SendEvent("RefreshZombie");
+        Invoke("DestroySelf", 2.0f);
     }
 
     void DestroySelf()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     public ZombieState GetZombieState()

@@ -17,7 +17,7 @@ public class Turret : MonoBehaviour
 	
 	public float dampSpeed = 0.1f;
 
-	public float fireInterval = 1.0f;
+	public float fireInterval = 0.5f;
 
 	public ParticleSystem[] fireEffects;
 	
@@ -27,6 +27,7 @@ public class Turret : MonoBehaviour
 	float timer = 0f;
  
 	void Reset() {
+
 		if (transform.childCount == 1) {
 			this.pivot = transform.GetChild (0);
 			if (pivot.childCount == 1) {
@@ -110,24 +111,21 @@ public class Turret : MonoBehaviour
 			fireEffects[i].Play();
 	}
 
-	private void OnCollisionEnter(Collision other) 
-   {
-	   if(other.gameObject.tag == "Zombie")
-	   {
-		   target = other.gameObject.transform;
-	   }
-	   		
-   }
+  	 private void OnTriggerEnter(Collider other) 
+   	{
+	   	if(other.gameObject.tag == "Zombie")   
+	   		target = other.transform;
+   	}
 
-   private void OnCollisionStay(Collision other) 
-   {
-	   if(target != null) return;
-	   if(other.gameObject.tag == "Zombie")
-			target = other.gameObject.transform;   
-   }
+    private void OnTriggerStay(Collider other) 
+    {
+	   	if(target != null) return;
+	   	if(other.gameObject.tag == "Zombie")
+	   		target = other.gameObject.transform;
+    }
 
-   private void OnCollisionExit(Collision other) 
-   {
-	   target = null;
-   }
+ 	private void OnTriggerExit(Collider other) 
+ 	{
+		target = null;
+  	}
 }

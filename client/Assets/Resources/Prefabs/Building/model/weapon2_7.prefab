@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 11400000}
   - component: {fileID: 65867459094427574}
+  - component: {fileID: 135864819480434494}
   m_Layer: 9
   m_Name: weapon2_7
   m_TagString: Untagged
@@ -340,7 +341,7 @@ MonoBehaviour:
   pitch:
   - {fileID: 400006}
   - {fileID: 400004}
-  enablePitch: 1
+  enablePitch: 0
   enableYaw: 1
   yawSpeed: 10
   pitchSpeed: 10
@@ -398,3 +399,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.9353848, y: 2.8075, z: 7.6880174}
   m_Center: {x: 0.0000009536743, y: 1.2716788, z: 0.83550286}
+--- !u!135 &135864819480434494
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}

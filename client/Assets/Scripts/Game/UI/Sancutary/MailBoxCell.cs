@@ -124,7 +124,7 @@ public class MailBoxCell : NListCell {
 	bool IsBreakingDoor(FightingInfo info)
 	{
 		for(int i=0;i<info.InvadeResultInfosCount;i++)
-			if(info.GetInvadeResultInfos(i).Type == 2)
+			if(info.GetInvadeResultInfos(i).Id == -1)
 				return true;
 		return false;
 	}

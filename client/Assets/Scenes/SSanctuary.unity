@@ -313,7 +313,7 @@ MonoBehaviour:
   spwanInterval: 1
   spawnPos: {fileID: 1424808229}
   container: {fileID: 1692653506}
-  zombieMaxNum: 15
+  zombieMaxNum: 10
   target: {fileID: 2099470377}
 --- !u!4 &25327299
 Transform:

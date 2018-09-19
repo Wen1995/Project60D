@@ -404,6 +404,15 @@ public class UITradePanel : PanelBase {
 			point.transform.position = new Vector3(posX, posY, 0);
 			point.gameObject.SetActive(true);
 		}
+
+		// add current node
+		double curPrice = itemPackage.GetItemPrice(itemPackage.GetSelectionItemConfigID());
+		float scale = System.Convert.ToSingle((curPrice - overView.lowPrice) / (overView.highPrice - overView.lowPrice));
+		float curY = Mathf.Lerp(graphYNodes[2].trans.position.y, graphYNodes[0].trans.position.y, scale);
+		GameObject curNode = graphPointList[count++];
+		curNode.transform.position = new Vector3(graphXNodes[2].trans.position.x, curY, 0);
+		curNode.gameObject.SetActive(true);
+		
 		for(;count<graphPointList.Count;count++)
 			graphPointList[count].gameObject.SetActive(false);
 	}
@@ -421,8 +430,8 @@ public class UITradePanel : PanelBase {
 		for(int i=0;i<graphPointList.Count;i++)
 		{
 			GameObject go = graphPointList[i];
-			if(!go.activeSelf) break;
-			Vector3 linePos = new Vector3(go.transform.position.x, go.transform.position.y, 1);
+			if(!go.activeSelf) break;			
+			Vector3 linePos = new Vector3(go.transform.position.x, go.transform.position.y, i==0?0:1);
 			lineRenderer.SetPosition(i, linePos);
 		}
 	}
@@ -430,7 +439,7 @@ public class UITradePanel : PanelBase {
 	void AddPointCount(int needCount)
 	{
 		if(needCount <= 0) return;
-		int count = needCount - graphPointList.Count;
+		int count = needCount - graphPointList.Count + 5;
 		while(count-- >= 0)
 		{
 			GameObject go = graphPointList[0];

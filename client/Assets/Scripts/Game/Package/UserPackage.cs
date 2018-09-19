@@ -169,6 +169,21 @@ public class UserPackage : ModelBase {
         return 20;
     }
 
+    public int GetLevel(int contribution)
+    {
+                var levelMap = ConfigDataStatic.GetConfigDataTable("PLAYER_LEVEL");
+        int i = 0;
+        for(i = 1;i<=20;i++)
+        {
+            PLAYER_LEVEL data = levelMap[i] as PLAYER_LEVEL;
+            if(contribution < data.PlayerCap)
+            {
+                return i;
+            }
+        }
+        return 20;
+    }
+
     public int GetManorLevel(out float progress)
     {
         var levelMap = ConfigDataStatic.GetConfigDataTable("MANOR_LEVEL");

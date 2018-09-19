@@ -67,6 +67,7 @@ public class UIItemInfoPanel : PanelBase {
 
 	void OnUseItem()
 	{
+		GlobalFunction.WeHavntDone();
 		//TODO
 	}
 

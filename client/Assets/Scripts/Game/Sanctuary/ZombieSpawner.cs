@@ -36,6 +36,7 @@ public class ZombieSpawner : MonoBehaviour {
         if(target == null) return;
 
         timer += Time.deltaTime;
+        //print(string.Format("{0}/{1}", zombieList.Count, zombieMaxNum));
         if (timer >= spwanInterval)
         {
             timer = 0;
@@ -78,7 +79,11 @@ public class ZombieSpawner : MonoBehaviour {
     {
         List<int> record = new List<int>();
         for(int i=0;i<zombieList.Count;i++)
-            record.Add(i);
+        {
+            ZombieController zombie = zombieList[i];
+            if(zombie == null || zombie.gameObject.tag != "Zombie")
+                record.Add(i);
+        }
         for(int i=record.Count-1;i>=0;i--)
             zombieList.RemoveAt(i);
     }

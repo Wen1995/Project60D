@@ -79,7 +79,7 @@ public class UserUtil {
             long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
             if (currentTime >= happenTime && currentTime <= endTime) {
-                probability *= 1.0 * UserUtil.getPriceCoefficient(tableName, congigId) / 100;
+                probability *= UserUtil.getPriceCoefficient(tableName, congigId);
             }
         }
         return probability;

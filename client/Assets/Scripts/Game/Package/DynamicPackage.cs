@@ -206,7 +206,6 @@ public class DynamicPackage : ModelBase
 
             if(info.happenTime <= startTime)
             {
-                Debug.Log("priceArgs =" + priceArgs);
                 node = mGraphInfoList[0];
                 node.price *= priceArgs;
             }

@@ -15,6 +15,7 @@ public class UIInvadeResultPanel : PanelBase {
 	struct PlayerView
 	{
 		public UILabel name;
+		public UILabel level;
 		public UIProgressBar blood;
 		public int bloodMax;
 	}
@@ -34,6 +35,10 @@ public class UIInvadeResultPanel : PanelBase {
 		playerViewList[1].name = transform.Find("grid/player1/name").GetComponent<UILabel>();
 		playerViewList[2].name = transform.Find("grid/player2/name").GetComponent<UILabel>();
 		playerViewList[3].name = transform.Find("grid/player3/name").GetComponent<UILabel>();
+		playerViewList[0].level = transform.Find("grid/player0/level").GetComponent<UILabel>();
+		playerViewList[1].level = transform.Find("grid/player1/level").GetComponent<UILabel>();
+		playerViewList[2].level = transform.Find("grid/player2/level").GetComponent<UILabel>();
+		playerViewList[3].level = transform.Find("grid/player3/level").GetComponent<UILabel>();
 		playerViewList[0].blood = transform.Find("grid/player0/health").GetComponent<UIProgressBar>();
 		playerViewList[1].blood = transform.Find("grid/player1/health").GetComponent<UIProgressBar>();
 		playerViewList[2].blood = transform.Find("grid/player2/health").GetComponent<UIProgressBar>();
@@ -107,6 +112,7 @@ public class UIInvadeResultPanel : PanelBase {
 	{
 		NUserInfo userInfo = userPackage.GetUserInfo(info.Uid);
 		view.name.text = userInfo.name;
+		view.level.text = string.Format("Lv.{0}", userPackage.GetLevel(info.Contribution));
 		view.bloodMax = 20 + 2 * info.Health;
 		view.blood.value = (float)info.Blood / (float)view.bloodMax;
 	}

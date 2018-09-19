@@ -14,6 +14,7 @@ public class UIPlayerInfoPanel : PanelBase {
 	UILabel hungerLabel = null;
 	UIProgressBar thirstProgress = null;
 	UIProgressBar expProgress = null;
+	UILabel levelLabel = null;
 	UILabel expLabel = null;
 	UILabel thirstLabel = null;
 	UILabel resLabel = null;
@@ -60,6 +61,7 @@ public class UIPlayerInfoPanel : PanelBase {
 		capLabel = transform.Find("store/cap").GetComponent<UILabel>();
 		expProgress = transform.Find("playerinfo/player/exp").GetComponent<UIProgressBar>();
 		expLabel = transform.Find("playerinfo/player/exp/label").GetComponent<UILabel>();
+		levelLabel = transform.Find("playerinfo/player/level").GetComponent<UILabel>();
 		//equip
 		//item
 		tableView = transform.Find("store/itemview/tableview").GetComponent<NTableView>();
@@ -136,6 +138,7 @@ public class UIPlayerInfoPanel : PanelBase {
 		float progress;
 		userPackage.GetPlayerLevel(out progress);
 		expProgress.value = progress;
+		levelLabel.text = string.Format("Lv.{0}", userPackage.GetPlayerLevel());
 		expLabel.text = string.Format("个人实力:{0}", userPackage.GetPersonContribution());
 	}
 

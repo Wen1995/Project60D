@@ -6,7 +6,6 @@ public class UIWorldEventPanel : PanelBase {
 
 	DynamicPackage dynamicPackage = null;
 	NTableView tableView = null;
-	EventPackage eventPackage = null;
 	UILabel dateLabel = null;
 
 	protected override void Awake() 
@@ -19,8 +18,6 @@ public class UIWorldEventPanel : PanelBase {
 		button.onClick.Add(new EventDelegate(Close));
 		// button = transform.Find("jumpbtn").GetComponent<UIButton>();
 		// button.onClick.Add(new EventDelegate(OnJump));
-
-		eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
 		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
 	}
 

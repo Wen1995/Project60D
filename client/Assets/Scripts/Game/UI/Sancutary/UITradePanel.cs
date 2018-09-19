@@ -19,7 +19,6 @@ public struct NGraphAxisNodeY
 public class UITradePanel : PanelBase {
 
 	DynamicPackage dynamicPackage = null;
-	UserPackage userPackage = null;
 	ItemPackage itemPackage = null;
 	UILabel taxLabel = null;
 	UILabel nameLabel = null;
@@ -94,7 +93,6 @@ public class UITradePanel : PanelBase {
 
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
 		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
-		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPRICES, OnGetPrice);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPURCHASE, OnGetLimit);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.SELLGOODS, SellItemResponce);
@@ -199,7 +197,7 @@ public class UITradePanel : PanelBase {
 		priceLabel.text = string.Format("当前价格: {0}", itemPackage.GetItemPrice(selectionConfigID).ToString("0.00"));
 		//set buy & sell button
 		NItemInfo info = itemPackage.GetItemInfo(itemPackage.GetSelectionItemConfigID());
-		PURCHASE_LIM limConfig = ConfigDataStatic.GetConfigDataTable("PURCHASE_LIM")[userPackage.GetPlayerLevel()] as PURCHASE_LIM;
+		//PURCHASE_LIM limConfig = ConfigDataStatic.GetConfigDataTable("PURCHASE_LIM")[userPackage.GetPlayerLevel()] as PURCHASE_LIM;
 		if(info == null || info.number <= 0)
 			sellBtn.isEnabled = false;
 		else

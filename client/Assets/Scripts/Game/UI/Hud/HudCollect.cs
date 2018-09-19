@@ -24,7 +24,7 @@ public class HudCollect : MonoBehaviour , IPoolUnit, IHudObject{
         ItemPackage itemPackge = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
         if(configID == 0)       //elec
         {
-            iconSprite.spriteName = "gold";
+            iconSprite.spriteName = "electricity";
         }
         else
         {

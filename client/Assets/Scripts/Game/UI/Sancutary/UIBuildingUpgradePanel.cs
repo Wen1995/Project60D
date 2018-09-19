@@ -24,6 +24,8 @@ public class UIBuildingUpgradePanel : PanelBase {
 	UILabel levelLabel = null;
 	List<CostCell> costCellList = new List<CostCell>();
 	NTableView tableView = null;
+	UISprite preIcon = null;
+	UISprite nextIcon = null;
 	protected override void Awake()
 	{
 		base.Awake();
@@ -32,6 +34,8 @@ public class UIBuildingUpgradePanel : PanelBase {
 		nextLevelLabel = transform.Find("building/next/level/label").GetComponent<UILabel>();
 		tableView = transform.Find("upgradeeffect/microview/panel/tableview").GetComponent<NTableView>();
 		levelLabel = transform.Find("consume/level").GetComponent<UILabel>();
+		preIcon = transform.Find("building/pre/frame/icon").GetComponent<UISprite>();
+		nextIcon = transform.Find("building/next/frame/icon").GetComponent<UISprite>();
 		Transform cellGroup = transform.Find("consume/costlist");
 		for(int i=0;i<cellGroup.childCount;i++)
 		{
@@ -91,9 +95,12 @@ public class UIBuildingUpgradePanel : PanelBase {
 		titleLabel.text = string.Format("{0}  升级", configData.BldgName);
 		preLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID));
 		nextLevelLabel.text = string.Format("Lv.{0}", sanctuaryPackage.GetBulidingLevelByConfigID(info.configID + 1));
+		//set icon
+		preIcon.spriteName = configData.IconName;
+		nextIcon.spriteName = nextConfigData.IconName;
 		//show cost
 		int level = nextConfigData.BldgLvLim;
-		levelLabel.text = string.Format("等级限制: {0}", level);
+		levelLabel.text = string.Format("庄园等级限制: {0}", level);
 		int curLevel = userPackage.GetManorLevel();
 		if(level > curLevel)
 			levelLabel.color = Color.red;

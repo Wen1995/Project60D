@@ -11,6 +11,7 @@ public class UIBuildingUnlockPanel : PanelBase {
 	UILabel descLabel = null;
 
 	NTableView tableView = null;
+	UISprite iconSprite = null;
 
 	protected override void Awake()
 	{
@@ -18,6 +19,7 @@ public class UIBuildingUnlockPanel : PanelBase {
 		titleLabel = transform.Find("title").GetComponent<UILabel>();
 		descLabel = transform.Find("buildingview/describe").GetComponent<UILabel>();
 		tableView = transform.Find("consumeview/panel/tableview").GetComponent<NTableView>();
+		iconSprite = transform.Find("buildingview/buidling/frame/icon").GetComponent<UISprite>();
 		//bind event
 		UIButton button = transform.Find("closebtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
@@ -61,6 +63,8 @@ public class UIBuildingUnlockPanel : PanelBase {
 		BUILDING configData = sanctuaryPackage.GetBuildingConfigDataByConfigID(configID);
 		titleLabel.text = string.Format("{0} 解锁", configData.BldgName);
 		descLabel.text = configData.BldgInfo;
+		//set icon
+		iconSprite.spriteName = configData.IconName;
 		ShowCost(configData);
 	}
 

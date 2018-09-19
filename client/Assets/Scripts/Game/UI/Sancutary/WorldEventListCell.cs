@@ -9,9 +9,6 @@ public class WorldEventListCell : NListCell {
 	UILabel titleLabel = null;
 	UILabel happenLabel = null;
 	UILabel contentLabel = null;
-	long remainTime = 0;
-	Coroutine co;
-	bool isHappened = false;
 	long endTime;
 	protected override void Awake()
 	{

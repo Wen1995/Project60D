@@ -1562,8 +1562,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114612255973949970, guid: 6c5478af496c34f469108fb5f6ddebba, type: 2}
-  mSpriteName: Apple-Icon
+  mAtlas: {fileID: 114322654203734280, guid: 695f76a957c234a439f9507d624e22a4, type: 2}
+  mSpriteName: food
   mFillCenter: 1
 --- !u!114 &114345510590523226
 MonoBehaviour:

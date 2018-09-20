@@ -28,6 +28,8 @@ public class UIBuildingCraftPanel : PanelBase {
 
 	UIButton cancelButton = null;
 	UIButton collectButton = null;
+	UISprite fromSprite = null;
+	UISprite toSprite = null;
 
 	Coroutine TimerCo = null;
 	
@@ -39,6 +41,8 @@ public class UIBuildingCraftPanel : PanelBase {
 	bool isCrafting = false;		//is this building occupied
 	bool isSelf = false;			//is you are using the building
 	bool isCollect = false;
+
+	bool sliderChangeFlag = false;
 	protected override void Awake()
 	{
 		fromItemName = transform.Find("inbox/production/fromitem/label").GetComponent<UILabel>();
@@ -50,6 +54,8 @@ public class UIBuildingCraftPanel : PanelBase {
 		timeLabel = transform.Find("inbox/production/timelabel").GetComponent<UILabel>();
 		describeLabel = transform.Find("inbox/ingredient/describe").GetComponent<UILabel>();
 		slider = transform.Find("inbox/ingredient/valuebar/slider").GetComponent<UISlider>();
+		fromSprite = transform.Find("inbox/production/fromitem/icon").GetComponent<UISprite>();
+		toSprite = transform.Find("inbox/production/toitem/icon").GetComponent<UISprite>();
 
 		UIButton button = transform.Find("inbox/ingredient/valuebar/plusbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnPlus));
@@ -95,17 +101,11 @@ public class UIBuildingCraftPanel : PanelBase {
 		//check if is crafting
 		isCrafting = false;
 		isCollect = false;
+	
 		if(GlobalFunction.GetRemainTime(info.processFinishTime, out remainTime))
-		{
 			isCrafting = true;
-		}
-		else
-		{
-			if(info.number > 0)
-				isCollect = true;
-		}
-		if(info.processUID == userPackage.UserID)
-			isSelf = true;
+		else if(info.number > 0)
+			isCollect = true;
 
 		toConfigID = buildingData.ProId;
 		fromConfigID = buildingData.ConId;
@@ -113,6 +113,7 @@ public class UIBuildingCraftPanel : PanelBase {
 		var itemDataMap = ConfigDataStatic.GetConfigDataTable("ITEM_RES");
 		ITEM_RES itemData = itemDataMap[fromConfigID] as ITEM_RES;
 		fromItemName.text = itemData.MinName;
+		fromSprite.spriteName = itemData.IconName;
 		ratio = buildingData.ConPro;
 		itemData = itemDataMap[toConfigID] as ITEM_RES;
 		toItemName.text = itemData.MinName;
@@ -125,16 +126,30 @@ public class UIBuildingCraftPanel : PanelBase {
 			craftMax = 0;
 		else
 		{
-			craftMax = (int)Mathf.Floor((float)itemInfo.number / (float)ratio);
-			slider.numberOfSteps = (int)Mathf.Floor((float)craftMax / (float)ratio);
-		}	
+			int toItemMax = (int)Mathf.Floor((float)itemInfo.number / (float)ratio);
+			craftMax = toItemMax * ratio;
+			slider.numberOfSteps = (int)Mathf.Ceil((float)craftMax / (float)ratio) + 1;
+		}
+		//check if is self
+		if(info.processUID == userPackage.UserID)
+			isSelf = true;
+		else
+			isSelf = false;
 		
 		//text
 		title.text = string.Format("{0} Lv.{1}", buildingData.BldgName, level);
 		collectButton.gameObject.SetActive(false);
 		cancelButton.gameObject.SetActive(false);
+		//stop timer
+		if(TimerCo != null)
+		{
+			timeLabel.text = "00:00";
+			StopCoroutine(TimerCo);
+		}
+			
 		if(isCrafting)
 		{
+			//check if is self
 			if(isSelf)
 			{
 				stateLabel.text = "你正在使用";
@@ -144,13 +159,10 @@ public class UIBuildingCraftPanel : PanelBase {
 			{
 				stateLabel.text = string.Format("玩家Uid{0}正在使用", info.processUID);
 			}
+
 			//set time
 			if(remainTime > 0)
-			{
-				if(TimerCo != null)
-					StopCoroutine(TimerCo);
 				TimerCo = StartCoroutine(Timer(remainTime));
-			}
 				
 		}
 		else if(isCollect)
@@ -160,10 +172,6 @@ public class UIBuildingCraftPanel : PanelBase {
 				
 				stateLabel.text = string.Format("可以领取{0}", info.number);
 				collectButton.gameObject.SetActive(true);
-			}
-			else
-			{
-				stateLabel.text = string.Format("等待玩家Uid{0}领取", info.processUID);
 			}
 			timeLabel.text = "00:00";
 		}
@@ -200,18 +208,23 @@ public class UIBuildingCraftPanel : PanelBase {
 
 	void OnPlus()
 	{
+		
 		if(CheckNum(craftNum + ratio))
 			craftNum += ratio;
+		sliderChangeFlag = true;
 		UpdateNumView();
 		UpdateSliderView();
+		sliderChangeFlag = false;
 	}
 
 	void OnMinus()
 	{
 		if(CheckNum(craftNum - ratio))
 			craftNum -= ratio;
+		sliderChangeFlag = true;
 		UpdateNumView();
 		UpdateSliderView();
+		sliderChangeFlag = false;
 	}
 
 	bool CheckNum(int num)
@@ -246,17 +259,18 @@ public class UIBuildingCraftPanel : PanelBase {
 	IEnumerator Timer(long remainTimer)
     {
         long time = remainTimer;
-		timeLabel.text = time.ToString();
+		timeLabel.text = GlobalFunction.TimeFormat(time);
         while(time > 0)
         {
             yield return new WaitForSeconds(1.0f);
             time--;
-            timeLabel.text = time.ToString();
+            timeLabel.text = GlobalFunction.TimeFormat(time);
         }
     }
 
 	public void OnValueChange()
 	{
+		if(sliderChangeFlag == true) return;
 		craftNum = (int)Mathf.Floor(slider.value * (float)craftMax);
 		UpdateNumView();
 	}

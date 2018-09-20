@@ -305,6 +305,16 @@ public class SSanctuaryController : SceneController
     void OnCraft(NetMsgDef msg)
     {
         TSCProcess process = TSCProcess.ParseFrom(msg.mBtsData);
+        if(process.Uid != 0)
+        {
+            NDictionary data = new NDictionary();
+            data.Add("content", string.Format("玩家{0}正在使用中", userPackage.GetUserInfo(process.Uid).name));
+            data.Add("title", "加工失败");
+            data.Add("method", 1);
+            FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+            SendEvent("OpenMsgBox", data);
+            return;
+        }
         sanctuaryPackage.StartCraft(process);
         long remainTime = 0;
         if(GlobalFunction.GetRemainTime(process.FinishTime, out remainTime))

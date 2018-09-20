@@ -53,10 +53,11 @@ public class MailBoxCell : NListCell {
 		zombiePower.gameObject.SetActive(true);
 		nameLabel.text = "僵尸入侵";
 		var date = GlobalFunction.DateFormat(info.time);
-		timeLabel.text = string.Format("{0:D2}年{1:D2}月 {2:D2}:{3:D2}",
+		timeLabel.text = string.Format("{0:D2}月{1:D2}日 {2:D2}:{3:D2}",
 		date.Month, date.Day, date.Hour, date.Minute);
-		contentLabel.text = "僵尸正在朝你的庄园行进，请做好准备";
-
+        date = GlobalFunction.DateFormat(info.zombieInfo.ZombieInvadeTime);
+        contentLabel.text = string.Format("僵尸正在朝你的庄园行进，请做好准备\n预计将在{0:D2}月{1:D2}日{2:D2}:{3:D2}抵达",
+		date.Month, date.Day, date.Hour, date.Minute);
 		ZOMBIE_ATTR config = ConfigDataStatic.GetConfigDataTable("ZOMBIE_ATTR")[info.zombieInfo.ConfigId] as ZOMBIE_ATTR;
 		zombieNum.text = string.Format("僵尸数量:{0}", config.ZombieNum);
 		zombiePower.text = string.Format("战斗力:{0}", 6324);
@@ -68,7 +69,7 @@ public class MailBoxCell : NListCell {
 		zombiePower.gameObject.SetActive(false);
 		nameLabel.text = "僵尸入侵";
 		var date = GlobalFunction.DateFormat(info.time);
-		timeLabel.text = string.Format("{0:D2}年{1:D2}月 {2:D2}:{3:D2}",
+		timeLabel.text = string.Format("{0:D2}月{1:D2}日 {2:D2}:{3:D2}",
 		date.Month, date.Day, date.Hour, date.Minute);
 		FightingInfo fightingInfo = info.fightingInfo;
 
@@ -115,6 +116,7 @@ public class MailBoxCell : NListCell {
 			args.Add("id", info.id);
 			FacadeSingleton.Instance.InvokeService("RPCReadMail", ConstVal.Service_Sanctuary, args);
 			info.isRead = true;
+			pointGo.SetActive(false);
 			mailPackage.SetUnreadMailCount(mailPackage.GetUnreadMailCount() - 1);
 			FacadeSingleton.Instance.SendEvent("RefreshMailTag");
 		}

@@ -25,7 +25,8 @@ public class GroupRankingListCell : NListCell {
 		levelLabel = transform.Find("manorinfo/brief/level").GetComponent<UILabel>();
 		contributeLabel = transform.Find("manorinfo/brief/contribution").GetComponent<UILabel>();
 		pointLabel = transform.Find("point/label").GetComponent<UILabel>();
-		UIButton button =transform.Find("visitbtn").GetComponent<UIButton>();
+		UIButton button = transform.Find("visitbtn").GetComponent<UIButton>();
+
 		button.onClick.Add(new EventDelegate(OnVisit));
 
 		Transform group = transform.Find("manorinfo/membergroup");

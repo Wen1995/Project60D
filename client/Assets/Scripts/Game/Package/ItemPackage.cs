@@ -271,7 +271,7 @@ public class ItemPackage : ModelBase
 
     public void SetResourceInfo(TSCGetResourceInfo msg)
     {
-        
+        mItemInfoMap.Clear();
         for(int i=0;i<msg.ResourceInfosCount;i++)
         {
             // var info = msg.GetResourceInfos(i);
@@ -293,7 +293,6 @@ public class ItemPackage : ModelBase
                 mItemServerData[data.ConfigId] = new NItemServerData();
             mItemServerData[data.ConfigId].price = data.Price;
             ITEM_RES config = GetItemDataByConfigID(data.ConfigId);
-            Debug.Log(string.Format("{0}, {1}", config.MinName, data.Price));
         }
         taxRate = msg.TaxRate;
     }

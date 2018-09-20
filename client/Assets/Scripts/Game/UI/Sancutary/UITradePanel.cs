@@ -104,6 +104,7 @@ public class UITradePanel : PanelBase {
 	public override void OpenPanel()
 	{
 		base.OpenPanel();
+		lineRenderer.gameObject.SetActive(true);
 		AskDataFromServer();
 	}
 
@@ -111,6 +112,7 @@ public class UITradePanel : PanelBase {
 	{
 		StopCoroutine(RefreshDate());
 		lineRenderer.positionCount = 0;
+		lineRenderer.gameObject.SetActive(false);
 		base.ClosePanel();
 	}
 
@@ -153,6 +155,10 @@ public class UITradePanel : PanelBase {
 		dynamicPackage.CalculateTradeInfo();
 		OnTabChange(0);
 		StartCoroutine(RefreshDate());
+		StartCoroutine(RefreshLimitTimer());
+		lineRenderer.positionCount = 0;
+		limitLabel.text = "";
+		priceLabel.text = "";
 	}
 
 	void RefreshView(NDictionary data = null)
@@ -325,8 +331,6 @@ public class UITradePanel : PanelBase {
 	void BuyItemResponce(NetMsgDef msg)
 	{
 		TSCBuyGoods res = TSCBuyGoods.ParseFrom(msg.mBtsData);
-		print(res.IsChange);
-		print(res.IsLimit);
 		string content;
 		if(res.IsChange)
 		{
@@ -385,28 +389,42 @@ public class UITradePanel : PanelBase {
 
 	void CreateGraphNode(List<NGraphNode> infoList, NGraphOverview overView, long startTime, long curTime)
 	{
-		AddPointCount(infoList.Count - graphPointList.Count);
+		AddPointCount(infoList.Count - graphPointList.Count + 3);
 		int count = 0;
 		
 		foreach(var info in infoList)
 		{
 			float yScale;
+			float posY;
 			if(overView.highPrice <= overView.lowPrice)
-				yScale = 0;
+			{
+				posY = graphYNodes[1].trans.position.y;
+			}
 			else
+			{
 				yScale = System.Convert.ToSingle((info.price - overView.lowPrice) / (overView.highPrice - overView.lowPrice));
+				posY = Mathf.Lerp(graphYNodes[2].trans.position.y, graphYNodes[0].trans.position.y, yScale);
+			}	
 			float xScale = (info.time - startTime) / (curTime - startTime);
-			float posY = Mathf.Lerp(graphYNodes[2].trans.position.y, graphYNodes[0].trans.position.y, yScale);
 			float posX = Mathf.Lerp(graphXNodes[0].trans.position.x, graphYNodes[2].trans.position.x, xScale);
 			GameObject point = graphPointList[count++];
-			point.transform.position = new Vector3(posX, posY, 0);
+			if(count == 1)
+				point.transform.position = new Vector3(posX, posY, 1);
+			else
+				point.transform.position = new Vector3(posX, posY, 0);
 			point.gameObject.SetActive(true);
 		}
 
 		// add current node
 		double curPrice = itemPackage.GetItemPrice(itemPackage.GetSelectionItemConfigID());
-		float scale = System.Convert.ToSingle((curPrice - overView.lowPrice) / (overView.highPrice - overView.lowPrice));
-		float curY = Mathf.Lerp(graphYNodes[2].trans.position.y, graphYNodes[0].trans.position.y, scale);
+		float curY;
+		if(overView.lowPrice == overView.highPrice)
+			curY = graphYNodes[1].trans.position.y;
+		else
+		{
+			float scale = System.Convert.ToSingle((curPrice - overView.lowPrice) / (overView.highPrice - overView.lowPrice));
+			curY = Mathf.Lerp(graphYNodes[2].trans.position.y, graphYNodes[0].trans.position.y, scale);
+		}
 		GameObject curNode = graphPointList[count++];
 		curNode.transform.position = new Vector3(graphXNodes[2].trans.position.x, curY, 0);
 		curNode.gameObject.SetActive(true);
@@ -437,7 +455,7 @@ public class UITradePanel : PanelBase {
 	void AddPointCount(int needCount)
 	{
 		if(needCount <= 0) return;
-		int count = needCount - graphPointList.Count + 5;
+		int count = needCount;
 		while(count-- >= 0)
 		{
 			GameObject go = graphPointList[0];
@@ -448,5 +466,51 @@ public class UITradePanel : PanelBase {
 			newGo.AddComponent<LineRenderer>();
 			graphPointList.Add(newGo);
 		}
+	}
+
+	IEnumerator RefreshLimitTimer()
+	{
+		long remainTime;
+		GetRefreshLimitRemaimtime(out remainTime);
+		cdTimeLabel.text = string.Format("下次刷新剩余时间{0}", GlobalFunction.TimeFormat(remainTime));
+		while(true)
+		{
+			yield return new WaitForSeconds(1.0f);
+			remainTime--;
+			cdTimeLabel.text = string.Format("下次刷新剩余时间{0}", GlobalFunction.TimeFormat(remainTime));
+			if(remainTime <= 0) GetRefreshLimitRemaimtime(out remainTime);
+		}
+	}
+
+	void GetRefreshLimitRemaimtime(out long remainTime)
+	{
+		System.DateTime curTime = System.DateTime.Now;
+		System.DateTime targetTime;
+		if(curTime.Hour >= 1 && curTime.Hour < 13)
+		{
+			targetTime = new System.DateTime(
+			curTime.Year,
+			curTime.Month,
+			curTime.Day,
+			13, 0, 0);
+		}
+		else if(curTime.Hour >= 0 && curTime.Hour < 1)
+		{
+			targetTime = new System.DateTime(
+			curTime.Year,
+			curTime.Month,
+			curTime.Day,
+			1, 0, 0);
+		}
+		else
+		{
+			targetTime = new System.DateTime(
+			curTime.Year,
+			curTime.Month,
+			curTime.Day,
+			1, 0, 0);
+			targetTime = targetTime.AddDays(1);
+		}
+		GlobalFunction.GetRemainTime(targetTime, out remainTime);
 	}
 }

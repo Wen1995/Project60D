@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class GlobalFunction {
 
-    private static DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
+    private static DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0);
     private static long DeltaTime = 0;
 
     public static string TimeFormat(long time)
@@ -16,7 +16,7 @@ public static class GlobalFunction {
 
     public static long GetTimeStamp()
     {
-        double curTime = (System.DateTime.UtcNow - epochStart).TotalMilliseconds;
+        double curTime = (System.DateTime.Now - epochStart).TotalMilliseconds;
         return System.Convert.ToInt64(curTime);
     }
 
@@ -40,6 +40,16 @@ public static class GlobalFunction {
             return false;
         }
         remainTime = (finishTime - curTime) / 1000;
+        return true;
+    }
+
+    public static bool GetRemainTime(DateTime targetTime, out long remainTime)
+    {
+        remainTime = 0;
+        DateTime curTime = System.DateTime.Now;
+        curTime.AddMilliseconds((double)-DeltaTime);
+        if(targetTime <= curTime) return false;
+        remainTime = System.Convert.ToInt64((targetTime - curTime).TotalSeconds);
         return true;
     }
 
@@ -114,22 +124,22 @@ public static class GlobalFunction {
     public static string TimeFormat(int time)
     {
         if(time < 60)               //less than a minute
-            return string.Format("00:{0}", time.ToString().PadLeft(2, '0'));
+            return string.Format("{0}S", time.ToString().PadLeft(2, '0'));
         else if(time < 3600)        //less than a hour
-            return string.Format("{0}:{1}", (time/60).ToString().PadLeft(2, '0'),
+            return string.Format("{0}M:{1}S", (time/60).ToString().PadLeft(2, '0'),
                                             (time%60).ToString().PadLeft(2, '0'));
         else if(time < 86400)       //less than a day
-            return string.Format("{0}:{1}", (time/3600).ToString().PadLeft(2, '0'),
-                                            (time%3600).ToString().PadLeft(2, '0'));
+            return string.Format("{0}H:{1}M", (time/3600).ToString().PadLeft(2, '0'),
+                                            (time%3600/60).ToString().PadLeft(2, '0'));
         else
-            return string.Format("{0}:{1}", (time/86400).ToString().PadLeft(2, '0'),
-                                            (time%86400).ToString().PadLeft(2, '0'));
+            return string.Format("{0}D:{1}H", (time/86400).ToString().PadLeft(2, '0'),
+                                            (time%86400/3600).ToString().PadLeft(2, '0'));
     }
 
     //time stamp should be milisec
     public static System.DateTime DateFormat(long timestamp)
     {
-        System.DateTime dtDateTime = new DateTime(1970,1,1,0,0,0,0,System.DateTimeKind.Utc);
+        System.DateTime dtDateTime = new DateTime(1970,1,1,0,0,0,0);
         dtDateTime = dtDateTime.AddMilliseconds(timestamp).ToLocalTime();
         return dtDateTime;
     }
@@ -173,6 +183,7 @@ public static class GlobalFunction {
         NDictionary data = new NDictionary();
         string content = string.Format("此功能尚未完成，请期待后续版本");
         data.Add("content", content);
+        FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
         FacadeSingleton.Instance.SendEvent("OpenTips", data);
     }
 }

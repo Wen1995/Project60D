@@ -89,9 +89,12 @@ public class Building : Controller {
             {    
                 mState = BuildingState.Upgrade;
             }
-            else if(GlobalFunction.GetRemainTime(info.processFinishTime, out remainTime) && info.number > 0)
+            else if(info.processUID != 0 && info.number > 0)
             {
-                mState = BuildingState.Craft;
+                if(GlobalFunction.GetRemainTime(info.processFinishTime, out remainTime))
+                    mState = BuildingState.Craft;
+                else
+                    mState = BuildingState.Collect;
             }
             else if(info.number > 0)
             {

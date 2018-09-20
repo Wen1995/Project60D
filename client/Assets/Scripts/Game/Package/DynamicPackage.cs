@@ -192,7 +192,7 @@ public class DynamicPackage : ModelBase
         NGraphNode node = null;
         //add start node
         node = new NGraphNode();
-        node.price = itemConfig.GoldConv / 1000;
+        node.price = (double)itemConfig.GoldConv / 1000d;
         node.time = startTime;
         mGraphInfoList.Add(node);
 

@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class CommonService : ServiceBase {
 
-    //const string HOST = "192.168.80.17";
-    const string HOST = "192.168.90.74";
+    const string HOST = "192.168.80.17";
+    //const string HOST = "192.168.90.74";
     const int PORT = 8008;
 
     public void Login(NDictionary args)

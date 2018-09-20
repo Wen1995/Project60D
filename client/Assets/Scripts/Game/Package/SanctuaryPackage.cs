@@ -334,6 +334,7 @@ public class SanctuaryPackage : ModelBase {
 
     public void StartCraft(TSCProcess process)
     {
+        UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
         NBuildingInfo info = GetBuildingInfo(process.BuildingId);
         if(info == null)
         {
@@ -341,7 +342,7 @@ public class SanctuaryPackage : ModelBase {
             return;
         }
         info.processFinishTime = process.FinishTime;
-        info.processUID = process.Uid;
+        info.processUID = userPackage.UserID;
         info.number = process.Number;
         info.building.RefreshView();
     }
@@ -367,6 +368,7 @@ public class SanctuaryPackage : ModelBase {
         }
          info.number = 0;
          info.building.RefreshView();
+         FacadeSingleton.Instance.SendEvent("RefreshCraftPanel");
     }
 
     public void CancelCraft(long buildingID)
@@ -378,7 +380,8 @@ public class SanctuaryPackage : ModelBase {
             return;
         }
         info.number = 0;
-        info.building.RefreshView();
+        info.processUID = 0;
+        info.processFinishTime = 0;
     }
 
     public void SetBuildingCollectable(long buildingID)

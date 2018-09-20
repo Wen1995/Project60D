@@ -171,20 +171,26 @@ message WORLD_EVENTS{
     optional int32 xiezi2 = 81 [default = 0];
     /** 3级越野靴*100 */
     optional int32 xiezi3 = 82 [default = 0];
+    /** 1级背包 */
+    optional int32 knapsack1 = 83 [default = 0];
+    /** 2级背包 */
+    optional int32 knapsack2 = 84 [default = 0];
+    /** 3级背包 */
+    optional int32 knapsack3 = 85 [default = 0];
     /** 矿物质水*100 */
-    optional int32 kuangquanshui = 83 [default = 0];
+    optional int32 kuangquanshui = 86 [default = 0];
     /** 饲料*100 */
-    optional int32 siliao = 84 [default = 0];
+    optional int32 siliao = 87 [default = 0];
     /** 猪肉*100 */
-    optional int32 zhurou = 85 [default = 0];
+    optional int32 zhurou = 88 [default = 0];
     /** 汽油*100 */
-    optional int32 qiyou = 86 [default = 0];
+    optional int32 qiyou = 89 [default = 0];
     /** 钢*100 */
-    optional int32 gang = 87 [default = 0];
+    optional int32 gang = 90 [default = 0];
     /** 松木板*100 */
-    optional int32 songmuban = 88 [default = 0];
+    optional int32 songmuban = 91 [default = 0];
     /** 混凝土*100 */
-    optional int32 hunningtu = 89 [default = 0];
+    optional int32 hunningtu = 92 [default = 0];
 }
 
 message WORLD_EVENTS_ARRAY {

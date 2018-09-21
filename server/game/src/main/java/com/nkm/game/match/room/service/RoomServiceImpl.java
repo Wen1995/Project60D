@@ -45,7 +45,7 @@ public class RoomServiceImpl implements RoomService {
     public TPacket createGroup(Long uid, String name) throws Exception {
         Long groupId = IdManager.GetInstance().genId(IdType.GROUP);
         Long storehouseId = IdManager.GetInstance().genId(IdType.BUILDING);
-        Long batteryId = IdManager.GetInstance().genId(IdType.BUILDING);
+        //Long batteryId = IdManager.GetInstance().genId(IdType.BUILDING);
         long time = System.currentTimeMillis();
         
         Group group = new Group();
@@ -55,7 +55,7 @@ public class RoomServiceImpl implements RoomService {
         group.setTotalContribution(0);
         group.setGroupGold(0);
         group.setStorehouseId(storehouseId);
-        group.setBatteryId(batteryId);
+        //group.setBatteryId(batteryId);
         group.setInvadeTime(new Date());
         groupDao.insert(group);
         DynamicDataManager.GetInstance().groupId2InvadeTime.put(groupId, time);
@@ -85,7 +85,7 @@ public class RoomServiceImpl implements RoomService {
         buildingDao.insertByGroupId(building);
         
         // 创建电池
-        building = new Building();
+        /*building = new Building();
         building.setId(batteryId);
         building.setGroupId(groupId);
         building.setPositionX(0);
@@ -99,7 +99,7 @@ public class RoomServiceImpl implements RoomService {
                 .setUpgradeInfo(upgradeInfo)
                 .build();
         building.setState(buildingState.toByteArray());
-        buildingDao.insertByGroupId(building);
+        buildingDao.insertByGroupId(building);*/
         
         // TODO 所有建筑满级
         /*Set<Integer> set = new HashSet<>();

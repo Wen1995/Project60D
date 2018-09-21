@@ -453,6 +453,10 @@ public class SceneServiceImpl implements SceneService {
                         userDao.update(user);
                         
                         // 增加公司的总贡献
+                        buildingId = IdManager.GetInstance().genId(IdType.BUILDING);
+                        if (configId == 113040001) {
+                            group.setBatteryId(buildingId);
+                        }
                         totalContribution += addContribution;
                         group.setTotalContribution(totalContribution);
                         groupDao.update(group);
@@ -462,10 +466,9 @@ public class SceneServiceImpl implements SceneService {
                         int sec = buildingAttr.getTimeCost();
                         finishTime = System.currentTimeMillis() + sec * 1000;
                         
-                        buildingId = IdManager.GetInstance().genId(IdType.BUILDING);
                         Building building = new Building();
                         building.setId(buildingId);
-                        building.setGroupId(user.getGroupId());
+                        building.setGroupId(groupId);
                         building.setConfigId(configId);
                         UpgradeInfo upgradeInfo = UpgradeInfo.newBuilder()
                                 .setUid(uid)

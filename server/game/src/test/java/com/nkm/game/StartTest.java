@@ -9,8 +9,10 @@ import org.json.JSONObject;
 import com.google.common.base.CaseFormat;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.nkm.framework.console.factory.ServiceFactory;
+import com.nkm.framework.dbcache.dao.IBuildingDao;
 import com.nkm.framework.dbcache.dao.IGroupDao;
 import com.nkm.framework.dbcache.dao.IUserDao;
+import com.nkm.framework.dbcache.dao.impl.BuildingDao;
 import com.nkm.framework.dbcache.dao.impl.GroupDao;
 import com.nkm.framework.dbcache.dao.impl.UserDao;
 import com.nkm.framework.dbcache.model.Building;
@@ -20,6 +22,7 @@ import com.nkm.framework.dbcache.model.User;
 import com.nkm.framework.protocol.User.ResourceInfo;
 import com.nkm.framework.protocol.User.UserResource;
 import com.nkm.framework.resource.StaticDataManager;
+import com.nkm.framework.resource.data.BuildingBytes.BUILDING;
 import com.nkm.framework.resource.data.ItemResBytes.ITEM_RES;
 import com.nkm.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.nkm.framework.utils.DateTimeUtils;
@@ -28,9 +31,16 @@ import com.nkm.framework.utils.ReadOnlyMap;
 public class StartTest {
     static IUserDao userDao = ServiceFactory.getProxy(UserDao.class);
     static IGroupDao groupDao = ServiceFactory.getProxy(GroupDao.class);
+    static IBuildingDao buildingDao = ServiceFactory.getProxy(BuildingDao.class);
 
     public static void main(String[] args) {
         //jSONObject();
+        StaticDataManager.GetInstance().init();
+        ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
+        List<Building> buildings = buildingDao.getAllByGroupId(3307124817936L);
+        for (Building b : buildings) {
+            System.out.println(buildingMap.get(b.getConfigId()).getBldgName());
+        }
     }
 
     private static void getGroupInfo() {

@@ -1452,55 +1452,55 @@ public final class WorldEventsBytes {
     int getXiezi3();
 
     /**
-     * <code>optional int32 knapsack1 = 83 [default = 0];</code>
+     * <code>optional int32 beibao1 = 83 [default = 0];</code>
      *
      * <pre>
      ** 1级背包 
      * </pre>
      */
-    boolean hasKnapsack1();
+    boolean hasBeibao1();
     /**
-     * <code>optional int32 knapsack1 = 83 [default = 0];</code>
+     * <code>optional int32 beibao1 = 83 [default = 0];</code>
      *
      * <pre>
      ** 1级背包 
      * </pre>
      */
-    int getKnapsack1();
+    int getBeibao1();
 
     /**
-     * <code>optional int32 knapsack2 = 84 [default = 0];</code>
+     * <code>optional int32 beibao2 = 84 [default = 0];</code>
      *
      * <pre>
      ** 2级背包 
      * </pre>
      */
-    boolean hasKnapsack2();
+    boolean hasBeibao2();
     /**
-     * <code>optional int32 knapsack2 = 84 [default = 0];</code>
+     * <code>optional int32 beibao2 = 84 [default = 0];</code>
      *
      * <pre>
      ** 2级背包 
      * </pre>
      */
-    int getKnapsack2();
+    int getBeibao2();
 
     /**
-     * <code>optional int32 knapsack3 = 85 [default = 0];</code>
+     * <code>optional int32 beibao3 = 85 [default = 0];</code>
      *
      * <pre>
      ** 3级背包 
      * </pre>
      */
-    boolean hasKnapsack3();
+    boolean hasBeibao3();
     /**
-     * <code>optional int32 knapsack3 = 85 [default = 0];</code>
+     * <code>optional int32 beibao3 = 85 [default = 0];</code>
      *
      * <pre>
      ** 3级背包 
      * </pre>
      */
-    int getKnapsack3();
+    int getBeibao3();
 
     /**
      * <code>optional int32 kuangquanshui = 86 [default = 0];</code>
@@ -2092,17 +2092,17 @@ public final class WorldEventsBytes {
             }
             case 664: {
               bitField2_ |= 0x00040000;
-              knapsack1_ = input.readInt32();
+              beibao1_ = input.readInt32();
               break;
             }
             case 672: {
               bitField2_ |= 0x00080000;
-              knapsack2_ = input.readInt32();
+              beibao2_ = input.readInt32();
               break;
             }
             case 680: {
               bitField2_ |= 0x00100000;
-              knapsack3_ = input.readInt32();
+              beibao3_ = input.readInt32();
               break;
             }
             case 688: {
@@ -4223,73 +4223,73 @@ public final class WorldEventsBytes {
       return xiezi3_;
     }
 
-    public static final int KNAPSACK1_FIELD_NUMBER = 83;
-    private int knapsack1_;
+    public static final int BEIBAO1_FIELD_NUMBER = 83;
+    private int beibao1_;
     /**
-     * <code>optional int32 knapsack1 = 83 [default = 0];</code>
+     * <code>optional int32 beibao1 = 83 [default = 0];</code>
      *
      * <pre>
      ** 1级背包 
      * </pre>
      */
-    public boolean hasKnapsack1() {
+    public boolean hasBeibao1() {
       return ((bitField2_ & 0x00040000) == 0x00040000);
     }
     /**
-     * <code>optional int32 knapsack1 = 83 [default = 0];</code>
+     * <code>optional int32 beibao1 = 83 [default = 0];</code>
      *
      * <pre>
      ** 1级背包 
      * </pre>
      */
-    public int getKnapsack1() {
-      return knapsack1_;
+    public int getBeibao1() {
+      return beibao1_;
     }
 
-    public static final int KNAPSACK2_FIELD_NUMBER = 84;
-    private int knapsack2_;
+    public static final int BEIBAO2_FIELD_NUMBER = 84;
+    private int beibao2_;
     /**
-     * <code>optional int32 knapsack2 = 84 [default = 0];</code>
+     * <code>optional int32 beibao2 = 84 [default = 0];</code>
      *
      * <pre>
      ** 2级背包 
      * </pre>
      */
-    public boolean hasKnapsack2() {
+    public boolean hasBeibao2() {
       return ((bitField2_ & 0x00080000) == 0x00080000);
     }
     /**
-     * <code>optional int32 knapsack2 = 84 [default = 0];</code>
+     * <code>optional int32 beibao2 = 84 [default = 0];</code>
      *
      * <pre>
      ** 2级背包 
      * </pre>
      */
-    public int getKnapsack2() {
-      return knapsack2_;
+    public int getBeibao2() {
+      return beibao2_;
     }
 
-    public static final int KNAPSACK3_FIELD_NUMBER = 85;
-    private int knapsack3_;
+    public static final int BEIBAO3_FIELD_NUMBER = 85;
+    private int beibao3_;
     /**
-     * <code>optional int32 knapsack3 = 85 [default = 0];</code>
+     * <code>optional int32 beibao3 = 85 [default = 0];</code>
      *
      * <pre>
      ** 3级背包 
      * </pre>
      */
-    public boolean hasKnapsack3() {
+    public boolean hasBeibao3() {
       return ((bitField2_ & 0x00100000) == 0x00100000);
     }
     /**
-     * <code>optional int32 knapsack3 = 85 [default = 0];</code>
+     * <code>optional int32 beibao3 = 85 [default = 0];</code>
      *
      * <pre>
      ** 3级背包 
      * </pre>
      */
-    public int getKnapsack3() {
-      return knapsack3_;
+    public int getBeibao3() {
+      return beibao3_;
     }
 
     public static final int KUANGQUANSHUI_FIELD_NUMBER = 86;
@@ -4536,9 +4536,9 @@ public final class WorldEventsBytes {
       xiezi1_ = 0;
       xiezi2_ = 0;
       xiezi3_ = 0;
-      knapsack1_ = 0;
-      knapsack2_ = 0;
-      knapsack3_ = 0;
+      beibao1_ = 0;
+      beibao2_ = 0;
+      beibao3_ = 0;
       kuangquanshui_ = 0;
       siliao_ = 0;
       zhurou_ = 0;
@@ -4811,13 +4811,13 @@ public final class WorldEventsBytes {
         output.writeInt32(82, xiezi3_);
       }
       if (((bitField2_ & 0x00040000) == 0x00040000)) {
-        output.writeInt32(83, knapsack1_);
+        output.writeInt32(83, beibao1_);
       }
       if (((bitField2_ & 0x00080000) == 0x00080000)) {
-        output.writeInt32(84, knapsack2_);
+        output.writeInt32(84, beibao2_);
       }
       if (((bitField2_ & 0x00100000) == 0x00100000)) {
-        output.writeInt32(85, knapsack3_);
+        output.writeInt32(85, beibao3_);
       }
       if (((bitField2_ & 0x00200000) == 0x00200000)) {
         output.writeInt32(86, kuangquanshui_);
@@ -5179,15 +5179,15 @@ public final class WorldEventsBytes {
       }
       if (((bitField2_ & 0x00040000) == 0x00040000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(83, knapsack1_);
+          .computeInt32Size(83, beibao1_);
       }
       if (((bitField2_ & 0x00080000) == 0x00080000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(84, knapsack2_);
+          .computeInt32Size(84, beibao2_);
       }
       if (((bitField2_ & 0x00100000) == 0x00100000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(85, knapsack3_);
+          .computeInt32Size(85, beibao3_);
       }
       if (((bitField2_ & 0x00200000) == 0x00200000)) {
         size += com.google.protobuf.CodedOutputStream
@@ -5498,11 +5498,11 @@ public final class WorldEventsBytes {
         bitField2_ = (bitField2_ & ~0x00010000);
         xiezi3_ = 0;
         bitField2_ = (bitField2_ & ~0x00020000);
-        knapsack1_ = 0;
+        beibao1_ = 0;
         bitField2_ = (bitField2_ & ~0x00040000);
-        knapsack2_ = 0;
+        beibao2_ = 0;
         bitField2_ = (bitField2_ & ~0x00080000);
-        knapsack3_ = 0;
+        beibao3_ = 0;
         bitField2_ = (bitField2_ & ~0x00100000);
         kuangquanshui_ = 0;
         bitField2_ = (bitField2_ & ~0x00200000);
@@ -5881,15 +5881,15 @@ public final class WorldEventsBytes {
         if (((from_bitField2_ & 0x00040000) == 0x00040000)) {
           to_bitField2_ |= 0x00040000;
         }
-        result.knapsack1_ = knapsack1_;
+        result.beibao1_ = beibao1_;
         if (((from_bitField2_ & 0x00080000) == 0x00080000)) {
           to_bitField2_ |= 0x00080000;
         }
-        result.knapsack2_ = knapsack2_;
+        result.beibao2_ = beibao2_;
         if (((from_bitField2_ & 0x00100000) == 0x00100000)) {
           to_bitField2_ |= 0x00100000;
         }
-        result.knapsack3_ = knapsack3_;
+        result.beibao3_ = beibao3_;
         if (((from_bitField2_ & 0x00200000) == 0x00200000)) {
           to_bitField2_ |= 0x00200000;
         }
@@ -6192,14 +6192,14 @@ public final class WorldEventsBytes {
         if (other.hasXiezi3()) {
           setXiezi3(other.getXiezi3());
         }
-        if (other.hasKnapsack1()) {
-          setKnapsack1(other.getKnapsack1());
+        if (other.hasBeibao1()) {
+          setBeibao1(other.getBeibao1());
         }
-        if (other.hasKnapsack2()) {
-          setKnapsack2(other.getKnapsack2());
+        if (other.hasBeibao2()) {
+          setBeibao2(other.getBeibao2());
         }
-        if (other.hasKnapsack3()) {
-          setKnapsack3(other.getKnapsack3());
+        if (other.hasBeibao3()) {
+          setBeibao3(other.getBeibao3());
         }
         if (other.hasKuangquanshui()) {
           setKuangquanshui(other.getKuangquanshui());
@@ -10451,146 +10451,146 @@ public final class WorldEventsBytes {
         return this;
       }
 
-      private int knapsack1_ ;
+      private int beibao1_ ;
       /**
-       * <code>optional int32 knapsack1 = 83 [default = 0];</code>
+       * <code>optional int32 beibao1 = 83 [default = 0];</code>
        *
        * <pre>
        ** 1级背包 
        * </pre>
        */
-      public boolean hasKnapsack1() {
+      public boolean hasBeibao1() {
         return ((bitField2_ & 0x00040000) == 0x00040000);
       }
       /**
-       * <code>optional int32 knapsack1 = 83 [default = 0];</code>
+       * <code>optional int32 beibao1 = 83 [default = 0];</code>
        *
        * <pre>
        ** 1级背包 
        * </pre>
        */
-      public int getKnapsack1() {
-        return knapsack1_;
+      public int getBeibao1() {
+        return beibao1_;
       }
       /**
-       * <code>optional int32 knapsack1 = 83 [default = 0];</code>
+       * <code>optional int32 beibao1 = 83 [default = 0];</code>
        *
        * <pre>
        ** 1级背包 
        * </pre>
        */
-      public Builder setKnapsack1(int value) {
+      public Builder setBeibao1(int value) {
         bitField2_ |= 0x00040000;
-        knapsack1_ = value;
+        beibao1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 knapsack1 = 83 [default = 0];</code>
+       * <code>optional int32 beibao1 = 83 [default = 0];</code>
        *
        * <pre>
        ** 1级背包 
        * </pre>
        */
-      public Builder clearKnapsack1() {
+      public Builder clearBeibao1() {
         bitField2_ = (bitField2_ & ~0x00040000);
-        knapsack1_ = 0;
+        beibao1_ = 0;
         onChanged();
         return this;
       }
 
-      private int knapsack2_ ;
+      private int beibao2_ ;
       /**
-       * <code>optional int32 knapsack2 = 84 [default = 0];</code>
+       * <code>optional int32 beibao2 = 84 [default = 0];</code>
        *
        * <pre>
        ** 2级背包 
        * </pre>
        */
-      public boolean hasKnapsack2() {
+      public boolean hasBeibao2() {
         return ((bitField2_ & 0x00080000) == 0x00080000);
       }
       /**
-       * <code>optional int32 knapsack2 = 84 [default = 0];</code>
+       * <code>optional int32 beibao2 = 84 [default = 0];</code>
        *
        * <pre>
        ** 2级背包 
        * </pre>
        */
-      public int getKnapsack2() {
-        return knapsack2_;
+      public int getBeibao2() {
+        return beibao2_;
       }
       /**
-       * <code>optional int32 knapsack2 = 84 [default = 0];</code>
+       * <code>optional int32 beibao2 = 84 [default = 0];</code>
        *
        * <pre>
        ** 2级背包 
        * </pre>
        */
-      public Builder setKnapsack2(int value) {
+      public Builder setBeibao2(int value) {
         bitField2_ |= 0x00080000;
-        knapsack2_ = value;
+        beibao2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 knapsack2 = 84 [default = 0];</code>
+       * <code>optional int32 beibao2 = 84 [default = 0];</code>
        *
        * <pre>
        ** 2级背包 
        * </pre>
        */
-      public Builder clearKnapsack2() {
+      public Builder clearBeibao2() {
         bitField2_ = (bitField2_ & ~0x00080000);
-        knapsack2_ = 0;
+        beibao2_ = 0;
         onChanged();
         return this;
       }
 
-      private int knapsack3_ ;
+      private int beibao3_ ;
       /**
-       * <code>optional int32 knapsack3 = 85 [default = 0];</code>
+       * <code>optional int32 beibao3 = 85 [default = 0];</code>
        *
        * <pre>
        ** 3级背包 
        * </pre>
        */
-      public boolean hasKnapsack3() {
+      public boolean hasBeibao3() {
         return ((bitField2_ & 0x00100000) == 0x00100000);
       }
       /**
-       * <code>optional int32 knapsack3 = 85 [default = 0];</code>
+       * <code>optional int32 beibao3 = 85 [default = 0];</code>
        *
        * <pre>
        ** 3级背包 
        * </pre>
        */
-      public int getKnapsack3() {
-        return knapsack3_;
+      public int getBeibao3() {
+        return beibao3_;
       }
       /**
-       * <code>optional int32 knapsack3 = 85 [default = 0];</code>
+       * <code>optional int32 beibao3 = 85 [default = 0];</code>
        *
        * <pre>
        ** 3级背包 
        * </pre>
        */
-      public Builder setKnapsack3(int value) {
+      public Builder setBeibao3(int value) {
         bitField2_ |= 0x00100000;
-        knapsack3_ = value;
+        beibao3_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 knapsack3 = 85 [default = 0];</code>
+       * <code>optional int32 beibao3 = 85 [default = 0];</code>
        *
        * <pre>
        ** 3级背包 
        * </pre>
        */
-      public Builder clearKnapsack3() {
+      public Builder clearBeibao3() {
         bitField2_ = (bitField2_ & ~0x00100000);
-        knapsack3_ = 0;
+        beibao3_ = 0;
         onChanged();
         return this;
       }
@@ -11650,7 +11650,7 @@ public final class WorldEventsBytes {
   static {
     java.lang.String[] descriptorData = {
       "\n\036proto/world_events_bytes.proto\022\037com.nk" +
-      "m.framework.resource.data\"\376\017\n\014WORLD_EVEN" +
+      "m.framework.resource.data\"\370\017\n\014WORLD_EVEN" +
       "TS\022\r\n\002id\030\001 \002(\005:\0010\022\024\n\nevent_name\030\002 \001(\t:\000\022" +
       "\027\n\014event_unlock\030\003 \001(\005:\0010\022\024\n\nevent_desc\030\004" +
       " \001(\t:\000\022\024\n\nevent_news\030\005 \001(\t:\000\022\032\n\020event_ne" +
@@ -11696,14 +11696,14 @@ public final class WorldEventsBytes {
       "i2\030K \001(\005:\0010\022\025\n\nfangdanyi3\030L \001(\005:\0010\022\020\n\005ku" +
       "zi1\030M \001(\005:\0010\022\020\n\005kuzi2\030N \001(\005:\0010\022\020\n\005kuzi3\030" +
       "O \001(\005:\0010\022\021\n\006xiezi1\030P \001(\005:\0010\022\021\n\006xiezi2\030Q " +
-      "\001(\005:\0010\022\021\n\006xiezi3\030R \001(\005:\0010\022\024\n\tknapsack1\030S" +
-      " \001(\005:\0010\022\024\n\tknapsack2\030T \001(\005:\0010\022\024\n\tknapsac" +
-      "k3\030U \001(\005:\0010\022\030\n\rkuangquanshui\030V \001(\005:\0010\022\021\n",
-      "\006siliao\030W \001(\005:\0010\022\021\n\006zhurou\030X \001(\005:\0010\022\020\n\005q" +
-      "iyou\030Y \001(\005:\0010\022\017\n\004gang\030Z \001(\005:\0010\022\024\n\tsongmu" +
-      "ban\030[ \001(\005:\0010\022\024\n\thunningtu\030\\ \001(\005:\0010\"R\n\022WO" +
-      "RLD_EVENTS_ARRAY\022<\n\005items\030\001 \003(\0132-.com.nk" +
-      "m.framework.resource.data.WORLD_EVENTS"
+      "\001(\005:\0010\022\021\n\006xiezi3\030R \001(\005:\0010\022\022\n\007beibao1\030S \001" +
+      "(\005:\0010\022\022\n\007beibao2\030T \001(\005:\0010\022\022\n\007beibao3\030U \001" +
+      "(\005:\0010\022\030\n\rkuangquanshui\030V \001(\005:\0010\022\021\n\006silia",
+      "o\030W \001(\005:\0010\022\021\n\006zhurou\030X \001(\005:\0010\022\020\n\005qiyou\030Y" +
+      " \001(\005:\0010\022\017\n\004gang\030Z \001(\005:\0010\022\024\n\tsongmuban\030[ " +
+      "\001(\005:\0010\022\024\n\thunningtu\030\\ \001(\005:\0010\"R\n\022WORLD_EV" +
+      "ENTS_ARRAY\022<\n\005items\030\001 \003(\0132-.com.nkm.fram" +
+      "ework.resource.data.WORLD_EVENTS"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11722,7 +11722,7 @@ public final class WorldEventsBytes {
     internal_static_com_nkm_framework_resource_data_WORLD_EVENTS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_nkm_framework_resource_data_WORLD_EVENTS_descriptor,
-        new java.lang.String[] { "Id", "EventName", "EventUnlock", "EventDesc", "EventNews", "EventNewsdetail", "EventDuration", "EventIcon", "EventProb", "ConProb", "InvaProb", "ZombieAtk", "ZombieDef", "ZombieHp", "ZombieNum", "Health", "Mood", "DamiBldgcap", "ShucaiBldgcap", "ShuiguoBldgcap", "JingBldgcap", "LushuiBldgcap", "SongshuBldgcap", "TaiyangnengBldgcap", "HuafeiBldgcap", "DamiBldgspd", "ShucaiBldgspd", "ShuiguoBldgspd", "JingBldgspd", "LushuiBldgspd", "SongshuBldgspd", "TaiyangnengBldgspd", "HuafeiBldgspd", "WuxiandianBldg", "LeidaBldg", "CarBldgspd", "TaxCoeff", "Dami", "Shucai", "Shuiguo", "Huafei", "Shui", "Songmu", "Shuini", "Cao", "Yuanyou", "Tie", "Jijiubao", "Rizhi", "Jiqiangtuzhi", "Jujituzhi", "Jipaotuzhi", "Yuanlongping", "Huafeigongye", "Yangzhu", "Cangchu", "Tesila", "Luokefeile", "Kanaiji", "Luban", "Tumu", "Fangdao", "Makeqin", "Wodefendou", "Jiatelin", "Wbaleite", "Guanren", "Toukui1", "Toukui2", "Toukui3", "Shouqiang1", "Buqiang1", "Qingjiqiang1", "Fangdanyi1", "Fangdanyi2", "Fangdanyi3", "Kuzi1", "Kuzi2", "Kuzi3", "Xiezi1", "Xiezi2", "Xiezi3", "Knapsack1", "Knapsack2", "Knapsack3", "Kuangquanshui", "Siliao", "Zhurou", "Qiyou", "Gang", "Songmuban", "Hunningtu", });
+        new java.lang.String[] { "Id", "EventName", "EventUnlock", "EventDesc", "EventNews", "EventNewsdetail", "EventDuration", "EventIcon", "EventProb", "ConProb", "InvaProb", "ZombieAtk", "ZombieDef", "ZombieHp", "ZombieNum", "Health", "Mood", "DamiBldgcap", "ShucaiBldgcap", "ShuiguoBldgcap", "JingBldgcap", "LushuiBldgcap", "SongshuBldgcap", "TaiyangnengBldgcap", "HuafeiBldgcap", "DamiBldgspd", "ShucaiBldgspd", "ShuiguoBldgspd", "JingBldgspd", "LushuiBldgspd", "SongshuBldgspd", "TaiyangnengBldgspd", "HuafeiBldgspd", "WuxiandianBldg", "LeidaBldg", "CarBldgspd", "TaxCoeff", "Dami", "Shucai", "Shuiguo", "Huafei", "Shui", "Songmu", "Shuini", "Cao", "Yuanyou", "Tie", "Jijiubao", "Rizhi", "Jiqiangtuzhi", "Jujituzhi", "Jipaotuzhi", "Yuanlongping", "Huafeigongye", "Yangzhu", "Cangchu", "Tesila", "Luokefeile", "Kanaiji", "Luban", "Tumu", "Fangdao", "Makeqin", "Wodefendou", "Jiatelin", "Wbaleite", "Guanren", "Toukui1", "Toukui2", "Toukui3", "Shouqiang1", "Buqiang1", "Qingjiqiang1", "Fangdanyi1", "Fangdanyi2", "Fangdanyi3", "Kuzi1", "Kuzi2", "Kuzi3", "Xiezi1", "Xiezi2", "Xiezi3", "Beibao1", "Beibao2", "Beibao3", "Kuangquanshui", "Siliao", "Zhurou", "Qiyou", "Gang", "Songmuban", "Hunningtu", });
     internal_static_com_nkm_framework_resource_data_WORLD_EVENTS_ARRAY_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_nkm_framework_resource_data_WORLD_EVENTS_ARRAY_fieldAccessorTable = new

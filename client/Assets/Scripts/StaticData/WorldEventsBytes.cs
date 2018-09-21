@@ -28,8 +28,8 @@ namespace com.nkm.framework.resource.data {
   public sealed partial class WORLD_EVENTS : pb::GeneratedMessageLite<WORLD_EVENTS, WORLD_EVENTS.Builder> {
     private WORLD_EVENTS() { }
     private static readonly WORLD_EVENTS defaultInstance = new WORLD_EVENTS().MakeReadOnly();
-    private static readonly string[] _wORLDEVENTSFieldNames = new string[] { "buqiang1", "cangchu", "cao", "car_bldgspd", "con_prob", "dami", "dami_bldgcap", "dami_bldgspd", "event_desc", "event_duration", "event_icon", "event_name", "event_news", "event_newsdetail", "event_prob", "event_unlock", "fangdanyi1", "fangdanyi2", "fangdanyi3", "fangdao", "gang", "guanren", "health", "huafei", "huafei_bldgcap", "huafei_bldgspd", "huafeigongye", "hunningtu", "id", "inva_prob", "jiatelin", "jijiubao", "jing_bldgcap", "jing_bldgspd", "jipaotuzhi", "jiqiangtuzhi", "jujituzhi", "kanaiji", "knapsack1", "knapsack2", "knapsack3", "kuangquanshui", "kuzi1", "kuzi2", "kuzi3", "leida_bldg", "luban", "luokefeile", "lushui_bldgcap", "lushui_bldgspd", "makeqin", "mood", "qingjiqiang1", "qiyou", "rizhi", "shouqiang1", "shucai", "shucai_bldgcap", "shucai_bldgspd", "shui", "shuiguo", "shuiguo_bldgcap", "shuiguo_bldgspd", "shuini", "siliao", "songmu", "songmuban", "songshu_bldgcap", "songshu_bldgspd", "taiyangneng_bldgcap", "taiyangneng_bldgspd", "tax_coeff", "tesila", "tie", "toukui1", "toukui2", "toukui3", "tumu", "wbaleite", "wodefendou", "wuxiandian_bldg", "xiezi1", "xiezi2", "xiezi3", "yangzhu", "yuanlongping", "yuanyou", "zhurou", "zombie_atk", "zombie_def", "zombie_hp", "zombie_num" };
-    private static readonly uint[] _wORLDEVENTSFieldTags = new uint[] { 576, 448, 360, 288, 80, 304, 144, 208, 34, 56, 66, 18, 42, 50, 72, 24, 592, 600, 608, 496, 720, 536, 128, 328, 200, 264, 432, 736, 8, 88, 520, 384, 168, 232, 416, 400, 408, 472, 664, 672, 680, 688, 616, 624, 632, 280, 480, 464, 176, 240, 504, 136, 584, 712, 392, 568, 312, 152, 216, 336, 320, 160, 224, 352, 696, 344, 728, 184, 248, 192, 256, 296, 456, 376, 544, 552, 560, 488, 528, 512, 272, 640, 648, 656, 440, 424, 368, 704, 96, 104, 112, 120 };
+    private static readonly string[] _wORLDEVENTSFieldNames = new string[] { "beibao1", "beibao2", "beibao3", "buqiang1", "cangchu", "cao", "car_bldgspd", "con_prob", "dami", "dami_bldgcap", "dami_bldgspd", "event_desc", "event_duration", "event_icon", "event_name", "event_news", "event_newsdetail", "event_prob", "event_unlock", "fangdanyi1", "fangdanyi2", "fangdanyi3", "fangdao", "gang", "guanren", "health", "huafei", "huafei_bldgcap", "huafei_bldgspd", "huafeigongye", "hunningtu", "id", "inva_prob", "jiatelin", "jijiubao", "jing_bldgcap", "jing_bldgspd", "jipaotuzhi", "jiqiangtuzhi", "jujituzhi", "kanaiji", "kuangquanshui", "kuzi1", "kuzi2", "kuzi3", "leida_bldg", "luban", "luokefeile", "lushui_bldgcap", "lushui_bldgspd", "makeqin", "mood", "qingjiqiang1", "qiyou", "rizhi", "shouqiang1", "shucai", "shucai_bldgcap", "shucai_bldgspd", "shui", "shuiguo", "shuiguo_bldgcap", "shuiguo_bldgspd", "shuini", "siliao", "songmu", "songmuban", "songshu_bldgcap", "songshu_bldgspd", "taiyangneng_bldgcap", "taiyangneng_bldgspd", "tax_coeff", "tesila", "tie", "toukui1", "toukui2", "toukui3", "tumu", "wbaleite", "wodefendou", "wuxiandian_bldg", "xiezi1", "xiezi2", "xiezi3", "yangzhu", "yuanlongping", "yuanyou", "zhurou", "zombie_atk", "zombie_def", "zombie_hp", "zombie_num" };
+    private static readonly uint[] _wORLDEVENTSFieldTags = new uint[] { 664, 672, 680, 576, 448, 360, 288, 80, 304, 144, 208, 34, 56, 66, 18, 42, 50, 72, 24, 592, 600, 608, 496, 720, 536, 128, 328, 200, 264, 432, 736, 8, 88, 520, 384, 168, 232, 416, 400, 408, 472, 688, 616, 624, 632, 280, 480, 464, 176, 240, 504, 136, 584, 712, 392, 568, 312, 152, 216, 336, 320, 160, 224, 352, 696, 344, 728, 184, 248, 192, 256, 296, 456, 376, 544, 552, 560, 488, 528, 512, 272, 640, 648, 656, 440, 424, 368, 704, 96, 104, 112, 120 };
     #if UNITY_EDITOR
      [pb.FieldNumber] 
      #endif//
@@ -1117,40 +1117,40 @@ namespace com.nkm.framework.resource.data {
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Knapsack1FieldNumber = 83;
-    private bool hasKnapsack1;
-    private int knapsack1_;
-    public bool HasKnapsack1 {
-      get { return hasKnapsack1; }
+    public const int Beibao1FieldNumber = 83;
+    private bool hasBeibao1;
+    private int beibao1_;
+    public bool HasBeibao1 {
+      get { return hasBeibao1; }
     }
-    public int Knapsack1 {
-      get { return knapsack1_; }
-    }
-    
-    #if UNITY_EDITOR
-    [pb.FieldNumber]
-    #endif//
-    public const int Knapsack2FieldNumber = 84;
-    private bool hasKnapsack2;
-    private int knapsack2_;
-    public bool HasKnapsack2 {
-      get { return hasKnapsack2; }
-    }
-    public int Knapsack2 {
-      get { return knapsack2_; }
+    public int Beibao1 {
+      get { return beibao1_; }
     }
     
     #if UNITY_EDITOR
     [pb.FieldNumber]
     #endif//
-    public const int Knapsack3FieldNumber = 85;
-    private bool hasKnapsack3;
-    private int knapsack3_;
-    public bool HasKnapsack3 {
-      get { return hasKnapsack3; }
+    public const int Beibao2FieldNumber = 84;
+    private bool hasBeibao2;
+    private int beibao2_;
+    public bool HasBeibao2 {
+      get { return hasBeibao2; }
     }
-    public int Knapsack3 {
-      get { return knapsack3_; }
+    public int Beibao2 {
+      get { return beibao2_; }
+    }
+    
+    #if UNITY_EDITOR
+    [pb.FieldNumber]
+    #endif//
+    public const int Beibao3FieldNumber = 85;
+    private bool hasBeibao3;
+    private int beibao3_;
+    public bool HasBeibao3 {
+      get { return hasBeibao3; }
+    }
+    public int Beibao3 {
+      get { return beibao3_; }
     }
     
     #if UNITY_EDITOR
@@ -1261,37 +1261,37 @@ namespace com.nkm.framework.resource.data {
       int size = SerializedSize;
       string[] field_names = _wORLDEVENTSFieldNames;
       if (hasId) {
-        output.WriteInt32(1, field_names[28], Id);
+        output.WriteInt32(1, field_names[31], Id);
       }
       if (hasEventName) {
-        output.WriteString(2, field_names[11], EventName);
+        output.WriteString(2, field_names[14], EventName);
       }
       if (hasEventUnlock) {
-        output.WriteInt32(3, field_names[15], EventUnlock);
+        output.WriteInt32(3, field_names[18], EventUnlock);
       }
       if (hasEventDesc) {
-        output.WriteString(4, field_names[8], EventDesc);
+        output.WriteString(4, field_names[11], EventDesc);
       }
       if (hasEventNews) {
-        output.WriteString(5, field_names[12], EventNews);
+        output.WriteString(5, field_names[15], EventNews);
       }
       if (hasEventNewsdetail) {
-        output.WriteString(6, field_names[13], EventNewsdetail);
+        output.WriteString(6, field_names[16], EventNewsdetail);
       }
       if (hasEventDuration) {
-        output.WriteInt32(7, field_names[9], EventDuration);
+        output.WriteInt32(7, field_names[12], EventDuration);
       }
       if (hasEventIcon) {
-        output.WriteString(8, field_names[10], EventIcon);
+        output.WriteString(8, field_names[13], EventIcon);
       }
       if (hasEventProb) {
-        output.WriteInt32(9, field_names[14], EventProb);
+        output.WriteInt32(9, field_names[17], EventProb);
       }
       if (hasConProb) {
-        output.WriteInt32(10, field_names[4], ConProb);
+        output.WriteInt32(10, field_names[7], ConProb);
       }
       if (hasInvaProb) {
-        output.WriteInt32(11, field_names[29], InvaProb);
+        output.WriteInt32(11, field_names[32], InvaProb);
       }
       if (hasZombieAtk) {
         output.WriteInt32(12, field_names[88], ZombieAtk);
@@ -1306,13 +1306,13 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(15, field_names[91], ZombieNum);
       }
       if (hasHealth) {
-        output.WriteInt32(16, field_names[22], Health);
+        output.WriteInt32(16, field_names[25], Health);
       }
       if (hasMood) {
         output.WriteInt32(17, field_names[51], Mood);
       }
       if (hasDamiBldgcap) {
-        output.WriteInt32(18, field_names[6], DamiBldgcap);
+        output.WriteInt32(18, field_names[9], DamiBldgcap);
       }
       if (hasShucaiBldgcap) {
         output.WriteInt32(19, field_names[57], ShucaiBldgcap);
@@ -1321,7 +1321,7 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(20, field_names[61], ShuiguoBldgcap);
       }
       if (hasJingBldgcap) {
-        output.WriteInt32(21, field_names[32], JingBldgcap);
+        output.WriteInt32(21, field_names[35], JingBldgcap);
       }
       if (hasLushuiBldgcap) {
         output.WriteInt32(22, field_names[48], LushuiBldgcap);
@@ -1333,10 +1333,10 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(24, field_names[69], TaiyangnengBldgcap);
       }
       if (hasHuafeiBldgcap) {
-        output.WriteInt32(25, field_names[24], HuafeiBldgcap);
+        output.WriteInt32(25, field_names[27], HuafeiBldgcap);
       }
       if (hasDamiBldgspd) {
-        output.WriteInt32(26, field_names[7], DamiBldgspd);
+        output.WriteInt32(26, field_names[10], DamiBldgspd);
       }
       if (hasShucaiBldgspd) {
         output.WriteInt32(27, field_names[58], ShucaiBldgspd);
@@ -1345,7 +1345,7 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(28, field_names[62], ShuiguoBldgspd);
       }
       if (hasJingBldgspd) {
-        output.WriteInt32(29, field_names[33], JingBldgspd);
+        output.WriteInt32(29, field_names[36], JingBldgspd);
       }
       if (hasLushuiBldgspd) {
         output.WriteInt32(30, field_names[49], LushuiBldgspd);
@@ -1357,7 +1357,7 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(32, field_names[70], TaiyangnengBldgspd);
       }
       if (hasHuafeiBldgspd) {
-        output.WriteInt32(33, field_names[25], HuafeiBldgspd);
+        output.WriteInt32(33, field_names[28], HuafeiBldgspd);
       }
       if (hasWuxiandianBldg) {
         output.WriteInt32(34, field_names[80], WuxiandianBldg);
@@ -1366,13 +1366,13 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(35, field_names[45], LeidaBldg);
       }
       if (hasCarBldgspd) {
-        output.WriteInt32(36, field_names[3], CarBldgspd);
+        output.WriteInt32(36, field_names[6], CarBldgspd);
       }
       if (hasTaxCoeff) {
         output.WriteInt32(37, field_names[71], TaxCoeff);
       }
       if (hasDami) {
-        output.WriteInt32(38, field_names[5], Dami);
+        output.WriteInt32(38, field_names[8], Dami);
       }
       if (hasShucai) {
         output.WriteInt32(39, field_names[56], Shucai);
@@ -1381,7 +1381,7 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(40, field_names[60], Shuiguo);
       }
       if (hasHuafei) {
-        output.WriteInt32(41, field_names[23], Huafei);
+        output.WriteInt32(41, field_names[26], Huafei);
       }
       if (hasShui) {
         output.WriteInt32(42, field_names[59], Shui);
@@ -1393,7 +1393,7 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(44, field_names[63], Shuini);
       }
       if (hasCao) {
-        output.WriteInt32(45, field_names[2], Cao);
+        output.WriteInt32(45, field_names[5], Cao);
       }
       if (hasYuanyou) {
         output.WriteInt32(46, field_names[86], Yuanyou);
@@ -1402,31 +1402,31 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(47, field_names[73], Tie);
       }
       if (hasJijiubao) {
-        output.WriteInt32(48, field_names[31], Jijiubao);
+        output.WriteInt32(48, field_names[34], Jijiubao);
       }
       if (hasRizhi) {
         output.WriteInt32(49, field_names[54], Rizhi);
       }
       if (hasJiqiangtuzhi) {
-        output.WriteInt32(50, field_names[35], Jiqiangtuzhi);
+        output.WriteInt32(50, field_names[38], Jiqiangtuzhi);
       }
       if (hasJujituzhi) {
-        output.WriteInt32(51, field_names[36], Jujituzhi);
+        output.WriteInt32(51, field_names[39], Jujituzhi);
       }
       if (hasJipaotuzhi) {
-        output.WriteInt32(52, field_names[34], Jipaotuzhi);
+        output.WriteInt32(52, field_names[37], Jipaotuzhi);
       }
       if (hasYuanlongping) {
         output.WriteInt32(53, field_names[85], Yuanlongping);
       }
       if (hasHuafeigongye) {
-        output.WriteInt32(54, field_names[26], Huafeigongye);
+        output.WriteInt32(54, field_names[29], Huafeigongye);
       }
       if (hasYangzhu) {
         output.WriteInt32(55, field_names[84], Yangzhu);
       }
       if (hasCangchu) {
-        output.WriteInt32(56, field_names[1], Cangchu);
+        output.WriteInt32(56, field_names[4], Cangchu);
       }
       if (hasTesila) {
         output.WriteInt32(57, field_names[72], Tesila);
@@ -1435,7 +1435,7 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(58, field_names[47], Luokefeile);
       }
       if (hasKanaiji) {
-        output.WriteInt32(59, field_names[37], Kanaiji);
+        output.WriteInt32(59, field_names[40], Kanaiji);
       }
       if (hasLuban) {
         output.WriteInt32(60, field_names[46], Luban);
@@ -1444,7 +1444,7 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(61, field_names[77], Tumu);
       }
       if (hasFangdao) {
-        output.WriteInt32(62, field_names[19], Fangdao);
+        output.WriteInt32(62, field_names[22], Fangdao);
       }
       if (hasMakeqin) {
         output.WriteInt32(63, field_names[50], Makeqin);
@@ -1453,13 +1453,13 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(64, field_names[79], Wodefendou);
       }
       if (hasJiatelin) {
-        output.WriteInt32(65, field_names[30], Jiatelin);
+        output.WriteInt32(65, field_names[33], Jiatelin);
       }
       if (hasWbaleite) {
         output.WriteInt32(66, field_names[78], Wbaleite);
       }
       if (hasGuanren) {
-        output.WriteInt32(67, field_names[21], Guanren);
+        output.WriteInt32(67, field_names[24], Guanren);
       }
       if (hasToukui1) {
         output.WriteInt32(68, field_names[74], Toukui1);
@@ -1474,19 +1474,19 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(71, field_names[55], Shouqiang1);
       }
       if (hasBuqiang1) {
-        output.WriteInt32(72, field_names[0], Buqiang1);
+        output.WriteInt32(72, field_names[3], Buqiang1);
       }
       if (hasQingjiqiang1) {
         output.WriteInt32(73, field_names[52], Qingjiqiang1);
       }
       if (hasFangdanyi1) {
-        output.WriteInt32(74, field_names[16], Fangdanyi1);
+        output.WriteInt32(74, field_names[19], Fangdanyi1);
       }
       if (hasFangdanyi2) {
-        output.WriteInt32(75, field_names[17], Fangdanyi2);
+        output.WriteInt32(75, field_names[20], Fangdanyi2);
       }
       if (hasFangdanyi3) {
-        output.WriteInt32(76, field_names[18], Fangdanyi3);
+        output.WriteInt32(76, field_names[21], Fangdanyi3);
       }
       if (hasKuzi1) {
         output.WriteInt32(77, field_names[42], Kuzi1);
@@ -1506,14 +1506,14 @@ namespace com.nkm.framework.resource.data {
       if (hasXiezi3) {
         output.WriteInt32(82, field_names[83], Xiezi3);
       }
-      if (hasKnapsack1) {
-        output.WriteInt32(83, field_names[38], Knapsack1);
+      if (hasBeibao1) {
+        output.WriteInt32(83, field_names[0], Beibao1);
       }
-      if (hasKnapsack2) {
-        output.WriteInt32(84, field_names[39], Knapsack2);
+      if (hasBeibao2) {
+        output.WriteInt32(84, field_names[1], Beibao2);
       }
-      if (hasKnapsack3) {
-        output.WriteInt32(85, field_names[40], Knapsack3);
+      if (hasBeibao3) {
+        output.WriteInt32(85, field_names[2], Beibao3);
       }
       if (hasKuangquanshui) {
         output.WriteInt32(86, field_names[41], Kuangquanshui);
@@ -1528,13 +1528,13 @@ namespace com.nkm.framework.resource.data {
         output.WriteInt32(89, field_names[53], Qiyou);
       }
       if (hasGang) {
-        output.WriteInt32(90, field_names[20], Gang);
+        output.WriteInt32(90, field_names[23], Gang);
       }
       if (hasSongmuban) {
         output.WriteInt32(91, field_names[66], Songmuban);
       }
       if (hasHunningtu) {
-        output.WriteInt32(92, field_names[27], Hunningtu);
+        output.WriteInt32(92, field_names[30], Hunningtu);
       }
     }
     
@@ -1794,14 +1794,14 @@ namespace com.nkm.framework.resource.data {
         if (hasXiezi3) {
           size += pb::CodedOutputStream.ComputeInt32Size(82, Xiezi3);
         }
-        if (hasKnapsack1) {
-          size += pb::CodedOutputStream.ComputeInt32Size(83, Knapsack1);
+        if (hasBeibao1) {
+          size += pb::CodedOutputStream.ComputeInt32Size(83, Beibao1);
         }
-        if (hasKnapsack2) {
-          size += pb::CodedOutputStream.ComputeInt32Size(84, Knapsack2);
+        if (hasBeibao2) {
+          size += pb::CodedOutputStream.ComputeInt32Size(84, Beibao2);
         }
-        if (hasKnapsack3) {
-          size += pb::CodedOutputStream.ComputeInt32Size(85, Knapsack3);
+        if (hasBeibao3) {
+          size += pb::CodedOutputStream.ComputeInt32Size(85, Beibao3);
         }
         if (hasKuangquanshui) {
           size += pb::CodedOutputStream.ComputeInt32Size(86, Kuangquanshui);
@@ -1914,9 +1914,9 @@ namespace com.nkm.framework.resource.data {
       if (hasXiezi1) hash ^= xiezi1_.GetHashCode();
       if (hasXiezi2) hash ^= xiezi2_.GetHashCode();
       if (hasXiezi3) hash ^= xiezi3_.GetHashCode();
-      if (hasKnapsack1) hash ^= knapsack1_.GetHashCode();
-      if (hasKnapsack2) hash ^= knapsack2_.GetHashCode();
-      if (hasKnapsack3) hash ^= knapsack3_.GetHashCode();
+      if (hasBeibao1) hash ^= beibao1_.GetHashCode();
+      if (hasBeibao2) hash ^= beibao2_.GetHashCode();
+      if (hasBeibao3) hash ^= beibao3_.GetHashCode();
       if (hasKuangquanshui) hash ^= kuangquanshui_.GetHashCode();
       if (hasSiliao) hash ^= siliao_.GetHashCode();
       if (hasZhurou) hash ^= zhurou_.GetHashCode();
@@ -2012,9 +2012,9 @@ namespace com.nkm.framework.resource.data {
       if (hasXiezi1 != other.hasXiezi1 || (hasXiezi1 && !xiezi1_.Equals(other.xiezi1_))) return false;
       if (hasXiezi2 != other.hasXiezi2 || (hasXiezi2 && !xiezi2_.Equals(other.xiezi2_))) return false;
       if (hasXiezi3 != other.hasXiezi3 || (hasXiezi3 && !xiezi3_.Equals(other.xiezi3_))) return false;
-      if (hasKnapsack1 != other.hasKnapsack1 || (hasKnapsack1 && !knapsack1_.Equals(other.knapsack1_))) return false;
-      if (hasKnapsack2 != other.hasKnapsack2 || (hasKnapsack2 && !knapsack2_.Equals(other.knapsack2_))) return false;
-      if (hasKnapsack3 != other.hasKnapsack3 || (hasKnapsack3 && !knapsack3_.Equals(other.knapsack3_))) return false;
+      if (hasBeibao1 != other.hasBeibao1 || (hasBeibao1 && !beibao1_.Equals(other.beibao1_))) return false;
+      if (hasBeibao2 != other.hasBeibao2 || (hasBeibao2 && !beibao2_.Equals(other.beibao2_))) return false;
+      if (hasBeibao3 != other.hasBeibao3 || (hasBeibao3 && !beibao3_.Equals(other.beibao3_))) return false;
       if (hasKuangquanshui != other.hasKuangquanshui || (hasKuangquanshui && !kuangquanshui_.Equals(other.kuangquanshui_))) return false;
       if (hasSiliao != other.hasSiliao || (hasSiliao && !siliao_.Equals(other.siliao_))) return false;
       if (hasZhurou != other.hasZhurou || (hasZhurou && !zhurou_.Equals(other.zhurou_))) return false;
@@ -2428,14 +2428,14 @@ namespace com.nkm.framework.resource.data {
         if (other.HasXiezi3) {
           Xiezi3 = other.Xiezi3;
         }
-        if (other.HasKnapsack1) {
-          Knapsack1 = other.Knapsack1;
+        if (other.HasBeibao1) {
+          Beibao1 = other.Beibao1;
         }
-        if (other.HasKnapsack2) {
-          Knapsack2 = other.Knapsack2;
+        if (other.HasBeibao2) {
+          Beibao2 = other.Beibao2;
         }
-        if (other.HasKnapsack3) {
-          Knapsack3 = other.Knapsack3;
+        if (other.HasBeibao3) {
+          Beibao3 = other.Beibao3;
         }
         if (other.HasKuangquanshui) {
           Kuangquanshui = other.Kuangquanshui;
@@ -2819,15 +2819,15 @@ namespace com.nkm.framework.resource.data {
               break;
             }
             case 664: {
-              result.hasKnapsack1 = input.ReadInt32(ref result.knapsack1_);
+              result.hasBeibao1 = input.ReadInt32(ref result.beibao1_);
               break;
             }
             case 672: {
-              result.hasKnapsack2 = input.ReadInt32(ref result.knapsack2_);
+              result.hasBeibao2 = input.ReadInt32(ref result.beibao2_);
               break;
             }
             case 680: {
-              result.hasKnapsack3 = input.ReadInt32(ref result.knapsack3_);
+              result.hasBeibao3 = input.ReadInt32(ref result.beibao3_);
               break;
             }
             case 688: {
@@ -4510,63 +4510,63 @@ namespace com.nkm.framework.resource.data {
         return this;
       }
       
-      public bool HasKnapsack1 {
-        get { return result.hasKnapsack1; }
+      public bool HasBeibao1 {
+        get { return result.hasBeibao1; }
       }
-      public int Knapsack1 {
-        get { return result.Knapsack1; }
-        set { SetKnapsack1(value); }
+      public int Beibao1 {
+        get { return result.Beibao1; }
+        set { SetBeibao1(value); }
       }
-      public Builder SetKnapsack1(int value) {
+      public Builder SetBeibao1(int value) {
         PrepareBuilder();
-        result.hasKnapsack1 = true;
-        result.knapsack1_ = value;
+        result.hasBeibao1 = true;
+        result.beibao1_ = value;
         return this;
       }
-      public Builder ClearKnapsack1() {
+      public Builder ClearBeibao1() {
         PrepareBuilder();
-        result.hasKnapsack1 = false;
-        result.knapsack1_ = 0;
-        return this;
-      }
-      
-      public bool HasKnapsack2 {
-        get { return result.hasKnapsack2; }
-      }
-      public int Knapsack2 {
-        get { return result.Knapsack2; }
-        set { SetKnapsack2(value); }
-      }
-      public Builder SetKnapsack2(int value) {
-        PrepareBuilder();
-        result.hasKnapsack2 = true;
-        result.knapsack2_ = value;
-        return this;
-      }
-      public Builder ClearKnapsack2() {
-        PrepareBuilder();
-        result.hasKnapsack2 = false;
-        result.knapsack2_ = 0;
+        result.hasBeibao1 = false;
+        result.beibao1_ = 0;
         return this;
       }
       
-      public bool HasKnapsack3 {
-        get { return result.hasKnapsack3; }
+      public bool HasBeibao2 {
+        get { return result.hasBeibao2; }
       }
-      public int Knapsack3 {
-        get { return result.Knapsack3; }
-        set { SetKnapsack3(value); }
+      public int Beibao2 {
+        get { return result.Beibao2; }
+        set { SetBeibao2(value); }
       }
-      public Builder SetKnapsack3(int value) {
+      public Builder SetBeibao2(int value) {
         PrepareBuilder();
-        result.hasKnapsack3 = true;
-        result.knapsack3_ = value;
+        result.hasBeibao2 = true;
+        result.beibao2_ = value;
         return this;
       }
-      public Builder ClearKnapsack3() {
+      public Builder ClearBeibao2() {
         PrepareBuilder();
-        result.hasKnapsack3 = false;
-        result.knapsack3_ = 0;
+        result.hasBeibao2 = false;
+        result.beibao2_ = 0;
+        return this;
+      }
+      
+      public bool HasBeibao3 {
+        get { return result.hasBeibao3; }
+      }
+      public int Beibao3 {
+        get { return result.Beibao3; }
+        set { SetBeibao3(value); }
+      }
+      public Builder SetBeibao3(int value) {
+        PrepareBuilder();
+        result.hasBeibao3 = true;
+        result.beibao3_ = value;
+        return this;
+      }
+      public Builder ClearBeibao3() {
+        PrepareBuilder();
+        result.hasBeibao3 = false;
+        result.beibao3_ = 0;
         return this;
       }
       

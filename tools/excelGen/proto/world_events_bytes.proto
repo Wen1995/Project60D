@@ -172,11 +172,11 @@ message WORLD_EVENTS{
     /** 3级越野靴*100 */
     optional int32 xiezi3 = 82 [default = 0];
     /** 1级背包 */
-    optional int32 knapsack1 = 83 [default = 0];
+    optional int32 beibao1 = 83 [default = 0];
     /** 2级背包 */
-    optional int32 knapsack2 = 84 [default = 0];
+    optional int32 beibao2 = 84 [default = 0];
     /** 3级背包 */
-    optional int32 knapsack3 = 85 [default = 0];
+    optional int32 beibao3 = 85 [default = 0];
     /** 矿物质水*100 */
     optional int32 kuangquanshui = 86 [default = 0];
     /** 饲料*100 */

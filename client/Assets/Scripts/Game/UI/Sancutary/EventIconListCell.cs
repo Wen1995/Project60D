@@ -38,7 +38,7 @@ public class EventIconListCell : NListCell {
 				iconSprite.spriteName = "efficiency1";
 			else if(info.configID == 3)
 				iconSprite.spriteName = "efficiency2";
-			else if(info.configID == 3)
+			else if(info.configID == 4)
 				iconSprite.spriteName = "efficiency3";
 		}
 		OpenSmallWindow(info);

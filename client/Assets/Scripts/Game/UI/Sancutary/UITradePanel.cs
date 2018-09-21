@@ -19,6 +19,7 @@ public struct NGraphAxisNodeY
 public class UITradePanel : PanelBase {
 
 	DynamicPackage dynamicPackage = null;
+	SanctuaryPackage sanctuaryPackage = null;
 	ItemPackage itemPackage = null;
 	UILabel taxLabel = null;
 	UILabel nameLabel = null;
@@ -93,6 +94,7 @@ public class UITradePanel : PanelBase {
 
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
 		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
+		sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPRICES, OnGetPrice);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.GETPURCHASE, OnGetLimit);
 		FacadeSingleton.Instance.RegisterRPCResponce((short)Cmd.SELLGOODS, SellItemResponce);
@@ -173,6 +175,7 @@ public class UITradePanel : PanelBase {
 		resNumLabel.text = GlobalFunction.NumberFormat(itemPackage.GetResourceTotolNumber());
 		goldNumLabel.text = GlobalFunction.NumberFormat(itemPackage.GetGoldNumber());
 		elecNumLabel.text = GlobalFunction.NumberFormat(itemPackage.GetElecNumber());
+		elecNumLabel.text = string.Format("{0}/h", GlobalFunction.NumberFormat(sanctuaryPackage.GetTotalProEfficiency()));
 	}
 	void OnSelectItem(NDictionary data = null)
 	{

@@ -128,7 +128,7 @@ public class UIPlayerInfoPanel : PanelBase {
 		interestLabel.text = string.Format("分配比例:{0:f}%", (float)userPackage.GetPlayerInterest() * 100);
 		resLabel.text = GlobalFunction.NumberFormat(itemPackage.GetResourceTotolNumber());
 		moneyLabel.text = GlobalFunction.NumberFormat(itemPackage.GetGoldNumber());
-		elecLabel.text = GlobalFunction.NumberFormat(itemPackage.GetElecNumber());;
+		elecLabel.text = string.Format("{0}/h", GlobalFunction.NumberFormat(sanctuaryPackage.GetTotalProEfficiency()));
 		attackLabel.text = state.attack.ToString();
 		defenseLable.text = state.defense.ToString();
 		agileLabel.text = state.agile.ToString();

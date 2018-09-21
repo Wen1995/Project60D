@@ -27,6 +27,8 @@ public class SSanctuaryController : SceneController
         ObjectPoolSingleton.Instance.RegisterComPool<HudCollect>(Resources.Load<GameObject>("Prefabs/Hud/Collect"));
         ObjectPoolSingleton.Instance.RegisterComPool<HudCountDown>(Resources.Load<GameObject>("Prefabs/Hud/CountDown"));
         ObjectPoolSingleton.Instance.RegisterComPool<HudNameBoard>(Resources.Load<GameObject>("Prefabs/Hud/NameBoard"));
+        ObjectPoolSingleton.Instance.RegisterComPool<HudProduceBar>(Resources.Load<GameObject>("Prefabs/Hud/ProduceBar"));
+        ObjectPoolSingleton.Instance.RegisterComPool<HudExmind>(Resources.Load<GameObject>("Prefabs/Hud/EXmark"));
         //register panel
         SetUIContainer();
         FacadeSingleton.Instance.RegisterUIPanel("UIMsgBoxPanel", "Prefabs/UI/Common", 10000, PanelAnchor.Center);
@@ -86,8 +88,8 @@ public class SSanctuaryController : SceneController
     public void Start()
     {
         //Init all building
-        FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
         FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
+        FacadeSingleton.Instance.InvokeService("RPCGetSceneData", ConstVal.Service_Sanctuary);
         FacadeSingleton.Instance.InvokeService("RPCGetUserState", ConstVal.Service_Sanctuary);
     }
 
@@ -199,8 +201,10 @@ public class SSanctuaryController : SceneController
         TSCGetUserState userState = TSCGetUserState.ParseFrom(msg.mBtsData);
         userPackage.SetPlayerState(userState);
         if(initFlag == false)
+        {
             BuildSanctuary();
-        InitManor();
+            InitManor();
+        }
     }
 
     void OnGetUserStateRegular(NetMsgDef msg)
@@ -296,10 +300,10 @@ public class SSanctuaryController : SceneController
             string content = string.Format("获得{0} x {1}", itemConfig.MinName, num);
             data.Add("content", content);
         }
+        info.building.RefreshHud();
         FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
         FacadeSingleton.Instance.SendEvent("OpenTips", data);
         FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);    
-        
     }
 
     void OnCraft(NetMsgDef msg)

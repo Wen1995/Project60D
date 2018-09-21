@@ -62,8 +62,7 @@ public class UIPlayerMenuPanel : PanelBase {
 		if(playerState == null) return;
 		coinLabel.text = GlobalFunction.NumberFormat(itemPackage.GetGoldNumber());
 		resLabel.text = GlobalFunction.NumberFormat(itemPackage.GetResourceTotolNumber());
-		//elecLabel.text = GlobalFunction.NumberFormat(itemPackage.GetElecNumber());
-		elecLabel.text= GlobalFunction.NumberFormat(sanctuaryPackage.GetTotalProEfficiency());
+		elecLabel.text = string.Format("{0}/h", GlobalFunction.NumberFormat(sanctuaryPackage.GetTotalProEfficiency()));
 		taskLabel.text = "空闲";
 		healthProgressBar.value = (float)playerState.blood / (float)(20 + 2 * playerState.health);
 		hungerProgressBar.value = (float)playerState.hunger / (float)(20 + 2 * playerState.health);

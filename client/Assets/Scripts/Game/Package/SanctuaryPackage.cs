@@ -258,6 +258,7 @@ public class SanctuaryPackage : ModelBase {
 
     public int GetTotalProEfficiency()
     {
+        UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
         int sum = 0;
         foreach(var pair in mBuildingInfoMap)
         {
@@ -273,13 +274,26 @@ public class SanctuaryPackage : ModelBase {
             
             Type type = Type.GetType("com.nkm.framework.resource.data." + name);
             string propertyName = name[0] + name.Substring(1).ToLower();
-            Debug.Log(propertyName + "Spd");
-            Debug.Log(type);
             PropertyInfo spdInfo = type.GetProperty(propertyName + "Spd");
             int spd = (int)spdInfo.GetValue(funcConfig, null);
             sum += spd;
         }
-        return sum;
+        return (int)((double)sum * userPackage.GetPlayerInterest());
+    }
+
+    public int GetProSpeed(int configID)
+    {
+        BUILDING buildingConfig = GetBuildingConfigDataByConfigID(configID);
+        string funcName = buildingConfig.BldgFuncTableName;
+        int level = GetBulidingLevelByConfigID(configID);
+        funcName = funcName.ToUpper();
+        var configMap = ConfigDataStatic.GetConfigDataTable(funcName);
+        var funcConfig = configMap[level];
+
+        Type type = Type.GetType("com.nkm.framework.resource.data." + funcName);
+        string propertyNane = funcName[0] + funcName.Substring(1).ToLower() + "Spd";
+        PropertyInfo spdInfo = type.GetProperty(propertyNane);
+        return (int)spdInfo.GetValue(funcConfig, null);
     }
 
     #region Acess Data
@@ -306,6 +320,36 @@ public class SanctuaryPackage : ModelBase {
     public List<BuildingAttributeData> GetBuildingAttributeDataList()
     {
         return attributeDataList;
+    }
+
+    public bool IsAbleToUnlockOrUpgrade(int configID)
+    {
+        
+        int requireVal;
+        double curVal;
+        ItemPackage itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
+        UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+        BUILDING config = GetBuildingConfigDataByConfigID(configID);
+        //level
+        requireVal = config.BldgLvLim;
+        curVal = userPackage.GetPlayerLevel();
+        if(curVal < requireVal) return false;
+        //gold cost
+        requireVal = config.GoldCost;
+        curVal = itemPackage.GetGoldNumber();
+        if((double)requireVal > curVal) return false;
+        //item   
+        for(int i=0;i<config.CostTableCount;i++)
+        {
+            var cost = config.GetCostTable(i);
+            if(cost.CostId == 0) continue;
+            requireVal = cost.CostQty;
+            NItemInfo info = itemPackage.GetItemInfo(cost.CostId);
+            ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(info.configID);
+            //Debug.Log(string.Format("{0}, {1}, {2}", itemConfig.MinName, info.number, cost.CostQty));
+            if(info == null || info.number < cost.CostQty) return false;
+        }
+        return true;
     }
 
     #endregion

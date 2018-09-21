@@ -15,6 +15,8 @@ public enum HudType
 	Collect,
 	CountDown,
 	NameBoard,
+	ProduceBar,
+	Exmind,
 }
 
 public interface IHudObject
@@ -150,6 +152,18 @@ public class HudBinder : MonoBehaviour {
 		{
 			pool = ObjectPoolSingleton.Instance.GetPool<HudNameBoard>();
 			HudNameBoard hud = pool.Take(pos, quat, uirootTrans) as HudNameBoard;
+			return hud.gameObject;
+		}
+		else if(info.type == HudType.ProduceBar)
+		{
+			pool = ObjectPoolSingleton.Instance.GetPool<HudProduceBar>();
+			HudProduceBar hud = pool.Take(pos, quat, uirootTrans) as HudProduceBar;
+			return hud.gameObject;
+		}
+		else if(info.type == HudType.Exmind)
+		{
+			pool = ObjectPoolSingleton.Instance.GetPool<HudExmind>();
+			HudExmind hud = pool.Take(pos, quat, uirootTrans) as HudExmind;
 			return hud.gameObject;
 		}
 		return null;

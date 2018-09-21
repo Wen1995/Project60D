@@ -17,6 +17,7 @@ python tool.py ZOMBIE_ATTR xls\Core_Sys.xlsm
 python tool.py ARITHMETIC_COEFFICIENT xls\Core_Sys.xlsm
 python tool.py WORLD_EVENTS xls\Core_Sys.xlsm
 python tool.py PURCHASE_LIM xls\Core_Sys.xlsm
+python tool.py BAR_TIME xls\Core_Sys.xlsm
 
 
 python tool.py ATTRNAME xls\Bldg_Func.xlsm

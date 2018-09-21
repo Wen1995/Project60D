@@ -200,6 +200,7 @@ public class UserPackage : ModelBase {
                     MANOR_LEVEL preData = levelMap[i - 1] as MANOR_LEVEL;
                     progress = (float)(totalContribution - preData.ManorCap)/(float)(data.ManorCap - preData.ManorCap);
                 }
+                progress = 1 - progress;
                 return i;
             }
         }
@@ -235,6 +236,11 @@ public class UserPackage : ModelBase {
     public NUserInfo GetUserInfo(long uid)
     {
         return userInfoMap[uid];
+    }
+
+    public Dictionary<long, NUserInfo> GetUserInfoMap()
+    {
+        return userInfoMap;
     }
 
     public List<NGroupInfo> GetGroupInfoList()

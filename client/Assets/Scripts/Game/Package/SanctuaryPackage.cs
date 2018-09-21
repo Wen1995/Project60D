@@ -332,7 +332,7 @@ public class SanctuaryPackage : ModelBase {
         BUILDING config = GetBuildingConfigDataByConfigID(configID);
         //level
         requireVal = config.BldgLvLim;
-        curVal = userPackage.GetPlayerLevel();
+        curVal = userPackage.GetManorLevel();
         if(curVal < requireVal) return false;
         //gold cost
         requireVal = config.GoldCost;

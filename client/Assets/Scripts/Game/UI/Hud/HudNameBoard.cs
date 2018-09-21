@@ -23,7 +23,7 @@ public class HudNameBoard : MonoBehaviour, IPoolUnit, IHudObject {
             if(curLevel >= requireLevel)
                 label.text = string.Format("可解锁");
             else
-                label.text = string.Format("{0} Lv.{1}可解锁", config.BldgName, requireLevel);
+                label.text = string.Format("{0} 庄园等级Lv.{1}可解锁", config.BldgName, requireLevel);
             
         }
 		

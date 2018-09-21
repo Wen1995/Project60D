@@ -6,7 +6,20 @@ using UnityEngine;
 public class UIManorRankingPanel : PanelBase {
 
 	DynamicPackage dynamicPackage = null;
+	UserPackage userPackage = null;
 	NTableView tableView = null;
+
+	UILabel nameLabel = null;
+	UILabel levelLabel = null;
+	UILabel contributionLabel = null;
+	PlayerInfo[] playerInofs = new PlayerInfo[4];
+
+	struct PlayerInfo
+	{
+		public UILabel nameLabel;
+		public UILabel levelLabel;
+		public UILabel interestLabel;
+	}
 
 	protected override void Awake()
 	{
@@ -22,6 +35,7 @@ public class UIManorRankingPanel : PanelBase {
 		button.onClick.Add(new EventDelegate(OnShowPlayerRanking));
 
 		dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
+		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 	}
 
 	public override void OpenPanel()
@@ -84,5 +98,21 @@ public class UIManorRankingPanel : PanelBase {
 	{
 		tableView.DataCount = dynamicPackage.GetGroupInfoList().Count;
 		tableView.TableChange();
+	}
+
+	void ShowSelf()
+	{
+		nameLabel.text = userPackage.GetGroupName();
+		levelLabel.text = string.Format("Lv.{0}", userPackage.GetManorLevel());
+		contributionLabel.text = string.Format("实力:{0}", userPackage.GetTotalContribution());
+		int count = 0;
+		var userMap = userPackage.GetUserInfoMap();
+		foreach(var pair in userMap)
+		{
+			NUserInfo info = pair.Value;
+			playerInofs[count].nameLabel.text = info.name;
+			// playerInofs[count].nameLabel.text = info.contribution;
+			// playerInofs[count].nameLabel.text = info.;
+		}
 	}
 }

@@ -50,7 +50,9 @@ public class UIItemValuePanel : PanelBase{
 		if(isBuy)
 		{
 			titleLabel.text = string.Format("购买 {0}", config.MinName);
-			itemCap = itemPackage.GetBuyLimit(configID);
+			double price = itemPackage.GetItemPrice(configID);
+			double curGold = itemPackage.GetGoldNumber();
+			itemCap = Mathf.Min(itemPackage.GetBuyLimit(configID), (int)(curGold / price));
 			btnLabel.text = "购买";
 		}
 		else

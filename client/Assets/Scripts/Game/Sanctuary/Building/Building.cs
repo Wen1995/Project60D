@@ -148,15 +148,32 @@ public class Building : Controller {
         listener.AddClick(OnClick);
     }
 
-    void RefreshHud()
+    public void RefreshHud()
     {
         if(buildingGo == null || hudBinder == null) return;
         if(hudBinder == null) return;
         hudBinder.ClearHud();
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+        // check if can unlock or upgrade
+        int configID = 0;
+        if(info != null)
+        {
+            configID = info.configID;
+            if(sanctuaryPackage.GetBulidingLevelByConfigID(configID) < 20)
+                if(sanctuaryPackage.IsAbleToUnlockOrUpgrade(configID + 1))
+                    hudBinder.AddHud(HudType.Exmind);
+        }
+        else
+        {
+            configID = sanctuaryPackage.GetConfigIDByBuildingType(buildingType);
+            if(sanctuaryPackage.IsAbleToUnlockOrUpgrade(configID))
+            hudBinder.AddHud(HudType.Exmind);
+        }
+        
+
         if(info == null) return;
         BUILDING config = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
-        
+        BuildingFunc func = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
         if(mState == BuildingState.Collect)
         {
             NDictionary args = new NDictionary();
@@ -169,6 +186,19 @@ public class Building : Controller {
             //NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
             args.Add("finishtime", info.upgradeFinishTime);
             hudBinder.AddHud(HudType.CountDown, args);
+        }
+        if(func == BuildingFunc.Collect)
+        {
+            NDictionary args = new NDictionary();
+            var configMap = ConfigDataStatic.GetConfigDataTable("BAR_TIME");
+            BAR_TIME barConfig = configMap[sanctuaryPackage.GetBulidingLevelByConfigID(info.configID)] as BAR_TIME;
+
+            args.Add("interval", (float)barConfig.BarTime / 1000f);
+
+            float speed = (float)sanctuaryPackage.GetProSpeed(info.configID) / 3600;
+            args.Add("speed", speed);
+            args.Add("num", info.number);
+            hudBinder.AddHud(HudType.ProduceBar, args);
         }
     }
 
@@ -186,7 +216,7 @@ public class Building : Controller {
 
     IEnumerator CollectTimer()
     {
-        yield return new WaitForSeconds(300.0f);
+        yield return new WaitForSeconds(30.0f);
         sanctuaryPackage.SetBuildingCollectable(BuildingID);
     }
 
@@ -223,17 +253,25 @@ public class Building : Controller {
 
     void ShowNameBoard(NDictionary args = null)
     {
-        if(buildingID == 0) return;
-        NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         NDictionary data = new NDictionary();
-        data.Add("id", info.configID);
+        if(buildingID == 0)
+        {
+            data.Add("id", sanctuaryPackage.GetConfigIDByBuildingType(buildingType));
+            data.Add("isunlock", false);
+        }
+        else
+        {
+            NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+            data.Add("id", info.configID);
+            data.Add("isunlock", true);
+        }
+        
         if(hudBinder != null)
             hudBinder.AddHud(HudType.NameBoard, data);
     }
 
     void HideNameBoard(NDictionary args = null)
     {
-        if(buildingID == 0) return;
         if(hudBinder != null)
             hudBinder.RemoveHud(HudType.NameBoard);
     }

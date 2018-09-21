@@ -32,6 +32,7 @@ import com.nkm.framework.protocol.Message.FightingInfo;
 import com.nkm.framework.protocol.Message.TCSSaveMessage;
 import com.nkm.framework.protocol.Message.ZombieInfo;
 import com.nkm.framework.protocol.User.ResourceInfo;
+import com.nkm.framework.protocol.User.TSCGetUserStateRegular;
 import com.nkm.framework.protocol.User.UserResource;
 import com.nkm.framework.resource.DynamicDataManager;
 import com.nkm.framework.resource.StaticDataManager;
@@ -78,12 +79,12 @@ public class FightingServiceImpl implements FightingService {
         Building door = null;
         Long doorId = 0L;
         for (Building b : buildings) {
-            if (BuildingUtil.isResourceBuilding(b)) {
-                BUILDING bb = buildingMap.get(b.getConfigId());
-                matchValue += k1_5 * bb.getBldgStrengthAdd();
-            } else if (BuildingUtil.isWeaponBuilding(b)) {
+            if (BuildingUtil.isWeaponBuilding(b)) {
                 BUILDING bb = buildingMap.get(b.getConfigId());
                 matchValue += k2_5 * bb.getBldgStrengthAdd();
+            } else {
+                BUILDING bb = buildingMap.get(b.getConfigId());
+                matchValue += k1_5 * bb.getBldgStrengthAdd();
             }
             if (radar == null && b.getConfigId() / 100 == 1130200) {
                 radar = b;
@@ -139,7 +140,7 @@ public class FightingServiceImpl implements FightingService {
 
         // 更新僵尸入侵时间
         int zombieInvadeTime = arithmeticCoefficientMap.get(30100000).getAcK4() * 60;
-        zombieInvadeTime = 10;// TODO
+        // zombieInvadeTime = 10;// TODO
         long time = System.currentTimeMillis() + zombieInvadeTime * 1000;
         Group group = groupDao.get(groupId);
         group.setInvadeTime(new Date(time));
@@ -179,8 +180,11 @@ public class FightingServiceImpl implements FightingService {
         // 保存消息
         ZombieInfo.Builder zBuilder =
                 ZombieInfo.newBuilder().setConfigId(configId).setZombieInvadeTime(zombieInvadeTime);
-        TCSSaveMessage p = TCSSaveMessage.newBuilder().setGroupId(groupId)
-                .setType(MessageType.ZOMBIE_INFO_VALUE).setZombieInfo(zBuilder).build();
+        TCSSaveMessage p = TCSSaveMessage.newBuilder()
+                .setGroupId(groupId)
+                .setType(MessageType.ZOMBIE_INFO_VALUE)
+                .setZombieInfo(zBuilder)
+                .build();
         TPacket resp = new TPacket();
         resp.setCmd(Cmd.SAVEMESSAGE_VALUE);
         resp.setReceiveTime(System.currentTimeMillis());
@@ -456,6 +460,11 @@ public class FightingServiceImpl implements FightingService {
                 resp.setReceiveTime(System.currentTimeMillis());
                 resp.setBuffer(TCSGetMessageTag.newBuilder().build().toByteArray());
                 GameServer.GetInstance().produce(resp);
+                
+                resp.setCmd(Cmd.GETUSERSTATEREGULAR_VALUE);
+                resp.setReceiveTime(System.currentTimeMillis());
+                resp.setBuffer(TSCGetUserStateRegular.newBuilder().build().toByteArray());
+                GameServer.GetInstance().sendInner(resp);
             }
         }
         return null;
@@ -467,7 +476,7 @@ public class FightingServiceImpl implements FightingService {
         int alreadyKillZombieNum = 0;
         int leftZombieNum = zombieNum;
         for (User u : users) {
-            if (u.getBlood() >= judgeBlood) {
+            if (u.getBlood() > judgeBlood) {
                 double dps = u.getAttack() - K1 * zombieDefence;
                 if (dps < 0) {
                     dps = 0;
@@ -525,7 +534,7 @@ public class FightingServiceImpl implements FightingService {
             int zombieNum, List<InvadeResultInfo> invadeResultInfos) {
         if (allDps > 0) {
             double zombieTime = blood4AllZombie / allDps;
-            double humanTime = maxTime - intoDoorTime;
+            double humanTime = 0;
             for (User u : users) {
                 if (u.getBlood() > judgeBlood) {
                     double zombieDps =
@@ -533,8 +542,9 @@ public class FightingServiceImpl implements FightingService {
                     if (zombieDps <= 0) {
                         zombieDps = 0;
                     } else {
-                        double time = (u.getBlood() - judgeBlood) / zombieDps;
-                        if (time < humanTime) {
+                        humanTime = (u.getBlood() - judgeBlood) / zombieDps;
+                        double time = maxTime - intoDoorTime;
+                        if (humanTime > time) {
                             humanTime = time;
                         }
                     }
@@ -548,13 +558,13 @@ public class FightingServiceImpl implements FightingService {
                 caculateResult(zombieNum, allDps, zombieDefence, K1, judgeBlood, users,
                         weapons, invadeResultInfos);
             } else {
-                intoDoorTime += humanTime;
-                if (intoDoorTime > maxTime) {
-                    double blood4ZombieDecrease = allDps * (intoDoorTime - maxTime);
+                if (intoDoorTime + humanTime > maxTime || humanTime == 0) {
+                    double blood4ZombieDecrease = allDps * (maxTime - intoDoorTime);
                     int deadZombieNum = (int) (blood4ZombieDecrease / blood4PerZombie);
                     caculateResult(deadZombieNum, allDps, zombieDefence, K1, judgeBlood, users,
                             weapons, invadeResultInfos);
                 } else {
+                    intoDoorTime += humanTime;
                     // 僵尸扣血
                     double blood4ZombieDecrease = allDps * humanTime;
                     int deadZombieNum = (int) (blood4ZombieDecrease / blood4PerZombie);
@@ -563,7 +573,6 @@ public class FightingServiceImpl implements FightingService {
                     blood4AllZombie -= blood4ZombieDecrease;
 
                     // 玩家扣血、重新计算dps
-                    allDps = 0;
                     for (User u : users) {
                         int blood = u.getBlood();
                         if (blood > judgeBlood) {
@@ -572,14 +581,16 @@ public class FightingServiceImpl implements FightingService {
                             if (blood <= judgeBlood) {
                                 blood = judgeBlood;
                                 // 玩家受伤
-                                InvadeResultInfo.Builder invadeResultInfoBuilder = InvadeResultInfo
-                                        .newBuilder().setType(InvadeResultType.PLAYER_VALUE)
-                                        .setId(u.getId()).setBlood(blood);
+                                InvadeResultInfo.Builder invadeResultInfoBuilder = 
+                                        InvadeResultInfo.newBuilder()
+                                        .setType(InvadeResultType.PLAYER_VALUE)
+                                        .setId(u.getId())
+                                        .setBlood(blood);
                                 invadeResultInfos.add(invadeResultInfoBuilder.build());
-                            } else {
+                                
                                 double dps = u.getAttack() - K1 * zombieDefence;
                                 if (dps > 0) {
-                                    allDps += dps;
+                                    allDps -= dps;
                                 }
                             }
                             u.setBlood(blood);

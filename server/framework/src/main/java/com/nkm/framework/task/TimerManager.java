@@ -123,7 +123,7 @@ public class TimerManager {
                 for (Map.Entry<Long, Long> entry : DynamicDataManager.GetInstance().groupId2InvadeTime.entrySet()) {
                     long groupId = entry.getKey();
                     long currentTime = System.currentTimeMillis();
-                    /*// 是否多天未被进攻
+                    // 是否多天未被进攻
                     if (currentTime - entry.getValue() > Constant.TIME_DAY * day) {
                         TCSZombieInvade pInvade =
                                 TCSZombieInvade.newBuilder().setGroupId(groupId).build();
@@ -137,16 +137,6 @@ public class TimerManager {
                         if (entry.getValue() + Constant.TIME_HOUR * hour < currentTime) {
                             TCSZombieInvade pInvade =
                                     TCSZombieInvade.newBuilder().setGroupId(groupId).build();
-                            TPacket p = new TPacket();
-                            p.setCmd(Cmd.ZOMBIEINVADE_VALUE);
-                            p.setReceiveTime(currentTime);
-                            p.setBuffer(pInvade.toByteArray());
-                            GameServer.GetInstance().sendInner(p);
-                        }
-                    }*/
-                    if (new Random().nextInt(300) < ZombieUtil.getZombieInvadeRate()) {
-                        if (entry.getValue() < currentTime) {
-                            TCSZombieInvade pInvade = TCSZombieInvade.newBuilder().setGroupId(groupId).build();
                             TPacket p = new TPacket();
                             p.setCmd(Cmd.ZOMBIEINVADE_VALUE);
                             p.setReceiveTime(currentTime);
@@ -191,7 +181,6 @@ public class TimerManager {
                 long happenTime = currentTime
                         + arithmeticCoefficientMap.get(30090000).getAcK4() * Constant.TIME_MINUTE;
                 
-                boolean changeFlag = false;
                 for (Map.Entry<Integer, WORLD_EVENTS> entry : worldEventsMap.entrySet()) {
                     int congigId = entry.getKey();
                     WORLD_EVENTS worldEventConf = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
@@ -201,8 +190,7 @@ public class TimerManager {
                             continue;
                         }
                         int rate = entry.getValue().getEventProb();
-                        if (/*new Random().nextInt(100000)*/new Random().nextInt(1000) < rate) {
-                            changeFlag = true;
+                        if (new Random().nextInt(100000) < rate) {
                             WorldEvent worldEvent = new WorldEvent();
                             worldEvent.setConfigId(congigId);
                             worldEvent.setType(TimeType.START_TIME_VALUE);
@@ -222,24 +210,22 @@ public class TimerManager {
                         }
                     }
                 }
-                if (changeFlag) {       // 更新价格
-                    List<ResourceInfo> resourceInfos = DynamicDataManager.GetInstance().resourceInfos;
-                    resourceInfos.clear();
-                    for (Map.Entry<Integer, ITEM_RES> entry : StaticDataManager.GetInstance().itemResMap.entrySet()) {
-                        Integer configId = entry.getKey();
-                        ITEM_RES itemRes = StaticDataManager.GetInstance().itemResMap.get(configId);
-                        double probability = UserUtil.getPriceCoefficient(itemRes.getKeyName());
-                        double price = probability * itemRes.getGoldConv() / 1000;
-                        ResourceInfo r = ResourceInfo.newBuilder()
-                                .setConfigId(configId)
-                                .setPrice(price)
-                                .build();
-                        resourceInfos.add(r);
-                    }
-                    
-                    DynamicDataManager.GetInstance().taxRate = UserUtil.getTaxCoefficient();
-                    logger.info("taxRate {}", DynamicDataManager.GetInstance().taxRate);
+                List<ResourceInfo> resourceInfos = DynamicDataManager.GetInstance().resourceInfos;
+                resourceInfos.clear();
+                for (Map.Entry<Integer, ITEM_RES> entry : StaticDataManager.GetInstance().itemResMap.entrySet()) {
+                    Integer configId = entry.getKey();
+                    ITEM_RES itemRes = StaticDataManager.GetInstance().itemResMap.get(configId);
+                    double probability = UserUtil.getPriceCoefficient(itemRes.getKeyName());
+                    double price = probability * itemRes.getGoldConv() / 1000;
+                    ResourceInfo r = ResourceInfo.newBuilder()
+                            .setConfigId(configId)
+                            .setPrice(price)
+                            .build();
+                    resourceInfos.add(r);
                 }
+                
+                DynamicDataManager.GetInstance().taxRate = UserUtil.getTaxCoefficient();
+                logger.info("taxRate {}", DynamicDataManager.GetInstance().taxRate);
             }
         }, 60, 60, TimeUnit.SECONDS);
         

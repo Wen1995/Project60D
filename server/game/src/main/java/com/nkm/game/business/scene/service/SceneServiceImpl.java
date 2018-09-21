@@ -862,15 +862,30 @@ public class SceneServiceImpl implements SceneService {
         
         // 仓库还有容量
         if (storehouseCapacity > 0) {
+            ResourceInfo.Builder resourceInfoBuilder;
             // 更新仓库原料
-            ResourceInfo.Builder resourceInfoBuilder = userResourceBuilder.getResourceInfosBuilder(constructResourceIndex);
-            resourceInfoBuilder.setNumber(resourceInfoBuilder.getNumber() + leftNumber);
-            userResourceBuilder.setResourceInfos(constructResourceIndex, resourceInfoBuilder);
+            if (constructResourceIndex != -1) {
+                resourceInfoBuilder = userResourceBuilder.getResourceInfosBuilder(constructResourceIndex);
+                resourceInfoBuilder.setNumber(resourceInfoBuilder.getNumber() + leftNumber);
+                userResourceBuilder.setResourceInfos(constructResourceIndex, resourceInfoBuilder);
+            } else {
+                resourceInfoBuilder = ResourceInfo.newBuilder()
+                        .setConfigId(constructConfigId)
+                        .setNumber(leftNumber);
+                userResourceBuilder.addResourceInfos(resourceInfoBuilder);
+            }
             
             // 更新仓库加工产品
-            resourceInfoBuilder = userResourceBuilder.getResourceInfosBuilder(productResourceIndex);
-            resourceInfoBuilder.setNumber(resourceInfoBuilder.getNumber() + number);
-            userResourceBuilder.setResourceInfos(productResourceIndex, resourceInfoBuilder);
+            if (productResourceIndex != -1) {
+                resourceInfoBuilder = userResourceBuilder.getResourceInfosBuilder(productResourceIndex);
+                resourceInfoBuilder.setNumber(resourceInfoBuilder.getNumber() + number);
+                userResourceBuilder.setResourceInfos(productResourceIndex, resourceInfoBuilder);
+            } else {
+                resourceInfoBuilder = ResourceInfo.newBuilder()
+                        .setConfigId(productResourceIndex)
+                        .setNumber(leftNumber);
+                userResourceBuilder.addResourceInfos(resourceInfoBuilder);
+            }
             
             user.setResource(userResourceBuilder.build().toByteArray());
             userDao.update(user);

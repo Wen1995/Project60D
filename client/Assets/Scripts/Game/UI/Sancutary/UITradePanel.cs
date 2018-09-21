@@ -177,7 +177,7 @@ public class UITradePanel : PanelBase {
 	{	
 		resNumLabel.text = GlobalFunction.NumberFormat(itemPackage.GetResourceTotolNumber());
 		goldNumLabel.text = GlobalFunction.NumberFormat(itemPackage.GetGoldNumber());
-		elecNumLabel.text = GlobalFunction.NumberFormat(itemPackage.GetElecNumber());
+		//elecNumLabel.text = GlobalFunction.NumberFormat(itemPackage.GetElecNumber());
 		elecNumLabel.text = string.Format("{0}/h", GlobalFunction.NumberFormat(sanctuaryPackage.GetTotalProEfficiency()));
 	}
 	void OnSelectItem(NDictionary data = null)

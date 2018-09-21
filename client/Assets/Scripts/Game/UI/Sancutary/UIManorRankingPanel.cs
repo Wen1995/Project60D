@@ -111,8 +111,6 @@ public class UIManorRankingPanel : PanelBase {
 		{
 			NUserInfo info = pair.Value;
 			playerInofs[count].nameLabel.text = info.name;
-			// playerInofs[count].nameLabel.text = info.contribution;
-			// playerInofs[count].nameLabel.text = info.;
 		}
 	}
 }

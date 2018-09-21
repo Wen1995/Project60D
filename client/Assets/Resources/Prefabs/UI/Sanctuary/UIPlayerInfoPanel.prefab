@@ -6525,7 +6525,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114322654203734280, guid: 695f76a957c234a439f9507d624e22a4, type: 2}
-  mSpriteName: electricity
+  mSpriteName: totaleff
   mFillCenter: 1
 --- !u!114 &114325463306127096
 MonoBehaviour:

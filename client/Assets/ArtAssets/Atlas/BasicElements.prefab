@@ -67,7 +67,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Basic-Outline
-    x: 0
+    x: 901
     y: 1233
     width: 900
     height: 137
@@ -107,7 +107,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Blue2-Outline
     x: 0
-    y: 957
+    y: 819
     width: 900
     height: 137
     borderLeft: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Blue-Filled
     x: 0
-    y: 543
+    y: 405
     width: 900
     height: 137
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Blue-Outline
-    x: 0
-    y: 405
+    x: 901
+    y: 1371
     width: 900
     height: 137
     borderLeft: 5
@@ -211,7 +211,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Dark-Skin-Background
     x: 0
-    y: 2803
+    y: 1509
     width: 2048
     height: 1293
     borderLeft: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Dot
     x: 2650
-    y: 3172
+    y: 3162
     width: 20
     height: 20
     borderLeft: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Green-Button
     x: 3319
-    y: 3693
+    y: 3895
     width: 348
     height: 100
     borderLeft: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Green-Outline
-    x: 901
-    y: 1233
+    x: 0
+    y: 957
     width: 900
     height: 137
     borderLeft: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Light-Skin-Background
     x: 0
-    y: 1509
+    y: 2803
     width: 2048
     height: 1293
     borderLeft: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: LightSkinTextfield
     x: 0
-    y: 1095
+    y: 1371
     width: 900
     height: 137
     borderLeft: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: LightSkinTextfield-Border
     x: 0
-    y: 1371
+    y: 543
     width: 900
     height: 137
     borderLeft: 0
@@ -318,6 +318,32 @@ MonoBehaviour:
     y: 2807
     width: 400
     height: 1
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: loadingBg_4
+    x: 2650
+    y: 3183
+    width: 51
+    height: 9
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: loadingBg_5
+    x: 2671
+    y: 3169
+    width: 13
+    height: 13
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -418,7 +444,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Red-Button
-    x: 3319
+    x: 3668
     y: 3895
     width: 348
     height: 100
@@ -431,8 +457,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Red-Button-Outline
-    x: 3668
-    y: 3895
+    x: 3319
+    y: 3794
     width: 348
     height: 100
     borderLeft: 10
@@ -471,7 +497,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Red-Outline
     x: 0
-    y: 681
+    y: 1233
     width: 900
     height: 137
     borderLeft: 0
@@ -496,8 +522,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: White-Basic-List-Background
-    x: 901
-    y: 1371
+    x: 0
+    y: 1095
     width: 900
     height: 137
     borderLeft: 0
@@ -509,19 +535,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: White-Button
-    x: 3319
-    y: 3794
-    width: 348
-    height: 100
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: White-Button-Outline
     x: 3668
     y: 3794
     width: 348
@@ -534,9 +547,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: White-Button-Outline
+    x: 3319
+    y: 3693
+    width: 348
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Yellow-Outline
     x: 0
-    y: 819
+    y: 681
     width: 900
     height: 137
     borderLeft: 0

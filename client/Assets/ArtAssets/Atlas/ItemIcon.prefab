@@ -380,7 +380,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: exmark
     x: 0
-    y: 960
+    y: 180
     width: 64
     height: 64
     borderLeft: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: fertilizer
     x: 0
-    y: 180
+    y: 115
     width: 64
     height: 64
     borderLeft: 0
@@ -406,19 +406,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: flood1
     x: 0
-    y: 115
-    width: 64
-    height: 64
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: flood2
-    x: 0
     y: 50
     width: 64
     height: 64
@@ -430,8 +417,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: flood3
+  - name: flood2
     x: 65
+    y: 895
+    width: 64
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: flood3
+    x: 130
     y: 895
     width: 64
     height: 64
@@ -444,7 +444,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fodder
-    x: 130
+    x: 195
     y: 895
     width: 64
     height: 64
@@ -457,7 +457,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: food
-    x: 195
+    x: 260
     y: 895
     width: 64
     height: 64
@@ -470,7 +470,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fruit
-    x: 260
+    x: 325
     y: 895
     width: 64
     height: 64
@@ -483,7 +483,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gasoline
-    x: 325
+    x: 390
     y: 895
     width: 64
     height: 64
@@ -496,7 +496,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gathered1
-    x: 390
+    x: 455
     y: 895
     width: 64
     height: 64
@@ -509,7 +509,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gathered2
-    x: 455
+    x: 520
     y: 895
     width: 64
     height: 64
@@ -522,7 +522,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gathered3
-    x: 520
+    x: 585
     y: 895
     width: 64
     height: 64
@@ -535,7 +535,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gold
-    x: 585
+    x: 650
     y: 895
     width: 64
     height: 64
@@ -548,7 +548,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: grass
-    x: 650
+    x: 715
     y: 895
     width: 64
     height: 64
@@ -561,7 +561,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: haze1
-    x: 715
+    x: 780
     y: 895
     width: 64
     height: 64
@@ -574,7 +574,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: haze2
-    x: 780
+    x: 845
     y: 895
     width: 64
     height: 64
@@ -587,7 +587,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: haze3
-    x: 845
+    x: 910
     y: 895
     width: 64
     height: 64
@@ -600,8 +600,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: helmet1
-    x: 910
-    y: 895
+    x: 65
+    y: 830
     width: 64
     height: 64
     borderLeft: 0
@@ -614,7 +614,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: helmet2
     x: 65
-    y: 830
+    y: 765
     width: 64
     height: 64
     borderLeft: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: helmet3
     x: 65
-    y: 765
+    y: 700
     width: 64
     height: 64
     borderLeft: 0
@@ -640,7 +640,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: hurricane1
     x: 65
-    y: 700
+    y: 635
     width: 64
     height: 64
     borderLeft: 0
@@ -653,7 +653,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: hurricane2
     x: 65
-    y: 635
+    y: 570
     width: 64
     height: 64
     borderLeft: 0
@@ -666,7 +666,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: hurricane3
     x: 65
-    y: 570
+    y: 505
     width: 64
     height: 64
     borderLeft: 0
@@ -679,7 +679,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: infuenza1
     x: 65
-    y: 505
+    y: 440
     width: 64
     height: 64
     borderLeft: 0
@@ -692,7 +692,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: infuenza2
     x: 65
-    y: 440
+    y: 375
     width: 64
     height: 64
     borderLeft: 0
@@ -705,7 +705,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: infuenza3
     x: 65
-    y: 375
+    y: 310
     width: 64
     height: 64
     borderLeft: 0
@@ -718,7 +718,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: infuenza4
     x: 65
-    y: 310
+    y: 245
     width: 64
     height: 64
     borderLeft: 0
@@ -731,7 +731,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: iron
     x: 65
-    y: 245
+    y: 180
     width: 64
     height: 64
     borderLeft: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: iron 1
     x: 65
-    y: 180
+    y: 115
     width: 64
     height: 64
     borderLeft: 0
@@ -757,19 +757,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: "K}7[W[M69(A$`]7D$DDN}TB\u526F\u672C1"
     x: 65
-    y: 115
-    width: 64
-    height: 64
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: "K}7[W[M69(A$`]7D$DDN}TB\u526F\u672C2"
-    x: 65
     y: 50
     width: 64
     height: 64
@@ -781,8 +768,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: kit1
+  - name: "K}7[W[M69(A$`]7D$DDN}TB\u526F\u672C2"
     x: 130
+    y: 830
+    width: 64
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: kit1
+    x: 195
     y: 830
     width: 64
     height: 64
@@ -795,7 +795,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: kit10
-    x: 195
+    x: 260
     y: 830
     width: 64
     height: 64
@@ -808,7 +808,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: kit2
-    x: 260
+    x: 325
     y: 830
     width: 64
     height: 64
@@ -821,7 +821,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: kit3
-    x: 325
+    x: 390
     y: 830
     width: 64
     height: 64
@@ -834,7 +834,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: kit4
-    x: 390
+    x: 455
     y: 830
     width: 64
     height: 64
@@ -847,7 +847,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: kit5
-    x: 455
+    x: 520
     y: 830
     width: 64
     height: 64
@@ -860,7 +860,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: kit6
-    x: 520
+    x: 585
     y: 830
     width: 64
     height: 64
@@ -873,7 +873,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: kit7
-    x: 585
+    x: 650
     y: 830
     width: 64
     height: 64
@@ -886,7 +886,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: kit8
-    x: 650
+    x: 715
     y: 830
     width: 64
     height: 64
@@ -899,7 +899,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: kit9
-    x: 715
+    x: 780
     y: 830
     width: 64
     height: 64
@@ -912,7 +912,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: knapsack1
-    x: 780
+    x: 845
     y: 830
     width: 64
     height: 64
@@ -925,7 +925,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: knapsack2
-    x: 845
+    x: 910
     y: 830
     width: 64
     height: 64
@@ -938,8 +938,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: knapsack3
-    x: 910
-    y: 830
+    x: 130
+    y: 765
     width: 64
     height: 64
     borderLeft: 0
@@ -952,7 +952,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: knapsack4
     x: 130
-    y: 765
+    y: 700
     width: 64
     height: 64
     borderLeft: 0
@@ -965,7 +965,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: knapsack5
     x: 130
-    y: 700
+    y: 635
     width: 64
     height: 64
     borderLeft: 0
@@ -978,7 +978,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: knapsack6
     x: 130
-    y: 635
+    y: 570
     width: 64
     height: 64
     borderLeft: 0
@@ -991,7 +991,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: locust1
     x: 130
-    y: 570
+    y: 505
     width: 64
     height: 64
     borderLeft: 0
@@ -1004,7 +1004,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: locust2
     x: 130
-    y: 505
+    y: 440
     width: 64
     height: 64
     borderLeft: 0
@@ -1017,7 +1017,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: locust3
     x: 130
-    y: 440
+    y: 375
     width: 64
     height: 64
     borderLeft: 0
@@ -1030,7 +1030,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: locust4
     x: 130
-    y: 375
+    y: 310
     width: 64
     height: 64
     borderLeft: 0
@@ -1043,7 +1043,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: locust5
     x: 130
-    y: 310
+    y: 245
     width: 64
     height: 64
     borderLeft: 0
@@ -1056,7 +1056,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: locust6
     x: 130
-    y: 245
+    y: 180
     width: 64
     height: 64
     borderLeft: 0
@@ -1069,7 +1069,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: machinegun1
     x: 130
-    y: 180
+    y: 115
     width: 64
     height: 64
     borderLeft: 0
@@ -1082,19 +1082,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: machinegun2
     x: 130
-    y: 115
-    width: 64
-    height: 64
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: machinegun3
-    x: 130
     y: 50
     width: 64
     height: 64
@@ -1106,8 +1093,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: machinegun4
+  - name: machinegun3
     x: 195
+    y: 765
+    width: 64
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: machinegun4
+    x: 260
     y: 765
     width: 64
     height: 64
@@ -1120,7 +1120,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: peace1
-    x: 260
+    x: 325
     y: 765
     width: 64
     height: 64
@@ -1133,7 +1133,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: peace2
-    x: 325
+    x: 390
     y: 765
     width: 64
     height: 64
@@ -1146,7 +1146,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: peace3
-    x: 390
+    x: 455
     y: 765
     width: 64
     height: 64
@@ -1159,7 +1159,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: peace4
-    x: 455
+    x: 520
     y: 765
     width: 64
     height: 64
@@ -1172,7 +1172,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: peace5
-    x: 520
+    x: 585
     y: 765
     width: 64
     height: 64
@@ -1185,7 +1185,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: peace6
-    x: 585
+    x: 650
     y: 765
     width: 64
     height: 64
@@ -1198,7 +1198,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pistol1
-    x: 650
+    x: 715
     y: 765
     width: 64
     height: 64
@@ -1211,7 +1211,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pistol2
-    x: 715
+    x: 780
     y: 765
     width: 64
     height: 64
@@ -1224,7 +1224,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pistol3
-    x: 780
+    x: 845
     y: 765
     width: 64
     height: 64
@@ -1237,7 +1237,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pistol4
-    x: 845
+    x: 910
     y: 765
     width: 64
     height: 64
@@ -1250,8 +1250,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pistol5
-    x: 910
-    y: 765
+    x: 195
+    y: 700
     width: 64
     height: 64
     borderLeft: 0
@@ -1264,7 +1264,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: pistol6
     x: 195
-    y: 700
+    y: 635
     width: 64
     height: 64
     borderLeft: 0
@@ -1277,7 +1277,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: pistol7
     x: 195
-    y: 635
+    y: 570
     width: 64
     height: 64
     borderLeft: 0
@@ -1290,7 +1290,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: pistol8
     x: 195
-    y: 570
+    y: 505
     width: 64
     height: 64
     borderLeft: 0
@@ -1303,7 +1303,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: plank
     x: 195
-    y: 505
+    y: 440
     width: 64
     height: 64
     borderLeft: 0
@@ -1316,7 +1316,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: plank 1
     x: 195
-    y: 440
+    y: 375
     width: 64
     height: 64
     borderLeft: 0
@@ -1329,7 +1329,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: pork
     x: 195
-    y: 375
+    y: 310
     width: 64
     height: 64
     borderLeft: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: pork 1
     x: 195
-    y: 310
+    y: 245
     width: 64
     height: 64
     borderLeft: 0
@@ -1355,7 +1355,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: pyricularia1
     x: 195
-    y: 245
+    y: 180
     width: 64
     height: 64
     borderLeft: 0
@@ -1368,7 +1368,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: pyricularia2
     x: 195
-    y: 180
+    y: 115
     width: 64
     height: 64
     borderLeft: 0
@@ -1381,19 +1381,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: pyricularia3
     x: 195
-    y: 115
-    width: 64
-    height: 64
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: pyricularia4
-    x: 195
     y: 50
     width: 64
     height: 64
@@ -1405,8 +1392,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: pyricularia5
+  - name: pyricularia4
     x: 260
+    y: 700
+    width: 64
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: pyricularia5
+    x: 325
     y: 700
     width: 64
     height: 64
@@ -1419,7 +1419,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pyricularia6
-    x: 325
+    x: 390
     y: 700
     width: 64
     height: 64
@@ -1432,7 +1432,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: repaire
-    x: 390
+    x: 455
     y: 700
     width: 64
     height: 64
@@ -1445,7 +1445,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: resource
-    x: 455
+    x: 520
     y: 700
     width: 64
     height: 64
@@ -1458,7 +1458,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rice
-    x: 520
+    x: 585
     y: 700
     width: 64
     height: 64
@@ -1471,7 +1471,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rice 1
-    x: 585
+    x: 650
     y: 700
     width: 64
     height: 64
@@ -1484,7 +1484,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rifle1
-    x: 650
+    x: 715
     y: 700
     width: 64
     height: 64
@@ -1497,7 +1497,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rifle2
-    x: 715
+    x: 780
     y: 700
     width: 64
     height: 64
@@ -1510,7 +1510,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rifle3
-    x: 780
+    x: 845
     y: 700
     width: 64
     height: 64
@@ -1523,7 +1523,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rifle4
-    x: 845
+    x: 910
     y: 700
     width: 64
     height: 64
@@ -1536,8 +1536,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rifle5
-    x: 910
-    y: 700
+    x: 260
+    y: 635
     width: 64
     height: 64
     borderLeft: 0
@@ -1550,7 +1550,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: rifle6
     x: 260
-    y: 635
+    y: 570
     width: 64
     height: 64
     borderLeft: 0
@@ -1563,7 +1563,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: rifle7
     x: 260
-    y: 570
+    y: 505
     width: 64
     height: 64
     borderLeft: 0
@@ -1576,7 +1576,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: rifle8
     x: 260
-    y: 505
+    y: 440
     width: 64
     height: 64
     borderLeft: 0
@@ -1589,7 +1589,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: serenity1
     x: 260
-    y: 440
+    y: 375
     width: 64
     height: 64
     borderLeft: 0
@@ -1602,7 +1602,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: serenity2
     x: 260
-    y: 375
+    y: 310
     width: 64
     height: 64
     borderLeft: 0
@@ -1615,7 +1615,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: serenity3
     x: 260
-    y: 310
+    y: 245
     width: 64
     height: 64
     borderLeft: 0
@@ -1628,7 +1628,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: serenity4
     x: 260
-    y: 245
+    y: 180
     width: 64
     height: 64
     borderLeft: 0
@@ -1641,7 +1641,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: serenity5
     x: 260
-    y: 180
+    y: 115
     width: 64
     height: 64
     borderLeft: 0
@@ -1654,19 +1654,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: serenity6
     x: 260
-    y: 115
-    width: 64
-    height: 64
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: shoes1
-    x: 260
     y: 50
     width: 64
     height: 64
@@ -1678,8 +1665,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: shoes2
+  - name: shoes1
     x: 325
+    y: 635
+    width: 64
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: shoes2
+    x: 390
     y: 635
     width: 64
     height: 64
@@ -1692,7 +1692,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shoes3
-    x: 390
+    x: 455
     y: 635
     width: 64
     height: 64
@@ -1705,7 +1705,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shoes4
-    x: 455
+    x: 520
     y: 635
     width: 64
     height: 64
@@ -1718,7 +1718,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shoes5
-    x: 520
+    x: 585
     y: 635
     width: 64
     height: 64
@@ -1731,7 +1731,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shoes6
-    x: 585
+    x: 650
     y: 635
     width: 64
     height: 64
@@ -1744,7 +1744,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shoes7
-    x: 650
+    x: 715
     y: 635
     width: 64
     height: 64
@@ -1757,7 +1757,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shoes8
-    x: 715
+    x: 780
     y: 635
     width: 64
     height: 64
@@ -1770,7 +1770,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shotgun1
-    x: 780
+    x: 845
     y: 635
     width: 64
     height: 64
@@ -1783,7 +1783,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shotgun2
-    x: 845
+    x: 910
     y: 635
     width: 64
     height: 64
@@ -1796,8 +1796,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shotgun3
-    x: 910
-    y: 635
+    x: 325
+    y: 570
     width: 64
     height: 64
     borderLeft: 0
@@ -1810,7 +1810,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: shotgun4
     x: 325
-    y: 570
+    y: 505
     width: 64
     height: 64
     borderLeft: 0
@@ -1823,7 +1823,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: shotgun5
     x: 325
-    y: 505
+    y: 440
     width: 64
     height: 64
     borderLeft: 0
@@ -1836,7 +1836,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: shotgun6
     x: 325
-    y: 440
+    y: 375
     width: 64
     height: 64
     borderLeft: 0
@@ -1849,7 +1849,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: sketch
     x: 325
-    y: 375
+    y: 310
     width: 64
     height: 64
     borderLeft: 0
@@ -1862,7 +1862,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: sketch 1
     x: 325
-    y: 310
+    y: 245
     width: 64
     height: 64
     borderLeft: 0
@@ -1875,7 +1875,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: sniperrifle1
     x: 325
-    y: 245
+    y: 180
     width: 64
     height: 64
     borderLeft: 0
@@ -1888,7 +1888,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: sniperrifle10
     x: 325
-    y: 180
+    y: 115
     width: 64
     height: 64
     borderLeft: 0
@@ -1901,19 +1901,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: sniperrifle2
     x: 325
-    y: 115
-    width: 64
-    height: 64
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: sniperrifle3
-    x: 325
     y: 50
     width: 64
     height: 64
@@ -1925,8 +1912,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: sniperrifle4
+  - name: sniperrifle3
     x: 390
+    y: 570
+    width: 64
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sniperrifle4
+    x: 455
     y: 570
     width: 64
     height: 64
@@ -1939,7 +1939,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sniperrifle5
-    x: 455
+    x: 520
     y: 570
     width: 64
     height: 64
@@ -1952,7 +1952,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sniperrifle6
-    x: 520
+    x: 585
     y: 570
     width: 64
     height: 64
@@ -1965,7 +1965,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sniperrifle7
-    x: 585
+    x: 650
     y: 570
     width: 64
     height: 64
@@ -1978,7 +1978,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sniperrifle8
-    x: 650
+    x: 715
     y: 570
     width: 64
     height: 64
@@ -1991,7 +1991,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sniperrifle9
-    x: 715
+    x: 780
     y: 570
     width: 64
     height: 64
@@ -2004,7 +2004,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: steel
-    x: 780
+    x: 845
     y: 570
     width: 64
     height: 64
@@ -2017,7 +2017,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: steel 1
-    x: 845
+    x: 910
     y: 570
     width: 64
     height: 64
@@ -2030,8 +2030,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: submachinegun1
-    x: 910
-    y: 570
+    x: 390
+    y: 505
     width: 64
     height: 64
     borderLeft: 0
@@ -2044,7 +2044,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: submachinegun2
     x: 390
-    y: 505
+    y: 440
     width: 64
     height: 64
     borderLeft: 0
@@ -2057,7 +2057,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: submachinegun3
     x: 390
-    y: 440
+    y: 375
     width: 64
     height: 64
     borderLeft: 0
@@ -2070,7 +2070,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: submachinegun4
     x: 390
-    y: 375
+    y: 310
     width: 64
     height: 64
     borderLeft: 0
@@ -2083,7 +2083,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: submachinegun5
     x: 390
-    y: 310
+    y: 245
     width: 64
     height: 64
     borderLeft: 0
@@ -2096,7 +2096,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: submachinegun6
     x: 390
-    y: 245
+    y: 180
     width: 64
     height: 64
     borderLeft: 0
@@ -2109,7 +2109,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: sunstorm1
     x: 390
-    y: 180
+    y: 115
     width: 64
     height: 64
     borderLeft: 0
@@ -2122,19 +2122,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: sunstorm2
     x: 390
-    y: 115
-    width: 64
-    height: 64
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: sunstorm3
-    x: 390
     y: 50
     width: 64
     height: 64
@@ -2146,8 +2133,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: sunstorm4
+  - name: sunstorm3
     x: 455
+    y: 505
+    width: 64
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sunstorm4
+    x: 520
     y: 505
     width: 64
     height: 64
@@ -2160,7 +2160,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sunstorm5
-    x: 520
+    x: 585
     y: 505
     width: 64
     height: 64
@@ -2173,7 +2173,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: sunstorm6
-    x: 585
+    x: 650
     y: 505
     width: 64
     height: 64
@@ -2186,7 +2186,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: tornado1
-    x: 650
+    x: 715
     y: 505
     width: 64
     height: 64
@@ -2199,7 +2199,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: tornado2
-    x: 715
+    x: 780
     y: 505
     width: 64
     height: 64
@@ -2212,7 +2212,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: tornado3
-    x: 780
+    x: 845
     y: 505
     width: 64
     height: 64
@@ -2225,7 +2225,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: tornado4
-    x: 845
+    x: 910
     y: 505
     width: 64
     height: 64
@@ -2238,8 +2238,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: tornado5
-    x: 910
-    y: 505
+    x: 455
+    y: 440
     width: 64
     height: 64
     borderLeft: 0
@@ -2252,7 +2252,20 @@ MonoBehaviour:
     paddingBottom: 0
   - name: tornado6
     x: 455
-    y: 440
+    y: 375
+    width: 64
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: totaleff
+    x: 0
+    y: 960
     width: 64
     height: 64
     borderLeft: 0
@@ -2265,7 +2278,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: trousers1
     x: 455
-    y: 375
+    y: 310
     width: 64
     height: 64
     borderLeft: 0
@@ -2278,7 +2291,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: trousers2
     x: 455
-    y: 310
+    y: 245
     width: 64
     height: 64
     borderLeft: 0
@@ -2291,7 +2304,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: trousers3
     x: 455
-    y: 245
+    y: 180
     width: 64
     height: 64
     borderLeft: 0
@@ -2304,7 +2317,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: trousers4
     x: 455
-    y: 180
+    y: 115
     width: 64
     height: 64
     borderLeft: 0
@@ -2317,19 +2330,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: trousers5
     x: 455
-    y: 115
-    width: 64
-    height: 64
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: trousers6
-    x: 455
     y: 50
     width: 64
     height: 64
@@ -2341,8 +2341,21 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: trousers7
+  - name: trousers6
     x: 520
+    y: 440
+    width: 64
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: trousers7
+    x: 585
     y: 440
     width: 64
     height: 64
@@ -2355,7 +2368,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: trousers8
-    x: 585
+    x: 650
     y: 440
     width: 64
     height: 64
@@ -2368,7 +2381,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: variant1
-    x: 650
+    x: 715
     y: 440
     width: 64
     height: 64
@@ -2381,7 +2394,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: variant2
-    x: 715
+    x: 780
     y: 440
     width: 64
     height: 64
@@ -2394,7 +2407,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: variant3
-    x: 780
+    x: 845
     y: 440
     width: 64
     height: 64
@@ -2407,7 +2420,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: variant4
-    x: 845
+    x: 910
     y: 440
     width: 64
     height: 64
@@ -2420,8 +2433,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: variant5
-    x: 910
-    y: 440
+    x: 520
+    y: 375
     width: 64
     height: 64
     borderLeft: 0
@@ -2434,7 +2447,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: variant6
     x: 520
-    y: 375
+    y: 310
     width: 64
     height: 64
     borderLeft: 0
@@ -2447,7 +2460,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: vegetable
     x: 520
-    y: 310
+    y: 245
     width: 64
     height: 64
     borderLeft: 0
@@ -2460,7 +2473,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: vegetable 1
     x: 520
-    y: 245
+    y: 180
     width: 64
     height: 64
     borderLeft: 0
@@ -2473,7 +2486,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: war1
     x: 520
-    y: 180
+    y: 115
     width: 64
     height: 64
     borderLeft: 0
@@ -2486,19 +2499,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: war2
     x: 520
-    y: 115
-    width: 64
-    height: 64
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: war3
-    x: 520
     y: 50
     width: 64
     height: 64
@@ -2510,7 +2510,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: war4
+  - name: war3
     x: 585
     y: 375
     width: 64
@@ -2523,7 +2523,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: war5
+  - name: war4
     x: 650
     y: 375
     width: 64
@@ -2536,7 +2536,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: war6
+  - name: war5
     x: 715
     y: 375
     width: 64
@@ -2549,7 +2549,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: water
+  - name: war6
     x: 780
     y: 375
     width: 64
@@ -2562,7 +2562,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: water 1
+  - name: water
     x: 845
     y: 375
     width: 64
@@ -2575,7 +2575,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: water2
+  - name: water 1
     x: 910
     y: 375
     width: 64
@@ -2588,7 +2588,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: water3
+  - name: water2
     x: 585
     y: 310
     width: 64
@@ -2601,7 +2601,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: weapondrawing
+  - name: water3
     x: 585
     y: 245
     width: 64
@@ -2614,7 +2614,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: wood
+  - name: weapondrawing
     x: 585
     y: 180
     width: 64
@@ -2627,7 +2627,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: wood 1
+  - name: wood
     x: 585
     y: 115
     width: 64
@@ -2640,9 +2640,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: "\u65392.1"
+  - name: wood 1
     x: 585
     y: 50
+    width: 64
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: "\u65392.1"
+    x: 650
+    y: 310
     width: 64
     height: 64
     borderLeft: 0

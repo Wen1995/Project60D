@@ -66,12 +66,12 @@ public class HudProduceBar : MonoBehaviour, IPoolUnit, IHudObject {
 
 	IEnumerator ProduceTimer()
 	{
-		numLabel.text = GlobalFunction.NumberFormat(num);
+		
 		while(true)
 		{
+			numLabel.text = ((int)num).ToString();
 			yield return new WaitForSeconds(0.3f);
 			num += speed * 0.3f;
-			numLabel.text = GlobalFunction.NumberFormat(num);
 		}
 	}
 

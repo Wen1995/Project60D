@@ -200,6 +200,7 @@ public class SSanctuaryController : SceneController
     {
         TSCGetUserState userState = TSCGetUserState.ParseFrom(msg.mBtsData);
         userPackage.SetPlayerState(userState);
+        SendEvent("RefreshUserState");
         if(initFlag == false)
         {
             BuildSanctuary();

@@ -30,6 +30,7 @@ public class UITradePanel : PanelBase {
 	UILabel limitLabel = null;
 	UILabel cdTimeLabel = null;
 	UILabel priceLabel = null;
+	UILabel capLabel = null;
 
 	NTableView tableView = null;
 	UIButton buyBtn = null;
@@ -54,6 +55,7 @@ public class UITradePanel : PanelBase {
 		limitLabel = transform.Find("iteminfo/buylimit").GetComponent<UILabel>();
 		cdTimeLabel = transform.Find("iteminfo/cdtime").GetComponent<UILabel>();
 		priceLabel = transform.Find("iteminfo/pricelabel").GetComponent<UILabel>();
+		capLabel = transform.Find("store/cap").GetComponent<UILabel>();
 		pointGroup = transform.Find("iteminfo/graph/pointgroup");
 		lineRenderer = GameObject.Find("UI Root/Camera/Linerenderer/point").GetComponent<LineRenderer>();
 		lineRenderer.startWidth = 0.005f;
@@ -161,6 +163,7 @@ public class UITradePanel : PanelBase {
 		lineRenderer.positionCount = 0;
 		limitLabel.text = "";
 		priceLabel.text = "";
+		capLabel.text = string.Format("容量:{0}/{1}", itemPackage.GetRousourceTotalCap(), sanctuaryPackage.GetStoreHouseCap());
 	}
 
 	void RefreshView(NDictionary data = null)

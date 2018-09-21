@@ -293,7 +293,7 @@ public class ItemPackage : ModelBase
                 mItemServerData[data.ConfigId] = new NItemServerData();
             mItemServerData[data.ConfigId].price = data.Price;
             ITEM_RES config = GetItemDataByConfigID(data.ConfigId);
-        }
+            Debug.Log(string.Format("{0}, {1}", config.MinName, data.Price));        }
         taxRate = msg.TaxRate;
     }
 

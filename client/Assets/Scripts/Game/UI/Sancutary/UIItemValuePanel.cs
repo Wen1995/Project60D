@@ -52,7 +52,8 @@ public class UIItemValuePanel : PanelBase{
 			titleLabel.text = string.Format("购买 {0}", config.MinName);
 			double price = itemPackage.GetItemPrice(configID);
 			double curGold = itemPackage.GetGoldNumber();
-			itemCap = Mathf.Min(itemPackage.GetBuyLimit(configID), (int)(curGold / price));
+			double tax = itemPackage.GetTaxRate();
+			itemCap = Mathf.Min(itemPackage.GetBuyLimit(configID), (int)(curGold / (price * (1 + tax))));
 			btnLabel.text = "购买";
 		}
 		else
@@ -79,15 +80,16 @@ public class UIItemValuePanel : PanelBase{
 	{
 		double price = itemPackage.GetItemPrice(configID);
 		numLabel.text = GlobalFunction.NumberFormat(value);
+		double tax = itemPackage.GetTaxRate();
 		if(isBuy)
 		{
-			resultLabel.text = string.Format("总花费:{0}", GlobalFunction.NumberFormat(price * value * 1.05));
-			taxLabel.text = string.Format("已包含中间人费用:{0}", GlobalFunction.NumberFormat(price * value * 0.05));
+			resultLabel.text = string.Format("总花费:{0}", GlobalFunction.NumberFormat(price * value * (1 + tax)));
+			taxLabel.text = string.Format("已包含中间人费用:{0}", GlobalFunction.NumberFormat(price * value * tax));
 		}
 		else
 		{
-			resultLabel.text = string.Format("总获得:{0}", GlobalFunction.NumberFormat(price * value * 0.95));
-			taxLabel.text = string.Format("已扣除中间人费用:{0}", GlobalFunction.NumberFormat(price * value * 0.05));
+			resultLabel.text = string.Format("总获得:{0}", GlobalFunction.NumberFormat(price * value * (1 - tax)));
+			taxLabel.text = string.Format("已扣除中间人费用:{0}", GlobalFunction.NumberFormat(price * value * tax));
 		}
 	}
 

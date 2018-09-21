@@ -47,7 +47,7 @@ import com.nkm.framework.resource.data.ZombieAttrBytes.ZOMBIE_ATTR;
 public class StaticDataManager {
 	private static final Logger logger = LoggerFactory.getLogger(StaticDataManager.class);
 
-    static Object obj = new Object();
+    private static Object obj = new Object();
     private static StaticDataManager instance;
 
     public static StaticDataManager GetInstance() {

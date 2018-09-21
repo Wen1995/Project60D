@@ -60,8 +60,9 @@ public class UserUtil {
             WORLD_EVENTS worldEvent = StaticDataManager.GetInstance().worldEventsMap.get(congigId);
             long happenTime = entry.getValue();
             long endTime = happenTime + worldEvent.getEventDuration() * Constant.TIME_MINUTE;
-            if (currentTime >= happenTime && currentTime <= endTime) {
-                probability *= 1.0 * worldEvent.getTaxCoeff() / 100;
+            int taxCoeff = worldEvent.getTaxCoeff();
+            if (taxCoeff != 0 && currentTime >= happenTime && currentTime <= endTime) {
+                probability *= 1.0 * taxCoeff / 100;
             }
         }
         return probability;

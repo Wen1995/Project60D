@@ -62,8 +62,7 @@ public class UIItemValuePanel : PanelBase{
 			titleLabel.text = string.Format("出售 {0}", config.MinName);
 			itemCap = info.number;
 			btnLabel.text = "出售";
-		}
-		
+		}		
 		if(config.GoldConv >= 1000)
 			ratio = 1;
 		else

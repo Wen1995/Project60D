@@ -342,6 +342,7 @@ public class SSanctuaryController : SceneController
         TSCInterruptProcess process = TSCInterruptProcess.ParseFrom(msg.mBtsData);
         sanctuaryPackage.CancelCraft(process.BuildingId);
         SendEvent("RefreshCraftPanel");
+        FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
     }
 
     IEnumerator SoundTimer()

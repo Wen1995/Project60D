@@ -24,13 +24,10 @@ public class HudNameBoard : MonoBehaviour, IPoolUnit, IHudObject {
             if(curLevel >= requireLevel)
                 label.text = string.Format("可解锁");
             else
-                label.text = string.Format("庄园Lv.{1} 解锁", requireLevel);
+                label.text = string.Format("庄园Lv.{0} 解锁", requireLevel);
             
         }
-		
 		name = config.BldgName;
-		
-		
     }
 
     public void OnRestore()

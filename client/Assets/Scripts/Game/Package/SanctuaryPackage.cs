@@ -219,6 +219,7 @@ public class SanctuaryPackage : ModelBase {
         {
             cost = new NCostDef();
             int itemConfigID = configData.GetCostTable(i).CostId;
+            Debug.Log(string.Format("costID = {0}", itemConfigID));
             int num = configData.GetCostTable(i).CostQty;
             cost.configID = itemConfigID;
             cost.value = num;

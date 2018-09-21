@@ -30,6 +30,7 @@ public class UIMsgBoxPanel : PanelBase {
     public override void OpenPanel()
     {
         base.OpenPanel();
+        print("MsgBox!!!!!");
     }
 
     public override void ClosePanel()

@@ -36,7 +36,6 @@ public class SanctuaryService : ServiceBase {
         int configID = args.Value<int>("configID");
         var builder = TCSUnlock.CreateBuilder();
         builder.ConfigId = configID;
-        Debug.Log(builder.ConfigId);
         TCSUnlock unlock = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.UNLOCK, unlock.ToByteArray());
     }
@@ -178,6 +177,7 @@ public class SanctuaryService : ServiceBase {
         builder.Number = args.Value<int>("num");
         builder.Price = args.Value<double>("price");
         builder.TaxRate = args.Value<double>("tax");
+        Debug.Log(string.Format("{0}, {1}, {2}, {3}", builder.ConfigId, builder.Number, builder.Price, builder.TaxRate));
         TCSBuyGoods msg = builder.Build();
         NetSingleton.Instance.SendNetMsg(NetType.Netty, (short)Cmd.BUYGOODS, msg.ToByteArray());        
     }

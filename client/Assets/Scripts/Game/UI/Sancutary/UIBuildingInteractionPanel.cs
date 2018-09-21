@@ -166,22 +166,6 @@ public class UIBuildingInteractionPanel : PanelBase{
     {
         FacadeSingleton.Instance.BackPanel();
         FacadeSingleton.Instance.OverlayerPanel("UIBuildingUnlockPanel");
-        //FacadeSingleton.Instance.OverlayerPanel("UIBuildingUpgradePanel");
-        // int newConfigID = sanctuaryPackage.GetConfigIDByBuildingType(selectBuilding.buildingType);
-        // FacadeSingleton.Instance.OverlayerPanel("UICostResPanel");
-        // NDictionary args = new NDictionary();
-        // args.Add("configID", newConfigID);
-        // List<NItemInfo> costInfoList = FacadeSingleton.Instance.InvokeService("GetBuildingUpgradeCost", ConstVal.Service_Sanctuary, args) as List<NItemInfo>;
-        // args.Clear();
-        // args.Add("infolist", costInfoList);
-        // args.Add("callback", new EventDelegate(()=>{
-        //     FacadeSingleton.Instance.BackPanel();
-        //     NDictionary data = new NDictionary();
-        //     data.Add("configID", newConfigID);
-        //     FacadeSingleton.Instance.InvokeService("RPCUnlockBuilding", ConstVal.Service_Sanctuary, data);
-        //     print(string.Format("unlock building type={0}, config={1}", selectBuilding.buildingType, newConfigID));
-        // }));
-        // FacadeSingleton.Instance.SendEvent("OpenCostRes", args);
     }
 
     void OnCollect()

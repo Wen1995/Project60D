@@ -155,6 +155,11 @@ public class NetSingleton : Singleton<NetSingleton> {
                 FacadeSingleton.Instance.InvokeService("ProcessStoreHouseFull", ConstVal.Service_Common);
                 return;
             }
+            case(11):
+            {
+                content = "金钱不足";
+                break;
+            }
         }
         NDictionary args = new NDictionary();
         args.Add("title", "发生错误");

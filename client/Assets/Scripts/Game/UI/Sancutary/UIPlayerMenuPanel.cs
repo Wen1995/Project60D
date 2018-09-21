@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UIPlayerMenuPanel : PanelBase {
 
+	SanctuaryPackage sanctuaryPackage = null;
 	UserPackage userPackage = null;
 	ItemPackage itemPackage = null;
 	UILabel coinLabel = null;
@@ -31,6 +32,7 @@ public class UIPlayerMenuPanel : PanelBase {
 		expProgressBar = transform.Find("player/exp").GetComponent<UIProgressBar>();
 		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
+		sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
 		//bind event
 		UIButton button = transform.Find("player").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnPlayerInfo));
@@ -60,7 +62,8 @@ public class UIPlayerMenuPanel : PanelBase {
 		if(playerState == null) return;
 		coinLabel.text = GlobalFunction.NumberFormat(itemPackage.GetGoldNumber());
 		resLabel.text = GlobalFunction.NumberFormat(itemPackage.GetResourceTotolNumber());
-		elecLabel.text = GlobalFunction.NumberFormat(itemPackage.GetElecNumber());
+		//elecLabel.text = GlobalFunction.NumberFormat(itemPackage.GetElecNumber());
+		elecLabel.text= GlobalFunction.NumberFormat(sanctuaryPackage.GetTotalProEfficiency());
 		taskLabel.text = "空闲";
 		healthProgressBar.value = (float)playerState.blood / (float)(20 + 2 * playerState.health);
 		hungerProgressBar.value = (float)playerState.hunger / (float)(20 + 2 * playerState.health);

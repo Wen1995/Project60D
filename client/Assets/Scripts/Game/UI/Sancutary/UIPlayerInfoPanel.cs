@@ -31,6 +31,7 @@ public class UIPlayerInfoPanel : PanelBase {
 	UILabel interestLabel = null;
 	UILabel capLabel = null;
 	UILabel sortNameLabel = null;
+	UILabel nameLabel = null;
 	//Equip
 	//Item
 	NTableView tableView = null;
@@ -62,6 +63,7 @@ public class UIPlayerInfoPanel : PanelBase {
 		expProgress = transform.Find("playerinfo/player/exp").GetComponent<UIProgressBar>();
 		expLabel = transform.Find("playerinfo/player/exp/label").GetComponent<UILabel>();
 		levelLabel = transform.Find("playerinfo/player/level").GetComponent<UILabel>();
+		nameLabel = transform.Find("playerinfo/player/name").GetComponent<UILabel>();
 		//equip
 		//item
 		tableView = transform.Find("store/itemview/tableview").GetComponent<NTableView>();
@@ -140,6 +142,7 @@ public class UIPlayerInfoPanel : PanelBase {
 		expProgress.value = progress;
 		levelLabel.text = string.Format("Lv.{0}", userPackage.GetPlayerLevel());
 		expLabel.text = string.Format("个人实力:{0}", userPackage.GetPersonContribution());
+		nameLabel.text = userPackage.GetUserInfo(userPackage.UserID).name;
 	}
 
 	void InitStoreHouse()

@@ -213,7 +213,7 @@ public class SSanctuaryController : SceneController
     void OnBuildingUnlock(NetMsgDef msg)
     {
         TSCUnlock unlock = TSCUnlock.ParseFrom(msg.mBtsData);
-        if(unlock.IsGroup && unlock.IsResource && unlock.IsProduction && unlock.IsState)
+        if(unlock.IsGroup && unlock.IsResource && unlock.IsProduction && !unlock.IsState)
         {
             long buildingID = unlock.BuildingId;
             long finishTime = unlock.FinishTime;
@@ -230,7 +230,7 @@ public class SSanctuaryController : SceneController
             if(!unlock.IsGroup) content += content == "" ? "庄园等级低于要求" : "\n庄园等级低于要求";
             else if(!unlock.IsResource) content += content == "" ? "资源数量不足" : "\n资源数量不足";
             else if(!unlock.IsProduction) content += content == "" ? "其他建筑正在升级或解锁中" : "\n其他建筑正在升级或解锁中";
-            else if(!unlock.IsState) content += content == "" ? "该建筑正在解锁中" : "\n该建筑正在解锁中";
+            else if(unlock.IsState) content += content == "" ? "该建筑正在解锁中" : "\n该建筑正在解锁中";
             data.Add("content", content);
             data.Add("method", 1);
             FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
@@ -254,7 +254,7 @@ public class SSanctuaryController : SceneController
             else if(!upgrade.IsGroup) content += content == "" ? "庄园等级低于要求" : "\n庄园等级低于要求";
             else if(!upgrade.IsResource) content += content == "" ? "资源数量不足" : "\n资源数量不足";
             else if(!upgrade.IsProduction) content += content == "" ? "其他建筑正在升级或解锁中" : "\n其他建筑正在升级或解锁中";
-            else if(!upgrade.IsState) content += content == "" ? "该建筑正在升级中" : "\n该建筑正在升级中";
+            else if(upgrade.IsState) content += content == "" ? "该建筑正在升级中" : "\n该建筑正在升级中";
             data.Add("content", content);
             data.Add("method", 1);
             FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");

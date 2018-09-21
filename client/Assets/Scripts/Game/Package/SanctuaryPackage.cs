@@ -219,7 +219,7 @@ public class SanctuaryPackage : ModelBase {
         {
             cost = new NCostDef();
             int itemConfigID = configData.GetCostTable(i).CostId;
-            Debug.Log(string.Format("costID = {0}", itemConfigID));
+            if(itemConfigID == 0) continue;
             int num = configData.GetCostTable(i).CostQty;
             cost.configID = itemConfigID;
             cost.value = num;
@@ -254,6 +254,32 @@ public class SanctuaryPackage : ModelBase {
                 
         }
         return false;
+    }
+
+    public int GetTotalProEfficiency()
+    {
+        int sum = 0;
+        foreach(var pair in mBuildingInfoMap)
+        {
+            if(GetBuildingFuncByConfigID(pair.Value.configID) != BuildingFunc.Collect)
+                continue;
+            BUILDING buildingConfig = GetBuildingConfigDataByConfigID(pair.Value.configID);
+            string name = buildingConfig.BldgFuncTableName;
+            name = name.ToUpper();
+            int level = GetBulidingLevelByConfigID(pair.Value.configID);
+            
+            var configMap = ConfigDataStatic.GetConfigDataTable(name);
+            var funcConfig = configMap[level];
+            
+            Type type = Type.GetType("com.nkm.framework.resource.data." + name);
+            string propertyName = name[0] + name.Substring(1).ToLower();
+            Debug.Log(propertyName + "Spd");
+            Debug.Log(type);
+            PropertyInfo spdInfo = type.GetProperty(propertyName + "Spd");
+            int spd = (int)spdInfo.GetValue(funcConfig, null);
+            sum += spd;
+        }
+        return sum;
     }
 
     #region Acess Data

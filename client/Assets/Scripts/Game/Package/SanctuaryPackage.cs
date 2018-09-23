@@ -259,7 +259,7 @@ public class SanctuaryPackage : ModelBase {
     public int GetTotalProEfficiency()
     {
         UserPackage userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
-        int sum = 0;
+        double sum = 0;
         foreach(var pair in mBuildingInfoMap)
         {
             if(GetBuildingFuncByConfigID(pair.Value.configID) != BuildingFunc.Collect)
@@ -278,6 +278,11 @@ public class SanctuaryPackage : ModelBase {
             int spd = (int)spdInfo.GetValue(funcConfig, null);
             sum += spd;
         }
+        //add number buff
+        int personNum = userPackage.GetManorPersonNumber();
+        if(personNum == 2) sum *= 1.6f;
+        if(personNum == 3) sum *= 2.2f;
+        if(personNum == 4) sum *= 2.8f;
         return (int)((double)sum * userPackage.GetPlayerInterest());
     }
 

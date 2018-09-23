@@ -181,12 +181,14 @@ public class SSanctuaryController : SceneController
         {
             userPackage.AddUserInfo(sceneInfo.GetUserInfos(i));
             manors[i].SetUserID(sceneInfo.GetUserInfos(i).Uid);
+            manors[i].gameObject.SetActive(true);
         }
         userPackage.SetGroupName(sceneInfo.GroupName);
         SendEvent("RefreshManorLevel");
         SendEvent("RefreshBuildingView");
         SendEvent("RefreshZombieSpawner");
         SendEvent("RefreshProduceBar");
+        InitManor();
     }
 
     void OnGetResourceInfo(NetMsgDef msg)

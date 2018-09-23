@@ -345,7 +345,6 @@ public class SanctuaryPackage : ModelBase {
             if(cost.CostId == 0) continue;
             requireVal = cost.CostQty;
             NItemInfo info = itemPackage.GetItemInfo(cost.CostId);
-            ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(info.configID);
             //Debug.Log(string.Format("{0}, {1}, {2}", itemConfig.MinName, info.number, cost.CostQty));
             if(info == null || info.number < cost.CostQty) return false;
         }

@@ -194,6 +194,7 @@ public class SSanctuaryController : SceneController
         itemPackage.SetResourceInfo(resInfos);
         SendEvent("RefreshUserState");
         SendEvent("RefreshItem");
+        SendEvent("RefreshExmind");
     }
 
     void OnGetUserState(NetMsgDef msg)

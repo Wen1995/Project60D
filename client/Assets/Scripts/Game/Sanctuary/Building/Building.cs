@@ -43,6 +43,8 @@ public class Building : Controller {
         RegisterEvent("RefreshBuildingView", InitView);
         RegisterEvent("ShowNameBoard", ShowNameBoard);
         RegisterEvent("HideNameBoard", HideNameBoard);
+        
+        FacadeSingleton.Instance.RegisterEvent("RefreshExmind", CheckIfCanUnlockOrUpgrade);
     }
 
     public virtual void OnClick()
@@ -155,20 +157,21 @@ public class Building : Controller {
         hudBinder.ClearHud();
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         // check if can unlock or upgrade
-        int configID = 0;
-        if(info != null)
-        {
-            configID = info.configID;
-            if(sanctuaryPackage.GetBulidingLevelByConfigID(configID) < 20)
-                if(sanctuaryPackage.IsAbleToUnlockOrUpgrade(configID + 1))
-                    hudBinder.AddHud(HudType.Exmind);
-        }
-        else
-        {
-            configID = sanctuaryPackage.GetConfigIDByBuildingType(buildingType);
-            if(sanctuaryPackage.IsAbleToUnlockOrUpgrade(configID))
-            hudBinder.AddHud(HudType.Exmind);
-        }
+        CheckIfCanUnlockOrUpgrade();
+        // int configID = 0;
+        // if(info != null)
+        // {
+        //     configID = info.configID;
+        //     if(sanctuaryPackage.GetBulidingLevelByConfigID(configID) < 20)
+        //         if(sanctuaryPackage.IsAbleToUnlockOrUpgrade(configID + 1))
+        //             hudBinder.AddHud(HudType.Exmind);
+        // }
+        // else
+        // {
+        //     configID = sanctuaryPackage.GetConfigIDByBuildingType(buildingType);
+        //     if(sanctuaryPackage.IsAbleToUnlockOrUpgrade(configID))
+        //     hudBinder.AddHud(HudType.Exmind);
+        // }
         
 
         if(info == null) return;
@@ -192,14 +195,30 @@ public class Building : Controller {
             NDictionary args = new NDictionary();
             var configMap = ConfigDataStatic.GetConfigDataTable("BAR_TIME");
             BAR_TIME barConfig = configMap[sanctuaryPackage.GetBulidingLevelByConfigID(info.configID)] as BAR_TIME;
-
             args.Add("interval", (float)barConfig.BarTime / 1000f);
-
             float speed = (float)sanctuaryPackage.GetProSpeed(info.configID) / 3600;
             args.Add("speed", speed);
             args.Add("num", info.number);
             hudBinder.AddHud(HudType.ProduceBar, args);
         }
+    }
+
+    void CheckIfCanUnlockOrUpgrade(NDictionary data = null)
+    {
+        if(hudBinder == null) return;
+        hudBinder.RemoveHud(HudType.Exmind);
+        int configID = 0;
+        if(buildingID != 0)     // if can upgrade
+        {
+            NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+            configID = info.configID + 1;
+            if(sanctuaryPackage.GetBulidingLevelByConfigID(configID) >= 20) return;
+        }
+        else
+            configID = sanctuaryPackage.GetConfigIDByBuildingType(buildingType);
+
+        if(sanctuaryPackage.IsAbleToUnlockOrUpgrade(configID))
+            hudBinder.AddHud(HudType.Exmind);
     }
 
     public void SetBuildingID(long buildingID)

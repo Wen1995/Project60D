@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using com.nkm.framework.resource.data;
 using UnityEngine;
 
 public class UIPlayerMenuPanel : PanelBase {
@@ -17,6 +18,10 @@ public class UIPlayerMenuPanel : PanelBase {
 	UIProgressBar thirstProgressBar = null;
 	UIProgressBar expProgressBar = null;
 
+	float timer = 0;
+	float proInterval = 0;
+	UIProgressBar proProgress = null;
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -30,6 +35,7 @@ public class UIPlayerMenuPanel : PanelBase {
 		hungerProgressBar = transform.Find("status/hunger").GetComponent<UIProgressBar>();
 		thirstProgressBar = transform.Find("status/thirst").GetComponent<UIProgressBar>();
 		expProgressBar = transform.Find("player/exp").GetComponent<UIProgressBar>();
+		proProgress = transform.Find("res/elec/progress").GetComponent<UIProgressBar>();
 		userPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
 		itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
 		sanctuaryPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Sanctuary) as SanctuaryPackage;
@@ -38,6 +44,21 @@ public class UIPlayerMenuPanel : PanelBase {
 		button.onClick.Add(new EventDelegate(OnPlayerInfo));
 		RegisterEvent("RefreshUserState", RefreshUserState);
 		RegisterEvent("RefreshPlayerLevel", RefreshPlayerLevel);
+
+		//get produce interval
+		int level = userPackage.GetManorLevel();
+		BAR_TIME config = ConfigDataStatic.GetConfigDataTable("BAR_TIME")[level] as BAR_TIME;
+		proInterval = (float)config.BarTime / 1000f;
+	}
+
+	private void Update() 
+	{
+		if(proInterval == 0) return;
+		timer += Time.deltaTime;
+		if(timer >= proInterval)
+			timer = 0;
+		else
+			proProgress.value = timer / proInterval;
 	}
 
 	public override void OpenPanel()

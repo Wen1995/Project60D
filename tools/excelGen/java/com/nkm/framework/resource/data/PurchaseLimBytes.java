@@ -67,7 +67,7 @@ public final class PurchaseLimBytes {
      * <code>optional int32 shuiguo = 4 [default = 0];</code>
      *
      * <pre>
-     ** 水果 
+     ** 西瓜 
      * </pre>
      */
     boolean hasShuiguo();
@@ -75,7 +75,7 @@ public final class PurchaseLimBytes {
      * <code>optional int32 shuiguo = 4 [default = 0];</code>
      *
      * <pre>
-     ** 水果 
+     ** 西瓜 
      * </pre>
      */
     int getShuiguo();
@@ -1413,7 +1413,7 @@ public final class PurchaseLimBytes {
      * <code>optional int32 shuiguo = 4 [default = 0];</code>
      *
      * <pre>
-     ** 水果 
+     ** 西瓜 
      * </pre>
      */
     public boolean hasShuiguo() {
@@ -1423,7 +1423,7 @@ public final class PurchaseLimBytes {
      * <code>optional int32 shuiguo = 4 [default = 0];</code>
      *
      * <pre>
-     ** 水果 
+     ** 西瓜 
      * </pre>
      */
     public int getShuiguo() {
@@ -3943,7 +3943,7 @@ public final class PurchaseLimBytes {
        * <code>optional int32 shuiguo = 4 [default = 0];</code>
        *
        * <pre>
-       ** 水果 
+       ** 西瓜 
        * </pre>
        */
       public boolean hasShuiguo() {
@@ -3953,7 +3953,7 @@ public final class PurchaseLimBytes {
        * <code>optional int32 shuiguo = 4 [default = 0];</code>
        *
        * <pre>
-       ** 水果 
+       ** 西瓜 
        * </pre>
        */
       public int getShuiguo() {
@@ -3963,7 +3963,7 @@ public final class PurchaseLimBytes {
        * <code>optional int32 shuiguo = 4 [default = 0];</code>
        *
        * <pre>
-       ** 水果 
+       ** 西瓜 
        * </pre>
        */
       public Builder setShuiguo(int value) {
@@ -3976,7 +3976,7 @@ public final class PurchaseLimBytes {
        * <code>optional int32 shuiguo = 4 [default = 0];</code>
        *
        * <pre>
-       ** 水果 
+       ** 西瓜 
        * </pre>
        */
       public Builder clearShuiguo() {

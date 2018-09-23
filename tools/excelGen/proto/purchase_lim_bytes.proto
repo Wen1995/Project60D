@@ -13,7 +13,7 @@ message PURCHASE_LIM{
     optional int32 dami = 2 [default = 0];
     /** 蔬菜 */
     optional int32 shucai = 3 [default = 0];
-    /** 水果 */
+    /** 西瓜 */
     optional int32 shuiguo = 4 [default = 0];
     /** 化肥 */
     optional int32 huafei = 5 [default = 0];

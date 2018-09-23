@@ -19,6 +19,8 @@ import com.nkm.framework.dbcache.model.Building;
 import com.nkm.framework.dbcache.model.Group;
 import com.nkm.framework.dbcache.model.Receive;
 import com.nkm.framework.dbcache.model.User;
+import com.nkm.framework.protocol.Database.BuildingState;
+import com.nkm.framework.protocol.Database.UpgradeInfo;
 import com.nkm.framework.protocol.User.ResourceInfo;
 import com.nkm.framework.protocol.User.UserResource;
 import com.nkm.framework.resource.StaticDataManager;
@@ -34,13 +36,24 @@ public class StartTest {
     static IBuildingDao buildingDao = ServiceFactory.getProxy(BuildingDao.class);
 
     public static void main(String[] args) {
+        /*Building building = buildingDao.get(8808977924127L);
+        BuildingState.Builder buildingStateBuilder;
+        try {
+            buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
+            UpgradeInfo.Builder upgradeInfoBuilder = buildingStateBuilder.getUpgradeInfoBuilder();
+            System.out.println(upgradeInfoBuilder.getFinishTime());
+        } catch (InvalidProtocolBufferException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println(new Date(1537704362153L));*/
         //jSONObject();
-        StaticDataManager.GetInstance().init();
+        /*StaticDataManager.GetInstance().init();
         ReadOnlyMap<Integer, BUILDING> buildingMap = StaticDataManager.GetInstance().buildingMap;
         List<Building> buildings = buildingDao.getAllByGroupId(3307124817936L);
         for (Building b : buildings) {
             System.out.println(buildingMap.get(b.getConfigId()).getBldgName());
-        }
+        }*/
     }
 
     private static void getGroupInfo() {

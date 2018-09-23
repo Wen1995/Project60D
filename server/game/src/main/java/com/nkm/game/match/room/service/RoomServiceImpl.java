@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Resource;
+import com.nkm.framework.console.GameServer;
 import com.nkm.framework.console.disruptor.TPacket;
 import com.nkm.framework.dbcache.dao.IBuildingDao;
 import com.nkm.framework.dbcache.dao.IGroupDao;
@@ -16,6 +17,7 @@ import com.nkm.framework.dbcache.id.IdType;
 import com.nkm.framework.dbcache.model.Building;
 import com.nkm.framework.dbcache.model.Group;
 import com.nkm.framework.dbcache.model.User;
+import com.nkm.framework.protocol.Common.Cmd;
 import com.nkm.framework.protocol.Database.BuildingState;
 import com.nkm.framework.protocol.Database.ProcessInfo;
 import com.nkm.framework.protocol.Database.ReceiveInfo;
@@ -26,9 +28,13 @@ import com.nkm.framework.protocol.Room.TSCApplyGroup;
 import com.nkm.framework.protocol.Room.TSCCreateGroup;
 import com.nkm.framework.protocol.Room.TSCGetGroupPageCount;
 import com.nkm.framework.protocol.Room.TSCGetGroupRanking;
+import com.nkm.framework.protocol.Scene.TCSGetSceneInfo;
+import com.nkm.framework.protocol.User.ResourceInfo;
+import com.nkm.framework.protocol.User.UserResource;
 import com.nkm.framework.resource.DynamicDataManager;
 import com.nkm.framework.resource.StaticDataManager;
 import com.nkm.framework.resource.data.BuildingBytes.BUILDING;
+import com.nkm.framework.resource.data.ItemResBytes.ITEM_RES;
 import com.nkm.framework.resource.data.PlayerAttrBytes.PLAYER_ATTR;
 import com.nkm.framework.utils.BuildingUtil;
 import com.nkm.framework.utils.ReadOnlyMap;
@@ -208,6 +214,22 @@ public class RoomServiceImpl implements RoomService {
                         buildingDao.update(b);
                     }
                 }
+                
+                // 向在线玩家推送消息
+                long tUid = 0;
+                TPacket resp = new TPacket();
+                List<User> users = userDao.getAllByGroupId(groupId);
+                for (User u : users) {
+                    tUid = u.getId();
+                    if (GameServer.GetInstance().isOnline(tUid)) {
+                        resp = new TPacket();
+                        resp.setUid(tUid);
+                        resp.setCmd(Cmd.GETSCENEINFO_VALUE);
+                        resp.setReceiveTime(System.currentTimeMillis());
+                        resp.setBuffer(TCSGetSceneInfo.newBuilder().build().toByteArray());
+                        GameServer.GetInstance().produce(resp);
+                    }
+                }
             }
         }
         TSCApplyGroup p = TSCApplyGroup.newBuilder()
@@ -228,9 +250,24 @@ public class RoomServiceImpl implements RoomService {
         user.setWater(playerAttrMap.get(11030001).getBeginNum());
         user.setHealth(playerAttrMap.get(10010001).getBeginNum());
         user.setMood(playerAttrMap.get(10020001).getBeginNum());
-        // TODO
-        user.setElectricity(1000);
-        user.setGold(10000.0);
+        user.setElectricity(999);
+        user.setGold(999.0);
+        // 初始资源
+        List<ResourceInfo> resourceInfos = new ArrayList<>();
+        ReadOnlyMap<Integer, ITEM_RES> itemResMap = StaticDataManager.GetInstance().itemResMap;
+        for (Integer key : itemResMap.keySet()) {
+            if (key == 211010501 || key == 211020801 || key == 211020401 || key/1000000%10 == 3) {
+                ResourceInfo resourceInfo = ResourceInfo.newBuilder()
+                        .setConfigId(key)
+                        .setNumber(15)
+                        .build();
+                resourceInfos.add(resourceInfo);
+            }
+        }
+        UserResource userResource = UserResource.newBuilder()
+                .addAllResourceInfos(resourceInfos)
+                .build();
+        user.setResource(userResource.toByteArray());
         
         PLAYER_ATTR attackAttr = playerAttrMap.get(12010001);
         user.setAttack(attackAttr.getBeginNum() + user.getHealth()*100/attackAttr.getAttrK1());

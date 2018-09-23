@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Resource;
 import org.json.JSONObject;
+import com.nkm.framework.console.GameServer;
 import com.nkm.framework.console.constant.Constant;
 import com.nkm.framework.console.constant.TimerConstant;
 import com.nkm.framework.console.disruptor.TPacket;
@@ -28,10 +29,12 @@ import com.nkm.framework.protocol.Database.BuildingState;
 import com.nkm.framework.protocol.Database.ProcessInfo;
 import com.nkm.framework.protocol.Database.ReceiveInfo;
 import com.nkm.framework.protocol.Database.UpgradeInfo;
+import com.nkm.framework.protocol.Message.TCSGetMessageTag;
 import com.nkm.framework.protocol.Message.UserInfo;
 import com.nkm.framework.protocol.Scene.BuildingInfo;
 import com.nkm.framework.protocol.Scene.TCSFinishUnlock;
 import com.nkm.framework.protocol.Scene.TCSFinishUpgrade;
+import com.nkm.framework.protocol.Scene.TCSGetSceneInfo;
 import com.nkm.framework.protocol.Scene.TSCFinishUnlock;
 import com.nkm.framework.protocol.Scene.TSCFinishUpgrade;
 import com.nkm.framework.protocol.Scene.TSCGetBuildingInfo;
@@ -321,8 +324,9 @@ public class SceneServiceImpl implements SceneService {
     @Override
     public TPacket finishUpgrade(Long uid, Long buildingId) throws Exception {
         User user = userDao.get(uid);
+        Long groupId = user.getGroupId();
         Building building = buildingDao.get(buildingId);
-        Group group = groupDao.get(user.getGroupId());
+        Group group = groupDao.get(groupId);
         Integer configId = building.getConfigId();
         BuildingState.Builder buildingStateBuilder = BuildingState.parseFrom(building.getState()).toBuilder();
         // 返回建筑队列
@@ -346,10 +350,26 @@ public class SceneServiceImpl implements SceneService {
         building.setState(buildingStateBuilder.build().toByteArray());
         buildingDao.update(building);
         
+        // 向在线玩家推送消息
+        long tUid = 0;
+        TPacket resp = new TPacket();
+        List<User> users = userDao.getAllByGroupId(groupId);
+        for (User u : users) {
+            tUid = u.getId();
+            if (GameServer.GetInstance().isOnline(tUid)) {
+                resp = new TPacket();
+                resp.setUid(tUid);
+                resp.setCmd(Cmd.GETSCENEINFO_VALUE);
+                resp.setReceiveTime(System.currentTimeMillis());
+                resp.setBuffer(TCSGetSceneInfo.newBuilder().build().toByteArray());
+                GameServer.GetInstance().produce(resp);
+            }
+        }
+        
         TSCFinishUpgrade p = TSCFinishUpgrade.newBuilder()
                 .setBuildingId(buildingId)
                 .build();
-        TPacket resp = new TPacket();
+        resp = new TPacket();
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());
         return resp;
@@ -506,6 +526,7 @@ public class SceneServiceImpl implements SceneService {
     @Override
     public TPacket finishUnlock(Long uid, Long buildingId) throws Exception {
         User user = userDao.get(uid);
+        Long groupId = user.getGroupId();
         Building building = buildingDao.get(buildingId);
         // 返回建筑队列
         Integer production = user.getProduction() + 1;
@@ -544,10 +565,26 @@ public class SceneServiceImpl implements SceneService {
         building.setState(buildingStatebuilder.build().toByteArray());
         buildingDao.update(building);
         
+        // 向在线玩家推送消息
+        long tUid = 0;
+        TPacket resp = new TPacket();
+        List<User> users = userDao.getAllByGroupId(groupId);
+        for (User u : users) {
+            tUid = u.getId();
+            if (GameServer.GetInstance().isOnline(tUid)) {
+                resp = new TPacket();
+                resp.setUid(tUid);
+                resp.setCmd(Cmd.GETSCENEINFO_VALUE);
+                resp.setReceiveTime(System.currentTimeMillis());
+                resp.setBuffer(TCSGetSceneInfo.newBuilder().build().toByteArray());
+                GameServer.GetInstance().produce(resp);
+            }
+        }
+        
         TSCFinishUnlock p = TSCFinishUnlock.newBuilder()
                 .setBuildingId(buildingId)
                 .build();
-        TPacket resp = new TPacket();
+        resp = new TPacket();
         resp.setUid(uid);
         resp.setBuffer(p.toByteArray());
         return resp;

@@ -78,23 +78,6 @@ public class LoginServiceImpl implements LoginService {
             user.setProduction(1);
             user.setLoginIp(ip);
             user.setLoginTime(date);
-            
-            // 初始资源
-            List<ResourceInfo> resourceInfos = new ArrayList<>();
-            ReadOnlyMap<Integer, ITEM_RES> itemResMap = StaticDataManager.GetInstance().itemResMap;
-            for (Integer key : itemResMap.keySet()) {
-                if (key == 211010501 || key == 211020801 || key == 211020401 || key/1000000%10 == 3) {
-                    ResourceInfo resourceInfo = ResourceInfo.newBuilder()
-                            .setConfigId(key)
-                            .setNumber(15)
-                            .build();
-                    resourceInfos.add(resourceInfo);
-                }
-            }
-            UserResource userResource = UserResource.newBuilder()
-                    .addAllResourceInfos(resourceInfos).build();
-            user.setResource(userResource.toByteArray());
-            
             userDao.insert(user);
             account2Id.put(account, uid);
         }

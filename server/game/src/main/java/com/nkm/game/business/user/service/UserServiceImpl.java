@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.nkm.framework.console.constant.Constant;
 import com.nkm.framework.console.disruptor.TPacket;
 import com.nkm.framework.console.exception.BaseException;
@@ -39,6 +41,8 @@ import com.nkm.framework.utils.ReadOnlyMap;
 import com.nkm.framework.utils.UserUtil;
 
 public class UserServiceImpl implements UserService {
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Resource
     private IUserDao userDao;
     @Resource
@@ -296,10 +300,16 @@ public class UserServiceImpl implements UserService {
                 throw new BaseException(Error.RESOURCE_ERR_VALUE);
             }
         }
-        double probability = UserUtil.getPriceCoefficient(itemRes.getKeyName());
-        double priceNow = probability * goldRate / 1000;
-        double taxCoff = UserUtil.getTaxCoefficient();
-        if (Math.abs(price - priceNow) > 0.01 || Math.abs(taxRate - taxCoff) > 0.01) {             // 判断是否变动
+        double priceNow = 0;
+        for (ResourceInfo r : DynamicDataManager.GetInstance().resourceInfos) {
+            if (configId.equals(r.getConfigId())) {
+                priceNow = r.getPrice();
+                break;
+            }
+        }
+        double taxRateNow = DynamicDataManager.GetInstance().taxRate;
+        logger.info("sellGoods price {}, priceNow {}, taxRate {}, taxRateNow {}", price, priceNow, taxRate, taxRateNow);
+        if (Math.abs(price - priceNow) > 0.01 || Math.abs(taxRate - taxRateNow) > 0.01) {             // 判断是否变动
             isChange = true;
         } else {
             // 资源是否满足 
@@ -329,7 +339,7 @@ public class UserServiceImpl implements UserService {
                 rBuilder.setNumber(leftNumber);
                 userResourceBuilder.setResourceInfos(index, rBuilder.build());
             }
-            gold = priceNow * number * (1 - taxCoff);
+            gold = priceNow * number * (1 - taxRateNow);
             user.setResource(userResourceBuilder.build().toByteArray());
             user.setGold(user.getGold() + gold);
             userDao.update(user);
@@ -361,10 +371,16 @@ public class UserServiceImpl implements UserService {
             }
         }
         String tableName = itemRes.getKeyName();
-        double probability = UserUtil.getPriceCoefficient(tableName);
-        double priceNow = probability * goldRate / 1000;
-        double taxCoff = UserUtil.getTaxCoefficient();
-        if (Math.abs(price - priceNow) > 0.01 || Math.abs(taxRate - taxCoff) > 0.01) {         // 判断是否变动
+        double priceNow = 0;
+        for (ResourceInfo r : DynamicDataManager.GetInstance().resourceInfos) {
+            if (configId.equals(r.getConfigId())) {
+                priceNow = r.getPrice();
+                break;
+            }
+        }
+        double taxRateNow = DynamicDataManager.GetInstance().taxRate;
+        logger.info("buyGoods price {}, priceNow {}, taxRate {}, taxRateNow {}", price, priceNow, taxRate, taxRateNow);
+        if (Math.abs(price - priceNow) > 0.01 || Math.abs(taxRate - taxRateNow) > 0.01) {         // 判断是否变动
             isChange = true;
         } else {
             // 购买数量限制
@@ -413,7 +429,7 @@ public class UserServiceImpl implements UserService {
                 }
                 storehouseCapacity -= number;
                 if (storehouseCapacity > 0) {                   // 是否有足够的仓库资源
-                    double leftGold = user.getGold() - priceNow * number * (1 + taxCoff);
+                    double leftGold = user.getGold() - priceNow * number * (1 + taxRateNow);
                     if (leftGold > 0) {                         // 是否有足够的钱
                         ResourceInfo.Builder rBuilder;
                         if (resourceIndex == -1) {

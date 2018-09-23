@@ -83,11 +83,13 @@ public class LoginServiceImpl implements LoginService {
             List<ResourceInfo> resourceInfos = new ArrayList<>();
             ReadOnlyMap<Integer, ITEM_RES> itemResMap = StaticDataManager.GetInstance().itemResMap;
             for (Integer key : itemResMap.keySet()) {
-                ResourceInfo resourceInfo = ResourceInfo.newBuilder()
-                        .setConfigId(key)
-                        .setNumber(200)
-                        .build();
-                resourceInfos.add(resourceInfo);
+                if (key == 211010501 || key == 211020801 || key == 211020401 || key/1000000%10 == 3) {
+                    ResourceInfo resourceInfo = ResourceInfo.newBuilder()
+                            .setConfigId(key)
+                            .setNumber(15)
+                            .build();
+                    resourceInfos.add(resourceInfo);
+                }
             }
             UserResource userResource = UserResource.newBuilder()
                     .addAllResourceInfos(resourceInfos).build();

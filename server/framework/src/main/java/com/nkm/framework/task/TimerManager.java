@@ -210,22 +210,23 @@ public class TimerManager {
                         }
                     }
                 }
-                List<ResourceInfo> resourceInfos = DynamicDataManager.GetInstance().resourceInfos;
-                resourceInfos.clear();
-                for (Map.Entry<Integer, ITEM_RES> entry : StaticDataManager.GetInstance().itemResMap.entrySet()) {
-                    Integer configId = entry.getKey();
-                    ITEM_RES itemRes = StaticDataManager.GetInstance().itemResMap.get(configId);
-                    double probability = UserUtil.getPriceCoefficient(itemRes.getKeyName());
-                    double price = probability * itemRes.getGoldConv() / 1000;
-                    ResourceInfo r = ResourceInfo.newBuilder()
-                            .setConfigId(configId)
-                            .setPrice(price)
-                            .build();
-                    resourceInfos.add(r);
+                if (worldEventConfigId2HappenTime.size() > 0) {
+                    List<ResourceInfo> resourceInfos = DynamicDataManager.GetInstance().resourceInfos;
+                    resourceInfos.clear();
+                    for (Map.Entry<Integer, ITEM_RES> entry : StaticDataManager.GetInstance().itemResMap.entrySet()) {
+                        Integer configId = entry.getKey();
+                        ITEM_RES itemRes = StaticDataManager.GetInstance().itemResMap.get(configId);
+                        double probability = UserUtil.getPriceCoefficient(itemRes.getKeyName());
+                        double price = probability * itemRes.getGoldConv() / 1000;
+                        ResourceInfo r = ResourceInfo.newBuilder()
+                                .setConfigId(configId)
+                                .setPrice(price)
+                                .build();
+                        resourceInfos.add(r);
+                    }
+                    DynamicDataManager.GetInstance().taxRate = UserUtil.getTaxCoefficient();
+                    logger.info("taxRate {}", DynamicDataManager.GetInstance().taxRate);
                 }
-                
-                DynamicDataManager.GetInstance().taxRate = UserUtil.getTaxCoefficient();
-                logger.info("taxRate {}", DynamicDataManager.GetInstance().taxRate);
             }
         }, 60, 60, TimeUnit.SECONDS);
         

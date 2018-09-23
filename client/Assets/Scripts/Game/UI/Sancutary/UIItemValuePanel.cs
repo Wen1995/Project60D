@@ -12,6 +12,7 @@ public class UIItemValuePanel : PanelBase{
 	UILabel taxLabel = null;
 	UISlider slider = null;
 	UILabel btnLabel = null;
+	UIButton confirmBtn = null;
 	private int ratio;			//minum plus/minus value
 	private int value;			//cur value
 	private int itemCap;		//player's item cap
@@ -28,8 +29,8 @@ public class UIItemValuePanel : PanelBase{
 		button.onClick.Add(new EventDelegate(Close));
 		button = transform.Find("value/maxbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnValueMax));
-		button = transform.Find("confirmbtn").GetComponent<UIButton>();
-		button.onClick.Add(new EventDelegate(OnConfirm));
+		confirmBtn = transform.Find("confirmbtn").GetComponent<UIButton>();
+		confirmBtn.onClick.Add(new EventDelegate(OnConfirm));
 		titleLabel = transform.Find("title").GetComponent<UILabel>();
 		numLabel = transform.Find("value/num").GetComponent<UILabel>();
 		resultLabel = transform.Find("value/result/value").GetComponent<UILabel>();
@@ -63,7 +64,7 @@ public class UIItemValuePanel : PanelBase{
 			itemCap = info.number;
 			btnLabel.text = "出售";
 		}
-		
+		if(itemCap <= 0) confirmBtn.enabled = false;
 		if(config.GoldConv >= 1000)
 			ratio = 1;
 		else

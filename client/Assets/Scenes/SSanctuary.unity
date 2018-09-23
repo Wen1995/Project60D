@@ -308,12 +308,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd5c71c39531364cbefd3e369295168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieSpeed: 5
+  zombieSpeed: 3
   zombieHP: 3
-  spwanInterval: 1
+  spwanInterval: 5
   spawnPos: {fileID: 1424808229}
   container: {fileID: 1692653506}
-  zombieMaxNum: 10
+  zombieMaxNum: 8
   target: {fileID: 2099470377}
 --- !u!4 &25327299
 Transform:

@@ -31,7 +31,7 @@ public class WorldEventListCell : NListCell {
 		titleLabel.text = config.EventName;
 		contentLabel.text = config.EventNews;
 		endTime = info.happenTime + config.EventDuration * 60 * 1000;
-		print(string.Format("{0}, {1}, {2}", config.EventName, GlobalFunction.DateFormat(info.happenTime), GlobalFunction.DateFormat(endTime)));
+		//print(string.Format("{0}, {1}, {2}", config.EventName, GlobalFunction.DateFormat(info.happenTime), GlobalFunction.DateFormat(endTime)));
 		if(GlobalFunction.IsHappened(info.happenTime))
 			ShowTime(endTime, true);
 		else

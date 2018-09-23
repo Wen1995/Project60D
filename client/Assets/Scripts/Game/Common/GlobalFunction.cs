@@ -171,7 +171,7 @@ public static class GlobalFunction {
     public static float CalculateInterest(int personContribution, int totalContribution, int personNumber)
     {
         float n = (float)personNumber;
-        float k1 = 100000f;
+        float k1 = 28000f;
         float k2 = 0.6f;
         //float k3 = 0.6f;
         //return (1 + (n - 1) * k3) * (1 / n + ((personContribution + k1) / (totalContribution + n * k1) - 1 / n ) * k2);

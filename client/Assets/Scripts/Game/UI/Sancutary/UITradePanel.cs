@@ -223,7 +223,7 @@ public class UITradePanel : PanelBase {
 		while(true)
 		{
 			var now = System.DateTime.Now;
-			dateLabel.text = string.Format("{0:D4}年{1:D2}月{2:D2}日 {3:D2}:{4:D2}:{5:D2}", now.Year + 20, now.Month, now.Day, now.Hour, now.Minute, now.Second);
+			dateLabel.text = string.Format("{0:D4}年{1:D2}月{2:D2}日 {3:D2}:{4:D2}{5:D2}", now.Year + 20, now.Month, now.Day, now.Hour, now.Minute, now.Second);
 			yield return new WaitForSeconds(1.0f);
 		}
 	}
@@ -478,12 +478,12 @@ public class UITradePanel : PanelBase {
 	{
 		long remainTime;
 		GetRefreshLimitRemaimtime(out remainTime);
-		cdTimeLabel.text = string.Format("下次刷新剩余时间{0}", GlobalFunction.TimeFormat(remainTime));
+		cdTimeLabel.text = string.Format("存量刷新剩余时间{0}", GlobalFunction.TimeFormat(remainTime));
 		while(true)
 		{
 			yield return new WaitForSeconds(1.0f);
 			remainTime--;
-			cdTimeLabel.text = string.Format("下次刷新剩余时间{0}", GlobalFunction.TimeFormat(remainTime));
+			cdTimeLabel.text = string.Format("存量刷新剩余时间{0}", GlobalFunction.TimeFormat(remainTime));
 			if(remainTime <= 0) GetRefreshLimitRemaimtime(out remainTime);
 		}
 	}

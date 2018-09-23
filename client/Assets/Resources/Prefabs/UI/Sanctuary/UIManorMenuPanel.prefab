@@ -577,7 +577,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1663917225283118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 0, z: 0}
+  m_LocalPosition: {x: 50, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4206128761772182}
@@ -758,7 +758,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1291052104595622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: 0.000061035156, z: 0}
+  m_LocalPosition: {x: -44, y: 0.000061035156, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4498227563495486}
@@ -827,7 +827,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 260, y: 60, z: 0}
+  m_Size: {x: 200, y: 60, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65800186539542808
 BoxCollider:
@@ -1835,11 +1835,11 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3007
+  startingRenderQueue: 3015
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
-  mClipRange: {x: 0, y: 0, z: 260, w: 60}
+  mClipRange: {x: 0, y: 0, z: 200, w: 60}
   mClipSoftness: {x: 4, y: 4}
   mDepth: 20
   mSortingOrder: 0
@@ -2236,14 +2236,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 260
+  mWidth: 200
   mHeight: 60
   mDepth: 0
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.3333335
+  aspectRatio: 3.3333333
 --- !u!114 &114966332282881160
 MonoBehaviour:
   m_ObjectHideFlags: 1

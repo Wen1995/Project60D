@@ -32,7 +32,6 @@ public class HudProduceBar : MonoBehaviour, IPoolUnit, IHudObject {
     public void Initialize(NDictionary args)
     {
         interval = args.Value<float>("interval");
-		print("interval = " + interval);
 		speed = args.Value<float>("speed");
 		num = args.Value<int>("num");
 		StartCoroutine(ProduceTimer());

@@ -324,7 +324,6 @@ public class SanctuaryPackage : ModelBase {
 
     public bool IsAbleToUnlockOrUpgrade(int configID)
     {
-        
         int requireVal;
         double curVal;
         ItemPackage itemPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Item) as ItemPackage;
@@ -341,11 +340,17 @@ public class SanctuaryPackage : ModelBase {
         //item   
         for(int i=0;i<config.CostTableCount;i++)
         {
+            Debug.Log(i);
             var cost = config.GetCostTable(i);
             if(cost.CostId == 0) continue;
             requireVal = cost.CostQty;
             NItemInfo info = itemPackage.GetItemInfo(cost.CostId);
-            //Debug.Log(string.Format("{0}, {1}, {2}", itemConfig.MinName, info.number, cost.CostQty));
+            // ITEM_RES itemConfig = itemPackage.GetItemDataByConfigID(cost.CostId);
+            // if(itemConfig == null)
+            // {
+            //     Debug.Log(string.Format("configID = {0} missing!!!", cost.CostId));
+            //     continue;
+            // } 
             if(info == null || info.number < cost.CostQty) return false;
         }
         return true;

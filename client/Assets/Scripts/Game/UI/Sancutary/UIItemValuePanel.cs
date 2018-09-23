@@ -62,9 +62,15 @@ public class UIItemValuePanel : PanelBase{
 			NItemInfo info = itemPackage.GetItemInfo(configID);
 			titleLabel.text = string.Format("出售 {0}", config.MinName);
 			itemCap = info.number;
+			if(itemCap <= 0)
+			{
+				ITEM_RES test = itemPackage.GetItemDataByConfigID(info.configID);
+				print(string.Format("{0}'s number is zero", test.MinName));
+			}
 			btnLabel.text = "出售";
 		}
-		if(itemCap <= 0) confirmBtn.enabled = false;
+		if(itemCap <= 0)
+			confirmBtn.enabled = false; 
 		if(config.GoldConv >= 1000)
 			ratio = 1;
 		else

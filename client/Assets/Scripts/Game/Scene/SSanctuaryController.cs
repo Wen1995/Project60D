@@ -186,6 +186,7 @@ public class SSanctuaryController : SceneController
         SendEvent("RefreshManorLevel");
         SendEvent("RefreshBuildingView");
         SendEvent("RefreshZombieSpawner");
+        SendEvent("RefreshProduceBar");
     }
 
     void OnGetResourceInfo(NetMsgDef msg)

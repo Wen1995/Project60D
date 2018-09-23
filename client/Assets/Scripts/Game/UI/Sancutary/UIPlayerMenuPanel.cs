@@ -44,11 +44,8 @@ public class UIPlayerMenuPanel : PanelBase {
 		button.onClick.Add(new EventDelegate(OnPlayerInfo));
 		RegisterEvent("RefreshUserState", RefreshUserState);
 		RegisterEvent("RefreshPlayerLevel", RefreshPlayerLevel);
-
-		//get produce interval
-		int level = userPackage.GetManorLevel();
-		BAR_TIME config = ConfigDataStatic.GetConfigDataTable("BAR_TIME")[level] as BAR_TIME;
-		proInterval = (float)config.BarTime / 1000f;
+		RegisterEvent("RefreshProduceBar", RefreshProduceBar);
+		RefreshProduceBar();
 	}
 
 	private void Update() 
@@ -101,5 +98,18 @@ public class UIPlayerMenuPanel : PanelBase {
 	void OnPlayerInfo()
 	{
 		FacadeSingleton.Instance.OverlayerPanel("UIPlayerInfoPanel");
+	}
+
+	void RefreshProduceBar(NDictionary data = null)
+	{
+		//get produce interval
+		int level = userPackage.GetManorLevel();
+		if(level <= 1)
+		{
+			proInterval = 0;
+			return;
+		} 
+		BAR_TIME config = ConfigDataStatic.GetConfigDataTable("BAR_TIME")[level] as BAR_TIME;
+		proInterval = (float)config.BarTime / 1000f;
 	}
 }

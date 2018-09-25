@@ -133,7 +133,7 @@ public class UIItemValuePanel : PanelBase{
 		{
 			NDictionary data = new NDictionary();
 			if(isBuy)
-				data.Add("content", "金钱不够哦");
+				data.Add("content", "黄金不够哦");
 			else
 				data.Add("content", "没东西卖了哦");
 			FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");

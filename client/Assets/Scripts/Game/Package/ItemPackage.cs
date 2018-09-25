@@ -257,7 +257,7 @@ public class ItemPackage : ModelBase
 
     public void AddItem(ResourceInfo resInfo)
     {
-        Debug.Log(string.Format("item add , id={0}", resInfo.ConfigId));
+        //Debug.Log(string.Format("item add , id={0}", resInfo.ConfigId));
         if(mItemInfoMap.ContainsKey(resInfo.ConfigId))
         {
             NItemInfo info = mItemInfoMap[resInfo.ConfigId];

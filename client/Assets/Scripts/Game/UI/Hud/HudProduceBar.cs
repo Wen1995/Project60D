@@ -22,7 +22,10 @@ public class HudProduceBar : MonoBehaviour, IPoolUnit, IHudObject {
 	void Update () 
 	{
 		if(interval <= 0) return;
-		numLabel.text = GlobalFunction.NumberFormat(building.ProNumber);
+		//numLabel.text = GlobalFunction.NumberFormat(building.ProNumber);
+		numLabel.text = ((int)building.ProNumber).ToString();
+		// (int)(Mathf.Floor(building.ProNumber)).ToString();
+		// numLabel.text = (int)(Mathf.Floor(building.ProNumber)).ToString();
 		timer += Time.deltaTime;
 		if(timer >= interval)
 		{

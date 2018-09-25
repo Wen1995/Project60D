@@ -122,6 +122,17 @@ public class UIBuildingInteractionPanel : PanelBase{
                     break;
                 }
         }
+        //set point
+        if(selectBuilding.CanUnlockOrUpgrade)
+        {
+            unlockBtn.transform.Find("point").gameObject.SetActive(true);
+            upgradeBtn.transform.Find("point").gameObject.SetActive(true);
+        }
+        else
+        {
+            unlockBtn.transform.Find("point").gameObject.SetActive(false);
+            upgradeBtn.transform.Find("point").gameObject.SetActive(false);
+        }
         grid.Reposition();
     }
 

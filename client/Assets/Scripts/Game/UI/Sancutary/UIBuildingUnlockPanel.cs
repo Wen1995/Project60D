@@ -12,6 +12,7 @@ public class UIBuildingUnlockPanel : PanelBase {
 
 	NTableView tableView = null;
 	UISprite iconSprite = null;
+	GameObject pointGo = null;
 
 	protected override void Awake()
 	{
@@ -20,6 +21,7 @@ public class UIBuildingUnlockPanel : PanelBase {
 		descLabel = transform.Find("buildingview/describe").GetComponent<UILabel>();
 		tableView = transform.Find("consumeview/panel/tableview").GetComponent<NTableView>();
 		iconSprite = transform.Find("buildingview/buidling/frame/icon").GetComponent<UISprite>();
+		pointGo = transform.Find("okbtn/point").gameObject;
 		//bind event
 		UIButton button = transform.Find("closebtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(Close));
@@ -66,6 +68,12 @@ public class UIBuildingUnlockPanel : PanelBase {
 		//set icon
 		iconSprite.spriteName = configData.IconName;
 		ShowCost(configData);
+		//set point
+		Building building = sanctuaryPackage.GetSelectionBuilding();
+		if(building.CanUnlockOrUpgrade)
+			pointGo.SetActive(true);
+		else
+			pointGo.SetActive(false);
 	}
 
 	void ShowCost(BUILDING configData)

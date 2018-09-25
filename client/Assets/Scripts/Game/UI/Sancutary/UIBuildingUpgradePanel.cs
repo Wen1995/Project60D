@@ -26,6 +26,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 	NTableView tableView = null;
 	UISprite preIcon = null;
 	UISprite nextIcon = null;
+	GameObject pointGo = null;
 	protected override void Awake()
 	{
 		base.Awake();
@@ -36,6 +37,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 		levelLabel = transform.Find("consume/level").GetComponent<UILabel>();
 		preIcon = transform.Find("building/pre/frame/icon").GetComponent<UISprite>();
 		nextIcon = transform.Find("building/next/frame/icon").GetComponent<UISprite>();
+		pointGo = transform.Find("okbtn/point").gameObject;
 		Transform cellGroup = transform.Find("consume/costlist");
 		for(int i=0;i<cellGroup.childCount;i++)
 		{
@@ -110,6 +112,12 @@ public class UIBuildingUpgradePanel : PanelBase {
 		ShowCost(nextConfigData);
 		//show upgrade effect
 		ShowUpgradeEffect(info);
+		//set point
+		if(info.building.CanUnlockOrUpgrade)
+			pointGo.SetActive(true);
+		else
+			pointGo.SetActive(false);
+		
 	}
 
 	void ShowCost(BUILDING configData)
@@ -120,7 +128,7 @@ public class UIBuildingUpgradePanel : PanelBase {
 		{
 			int costNum = configData.GoldCost;
 			double curNum = itemPackage.GetGoldNumber();
-			costCellList[count].title.text = "金钱消耗: ";
+			costCellList[count].title.text = "黄金消耗: ";
 			costCellList[count].value.text = string.Format("{0} / {1}", GlobalFunction.NumberFormat(costNum), GlobalFunction.NumberFormat(curNum));
 			costCellList[count].go.SetActive(true);
 			if((double)costNum > curNum)

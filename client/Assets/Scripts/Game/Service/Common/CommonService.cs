@@ -42,7 +42,7 @@ public class CommonService : ServiceBase {
     //-------------------------------------------------------------
     public void ProcessStoreHouseFull()
     {
-        string content = "仓库容量不足\n建议：出售物品、使用物品或升级仓库";
+        string content = "仓库容量不足\n建议：出售物品或升级仓库";
         NDictionary args = new NDictionary();
         args.Add("title", "领取失败");
         args.Add("content", content);

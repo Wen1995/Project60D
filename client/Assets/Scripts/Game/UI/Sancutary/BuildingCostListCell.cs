@@ -36,7 +36,7 @@ public class BuildingCostListCell : NListCell {
 		}
 		else if(cost.configID == 2)
 		{
-			nameLabel.text = string.Format("金钱:");
+			nameLabel.text = string.Format("黄金:");
 			valueLabel.text = string.Format("{0}/{1}", cost.value, GlobalFunction.NumberFormat(itemPackage.GetGoldNumber()));
 			if(itemPackage.GetGoldNumber() < cost.value)
 				isEnough = false;

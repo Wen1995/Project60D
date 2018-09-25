@@ -468,7 +468,8 @@ public class SanctuaryPackage : ModelBase {
         if(!mBuildingInfoMap.ContainsKey(buildingID))
             return;
         NBuildingInfo info = mBuildingInfoMap[buildingID];
-        info.number = 1;
+        //info.number = info.pronum;
+        info.number = (int)info.building.ProNumber;
         info.building.RefreshView();
     }
     #endregion

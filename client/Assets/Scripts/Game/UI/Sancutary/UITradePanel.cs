@@ -324,7 +324,7 @@ public class UITradePanel : PanelBase {
 		{
 			ITEM_RES config = itemPackage.GetItemDataByConfigID(res.ConfigId);
 			double price = itemPackage.GetItemPrice(res.ConfigId);
-			content = string.Format("出售{0} x {1}单位\n获得金钱{2}", config.MinName, res.Number, price * res.Number);
+			content = string.Format("出售{0} x {1}单位\n获得黄金{2}", config.MinName, res.Number, price * res.Number);
 			FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
 		}
 		FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
@@ -352,7 +352,7 @@ public class UITradePanel : PanelBase {
 		{
 			ITEM_RES config = itemPackage.GetItemDataByConfigID(res.ConfigId);
 			double price = itemPackage.GetItemPrice(res.ConfigId);
-			content = string.Format("购买{0} x {1}单位\n消耗金钱{2}", config.MinName, res.Number, price * res.Number);
+			content = string.Format("购买{0} x {1}单位\n消耗黄金{2}", config.MinName, res.Number, price * res.Number);
 			FacadeSingleton.Instance.InvokeService("RPCGetPurchase", ConstVal.Service_Sanctuary);
 			FacadeSingleton.Instance.InvokeService("RPCGetResourceInfo", ConstVal.Service_Sanctuary);
 		}

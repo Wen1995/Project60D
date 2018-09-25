@@ -13,8 +13,19 @@ public class NetSingleton : Singleton<NetSingleton> {
         //submit msg, update
         foreach (KeyValuePair<NetType, RPCNetwork> kv in networkMap)
         {
-            SubmitNetMsg(kv.Key);
-            kv.Value.Update();
+            // SubmitNetMsg(kv.Key);
+            // kv.Value.Update();
+            //check if disconnect
+            if(kv.Value.IsConnected == false)
+            {
+               // SceneLoader.LoadScene("SLogin");
+               Debug.Log("!!!! we are disconnect");
+            }
+            else
+            {
+                SubmitNetMsg(kv.Key);
+                kv.Value.Update();
+            }
         }
     }
 
@@ -157,7 +168,7 @@ public class NetSingleton : Singleton<NetSingleton> {
             }
             case(11):
             {
-                content = "金钱不足";
+                content = "黄金不足";
                 break;
             }
         }

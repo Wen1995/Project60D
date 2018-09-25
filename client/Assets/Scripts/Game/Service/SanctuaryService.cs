@@ -32,7 +32,7 @@ public class SanctuaryService : ServiceBase {
 
     public void RPCUnlockBuilding(NDictionary args)
     {
-        Debug.Log("building unlock!!!!!!!!!");
+        //Debug.Log("building unlock!!!!!!!!!");
         if (args == null) return;
         int configID = args.Value<int>("configID");
         var builder = TCSUnlock.CreateBuilder();

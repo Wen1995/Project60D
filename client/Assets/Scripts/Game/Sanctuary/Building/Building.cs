@@ -26,6 +26,9 @@ public class Building : Controller {
     GameObject buildingGo = null;
     private float proNumber = 0;      //this number is only of UI
     private float proSpeed = 0;
+    Coroutine proTimer = null;
+
+    public bool CanUnlockOrUpgrade = false;
     public float ProNumber
     {
         get{return proNumber;}
@@ -35,6 +38,15 @@ public class Building : Controller {
     { get { return buildingID; } }
     public BuildingState State
     { get { return mState; } }
+
+    private bool collectFlag = true;
+
+    public bool CollectFlag
+    {
+        get{return collectFlag;}
+        set{collectFlag = value;}
+    }
+    Coroutine collectCo = null;
 
     public SanctuaryPackage sanctuaryPackage
     {
@@ -61,7 +73,11 @@ public class Building : Controller {
 
     public void OnCollect()
     {
+        //restart coroutine cause this might cause time difference
+        if(proTimer != null)
+            StopCoroutine(proTimer);
         proNumber = 0;
+        proTimer = StartCoroutine(ProduceTimer());
     }
 
     void InitView(NDictionary data = null)
@@ -116,14 +132,17 @@ public class Building : Controller {
             else
             {
                 mState = BuildingState.Idle;
-                if(func == BuildingFunc.Collect)
-                    StartCoroutine(CollectTimer());
             }
             //store number and update number
             if(func == BuildingFunc.Collect)
             {
-                proSpeed = (float)sanctuaryPackage.GetProSpeed(info.configID) / 3600;
-                StartCoroutine(ProduceTimer());
+                proNumber = info.number;
+                BUILDING config = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
+                //print(string.Format("Buidlin={0}, number={1}", config.BldgName, info.number));
+                proSpeed = (float)sanctuaryPackage.GetProSpeed(info.configID) / 3600f;
+                if(proTimer != null)
+                    StopCoroutine(proTimer);
+                proTimer = StartCoroutine(ProduceTimer());
             }
         }
     }
@@ -195,9 +214,9 @@ public class Building : Controller {
         BuildingFunc func = sanctuaryPackage.GetBuildingFuncByConfigID(info.configID);
         if(mState == BuildingState.Collect)
         {
-            NDictionary args = new NDictionary();
-            args.Add("id", config.ProId);
-            hudBinder.AddHud(HudType.Collect, args);
+            // NDictionary args = new NDictionary();
+            // args.Add("id", config.ProId);
+            // hudBinder.AddHud(HudType.Collect, args);
         }
         else if(mState == BuildingState.Upgrade)
         {
@@ -218,6 +237,11 @@ public class Building : Controller {
             args.Add("building", this);
             hudBinder.AddHud(HudType.ProduceBar, args);
         }
+        // add collect hud timer
+        if(collectCo == null)
+        {
+            StartCoroutine(CollectTimer());
+        }
     }
 
     void CheckIfCanUnlockOrUpgrade(NDictionary data = null)
@@ -235,7 +259,13 @@ public class Building : Controller {
             configID = sanctuaryPackage.GetConfigIDByBuildingType(buildingType);
 
         if(sanctuaryPackage.IsAbleToUnlockOrUpgrade(configID))
+        {
+            CanUnlockOrUpgrade = true;
             hudBinder.AddHud(HudType.Exmind);
+        }
+        else
+            CanUnlockOrUpgrade = false;
+            
     }
 
     public void SetBuildingID(long buildingID)

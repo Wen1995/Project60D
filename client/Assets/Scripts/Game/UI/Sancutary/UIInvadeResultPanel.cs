@@ -204,7 +204,7 @@ public class UIInvadeResultPanel : PanelBase {
 			if(info.Resource > 0)
 				resStr += string.Format("资源损失{0}\n", GlobalFunction.NumberFormat(info.Resource));
 			if(info.Gold > 0)
-				resStr += string.Format("金钱损失{0}\n", GlobalFunction.NumberFormat(info.Gold));
+				resStr += string.Format("黄金损失{0}\n", GlobalFunction.NumberFormat(info.Gold));
 		}
 	}
 

@@ -34,14 +34,44 @@ public class RPCNetwork{
         mExceptionCallback = exceptionCallback;
     }
 
+    public bool IsConnected
+    {
+        get
+        {
+            //return true;
+            if(isConnected == false) 
+                return true;
+            try
+            {
+                if(mTcpClient != null && mTcpClient.Client != null && mTcpClient.Client.Connected)
+                {
+                    if(mTcpClient.Client.Poll(0, SelectMode.SelectRead))
+                    {
+                        byte[] buff = new byte[1];
+                        if(mTcpClient.Client.Receive(buff, SocketFlags.Peek) == 0)
+                            return false;
+                        else
+                            return true;
+                    }
+                    else
+                        return true;
+                }
+                else
+                    return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
+
     /// <summary>
     /// Called by manager per frame
     /// </summary>
     public void Update()
     {
         if (!isConnected) return;
-        //TODO
-        //check connection
 
         //send msg
         SendNetMsg();

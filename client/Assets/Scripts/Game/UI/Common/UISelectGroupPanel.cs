@@ -47,6 +47,4 @@ public class UISelectGroupPanel : PanelBase {
 		args.Add("name", input.value);
 		FacadeSingleton.Instance.InvokeService("RPCCreateGroup", ConstVal.Service_Common, args);
 	}
-
-
 }

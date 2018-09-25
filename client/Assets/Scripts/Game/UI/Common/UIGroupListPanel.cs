@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using com.nkm.framework.protocol;
 using UnityEngine;
@@ -30,10 +31,22 @@ public class UIGroupListPanel : PanelBase {
 
 	public void OnJoinGroup()
 	{
-		long id = System.Convert.ToInt64(input.value);
 		NDictionary args = new NDictionary();
-		args.Add("id", id);
-		FacadeSingleton.Instance.InvokeService("RPCJoinGroup", ConstVal.Service_Common, args);
+		try
+		{
+			long id = System.Convert.ToInt64(input.value);
+			args.Add("id", id);
+			FacadeSingleton.Instance.InvokeService("RPCJoinGroup", ConstVal.Service_Common, args);	
+		}
+		catch(Exception e)
+		{
+			args.Add("content", "该ID不合法，请检查输入是否有误");
+			args.Add("method", 1);
+			args.Add("title", "加入失败");
+			FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+            SendEvent("OpenMsgBox", args);
+		}
+		
     }
 
 

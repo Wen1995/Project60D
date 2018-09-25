@@ -1295,7 +1295,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 0.26666668}
+  mColor: {r: 1, g: 1, b: 1, a: 0.38431373}
   mPivot: 5
   mWidth: 208
   mHeight: 43
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3007
+  startingRenderQueue: 3000
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0

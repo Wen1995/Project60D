@@ -262,6 +262,12 @@ public class RoomServiceImpl implements RoomService {
                         .setNumber(15)
                         .build();
                 resourceInfos.add(resourceInfo);
+            } else if (key/1000000%10 == 2) {
+                ResourceInfo resourceInfo = ResourceInfo.newBuilder()
+                        .setConfigId(key)
+                        .setNumber(1)
+                        .build();
+                resourceInfos.add(resourceInfo);
             }
         }
         UserResource userResource = UserResource.newBuilder()

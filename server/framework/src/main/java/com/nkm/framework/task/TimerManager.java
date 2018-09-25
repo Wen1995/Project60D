@@ -233,7 +233,7 @@ public class TimerManager {
         
         // 定时清空购买数量
         int hour = 12;
-        Date nextHour = DateTimeUtils.getNextHour(new Date());
+        Date nextHour = DateTimeUtils.getNextTime(new Date());
         scheduleTask.scheduleWithFixedDelay(new Runnable() {
             @Override
             public void run() {

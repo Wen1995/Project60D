@@ -24,6 +24,12 @@ public class Building : Controller {
     private HudBinder hudBinder = null;
 
     GameObject buildingGo = null;
+    private float proNumber = 0;      //this number is only of UI
+    private float proSpeed = 0;
+    public float ProNumber
+    {
+        get{return proNumber;}
+    }
 
     public long BuildingID
     { get { return buildingID; } }
@@ -51,6 +57,11 @@ public class Building : Controller {
     {
         sanctuaryPackage.SetSelectionBuilding(this);
         SendEvent("SelectBuilding");
+    }
+
+    public void OnCollect()
+    {
+        proNumber = 0;
     }
 
     void InitView(NDictionary data = null)
@@ -108,8 +119,13 @@ public class Building : Controller {
                 if(func == BuildingFunc.Collect)
                     StartCoroutine(CollectTimer());
             }
+            //store number and update number
+            if(func == BuildingFunc.Collect)
+            {
+                proSpeed = (float)sanctuaryPackage.GetProSpeed(info.configID) / 3600;
+                StartCoroutine(ProduceTimer());
+            }
         }
-        
     }
 
     //reload prefab of building
@@ -196,9 +212,10 @@ public class Building : Controller {
             var configMap = ConfigDataStatic.GetConfigDataTable("BAR_TIME");
             BAR_TIME barConfig = configMap[sanctuaryPackage.GetBulidingLevelByConfigID(info.configID)] as BAR_TIME;
             args.Add("interval", (float)barConfig.BarTime / 1000f);
-            float speed = (float)sanctuaryPackage.GetProSpeed(info.configID) / 3600;
-            args.Add("speed", speed);
-            args.Add("num", info.number);
+            // float speed = (float)sanctuaryPackage.GetProSpeed(info.configID) / 3600;
+            // args.Add("speed", speed);
+            // args.Add("num", info.number);
+            args.Add("building", this);
             hudBinder.AddHud(HudType.ProduceBar, args);
         }
     }
@@ -237,6 +254,15 @@ public class Building : Controller {
     {
         yield return new WaitForSeconds(30.0f);
         sanctuaryPackage.SetBuildingCollectable(BuildingID);
+    }
+
+    IEnumerator ProduceTimer()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(0.3f);
+            proNumber += proSpeed * 0.3f;
+        }
     }
 
 

@@ -129,6 +129,11 @@ public class ItemPackage : ModelBase
         {
             NItemInfo info = pair.Value;
             ITEM_RES config = GetItemDataByConfigID(info.configID);
+            if(config == null) 
+            {
+                Debug.Log(string.Format("item configID= {0} missing", info.configID));
+                continue;
+            }
             sum += config.StorUnit * info.number;
         }
         return sum;
@@ -252,6 +257,7 @@ public class ItemPackage : ModelBase
 
     public void AddItem(ResourceInfo resInfo)
     {
+        Debug.Log(string.Format("item add , id={0}", resInfo.ConfigId));
         if(mItemInfoMap.ContainsKey(resInfo.ConfigId))
         {
             NItemInfo info = mItemInfoMap[resInfo.ConfigId];
@@ -292,8 +298,9 @@ public class ItemPackage : ModelBase
             if(!mItemServerData.ContainsKey(data.ConfigId))
                 mItemServerData[data.ConfigId] = new NItemServerData();
             mItemServerData[data.ConfigId].price = data.Price;
-            ITEM_RES config = GetItemDataByConfigID(data.ConfigId);
-            Debug.Log(string.Format("{0}, {1}", config.MinName, data.Price));        }
+            // ITEM_RES config = GetItemDataByConfigID(data.ConfigId);
+            // Debug.Log(string.Format("{0}, {1}", config.MinName, data.Price));
+        }
         taxRate = msg.TaxRate;
     }
 

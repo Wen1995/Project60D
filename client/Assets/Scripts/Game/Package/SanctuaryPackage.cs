@@ -345,7 +345,6 @@ public class SanctuaryPackage : ModelBase {
         //item   
         for(int i=0;i<config.CostTableCount;i++)
         {
-            Debug.Log(i);
             var cost = config.GetCostTable(i);
             if(cost.CostId == 0) continue;
             requireVal = cost.CostQty;

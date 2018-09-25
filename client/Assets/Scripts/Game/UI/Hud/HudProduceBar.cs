@@ -8,6 +8,7 @@ public class HudProduceBar : MonoBehaviour, IPoolUnit, IHudObject {
 
 	UIProgressBar progress = null;
 	UILabel numLabel = null;
+	Building building;
 	float interval = 0;
 	float timer = 0;
 	float num = 0;
@@ -21,6 +22,7 @@ public class HudProduceBar : MonoBehaviour, IPoolUnit, IHudObject {
 	void Update () 
 	{
 		if(interval <= 0) return;
+		numLabel.text = GlobalFunction.NumberFormat(building.ProNumber);
 		timer += Time.deltaTime;
 		if(timer >= interval)
 		{
@@ -31,10 +33,8 @@ public class HudProduceBar : MonoBehaviour, IPoolUnit, IHudObject {
 	}
     public void Initialize(NDictionary args)
     {
-        interval = args.Value<float>("interval");
-		speed = args.Value<float>("speed");
-		num = args.Value<int>("num");
-		StartCoroutine(ProduceTimer());
+		building = args.Value<Building>("building");
+		interval = args.Value<float>("interval");
 	}
 
     public void OnRestore()
@@ -62,16 +62,4 @@ public class HudProduceBar : MonoBehaviour, IPoolUnit, IHudObject {
     {
         return mUnitState;
     }
-
-	IEnumerator ProduceTimer()
-	{
-		
-		while(true)
-		{
-			numLabel.text = ((int)num).ToString();
-			yield return new WaitForSeconds(0.3f);
-			num += speed * 0.3f;
-		}
-	}
-
 }

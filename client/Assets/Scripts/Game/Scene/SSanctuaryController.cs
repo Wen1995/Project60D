@@ -140,7 +140,7 @@ public class SSanctuaryController : SceneController
     void OnSelectBuilding(NDictionary data = null)
     {   
         Building building = sanctuaryPackage.GetSelectionBuilding();
-        Debug.Log(string.Format("BuildingID={0}, type{1} selected", building.BuildingID, building.buildingType));
+        //Debug.Log(string.Format("BuildingID={0}, type{1} selected", building.BuildingID, building.buildingType));
         if(building.State == BuildingState.Collect)
         {
             SoundSingleton.Instance.PlaySE("receive1");
@@ -148,6 +148,7 @@ public class SSanctuaryController : SceneController
             args.Add("buildingID", building.BuildingID);
             FacadeSingleton.Instance.InvokeService("RPCReceive", ConstVal.Service_Sanctuary, args);
             sanctuaryPackage.ClearBuildingCollect(building);
+            building.OnCollect();
         }
         else
             FacadeSingleton.Instance.OverlayerPanel("UIBuildingInteractionPanel");
@@ -236,10 +237,10 @@ public class SSanctuaryController : SceneController
             NDictionary data = new NDictionary();
             data.Add("title", "解锁失败");
             string content = "";
-            if(!unlock.IsGroup) content += content == "" ? "庄园等级低于要求" : "\n庄园等级低于要求";
+            if(unlock.IsState) content += content == "" ? "该建筑正在解锁中" : "\n该建筑正在解锁中";
+            else if(!unlock.IsGroup) content += content == "" ? "庄园等级低于要求" : "\n庄园等级低于要求";
             else if(!unlock.IsResource) content += content == "" ? "资源数量不足" : "\n资源数量不足";
             else if(!unlock.IsProduction) content += content == "" ? "其他建筑正在升级或解锁中" : "\n其他建筑正在升级或解锁中";
-            else if(unlock.IsState) content += content == "" ? "该建筑正在解锁中" : "\n该建筑正在解锁中";
             data.Add("content", content);
             data.Add("method", 1);
             FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
@@ -263,7 +264,6 @@ public class SSanctuaryController : SceneController
             else if(!upgrade.IsGroup) content += content == "" ? "庄园等级低于要求" : "\n庄园等级低于要求";
             else if(!upgrade.IsResource) content += content == "" ? "资源数量不足" : "\n资源数量不足";
             else if(!upgrade.IsProduction) content += content == "" ? "其他建筑正在升级或解锁中" : "\n其他建筑正在升级或解锁中";
-            else if(upgrade.IsState) content += content == "" ? "该建筑正在升级中" : "\n该建筑正在升级中";
             data.Add("content", content);
             data.Add("method", 1);
             FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");

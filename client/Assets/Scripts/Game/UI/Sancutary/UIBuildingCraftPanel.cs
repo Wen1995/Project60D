@@ -30,6 +30,7 @@ public class UIBuildingCraftPanel : PanelBase {
 	UIButton collectButton = null;
 	UISprite fromSprite = null;
 	UISprite toSprite = null;
+	UISprite descSprite = null;
 
 	Coroutine TimerCo = null;
 	
@@ -56,6 +57,7 @@ public class UIBuildingCraftPanel : PanelBase {
 		slider = transform.Find("inbox/ingredient/valuebar/slider").GetComponent<UISlider>();
 		fromSprite = transform.Find("inbox/production/fromitem/icon").GetComponent<UISprite>();
 		toSprite = transform.Find("inbox/production/toitem/icon").GetComponent<UISprite>();
+		descSprite = transform.Find("inbox/ingredient/item/icon").GetComponent<UISprite>();
 
 		UIButton button = transform.Find("inbox/ingredient/valuebar/plusbtn").GetComponent<UIButton>();
 		button.onClick.Add(new EventDelegate(OnPlus));
@@ -118,6 +120,8 @@ public class UIBuildingCraftPanel : PanelBase {
 		itemData = itemDataMap[toConfigID] as ITEM_RES;
 		toItemName.text = itemData.MinName;
 		describeLabel.text = itemData.Desc;
+		toSprite.spriteName = itemData.IconName;
+		descSprite.spriteName = itemData.IconName;
 		// set number
 		NItemInfo itemInfo = itemPackage.GetItemInfo(fromConfigID);
 		craftNum = 0;

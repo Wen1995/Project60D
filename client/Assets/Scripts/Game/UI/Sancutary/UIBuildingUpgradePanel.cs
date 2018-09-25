@@ -154,7 +154,6 @@ public class UIBuildingUpgradePanel : PanelBase {
 			}
 			count++;
 		}
-		print("cost talbe count = " + configData.CostTableCount);
 		for(int i = 0;i<configData.CostTableCount;i++)
 		{
 			int itemConfigId = configData.GetCostTable(i).CostId;

@@ -69,8 +69,6 @@ public class UIItemValuePanel : PanelBase{
 			}
 			btnLabel.text = "出售";
 		}
-		if(itemCap <= 0)
-			confirmBtn.enabled = false; 
 		if(config.GoldConv >= 1000)
 			ratio = 1;
 		else
@@ -131,6 +129,25 @@ public class UIItemValuePanel : PanelBase{
 
 	void OnConfirm()
 	{
+		if(itemCap <= 0)
+		{
+			NDictionary data = new NDictionary();
+			if(isBuy)
+				data.Add("content", "金钱不够哦");
+			else
+				data.Add("content", "没东西卖了哦");
+			FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
+			FacadeSingleton.Instance.SendEvent("OpenTips", data);
+			return;
+		}
+		if(value <= 0)
+		{
+			NDictionary data = new NDictionary();
+			data.Add("content", "数量不能为0");
+			FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
+			FacadeSingleton.Instance.SendEvent("OpenTips", data);
+			return;
+		}
 		NDictionary args = new NDictionary();
 		args.Add("id", configID);
 		args.Add("num", value);

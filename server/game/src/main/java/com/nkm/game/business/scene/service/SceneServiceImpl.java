@@ -922,7 +922,7 @@ public class SceneServiceImpl implements SceneService {
                 userResourceBuilder.setResourceInfos(productResourceIndex, resourceInfoBuilder);
             } else {
                 resourceInfoBuilder = ResourceInfo.newBuilder()
-                        .setConfigId(productResourceIndex)
+                        .setConfigId(productConfigId)
                         .setNumber(leftNumber);
                 userResourceBuilder.addResourceInfos(resourceInfoBuilder);
             }

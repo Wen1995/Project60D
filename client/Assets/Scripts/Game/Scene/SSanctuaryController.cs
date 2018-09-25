@@ -148,7 +148,8 @@ public class SSanctuaryController : SceneController
             NDictionary args = new NDictionary();
             args.Add("buildingID", building.BuildingID);
             FacadeSingleton.Instance.InvokeService("RPCReceive", ConstVal.Service_Sanctuary, args);
-            sanctuaryPackage.ClearBuildingCollect(building);
+            //sanctuaryPackage.ClearBuildingCollect(building);
+            
         }
         else
             FacadeSingleton.Instance.OverlayerPanel("UIBuildingInteractionPanel");
@@ -305,6 +306,7 @@ public class SSanctuaryController : SceneController
             string content = string.Format("获得{0} x {1}", itemConfig.MinName, num);
             data.Add("content", content);
         }
+        info.building.SetCollect(false);
         info.building.RefreshHud();
         FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
         FacadeSingleton.Instance.SendEvent("OpenTips", data);

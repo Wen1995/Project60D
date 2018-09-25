@@ -128,7 +128,7 @@ public class DynamicPackage : ModelBase
         mGroupInfoList.Clear();
         for(int i=0;i<res.GroupInfosCount;i++)
         {
-            Debug.Log("player number=" + res.GetGroupInfos(i).UserInfosCount);
+            //Debug.Log("player number=" + res.GetGroupInfos(i).UserInfosCount);
             NGroupInfo info = new NGroupInfo(res.GetGroupInfos(i));
             mGroupInfoList.Add(info);
         }

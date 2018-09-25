@@ -125,10 +125,6 @@ public class Building : Controller {
                 else
                     mState = BuildingState.Collect;
             }
-            else if(info.number > 0)
-            {
-                mState = BuildingState.Collect;
-            }
             else
             {
                 mState = BuildingState.Idle;
@@ -237,10 +233,21 @@ public class Building : Controller {
             args.Add("building", this);
             hudBinder.AddHud(HudType.ProduceBar, args);
         }
-        // add collect hud timer
-        if(collectCo == null)
+        //collect hud
+        if(mState == BuildingState.Idle)
         {
-            StartCoroutine(CollectTimer());
+            if(info.number > 0)
+            {
+                SetCollect(true);
+                mState = BuildingState.Collect;
+            }
+                
+            if(func == BuildingFunc.Collect)
+            {
+                if(collectCo != null)
+                    StopCoroutine(collectCo);
+                collectCo = StartCoroutine(CollectTimer());
+            }
         }
     }
 
@@ -282,8 +289,30 @@ public class Building : Controller {
 
     IEnumerator CollectTimer()
     {
-        yield return new WaitForSeconds(30.0f);
-        sanctuaryPackage.SetBuildingCollectable(BuildingID);
+        while(true)
+        {
+            yield return new WaitForSeconds(30.0f);
+            SetCollect(true);
+        }
+    }
+
+    public void SetCollect(bool isCollect)
+    {
+        if(isCollect)
+        {
+            NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
+            if(info == null) return;
+            BUILDING config = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
+            NDictionary args = new NDictionary();
+            args.Add("id", config.ProId);
+            hudBinder.AddHud(HudType.Collect, args);
+            mState = BuildingState.Collect;
+        }
+        else
+        {
+            hudBinder.RemoveHud(HudType.Collect);
+            mState = BuildingState.Idle;
+        }
     }
 
     IEnumerator ProduceTimer()

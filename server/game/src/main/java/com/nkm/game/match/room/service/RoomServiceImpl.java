@@ -268,6 +268,12 @@ public class RoomServiceImpl implements RoomService {
                         .setNumber(1)
                         .build();
                 resourceInfos.add(resourceInfo);
+            } else if (key == 211010101) {
+                ResourceInfo resourceInfo = ResourceInfo.newBuilder()
+                        .setConfigId(key)
+                        .setNumber(200)
+                        .build();
+                resourceInfos.add(resourceInfo);
             }
         }
         UserResource userResource = UserResource.newBuilder()

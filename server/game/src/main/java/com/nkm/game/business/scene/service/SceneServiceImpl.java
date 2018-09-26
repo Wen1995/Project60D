@@ -996,7 +996,9 @@ public class SceneServiceImpl implements SceneService {
                             double tempSpeedCoefficient = BuildingUtil.getReceiverSpeedCoefficient(tableName, eventConfigId);
                             if (w.getType().equals(TimeType.START_TIME_VALUE)) {
                                 speedCoefficient *= tempSpeedCoefficient;
-                                number *= BuildingUtil.getReceiHverCapacityCoefficient(tableName, eventConfigId);   // 影响临时仓库
+                                if (configId/10000 != 11108) {      // 不是风力发电机
+                                    number *= BuildingUtil.getReceiHverCapacityCoefficient(tableName, eventConfigId);   // 影响临时仓库
+                                }
                             } else {
                                 speedCoefficient /= tempSpeedCoefficient;
                             }
@@ -1012,7 +1014,6 @@ public class SceneServiceImpl implements SceneService {
                 if (number > capacity) {
                     number = capacity;
                 }
-                
                 // 更新生产类建筑状态
                 rBuilder.setLastReceiveTime(thisReceiveTime).setNumber(number);
                 buildingStateBuilder.setReceiveInfos(i, rBuilder);
@@ -1086,14 +1087,12 @@ public class SceneServiceImpl implements SceneService {
                 if (number > capacity) {
                     number = capacity;
                 }
-                
                 // 计算多余的资源数量和仓库能装的资源
                 int leftNumber = 0;
                 if (number > storehouseCapacity) {
                     leftNumber = number - storehouseCapacity;
                     number = storehouseCapacity;
                 }
-                
                 // 更新生产类建筑状态
                 rBuilder.setLastReceiveTime(thisReceiveTime).setNumber(leftNumber);
                 buildingStateBuilder.setReceiveInfos(i, rBuilder);

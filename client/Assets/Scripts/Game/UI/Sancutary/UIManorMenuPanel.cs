@@ -103,7 +103,6 @@ public class UIManorMenuPanel : PanelBase {
 
 	void ShowEventIcon(NDictionary data = null)
 	{
-		print("Recalculate Buff !!!!!!!!!!!!!!!!!!!");
 		DynamicPackage dynamicPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Dynamic) as DynamicPackage;
 		dynamicPackage.CalculateBuff();
 		tableView.DataCount = dynamicPackage.GetBuffList().Count;

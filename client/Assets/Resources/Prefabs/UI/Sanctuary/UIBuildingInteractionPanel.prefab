@@ -1115,7 +1115,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 0.21792617, b: 0, a: 0.8627451}
   mPivot: 4
   mWidth: 22
   mHeight: 22
@@ -1305,7 +1305,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 0.21792617, b: 0, a: 0.8627451}
   mPivot: 4
   mWidth: 22
   mHeight: 22
@@ -1514,7 +1514,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 0.21792617, b: 0, a: 0.8627451}
   mPivot: 4
   mWidth: 22
   mHeight: 22
@@ -1818,7 +1818,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 0.21792617, b: 0, a: 0.8627451}
   mPivot: 4
   mWidth: 22
   mHeight: 22
@@ -2565,7 +2565,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 0.21792617, b: 0, a: 0.8627451}
   mPivot: 4
   mWidth: 22
   mHeight: 22

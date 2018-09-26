@@ -1,7 +1,9 @@
 ﻿using com.nkm.framework.protocol;
 using com.nkm.framework.resource.data;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public enum BuildingState
@@ -25,6 +27,8 @@ public class Building : Controller {
 
     GameObject buildingGo = null;
     private float proNumber = 0;      //this number is only of UI
+
+    private float proCap = 0;
     private float proSpeed = 0;
     Coroutine proTimer = null;
 
@@ -135,7 +139,34 @@ public class Building : Controller {
                 proNumber = info.number;
                 BUILDING config = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
                 //print(string.Format("Buidlin={0}, number={1}", config.BldgName, info.number));
-                proSpeed = (float)sanctuaryPackage.GetProSpeed(info.configID) / 3600f;
+                sanctuaryPackage.GetProAttribute(info.configID, out proSpeed, out proCap);
+
+                EventPackage eventPackage = FacadeSingleton.Instance.RetrieveData(ConstVal.Package_Event) as EventPackage;
+                UserPackage userPackage=  FacadeSingleton.Instance.RetrieveData(ConstVal.Package_User) as UserPackage;
+                BUILDING buildingConfig = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.configID);
+                string buildingName = buildingConfig.BldgFuncTableName;
+                buildingName = Char.ToUpper(buildingName[0]) + buildingName.Substring(1).ToLower();
+                var eventList = eventPackage.GetCurEventList();
+                foreach(var eventInfo in eventList)
+                {
+                    WORLD_EVENTS eventConfig = eventPackage.GetEventConfigDataByConfigID(eventInfo.configID);
+                    if(eventConfig == null) continue;
+                    Type type = Type.GetType("com.nkm.framework.resource.data.WORLD_EVENTS");
+                    PropertyInfo propertyInfo = type.GetProperty(buildingName + "Bldgcap");
+                    PropertyInfo hasPropertyInfo = type.GetProperty("Has" + buildingName + "Bldgcap");
+                    bool isHave = (bool)hasPropertyInfo.GetValue(eventConfig, null);
+                    if(isHave)
+                    {
+                        int effect = (int)propertyInfo.GetValue(eventConfig, null);
+                        if(effect != 0)
+                            proSpeed *= (float)effect / 100f;
+                    }
+                }
+                //add person num
+                int personNum = userPackage.GetManorPersonNumber();
+                if(personNum == 2) proSpeed *= 1.6f;
+                else if(personNum == 3) proSpeed *= 2.2f;
+                else if(personNum == 4) proSpeed *= 2.8f;
                 if(proTimer != null)
                     StopCoroutine(proTimer);
                 proTimer = StartCoroutine(ProduceTimer());
@@ -320,7 +351,9 @@ public class Building : Controller {
         while(true)
         {
             yield return new WaitForSeconds(0.3f);
-            proNumber += proSpeed * 0.3f;
+            float newNumber = proNumber + proSpeed * 0.3f;
+            if(newNumber < proCap)
+                proNumber = newNumber;
         }
     }
 

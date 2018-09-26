@@ -73,4 +73,13 @@ public class CommonService : ServiceBase {
         FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
         FacadeSingleton.Instance.SendEvent("OpenMsgBox", data);
     }
+
+    public void DisconnectCallback()
+    {
+        NDictionary data = new NDictionary();
+        data.Add("content", "已断线，请重开游戏");
+        data.Add("method", 1);
+        FacadeSingleton.Instance.OpenUtilityPanel("UIMsgBoxPanel");
+        FacadeSingleton.Instance.SendEvent("OpenMsgBox", data);
+    }
 }

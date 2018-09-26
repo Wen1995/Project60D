@@ -148,6 +148,7 @@ public class SSanctuaryController : SceneController
             NDictionary args = new NDictionary();
             args.Add("buildingID", building.BuildingID);
             FacadeSingleton.Instance.InvokeService("RPCReceive", ConstVal.Service_Sanctuary, args);
+            building.SetCollect(false);
             //sanctuaryPackage.ClearBuildingCollect(building);
             
         }
@@ -176,6 +177,8 @@ public class SSanctuaryController : SceneController
         for (int i = 0; i < sceneInfo.BuildingInfosCount; i++)
         {
             BuildingInfo info = sceneInfo.BuildingInfosList[i];
+            BUILDING config = sanctuaryPackage.GetBuildingConfigDataByConfigID(info.ConfigId);
+            //print(string.Format("{0}, {1}", config.BldgName, info.Number));
             sanctuaryPackage.AddBuilding(info);
         }
         userPackage.SetTotalContribution(sceneInfo.TotalContribution);
@@ -290,7 +293,7 @@ public class SSanctuaryController : SceneController
         long buildingID = receive.BuildingId;
         int configID = receive.ConfigId;
         int num = receive.Number;
-        sanctuaryPackage.Receive(buildingID);
+        sanctuaryPackage.Receive(buildingID, receive);
         NBuildingInfo info = sanctuaryPackage.GetBuildingInfo(buildingID);
         if(sanctuaryPackage.GetBuildingFuncByConfigID(info.configID) == BuildingFunc.Craft)
             SendEvent("RefreshCraftPanel");
@@ -306,7 +309,8 @@ public class SSanctuaryController : SceneController
             string content = string.Format("获得{0} x {1}", itemConfig.MinName, num);
             data.Add("content", content);
         }
-        info.building.SetCollect(false);
+        //info.number = Mathf.Max(0, info.number - num);
+        //info.building.SetCollect(false);
         info.building.RefreshHud();
         FacadeSingleton.Instance.OpenUtilityPanel("UITipsPanel");
         FacadeSingleton.Instance.SendEvent("OpenTips", data);

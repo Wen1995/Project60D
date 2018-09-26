@@ -139,9 +139,13 @@ public static class GlobalFunction {
     //time stamp should be milisec
     public static System.DateTime DateFormat(long timestamp)
     {
-        System.DateTime dtDateTime = new DateTime(1970,1,1,0,0,0,0);
-        dtDateTime = dtDateTime.AddMilliseconds(timestamp).ToLocalTime();
-        return dtDateTime;
+        DateTime dt = epochStart.AddMilliseconds(timestamp);
+        return dt;
+        // DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
+        // return startTime.AddMilliseconds(timestamp);
+        // System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        // dtDateTime = dtDateTime.AddMilliseconds(timestamp).ToLocalTime();
+        // return dtDateTime;
     }
 
     public static int CalculateManorLevel(int contribution)

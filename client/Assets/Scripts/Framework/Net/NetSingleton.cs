@@ -18,8 +18,8 @@ public class NetSingleton : Singleton<NetSingleton> {
             //check if disconnect
             if(kv.Value.IsConnected == false)
             {
+                FacadeSingleton.Instance.InvokeService("DisconnectCallback", ConstVal.Service_Common);
                // SceneLoader.LoadScene("SLogin");
-               Debug.Log("!!!! we are disconnect");
             }
             else
             {

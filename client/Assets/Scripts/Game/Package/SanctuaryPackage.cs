@@ -286,7 +286,7 @@ public class SanctuaryPackage : ModelBase {
         return (int)((double)sum * userPackage.GetPlayerInterest());
     }
 
-    public int GetProSpeed(int configID)
+    public void GetProAttribute(int configID, out float speed, out float cap)
     {
         BUILDING buildingConfig = GetBuildingConfigDataByConfigID(configID);
         string funcName = buildingConfig.BldgFuncTableName;
@@ -296,9 +296,18 @@ public class SanctuaryPackage : ModelBase {
         var funcConfig = configMap[level];
 
         Type type = Type.GetType("com.nkm.framework.resource.data." + funcName);
-        string propertyNane = funcName[0] + funcName.Substring(1).ToLower() + "Spd";
-        PropertyInfo spdInfo = type.GetProperty(propertyNane);
-        return (int)spdInfo.GetValue(funcConfig, null);
+
+        string propertyName = funcName[0] + funcName.Substring(1).ToLower() + "Spd";
+        PropertyInfo spdInfo = type.GetProperty(propertyName);
+        int configSpeed = (int)spdInfo.GetValue(funcConfig, null);
+
+        propertyName = funcName[0] + funcName.Substring(1).ToLower() + "Cap";
+        spdInfo = type.GetProperty(propertyName);
+        int configCap = (int)spdInfo.GetValue(funcConfig, null);
+
+        speed = (float)configSpeed / 3600f;
+        cap = (float)configCap;
+
     }
 
     #region Acess Data
@@ -437,7 +446,7 @@ public class SanctuaryPackage : ModelBase {
         info.building.RefreshView();
     }
 
-    public void Receive(long buildingID)
+    public void Receive(long buildingID, TSCReceive receive)
     {
         NBuildingInfo info = GetBuildingInfo(buildingID);
         if(info == null)
@@ -445,7 +454,7 @@ public class SanctuaryPackage : ModelBase {
             Debug.Log(string.Format("buidingID={0} not exist"));
             return;
         }
-         info.number = 0;
+         info.number = Mathf.Max(0, info.number - receive.Number);
          info.building.RefreshView();
          FacadeSingleton.Instance.SendEvent("RefreshCraftPanel");
     }

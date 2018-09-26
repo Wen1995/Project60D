@@ -23,7 +23,8 @@ public class HudProduceBar : MonoBehaviour, IPoolUnit, IHudObject {
 	{
 		if(interval <= 0) return;
 		//numLabel.text = GlobalFunction.NumberFormat(building.ProNumber);
-		numLabel.text = ((int)building.ProNumber).ToString();
+		//numLabel.text = ((int)building.ProNumber).ToString();
+		numLabel.text = NumberFormat(building.ProNumber);
 		// (int)(Mathf.Floor(building.ProNumber)).ToString();
 		// numLabel.text = (int)(Mathf.Floor(building.ProNumber)).ToString();
 		timer += Time.deltaTime;
@@ -65,4 +66,12 @@ public class HudProduceBar : MonoBehaviour, IPoolUnit, IHudObject {
     {
         return mUnitState;
     }
+
+	string NumberFormat(float number)
+	{
+		if(num < 1000)
+			return ((int)number).ToString();
+		else
+			return GlobalFunction.NumberFormat(number);
+	}
 }

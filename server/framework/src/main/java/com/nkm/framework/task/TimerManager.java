@@ -164,11 +164,12 @@ public class TimerManager {
                 Iterator<Map.Entry<Integer, Long>> entries =
                         worldEventConfigId2HappenTime.entrySet().iterator();
                 List<Integer> eventTypes = DynamicDataManager.GetInstance().eventTypes;
+                
                 while (entries.hasNext()) {
                     Map.Entry<Integer, Long> entry = entries.next();
                     int congigId = entry.getKey();
                     long happenTime = entry.getValue();
-                    int type = congigId / 100 % 10000;
+                    Integer type = congigId / 100 % 10000;
                     long endTime = happenTime + worldEventsMap.get(congigId).getEventDuration()
                             * Constant.TIME_MINUTE;
 

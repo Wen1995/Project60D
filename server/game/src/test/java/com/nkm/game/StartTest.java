@@ -1,6 +1,7 @@
 package com.nkm.game;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -54,6 +55,15 @@ public class StartTest {
         for (Building b : buildings) {
             System.out.println(buildingMap.get(b.getConfigId()).getBldgName());
         }*/
+        
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.remove(Integer.valueOf(2));
+        for (int i : list) 
+            System.out.println(i);
     }
 
     private static void getGroupInfo() {

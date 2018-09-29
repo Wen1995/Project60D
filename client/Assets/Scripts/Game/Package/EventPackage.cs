@@ -66,6 +66,7 @@ public class EventPackage : ModelBase
         for(int i=0;i<res.WorldEventConfigId2HappenTimeCount;i++)
         {
             NWorldEventInfo info = new NWorldEventInfo(res.GetWorldEventConfigId2HappenTime(i));
+            Debug.Log(info.configID);
             if(GlobalFunction.IsHappened(info.happenTime))
                 curEventList.Add(info);
             else
